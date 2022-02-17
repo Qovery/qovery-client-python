@@ -57,9 +57,6 @@ class ApplicationStorageRequestStorage(ModelNormal):
 
     allowed_values = {
         ('type',): {
-            'SLOW_HDD': "SLOW_HDD",
-            'HDD': "HDD",
-            'SSD': "SSD",
             'FAST_SSD': "FAST_SSD",
         },
     }
@@ -111,15 +108,15 @@ class ApplicationStorageRequestStorage(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, size, mount_point, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, size, mount_point, *args, **kwargs):  # noqa: E501
         """ApplicationStorageRequestStorage - a model defined in OpenAPI
 
         Args:
-            type (str):
             size (int): unit is GB
             mount_point (str):
 
         Keyword Args:
+            type (str): defaults to "FAST_SSD", must be one of ["FAST_SSD", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -152,6 +149,7 @@ class ApplicationStorageRequestStorage(ModelNormal):
                                 _visited_composed_classes = (Animal,)
         """
 
+        type = kwargs.get('type', "FAST_SSD")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -200,15 +198,15 @@ class ApplicationStorageRequestStorage(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, size, mount_point, *args, **kwargs):  # noqa: E501
+    def __init__(self, size, mount_point, *args, **kwargs):  # noqa: E501
         """ApplicationStorageRequestStorage - a model defined in OpenAPI
 
         Args:
-            type (str):
             size (int): unit is GB
             mount_point (str):
 
         Keyword Args:
+            type (str): defaults to "FAST_SSD", must be one of ["FAST_SSD", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -241,6 +239,7 @@ class ApplicationStorageRequestStorage(ModelNormal):
                                 _visited_composed_classes = (Animal,)
         """
 
+        type = kwargs.get('type', "FAST_SSD")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
