@@ -21,7 +21,7 @@ List previous and current environment deployments with the status deployment and
 ```python
 import time
 import qovery
-from api import environment_deployment_history_api
+from qovery.api import environment_deployment_history_api
 from qovery.model.deployment_history_environment_paginated_response_list import DeploymentHistoryEnvironmentPaginatedResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

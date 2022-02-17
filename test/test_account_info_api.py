@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.account_info_api import AccountInfoApi  # noqa: E501
+from qovery.api.account_info_api import AccountInfoApi  # noqa: E501
 
 
 class TestAccountInfoApi(unittest.TestCase):

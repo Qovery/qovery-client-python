@@ -23,7 +23,7 @@ Create an organization
 ```python
 import time
 import qovery
-from api import organization_main_calls_api
+from qovery.api import organization_main_calls_api
 from qovery.model.organization_request import OrganizationRequest
 from qovery.model.organization_response import OrganizationResponse
 from pprint import pprint
@@ -115,7 +115,7 @@ To delete an organization you must have the admin permission
 ```python
 import time
 import qovery
-from api import organization_main_calls_api
+from qovery.api import organization_main_calls_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -193,7 +193,7 @@ To edit an organization you must have the admin permission
 ```python
 import time
 import qovery
-from api import organization_main_calls_api
+from qovery.api import organization_main_calls_api
 from qovery.model.organization_response import OrganizationResponse
 from qovery.model.organization_edit_request import OrganizationEditRequest
 from pprint import pprint
@@ -292,7 +292,7 @@ Get organization by ID
 ```python
 import time
 import qovery
-from api import organization_main_calls_api
+from qovery.api import organization_main_calls_api
 from qovery.model.organization_response import OrganizationResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -370,7 +370,7 @@ List user organizations
 ```python
 import time
 import qovery
-from api import organization_main_calls_api
+from qovery.api import organization_main_calls_api
 from qovery.model.organization_response_list import OrganizationResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

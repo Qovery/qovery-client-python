@@ -32,7 +32,7 @@ Create a cluster
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_request import ClusterRequest
 from qovery.model.cluster_response import ClusterResponse
 from pprint import pprint
@@ -123,7 +123,7 @@ Delete a cluster
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -203,7 +203,7 @@ allows to deploy a cluster
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_status_response import ClusterStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -284,7 +284,7 @@ Edit a cluster
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_request import ClusterRequest
 from qovery.model.cluster_response import ClusterResponse
 from pprint import pprint
@@ -379,7 +379,7 @@ Edit routing table by returning updated table.
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest
 from qovery.model.cluster_routing_table_response import ClusterRoutingTableResponse
 from pprint import pprint
@@ -480,7 +480,7 @@ Know if a cluster is ready to be deployed or not
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_readiness_status import ClusterReadinessStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -560,7 +560,7 @@ Get cluster status
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_status_response import ClusterStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -640,7 +640,7 @@ Get cluster cloud provider info and credentials
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_cloud_provider_info_response import ClusterCloudProviderInfoResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -722,7 +722,7 @@ Returns a list of clusters with only their id and status.
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -802,7 +802,7 @@ Retrieve network routing table where each line corresponds to a route between a 
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_routing_table_response import ClusterRoutingTableResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -882,7 +882,7 @@ List organization clusters
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_response_list import ClusterResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -960,7 +960,7 @@ Specify cluster cloud provider info and credentials
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_cloud_provider_info_response import ClusterCloudProviderInfoResponse
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
 from pprint import pprint
@@ -1062,7 +1062,7 @@ Cluster stop has been requester.
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_status_response import ClusterStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -1145,7 +1145,7 @@ allows to update cluster version
 ```python
 import time
 import qovery
-from api import clusters_api
+from qovery.api import clusters_api
 from qovery.model.cluster_status_response import ClusterStatusResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

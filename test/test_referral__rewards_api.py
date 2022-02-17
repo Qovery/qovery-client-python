@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.referral__rewards_api import ReferralRewardsApi  # noqa: E501
+from qovery.api.referral__rewards_api import ReferralRewardsApi  # noqa: E501
 
 
 class TestReferralRewardsApi(unittest.TestCase):

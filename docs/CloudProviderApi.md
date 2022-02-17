@@ -25,7 +25,7 @@ List AWS features available
 ```python
 import time
 import qovery
-from api import cloud_provider_api
+from qovery.api import cloud_provider_api
 from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -99,7 +99,7 @@ List AWS regions
 ```python
 import time
 import qovery
-from api import cloud_provider_api
+from qovery.api import cloud_provider_api
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -173,7 +173,7 @@ List Cloud providers available
 ```python
 import time
 import qovery
-from api import cloud_provider_api
+from qovery.api import cloud_provider_api
 from qovery.model.cloud_provider_response_list import CloudProviderResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -247,7 +247,7 @@ List DO features available
 ```python
 import time
 import qovery
-from api import cloud_provider_api
+from qovery.api import cloud_provider_api
 from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -321,7 +321,7 @@ List DO regions
 ```python
 import time
 import qovery
-from api import cloud_provider_api
+from qovery.api import cloud_provider_api
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -395,7 +395,7 @@ List Scaleway features available
 ```python
 import time
 import qovery
-from api import cloud_provider_api
+from qovery.api import cloud_provider_api
 from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -469,7 +469,7 @@ List Scaleway regions
 ```python
 import time
 import qovery
-from api import cloud_provider_api
+from qovery.api import cloud_provider_api
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

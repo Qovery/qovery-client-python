@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.applications_api import ApplicationsApi  # noqa: E501
+from qovery.api.applications_api import ApplicationsApi  # noqa: E501
 
 
 class TestApplicationsApi(unittest.TestCase):

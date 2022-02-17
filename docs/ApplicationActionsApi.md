@@ -23,7 +23,7 @@ You must provide a git commit id
 ```python
 import time
 import qovery
-from api import application_actions_api
+from qovery.api import application_actions_api
 from qovery.model.deploy_request import DeployRequest
 from qovery.model.status import Status
 from pprint import pprint
@@ -117,7 +117,7 @@ Restart application
 ```python
 import time
 import qovery
-from api import application_actions_api
+from qovery.api import application_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -196,7 +196,7 @@ Stop application
 ```python
 import time
 import qovery
-from api import application_actions_api
+from qovery.api import application_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

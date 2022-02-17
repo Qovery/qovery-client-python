@@ -27,7 +27,7 @@ Add an environment variable to the application
 ```python
 import time
 import qovery
-from api import application_environment_variable_api
+from qovery.api import application_environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from pprint import pprint
@@ -123,7 +123,7 @@ Create an environment variable alias at the application level
 ```python
 import time
 import qovery
-from api import application_environment_variable_api
+from qovery.api import application_environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.key import Key
 from pprint import pprint
@@ -220,7 +220,7 @@ Create an environment variable override at the application level
 ```python
 import time
 import qovery
-from api import application_environment_variable_api
+from qovery.api import application_environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.value import Value
 from pprint import pprint
@@ -317,7 +317,7 @@ Delete an environment variable from an application
 ```python
 import time
 import qovery
-from api import application_environment_variable_api
+from qovery.api import application_environment_variable_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -397,7 +397,7 @@ Edit an environment variable belonging to the application
 ```python
 import time
 import qovery
-from api import application_environment_variable_api
+from qovery.api import application_environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.environment_variable_edit_request import EnvironmentVariableEditRequest
 from pprint import pprint
@@ -486,7 +486,7 @@ Import environment variables in a defined scope, with a defined visibility.
 ```python
 import time
 import qovery
-from api import application_environment_variable_api
+from qovery.api import application_environment_variable_api
 from qovery.model.variable_import_response import VariableImportResponse
 from qovery.model.variable_import_request import VariableImportRequest
 from pprint import pprint
@@ -587,7 +587,7 @@ List environment variables
 ```python
 import time
 import qovery
-from api import application_environment_variable_api
+from qovery.api import application_environment_variable_api
 from qovery.model.environment_variable_response_list import EnvironmentVariableResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

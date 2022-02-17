@@ -21,7 +21,7 @@ By default it returns the 20 last results. The response is paginated. In order t
 ```python
 import time
 import qovery
-from api import application_event_api
+from qovery.api import application_event_api
 from qovery.model.event_paginated_response_list import EventPaginatedResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.backups_api import BackupsApi  # noqa: E501
+from qovery.api.backups_api import BackupsApi  # noqa: E501
 
 
 class TestBackupsApi(unittest.TestCase):

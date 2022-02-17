@@ -27,7 +27,7 @@ To delete a database you must have the admin permission
 ```python
 import time
 import qovery
-from api import database_main_calls_api
+from qovery.api import database_main_calls_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -105,7 +105,7 @@ To edit a database  you must have the admin permission
 ```python
 import time
 import qovery
-from api import database_main_calls_api
+from qovery.api import database_main_calls_api
 from qovery.model.database_edit_request import DatabaseEditRequest
 from qovery.model.database_response import DatabaseResponse
 from pprint import pprint
@@ -204,7 +204,7 @@ Edit database  master credentials
 ```python
 import time
 import qovery
-from api import database_main_calls_api
+from qovery.api import database_main_calls_api
 from qovery.model.credentials_response import CredentialsResponse
 from qovery.model.credentials_request import CredentialsRequest
 from pprint import pprint
@@ -298,7 +298,7 @@ Get database by ID
 ```python
 import time
 import qovery
-from api import database_main_calls_api
+from qovery.api import database_main_calls_api
 from qovery.model.database_response import DatabaseResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -376,7 +376,7 @@ Get master credentials of the database
 ```python
 import time
 import qovery
-from api import database_main_calls_api
+from qovery.api import database_main_calls_api
 from qovery.model.credentials_response import CredentialsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -454,7 +454,7 @@ Get database status
 ```python
 import time
 import qovery
-from api import database_main_calls_api
+from qovery.api import database_main_calls_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -532,7 +532,7 @@ List eligible versions for the database
 ```python
 import time
 import qovery
-from api import database_main_calls_api
+from qovery.api import database_main_calls_api
 from qovery.model.version_response_list import VersionResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

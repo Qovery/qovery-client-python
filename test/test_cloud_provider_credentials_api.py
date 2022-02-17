@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.cloud_provider_credentials_api import CloudProviderCredentialsApi  # noqa: E501
+from qovery.api.cloud_provider_credentials_api import CloudProviderCredentialsApi  # noqa: E501
 
 
 class TestCloudProviderCredentialsApi(unittest.TestCase):

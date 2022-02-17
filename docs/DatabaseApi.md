@@ -21,7 +21,7 @@ If you don't specify credentials, Qovery will autogenerate them.
 ```python
 import time
 import qovery
-from api import database_api
+from qovery.api import database_api
 from qovery.model.logical_database_request import LogicalDatabaseRequest
 from qovery.model.logical_database_response import LogicalDatabaseResponse
 from pprint import pprint

@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.billing_api import BillingApi  # noqa: E501
+from qovery.api.billing_api import BillingApi  # noqa: E501
 
 
 class TestBillingApi(unittest.TestCase):

@@ -19,7 +19,7 @@ Get Account information
 ```python
 import time
 import qovery
-from api import account_info_api
+from qovery.api import account_info_api
 from qovery.model.account_info_response import AccountInfoResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

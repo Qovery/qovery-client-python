@@ -22,7 +22,7 @@ Edit the Network settings of the application.
 ```python
 import time
 import qovery
-from api import application_configuration_api
+from qovery.api import application_configuration_api
 from qovery.model.application_network_request import ApplicationNetworkRequest
 from qovery.model.application_network_response import ApplicationNetworkResponse
 from pprint import pprint
@@ -117,7 +117,7 @@ Get status of the application network settings.
 ```python
 import time
 import qovery
-from api import application_configuration_api
+from qovery.api import application_configuration_api
 from qovery.model.application_network_response import ApplicationNetworkResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

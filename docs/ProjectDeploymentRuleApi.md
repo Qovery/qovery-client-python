@@ -23,7 +23,7 @@ Create a deployment rule
 ```python
 import time
 import qovery
-from api import project_deployment_rule_api
+from qovery.api import project_deployment_rule_api
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
 from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
 from pprint import pprint
@@ -116,7 +116,7 @@ Delete a project deployment rule
 ```python
 import time
 import qovery
-from api import project_deployment_rule_api
+from qovery.api import project_deployment_rule_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -194,7 +194,7 @@ Edit a project deployment rule
 ```python
 import time
 import qovery
-from api import project_deployment_rule_api
+from qovery.api import project_deployment_rule_api
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
 from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
 from pprint import pprint
@@ -290,7 +290,7 @@ Get project deployment rule
 ```python
 import time
 import qovery
-from api import project_deployment_rule_api
+from qovery.api import project_deployment_rule_api
 from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -370,7 +370,7 @@ List project deployment rules
 ```python
 import time
 import qovery
-from api import project_deployment_rule_api
+from qovery.api import project_deployment_rule_api
 from qovery.model.project_deployment_rule_response_list import ProjectDeploymentRuleResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

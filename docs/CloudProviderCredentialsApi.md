@@ -30,7 +30,7 @@ Create AWS credentials set
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from pprint import pprint
@@ -125,7 +125,7 @@ Create Digital Ocean credentials set
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from qovery.model.do_credentials_request import DoCredentialsRequest
 from pprint import pprint
@@ -221,7 +221,7 @@ Create Scaleway credentials set
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
 from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from pprint import pprint
@@ -317,7 +317,7 @@ Delete a set of AWS credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -395,7 +395,7 @@ Delete a set of Digital Ocean credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -473,7 +473,7 @@ Delete a set of Scaleway credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -551,7 +551,7 @@ Edit a set of AWS credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from pprint import pprint
@@ -648,7 +648,7 @@ Edit a set of Digital Ocean credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from qovery.model.do_credentials_request import DoCredentialsRequest
 from pprint import pprint
@@ -746,7 +746,7 @@ Edit a set of Scaleway credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
 from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from pprint import pprint
@@ -844,7 +844,7 @@ List AWS credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -922,7 +922,7 @@ List DO credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -1000,7 +1000,7 @@ List Scaleway credentials
 ```python
 import time
 import qovery
-from api import cloud_provider_credentials_api
+from qovery.api import cloud_provider_credentials_api
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

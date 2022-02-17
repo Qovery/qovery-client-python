@@ -25,7 +25,7 @@ Get bitbucket repositories of the connected user
 ```python
 import time
 import qovery
-from api import git_repositories_api
+from qovery.api import git_repositories_api
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -97,7 +97,7 @@ Get bitbucket branches of the specified repository
 ```python
 import time
 import qovery
-from api import git_repositories_api
+from qovery.api import git_repositories_api
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -174,7 +174,7 @@ Get git provider accounts
 ```python
 import time
 import qovery
-from api import git_repositories_api
+from qovery.api import git_repositories_api
 from qovery.model.git_auth_provider_response_list import GitAuthProviderResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -246,7 +246,7 @@ Get github repositories of the connected user
 ```python
 import time
 import qovery
-from api import git_repositories_api
+from qovery.api import git_repositories_api
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -318,7 +318,7 @@ Get github branches of the specified repository
 ```python
 import time
 import qovery
-from api import git_repositories_api
+from qovery.api import git_repositories_api
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -395,7 +395,7 @@ Get gitlab repositories of the connected user
 ```python
 import time
 import qovery
-from api import git_repositories_api
+from qovery.api import git_repositories_api
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -467,7 +467,7 @@ Get gitlab branches of the specified repository
 ```python
 import time
 import qovery
-from api import git_repositories_api
+from qovery.api import git_repositories_api
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

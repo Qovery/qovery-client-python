@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.git_repositories_api import GitRepositoriesApi  # noqa: E501
+from qovery.api.git_repositories_api import GitRepositoriesApi  # noqa: E501
 
 
 class TestGitRepositoriesApi(unittest.TestCase):

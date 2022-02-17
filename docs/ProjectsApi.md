@@ -21,7 +21,7 @@ Create a project
 ```python
 import time
 import qovery
-from api import projects_api
+from qovery.api import projects_api
 from qovery.model.project_response import ProjectResponse
 from qovery.model.project_request import ProjectRequest
 from pprint import pprint
@@ -118,7 +118,7 @@ Returns a list of project ids, and for each its total numberof services and envi
 ```python
 import time
 import qovery
-from api import projects_api
+from qovery.api import projects_api
 from qovery.model.project_stats_response_list import ProjectStatsResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -196,7 +196,7 @@ List projects
 ```python
 import time
 import qovery
-from api import projects_api
+from qovery.api import projects_api
 from qovery.model.project_response_list import ProjectResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

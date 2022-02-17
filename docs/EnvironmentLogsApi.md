@@ -21,7 +21,7 @@ This returns the last 1000 environment deployment logs.
 ```python
 import time
 import qovery
-from api import environment_logs_api
+from qovery.api import environment_logs_api
 from qovery.model.environment_log_response_list import EnvironmentLogResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

@@ -23,7 +23,7 @@ Add application dependency to this application to prevent this application start
 ```python
 import time
 import qovery
-from api import dependency_api
+from qovery.api import dependency_api
 from qovery.model.application_response import ApplicationResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -104,7 +104,7 @@ List application dependencies
 ```python
 import time
 import qovery
-from api import dependency_api
+from qovery.api import dependency_api
 from qovery.model.application_response_list import ApplicationResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -182,7 +182,7 @@ Remove application dependency to this application.
 ```python
 import time
 import qovery
-from api import dependency_api
+from qovery.api import dependency_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.custom_domain_api import CustomDomainApi  # noqa: E501
+from qovery.api.custom_domain_api import CustomDomainApi  # noqa: E501
 
 
 class TestCustomDomainApi(unittest.TestCase):

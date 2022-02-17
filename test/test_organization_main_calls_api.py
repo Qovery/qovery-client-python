@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.organization_main_calls_api import OrganizationMainCallsApi  # noqa: E501
+from qovery.api.organization_main_calls_api import OrganizationMainCallsApi  # noqa: E501
 
 
 class TestOrganizationMainCallsApi(unittest.TestCase):

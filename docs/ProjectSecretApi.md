@@ -26,7 +26,7 @@ Add a secret to the project
 ```python
 import time
 import qovery
-from api import project_secret_api
+from qovery.api import project_secret_api
 from qovery.model.secret_response import SecretResponse
 from qovery.model.secret_request import SecretRequest
 from pprint import pprint
@@ -122,7 +122,7 @@ Create a secret alias at the project level
 ```python
 import time
 import qovery
-from api import project_secret_api
+from qovery.api import project_secret_api
 from qovery.model.secret_response import SecretResponse
 from qovery.model.key import Key
 from pprint import pprint
@@ -219,7 +219,7 @@ Create a secret override at the project level
 ```python
 import time
 import qovery
-from api import project_secret_api
+from qovery.api import project_secret_api
 from qovery.model.secret_response import SecretResponse
 from qovery.model.value import Value
 from pprint import pprint
@@ -316,7 +316,7 @@ Edit a secret belonging to the project
 ```python
 import time
 import qovery
-from api import project_secret_api
+from qovery.api import project_secret_api
 from qovery.model.secret_edit_request import SecretEditRequest
 from qovery.model.secret_response import SecretResponse
 from pprint import pprint
@@ -403,7 +403,7 @@ List project secrets
 ```python
 import time
 import qovery
-from api import project_secret_api
+from qovery.api import project_secret_api
 from qovery.model.secret_response_list import SecretResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -483,7 +483,7 @@ Delete a secret from a project
 ```python
 import time
 import qovery
-from api import project_secret_api
+from qovery.api import project_secret_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

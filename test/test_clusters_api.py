@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.clusters_api import ClustersApi  # noqa: E501
+from qovery.api.clusters_api import ClustersApi  # noqa: E501
 
 
 class TestClustersApi(unittest.TestCase):

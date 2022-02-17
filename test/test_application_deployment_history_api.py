@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.application_deployment_history_api import ApplicationDeploymentHistoryApi  # noqa: E501
+from qovery.api.application_deployment_history_api import ApplicationDeploymentHistoryApi  # noqa: E501
 
 
 class TestApplicationDeploymentHistoryApi(unittest.TestCase):

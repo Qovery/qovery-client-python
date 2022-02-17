@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.environment_deployment_rule_api import EnvironmentDeploymentRuleApi  # noqa: E501
+from qovery.api.environment_deployment_rule_api import EnvironmentDeploymentRuleApi  # noqa: E501
 
 
 class TestEnvironmentDeploymentRuleApi(unittest.TestCase):

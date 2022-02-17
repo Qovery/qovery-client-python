@@ -22,7 +22,7 @@ Create an environment
 ```python
 import time
 import qovery
-from api import environments_api
+from qovery.api import environments_api
 from qovery.model.environment_response import EnvironmentResponse
 from qovery.model.environment_request import EnvironmentRequest
 from pprint import pprint
@@ -120,7 +120,7 @@ Returns a list of environment ids, and for each its total numberof services
 ```python
 import time
 import qovery
-from api import environments_api
+from qovery.api import environments_api
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -200,7 +200,7 @@ Returns a list of environments with only their id and status.
 ```python
 import time
 import qovery
-from api import environments_api
+from qovery.api import environments_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -278,7 +278,7 @@ List environments
 ```python
 import time
 import qovery
-from api import environments_api
+from qovery.api import environments_api
 from qovery.model.environment_response_list import EnvironmentResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

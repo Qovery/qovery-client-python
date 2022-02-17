@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.cloud_provider_api import CloudProviderApi  # noqa: E501
+from qovery.api.cloud_provider_api import CloudProviderApi  # noqa: E501
 
 
 class TestCloudProviderApi(unittest.TestCase):

@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.dependency_api import DependencyApi  # noqa: E501
+from qovery.api.dependency_api import DependencyApi  # noqa: E501
 
 
 class TestDependencyApi(unittest.TestCase):

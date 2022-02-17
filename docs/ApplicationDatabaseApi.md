@@ -24,7 +24,7 @@ Link a database to the application
 ```python
 import time
 import qovery
-from api import application_database_api
+from qovery.api import application_database_api
 from qovery.model.database_response import DatabaseResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -106,7 +106,7 @@ Link a logical database to the application
 ```python
 import time
 import qovery
-from api import application_database_api
+from qovery.api import application_database_api
 from qovery.model.logical_database_response import LogicalDatabaseResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -188,7 +188,7 @@ List linked databases
 ```python
 import time
 import qovery
-from api import application_database_api
+from qovery.api import application_database_api
 from qovery.model.database_response_list import DatabaseResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -266,7 +266,7 @@ List linked logical databases
 ```python
 import time
 import qovery
-from api import application_database_api
+from qovery.api import application_database_api
 from qovery.model.logical_database_response_list import LogicalDatabaseResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -344,7 +344,7 @@ Remove database link to this application.
 ```python
 import time
 import qovery
-from api import application_database_api
+from qovery.api import application_database_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -422,7 +422,7 @@ Remove logical database link to this application.
 ```python
 import time
 import qovery
-from api import application_database_api
+from qovery.api import application_database_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

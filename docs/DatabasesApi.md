@@ -23,7 +23,7 @@ Create a database
 ```python
 import time
 import qovery
-from api import databases_api
+from qovery.api import databases_api
 from qovery.model.database_request import DatabaseRequest
 from qovery.model.database_response import DatabaseResponse
 from pprint import pprint
@@ -126,7 +126,7 @@ Returns a list of databases with only their id and status.
 ```python
 import time
 import qovery
-from api import databases_api
+from qovery.api import databases_api
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -204,7 +204,7 @@ List environment databases
 ```python
 import time
 import qovery
-from api import databases_api
+from qovery.api import databases_api
 from qovery.model.database_response_list import DatabaseResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -282,7 +282,7 @@ List eligible database types, versions and modes for the environment
 ```python
 import time
 import qovery
-from api import databases_api
+from qovery.api import databases_api
 from qovery.model.database_configuration_response_list import DatabaseConfigurationResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -360,7 +360,7 @@ List current metric consumption for each database
 ```python
 import time
 import qovery
-from api import databases_api
+from qovery.api import databases_api
 from qovery.model.environment_databases_current_metric_response_list import EnvironmentDatabasesCurrentMetricResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

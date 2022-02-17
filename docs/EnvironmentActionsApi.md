@@ -25,7 +25,7 @@ Cancel the current deployment of your environment.
 ```python
 import time
 import qovery
-from api import environment_actions_api
+from qovery.api import environment_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -106,7 +106,7 @@ You must provide a name. This will create a new environment, with the same confi
 ```python
 import time
 import qovery
-from api import environment_actions_api
+from qovery.api import environment_actions_api
 from qovery.model.clone_request import CloneRequest
 from qovery.model.environment_response import EnvironmentResponse
 from pprint import pprint
@@ -203,7 +203,7 @@ This will deploy all the services of this environment to their latest version.
 ```python
 import time
 import qovery
-from api import environment_actions_api
+from qovery.api import environment_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -282,7 +282,7 @@ Restart environment
 ```python
 import time
 import qovery
-from api import environment_actions_api
+from qovery.api import environment_actions_api
 from qovery.model.environment_restart_request import EnvironmentRestartRequest
 from qovery.model.status import Status
 from pprint import pprint
@@ -375,7 +375,7 @@ Stop environment
 ```python
 import time
 import qovery
-from api import environment_actions_api
+from qovery.api import environment_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

@@ -23,7 +23,7 @@ To delete a project you must have the admin permission
 ```python
 import time
 import qovery
-from api import project_main_calls_api
+from qovery.api import project_main_calls_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -101,7 +101,7 @@ To edit a project you must have the admin permission
 ```python
 import time
 import qovery
-from api import project_main_calls_api
+from qovery.api import project_main_calls_api
 from qovery.model.project_response import ProjectResponse
 from qovery.model.project_request import ProjectRequest
 from pprint import pprint
@@ -196,7 +196,7 @@ Get project by ID
 ```python
 import time
 import qovery
-from api import project_main_calls_api
+from qovery.api import project_main_calls_api
 from qovery.model.project_response import ProjectResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

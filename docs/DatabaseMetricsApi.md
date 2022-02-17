@@ -24,7 +24,7 @@ Get current metric consumption of the database
 ```python
 import time
 import qovery
-from api import database_metrics_api
+from qovery.api import database_metrics_api
 from qovery.model.database_current_metric_response import DatabaseCurrentMetricResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -102,7 +102,7 @@ Get CPU consumption metric over time for the database
 ```python
 import time
 import qovery
-from api import database_metrics_api
+from qovery.api import database_metrics_api
 from qovery.model.metric_cpu_datapoint_response_list import MetricCPUDatapointResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -184,7 +184,7 @@ The value returned corresponds to the 95th centile
 ```python
 import time
 import qovery
-from api import database_metrics_api
+from qovery.api import database_metrics_api
 from qovery.model.metric_generic_response_list import MetricGenericResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -264,7 +264,7 @@ Get Memory consumption metric over time for the database
 ```python
 import time
 import qovery
-from api import database_metrics_api
+from qovery.api import database_metrics_api
 from qovery.model.metric_memory_datapoint_response_list import MetricMemoryDatapointResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -346,7 +346,7 @@ Get database restart message and timestamp.
 ```python
 import time
 import qovery
-from api import database_metrics_api
+from qovery.api import database_metrics_api
 from qovery.model.metric_restart_response import MetricRestartResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -426,7 +426,7 @@ Get Storage consumption metric over time for the database
 ```python
 import time
 import qovery
-from api import database_metrics_api
+from qovery.api import database_metrics_api
 from qovery.model.metric_storage_datapoint_response_list import MetricStorageDatapointResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

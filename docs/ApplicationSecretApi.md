@@ -26,7 +26,7 @@ Add a secret to the application
 ```python
 import time
 import qovery
-from api import application_secret_api
+from qovery.api import application_secret_api
 from qovery.model.secret_response import SecretResponse
 from qovery.model.secret_request import SecretRequest
 from pprint import pprint
@@ -122,7 +122,7 @@ Create a secret alias at the application level
 ```python
 import time
 import qovery
-from api import application_secret_api
+from qovery.api import application_secret_api
 from qovery.model.secret_response import SecretResponse
 from qovery.model.key import Key
 from pprint import pprint
@@ -219,7 +219,7 @@ Create a secret override at the application level
 ```python
 import time
 import qovery
-from api import application_secret_api
+from qovery.api import application_secret_api
 from qovery.model.secret_response import SecretResponse
 from qovery.model.value import Value
 from pprint import pprint
@@ -316,7 +316,7 @@ Delete a secret from an application
 ```python
 import time
 import qovery
-from api import application_secret_api
+from qovery.api import application_secret_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -396,7 +396,7 @@ Edit a secret belonging to the application
 ```python
 import time
 import qovery
-from api import application_secret_api
+from qovery.api import application_secret_api
 from qovery.model.secret_edit_request import SecretEditRequest
 from qovery.model.secret_response import SecretResponse
 from pprint import pprint
@@ -485,7 +485,7 @@ Secrets are like environment variables, but they are secured and can't be reveal
 ```python
 import time
 import qovery
-from api import application_secret_api
+from qovery.api import application_secret_api
 from qovery.model.secret_response_list import SecretResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

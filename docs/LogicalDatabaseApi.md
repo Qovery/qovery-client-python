@@ -19,7 +19,7 @@ Edit logical database credentials
 ```python
 import time
 import qovery
-from api import logical_database_api
+from qovery.api import logical_database_api
 from qovery.model.credentials_response import CredentialsResponse
 from qovery.model.credentials_request import CredentialsRequest
 from pprint import pprint

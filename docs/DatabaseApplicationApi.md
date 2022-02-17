@@ -20,7 +20,7 @@ List applications using the database
 ```python
 import time
 import qovery
-from api import database_application_api
+from qovery.api import database_application_api
 from qovery.model.application_response_list import ApplicationResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -98,7 +98,7 @@ Remove an application from this database
 ```python
 import time
 import qovery
-from api import database_application_api
+from qovery.api import database_application_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

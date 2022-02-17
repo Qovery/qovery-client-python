@@ -26,7 +26,7 @@ Add an environment variable to the environment
 ```python
 import time
 import qovery
-from api import environment_variable_api
+from qovery.api import environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from pprint import pprint
@@ -122,7 +122,7 @@ Create an environment variable alias at the environment level
 ```python
 import time
 import qovery
-from api import environment_variable_api
+from qovery.api import environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.key import Key
 from pprint import pprint
@@ -219,7 +219,7 @@ Create an environment variable override at the environment level
 ```python
 import time
 import qovery
-from api import environment_variable_api
+from qovery.api import environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.value import Value
 from pprint import pprint
@@ -316,7 +316,7 @@ Delete an environment variable from an environment
 ```python
 import time
 import qovery
-from api import environment_variable_api
+from qovery.api import environment_variable_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -396,7 +396,7 @@ Edit an environment variable belonging to the environment
 ```python
 import time
 import qovery
-from api import environment_variable_api
+from qovery.api import environment_variable_api
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.environment_variable_edit_request import EnvironmentVariableEditRequest
 from pprint import pprint
@@ -483,7 +483,7 @@ List environment variables
 ```python
 import time
 import qovery
-from api import environment_variable_api
+from qovery.api import environment_variable_api
 from qovery.model.environment_variable_response_list import EnvironmentVariableResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

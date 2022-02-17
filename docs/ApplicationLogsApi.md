@@ -21,7 +21,7 @@ This will list the last 1000 logs of the application
 ```python
 import time
 import qovery
-from api import application_logs_api
+from qovery.api import application_logs_api
 from qovery.model.log_response_list import LogResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

@@ -25,7 +25,7 @@ Create an application
 ```python
 import time
 import qovery
-from api import applications_api
+from qovery.api import applications_api
 from qovery.model.application_response import ApplicationResponse
 from qovery.model.application_request import ApplicationRequest
 from pprint import pprint
@@ -137,7 +137,7 @@ List running instances with CPU and RAM usage for each application
 ```python
 import time
 import qovery
-from api import applications_api
+from qovery.api import applications_api
 from qovery.model.environment_applications_instance_response_list import EnvironmentApplicationsInstanceResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -217,7 +217,7 @@ Returns min, max, and running number of instances for each application
 ```python
 import time
 import qovery
-from api import applications_api
+from qovery.api import applications_api
 from qovery.model.environment_applications_current_scale_response_list import EnvironmentApplicationsCurrentScaleResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -295,7 +295,7 @@ List current storage disk usage for each application
 ```python
 import time
 import qovery
-from api import applications_api
+from qovery.api import applications_api
 from qovery.model.environment_applications_storage_response_list import EnvironmentApplicationsStorageResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -375,7 +375,7 @@ Returns a list of applications with only their id and status.
 ```python
 import time
 import qovery
-from api import applications_api
+from qovery.api import applications_api
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -455,7 +455,7 @@ Returns list of languages supported by Buildpacks.
 ```python
 import time
 import qovery
-from api import applications_api
+from qovery.api import applications_api
 from qovery.model.environment_applications_supported_language_list import EnvironmentApplicationsSupportedLanguageList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -533,7 +533,7 @@ List applications
 ```python
 import time
 import qovery
-from api import applications_api
+from qovery.api import applications_api
 from qovery.model.application_response_list import ApplicationResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

@@ -21,7 +21,7 @@ Deploy database
 ```python
 import time
 import qovery
-from api import database_actions_api
+from qovery.api import database_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -100,7 +100,7 @@ Retart database
 ```python
 import time
 import qovery
-from api import database_actions_api
+from qovery.api import database_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -179,7 +179,7 @@ Stop database
 ```python
 import time
 import qovery
-from api import database_actions_api
+from qovery.api import database_actions_api
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

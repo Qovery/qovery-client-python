@@ -20,7 +20,7 @@ Get your referral information
 ```python
 import time
 import qovery
-from api import referral__rewards_api
+from qovery.api import referral__rewards_api
 from qovery.model.referral_response import ReferralResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -94,7 +94,7 @@ A same code can be claimed only 3 times at max
 ```python
 import time
 import qovery
-from api import referral__rewards_api
+from qovery.api import referral__rewards_api
 from qovery.model.reward_claim_response import RewardClaimResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

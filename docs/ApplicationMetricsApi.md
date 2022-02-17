@@ -26,7 +26,7 @@ List currently running instances of the application with their CPU and RAM metri
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.instance_response_list import InstanceResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -106,7 +106,7 @@ Returns min, max, and running number of instances of the application
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.application_current_scale_response import ApplicationCurrentScaleResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -184,7 +184,7 @@ List current storage disk usage
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.storage_disk_response_list import StorageDiskResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -262,7 +262,7 @@ Get CPU consumption metric over time for the application
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.metric_cpu_response_list import MetricCPUResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -344,7 +344,7 @@ The value returned corresponds to the 95th centile
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.metric_generic_response_list import MetricGenericResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -424,7 +424,7 @@ Get Memory consumption metric over time for the application
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.metric_memory_response_list import MetricMemoryResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -506,7 +506,7 @@ Get application restart message and timestamp.
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.metric_restart_response import MetricRestartResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -586,7 +586,7 @@ Get Storage consumption metric over time for the application
 ```python
 import time
 import qovery
-from api import application_metrics_api
+from qovery.api import application_metrics_api
 from qovery.model.metric_storage_response_list import MetricStorageResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.environment_deployment_history_api import EnvironmentDeploymentHistoryApi  # noqa: E501
+from qovery.api.environment_deployment_history_api import EnvironmentDeploymentHistoryApi  # noqa: E501
 
 
 class TestEnvironmentDeploymentHistoryApi(unittest.TestCase):

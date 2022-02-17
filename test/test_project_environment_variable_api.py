@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.project_environment_variable_api import ProjectEnvironmentVariableApi  # noqa: E501
+from qovery.api.project_environment_variable_api import ProjectEnvironmentVariableApi  # noqa: E501
 
 
 class TestProjectEnvironmentVariableApi(unittest.TestCase):

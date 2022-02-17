@@ -20,7 +20,7 @@ Edit an environment deployment rule
 ```python
 import time
 import qovery
-from api import environment_deployment_rule_api
+from qovery.api import environment_deployment_rule_api
 from qovery.model.environment_deployment_rule_response import EnvironmentDeploymentRuleResponse
 from qovery.model.environment_deployment_rule_edit_request import EnvironmentDeploymentRuleEditRequest
 from pprint import pprint
@@ -123,7 +123,7 @@ Get environment deployment rule
 ```python
 import time
 import qovery
-from api import environment_deployment_rule_api
+from qovery.api import environment_deployment_rule_api
 from qovery.model.environment_deployment_rule_response import EnvironmentDeploymentRuleResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

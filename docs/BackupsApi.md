@@ -21,7 +21,7 @@ Add a backup to the Database
 ```python
 import time
 import qovery
-from api import backups_api
+from qovery.api import backups_api
 from qovery.model.backup_request import BackupRequest
 from qovery.model.backup_response import BackupResponse
 from pprint import pprint
@@ -117,7 +117,7 @@ By default it returns the 20 last results. The response is paginated. In order t
 ```python
 import time
 import qovery
-from api import backups_api
+from qovery.api import backups_api
 from qovery.model.backup_paginated_response_list import BackupPaginatedResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -206,7 +206,7 @@ Remove database  backup
 ```python
 import time
 import qovery
-from api import backups_api
+from qovery.api import backups_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

@@ -12,7 +12,7 @@ For more information, please visit [https://discord.qovery.com](https://discord.
 
 ## Requirements.
 
-Python >= 3.6
+Python >=3.6
 
 ## Installation & Usage
 ### pip install
@@ -52,7 +52,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import qovery
 from pprint import pprint
-from api import account_info_api
+from qovery.api import account_info_api
 from qovery.model.account_info_response import AccountInfoResponse
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

@@ -31,7 +31,7 @@ Add credit card
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.credit_card_response import CreditCardResponse
 from qovery.model.credit_card_request import CreditCardRequest
 from pprint import pprint
@@ -127,7 +127,7 @@ Add credit code
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.organization_credit_code_request import OrganizationCreditCodeRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -217,7 +217,7 @@ Edit Organization Billing Info
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.billing_info_request import BillingInfoRequest
 from qovery.model.billing_info_response import BillingInfoResponse
 from pprint import pprint
@@ -321,7 +321,7 @@ Get your cluster cost range. We are unable to give a precise cost of your infras
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.cost_range_response import CostRangeResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -401,7 +401,7 @@ Get organization billing info
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.billing_info_response import BillingInfoResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -481,7 +481,7 @@ This endpoint returns a \"is_valid\" boolean field reflecting the billing status
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.billing_status import BillingStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -559,7 +559,7 @@ Get organization current cost
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.organization_current_cost_response import OrganizationCurrentCostResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -637,7 +637,7 @@ Get organization invoice
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.invoice_response import InvoiceResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -719,7 +719,7 @@ This will return URL of the invoice PDF
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.link_response import LinkResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -799,7 +799,7 @@ List organization credit cards
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.credit_card_response_list import CreditCardResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -877,7 +877,7 @@ List organization invoices
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from qovery.model.invoice_response_list import InvoiceResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -955,7 +955,7 @@ Download all invoices
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -1031,7 +1031,7 @@ Delete credit card
 ```python
 import time
 import qovery
-from api import billing_api
+from qovery.api import billing_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

@@ -25,7 +25,7 @@ Remove an invited member
 ```python
 import time
 import qovery
-from api import members_api
+from qovery.api import members_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -101,7 +101,7 @@ Remove a member
 ```python
 import time
 import qovery
-from api import members_api
+from qovery.api import members_api
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -179,7 +179,7 @@ Get invited members
 ```python
 import time
 import qovery
-from api import members_api
+from qovery.api import members_api
 from qovery.model.invite_member_response_list import InviteMemberResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -257,7 +257,7 @@ Get organization members
 ```python
 import time
 import qovery
-from api import members_api
+from qovery.api import members_api
 from qovery.model.member_response_list import MemberResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -335,7 +335,7 @@ Accept Invite in the organization
 ```python
 import time
 import qovery
-from api import members_api
+from qovery.api import members_api
 from qovery.model.invite_member_response import InviteMemberResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -417,7 +417,7 @@ Invite someone in the organization
 ```python
 import time
 import qovery
-from api import members_api
+from qovery.api import members_api
 from qovery.model.invite_member_request import InviteMemberRequest
 from qovery.model.invite_member_response import InviteMemberResponse
 from pprint import pprint
@@ -512,7 +512,7 @@ Transfer organization ownership to another user
 ```python
 import time
 import qovery
-from api import members_api
+from qovery.api import members_api
 from qovery.model.transfer_ownership_request import TransferOwnershipRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com

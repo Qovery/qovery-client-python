@@ -12,7 +12,7 @@
 import unittest
 
 import qovery
-from api.environment_logs_api import EnvironmentLogsApi  # noqa: E501
+from qovery.api.environment_logs_api import EnvironmentLogsApi  # noqa: E501
 
 
 class TestEnvironmentLogsApi(unittest.TestCase):
