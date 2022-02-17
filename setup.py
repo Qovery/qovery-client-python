@@ -1,7 +1,7 @@
 """
-    [BETA] Qovery API
+    Qovery API
 
-    - Qovery is the fastest way to deploy your full-stack apps on any Cloud provider. - ℹ️ The API is in Beta and still in progress. Some endpoints are not available yet.   # noqa: E501
+    - Qovery is the fastest way to deploy your full-stack apps on any Cloud provider. - ℹ️ The API is stable and still in development.   # noqa: E501
 
     The version of the OpenAPI document: 1.0.0
     Contact: support+api+documentation@qovery.com
@@ -28,16 +28,16 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="[BETA] Qovery API",
-    author="Qovery Support Team",
+    description="Qovery API",
+    author="Qovery Product Team",
     author_email="support+api+documentation@qovery.com",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "[BETA] Qovery API"],
+    keywords=["OpenAPI", "OpenAPI-Generator", "Qovery API"],
     python_requires=">=3.6",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""\
-    - Qovery is the fastest way to deploy your full-stack apps on any Cloud provider. - ℹ️ The API is in Beta and still in progress. Some endpoints are not available yet.   # noqa: E501
+    - Qovery is the fastest way to deploy your full-stack apps on any Cloud provider. - ℹ️ The API is stable and still in development.   # noqa: E501
     """
 )
