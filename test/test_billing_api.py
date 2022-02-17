@@ -38,6 +38,13 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_credit_card(self):
+        """Test case for delete_credit_card
+
+        Delete credit card  # noqa: E501
+        """
+        pass
+
     def test_edit_organization_billing_info(self):
         """Test case for edit_organization_billing_info
 
@@ -105,13 +112,6 @@ class TestBillingApi(unittest.TestCase):
         """Test case for organization_download_all_invoices
 
         Download all invoices  # noqa: E501
-        """
-        pass
-
-    def test_organization_organization_id_credit_card_credit_card_id_delete(self):
-        """Test case for organization_organization_id_credit_card_credit_card_id_delete
-
-        Delete credit card  # noqa: E501
         """
         pass
 

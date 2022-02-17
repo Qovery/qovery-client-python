@@ -224,6 +224,61 @@ class EnvironmentSecretApi(object):
             },
             api_client=api_client
         )
+        self.delete_environment_secret_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/environment/{environmentId}/secret/{secretId}',
+                'operation_id': 'delete_environment_secret',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'environment_id',
+                    'secret_id',
+                ],
+                'required': [
+                    'environment_id',
+                    'secret_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'environment_id':
+                        (str,),
+                    'secret_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'environment_id': 'environmentId',
+                    'secret_id': 'secretId',
+                },
+                'location_map': {
+                    'environment_id': 'path',
+                    'secret_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.edit_environment_secret_endpoint = _Endpoint(
             settings={
                 'response_type': (SecretResponse,),
@@ -285,61 +340,6 @@ class EnvironmentSecretApi(object):
                 'content_type': [
                     'application/json'
                 ]
-            },
-            api_client=api_client
-        )
-        self.environment_environment_id_secret_secret_id_delete_endpoint = _Endpoint(
-            settings={
-                'response_type': None,
-                'auth': [
-                    'bearerAuth'
-                ],
-                'endpoint_path': '/environment/{environmentId}/secret/{secretId}',
-                'operation_id': 'environment_environment_id_secret_secret_id_delete',
-                'http_method': 'DELETE',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'environment_id',
-                    'secret_id',
-                ],
-                'required': [
-                    'environment_id',
-                    'secret_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'environment_id':
-                        (str,),
-                    'secret_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'environment_id': 'environmentId',
-                    'secret_id': 'secretId',
-                },
-                'location_map': {
-                    'environment_id': 'path',
-                    'secret_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [],
-                'content_type': [],
             },
             api_client=api_client
         )
@@ -640,6 +640,88 @@ class EnvironmentSecretApi(object):
             secret_id
         return self.create_environment_secret_override_endpoint.call_with_http_info(**kwargs)
 
+    def delete_environment_secret(
+        self,
+        environment_id,
+        secret_id,
+        **kwargs
+    ):
+        """Delete a secret from the environment  # noqa: E501
+
+        - To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well  operationId: deleteEnvironmentSecret   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_environment_secret(environment_id, secret_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            environment_id (str): Environment ID
+            secret_id (str): Secret ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['environment_id'] = \
+            environment_id
+        kwargs['secret_id'] = \
+            secret_id
+        return self.delete_environment_secret_endpoint.call_with_http_info(**kwargs)
+
     def edit_environment_secret(
         self,
         environment_id,
@@ -725,88 +807,6 @@ class EnvironmentSecretApi(object):
         kwargs['secret_edit_request'] = \
             secret_edit_request
         return self.edit_environment_secret_endpoint.call_with_http_info(**kwargs)
-
-    def environment_environment_id_secret_secret_id_delete(
-        self,
-        environment_id,
-        secret_id,
-        **kwargs
-    ):
-        """Delete a secret from the environment  # noqa: E501
-
-        - To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well  operationId: deleteEnvironmentSecret   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.environment_environment_id_secret_secret_id_delete(environment_id, secret_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            environment_id (str): Environment ID
-            secret_id (str): Secret ID
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            None
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['environment_id'] = \
-            environment_id
-        kwargs['secret_id'] = \
-            secret_id
-        return self.environment_environment_id_secret_secret_id_delete_endpoint.call_with_http_info(**kwargs)
 
     def list_environment_secrets(
         self,

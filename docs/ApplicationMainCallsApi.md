@@ -314,7 +314,7 @@ with qovery.ApiClient(configuration) as api_client:
         ),
         build_mode="DOCKER",
         dockerfile_path="dockerfile_path_example",
-        buildpack_language="GO",
+        buildpack_language="CLOJURE",
         cpu=1250,
         memory=1024,
         min_running_instances=1,

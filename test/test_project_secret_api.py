@@ -45,6 +45,13 @@ class TestProjectSecretApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_project_secret(self):
+        """Test case for delete_project_secret
+
+        Delete a secret from a project  # noqa: E501
+        """
+        pass
+
     def test_edit_project_secret(self):
         """Test case for edit_project_secret
 
@@ -56,13 +63,6 @@ class TestProjectSecretApi(unittest.TestCase):
         """Test case for list_project_secrets
 
         List project secrets  # noqa: E501
-        """
-        pass
-
-    def test_project_project_id_secret_secret_id_delete(self):
-        """Test case for project_project_id_secret_secret_id_delete
-
-        Delete a secret from a project  # noqa: E501
         """
         pass
 

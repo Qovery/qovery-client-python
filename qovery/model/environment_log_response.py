@@ -61,22 +61,22 @@ class EnvironmentLogResponse(ModelNormal):
 
     allowed_values = {
         ('state',): {
-            'INITIALIZED': "INITIALIZED",
-            'QUEUED': "QUEUED",
-            'BUILDING': "BUILDING",
             'BUILD_ERROR': "BUILD_ERROR",
+            'BUILDING': "BUILDING",
             'BUILT': "BUILT",
-            'DEPLOYING': "DEPLOYING",
-            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
-            'DEPLOYED': "DEPLOYED",
-            'STOPPING': "STOPPING",
-            'STOP_ERROR': "STOP_ERROR",
-            'STOPPED': "STOPPED",
-            'DELETING': "DELETING",
             'DELETE_ERROR': "DELETE_ERROR",
             'DELETED': "DELETED",
+            'DELETING': "DELETING",
+            'DEPLOYED': "DEPLOYED",
+            'DEPLOYING': "DEPLOYING",
+            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
+            'INITIALIZED': "INITIALIZED",
+            'QUEUED': "QUEUED",
             'RUNNING': "RUNNING",
             'RUNNING_ERROR': "RUNNING_ERROR",
+            'STOP_ERROR': "STOP_ERROR",
+            'STOPPED': "STOPPED",
+            'STOPPING': "STOPPING",
         },
     }
 

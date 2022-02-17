@@ -57,5 +57,3 @@ from qovery.api.project_main_calls_api import ProjectMainCallsApi
 from qovery.api.project_secret_api import ProjectSecretApi
 from qovery.api.projects_api import ProjectsApi
 from qovery.api.referral__rewards_api import ReferralRewardsApi
-from qovery.api.database_api import DatabaseApi
-from qovery.api.logical_database_api import LogicalDatabaseApi

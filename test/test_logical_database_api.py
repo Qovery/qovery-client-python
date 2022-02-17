@@ -24,6 +24,13 @@ class TestLogicalDatabaseApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_logical_database_on_database(self):
+        """Test case for create_logical_database_on_database
+
+        Create a logical database on the database  # noqa: E501
+        """
+        pass
+
     def test_delete_logical_database(self):
         """Test case for delete_logical_database
 
@@ -35,6 +42,13 @@ class TestLogicalDatabaseApi(unittest.TestCase):
         """Test case for edit_logical_database
 
         Edit a logical database  # noqa: E501
+        """
+        pass
+
+    def test_edit_logical_database_credentials(self):
+        """Test case for edit_logical_database_credentials
+
+        Edit logical database credentials  # noqa: E501
         """
         pass
 

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_credit_card**](BillingApi.md#add_credit_card) | **POST** /organization/{organizationId}/creditCard | Add credit card
 [**add_credit_code**](BillingApi.md#add_credit_code) | **POST** /organization/{organizationId}/creditCode | Add credit code
+[**delete_credit_card**](BillingApi.md#delete_credit_card) | **DELETE** /organization/{organizationId}/creditCard/{creditCardId} | Delete credit card
 [**edit_organization_billing_info**](BillingApi.md#edit_organization_billing_info) | **PUT** /organization/{organizationId}/billingInfo | Edit Organization Billing Info
 [**get_cluster_current_cost**](BillingApi.md#get_cluster_current_cost) | **GET** /organization/{organizationId}/cluster/{clusterId}/currentCost | Get cluster current cost
 [**get_organization_billing_info**](BillingApi.md#get_organization_billing_info) | **GET** /organization/{organizationId}/billingInfo | Get organization billing info
@@ -16,7 +17,6 @@ Method | HTTP request | Description
 [**list_organization_credit_cards**](BillingApi.md#list_organization_credit_cards) | **GET** /organization/{organizationId}/creditCard | List organization credit cards
 [**list_organization_invoice**](BillingApi.md#list_organization_invoice) | **GET** /organization/{organizationId}/invoice | List organization invoices
 [**organization_download_all_invoices**](BillingApi.md#organization_download_all_invoices) | **POST** /organization/{organizationId}/downloadInvoices | Download all invoices
-[**organization_organization_id_credit_card_credit_card_id_delete**](BillingApi.md#organization_organization_id_credit_card_credit_card_id_delete) | **DELETE** /organization/{organizationId}/creditCard/{creditCardId} | Delete credit card
 
 
 # **add_credit_card**
@@ -199,6 +199,84 @@ void (empty response body)
 |-------------|-------------|------------------|
 **200** | add credit code |  -  |
 **400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_credit_card**
+> delete_credit_card(organization_id, credit_card_id)
+
+Delete credit card
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import billing_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = billing_api.BillingApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    credit_card_id = "creditCardId_example" # str | Credit Card ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete credit card
+        api_instance.delete_credit_card(organization_id, credit_card_id)
+    except qovery.ApiException as e:
+        print("Exception when calling BillingApi->delete_credit_card: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **credit_card_id** | **str**| Credit Card ID |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The resource was deleted successfully |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
@@ -1013,84 +1091,6 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | You will receive an email containing your invoices |  -  |
-**401** | Access token is missing or invalid |  -  |
-**403** | Access forbidden |  -  |
-**404** | Resource not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **organization_organization_id_credit_card_credit_card_id_delete**
-> organization_organization_id_credit_card_credit_card_id_delete(organization_id, credit_card_id)
-
-Delete credit card
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import time
-import qovery
-from qovery.api import billing_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.qovery.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = qovery.Configuration(
-    host = "https://api.qovery.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with qovery.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credit_card_id = "creditCardId_example" # str | Credit Card ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete credit card
-        api_instance.organization_organization_id_credit_card_credit_card_id_delete(organization_id, credit_card_id)
-    except qovery.ApiException as e:
-        print("Exception when calling BillingApi->organization_organization_id_credit_card_credit_card_id_delete: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credit_card_id** | **str**| Credit Card ID |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | The resource was deleted successfully |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**create_environment_secret**](EnvironmentSecretApi.md#create_environment_secret) | **POST** /environment/{environmentId}/secret | Add a secret to the environment
 [**create_environment_secret_alias**](EnvironmentSecretApi.md#create_environment_secret_alias) | **POST** /environment/{environmentId}/secret/{secretId}/alias | Create a secret alias at the environment level
 [**create_environment_secret_override**](EnvironmentSecretApi.md#create_environment_secret_override) | **POST** /environment/{environmentId}/secret/{secretId}/override | Create a secret override at the environment level
+[**delete_environment_secret**](EnvironmentSecretApi.md#delete_environment_secret) | **DELETE** /environment/{environmentId}/secret/{secretId} | Delete a secret from the environment
 [**edit_environment_secret**](EnvironmentSecretApi.md#edit_environment_secret) | **PUT** /environment/{environmentId}/secret/{secretId} | Edit a secret belonging to the environment
-[**environment_environment_id_secret_secret_id_delete**](EnvironmentSecretApi.md#environment_environment_id_secret_secret_id_delete) | **DELETE** /environment/{environmentId}/secret/{secretId} | Delete a secret from the environment
 [**list_environment_secrets**](EnvironmentSecretApi.md#list_environment_secrets) | **GET** /environment/{environmentId}/secret | List environment secrets
 
 
@@ -302,6 +302,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_environment_secret**
+> delete_environment_secret(environment_id, secret_id)
+
+Delete a secret from the environment
+
+- To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well  operationId: deleteEnvironmentSecret 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import environment_secret_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = environment_secret_api.EnvironmentSecretApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    secret_id = "secretId_example" # str | Secret ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a secret from the environment
+        api_instance.delete_environment_secret(environment_id, secret_id)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentSecretApi->delete_environment_secret: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environment_id** | **str**| Environment ID |
+ **secret_id** | **str**| Secret ID |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The resource was deleted successfully |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **edit_environment_secret**
 > SecretResponse edit_environment_secret(environment_id, secret_id, secret_edit_request)
 
@@ -385,86 +465,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Edited the secret value |  -  |
 **400** | Bad request |  -  |
-**401** | Access token is missing or invalid |  -  |
-**403** | Access forbidden |  -  |
-**404** | Resource not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **environment_environment_id_secret_secret_id_delete**
-> environment_environment_id_secret_secret_id_delete(environment_id, secret_id)
-
-Delete a secret from the environment
-
-- To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well  operationId: deleteEnvironmentSecret 
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import time
-import qovery
-from qovery.api import environment_secret_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.qovery.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = qovery.Configuration(
-    host = "https://api.qovery.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with qovery.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = environment_secret_api.EnvironmentSecretApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
-    secret_id = "secretId_example" # str | Secret ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a secret from the environment
-        api_instance.environment_environment_id_secret_secret_id_delete(environment_id, secret_id)
-    except qovery.ApiException as e:
-        print("Exception when calling EnvironmentSecretApi->environment_environment_id_secret_secret_id_delete: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
- **secret_id** | **str**| Secret ID |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | The resource was deleted successfully |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

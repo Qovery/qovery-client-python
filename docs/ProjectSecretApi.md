@@ -7,9 +7,9 @@ Method | HTTP request | Description
 [**create_project_secret**](ProjectSecretApi.md#create_project_secret) | **POST** /project/{projectId}/secret | Add a secret to the project
 [**create_project_secret_alias**](ProjectSecretApi.md#create_project_secret_alias) | **POST** /project/{projectId}/secret/{secretId}/alias | Create a secret alias at the project level
 [**create_project_secret_override**](ProjectSecretApi.md#create_project_secret_override) | **POST** /project/{projectId}/secret/{secretId}/override | Create a secret override at the project level
+[**delete_project_secret**](ProjectSecretApi.md#delete_project_secret) | **DELETE** /project/{projectId}/secret/{secretId} | Delete a secret from a project
 [**edit_project_secret**](ProjectSecretApi.md#edit_project_secret) | **PUT** /project/{projectId}/secret/{secretId} | Edit a secret belonging to the project
 [**list_project_secrets**](ProjectSecretApi.md#list_project_secrets) | **GET** /project/{projectId}/secret | List project secrets
-[**project_project_id_secret_secret_id_delete**](ProjectSecretApi.md#project_project_id_secret_secret_id_delete) | **DELETE** /project/{projectId}/secret/{secretId} | Delete a secret from a project
 
 
 # **create_project_secret**
@@ -302,6 +302,86 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_project_secret**
+> delete_project_secret(project_id, secret_id)
+
+Delete a secret from a project
+
+- To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well  operationId: deleteProjectSecret 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import project_secret_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = project_secret_api.ProjectSecretApi(api_client)
+    project_id = "projectId_example" # str | Project ID
+    secret_id = "secretId_example" # str | Secret ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a secret from a project
+        api_instance.delete_project_secret(project_id, secret_id)
+    except qovery.ApiException as e:
+        print("Exception when calling ProjectSecretApi->delete_project_secret: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Project ID |
+ **secret_id** | **str**| Secret ID |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The resource was deleted successfully |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **edit_project_secret**
 > SecretResponse edit_project_secret(project_id, secret_id, secret_edit_request)
 
@@ -463,86 +543,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List project secrets |  -  |
-**401** | Access token is missing or invalid |  -  |
-**403** | Access forbidden |  -  |
-**404** | Resource not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **project_project_id_secret_secret_id_delete**
-> project_project_id_secret_secret_id_delete(project_id, secret_id)
-
-Delete a secret from a project
-
-- To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well  operationId: deleteProjectSecret 
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import time
-import qovery
-from qovery.api import project_secret_api
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.qovery.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = qovery.Configuration(
-    host = "https://api.qovery.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with qovery.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = project_secret_api.ProjectSecretApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    secret_id = "secretId_example" # str | Secret ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Delete a secret from a project
-        api_instance.project_project_id_secret_secret_id_delete(project_id, secret_id)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectSecretApi->project_project_id_secret_secret_id_delete: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **secret_id** | **str**| Secret ID |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | The resource was deleted successfully |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

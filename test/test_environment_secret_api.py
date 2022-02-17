@@ -45,17 +45,17 @@ class TestEnvironmentSecretApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_environment_secret(self):
+        """Test case for delete_environment_secret
+
+        Delete a secret from the environment  # noqa: E501
+        """
+        pass
+
     def test_edit_environment_secret(self):
         """Test case for edit_environment_secret
 
         Edit a secret belonging to the environment  # noqa: E501
-        """
-        pass
-
-    def test_environment_environment_id_secret_secret_id_delete(self):
-        """Test case for environment_environment_id_secret_secret_id_delete
-
-        Delete a secret from the environment  # noqa: E501
         """
         pass
 

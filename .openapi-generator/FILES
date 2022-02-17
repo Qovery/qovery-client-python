@@ -101,7 +101,6 @@ docs/CustomDomainRequest.md
 docs/CustomDomainResponse.md
 docs/CustomDomainResponseList.md
 docs/DatabaseActionsApi.md
-docs/DatabaseApi.md
 docs/DatabaseApplicationApi.md
 docs/DatabaseConfigurationResponse.md
 docs/DatabaseConfigurationResponseList.md
@@ -192,7 +191,6 @@ docs/LinkResponseList.md
 docs/LogPaginatedResponseList.md
 docs/LogResponse.md
 docs/LogResponseList.md
-docs/LogicalDatabaseApi.md
 docs/LogicalDatabaseApi.md
 docs/LogicalDatabaseRequest.md
 docs/LogicalDatabaseResponse.md
@@ -298,7 +296,6 @@ qovery/api/cloud_provider_credentials_api.py
 qovery/api/clusters_api.py
 qovery/api/custom_domain_api.py
 qovery/api/database_actions_api.py
-qovery/api/database_api.py
 qovery/api/database_application_api.py
 qovery/api/database_event_api.py
 qovery/api/database_main_calls_api.py
@@ -314,7 +311,6 @@ qovery/api/environment_secret_api.py
 qovery/api/environment_variable_api.py
 qovery/api/environments_api.py
 qovery/api/git_repositories_api.py
-qovery/api/logical_database_api.py
 qovery/api/logical_database_api.py
 qovery/api/members_api.py
 qovery/api/organization_main_calls_api.py
@@ -663,7 +659,6 @@ test/test_custom_domain_request.py
 test/test_custom_domain_response.py
 test/test_custom_domain_response_list.py
 test/test_database_actions_api.py
-test/test_database_api.py
 test/test_database_application_api.py
 test/test_database_configuration_response.py
 test/test_database_configuration_response_list.py
