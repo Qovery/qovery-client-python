@@ -61,7 +61,6 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
 
     allowed_values = {
         ('weekdays',): {
-            'None': None,
             'MONDAY': "MONDAY",
             'TUESDAY': "TUESDAY",
             'WEDNESDAY': "WEDNESDAY",
@@ -98,14 +97,14 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
         """
         lazy_import()
         return {
+            'timezone': (str,),  # noqa: E501
+            'start_time': (datetime,),  # noqa: E501
+            'stop_time': (datetime,),  # noqa: E501
+            'weekdays': ([str],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
-            'timezone': (str,),  # noqa: E501
-            'start_time': (datetime, none_type,),  # noqa: E501
-            'stop_time': (datetime, none_type,),  # noqa: E501
-            'weekdays': ([str], none_type,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
         }
 
@@ -115,14 +114,14 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'auto_deploy': 'auto_deploy',  # noqa: E501
-        'auto_stop': 'auto_stop',  # noqa: E501
         'timezone': 'timezone',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
         'stop_time': 'stop_time',  # noqa: E501
         'weekdays': 'weekdays',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
+        'auto_stop': 'auto_stop',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
     }
 
@@ -138,6 +137,10 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
         """EnvironmentDeploymentRuleResponse - a model defined in OpenAPI
 
         Keyword Args:
+            timezone (str):
+            start_time (datetime):
+            stop_time (datetime):
+            weekdays ([str]):
             id (str):
             created_at (datetime):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,10 +175,6 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            timezone (str): specify value only if auto_stop = false. [optional] if omitted the server will use the default value of "Europe/London"  # noqa: E501
-            start_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            stop_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            weekdays ([str], none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
         """
 
@@ -246,6 +245,10 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
         """EnvironmentDeploymentRuleResponse - a model defined in OpenAPI
 
         Keyword Args:
+            timezone (str):
+            start_time (datetime):
+            stop_time (datetime):
+            weekdays ([str]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -278,10 +281,6 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            timezone (str): specify value only if auto_stop = false. [optional] if omitted the server will use the default value of "Europe/London"  # noqa: E501
-            start_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            stop_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            weekdays ([str], none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
         """
 

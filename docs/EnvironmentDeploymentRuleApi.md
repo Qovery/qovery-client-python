@@ -50,9 +50,9 @@ with qovery.ApiClient(configuration) as api_client:
         auto_deploy=True,
         auto_delete=False,
         auto_stop=False,
-        timezone="Europe/London",
-        start_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        stop_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        timezone="UTC",
+        start_time=dateutil_parser('1970-01-01T08:00:00Z'),
+        stop_time=dateutil_parser('1970-01-01T19:00:00Z'),
         weekdays=[
             "MONDAY",
         ],

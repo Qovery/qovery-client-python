@@ -57,7 +57,6 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
 
     allowed_values = {
         ('weekdays',): {
-            'None': None,
             'MONDAY': "MONDAY",
             'TUESDAY': "TUESDAY",
             'WEDNESDAY': "WEDNESDAY",
@@ -92,13 +91,13 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'timezone': (str,),  # noqa: E501
+            'start_time': (datetime,),  # noqa: E501
+            'stop_time': (datetime,),  # noqa: E501
+            'weekdays': ([str],),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'auto_delete': (bool,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
-            'timezone': (str,),  # noqa: E501
-            'start_time': (datetime, none_type,),  # noqa: E501
-            'stop_time': (datetime, none_type,),  # noqa: E501
-            'weekdays': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -107,13 +106,13 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
 
 
     attribute_map = {
-        'auto_deploy': 'auto_deploy',  # noqa: E501
-        'auto_delete': 'auto_delete',  # noqa: E501
-        'auto_stop': 'auto_stop',  # noqa: E501
         'timezone': 'timezone',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
         'stop_time': 'stop_time',  # noqa: E501
         'weekdays': 'weekdays',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
+        'auto_delete': 'auto_delete',  # noqa: E501
+        'auto_stop': 'auto_stop',  # noqa: E501
     }
 
     read_only_vars = {
@@ -123,8 +122,14 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, timezone, start_time, stop_time, weekdays, *args, **kwargs):  # noqa: E501
         """EnvironmentDeploymentRuleEditRequest - a model defined in OpenAPI
+
+        Args:
+            timezone (str):
+            start_time (datetime):
+            stop_time (datetime):
+            weekdays ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -160,10 +165,6 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
             auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            timezone (str): specify value only if auto_stop = false. [optional] if omitted the server will use the default value of "Europe/London"  # noqa: E501
-            start_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            stop_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            weekdays ([str], none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -191,6 +192,10 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.timezone = timezone
+        self.start_time = start_time
+        self.stop_time = stop_time
+        self.weekdays = weekdays
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -211,8 +216,14 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, timezone, start_time, stop_time, weekdays, *args, **kwargs):  # noqa: E501
         """EnvironmentDeploymentRuleEditRequest - a model defined in OpenAPI
+
+        Args:
+            timezone (str):
+            start_time (datetime):
+            stop_time (datetime):
+            weekdays ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -248,10 +259,6 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
             auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            timezone (str): specify value only if auto_stop = false. [optional] if omitted the server will use the default value of "Europe/London"  # noqa: E501
-            start_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            stop_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
-            weekdays ([str], none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,6 +284,10 @@ class EnvironmentDeploymentRuleEditRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.timezone = timezone
+        self.start_time = start_time
+        self.stop_time = stop_time
+        self.weekdays = weekdays
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
