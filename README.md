@@ -284,8 +284,9 @@ Class | Method | HTTP request | Description
 *ProjectDeploymentRuleApi* | [**create_deployment_rule**](docs/ProjectDeploymentRuleApi.md#create_deployment_rule) | **POST** /project/{projectId}/deploymentRule | Create a deployment rule
 *ProjectDeploymentRuleApi* | [**delete_project_deployment_rule**](docs/ProjectDeploymentRuleApi.md#delete_project_deployment_rule) | **DELETE** /project/{projectId}/deploymentRule/{deploymentRuleId} | Delete a project deployment rule
 *ProjectDeploymentRuleApi* | [**edit_project_deployemtn_rule**](docs/ProjectDeploymentRuleApi.md#edit_project_deployemtn_rule) | **PUT** /project/{projectId}/deploymentRule/{deploymentRuleId} | Edit a project deployment rule
-*ProjectDeploymentRuleApi* | [**get_project_deployment_rule**](docs/ProjectDeploymentRuleApi.md#get_project_deployment_rule) | **GET** /project/{projectId}/deploymentRule/{deploymentRuleId} | Get project deployment rule
-*ProjectDeploymentRuleApi* | [**list_project_deployment_rule**](docs/ProjectDeploymentRuleApi.md#list_project_deployment_rule) | **GET** /project/{projectId}/deploymentRule | List project deployment rules
+*ProjectDeploymentRuleApi* | [**get_project_deployment_rule**](docs/ProjectDeploymentRuleApi.md#get_project_deployment_rule) | **GET** /project/{projectId}/deploymentRule/{deploymentRuleId} | Get a project deployment rule
+*ProjectDeploymentRuleApi* | [**list_project_deployment_rules**](docs/ProjectDeploymentRuleApi.md#list_project_deployment_rules) | **GET** /project/{projectId}/deploymentRule | List project deployment rules
+*ProjectDeploymentRuleApi* | [**update_deployment_rules_priority_order**](docs/ProjectDeploymentRuleApi.md#update_deployment_rules_priority_order) | **PUT** /project/{projectId}/deploymentRule/order | Update deployment rules priority order
 *ProjectEnvironmentVariableApi* | [**create_project_environment_variable**](docs/ProjectEnvironmentVariableApi.md#create_project_environment_variable) | **POST** /project/{projectId}/environmentVariable | Add an environment variable to the project
 *ProjectEnvironmentVariableApi* | [**create_project_environment_variable_alias**](docs/ProjectEnvironmentVariableApi.md#create_project_environment_variable_alias) | **POST** /project/{projectId}/environmentVariable/{environmentVariableId}/alias | Create an environment variable alias at the project level
 *ProjectEnvironmentVariableApi* | [**create_project_environment_variable_override**](docs/ProjectEnvironmentVariableApi.md#create_project_environment_variable_override) | **POST** /project/{projectId}/environmentVariable/{environmentVariableId}/override | Create an environment variable override at the project level
@@ -451,6 +452,7 @@ Class | Method | HTTP request | Description
  - [GitRepositoryResponse](docs/GitRepositoryResponse.md)
  - [GitRepositoryResponseList](docs/GitRepositoryResponseList.md)
  - [Healthcheck](docs/Healthcheck.md)
+ - [InlineObject](docs/InlineObject.md)
  - [InstanceResponse](docs/InstanceResponse.md)
  - [InstanceResponseList](docs/InstanceResponseList.md)
  - [InviteMemberRequest](docs/InviteMemberRequest.md)
@@ -502,6 +504,7 @@ Class | Method | HTTP request | Description
  - [ProjectDeploymentRuleRequest](docs/ProjectDeploymentRuleRequest.md)
  - [ProjectDeploymentRuleResponse](docs/ProjectDeploymentRuleResponse.md)
  - [ProjectDeploymentRuleResponseList](docs/ProjectDeploymentRuleResponseList.md)
+ - [ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder](docs/ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder.md)
  - [ProjectRequest](docs/ProjectRequest.md)
  - [ProjectResponse](docs/ProjectResponse.md)
  - [ProjectResponseList](docs/ProjectResponseList.md)

@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
+from qovery.model.project_project_id_deployment_rule_order_project_deployment_rule_ids_in_order import ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder
+globals()['ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder'] = ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder
+from qovery.model.inline_object import InlineObject
 
 
-class TestProjectDeploymentRuleRequest(unittest.TestCase):
-    """ProjectDeploymentRuleRequest unit test stubs"""
+class TestInlineObject(unittest.TestCase):
+    """InlineObject unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestProjectDeploymentRuleRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testProjectDeploymentRuleRequest(self):
-        """Test ProjectDeploymentRuleRequest"""
+    def testInlineObject(self):
+        """Test InlineObject"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ProjectDeploymentRuleRequest()  # noqa: E501
+        # model = InlineObject()  # noqa: E501
         pass
 
 

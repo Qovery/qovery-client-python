@@ -178,6 +178,7 @@ docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponse.md
 docs/GitRepositoryResponseList.md
 docs/Healthcheck.md
+docs/InlineObject.md
 docs/InstanceResponse.md
 docs/InstanceResponseList.md
 docs/InviteMemberRequest.md
@@ -235,6 +236,7 @@ docs/ProjectDeploymentRuleResponse.md
 docs/ProjectDeploymentRuleResponseList.md
 docs/ProjectEnvironmentVariableApi.md
 docs/ProjectMainCallsApi.md
+docs/ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder.md
 docs/ProjectRequest.md
 docs/ProjectResponse.md
 docs/ProjectResponseList.md
@@ -466,6 +468,7 @@ qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response.py
 qovery/model/git_repository_response_list.py
 qovery/model/healthcheck.py
+qovery/model/inline_object.py
 qovery/model/instance_response.py
 qovery/model/instance_response_list.py
 qovery/model/invite_member_request.py
@@ -517,6 +520,7 @@ qovery/model/project_current_cost_response_list.py
 qovery/model/project_deployment_rule_request.py
 qovery/model/project_deployment_rule_response.py
 qovery/model/project_deployment_rule_response_list.py
+qovery/model/project_project_id_deployment_rule_order_project_deployment_rule_ids_in_order.py
 qovery/model/project_request.py
 qovery/model/project_response.py
 qovery/model/project_response_list.py
@@ -736,6 +740,7 @@ test/test_git_repository_branch_response_list.py
 test/test_git_repository_response.py
 test/test_git_repository_response_list.py
 test/test_healthcheck.py
+test/test_inline_object.py
 test/test_instance_response.py
 test/test_instance_response_list.py
 test/test_invite_member_request.py
@@ -793,6 +798,7 @@ test/test_project_deployment_rule_response.py
 test/test_project_deployment_rule_response_list.py
 test/test_project_environment_variable_api.py
 test/test_project_main_calls_api.py
+test/test_project_project_id_deployment_rule_order_project_deployment_rule_ids_in_order.py
 test/test_project_request.py
 test/test_project_response.py
 test/test_project_response_list.py

@@ -150,6 +150,7 @@ from qovery.model.git_repository_branch_response_list import GitRepositoryBranch
 from qovery.model.git_repository_response import GitRepositoryResponse
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
 from qovery.model.healthcheck import Healthcheck
+from qovery.model.inline_object import InlineObject
 from qovery.model.instance_response import InstanceResponse
 from qovery.model.instance_response_list import InstanceResponseList
 from qovery.model.invite_member_request import InviteMemberRequest
@@ -201,6 +202,7 @@ from qovery.model.project_current_cost_response_list import ProjectCurrentCostRe
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
 from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
 from qovery.model.project_deployment_rule_response_list import ProjectDeploymentRuleResponseList
+from qovery.model.project_project_id_deployment_rule_order_project_deployment_rule_ids_in_order import ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder
 from qovery.model.project_request import ProjectRequest
 from qovery.model.project_response import ProjectResponse
 from qovery.model.project_response_list import ProjectResponseList

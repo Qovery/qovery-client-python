@@ -48,14 +48,21 @@ class TestProjectDeploymentRuleApi(unittest.TestCase):
     def test_get_project_deployment_rule(self):
         """Test case for get_project_deployment_rule
 
-        Get project deployment rule  # noqa: E501
+        Get a project deployment rule  # noqa: E501
         """
         pass
 
-    def test_list_project_deployment_rule(self):
-        """Test case for list_project_deployment_rule
+    def test_list_project_deployment_rules(self):
+        """Test case for list_project_deployment_rules
 
         List project deployment rules  # noqa: E501
+        """
+        pass
+
+    def test_update_deployment_rules_priority_order(self):
+        """Test case for update_deployment_rules_priority_order
+
+        Update deployment rules priority order  # noqa: E501
         """
         pass
 
