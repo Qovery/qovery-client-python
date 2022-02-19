@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case insensitive | 
 **git_repository** | [**ApplicationGitRepositoryRequest**](ApplicationGitRepositoryRequest.md) |  | 
-**description** | **str** | give a description to this application | [optional] 
+**description** | **str, none_type** | give a description to this application | [optional] 
 **build_mode** | **str** | &#x60;DOCKER&#x60; requires &#x60;dockerfile_path&#x60; &#x60;BUILDPACKS&#x60; does not require any &#x60;dockerfile_path&#x60;  | [optional]  if omitted the server will use the default value of "BUILDPACKS"
 **dockerfile_path** | **str** | The path of the associated Dockerfile. Only if you are using build_mode &#x3D; DOCKER | [optional] 
 **buildpack_language** | **str** | Development language of the application | [optional] 
