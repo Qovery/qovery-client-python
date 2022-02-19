@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **git_repository** | [**ApplicationGitRepositoryRequest**](ApplicationGitRepositoryRequest.md) |  | 
 **description** | **str, none_type** | give a description to this application | [optional] 
 **build_mode** | **str** | &#x60;DOCKER&#x60; requires &#x60;dockerfile_path&#x60; &#x60;BUILDPACKS&#x60; does not require any &#x60;dockerfile_path&#x60;  | [optional]  if omitted the server will use the default value of "BUILDPACKS"
-**dockerfile_path** | **str** | The path of the associated Dockerfile. Only if you are using build_mode &#x3D; DOCKER | [optional] 
-**buildpack_language** | **str** | Development language of the application | [optional] 
+**dockerfile_path** | **str, none_type** | The path of the associated Dockerfile. Only if you are using build_mode &#x3D; DOCKER | [optional] 
+**buildpack_language** | **str, none_type** | Development language of the application | [optional] 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | [optional]  if omitted the server will use the default value of 250
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | [optional]  if omitted the server will use the default value of 256
 **min_running_instances** | **int** | Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running.  | [optional]  if omitted the server will use the default value of 1
