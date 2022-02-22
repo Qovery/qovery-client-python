@@ -57,8 +57,9 @@ class ProjectDeploymentRuleRequest(ModelNormal):
 
     allowed_values = {
         ('mode',): {
-            'PRODUCTION': "PRODUCTION",
             'DEVELOPMENT': "DEVELOPMENT",
+            'STAGING': "STAGING",
+            'PRODUCTION': "PRODUCTION",
         },
         ('weekdays',): {
             'MONDAY': "MONDAY",
@@ -98,14 +99,15 @@ class ProjectDeploymentRuleRequest(ModelNormal):
             'name': (str,),  # noqa: E501
             'mode': (str,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
-            'auto_deploy': (bool,),  # noqa: E501
-            'auto_stop': (bool,),  # noqa: E501
             'timezone': (str,),  # noqa: E501
             'start_time': (datetime,),  # noqa: E501
             'stop_time': (datetime,),  # noqa: E501
             'weekdays': ([str],),  # noqa: E501
-            'wildcard': (str, none_type,),  # noqa: E501
+            'wildcard': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
+            'auto_deploy': (bool,),  # noqa: E501
+            'auto_stop': (bool,),  # noqa: E501
+            'auto_delete': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -117,14 +119,15 @@ class ProjectDeploymentRuleRequest(ModelNormal):
         'name': 'name',  # noqa: E501
         'mode': 'mode',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
-        'auto_deploy': 'auto_deploy',  # noqa: E501
-        'auto_stop': 'auto_stop',  # noqa: E501
         'timezone': 'timezone',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
         'stop_time': 'stop_time',  # noqa: E501
         'weekdays': 'weekdays',  # noqa: E501
         'wildcard': 'wildcard',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
+        'auto_stop': 'auto_stop',  # noqa: E501
+        'auto_delete': 'auto_delete',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,22 +137,20 @@ class ProjectDeploymentRuleRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, mode, cluster_id, auto_deploy, auto_stop, start_time, stop_time, weekdays, wildcard, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, mode, cluster_id, timezone, start_time, stop_time, weekdays, *args, **kwargs):  # noqa: E501
         """ProjectDeploymentRuleRequest - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
             mode (str):
             cluster_id (str):
-            auto_deploy (bool):
-            auto_stop (bool):
-            start_time (datetime): specify value only if auto_stop = false
-            stop_time (datetime): specify value only if auto_stop = false
-            weekdays ([str]): specify value only if auto_stop = false
-            wildcard (str, none_type): wildcard pattern composed of '?' and/or '*' used to target new created environments
+            timezone (str):
+            start_time (datetime):
+            stop_time (datetime):
+            weekdays ([str]):
 
         Keyword Args:
-            timezone (str): specify value only if auto_stop = false. defaults to "Europe/London"  # noqa: E501
+            wildcard (str): wildcard pattern composed of '?' and/or '*' used to target new created environments. defaults to ""  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -181,9 +182,12 @@ class ProjectDeploymentRuleRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
+            auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
-        timezone = kwargs.get('timezone', "Europe/London")
+        wildcard = kwargs.get('wildcard', "")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -212,8 +216,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
         self.name = name
         self.mode = mode
         self.cluster_id = cluster_id
-        self.auto_deploy = auto_deploy
-        self.auto_stop = auto_stop
         self.timezone = timezone
         self.start_time = start_time
         self.stop_time = stop_time
@@ -239,22 +241,20 @@ class ProjectDeploymentRuleRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, mode, cluster_id, auto_deploy, auto_stop, start_time, stop_time, weekdays, wildcard, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, mode, cluster_id, timezone, start_time, stop_time, weekdays, *args, **kwargs):  # noqa: E501
         """ProjectDeploymentRuleRequest - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
             mode (str):
             cluster_id (str):
-            auto_deploy (bool):
-            auto_stop (bool):
-            start_time (datetime): specify value only if auto_stop = false
-            stop_time (datetime): specify value only if auto_stop = false
-            weekdays ([str]): specify value only if auto_stop = false
-            wildcard (str, none_type): wildcard pattern composed of '?' and/or '*' used to target new created environments
+            timezone (str):
+            start_time (datetime):
+            stop_time (datetime):
+            weekdays ([str]):
 
         Keyword Args:
-            timezone (str): specify value only if auto_stop = false. defaults to "Europe/London"  # noqa: E501
+            wildcard (str): wildcard pattern composed of '?' and/or '*' used to target new created environments. defaults to ""  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -286,9 +286,12 @@ class ProjectDeploymentRuleRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
+            auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
-        timezone = kwargs.get('timezone', "Europe/London")
+        wildcard = kwargs.get('wildcard', "")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -315,8 +318,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
         self.name = name
         self.mode = mode
         self.cluster_id = cluster_id
-        self.auto_deploy = auto_deploy
-        self.auto_stop = auto_stop
         self.timezone = timezone
         self.start_time = start_time
         self.stop_time = stop_time

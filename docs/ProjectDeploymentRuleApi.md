@@ -52,19 +52,20 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
     project_id = "projectId_example" # str | Project ID
     project_deployment_rule_request = ProjectDeploymentRuleRequest(
-        name="name_example",
-        description="description_example",
-        mode="PRODUCTION",
+        name="project-rule",
+        description="description project rule",
+        mode="DEVELOPMENT",
         cluster_id="cluster_id_example",
-        auto_deploy=True,
-        auto_stop=True,
-        timezone="Europe/London",
-        start_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        stop_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        auto_deploy=False,
+        auto_stop=False,
+        auto_delete=False,
+        timezone="UTC",
+        start_time=dateutil_parser('1970-01-01T08:00:00Z'),
+        stop_time=dateutil_parser('1970-01-01T19:00:00Z'),
         weekdays=[
             "MONDAY",
         ],
-        wildcard="wildcard_example",
+        wildcard="",
     ) # ProjectDeploymentRuleRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -240,19 +241,20 @@ with qovery.ApiClient(configuration) as api_client:
     project_id = "projectId_example" # str | Project ID
     deployment_rule_id = "deploymentRuleId_example" # str | Deployment Rule ID
     project_deployment_rule_request = ProjectDeploymentRuleRequest(
-        name="name_example",
-        description="description_example",
-        mode="PRODUCTION",
+        name="project-rule",
+        description="description project rule",
+        mode="DEVELOPMENT",
         cluster_id="cluster_id_example",
-        auto_deploy=True,
-        auto_stop=True,
-        timezone="Europe/London",
-        start_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        stop_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+        auto_deploy=False,
+        auto_stop=False,
+        auto_delete=False,
+        timezone="UTC",
+        start_time=dateutil_parser('1970-01-01T08:00:00Z'),
+        stop_time=dateutil_parser('1970-01-01T19:00:00Z'),
         weekdays=[
             "MONDAY",
         ],
-        wildcard="wildcard_example",
+        wildcard="",
     ) # ProjectDeploymentRuleRequest |  (optional)
 
     # example passing only required values which don't have defaults set
