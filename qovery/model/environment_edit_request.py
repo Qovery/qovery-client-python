@@ -56,6 +56,12 @@ class EnvironmentEditRequest(ModelNormal):
     """
 
     allowed_values = {
+        ('mode',): {
+            'DEVELOPMENT': "DEVELOPMENT",
+            'STAGING': "STAGING",
+            'PRODUCTION': "PRODUCTION",
+            'PREVIEW': "PREVIEW",
+        },
     }
 
     validations = {
@@ -83,6 +89,7 @@ class EnvironmentEditRequest(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
+            'mode': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +99,7 @@ class EnvironmentEditRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'mode': 'mode',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +144,7 @@ class EnvironmentEditRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            mode (str): PREVIEW value is reserved for preview environments only. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -218,6 +227,7 @@ class EnvironmentEditRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
+            mode (str): PREVIEW value is reserved for preview environments only. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
