@@ -13,6 +13,10 @@ docs/ApplicationCurrentScaleResponse.md
 docs/ApplicationDatabaseApi.md
 docs/ApplicationDependencyRequest.md
 docs/ApplicationDeploymentHistoryApi.md
+docs/ApplicationDeploymentRestriction.md
+docs/ApplicationDeploymentRuleApi.md
+docs/ApplicationDeploymentRuleEditRequest.md
+docs/ApplicationDeploymentRuleResponse.md
 docs/ApplicationEditRequest.md
 docs/ApplicationEnvironmentVariableApi.md
 docs/ApplicationEventApi.md
@@ -284,6 +288,7 @@ qovery/api/application_actions_api.py
 qovery/api/application_configuration_api.py
 qovery/api/application_database_api.py
 qovery/api/application_deployment_history_api.py
+qovery/api/application_deployment_rule_api.py
 qovery/api/application_environment_variable_api.py
 qovery/api/application_event_api.py
 qovery/api/application_logs_api.py
@@ -332,6 +337,9 @@ qovery/model/account_info_response.py
 qovery/model/aliased_secret.py
 qovery/model/application_current_scale_response.py
 qovery/model/application_dependency_request.py
+qovery/model/application_deployment_restriction.py
+qovery/model/application_deployment_rule_edit_request.py
+qovery/model/application_deployment_rule_response.py
 qovery/model/application_edit_request.py
 qovery/model/application_git_repository_request.py
 qovery/model/application_git_repository_response.py
@@ -575,6 +583,10 @@ test/test_application_current_scale_response.py
 test/test_application_database_api.py
 test/test_application_dependency_request.py
 test/test_application_deployment_history_api.py
+test/test_application_deployment_restriction.py
+test/test_application_deployment_rule_api.py
+test/test_application_deployment_rule_edit_request.py
+test/test_application_deployment_rule_response.py
 test/test_application_edit_request.py
 test/test_application_environment_variable_api.py
 test/test_application_event_api.py

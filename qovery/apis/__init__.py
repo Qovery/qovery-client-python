@@ -19,6 +19,7 @@ from qovery.api.application_actions_api import ApplicationActionsApi
 from qovery.api.application_configuration_api import ApplicationConfigurationApi
 from qovery.api.application_database_api import ApplicationDatabaseApi
 from qovery.api.application_deployment_history_api import ApplicationDeploymentHistoryApi
+from qovery.api.application_deployment_rule_api import ApplicationDeploymentRuleApi
 from qovery.api.application_environment_variable_api import ApplicationEnvironmentVariableApi
 from qovery.api.application_event_api import ApplicationEventApi
 from qovery.api.application_logs_api import ApplicationLogsApi
