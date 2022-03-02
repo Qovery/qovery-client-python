@@ -31,6 +31,13 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
+    def test_deploy_all_applications(self):
+        """Test case for deploy_all_applications
+
+        Deploy applications  # noqa: E501
+        """
+        pass
+
     def test_get_environment_application_current_instance(self):
         """Test case for get_environment_application_current_instance
 

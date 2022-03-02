@@ -166,6 +166,7 @@ docs/EnvironmentDeploymentRuleEditRequest.md
 docs/EnvironmentDeploymentRuleResponse.md
 docs/EnvironmentDeploymentRuleResponseAllOf.md
 docs/EnvironmentEditRequest.md
+docs/EnvironmentEnvironmentIdApplicationDeployApplications.md
 docs/EnvironmentLogPaginatedResponseList.md
 docs/EnvironmentLogPaginatedResponseListAllOf.md
 docs/EnvironmentLogResponse.md
@@ -207,6 +208,7 @@ docs/GitRepositoryResponse.md
 docs/GitRepositoryResponseList.md
 docs/Healthcheck.md
 docs/InlineObject.md
+docs/InlineObject1.md
 docs/InstanceResponse.md
 docs/InstanceResponseList.md
 docs/InviteMemberRequest.md
@@ -501,6 +503,7 @@ qovery/model/environment_deployment_rule_edit_request.py
 qovery/model/environment_deployment_rule_response.py
 qovery/model/environment_deployment_rule_response_all_of.py
 qovery/model/environment_edit_request.py
+qovery/model/environment_environment_id_application_deploy_applications.py
 qovery/model/environment_log_paginated_response_list.py
 qovery/model/environment_log_paginated_response_list_all_of.py
 qovery/model/environment_log_response.py
@@ -536,6 +539,7 @@ qovery/model/git_repository_response.py
 qovery/model/git_repository_response_list.py
 qovery/model/healthcheck.py
 qovery/model/inline_object.py
+qovery/model/inline_object1.py
 qovery/model/instance_response.py
 qovery/model/instance_response_list.py
 qovery/model/invite_member_request.py
@@ -806,6 +810,7 @@ test/test_environment_deployment_rule_edit_request.py
 test/test_environment_deployment_rule_response.py
 test/test_environment_deployment_rule_response_all_of.py
 test/test_environment_edit_request.py
+test/test_environment_environment_id_application_deploy_applications.py
 test/test_environment_log_paginated_response_list.py
 test/test_environment_log_paginated_response_list_all_of.py
 test/test_environment_log_response.py
@@ -847,6 +852,7 @@ test/test_git_repository_response.py
 test/test_git_repository_response_list.py
 test/test_healthcheck.py
 test/test_inline_object.py
+test/test_inline_object1.py
 test/test_instance_response.py
 test/test_instance_response_list.py
 test/test_invite_member_request.py

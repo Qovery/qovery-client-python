@@ -5,6 +5,7 @@ All URIs are relative to *https://api.qovery.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_application**](ApplicationsApi.md#create_application) | **POST** /environment/{environmentId}/application | Create an application
+[**deploy_all_applications**](ApplicationsApi.md#deploy_all_applications) | **POST** /environment/{environmentId}/application/deploy | Deploy applications
 [**get_environment_application_current_instance**](ApplicationsApi.md#get_environment_application_current_instance) | **GET** /environment/{environmentId}/application/instance | List running instances with CPU and RAM usage for each application
 [**get_environment_application_current_scale**](ApplicationsApi.md#get_environment_application_current_scale) | **GET** /environment/{environmentId}/application/currentScale | List current scaling information for each application
 [**get_environment_application_current_storage**](ApplicationsApi.md#get_environment_application_current_storage) | **GET** /environment/{environmentId}/application/currentStorage | List current storage disk usage for each application
@@ -102,6 +103,107 @@ Name | Type | Description  | Notes
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
 **409** | Application name within the environment is already taken |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deploy_all_applications**
+> Status deploy_all_applications(environment_id)
+
+Deploy applications
+
+Deploy to the last commit the applications you specified.
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import applications_api
+from qovery.model.inline_object1 import InlineObject1
+from qovery.model.status import Status
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = applications_api.ApplicationsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    inline_object1 = InlineObject1(
+        applications=[
+            EnvironmentEnvironmentIdApplicationDeployApplications(
+                application_id="application_id_example",
+                git_commit_id="git_commit_id_example",
+            ),
+        ],
+    ) # InlineObject1 |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Deploy applications
+        api_response = api_instance.deploy_all_applications(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationsApi->deploy_all_applications: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Deploy applications
+        api_response = api_instance.deploy_all_applications(environment_id, inline_object1=inline_object1)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationsApi->deploy_all_applications: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environment_id** | **str**| Environment ID |
+ **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+
+### Return type
+
+[**Status**](Status.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Deployed applications |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+**409** | Operation is in progress |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

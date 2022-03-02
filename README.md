@@ -139,6 +139,7 @@ Class | Method | HTTP request | Description
 *ApplicationSecretApi* | [**edit_application_secret**](docs/ApplicationSecretApi.md#edit_application_secret) | **PUT** /application/{applicationId}/secret/{secretId} | Edit a secret belonging to the application
 *ApplicationSecretApi* | [**list_application_secrets**](docs/ApplicationSecretApi.md#list_application_secrets) | **GET** /application/{applicationId}/secret | List application secrets
 *ApplicationsApi* | [**create_application**](docs/ApplicationsApi.md#create_application) | **POST** /environment/{environmentId}/application | Create an application
+*ApplicationsApi* | [**deploy_all_applications**](docs/ApplicationsApi.md#deploy_all_applications) | **POST** /environment/{environmentId}/application/deploy | Deploy applications
 *ApplicationsApi* | [**get_environment_application_current_instance**](docs/ApplicationsApi.md#get_environment_application_current_instance) | **GET** /environment/{environmentId}/application/instance | List running instances with CPU and RAM usage for each application
 *ApplicationsApi* | [**get_environment_application_current_scale**](docs/ApplicationsApi.md#get_environment_application_current_scale) | **GET** /environment/{environmentId}/application/currentScale | List current scaling information for each application
 *ApplicationsApi* | [**get_environment_application_current_storage**](docs/ApplicationsApi.md#get_environment_application_current_storage) | **GET** /environment/{environmentId}/application/currentStorage | List current storage disk usage for each application
@@ -447,6 +448,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentDeploymentRuleResponse](docs/EnvironmentDeploymentRuleResponse.md)
  - [EnvironmentDeploymentRuleResponseAllOf](docs/EnvironmentDeploymentRuleResponseAllOf.md)
  - [EnvironmentEditRequest](docs/EnvironmentEditRequest.md)
+ - [EnvironmentEnvironmentIdApplicationDeployApplications](docs/EnvironmentEnvironmentIdApplicationDeployApplications.md)
  - [EnvironmentLogPaginatedResponseList](docs/EnvironmentLogPaginatedResponseList.md)
  - [EnvironmentLogPaginatedResponseListAllOf](docs/EnvironmentLogPaginatedResponseListAllOf.md)
  - [EnvironmentLogResponse](docs/EnvironmentLogResponse.md)
@@ -482,6 +484,7 @@ Class | Method | HTTP request | Description
  - [GitRepositoryResponseList](docs/GitRepositoryResponseList.md)
  - [Healthcheck](docs/Healthcheck.md)
  - [InlineObject](docs/InlineObject.md)
+ - [InlineObject1](docs/InlineObject1.md)
  - [InstanceResponse](docs/InstanceResponse.md)
  - [InstanceResponseList](docs/InstanceResponseList.md)
  - [InviteMemberRequest](docs/InviteMemberRequest.md)
