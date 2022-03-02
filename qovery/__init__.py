@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "$(grep &#39;version&#39; _build/openapi.yaml | head -1 | tr &#39;:&#39; &#39;\n&#39; | tail -1 | tr -d &#39; &#39;)"
+__version__ = "1.0.3"
 
 # import ApiClient
 from qovery.api_client import ApiClient
