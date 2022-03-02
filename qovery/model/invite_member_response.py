@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.invite_member_response_all_of import InviteMemberResponseAllOf
     globals()['BaseResponse'] = BaseResponse
+    globals()['InviteMemberResponseAllOf'] = InviteMemberResponseAllOf
 
 
 class InviteMemberResponse(ModelComposed):
@@ -97,15 +99,15 @@ class InviteMemberResponse(ModelComposed):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
+            'created_at': (datetime,),  # noqa: E501
             'email': (str,),  # noqa: E501
             'role': (str,),  # noqa: E501
             'invitation_link': (str,),  # noqa: E501
             'invitation_status': (str,),  # noqa: E501
             'inviter': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'created_at': (datetime,),  # noqa: E501
-            'logo_url': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
+            'logo_url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,15 +116,15 @@ class InviteMemberResponse(ModelComposed):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
         'email': 'email',  # noqa: E501
         'role': 'role',  # noqa: E501
         'invitation_link': 'invitation_link',  # noqa: E501
         'invitation_status': 'invitation_status',  # noqa: E501
         'inviter': 'inviter',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'logo_url': 'logo_url',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'logo_url': 'logo_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,13 +139,13 @@ class InviteMemberResponse(ModelComposed):
         """InviteMemberResponse - a model defined in OpenAPI
 
         Keyword Args:
+            id (str):
+            created_at (datetime):
             email (str):
             role (str):
             invitation_link (str):
             invitation_status (str):
             inviter (str):
-            id (str):
-            created_at (datetime):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -174,8 +176,8 @@ class InviteMemberResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            logo_url (str): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
+            logo_url (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -280,8 +282,8 @@ class InviteMemberResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            logo_url (str): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
+            logo_url (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -348,6 +350,7 @@ class InviteMemberResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              InviteMemberResponseAllOf,
           ],
           'oneOf': [
           ],

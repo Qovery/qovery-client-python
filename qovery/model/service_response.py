@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.service_response_all_of import ServiceResponseAllOf
     globals()['BaseResponse'] = BaseResponse
+    globals()['ServiceResponseAllOf'] = ServiceResponseAllOf
 
 
 class ServiceResponse(ModelComposed):
@@ -94,6 +96,7 @@ class ServiceResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'deployed_commit_id': (str,),  # noqa: E501
@@ -102,7 +105,6 @@ class ServiceResponse(ModelComposed):
             'service_typology': (str,),  # noqa: E501
             'service_version': (str,),  # noqa: E501
             'to_update': (bool,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -113,6 +115,7 @@ class ServiceResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'type': 'type',  # noqa: E501
         'name': 'name',  # noqa: E501
         'deployed_commit_id': 'deployed_commit_id',  # noqa: E501
@@ -121,7 +124,6 @@ class ServiceResponse(ModelComposed):
         'service_typology': 'service_typology',  # noqa: E501
         'service_version': 'service_version',  # noqa: E501
         'to_update': 'to_update',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -167,6 +169,7 @@ class ServiceResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             type (str): type of the service (application, database, job, gateway...). [optional]  # noqa: E501
             name (str): name of the service. [optional]  # noqa: E501
             deployed_commit_id (str): Git commit ID corresponding to the deployed version of the application. [optional]  # noqa: E501
@@ -175,7 +178,6 @@ class ServiceResponse(ModelComposed):
             service_typology (str): describes the typology of service (container, postgresl, redis...). [optional]  # noqa: E501
             service_version (str): for databases this field exposes the database version. [optional]  # noqa: E501
             to_update (bool): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,6 +278,7 @@ class ServiceResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             type (str): type of the service (application, database, job, gateway...). [optional]  # noqa: E501
             name (str): name of the service. [optional]  # noqa: E501
             deployed_commit_id (str): Git commit ID corresponding to the deployed version of the application. [optional]  # noqa: E501
@@ -284,7 +287,6 @@ class ServiceResponse(ModelComposed):
             service_typology (str): describes the typology of service (container, postgresl, redis...). [optional]  # noqa: E501
             service_version (str): for databases this field exposes the database version. [optional]  # noqa: E501
             to_update (bool): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -351,6 +353,7 @@ class ServiceResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              ServiceResponseAllOf,
           ],
           'oneOf': [
           ],

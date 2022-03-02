@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.environment_log_paginated_response_list_all_of import EnvironmentLogPaginatedResponseListAllOf
     from qovery.model.environment_log_response import EnvironmentLogResponse
     from qovery.model.pagination_data_response import PaginationDataResponse
+    globals()['EnvironmentLogPaginatedResponseListAllOf'] = EnvironmentLogPaginatedResponseListAllOf
     globals()['EnvironmentLogResponse'] = EnvironmentLogResponse
     globals()['PaginationDataResponse'] = PaginationDataResponse
 
@@ -315,6 +317,7 @@ class EnvironmentLogPaginatedResponseList(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              EnvironmentLogPaginatedResponseListAllOf,
               PaginationDataResponse,
           ],
           'oneOf': [

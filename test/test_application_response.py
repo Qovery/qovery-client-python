@@ -16,17 +16,21 @@ import qovery
 from qovery.model.application_git_repository_response import ApplicationGitRepositoryResponse
 from qovery.model.application_port_response import ApplicationPortResponse
 from qovery.model.application_port_response_ports import ApplicationPortResponsePorts
+from qovery.model.application_response_all_of import ApplicationResponseAllOf
 from qovery.model.application_storage_response import ApplicationStorageResponse
 from qovery.model.application_storage_response_storage import ApplicationStorageResponseStorage
 from qovery.model.base_response import BaseResponse
+from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
 globals()['ApplicationGitRepositoryResponse'] = ApplicationGitRepositoryResponse
 globals()['ApplicationPortResponse'] = ApplicationPortResponse
 globals()['ApplicationPortResponsePorts'] = ApplicationPortResponsePorts
+globals()['ApplicationResponseAllOf'] = ApplicationResponseAllOf
 globals()['ApplicationStorageResponse'] = ApplicationStorageResponse
 globals()['ApplicationStorageResponseStorage'] = ApplicationStorageResponseStorage
 globals()['BaseResponse'] = BaseResponse
+globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.application_response import ApplicationResponse

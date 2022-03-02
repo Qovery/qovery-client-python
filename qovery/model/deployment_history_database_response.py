@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.deployment_history_database_response_all_of import DeploymentHistoryDatabaseResponseAllOf
     globals()['BaseResponse'] = BaseResponse
+    globals()['DeploymentHistoryDatabaseResponseAllOf'] = DeploymentHistoryDatabaseResponseAllOf
 
 
 class DeploymentHistoryDatabaseResponse(ModelComposed):
@@ -110,9 +112,9 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -123,9 +125,9 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -172,9 +174,9 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,9 +276,9 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -343,6 +345,7 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              DeploymentHistoryDatabaseResponseAllOf,
           ],
           'oneOf': [
           ],

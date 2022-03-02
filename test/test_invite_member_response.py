@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.invite_member_response_all_of import InviteMemberResponseAllOf
 globals()['BaseResponse'] = BaseResponse
+globals()['InviteMemberResponseAllOf'] = InviteMemberResponseAllOf
 from qovery.model.invite_member_response import InviteMemberResponse
 
 

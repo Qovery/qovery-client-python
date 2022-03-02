@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
+    from qovery.model.project_deployment_rule_response_all_of import ProjectDeploymentRuleResponseAllOf
     globals()['BaseResponse'] = BaseResponse
     globals()['ProjectDeploymentRuleRequest'] = ProjectDeploymentRuleRequest
+    globals()['ProjectDeploymentRuleResponseAllOf'] = ProjectDeploymentRuleResponseAllOf
 
 
 class ProjectDeploymentRuleResponse(ModelComposed):
@@ -114,12 +116,12 @@ class ProjectDeploymentRuleResponse(ModelComposed):
             'stop_time': (datetime,),  # noqa: E501
             'weekdays': ([str],),  # noqa: E501
             'wildcard': (str,),  # noqa: E501
-            'priority_index': (int,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
             'auto_delete': (bool,),  # noqa: E501
+            'priority_index': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -138,12 +140,12 @@ class ProjectDeploymentRuleResponse(ModelComposed):
         'stop_time': 'stop_time',  # noqa: E501
         'weekdays': 'weekdays',  # noqa: E501
         'wildcard': 'wildcard',  # noqa: E501
-        'priority_index': 'priority_index',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
         'auto_stop': 'auto_stop',  # noqa: E501
         'auto_delete': 'auto_delete',  # noqa: E501
+        'priority_index': 'priority_index',  # noqa: E501
     }
 
     read_only_vars = {
@@ -198,12 +200,12 @@ class ProjectDeploymentRuleResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            priority_index (int): used to select the first deployment rule to match new created environments. [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            priority_index (int): used to select the first deployment rule to match new created environments. [optional]  # noqa: E501
         """
 
         wildcard = kwargs.get('wildcard', "")
@@ -312,12 +314,12 @@ class ProjectDeploymentRuleResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            priority_index (int): used to select the first deployment rule to match new created environments. [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            priority_index (int): used to select the first deployment rule to match new created environments. [optional]  # noqa: E501
         """
 
         wildcard = kwargs.get('wildcard', "")
@@ -386,6 +388,7 @@ class ProjectDeploymentRuleResponse(ModelComposed):
           'allOf': [
               BaseResponse,
               ProjectDeploymentRuleRequest,
+              ProjectDeploymentRuleResponseAllOf,
           ],
           'oneOf': [
           ],

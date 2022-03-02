@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.deployment_history_paginated_response_list_all_of import DeploymentHistoryPaginatedResponseListAllOf
 from qovery.model.deployment_history_response import DeploymentHistoryResponse
 from qovery.model.pagination_data_response import PaginationDataResponse
+globals()['DeploymentHistoryPaginatedResponseListAllOf'] = DeploymentHistoryPaginatedResponseListAllOf
 globals()['DeploymentHistoryResponse'] = DeploymentHistoryResponse
 globals()['PaginationDataResponse'] = PaginationDataResponse
 from qovery.model.deployment_history_paginated_response_list import DeploymentHistoryPaginatedResponseList

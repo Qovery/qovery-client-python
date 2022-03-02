@@ -15,8 +15,10 @@ import unittest
 import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.custom_domain_request import CustomDomainRequest
+from qovery.model.custom_domain_response_all_of import CustomDomainResponseAllOf
 globals()['BaseResponse'] = BaseResponse
 globals()['CustomDomainRequest'] = CustomDomainRequest
+globals()['CustomDomainResponseAllOf'] = CustomDomainResponseAllOf
 from qovery.model.custom_domain_response import CustomDomainResponse
 
 

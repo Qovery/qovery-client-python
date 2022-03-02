@@ -390,7 +390,7 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.3\n"\
-               "SDK Package Version: 1.0.3".\
+               "SDK Package Version: $(grep &#39;version&#39; _build/openapi.yaml | head -1 | tr &#39;:&#39; &#39;\n&#39; | tail -1 | tr -d &#39; &#39;)".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

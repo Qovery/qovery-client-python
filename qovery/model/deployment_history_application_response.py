@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.commit_response import CommitResponse
+    from qovery.model.deployment_history_application_response_all_of import DeploymentHistoryApplicationResponseAllOf
     globals()['BaseResponse'] = BaseResponse
     globals()['CommitResponse'] = CommitResponse
+    globals()['DeploymentHistoryApplicationResponseAllOf'] = DeploymentHistoryApplicationResponseAllOf
 
 
 class DeploymentHistoryApplicationResponse(ModelComposed):
@@ -112,10 +114,10 @@ class DeploymentHistoryApplicationResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'commit': (CommitResponse,),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -126,10 +128,10 @@ class DeploymentHistoryApplicationResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'commit': 'commit',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -176,10 +178,10 @@ class DeploymentHistoryApplicationResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -279,10 +281,10 @@ class DeploymentHistoryApplicationResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -349,6 +351,7 @@ class DeploymentHistoryApplicationResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              DeploymentHistoryApplicationResponseAllOf,
           ],
           'oneOf': [
           ],

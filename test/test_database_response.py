@@ -15,9 +15,11 @@ import unittest
 import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.database_request import DatabaseRequest
+from qovery.model.database_response_all_of import DatabaseResponseAllOf
 from qovery.model.reference_object import ReferenceObject
 globals()['BaseResponse'] = BaseResponse
 globals()['DatabaseRequest'] = DatabaseRequest
+globals()['DatabaseResponseAllOf'] = DatabaseResponseAllOf
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.database_response import DatabaseResponse
 

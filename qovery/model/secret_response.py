@@ -34,9 +34,11 @@ def lazy_import():
     from qovery.model.aliased_secret import AliasedSecret
     from qovery.model.base_response import BaseResponse
     from qovery.model.overridden_secret import OverriddenSecret
+    from qovery.model.secret_response_all_of import SecretResponseAllOf
     globals()['AliasedSecret'] = AliasedSecret
     globals()['BaseResponse'] = BaseResponse
     globals()['OverriddenSecret'] = OverriddenSecret
+    globals()['SecretResponseAllOf'] = SecretResponseAllOf
 
 
 class SecretResponse(ModelComposed):
@@ -98,13 +100,13 @@ class SecretResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'scope': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'scope': (str,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'key': (str,),  # noqa: E501
             'overridden_secret': (OverriddenSecret,),  # noqa: E501
             'aliased_secret': (AliasedSecret,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -113,13 +115,13 @@ class SecretResponse(ModelComposed):
 
 
     attribute_map = {
-        'scope': 'scope',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'scope': 'scope',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'key': 'key',  # noqa: E501
         'overridden_secret': 'overridden_secret',  # noqa: E501
         'aliased_secret': 'aliased_secret',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,9 +136,9 @@ class SecretResponse(ModelComposed):
         """SecretResponse - a model defined in OpenAPI
 
         Keyword Args:
-            scope (str):
             id (str):
             created_at (datetime):
+            scope (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -167,10 +169,10 @@ class SecretResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             key (str): key is case sensitive. [optional]  # noqa: E501
             overridden_secret (OverriddenSecret): [optional]  # noqa: E501
             aliased_secret (AliasedSecret): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,10 +273,10 @@ class SecretResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             key (str): key is case sensitive. [optional]  # noqa: E501
             overridden_secret (OverriddenSecret): [optional]  # noqa: E501
             aliased_secret (AliasedSecret): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -341,6 +343,7 @@ class SecretResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              SecretResponseAllOf,
           ],
           'oneOf': [
           ],

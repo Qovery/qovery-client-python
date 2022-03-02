@@ -31,17 +31,21 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.application_edit_request_all_of import ApplicationEditRequestAllOf
     from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
     from qovery.model.application_port_response import ApplicationPortResponse
     from qovery.model.application_port_response_ports import ApplicationPortResponsePorts
     from qovery.model.application_storage_response import ApplicationStorageResponse
     from qovery.model.application_storage_response_storage import ApplicationStorageResponseStorage
+    from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
+    globals()['ApplicationEditRequestAllOf'] = ApplicationEditRequestAllOf
     globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
     globals()['ApplicationPortResponse'] = ApplicationPortResponse
     globals()['ApplicationPortResponsePorts'] = ApplicationPortResponsePorts
     globals()['ApplicationStorageResponse'] = ApplicationStorageResponse
     globals()['ApplicationStorageResponseStorage'] = ApplicationStorageResponseStorage
+    globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
 
 
@@ -74,19 +78,6 @@ class ApplicationEditRequest(ModelComposed):
             'DOCKER': "DOCKER",
             'BUILDPACKS': "BUILDPACKS",
         },
-        ('buildpack_language',): {
-            'CLOJURE': "CLOJURE",
-            'GO': "GO",
-            'GRADLE': "GRADLE",
-            'GRAILS': "GRAILS",
-            'JAVA': "JAVA",
-            'JVM': "JVM",
-            'NODE_JS': "NODE_JS",
-            'PHP': "PHP",
-            'PLAY': "PLAY",
-            'PYTHON': "PYTHON",
-            'SCALA': "SCALA",
-        },
     }
 
     validations = {
@@ -118,12 +109,14 @@ class ApplicationEditRequest(ModelComposed):
         """
         lazy_import()
         return {
+            'storage': ([ApplicationStorageResponseStorage],),  # noqa: E501
+            'ports': ([ApplicationPortResponsePorts],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
             'build_mode': (str,),  # noqa: E501
             'dockerfile_path': (str,),  # noqa: E501
-            'buildpack_language': (str,),  # noqa: E501
+            'buildpack_language': (BuildPackLanguageEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
@@ -131,8 +124,6 @@ class ApplicationEditRequest(ModelComposed):
             'healthcheck': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'sticky_session': (bool,),  # noqa: E501
-            'storage': ([ApplicationStorageResponseStorage],),  # noqa: E501
-            'ports': ([ApplicationPortResponsePorts],),  # noqa: E501
         }
 
     @cached_property
@@ -141,6 +132,8 @@ class ApplicationEditRequest(ModelComposed):
 
 
     attribute_map = {
+        'storage': 'storage',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
@@ -154,8 +147,6 @@ class ApplicationEditRequest(ModelComposed):
         'healthcheck': 'healthcheck',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'sticky_session': 'sticky_session',  # noqa: E501
-        'storage': 'storage',  # noqa: E501
-        'ports': 'ports',  # noqa: E501
     }
 
     read_only_vars = {
@@ -197,12 +188,14 @@ class ApplicationEditRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            storage ([ApplicationStorageResponseStorage]): [optional]  # noqa: E501
+            ports ([ApplicationPortResponsePorts]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
             build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional]  # noqa: E501
             dockerfile_path (str): The path of the associated Dockerfile. [optional]  # noqa: E501
-            buildpack_language (str): Development language of the application. [optional]  # noqa: E501
+            buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -210,8 +203,6 @@ class ApplicationEditRequest(ModelComposed):
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
             sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
-            storage ([ApplicationStorageResponseStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortResponsePorts]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -311,12 +302,14 @@ class ApplicationEditRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            storage ([ApplicationStorageResponseStorage]): [optional]  # noqa: E501
+            ports ([ApplicationPortResponsePorts]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
             build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional]  # noqa: E501
             dockerfile_path (str): The path of the associated Dockerfile. [optional]  # noqa: E501
-            buildpack_language (str): Development language of the application. [optional]  # noqa: E501
+            buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -324,8 +317,6 @@ class ApplicationEditRequest(ModelComposed):
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
             sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
-            storage ([ApplicationStorageResponseStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortResponsePorts]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -391,6 +382,7 @@ class ApplicationEditRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              ApplicationEditRequestAllOf,
               ApplicationPortResponse,
               ApplicationStorageResponse,
           ],

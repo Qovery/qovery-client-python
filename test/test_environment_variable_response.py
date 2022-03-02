@@ -15,8 +15,14 @@ import unittest
 import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
+from qovery.model.environment_variable_response_all_of import EnvironmentVariableResponseAllOf
+from qovery.model.environment_variable_response_all_of_aliased_variable import EnvironmentVariableResponseAllOfAliasedVariable
+from qovery.model.environment_variable_response_all_of_overridden_variable import EnvironmentVariableResponseAllOfOverriddenVariable
 globals()['BaseResponse'] = BaseResponse
 globals()['EnvironmentVariableRequest'] = EnvironmentVariableRequest
+globals()['EnvironmentVariableResponseAllOf'] = EnvironmentVariableResponseAllOf
+globals()['EnvironmentVariableResponseAllOfAliasedVariable'] = EnvironmentVariableResponseAllOfAliasedVariable
+globals()['EnvironmentVariableResponseAllOfOverriddenVariable'] = EnvironmentVariableResponseAllOfOverriddenVariable
 from qovery.model.environment_variable_response import EnvironmentVariableResponse
 
 

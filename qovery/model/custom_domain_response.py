@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.custom_domain_request import CustomDomainRequest
+    from qovery.model.custom_domain_response_all_of import CustomDomainResponseAllOf
     globals()['BaseResponse'] = BaseResponse
     globals()['CustomDomainRequest'] = CustomDomainRequest
+    globals()['CustomDomainResponseAllOf'] = CustomDomainResponseAllOf
 
 
 class CustomDomainResponse(ModelComposed):
@@ -99,9 +101,9 @@ class CustomDomainResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'domain': (str,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'validation_domain': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -113,9 +115,9 @@ class CustomDomainResponse(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'domain': 'domain',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'validation_domain': 'validation_domain',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,9 +165,9 @@ class CustomDomainResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             validation_domain (str): URL provided by Qovery. You must create a CNAME on your DNS provider using that URL. [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,9 +268,9 @@ class CustomDomainResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             validation_domain (str): URL provided by Qovery. You must create a CNAME on your DNS provider using that URL. [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -336,6 +338,7 @@ class CustomDomainResponse(ModelComposed):
           'allOf': [
               BaseResponse,
               CustomDomainRequest,
+              CustomDomainResponseAllOf,
           ],
           'oneOf': [
           ],

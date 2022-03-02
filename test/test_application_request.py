@@ -16,14 +16,18 @@ import qovery
 from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
 from qovery.model.application_port_request import ApplicationPortRequest
 from qovery.model.application_port_request_ports import ApplicationPortRequestPorts
+from qovery.model.application_request_all_of import ApplicationRequestAllOf
 from qovery.model.application_storage_request import ApplicationStorageRequest
 from qovery.model.application_storage_request_storage import ApplicationStorageRequestStorage
+from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
 globals()['ApplicationPortRequest'] = ApplicationPortRequest
 globals()['ApplicationPortRequestPorts'] = ApplicationPortRequestPorts
+globals()['ApplicationRequestAllOf'] = ApplicationRequestAllOf
 globals()['ApplicationStorageRequest'] = ApplicationStorageRequest
 globals()['ApplicationStorageRequestStorage'] = ApplicationStorageRequestStorage
+globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 from qovery.model.application_request import ApplicationRequest
 

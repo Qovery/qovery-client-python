@@ -16,9 +16,11 @@ import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.cluster import Cluster
 from qovery.model.cluster_feature_response import ClusterFeatureResponse
+from qovery.model.cluster_response_all_of import ClusterResponseAllOf
 globals()['BaseResponse'] = BaseResponse
 globals()['Cluster'] = Cluster
 globals()['ClusterFeatureResponse'] = ClusterFeatureResponse
+globals()['ClusterResponseAllOf'] = ClusterResponseAllOf
 from qovery.model.cluster_response import ClusterResponse
 
 

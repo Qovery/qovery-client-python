@@ -34,9 +34,11 @@ def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.deployment_history_application_response import DeploymentHistoryApplicationResponse
     from qovery.model.deployment_history_database_response import DeploymentHistoryDatabaseResponse
+    from qovery.model.deployment_history_environment_response_all_of import DeploymentHistoryEnvironmentResponseAllOf
     globals()['BaseResponse'] = BaseResponse
     globals()['DeploymentHistoryApplicationResponse'] = DeploymentHistoryApplicationResponse
     globals()['DeploymentHistoryDatabaseResponse'] = DeploymentHistoryDatabaseResponse
+    globals()['DeploymentHistoryEnvironmentResponseAllOf'] = DeploymentHistoryEnvironmentResponseAllOf
 
 
 class DeploymentHistoryEnvironmentResponse(ModelComposed):
@@ -114,10 +116,10 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'applications': ([DeploymentHistoryApplicationResponse],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabaseResponse],),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -128,10 +130,10 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'status': 'status',  # noqa: E501
         'applications': 'applications',  # noqa: E501
         'databases': 'databases',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -178,10 +180,10 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplicationResponse]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabaseResponse]): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,10 +283,10 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             status (str): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplicationResponse]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabaseResponse]): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -351,6 +353,7 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              DeploymentHistoryEnvironmentResponseAllOf,
           ],
           'oneOf': [
           ],

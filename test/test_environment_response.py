@@ -14,8 +14,12 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.environment_response_all_of import EnvironmentResponseAllOf
+from qovery.model.environment_response_all_of_cloud_provider import EnvironmentResponseAllOfCloudProvider
 from qovery.model.reference_object import ReferenceObject
 globals()['BaseResponse'] = BaseResponse
+globals()['EnvironmentResponseAllOf'] = EnvironmentResponseAllOf
+globals()['EnvironmentResponseAllOfCloudProvider'] = EnvironmentResponseAllOfCloudProvider
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.environment_response import EnvironmentResponse
 

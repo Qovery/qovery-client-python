@@ -15,8 +15,10 @@ import unittest
 import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
+from qovery.model.project_deployment_rule_response_all_of import ProjectDeploymentRuleResponseAllOf
 globals()['BaseResponse'] = BaseResponse
 globals()['ProjectDeploymentRuleRequest'] = ProjectDeploymentRuleRequest
+globals()['ProjectDeploymentRuleResponseAllOf'] = ProjectDeploymentRuleResponseAllOf
 from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
 
 

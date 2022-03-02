@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.organization_request import OrganizationRequest
+    from qovery.model.organization_response_all_of import OrganizationResponseAllOf
     globals()['BaseResponse'] = BaseResponse
     globals()['OrganizationRequest'] = OrganizationRequest
+    globals()['OrganizationResponseAllOf'] = OrganizationResponseAllOf
 
 
 class OrganizationResponse(ModelComposed):
@@ -100,13 +102,13 @@ class OrganizationResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'plan': (str,),  # noqa: E501
-            'owner': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'website_url': (str, none_type,),  # noqa: E501
             'repository': (str, none_type,),  # noqa: E501
             'logo_url': (str, none_type,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
+            'owner': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -119,13 +121,13 @@ class OrganizationResponse(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'plan': 'plan',  # noqa: E501
-        'owner': 'owner',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
         'website_url': 'website_url',  # noqa: E501
         'repository': 'repository',  # noqa: E501
         'logo_url': 'logo_url',  # noqa: E501
         'icon_url': 'icon_url',  # noqa: E501
+        'owner': 'owner',  # noqa: E501
     }
 
     read_only_vars = {
@@ -174,13 +176,13 @@ class OrganizationResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            owner (str): uuid of the user owning the organization. [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             website_url (str, none_type): [optional]  # noqa: E501
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
+            owner (str): uuid of the user owning the organization. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -282,13 +284,13 @@ class OrganizationResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            owner (str): uuid of the user owning the organization. [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             website_url (str, none_type): [optional]  # noqa: E501
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
+            owner (str): uuid of the user owning the organization. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -356,6 +358,7 @@ class OrganizationResponse(ModelComposed):
           'allOf': [
               BaseResponse,
               OrganizationRequest,
+              OrganizationResponseAllOf,
           ],
           'oneOf': [
           ],

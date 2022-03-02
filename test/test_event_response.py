@@ -15,11 +15,13 @@ import unittest
 import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.commit_response import CommitResponse
+from qovery.model.event_response_all_of import EventResponseAllOf
 from qovery.model.reference_object import ReferenceObject
 from qovery.model.status import Status
 from qovery.model.user_response import UserResponse
 globals()['BaseResponse'] = BaseResponse
 globals()['CommitResponse'] = CommitResponse
+globals()['EventResponseAllOf'] = EventResponseAllOf
 globals()['ReferenceObject'] = ReferenceObject
 globals()['Status'] = Status
 globals()['UserResponse'] = UserResponse

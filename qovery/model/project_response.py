@@ -32,8 +32,10 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.project_response_all_of import ProjectResponseAllOf
     from qovery.model.reference_object import ReferenceObject
     globals()['BaseResponse'] = BaseResponse
+    globals()['ProjectResponseAllOf'] = ProjectResponseAllOf
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -90,12 +92,12 @@ class ProjectResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'organization': (ReferenceObject,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -104,12 +106,12 @@ class ProjectResponse(ModelComposed):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
         'organization': 'organization',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -124,9 +126,9 @@ class ProjectResponse(ModelComposed):
         """ProjectResponse - a model defined in OpenAPI
 
         Keyword Args:
-            name (str):
             id (str):
             created_at (datetime):
+            name (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -157,9 +159,9 @@ class ProjectResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             organization (ReferenceObject): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,9 +262,9 @@ class ProjectResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             organization (ReferenceObject): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -329,6 +331,7 @@ class ProjectResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              ProjectResponseAllOf,
           ],
           'oneOf': [
           ],

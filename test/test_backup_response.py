@@ -14,9 +14,11 @@ import unittest
 
 import qovery
 from qovery.model.backup_request import BackupRequest
+from qovery.model.backup_response_all_of import BackupResponseAllOf
 from qovery.model.base_response import BaseResponse
 from qovery.model.status import Status
 globals()['BackupRequest'] = BackupRequest
+globals()['BackupResponseAllOf'] = BackupResponseAllOf
 globals()['BaseResponse'] = BaseResponse
 globals()['Status'] = Status
 from qovery.model.backup_response import BackupResponse

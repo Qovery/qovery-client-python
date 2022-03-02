@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.member_response_all_of import MemberResponseAllOf
     globals()['BaseResponse'] = BaseResponse
+    globals()['MemberResponseAllOf'] = MemberResponseAllOf
 
 
 class MemberResponse(ModelComposed):
@@ -94,15 +96,15 @@ class MemberResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'email': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'email': (str,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'nickname': (str,),  # noqa: E501
             'profile_picture_url': (str,),  # noqa: E501
             'last_activity_at': (datetime,),  # noqa: E501
             'role': (str,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -111,15 +113,15 @@ class MemberResponse(ModelComposed):
 
 
     attribute_map = {
-        'email': 'email',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'email': 'email',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'nickname': 'nickname',  # noqa: E501
         'profile_picture_url': 'profile_picture_url',  # noqa: E501
         'last_activity_at': 'last_activity_at',  # noqa: E501
         'role': 'role',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,9 +136,9 @@ class MemberResponse(ModelComposed):
         """MemberResponse - a model defined in OpenAPI
 
         Keyword Args:
-            email (str):
             id (str):
             created_at (datetime):
+            email (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -167,12 +169,12 @@ class MemberResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             nickname (str): [optional]  # noqa: E501
             profile_picture_url (str): [optional]  # noqa: E501
             last_activity_at (datetime): last time the user was connected. [optional]  # noqa: E501
             role (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,12 +275,12 @@ class MemberResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             nickname (str): [optional]  # noqa: E501
             profile_picture_url (str): [optional]  # noqa: E501
             last_activity_at (datetime): last time the user was connected. [optional]  # noqa: E501
             role (str): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -345,6 +347,7 @@ class MemberResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              MemberResponseAllOf,
           ],
           'oneOf': [
           ],

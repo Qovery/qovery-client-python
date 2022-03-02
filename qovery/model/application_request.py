@@ -34,14 +34,18 @@ def lazy_import():
     from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
     from qovery.model.application_port_request import ApplicationPortRequest
     from qovery.model.application_port_request_ports import ApplicationPortRequestPorts
+    from qovery.model.application_request_all_of import ApplicationRequestAllOf
     from qovery.model.application_storage_request import ApplicationStorageRequest
     from qovery.model.application_storage_request_storage import ApplicationStorageRequestStorage
+    from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
     globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
     globals()['ApplicationPortRequest'] = ApplicationPortRequest
     globals()['ApplicationPortRequestPorts'] = ApplicationPortRequestPorts
+    globals()['ApplicationRequestAllOf'] = ApplicationRequestAllOf
     globals()['ApplicationStorageRequest'] = ApplicationStorageRequest
     globals()['ApplicationStorageRequestStorage'] = ApplicationStorageRequestStorage
+    globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
 
 
@@ -73,20 +77,6 @@ class ApplicationRequest(ModelComposed):
         ('build_mode',): {
             'DOCKER': "DOCKER",
             'BUILDPACKS': "BUILDPACKS",
-        },
-        ('buildpack_language',): {
-            'None': None,
-            'CLOJURE': "CLOJURE",
-            'GO': "GO",
-            'GRADLE': "GRADLE",
-            'GRAILS': "GRAILS",
-            'JAVA': "JAVA",
-            'JVM': "JVM",
-            'NODE_JS': "NODE_JS",
-            'PHP': "PHP",
-            'PLAY': "PLAY",
-            'PYTHON': "PYTHON",
-            'SCALA': "SCALA",
         },
     }
 
@@ -121,18 +111,18 @@ class ApplicationRequest(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
+            'storage': ([ApplicationStorageRequestStorage],),  # noqa: E501
+            'ports': ([ApplicationPortRequestPorts],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (str,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
-            'buildpack_language': (str, none_type,),  # noqa: E501
+            'buildpack_language': (BuildPackLanguageEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
             'healthcheck': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
-            'storage': ([ApplicationStorageRequestStorage],),  # noqa: E501
-            'ports': ([ApplicationPortRequestPorts],),  # noqa: E501
         }
 
     @cached_property
@@ -143,6 +133,8 @@ class ApplicationRequest(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
+        'storage': 'storage',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
         'description': 'description',  # noqa: E501
         'build_mode': 'build_mode',  # noqa: E501
         'dockerfile_path': 'dockerfile_path',  # noqa: E501
@@ -153,8 +145,6 @@ class ApplicationRequest(ModelComposed):
         'max_running_instances': 'max_running_instances',  # noqa: E501
         'healthcheck': 'healthcheck',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
-        'storage': 'storage',  # noqa: E501
-        'ports': 'ports',  # noqa: E501
     }
 
     read_only_vars = {
@@ -198,18 +188,18 @@ class ApplicationRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
+            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional] if omitted the server will use the default value of "BUILDPACKS"  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
-            buildpack_language (str, none_type): Development language of the application. [optional]  # noqa: E501
+            buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
-            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -311,18 +301,18 @@ class ApplicationRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
+            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional] if omitted the server will use the default value of "BUILDPACKS"  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
-            buildpack_language (str, none_type): Development language of the application. [optional]  # noqa: E501
+            buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
-            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -389,6 +379,7 @@ class ApplicationRequest(ModelComposed):
           ],
           'allOf': [
               ApplicationPortRequest,
+              ApplicationRequestAllOf,
               ApplicationStorageRequest,
           ],
           'oneOf': [

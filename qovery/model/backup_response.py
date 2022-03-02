@@ -32,9 +32,11 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.backup_request import BackupRequest
+    from qovery.model.backup_response_all_of import BackupResponseAllOf
     from qovery.model.base_response import BaseResponse
     from qovery.model.status import Status
     globals()['BackupRequest'] = BackupRequest
+    globals()['BackupResponseAllOf'] = BackupResponseAllOf
     globals()['BaseResponse'] = BaseResponse
     globals()['Status'] = Status
 
@@ -96,8 +98,8 @@ class BackupResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'message': (str,),  # noqa: E501
-            'status': (Status,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
+            'status': (Status,),  # noqa: E501
         }
 
     @cached_property
@@ -110,8 +112,8 @@ class BackupResponse(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'message': 'message',  # noqa: E501
-        'status': 'status',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -160,8 +162,8 @@ class BackupResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (Status): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
+            status (Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,8 +265,8 @@ class BackupResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (Status): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
+            status (Status): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -331,6 +333,7 @@ class BackupResponse(ModelComposed):
           ],
           'allOf': [
               BackupRequest,
+              BackupResponseAllOf,
               BaseResponse,
           ],
           'oneOf': [

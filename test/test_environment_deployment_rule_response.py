@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.environment_deployment_rule_response_all_of import EnvironmentDeploymentRuleResponseAllOf
 globals()['BaseResponse'] = BaseResponse
+globals()['EnvironmentDeploymentRuleResponseAllOf'] = EnvironmentDeploymentRuleResponseAllOf
 from qovery.model.environment_deployment_rule_response import EnvironmentDeploymentRuleResponse
 
 

@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.service_response_all_of import ServiceResponseAllOf
 globals()['BaseResponse'] = BaseResponse
+globals()['ServiceResponseAllOf'] = ServiceResponseAllOf
 from qovery.model.service_response import ServiceResponse
 
 

@@ -50,27 +50,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = applications_api.ApplicationsApi(api_client)
     environment_id = "environmentId_example" # str | Environment ID
-    application_request = ApplicationRequest(
-        name="name_example",
-        description="description_example",
-        git_repository=ApplicationGitRepositoryRequest(
-            url="https://github.com/Qovery/simple-node-app",
-            branch="feat/text_xxx",
-            root_path="/",
-        ),
-        build_mode="BUILDPACKS",
-        dockerfile_path="dockerfile_path_example",
-        buildpack_language="CLOJURE",
-        cpu=1250,
-        memory=1024,
-        min_running_instances=1,
-        max_running_instances=1,
-        healthcheck=Healthcheck(
-            protocol="TCP",
-            value="value_example",
-        ),
-        auto_preview=True,
-    ) # ApplicationRequest |  (optional)
+    application_request = ApplicationRequest(None) # ApplicationRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:

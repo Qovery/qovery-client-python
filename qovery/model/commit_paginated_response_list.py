@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.commit_paginated_response_list_all_of import CommitPaginatedResponseListAllOf
     from qovery.model.commit_response import CommitResponse
     from qovery.model.pagination_data_response import PaginationDataResponse
+    globals()['CommitPaginatedResponseListAllOf'] = CommitPaginatedResponseListAllOf
     globals()['CommitResponse'] = CommitResponse
     globals()['PaginationDataResponse'] = PaginationDataResponse
 
@@ -315,6 +317,7 @@ class CommitPaginatedResponseList(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              CommitPaginatedResponseListAllOf,
               PaginationDataResponse,
           ],
           'oneOf': [

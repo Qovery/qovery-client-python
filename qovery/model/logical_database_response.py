@@ -33,9 +33,11 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.logical_database_request import LogicalDatabaseRequest
+    from qovery.model.logical_database_response_all_of import LogicalDatabaseResponseAllOf
     from qovery.model.reference_object import ReferenceObject
     globals()['BaseResponse'] = BaseResponse
     globals()['LogicalDatabaseRequest'] = LogicalDatabaseRequest
+    globals()['LogicalDatabaseResponseAllOf'] = LogicalDatabaseResponseAllOf
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -95,9 +97,9 @@ class LogicalDatabaseResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'database': (ReferenceObject,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'database': (ReferenceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -109,9 +111,9 @@ class LogicalDatabaseResponse(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'database': 'database',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'database': 'database',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,9 +161,9 @@ class LogicalDatabaseResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            database (ReferenceObject): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
+            database (ReferenceObject): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -262,9 +264,9 @@ class LogicalDatabaseResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            database (ReferenceObject): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
+            database (ReferenceObject): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -332,6 +334,7 @@ class LogicalDatabaseResponse(ModelComposed):
           'allOf': [
               BaseResponse,
               LogicalDatabaseRequest,
+              LogicalDatabaseResponseAllOf,
           ],
           'oneOf': [
           ],

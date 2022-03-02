@@ -32,8 +32,12 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.environment_response_all_of import EnvironmentResponseAllOf
+    from qovery.model.environment_response_all_of_cloud_provider import EnvironmentResponseAllOfCloudProvider
     from qovery.model.reference_object import ReferenceObject
     globals()['BaseResponse'] = BaseResponse
+    globals()['EnvironmentResponseAllOf'] = EnvironmentResponseAllOf
+    globals()['EnvironmentResponseAllOfCloudProvider'] = EnvironmentResponseAllOfCloudProvider
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -96,15 +100,15 @@ class EnvironmentResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
-            'cloud_provider': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'mode': (str,),  # noqa: E501
-            'cluster_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'cloud_provider': (EnvironmentResponseAllOfCloudProvider,),  # noqa: E501
+            'mode': (str,),  # noqa: E501
+            'cluster_id': (str,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'project': (ReferenceObject,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -113,15 +117,15 @@ class EnvironmentResponse(ModelComposed):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
         'mode': 'mode',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'project': 'project',  # noqa: E501
         'last_updated_by': 'last_updated_by',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,12 +140,12 @@ class EnvironmentResponse(ModelComposed):
         """EnvironmentResponse - a model defined in OpenAPI
 
         Keyword Args:
-            name (str): name is case insensitive
-            cloud_provider ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
-            mode (str):
-            cluster_id (str):
             id (str):
             created_at (datetime):
+            name (str): name is case insensitive
+            cloud_provider (EnvironmentResponseAllOfCloudProvider):
+            mode (str):
+            cluster_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -172,9 +176,9 @@ class EnvironmentResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,7 +249,7 @@ class EnvironmentResponse(ModelComposed):
 
         Keyword Args:
             name (str): name is case insensitive
-            cloud_provider ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            cloud_provider (EnvironmentResponseAllOfCloudProvider):
             mode (str):
             cluster_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -278,9 +282,9 @@ class EnvironmentResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -347,6 +351,7 @@ class EnvironmentResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              EnvironmentResponseAllOf,
           ],
           'oneOf': [
           ],

@@ -57,7 +57,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = clusters_api.ClustersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    cluster_request = ClusterRequest() # ClusterRequest |  (optional)
+    cluster_request = ClusterRequest(None) # ClusterRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -310,7 +310,7 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = clusters_api.ClustersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     cluster_id = "clusterId_example" # str | Cluster ID
-    cluster_request = ClusterRequest() # ClusterRequest |  (optional)
+    cluster_request = ClusterRequest(None) # ClusterRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:

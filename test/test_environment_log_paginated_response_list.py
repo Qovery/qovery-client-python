@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.environment_log_paginated_response_list_all_of import EnvironmentLogPaginatedResponseListAllOf
 from qovery.model.environment_log_response import EnvironmentLogResponse
 from qovery.model.pagination_data_response import PaginationDataResponse
+globals()['EnvironmentLogPaginatedResponseListAllOf'] = EnvironmentLogPaginatedResponseListAllOf
 globals()['EnvironmentLogResponse'] = EnvironmentLogResponse
 globals()['PaginationDataResponse'] = PaginationDataResponse
 from qovery.model.environment_log_paginated_response_list import EnvironmentLogPaginatedResponseList

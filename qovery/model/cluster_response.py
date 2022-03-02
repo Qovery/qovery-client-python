@@ -34,9 +34,11 @@ def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.cluster import Cluster
     from qovery.model.cluster_feature_response import ClusterFeatureResponse
+    from qovery.model.cluster_response_all_of import ClusterResponseAllOf
     globals()['BaseResponse'] = BaseResponse
     globals()['Cluster'] = Cluster
     globals()['ClusterFeatureResponse'] = ClusterFeatureResponse
+    globals()['ClusterResponseAllOf'] = ClusterResponseAllOf
 
 
 class ClusterResponse(ModelComposed):
@@ -69,13 +71,13 @@ class ClusterResponse(ModelComposed):
             'DIGITAL_OCEAN': "DIGITAL_OCEAN",
             'SCALEWAY': "SCALEWAY",
         },
+        ('value_type',): {
+            'BOOLEAN': "BOOLEAN",
+        },
         ('status',): {
             'READY': "READY",
             'RUNNING': "RUNNING",
             'WARNING': "WARNING",
-        },
-        ('value_type',): {
-            'BOOLEAN': "BOOLEAN",
         },
     }
 
@@ -110,11 +112,6 @@ class ClusterResponse(ModelComposed):
             'name': (str,),  # noqa: E501
             'cloud_provider': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
-            'estimated_cloud_provider_cost': (int,),  # noqa: E501
-            'status': (str,),  # noqa: E501
-            'has_access': (bool,),  # noqa: E501
-            'version': (str,),  # noqa: E501
-            'is_default': (bool,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'auto_update': (bool,),  # noqa: E501
@@ -130,6 +127,11 @@ class ClusterResponse(ModelComposed):
             'value': (str, none_type,),  # noqa: E501
             'is_value_updatable': (bool,),  # noqa: E501
             'accepted_values': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
+            'estimated_cloud_provider_cost': (int,),  # noqa: E501
+            'status': (str,),  # noqa: E501
+            'has_access': (bool,),  # noqa: E501
+            'version': (str,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -143,11 +145,6 @@ class ClusterResponse(ModelComposed):
         'name': 'name',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
         'region': 'region',  # noqa: E501
-        'estimated_cloud_provider_cost': 'estimated_cloud_provider_cost',  # noqa: E501
-        'status': 'status',  # noqa: E501
-        'has_access': 'has_access',  # noqa: E501
-        'version': 'version',  # noqa: E501
-        'is_default': 'is_default',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
         'auto_update': 'auto_update',  # noqa: E501
@@ -163,6 +160,11 @@ class ClusterResponse(ModelComposed):
         'value': 'value',  # noqa: E501
         'is_value_updatable': 'is_value_updatable',  # noqa: E501
         'accepted_values': 'accepted_values',  # noqa: E501
+        'estimated_cloud_provider_cost': 'estimated_cloud_provider_cost',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'has_access': 'has_access',  # noqa: E501
+        'version': 'version',  # noqa: E501
+        'is_default': 'is_default',  # noqa: E501
     }
 
     read_only_vars = {
@@ -211,11 +213,6 @@ class ClusterResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
-            has_access (bool): [optional]  # noqa: E501
-            version (str): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             auto_update (bool): [optional]  # noqa: E501
@@ -231,6 +228,11 @@ class ClusterResponse(ModelComposed):
             value (str, none_type): [optional]  # noqa: E501
             is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
+            has_access (bool): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
+            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -334,11 +336,6 @@ class ClusterResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
-            has_access (bool): [optional]  # noqa: E501
-            version (str): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
             updated_at (datetime): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             auto_update (bool): [optional]  # noqa: E501
@@ -354,6 +351,11 @@ class ClusterResponse(ModelComposed):
             value (str, none_type): [optional]  # noqa: E501
             is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
+            estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
+            status (str): [optional]  # noqa: E501
+            has_access (bool): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
+            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -422,6 +424,7 @@ class ClusterResponse(ModelComposed):
               BaseResponse,
               Cluster,
               ClusterFeatureResponse,
+              ClusterResponseAllOf,
           ],
           'oneOf': [
           ],

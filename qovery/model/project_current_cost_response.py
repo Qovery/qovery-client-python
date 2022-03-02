@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.cost_response import CostResponse
     from qovery.model.generic_object_current_cost_response import GenericObjectCurrentCostResponse
+    from qovery.model.project_current_cost_response_all_of import ProjectCurrentCostResponseAllOf
     globals()['CostResponse'] = CostResponse
     globals()['GenericObjectCurrentCostResponse'] = GenericObjectCurrentCostResponse
+    globals()['ProjectCurrentCostResponseAllOf'] = ProjectCurrentCostResponseAllOf
 
 
 class ProjectCurrentCostResponse(ModelComposed):
@@ -324,6 +326,7 @@ class ProjectCurrentCostResponse(ModelComposed):
           ],
           'allOf': [
               GenericObjectCurrentCostResponse,
+              ProjectCurrentCostResponseAllOf,
           ],
           'oneOf': [
           ],

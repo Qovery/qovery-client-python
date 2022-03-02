@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.deployment_history_environment_paginated_response_list_all_of import DeploymentHistoryEnvironmentPaginatedResponseListAllOf
     from qovery.model.deployment_history_environment_response import DeploymentHistoryEnvironmentResponse
     from qovery.model.pagination_data_response import PaginationDataResponse
+    globals()['DeploymentHistoryEnvironmentPaginatedResponseListAllOf'] = DeploymentHistoryEnvironmentPaginatedResponseListAllOf
     globals()['DeploymentHistoryEnvironmentResponse'] = DeploymentHistoryEnvironmentResponse
     globals()['PaginationDataResponse'] = PaginationDataResponse
 
@@ -315,6 +317,7 @@ class DeploymentHistoryEnvironmentPaginatedResponseList(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              DeploymentHistoryEnvironmentPaginatedResponseListAllOf,
               PaginationDataResponse,
           ],
           'oneOf': [

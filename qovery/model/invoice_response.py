@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cost_response import CostResponse
+    from qovery.model.invoice_response_all_of import InvoiceResponseAllOf
     globals()['CostResponse'] = CostResponse
+    globals()['InvoiceResponseAllOf'] = InvoiceResponseAllOf
 
 
 class InvoiceResponse(ModelComposed):
@@ -97,12 +99,12 @@ class InvoiceResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
-            'created_at': (datetime,),  # noqa: E501
-            'status': (str,),  # noqa: E501
             'total_in_cents': (int,),  # noqa: E501
             'total': (float,),  # noqa: E501
             'currency_code': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'created_at': (datetime,),  # noqa: E501
+            'status': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -111,12 +113,12 @@ class InvoiceResponse(ModelComposed):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'created_at': 'created_at',  # noqa: E501
-        'status': 'status',  # noqa: E501
         'total_in_cents': 'total_in_cents',  # noqa: E501
         'total': 'total',  # noqa: E501
         'currency_code': 'currency_code',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'created_at': 'created_at',  # noqa: E501
+        'status': 'status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -128,12 +130,12 @@ class InvoiceResponse(ModelComposed):
         """InvoiceResponse - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            created_at (datetime):
-            status (str):
             total_in_cents (int):
             total (float):
             currency_code (str):
+            id (str):
+            created_at (datetime):
+            status (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -233,12 +235,12 @@ class InvoiceResponse(ModelComposed):
         """InvoiceResponse - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            created_at (datetime):
-            status (str):
             total_in_cents (int):
             total (float):
             currency_code (str):
+            id (str):
+            created_at (datetime):
+            status (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -335,6 +337,7 @@ class InvoiceResponse(ModelComposed):
           ],
           'allOf': [
               CostResponse,
+              InvoiceResponseAllOf,
           ],
           'oneOf': [
           ],

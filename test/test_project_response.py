@@ -14,8 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.project_response_all_of import ProjectResponseAllOf
 from qovery.model.reference_object import ReferenceObject
 globals()['BaseResponse'] = BaseResponse
+globals()['ProjectResponseAllOf'] = ProjectResponseAllOf
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.project_response import ProjectResponse
 

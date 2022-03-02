@@ -33,11 +33,13 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.commit_response import CommitResponse
+    from qovery.model.event_response_all_of import EventResponseAllOf
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.status import Status
     from qovery.model.user_response import UserResponse
     globals()['BaseResponse'] = BaseResponse
     globals()['CommitResponse'] = CommitResponse
+    globals()['EventResponseAllOf'] = EventResponseAllOf
     globals()['ReferenceObject'] = ReferenceObject
     globals()['Status'] = Status
     globals()['UserResponse'] = UserResponse
@@ -98,12 +100,12 @@ class EventResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'user': (UserResponse,),  # noqa: E501
             'commit': (CommitResponse,),  # noqa: E501
             'status': (Status,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'log': (ReferenceObject,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -114,12 +116,12 @@ class EventResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'user': 'user',  # noqa: E501
         'commit': 'commit',  # noqa: E501
         'status': 'status',  # noqa: E501
         'type': 'type',  # noqa: E501
         'log': 'log',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -166,12 +168,12 @@ class EventResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             user (UserResponse): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
             status (Status): [optional]  # noqa: E501
             type (str): DRAFT - we have to specify here all the possible events. [optional]  # noqa: E501
             log (ReferenceObject): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,12 +273,12 @@ class EventResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
             user (UserResponse): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
             status (Status): [optional]  # noqa: E501
             type (str): DRAFT - we have to specify here all the possible events. [optional]  # noqa: E501
             log (ReferenceObject): [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -343,6 +345,7 @@ class EventResponse(ModelComposed):
           ],
           'allOf': [
               BaseResponse,
+              EventResponseAllOf,
           ],
           'oneOf': [
           ],

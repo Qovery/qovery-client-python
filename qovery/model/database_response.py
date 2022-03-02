@@ -33,9 +33,11 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.database_request import DatabaseRequest
+    from qovery.model.database_response_all_of import DatabaseResponseAllOf
     from qovery.model.reference_object import ReferenceObject
     globals()['BaseResponse'] = BaseResponse
     globals()['DatabaseRequest'] = DatabaseRequest
+    globals()['DatabaseResponseAllOf'] = DatabaseResponseAllOf
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -112,17 +114,17 @@ class DatabaseResponse(ModelComposed):
             'type': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'mode': (str,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
+            'accessibility': (str,),  # noqa: E501
+            'cpu': (int,),  # noqa: E501
+            'memory': (int,),  # noqa: E501
+            'storage': (int,),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'host': (str,),  # noqa: E501
             'port': (int,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'disk_encrypted': (bool,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
-            'accessibility': (str,),  # noqa: E501
-            'cpu': (int,),  # noqa: E501
-            'memory': (int,),  # noqa: E501
-            'storage': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -137,17 +139,17 @@ class DatabaseResponse(ModelComposed):
         'type': 'type',  # noqa: E501
         'version': 'version',  # noqa: E501
         'mode': 'mode',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
+        'accessibility': 'accessibility',  # noqa: E501
+        'cpu': 'cpu',  # noqa: E501
+        'memory': 'memory',  # noqa: E501
+        'storage': 'storage',  # noqa: E501
         'environment': 'environment',  # noqa: E501
         'host': 'host',  # noqa: E501
         'port': 'port',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
         'disk_encrypted': 'disk_encrypted',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
-        'accessibility': 'accessibility',  # noqa: E501
-        'cpu': 'cpu',  # noqa: E501
-        'memory': 'memory',  # noqa: E501
-        'storage': 'storage',  # noqa: E501
     }
 
     read_only_vars = {
@@ -198,17 +200,17 @@ class DatabaseResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
+            accessibility (str): [optional] if omitted the server will use the default value of "PRIVATE"  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             host (str): [optional]  # noqa: E501
             port (int): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the database based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the database based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             disk_encrypted (bool): indicates if the database disk is encrypted or not. [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
-            accessibility (str): [optional] if omitted the server will use the default value of "PRIVATE"  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
-            storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -312,17 +314,17 @@ class DatabaseResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            updated_at (datetime): [optional]  # noqa: E501
+            accessibility (str): [optional] if omitted the server will use the default value of "PRIVATE"  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             host (str): [optional]  # noqa: E501
             port (int): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the database based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the database based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             disk_encrypted (bool): indicates if the database disk is encrypted or not. [optional]  # noqa: E501
-            updated_at (datetime): [optional]  # noqa: E501
-            accessibility (str): [optional] if omitted the server will use the default value of "PRIVATE"  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
-            storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -390,6 +392,7 @@ class DatabaseResponse(ModelComposed):
           'allOf': [
               BaseResponse,
               DatabaseRequest,
+              DatabaseResponseAllOf,
           ],
           'oneOf': [
           ],
