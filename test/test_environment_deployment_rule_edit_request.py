@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.weekday_enum import WeekdayEnum
+globals()['WeekdayEnum'] = WeekdayEnum
 from qovery.model.environment_deployment_rule_edit_request import EnvironmentDeploymentRuleEditRequest
 
 

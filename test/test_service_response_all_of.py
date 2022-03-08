@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.service_type_enum import ServiceTypeEnum
+globals()['ServiceTypeEnum'] = ServiceTypeEnum
 from qovery.model.service_response_all_of import ServiceResponseAllOf
 
 

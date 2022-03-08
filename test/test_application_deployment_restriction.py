@@ -13,6 +13,10 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.deployment_restriction_mode_enum import DeploymentRestrictionModeEnum
+from qovery.model.deployment_restriction_type_enum import DeploymentRestrictionTypeEnum
+globals()['DeploymentRestrictionModeEnum'] = DeploymentRestrictionModeEnum
+globals()['DeploymentRestrictionTypeEnum'] = DeploymentRestrictionTypeEnum
 from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 
 

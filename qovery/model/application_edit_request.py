@@ -37,6 +37,7 @@ def lazy_import():
     from qovery.model.application_port_response_ports import ApplicationPortResponsePorts
     from qovery.model.application_storage_response import ApplicationStorageResponse
     from qovery.model.application_storage_response_storage import ApplicationStorageResponseStorage
+    from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
     globals()['ApplicationEditRequestAllOf'] = ApplicationEditRequestAllOf
@@ -45,6 +46,7 @@ def lazy_import():
     globals()['ApplicationPortResponsePorts'] = ApplicationPortResponsePorts
     globals()['ApplicationStorageResponse'] = ApplicationStorageResponse
     globals()['ApplicationStorageResponseStorage'] = ApplicationStorageResponseStorage
+    globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
 
@@ -74,10 +76,6 @@ class ApplicationEditRequest(ModelComposed):
     """
 
     allowed_values = {
-        ('build_mode',): {
-            'DOCKER': "DOCKER",
-            'BUILDPACKS': "BUILDPACKS",
-        },
     }
 
     validations = {
@@ -114,7 +112,7 @@ class ApplicationEditRequest(ModelComposed):
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
-            'build_mode': (str,),  # noqa: E501
+            'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str,),  # noqa: E501
             'buildpack_language': (BuildPackLanguageEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
@@ -193,7 +191,7 @@ class ApplicationEditRequest(ModelComposed):
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
-            build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional]  # noqa: E501
+            build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str): The path of the associated Dockerfile. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -307,7 +305,7 @@ class ApplicationEditRequest(ModelComposed):
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
-            build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional]  # noqa: E501
+            build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str): The path of the associated Dockerfile. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501

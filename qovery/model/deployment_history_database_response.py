@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.deployment_history_database_response_all_of import DeploymentHistoryDatabaseResponseAllOf
+    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     globals()['BaseResponse'] = BaseResponse
     globals()['DeploymentHistoryDatabaseResponseAllOf'] = DeploymentHistoryDatabaseResponseAllOf
+    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 
 
 class DeploymentHistoryDatabaseResponse(ModelComposed):
@@ -62,26 +64,6 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('status',): {
-            'READY': "READY",
-            'BUILDING': "BUILDING",
-            'BUILD_ERROR': "BUILD_ERROR",
-            'BUILT': "BUILT",
-            'DEPLOYMENT_QUEUED': "DEPLOYMENT_QUEUED",
-            'DEPLOYING': "DEPLOYING",
-            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
-            'DEPLOYED': "DEPLOYED",
-            'STOP_QUEUED': "STOP_QUEUED",
-            'STOPPING': "STOPPING",
-            'STOP_ERROR': "STOP_ERROR",
-            'STOPPED': "STOPPED",
-            'DELETE_QUEUED': "DELETE_QUEUED",
-            'DELETING': "DELETING",
-            'DELETE_ERROR': "DELETE_ERROR",
-            'DELETED': "DELETED",
-            'RUNNING': "RUNNING",
-            'RUNNING_ERROR': "RUNNING_ERROR",
-        },
     }
 
     validations = {
@@ -114,7 +96,7 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (GlobalDeploymentStatus,),  # noqa: E501
         }
 
     @cached_property
@@ -176,7 +158,7 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -278,7 +260,7 @@ class DeploymentHistoryDatabaseResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

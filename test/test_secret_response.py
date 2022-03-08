@@ -15,10 +15,12 @@ import unittest
 import qovery
 from qovery.model.aliased_secret import AliasedSecret
 from qovery.model.base_response import BaseResponse
+from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
 from qovery.model.overridden_secret import OverriddenSecret
 from qovery.model.secret_response_all_of import SecretResponseAllOf
 globals()['AliasedSecret'] = AliasedSecret
 globals()['BaseResponse'] = BaseResponse
+globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
 globals()['OverriddenSecret'] = OverriddenSecret
 globals()['SecretResponseAllOf'] = SecretResponseAllOf
 from qovery.model.secret_response import SecretResponse

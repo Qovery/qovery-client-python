@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.cloud_provider_enum import CloudProviderEnum
+globals()['CloudProviderEnum'] = CloudProviderEnum
 from qovery.model.cluster import Cluster
 
 

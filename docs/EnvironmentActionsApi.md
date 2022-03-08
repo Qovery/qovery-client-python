@@ -134,7 +134,7 @@ with qovery.ApiClient(configuration) as api_client:
     clone_request = CloneRequest(
         name="name_example",
         cluster_id="cluster_id_example",
-        mode="PRODUCTION",
+        mode=EnvironmentModeEnum("PRODUCTION"),
     ) # CloneRequest |  (optional)
 
     # example passing only required values which don't have defaults set

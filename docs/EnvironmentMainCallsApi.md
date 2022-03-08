@@ -130,7 +130,7 @@ with qovery.ApiClient(configuration) as api_client:
     environment_id = "environmentId_example" # str | Environment ID
     environment_edit_request = EnvironmentEditRequest(
         name="name_example",
-        mode="DEVELOPMENT",
+        mode=EnvironmentModeEnum("PRODUCTION"),
     ) # EnvironmentEditRequest |  (optional)
 
     # example passing only required values which don't have defaults set

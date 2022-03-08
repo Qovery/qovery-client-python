@@ -14,8 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.invite_member_role_enum import InviteMemberRoleEnum
 from qovery.model.member_response_all_of import MemberResponseAllOf
 globals()['BaseResponse'] = BaseResponse
+globals()['InviteMemberRoleEnum'] = InviteMemberRoleEnum
 globals()['MemberResponseAllOf'] = MemberResponseAllOf
 from qovery.model.member_response import MemberResponse
 

@@ -31,7 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_cloud_provider_info_request_credentials import ClusterCloudProviderInfoRequestCredentials
+    globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterCloudProviderInfoRequestCredentials'] = ClusterCloudProviderInfoRequestCredentials
 
 
@@ -60,11 +62,6 @@ class ClusterCloudProviderInfoResponse(ModelNormal):
     """
 
     allowed_values = {
-        ('cloud_provider',): {
-            'AWS': "AWS",
-            'DIGITAL_OCEAN': "DIGITAL_OCEAN",
-            'SCALEWAY': "SCALEWAY",
-        },
     }
 
     validations = {
@@ -93,7 +90,7 @@ class ClusterCloudProviderInfoResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'cloud_provider': (str,),  # noqa: E501
+            'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'credentials': (ClusterCloudProviderInfoRequestCredentials,),  # noqa: E501
             'region': (str,),  # noqa: E501
         }
@@ -150,7 +147,7 @@ class ClusterCloudProviderInfoResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            cloud_provider (str): [optional]  # noqa: E501
+            cloud_provider (CloudProviderEnum): [optional]  # noqa: E501
             credentials (ClusterCloudProviderInfoRequestCredentials): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
         """
@@ -234,7 +231,7 @@ class ClusterCloudProviderInfoResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            cloud_provider (str): [optional]  # noqa: E501
+            cloud_provider (CloudProviderEnum): [optional]  # noqa: E501
             credentials (ClusterCloudProviderInfoRequestCredentials): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
         """

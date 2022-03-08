@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
-**scope** | **str** |  | 
+**scope** | [**EnvironmentVariableScopeEnum**](EnvironmentVariableScopeEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **key** | **str** | key is case sensitive | [optional] 
 **overridden_secret** | [**OverriddenSecret**](OverriddenSecret.md) |  | [optional] 

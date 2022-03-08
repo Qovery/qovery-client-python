@@ -32,10 +32,12 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.application_git_repository_response import ApplicationGitRepositoryResponse
+    from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     globals()['ApplicationGitRepositoryResponse'] = ApplicationGitRepositoryResponse
+    globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
@@ -66,10 +68,6 @@ class ApplicationResponseAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('build_mode',): {
-            'DOCKER': "DOCKER",
-            'BUILDPACKS': "BUILDPACKS",
-        },
     }
 
     validations = {
@@ -107,7 +105,7 @@ class ApplicationResponseAllOf(ModelNormal):
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'build_mode': (str,),  # noqa: E501
+            'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
             'buildpack_language': (BuildPackLanguageEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
@@ -188,7 +186,7 @@ class ApplicationResponseAllOf(ModelNormal):
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
-            build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional] if omitted the server will use the default value of "BUILDPACKS"  # noqa: E501
+            build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -284,7 +282,7 @@ class ApplicationResponseAllOf(ModelNormal):
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
-            build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional] if omitted the server will use the default value of "BUILDPACKS"  # noqa: E501
+            build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501

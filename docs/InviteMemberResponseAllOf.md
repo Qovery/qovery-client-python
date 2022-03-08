@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **str** |  | 
-**role** | **str** |  | 
+**role** | [**InviteMemberRoleEnum**](InviteMemberRoleEnum.md) |  | 
 **invitation_link** | **str** |  | 
-**invitation_status** | **str** |  | 
+**invitation_status** | [**InviteStatusEnum**](InviteStatusEnum.md) |  | 
 **inviter** | **str** |  | 
 **logo_url** | **str** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

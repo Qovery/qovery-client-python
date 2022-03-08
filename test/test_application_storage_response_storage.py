@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.storage_type_enum import StorageTypeEnum
+globals()['StorageTypeEnum'] = StorageTypeEnum
 from qovery.model.application_storage_response_storage import ApplicationStorageResponseStorage
 
 

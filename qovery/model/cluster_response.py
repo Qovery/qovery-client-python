@@ -32,13 +32,17 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster import Cluster
     from qovery.model.cluster_feature_response import ClusterFeatureResponse
     from qovery.model.cluster_response_all_of import ClusterResponseAllOf
+    from qovery.model.cluster_status_enum import ClusterStatusEnum
     globals()['BaseResponse'] = BaseResponse
+    globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['Cluster'] = Cluster
     globals()['ClusterFeatureResponse'] = ClusterFeatureResponse
     globals()['ClusterResponseAllOf'] = ClusterResponseAllOf
+    globals()['ClusterStatusEnum'] = ClusterStatusEnum
 
 
 class ClusterResponse(ModelComposed):
@@ -66,18 +70,8 @@ class ClusterResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('cloud_provider',): {
-            'AWS': "AWS",
-            'DIGITAL_OCEAN': "DIGITAL_OCEAN",
-            'SCALEWAY': "SCALEWAY",
-        },
         ('value_type',): {
             'BOOLEAN': "BOOLEAN",
-        },
-        ('status',): {
-            'READY': "READY",
-            'RUNNING': "RUNNING",
-            'WARNING': "WARNING",
         },
     }
 
@@ -110,7 +104,7 @@ class ClusterResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'cloud_provider': (str,),  # noqa: E501
+            'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -128,7 +122,7 @@ class ClusterResponse(ModelComposed):
             'is_value_updatable': (bool,),  # noqa: E501
             'accepted_values': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
             'estimated_cloud_provider_cost': (int,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (ClusterStatusEnum,),  # noqa: E501
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
@@ -181,7 +175,7 @@ class ClusterResponse(ModelComposed):
             id (str):
             created_at (datetime):
             name (str): name is case-insensitive
-            cloud_provider (str):
+            cloud_provider (CloudProviderEnum):
             region (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -229,7 +223,7 @@ class ClusterResponse(ModelComposed):
             is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (ClusterStatusEnum): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
@@ -304,7 +298,7 @@ class ClusterResponse(ModelComposed):
         Keyword Args:
             id (str):
             name (str): name is case-insensitive
-            cloud_provider (str):
+            cloud_provider (CloudProviderEnum):
             region (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -352,7 +346,7 @@ class ClusterResponse(ModelComposed):
             is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (ClusterStatusEnum): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501

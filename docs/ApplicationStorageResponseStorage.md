@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | 
+**type** | [**StorageTypeEnum**](StorageTypeEnum.md) |  | 
 **size** | **int** | unit is GB | 
 **mount_point** | **str** |  | 
 **id** | **str** |  | [optional] 

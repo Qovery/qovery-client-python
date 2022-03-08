@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.commit_response import CommitResponse
+    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     globals()['CommitResponse'] = CommitResponse
+    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 
 
 class DeploymentHistoryApplicationResponseAllOf(ModelNormal):
@@ -60,26 +62,6 @@ class DeploymentHistoryApplicationResponseAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('status',): {
-            'READY': "READY",
-            'BUILDING': "BUILDING",
-            'BUILD_ERROR': "BUILD_ERROR",
-            'BUILT': "BUILT",
-            'DEPLOYMENT_QUEUED': "DEPLOYMENT_QUEUED",
-            'DEPLOYING': "DEPLOYING",
-            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
-            'DEPLOYED': "DEPLOYED",
-            'STOP_QUEUED': "STOP_QUEUED",
-            'STOPPING': "STOPPING",
-            'STOP_ERROR': "STOP_ERROR",
-            'STOPPED': "STOPPED",
-            'DELETE_QUEUED': "DELETE_QUEUED",
-            'DELETING': "DELETING",
-            'DELETE_ERROR': "DELETE_ERROR",
-            'DELETED': "DELETED",
-            'RUNNING': "RUNNING",
-            'RUNNING_ERROR': "RUNNING_ERROR",
-        },
     }
 
     validations = {
@@ -110,7 +92,7 @@ class DeploymentHistoryApplicationResponseAllOf(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'commit': (CommitResponse,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (GlobalDeploymentStatus,),  # noqa: E501
         }
 
     @cached_property
@@ -167,7 +149,7 @@ class DeploymentHistoryApplicationResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,7 +233,7 @@ class DeploymentHistoryApplicationResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -35,10 +35,12 @@ def lazy_import():
     from qovery.model.deployment_history_application_response import DeploymentHistoryApplicationResponse
     from qovery.model.deployment_history_database_response import DeploymentHistoryDatabaseResponse
     from qovery.model.deployment_history_environment_response_all_of import DeploymentHistoryEnvironmentResponseAllOf
+    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     globals()['BaseResponse'] = BaseResponse
     globals()['DeploymentHistoryApplicationResponse'] = DeploymentHistoryApplicationResponse
     globals()['DeploymentHistoryDatabaseResponse'] = DeploymentHistoryDatabaseResponse
     globals()['DeploymentHistoryEnvironmentResponseAllOf'] = DeploymentHistoryEnvironmentResponseAllOf
+    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 
 
 class DeploymentHistoryEnvironmentResponse(ModelComposed):
@@ -66,26 +68,6 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('status',): {
-            'READY': "READY",
-            'BUILDING': "BUILDING",
-            'BUILD_ERROR': "BUILD_ERROR",
-            'BUILT': "BUILT",
-            'DEPLOYMENT_QUEUED': "DEPLOYMENT_QUEUED",
-            'DEPLOYING': "DEPLOYING",
-            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
-            'DEPLOYED': "DEPLOYED",
-            'STOP_QUEUED': "STOP_QUEUED",
-            'STOPPING': "STOPPING",
-            'STOP_ERROR': "STOP_ERROR",
-            'STOPPED': "STOPPED",
-            'DELETE_QUEUED': "DELETE_QUEUED",
-            'DELETING': "DELETING",
-            'DELETE_ERROR': "DELETE_ERROR",
-            'DELETED': "DELETED",
-            'RUNNING': "RUNNING",
-            'RUNNING_ERROR': "RUNNING_ERROR",
-        },
     }
 
     validations = {
@@ -117,7 +99,7 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (GlobalDeploymentStatus,),  # noqa: E501
             'applications': ([DeploymentHistoryApplicationResponse],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabaseResponse],),  # noqa: E501
         }
@@ -181,7 +163,7 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplicationResponse]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabaseResponse]): [optional]  # noqa: E501
         """
@@ -284,7 +266,7 @@ class DeploymentHistoryEnvironmentResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplicationResponse]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabaseResponse]): [optional]  # noqa: E501
         """

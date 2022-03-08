@@ -16,9 +16,11 @@ import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.commit_response import CommitResponse
 from qovery.model.deployment_history_response_all_of import DeploymentHistoryResponseAllOf
+from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
 globals()['BaseResponse'] = BaseResponse
 globals()['CommitResponse'] = CommitResponse
 globals()['DeploymentHistoryResponseAllOf'] = DeploymentHistoryResponseAllOf
+globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 from qovery.model.deployment_history_response import DeploymentHistoryResponse
 
 

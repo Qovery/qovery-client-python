@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **email** | **str** |  | 
-**role** | **str** |  | 
+**role** | [**InviteMemberRoleEnum**](InviteMemberRoleEnum.md) |  | 
 **invitation_link** | **str** |  | 
-**invitation_status** | **str** |  | 
+**invitation_status** | [**InviteStatusEnum**](InviteStatusEnum.md) |  | 
 **inviter** | **str** |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **logo_url** | **str** |  | [optional] 

@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.environment_log_response_scope import EnvironmentLogResponseScope
+from qovery.model.global_deployment_status import GlobalDeploymentStatus
 globals()['EnvironmentLogResponseScope'] = EnvironmentLogResponseScope
+globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 from qovery.model.environment_log_response import EnvironmentLogResponse
 
 

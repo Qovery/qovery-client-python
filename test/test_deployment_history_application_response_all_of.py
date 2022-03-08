@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.commit_response import CommitResponse
+from qovery.model.global_deployment_status import GlobalDeploymentStatus
 globals()['CommitResponse'] = CommitResponse
+globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 from qovery.model.deployment_history_application_response_all_of import DeploymentHistoryApplicationResponseAllOf
 
 

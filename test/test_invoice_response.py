@@ -15,8 +15,10 @@ import unittest
 import qovery
 from qovery.model.cost_response import CostResponse
 from qovery.model.invoice_response_all_of import InvoiceResponseAllOf
+from qovery.model.invoice_status_enum import InvoiceStatusEnum
 globals()['CostResponse'] = CostResponse
 globals()['InvoiceResponseAllOf'] = InvoiceResponseAllOf
+globals()['InvoiceStatusEnum'] = InvoiceStatusEnum
 from qovery.model.invoice_response import InvoiceResponse
 
 

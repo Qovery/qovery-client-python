@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.deployment_history_application_response import DeploymentHistoryApplicationResponse
     from qovery.model.deployment_history_database_response import DeploymentHistoryDatabaseResponse
+    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     globals()['DeploymentHistoryApplicationResponse'] = DeploymentHistoryApplicationResponse
     globals()['DeploymentHistoryDatabaseResponse'] = DeploymentHistoryDatabaseResponse
+    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 
 
 class DeploymentHistoryEnvironmentResponseAllOf(ModelNormal):
@@ -62,26 +64,6 @@ class DeploymentHistoryEnvironmentResponseAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('status',): {
-            'READY': "READY",
-            'BUILDING': "BUILDING",
-            'BUILD_ERROR': "BUILD_ERROR",
-            'BUILT': "BUILT",
-            'DEPLOYMENT_QUEUED': "DEPLOYMENT_QUEUED",
-            'DEPLOYING': "DEPLOYING",
-            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
-            'DEPLOYED': "DEPLOYED",
-            'STOP_QUEUED': "STOP_QUEUED",
-            'STOPPING': "STOPPING",
-            'STOP_ERROR': "STOP_ERROR",
-            'STOPPED': "STOPPED",
-            'DELETE_QUEUED': "DELETE_QUEUED",
-            'DELETING': "DELETING",
-            'DELETE_ERROR': "DELETE_ERROR",
-            'DELETED': "DELETED",
-            'RUNNING': "RUNNING",
-            'RUNNING_ERROR': "RUNNING_ERROR",
-        },
     }
 
     validations = {
@@ -110,7 +92,7 @@ class DeploymentHistoryEnvironmentResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (str,),  # noqa: E501
+            'status': (GlobalDeploymentStatus,),  # noqa: E501
             'applications': ([DeploymentHistoryApplicationResponse],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabaseResponse],),  # noqa: E501
         }
@@ -167,7 +149,7 @@ class DeploymentHistoryEnvironmentResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplicationResponse]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabaseResponse]): [optional]  # noqa: E501
         """
@@ -251,7 +233,7 @@ class DeploymentHistoryEnvironmentResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (str): [optional]  # noqa: E501
+            status (GlobalDeploymentStatus): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplicationResponse]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabaseResponse]): [optional]  # noqa: E501
         """

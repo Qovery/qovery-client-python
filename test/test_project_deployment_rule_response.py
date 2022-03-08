@@ -14,11 +14,15 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.environment_mode_enum import EnvironmentModeEnum
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
 from qovery.model.project_deployment_rule_response_all_of import ProjectDeploymentRuleResponseAllOf
+from qovery.model.weekday_enum import WeekdayEnum
 globals()['BaseResponse'] = BaseResponse
+globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
 globals()['ProjectDeploymentRuleRequest'] = ProjectDeploymentRuleRequest
 globals()['ProjectDeploymentRuleResponseAllOf'] = ProjectDeploymentRuleResponseAllOf
+globals()['WeekdayEnum'] = WeekdayEnum
 from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
 
 

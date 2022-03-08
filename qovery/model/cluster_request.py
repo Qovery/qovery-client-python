@@ -31,9 +31,11 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster import Cluster
     from qovery.model.cluster_feature_request import ClusterFeatureRequest
     from qovery.model.cluster_feature_request_features import ClusterFeatureRequestFeatures
+    globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['Cluster'] = Cluster
     globals()['ClusterFeatureRequest'] = ClusterFeatureRequest
     globals()['ClusterFeatureRequestFeatures'] = ClusterFeatureRequestFeatures
@@ -64,11 +66,6 @@ class ClusterRequest(ModelComposed):
     """
 
     allowed_values = {
-        ('cloud_provider',): {
-            'AWS': "AWS",
-            'DIGITAL_OCEAN': "DIGITAL_OCEAN",
-            'SCALEWAY': "SCALEWAY",
-        },
     }
 
     validations = {
@@ -98,7 +95,7 @@ class ClusterRequest(ModelComposed):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'cloud_provider': (str,),  # noqa: E501
+            'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'auto_update': (bool,),  # noqa: E501
@@ -137,7 +134,7 @@ class ClusterRequest(ModelComposed):
 
         Keyword Args:
             name (str): name is case-insensitive
-            cloud_provider (str):
+            cloud_provider (CloudProviderEnum):
             region (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -246,7 +243,7 @@ class ClusterRequest(ModelComposed):
 
         Keyword Args:
             name (str): name is case-insensitive
-            cloud_provider (str):
+            cloud_provider (CloudProviderEnum):
             region (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

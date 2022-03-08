@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plan** | **str** |  | [optional] 
+**plan** | [**PlanEnum**](PlanEnum.md) |  | [optional] 
 **remaining_trial_day** | **int** | number of days remaining before the end of the trial period | [optional] 
 **remaining_credits** | [**RemainingCredits**](RemainingCredits.md) |  | [optional] 
 **cost** | [**Cost**](Cost.md) |  | [optional] 

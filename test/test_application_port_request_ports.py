@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.port_protocol_enum import PortProtocolEnum
+globals()['PortProtocolEnum'] = PortProtocolEnum
 from qovery.model.application_port_request_ports import ApplicationPortRequestPorts
 
 

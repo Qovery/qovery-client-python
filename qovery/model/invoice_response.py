@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.cost_response import CostResponse
     from qovery.model.invoice_response_all_of import InvoiceResponseAllOf
+    from qovery.model.invoice_status_enum import InvoiceStatusEnum
     globals()['CostResponse'] = CostResponse
     globals()['InvoiceResponseAllOf'] = InvoiceResponseAllOf
+    globals()['InvoiceStatusEnum'] = InvoiceStatusEnum
 
 
 class InvoiceResponse(ModelComposed):
@@ -62,15 +64,6 @@ class InvoiceResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('status',): {
-            'PAID': "PAID",
-            'POSTED': "POSTED",
-            'PAYMENT_DUE': "PAYMENT_DUE",
-            'NOT_PAID': "NOT_PAID",
-            'VOIDED': "VOIDED",
-            'PENDING': "PENDING",
-            'UNKNOWN': "UNKNOWN",
-        },
     }
 
     validations = {
@@ -104,7 +97,7 @@ class InvoiceResponse(ModelComposed):
             'currency_code': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (InvoiceStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -135,7 +128,7 @@ class InvoiceResponse(ModelComposed):
             currency_code (str):
             id (str):
             created_at (datetime):
-            status (str):
+            status (InvoiceStatusEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -240,7 +233,7 @@ class InvoiceResponse(ModelComposed):
             currency_code (str):
             id (str):
             created_at (datetime):
-            status (str):
+            status (InvoiceStatusEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

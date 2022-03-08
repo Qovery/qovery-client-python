@@ -15,8 +15,10 @@ import unittest
 import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.deployment_history_database_response_all_of import DeploymentHistoryDatabaseResponseAllOf
+from qovery.model.global_deployment_status import GlobalDeploymentStatus
 globals()['BaseResponse'] = BaseResponse
 globals()['DeploymentHistoryDatabaseResponseAllOf'] = DeploymentHistoryDatabaseResponseAllOf
+globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 from qovery.model.deployment_history_database_response import DeploymentHistoryDatabaseResponse
 
 

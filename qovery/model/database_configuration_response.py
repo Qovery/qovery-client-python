@@ -31,7 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.database_type_enum import DatabaseTypeEnum
     from qovery.model.database_version_mode import DatabaseVersionMode
+    globals()['DatabaseTypeEnum'] = DatabaseTypeEnum
     globals()['DatabaseVersionMode'] = DatabaseVersionMode
 
 
@@ -60,12 +62,6 @@ class DatabaseConfigurationResponse(ModelNormal):
     """
 
     allowed_values = {
-        ('database_type',): {
-            'POSTGRESQL': "POSTGRESQL",
-            'MYSQL': "MYSQL",
-            'MONGODB': "MONGODB",
-            'REDIS': "REDIS",
-        },
     }
 
     validations = {
@@ -94,7 +90,7 @@ class DatabaseConfigurationResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'database_type': (str,),  # noqa: E501
+            'database_type': (DatabaseTypeEnum,),  # noqa: E501
             'version': ([DatabaseVersionMode],),  # noqa: E501
         }
 
@@ -149,7 +145,7 @@ class DatabaseConfigurationResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            database_type (str): [optional]  # noqa: E501
+            database_type (DatabaseTypeEnum): [optional]  # noqa: E501
             version ([DatabaseVersionMode]): [optional]  # noqa: E501
         """
 
@@ -232,7 +228,7 @@ class DatabaseConfigurationResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            database_type (str): [optional]  # noqa: E501
+            database_type (DatabaseTypeEnum): [optional]  # noqa: E501
             version ([DatabaseVersionMode]): [optional]  # noqa: E501
         """
 

@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.invite_member_role_enum import InviteMemberRoleEnum
+globals()['InviteMemberRoleEnum'] = InviteMemberRoleEnum
 from qovery.model.invite_member_request import InviteMemberRequest
 
 

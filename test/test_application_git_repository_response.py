@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.git_provider_enum import GitProviderEnum
+globals()['GitProviderEnum'] = GitProviderEnum
 from qovery.model.application_git_repository_response import ApplicationGitRepositoryResponse
 
 

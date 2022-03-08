@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
+globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
 from qovery.model.variable_import_response_successful_imported_variables import VariableImportResponseSuccessfulImportedVariables
 
 

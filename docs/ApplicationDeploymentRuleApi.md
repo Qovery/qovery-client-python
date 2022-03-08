@@ -51,8 +51,8 @@ with qovery.ApiClient(configuration) as api_client:
     application_deployment_rule_edit_request = ApplicationDeploymentRuleEditRequest(
         deployment_restrictions=[
             ApplicationDeploymentRestriction(
-                mode="MATCH",
-                type="PATH",
+                mode=DeploymentRestrictionModeEnum("MATCH"),
+                type=DeploymentRestrictionTypeEnum("PATH"),
                 value="value_example",
             ),
         ],

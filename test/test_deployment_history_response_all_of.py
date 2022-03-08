@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.commit_response import CommitResponse
+from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
 globals()['CommitResponse'] = CommitResponse
+globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 from qovery.model.deployment_history_response_all_of import DeploymentHistoryResponseAllOf
 
 

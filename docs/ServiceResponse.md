@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** | uuid of the associated service (application, database, job, gateway...) | 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
-**type** | **str** | type of the service (application, database, job, gateway...) | [optional] 
+**type** | [**ServiceTypeEnum**](ServiceTypeEnum.md) |  | [optional] 
 **name** | **str** | name of the service | [optional] 
 **deployed_commit_id** | **str** | Git commit ID corresponding to the deployed version of the application | [optional] 
 **last_updated_by** | **str** | uuid of the user that made the last update | [optional] 

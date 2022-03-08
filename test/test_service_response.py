@@ -15,8 +15,10 @@ import unittest
 import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.service_response_all_of import ServiceResponseAllOf
+from qovery.model.service_type_enum import ServiceTypeEnum
 globals()['BaseResponse'] = BaseResponse
 globals()['ServiceResponseAllOf'] = ServiceResponseAllOf
+globals()['ServiceTypeEnum'] = ServiceTypeEnum
 from qovery.model.service_response import ServiceResponse
 
 

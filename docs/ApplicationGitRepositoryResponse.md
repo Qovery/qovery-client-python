@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **has_access** | **bool** |  | [optional] 
-**provider** | **str** |  | [optional] 
+**provider** | [**GitProviderEnum**](GitProviderEnum.md) |  | [optional] 
 **owner** | **str** |  | [optional] 
 **url** | **str** |  | [optional] 
 **name** | **str** | repository name | [optional] 

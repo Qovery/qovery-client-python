@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **running_in_percent** | **float** |  | [optional] 
 **warning_threshold_in_percent** | **float** |  | [optional] 
 **alert_threshold_in_percent** | **float** |  | [optional] 
-**status** | **str** |  | [optional] 
+**status** | [**ThresholdMetricStatusEnum**](ThresholdMetricStatusEnum.md) |  | [optional] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

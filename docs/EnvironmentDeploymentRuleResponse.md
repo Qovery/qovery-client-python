@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **timezone** | **str** |  | 
 **start_time** | **datetime** |  | 
 **stop_time** | **datetime** |  | 
-**weekdays** | **[str]** |  | 
+**weekdays** | [**[WeekdayEnum]**](WeekdayEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **auto_deploy** | **bool** |  | [optional]  if omitted the server will use the default value of True
 **auto_stop** | **bool** |  | [optional]  if omitted the server will use the default value of False

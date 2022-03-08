@@ -14,13 +14,17 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cluster import Cluster
 from qovery.model.cluster_feature_response import ClusterFeatureResponse
 from qovery.model.cluster_response_all_of import ClusterResponseAllOf
+from qovery.model.cluster_status_enum import ClusterStatusEnum
 globals()['BaseResponse'] = BaseResponse
+globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['Cluster'] = Cluster
 globals()['ClusterFeatureResponse'] = ClusterFeatureResponse
 globals()['ClusterResponseAllOf'] = ClusterResponseAllOf
+globals()['ClusterStatusEnum'] = ClusterStatusEnum
 from qovery.model.cluster_response import ClusterResponse
 
 

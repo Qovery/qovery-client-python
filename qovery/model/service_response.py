@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.service_response_all_of import ServiceResponseAllOf
+    from qovery.model.service_type_enum import ServiceTypeEnum
     globals()['BaseResponse'] = BaseResponse
     globals()['ServiceResponseAllOf'] = ServiceResponseAllOf
+    globals()['ServiceTypeEnum'] = ServiceTypeEnum
 
 
 class ServiceResponse(ModelComposed):
@@ -62,10 +64,6 @@ class ServiceResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('type',): {
-            'APPLICATION': "APPLICATION",
-            'DATABASE': "DATABASE",
-        },
     }
 
     validations = {
@@ -97,7 +95,7 @@ class ServiceResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'type': (str,),  # noqa: E501
+            'type': (ServiceTypeEnum,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'deployed_commit_id': (str,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
@@ -170,7 +168,7 @@ class ServiceResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            type (str): type of the service (application, database, job, gateway...). [optional]  # noqa: E501
+            type (ServiceTypeEnum): [optional]  # noqa: E501
             name (str): name of the service. [optional]  # noqa: E501
             deployed_commit_id (str): Git commit ID corresponding to the deployed version of the application. [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
@@ -279,7 +277,7 @@ class ServiceResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            type (str): type of the service (application, database, job, gateway...). [optional]  # noqa: E501
+            type (ServiceTypeEnum): [optional]  # noqa: E501
             name (str): name of the service. [optional]  # noqa: E501
             deployed_commit_id (str): Git commit ID corresponding to the deployed version of the application. [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501

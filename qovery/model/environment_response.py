@@ -32,10 +32,12 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.environment_mode_enum import EnvironmentModeEnum
     from qovery.model.environment_response_all_of import EnvironmentResponseAllOf
     from qovery.model.environment_response_all_of_cloud_provider import EnvironmentResponseAllOfCloudProvider
     from qovery.model.reference_object import ReferenceObject
     globals()['BaseResponse'] = BaseResponse
+    globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
     globals()['EnvironmentResponseAllOf'] = EnvironmentResponseAllOf
     globals()['EnvironmentResponseAllOfCloudProvider'] = EnvironmentResponseAllOfCloudProvider
     globals()['ReferenceObject'] = ReferenceObject
@@ -66,12 +68,6 @@ class EnvironmentResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('mode',): {
-            'PRODUCTION': "PRODUCTION",
-            'DEVELOPMENT': "DEVELOPMENT",
-            'STAGING': "STAGING",
-            'PREVIEW': "PREVIEW",
-        },
     }
 
     validations = {
@@ -104,7 +100,7 @@ class EnvironmentResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'cloud_provider': (EnvironmentResponseAllOfCloudProvider,),  # noqa: E501
-            'mode': (str,),  # noqa: E501
+            'mode': (EnvironmentModeEnum,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'project': (ReferenceObject,),  # noqa: E501
@@ -144,7 +140,7 @@ class EnvironmentResponse(ModelComposed):
             created_at (datetime):
             name (str): name is case insensitive
             cloud_provider (EnvironmentResponseAllOfCloudProvider):
-            mode (str):
+            mode (EnvironmentModeEnum):
             cluster_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -250,7 +246,7 @@ class EnvironmentResponse(ModelComposed):
         Keyword Args:
             name (str): name is case insensitive
             cloud_provider (EnvironmentResponseAllOfCloudProvider):
-            mode (str):
+            mode (EnvironmentModeEnum):
             cluster_id (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

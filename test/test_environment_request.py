@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.environment_mode_enum import EnvironmentModeEnum
+globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
 from qovery.model.environment_request import EnvironmentRequest
 
 

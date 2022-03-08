@@ -16,9 +16,11 @@ import qovery
 from qovery.model.base_response import BaseResponse
 from qovery.model.organization_request import OrganizationRequest
 from qovery.model.organization_response_all_of import OrganizationResponseAllOf
+from qovery.model.plan_enum import PlanEnum
 globals()['BaseResponse'] = BaseResponse
 globals()['OrganizationRequest'] = OrganizationRequest
 globals()['OrganizationResponseAllOf'] = OrganizationResponseAllOf
+globals()['PlanEnum'] = PlanEnum
 from qovery.model.organization_response import OrganizationResponse
 
 

@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.environment_deployment_rule_response_all_of import EnvironmentDeploymentRuleResponseAllOf
+    from qovery.model.weekday_enum import WeekdayEnum
     globals()['BaseResponse'] = BaseResponse
     globals()['EnvironmentDeploymentRuleResponseAllOf'] = EnvironmentDeploymentRuleResponseAllOf
+    globals()['WeekdayEnum'] = WeekdayEnum
 
 
 class EnvironmentDeploymentRuleResponse(ModelComposed):
@@ -62,15 +64,6 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('weekdays',): {
-            'MONDAY': "MONDAY",
-            'TUESDAY': "TUESDAY",
-            'WEDNESDAY': "WEDNESDAY",
-            'THURSDAY': "THURSDAY",
-            'FRIDAY': "FRIDAY",
-            'SATURDAY': "SATURDAY",
-            'SUNDAY': "SUNDAY",
-        },
     }
 
     validations = {
@@ -104,7 +97,7 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
             'timezone': (str,),  # noqa: E501
             'start_time': (datetime,),  # noqa: E501
             'stop_time': (datetime,),  # noqa: E501
-            'weekdays': ([str],),  # noqa: E501
+            'weekdays': ([WeekdayEnum],),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
@@ -148,7 +141,7 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
             timezone (str):
             start_time (datetime):
             stop_time (datetime):
-            weekdays ([str]):
+            weekdays ([WeekdayEnum]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -256,7 +249,7 @@ class EnvironmentDeploymentRuleResponse(ModelComposed):
             timezone (str):
             start_time (datetime):
             stop_time (datetime):
-            weekdays ([str]):
+            weekdays ([WeekdayEnum]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **estimated_cloud_provider_cost** | **int** | This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration | [optional] 
-**status** | **str** |  | [optional] 
+**status** | [**ClusterStatusEnum**](ClusterStatusEnum.md) |  | [optional] 
 **has_access** | **bool** |  | [optional] 
 **version** | **str** |  | [optional] 
 **is_default** | **bool** |  | [optional] 

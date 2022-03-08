@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.cluster_status_enum import ClusterStatusEnum
+globals()['ClusterStatusEnum'] = ClusterStatusEnum
 from qovery.model.cluster_response_all_of import ClusterResponseAllOf
 
 

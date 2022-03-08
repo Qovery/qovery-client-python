@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.invoice_status_enum import InvoiceStatusEnum
+globals()['InvoiceStatusEnum'] = InvoiceStatusEnum
 from qovery.model.invoice_response_all_of import InvoiceResponseAllOf
 
 

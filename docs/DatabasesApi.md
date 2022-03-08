@@ -50,10 +50,10 @@ with qovery.ApiClient(configuration) as api_client:
     environment_id = "environmentId_example" # str | Environment ID
     database_request = DatabaseRequest(
         name="name_example",
-        type="POSTGRESQL",
+        type=DatabaseTypeEnum("POSTGRESQL"),
         version="10.1",
-        mode="MANAGED",
-        accessibility="PRIVATE",
+        mode=DatabaseModeEnum("MANAGED"),
+        accessibility=DatabaseAccessibilityEnum("PRIVATE"),
         cpu=1250,
         memory=1024,
         storage=10240,

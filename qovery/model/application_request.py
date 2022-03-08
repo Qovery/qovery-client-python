@@ -37,6 +37,7 @@ def lazy_import():
     from qovery.model.application_request_all_of import ApplicationRequestAllOf
     from qovery.model.application_storage_request import ApplicationStorageRequest
     from qovery.model.application_storage_request_storage import ApplicationStorageRequestStorage
+    from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
     globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
@@ -45,6 +46,7 @@ def lazy_import():
     globals()['ApplicationRequestAllOf'] = ApplicationRequestAllOf
     globals()['ApplicationStorageRequest'] = ApplicationStorageRequest
     globals()['ApplicationStorageRequestStorage'] = ApplicationStorageRequestStorage
+    globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
 
@@ -74,10 +76,6 @@ class ApplicationRequest(ModelComposed):
     """
 
     allowed_values = {
-        ('build_mode',): {
-            'DOCKER': "DOCKER",
-            'BUILDPACKS': "BUILDPACKS",
-        },
     }
 
     validations = {
@@ -114,7 +112,7 @@ class ApplicationRequest(ModelComposed):
             'storage': ([ApplicationStorageRequestStorage],),  # noqa: E501
             'ports': ([ApplicationPortRequestPorts],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'build_mode': (str,),  # noqa: E501
+            'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
             'buildpack_language': (BuildPackLanguageEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
@@ -191,7 +189,7 @@ class ApplicationRequest(ModelComposed):
             storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
-            build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional] if omitted the server will use the default value of "BUILDPACKS"  # noqa: E501
+            build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -304,7 +302,7 @@ class ApplicationRequest(ModelComposed):
             storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
-            build_mode (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . [optional] if omitted the server will use the default value of "BUILDPACKS"  # noqa: E501
+            build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501

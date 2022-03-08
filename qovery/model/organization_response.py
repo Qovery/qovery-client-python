@@ -34,9 +34,11 @@ def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.organization_request import OrganizationRequest
     from qovery.model.organization_response_all_of import OrganizationResponseAllOf
+    from qovery.model.plan_enum import PlanEnum
     globals()['BaseResponse'] = BaseResponse
     globals()['OrganizationRequest'] = OrganizationRequest
     globals()['OrganizationResponseAllOf'] = OrganizationResponseAllOf
+    globals()['PlanEnum'] = PlanEnum
 
 
 class OrganizationResponse(ModelComposed):
@@ -64,12 +66,6 @@ class OrganizationResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('plan',): {
-            'COMMUNITY': "COMMUNITY",
-            'FREE': "FREE",
-            'PROFESSIONAL': "PROFESSIONAL",
-            'BUSINESS': "BUSINESS",
-        },
     }
 
     validations = {
@@ -101,7 +97,7 @@ class OrganizationResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'plan': (str,),  # noqa: E501
+            'plan': (PlanEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'website_url': (str, none_type,),  # noqa: E501
@@ -145,7 +141,7 @@ class OrganizationResponse(ModelComposed):
             id (str):
             created_at (datetime):
             name (str): name is case insensitive
-            plan (str):
+            plan (PlanEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -253,7 +249,7 @@ class OrganizationResponse(ModelComposed):
 
         Keyword Args:
             name (str): name is case insensitive
-            plan (str):
+            plan (PlanEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

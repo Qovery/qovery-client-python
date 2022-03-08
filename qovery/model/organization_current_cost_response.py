@@ -37,6 +37,7 @@ def lazy_import():
     from qovery.model.current_cost import CurrentCost
     from qovery.model.paid_usage import PaidUsage
     from qovery.model.paid_usage_response import PaidUsageResponse
+    from qovery.model.plan_enum import PlanEnum
     from qovery.model.remaining_credits import RemainingCredits
     globals()['CommunityUsage'] = CommunityUsage
     globals()['CommunityUsageResponse'] = CommunityUsageResponse
@@ -44,6 +45,7 @@ def lazy_import():
     globals()['CurrentCost'] = CurrentCost
     globals()['PaidUsage'] = PaidUsage
     globals()['PaidUsageResponse'] = PaidUsageResponse
+    globals()['PlanEnum'] = PlanEnum
     globals()['RemainingCredits'] = RemainingCredits
 
 
@@ -72,12 +74,6 @@ class OrganizationCurrentCostResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('plan',): {
-            'COMMUNITY': "COMMUNITY",
-            'FREE': "FREE",
-            'PROFESSIONAL': "PROFESSIONAL",
-            'BUSINESS': "BUSINESS",
-        },
     }
 
     validations = {
@@ -106,7 +102,7 @@ class OrganizationCurrentCostResponse(ModelComposed):
         """
         lazy_import()
         return {
-            'plan': (str,),  # noqa: E501
+            'plan': (PlanEnum,),  # noqa: E501
             'remaining_trial_day': (int,),  # noqa: E501
             'remaining_credits': (RemainingCredits,),  # noqa: E501
             'cost': (Cost,),  # noqa: E501
@@ -167,7 +163,7 @@ class OrganizationCurrentCostResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            plan (str): [optional]  # noqa: E501
+            plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
             remaining_credits (RemainingCredits): [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501
@@ -272,7 +268,7 @@ class OrganizationCurrentCostResponse(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            plan (str): [optional]  # noqa: E501
+            plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
             remaining_credits (RemainingCredits): [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501

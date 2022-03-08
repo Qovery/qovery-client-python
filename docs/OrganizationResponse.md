@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **name** | **str** | name is case insensitive | 
-**plan** | **str** |  | 
+**plan** | [**PlanEnum**](PlanEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str** |  | [optional] 
 **website_url** | **str, none_type** |  | [optional] 

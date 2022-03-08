@@ -50,7 +50,7 @@ with qovery.ApiClient(configuration) as api_client:
     organization_request = OrganizationRequest(
         name="name_example",
         description="description_example",
-        plan="COMMUNITY",
+        plan=PlanEnum("COMMUNITY"),
         website_url="website_url_example",
         repository="repository_example",
         logo_url="logo_url_example",

@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.environment_mode_enum import EnvironmentModeEnum
 from qovery.model.environment_response_all_of_cloud_provider import EnvironmentResponseAllOfCloudProvider
 from qovery.model.reference_object import ReferenceObject
+globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
 globals()['EnvironmentResponseAllOfCloudProvider'] = EnvironmentResponseAllOfCloudProvider
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.environment_response_all_of import EnvironmentResponseAllOf

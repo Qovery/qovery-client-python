@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **created_at** | **datetime** |  | [readonly] 
 **name** | **str** | name is case-insensitive | 
-**cloud_provider** | **str** |  | 
+**cloud_provider** | [**CloudProviderEnum**](CloudProviderEnum.md) |  | 
 **region** | **str** |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str, none_type** |  | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **is_value_updatable** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **accepted_values** | **[bool, date, datetime, dict, float, int, list, str, none_type]** |  | [optional] 
 **estimated_cloud_provider_cost** | **int** | This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration | [optional] 
-**status** | **str** |  | [optional] 
+**status** | [**ClusterStatusEnum**](ClusterStatusEnum.md) |  | [optional] 
 **has_access** | **bool** |  | [optional] 
 **version** | **str** |  | [optional] 
 **is_default** | **bool** |  | [optional] 

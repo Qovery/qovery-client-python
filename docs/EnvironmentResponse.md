@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [readonly] 
 **name** | **str** | name is case insensitive | 
 **cloud_provider** | [**EnvironmentResponseAllOfCloudProvider**](EnvironmentResponseAllOfCloudProvider.md) |  | 
-**mode** | **str** |  | 
+**mode** | [**EnvironmentModeEnum**](EnvironmentModeEnum.md) |  | 
 **cluster_id** | **str** |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **project** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 

@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case insensitive | 
-**mode** | **str** |  | 
+**mode** | [**EnvironmentModeEnum**](EnvironmentModeEnum.md) |  | 
 **cluster_id** | **str** |  | 
 **timezone** | **str** |  | 
 **start_time** | **datetime** |  | 
 **stop_time** | **datetime** |  | 
-**weekdays** | **[str]** |  | 
+**weekdays** | [**[WeekdayEnum]**](WeekdayEnum.md) |  | 
 **wildcard** | **str** | wildcard pattern composed of &#39;?&#39; and/or &#39;*&#39; used to target new created environments | defaults to ""
 **description** | **str, none_type** |  | [optional] 
 **auto_deploy** | **bool** |  | [optional]  if omitted the server will use the default value of False

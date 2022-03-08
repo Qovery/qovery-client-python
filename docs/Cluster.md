@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case-insensitive | 
-**cloud_provider** | **str** |  | 
+**cloud_provider** | [**CloudProviderEnum**](CloudProviderEnum.md) |  | 
 **region** | **str** |  | 
 **description** | **str** |  | [optional] 
 **auto_update** | **bool** |  | [optional] 

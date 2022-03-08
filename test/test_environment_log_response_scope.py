@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.environment_log_type_enum import EnvironmentLogTypeEnum
+globals()['EnvironmentLogTypeEnum'] = EnvironmentLogTypeEnum
 from qovery.model.environment_log_response_scope import EnvironmentLogResponseScope
 
 

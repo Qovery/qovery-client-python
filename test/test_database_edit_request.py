@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.database_accessibility_enum import DatabaseAccessibilityEnum
+globals()['DatabaseAccessibilityEnum'] = DatabaseAccessibilityEnum
 from qovery.model.database_edit_request import DatabaseEditRequest
 
 

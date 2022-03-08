@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.plan_enum import PlanEnum
+globals()['PlanEnum'] = PlanEnum
 from qovery.model.organization_request import OrganizationRequest
 
 

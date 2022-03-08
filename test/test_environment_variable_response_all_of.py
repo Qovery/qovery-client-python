@@ -15,8 +15,10 @@ import unittest
 import qovery
 from qovery.model.environment_variable_response_all_of_aliased_variable import EnvironmentVariableResponseAllOfAliasedVariable
 from qovery.model.environment_variable_response_all_of_overridden_variable import EnvironmentVariableResponseAllOfOverriddenVariable
+from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
 globals()['EnvironmentVariableResponseAllOfAliasedVariable'] = EnvironmentVariableResponseAllOfAliasedVariable
 globals()['EnvironmentVariableResponseAllOfOverriddenVariable'] = EnvironmentVariableResponseAllOfOverriddenVariable
+globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
 from qovery.model.environment_variable_response_all_of import EnvironmentVariableResponseAllOf
 
 

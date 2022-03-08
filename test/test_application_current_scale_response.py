@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.threshold_metric_status_enum import ThresholdMetricStatusEnum
+globals()['ThresholdMetricStatusEnum'] = ThresholdMetricStatusEnum
 from qovery.model.application_current_scale_response import ApplicationCurrentScaleResponse
 
 

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scope** | **str** |  | 
+**scope** | [**EnvironmentVariableScopeEnum**](EnvironmentVariableScopeEnum.md) |  | 
 **key** | **str** | key is case sensitive | [optional] 
 **overridden_secret** | [**OverriddenSecret**](OverriddenSecret.md) |  | [optional] 
 **aliased_secret** | [**AliasedSecret**](AliasedSecret.md) |  | [optional] 

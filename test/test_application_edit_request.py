@@ -19,6 +19,7 @@ from qovery.model.application_port_response import ApplicationPortResponse
 from qovery.model.application_port_response_ports import ApplicationPortResponsePorts
 from qovery.model.application_storage_response import ApplicationStorageResponse
 from qovery.model.application_storage_response_storage import ApplicationStorageResponseStorage
+from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 globals()['ApplicationEditRequestAllOf'] = ApplicationEditRequestAllOf
@@ -27,6 +28,7 @@ globals()['ApplicationPortResponse'] = ApplicationPortResponse
 globals()['ApplicationPortResponsePorts'] = ApplicationPortResponsePorts
 globals()['ApplicationStorageResponse'] = ApplicationStorageResponse
 globals()['ApplicationStorageResponseStorage'] = ApplicationStorageResponseStorage
+globals()['BuildModeEnum'] = BuildModeEnum
 globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 from qovery.model.application_edit_request import ApplicationEditRequest

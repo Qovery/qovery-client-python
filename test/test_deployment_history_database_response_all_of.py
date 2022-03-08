@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.global_deployment_status import GlobalDeploymentStatus
+globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 from qovery.model.deployment_history_database_response_all_of import DeploymentHistoryDatabaseResponseAllOf
 
 

@@ -33,10 +33,12 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.aliased_secret import AliasedSecret
     from qovery.model.base_response import BaseResponse
+    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
     from qovery.model.overridden_secret import OverriddenSecret
     from qovery.model.secret_response_all_of import SecretResponseAllOf
     globals()['AliasedSecret'] = AliasedSecret
     globals()['BaseResponse'] = BaseResponse
+    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
     globals()['OverriddenSecret'] = OverriddenSecret
     globals()['SecretResponseAllOf'] = SecretResponseAllOf
 
@@ -66,12 +68,6 @@ class SecretResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('scope',): {
-            'BUILT_IN': "BUILT_IN",
-            'ENVIRONMENT': "ENVIRONMENT",
-            'PROJECT': "PROJECT",
-            'APPLICATION': "APPLICATION",
-        },
     }
 
     validations = {
@@ -102,7 +98,7 @@ class SecretResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'scope': (str,),  # noqa: E501
+            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'key': (str,),  # noqa: E501
             'overridden_secret': (OverriddenSecret,),  # noqa: E501
@@ -138,7 +134,7 @@ class SecretResponse(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -242,7 +238,7 @@ class SecretResponse(ModelComposed):
         """SecretResponse - a model defined in OpenAPI
 
         Keyword Args:
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

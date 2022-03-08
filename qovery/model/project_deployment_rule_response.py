@@ -32,11 +32,15 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.environment_mode_enum import EnvironmentModeEnum
     from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
     from qovery.model.project_deployment_rule_response_all_of import ProjectDeploymentRuleResponseAllOf
+    from qovery.model.weekday_enum import WeekdayEnum
     globals()['BaseResponse'] = BaseResponse
+    globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
     globals()['ProjectDeploymentRuleRequest'] = ProjectDeploymentRuleRequest
     globals()['ProjectDeploymentRuleResponseAllOf'] = ProjectDeploymentRuleResponseAllOf
+    globals()['WeekdayEnum'] = WeekdayEnum
 
 
 class ProjectDeploymentRuleResponse(ModelComposed):
@@ -64,20 +68,6 @@ class ProjectDeploymentRuleResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('mode',): {
-            'DEVELOPMENT': "DEVELOPMENT",
-            'STAGING': "STAGING",
-            'PRODUCTION': "PRODUCTION",
-        },
-        ('weekdays',): {
-            'MONDAY': "MONDAY",
-            'TUESDAY': "TUESDAY",
-            'WEDNESDAY': "WEDNESDAY",
-            'THURSDAY': "THURSDAY",
-            'FRIDAY': "FRIDAY",
-            'SATURDAY': "SATURDAY",
-            'SUNDAY': "SUNDAY",
-        },
     }
 
     validations = {
@@ -109,12 +99,12 @@ class ProjectDeploymentRuleResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'mode': (str,),  # noqa: E501
+            'mode': (EnvironmentModeEnum,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'timezone': (str,),  # noqa: E501
             'start_time': (datetime,),  # noqa: E501
             'stop_time': (datetime,),  # noqa: E501
-            'weekdays': ([str],),  # noqa: E501
+            'weekdays': ([WeekdayEnum],),  # noqa: E501
             'wildcard': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -163,12 +153,12 @@ class ProjectDeploymentRuleResponse(ModelComposed):
             id (str):
             created_at (datetime):
             name (str): name is case insensitive
-            mode (str):
+            mode (EnvironmentModeEnum):
             cluster_id (str):
             timezone (str):
             start_time (datetime):
             stop_time (datetime):
-            weekdays ([str]):
+            weekdays ([WeekdayEnum]):
             wildcard (str): wildcard pattern composed of '?' and/or '*' used to target new created environments. defaults to ""  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -277,12 +267,12 @@ class ProjectDeploymentRuleResponse(ModelComposed):
 
         Keyword Args:
             name (str): name is case insensitive
-            mode (str):
+            mode (EnvironmentModeEnum):
             cluster_id (str):
             timezone (str):
             start_time (datetime):
             stop_time (datetime):
-            weekdays ([str]):
+            weekdays ([WeekdayEnum]):
             wildcard (str): wildcard pattern composed of '?' and/or '*' used to target new created environments. defaults to ""  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

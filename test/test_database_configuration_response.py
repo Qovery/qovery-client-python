@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.database_type_enum import DatabaseTypeEnum
 from qovery.model.database_version_mode import DatabaseVersionMode
+globals()['DatabaseTypeEnum'] = DatabaseTypeEnum
 globals()['DatabaseVersionMode'] = DatabaseVersionMode
 from qovery.model.database_configuration_response import DatabaseConfigurationResponse
 

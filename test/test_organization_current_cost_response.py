@@ -19,6 +19,7 @@ from qovery.model.cost import Cost
 from qovery.model.current_cost import CurrentCost
 from qovery.model.paid_usage import PaidUsage
 from qovery.model.paid_usage_response import PaidUsageResponse
+from qovery.model.plan_enum import PlanEnum
 from qovery.model.remaining_credits import RemainingCredits
 globals()['CommunityUsage'] = CommunityUsage
 globals()['CommunityUsageResponse'] = CommunityUsageResponse
@@ -26,6 +27,7 @@ globals()['Cost'] = Cost
 globals()['CurrentCost'] = CurrentCost
 globals()['PaidUsage'] = PaidUsage
 globals()['PaidUsageResponse'] = PaidUsageResponse
+globals()['PlanEnum'] = PlanEnum
 globals()['RemainingCredits'] = RemainingCredits
 from qovery.model.organization_current_cost_response import OrganizationCurrentCostResponse
 

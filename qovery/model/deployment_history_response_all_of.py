@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.commit_response import CommitResponse
+    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
     globals()['CommitResponse'] = CommitResponse
+    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 
 
 class DeploymentHistoryResponseAllOf(ModelNormal):
@@ -60,10 +62,6 @@ class DeploymentHistoryResponseAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('status',): {
-            'SUCCESS': "SUCCESS",
-            'FAILED': "FAILED",
-        },
     }
 
     validations = {
@@ -93,7 +91,7 @@ class DeploymentHistoryResponseAllOf(ModelNormal):
         lazy_import()
         return {
             'commit': (CommitResponse,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -148,7 +146,7 @@ class DeploymentHistoryResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             commit (CommitResponse): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,7 +229,7 @@ class DeploymentHistoryResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             commit (CommitResponse): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

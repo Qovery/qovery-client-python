@@ -32,12 +32,18 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.database_accessibility_enum import DatabaseAccessibilityEnum
+    from qovery.model.database_mode_enum import DatabaseModeEnum
     from qovery.model.database_request import DatabaseRequest
     from qovery.model.database_response_all_of import DatabaseResponseAllOf
+    from qovery.model.database_type_enum import DatabaseTypeEnum
     from qovery.model.reference_object import ReferenceObject
     globals()['BaseResponse'] = BaseResponse
+    globals()['DatabaseAccessibilityEnum'] = DatabaseAccessibilityEnum
+    globals()['DatabaseModeEnum'] = DatabaseModeEnum
     globals()['DatabaseRequest'] = DatabaseRequest
     globals()['DatabaseResponseAllOf'] = DatabaseResponseAllOf
+    globals()['DatabaseTypeEnum'] = DatabaseTypeEnum
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -66,20 +72,6 @@ class DatabaseResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('type',): {
-            'POSTGRESQL': "POSTGRESQL",
-            'MYSQL': "MYSQL",
-            'MONGODB': "MONGODB",
-            'REDIS': "REDIS",
-        },
-        ('mode',): {
-            'MANAGED': "MANAGED",
-            'CONTAINER': "CONTAINER",
-        },
-        ('accessibility',): {
-            'PUBLIC': "PUBLIC",
-            'PRIVATE': "PRIVATE",
-        },
     }
 
     validations = {
@@ -111,11 +103,11 @@ class DatabaseResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
+            'type': (DatabaseTypeEnum,),  # noqa: E501
             'version': (str,),  # noqa: E501
-            'mode': (str,),  # noqa: E501
+            'mode': (DatabaseModeEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'accessibility': (str,),  # noqa: E501
+            'accessibility': (DatabaseAccessibilityEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'storage': (int,),  # noqa: E501
@@ -167,9 +159,9 @@ class DatabaseResponse(ModelComposed):
             id (str):
             created_at (datetime):
             name (str): name is case insensitive
-            type (str):
+            type (DatabaseTypeEnum):
             version (str):
-            mode (str):
+            mode (DatabaseModeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -201,7 +193,7 @@ class DatabaseResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            accessibility (str): [optional] if omitted the server will use the default value of "PRIVATE"  # noqa: E501
+            accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501
@@ -281,9 +273,9 @@ class DatabaseResponse(ModelComposed):
 
         Keyword Args:
             name (str): name is case insensitive
-            type (str):
+            type (DatabaseTypeEnum):
             version (str):
-            mode (str):
+            mode (DatabaseModeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -315,7 +307,7 @@ class DatabaseResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            accessibility (str): [optional] if omitted the server will use the default value of "PRIVATE"  # noqa: E501
+            accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501

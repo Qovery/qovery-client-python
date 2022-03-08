@@ -14,9 +14,11 @@ import unittest
 
 import qovery
 from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
+from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
+globals()['BuildModeEnum'] = BuildModeEnum
 globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 from qovery.model.application_request_all_of import ApplicationRequestAllOf

@@ -31,9 +31,13 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     from qovery.model.reference_object import ReferenceObject
+    from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
     from qovery.model.status import Status
+    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
     globals()['ReferenceObject'] = ReferenceObject
+    globals()['ServiceDeploymentStatusEnum'] = ServiceDeploymentStatusEnum
     globals()['Status'] = Status
 
 
@@ -62,37 +66,6 @@ class ReferenceObjectStatusResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('state',): {
-            'INITIALIZED': "INITIALIZED",
-            'BUILDING_QUEUED': "BUILDING_QUEUED",
-            'BUILDING': "BUILDING",
-            'BUILD_ERROR': "BUILD_ERROR",
-            'BUILT': "BUILT",
-            'DEPLOYMENT_QUEUED': "DEPLOYMENT_QUEUED",
-            'DEPLOYING': "DEPLOYING",
-            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
-            'DEPLOYED': "DEPLOYED",
-            'STOP_QUEUED': "STOP_QUEUED",
-            'STOPPING': "STOPPING",
-            'STOP_ERROR': "STOP_ERROR",
-            'STOPPED': "STOPPED",
-            'DELETE_QUEUED': "DELETE_QUEUED",
-            'DELETING': "DELETING",
-            'DELETE_ERROR': "DELETE_ERROR",
-            'DELETED': "DELETED",
-            'RUNNING': "RUNNING",
-            'RUNNING_ERROR': "RUNNING_ERROR",
-            'CANCEL_QUEUED': "CANCEL_QUEUED",
-            'CANCELLING': "CANCELLING",
-            'CANCEL_ERROR': "CANCEL_ERROR",
-            'CANCELLED': "CANCELLED",
-        },
-        ('service_deployment_status',): {
-            'None': None,
-            'NEVER_DEPLOYED': "NEVER_DEPLOYED",
-            'UP_TO_DATE': "UP_TO_DATE",
-            'OUT_OF_DATE': "OUT_OF_DATE",
-        },
     }
 
     validations = {
@@ -122,9 +95,9 @@ class ReferenceObjectStatusResponse(ModelComposed):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'state': (str,),  # noqa: E501
+            'state': (GlobalDeploymentStatus,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
-            'service_deployment_status': (str, none_type,),  # noqa: E501
+            'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +122,7 @@ class ReferenceObjectStatusResponse(ModelComposed):
 
         Keyword Args:
             id (str):
-            state (str): Status is a state machine. It starts with `BUILDING` or `DEPLOYING` state (or `INITIALIZED`if auto-deploy is deactivated). Then finish with `*_ERROR` or any termination state. 
+            state (GlobalDeploymentStatus):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -181,7 +154,7 @@ class ReferenceObjectStatusResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): message related to the state. [optional]  # noqa: E501
-            service_deployment_status (str, none_type): [optional]  # noqa: E501
+            service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,7 +225,7 @@ class ReferenceObjectStatusResponse(ModelComposed):
 
         Keyword Args:
             id (str):
-            state (str): Status is a state machine. It starts with `BUILDING` or `DEPLOYING` state (or `INITIALIZED`if auto-deploy is deactivated). Then finish with `*_ERROR` or any termination state. 
+            state (GlobalDeploymentStatus):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -284,7 +257,7 @@ class ReferenceObjectStatusResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): message related to the state. [optional]  # noqa: E501
-            service_deployment_status (str, none_type): [optional]  # noqa: E501
+            service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -13,6 +13,10 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.invite_member_role_enum import InviteMemberRoleEnum
+from qovery.model.invite_status_enum import InviteStatusEnum
+globals()['InviteMemberRoleEnum'] = InviteMemberRoleEnum
+globals()['InviteStatusEnum'] = InviteStatusEnum
 from qovery.model.invite_member_response_all_of import InviteMemberResponseAllOf
 
 

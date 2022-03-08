@@ -33,8 +33,12 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.invite_member_response_all_of import InviteMemberResponseAllOf
+    from qovery.model.invite_member_role_enum import InviteMemberRoleEnum
+    from qovery.model.invite_status_enum import InviteStatusEnum
     globals()['BaseResponse'] = BaseResponse
     globals()['InviteMemberResponseAllOf'] = InviteMemberResponseAllOf
+    globals()['InviteMemberRoleEnum'] = InviteMemberRoleEnum
+    globals()['InviteStatusEnum'] = InviteStatusEnum
 
 
 class InviteMemberResponse(ModelComposed):
@@ -62,15 +66,6 @@ class InviteMemberResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('role',): {
-            'ADMIN': "ADMIN",
-            'DEVELOPER': "DEVELOPER",
-            'VIEWER': "VIEWER",
-        },
-        ('invitation_status',): {
-            'PENDING': "PENDING",
-            'EXPIRED': "EXPIRED",
-        },
     }
 
     validations = {
@@ -102,9 +97,9 @@ class InviteMemberResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'email': (str,),  # noqa: E501
-            'role': (str,),  # noqa: E501
+            'role': (InviteMemberRoleEnum,),  # noqa: E501
             'invitation_link': (str,),  # noqa: E501
-            'invitation_status': (str,),  # noqa: E501
+            'invitation_status': (InviteStatusEnum,),  # noqa: E501
             'inviter': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'logo_url': (str,),  # noqa: E501
@@ -142,9 +137,9 @@ class InviteMemberResponse(ModelComposed):
             id (str):
             created_at (datetime):
             email (str):
-            role (str):
+            role (InviteMemberRoleEnum):
             invitation_link (str):
-            invitation_status (str):
+            invitation_status (InviteStatusEnum):
             inviter (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -248,9 +243,9 @@ class InviteMemberResponse(ModelComposed):
 
         Keyword Args:
             email (str):
-            role (str):
+            role (InviteMemberRoleEnum):
             invitation_link (str):
-            invitation_status (str):
+            invitation_status (InviteStatusEnum):
             inviter (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

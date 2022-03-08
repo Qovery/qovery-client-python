@@ -14,12 +14,18 @@ import unittest
 
 import qovery
 from qovery.model.base_response import BaseResponse
+from qovery.model.database_accessibility_enum import DatabaseAccessibilityEnum
+from qovery.model.database_mode_enum import DatabaseModeEnum
 from qovery.model.database_request import DatabaseRequest
 from qovery.model.database_response_all_of import DatabaseResponseAllOf
+from qovery.model.database_type_enum import DatabaseTypeEnum
 from qovery.model.reference_object import ReferenceObject
 globals()['BaseResponse'] = BaseResponse
+globals()['DatabaseAccessibilityEnum'] = DatabaseAccessibilityEnum
+globals()['DatabaseModeEnum'] = DatabaseModeEnum
 globals()['DatabaseRequest'] = DatabaseRequest
 globals()['DatabaseResponseAllOf'] = DatabaseResponseAllOf
+globals()['DatabaseTypeEnum'] = DatabaseTypeEnum
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.database_response import DatabaseResponse
 

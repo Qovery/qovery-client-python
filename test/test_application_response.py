@@ -20,6 +20,7 @@ from qovery.model.application_response_all_of import ApplicationResponseAllOf
 from qovery.model.application_storage_response import ApplicationStorageResponse
 from qovery.model.application_storage_response_storage import ApplicationStorageResponseStorage
 from qovery.model.base_response import BaseResponse
+from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
@@ -30,6 +31,7 @@ globals()['ApplicationResponseAllOf'] = ApplicationResponseAllOf
 globals()['ApplicationStorageResponse'] = ApplicationStorageResponse
 globals()['ApplicationStorageResponseStorage'] = ApplicationStorageResponseStorage
 globals()['BaseResponse'] = BaseResponse
+globals()['BuildModeEnum'] = BuildModeEnum
 globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject

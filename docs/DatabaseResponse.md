@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **name** | **str** | name is case insensitive | 
-**type** | **str** |  | 
+**type** | [**DatabaseTypeEnum**](DatabaseTypeEnum.md) |  | 
 **version** | **str** |  | 
-**mode** | **str** |  | 
+**mode** | [**DatabaseModeEnum**](DatabaseModeEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
-**accessibility** | **str** |  | [optional]  if omitted the server will use the default value of "PRIVATE"
+**accessibility** | [**DatabaseAccessibilityEnum**](DatabaseAccessibilityEnum.md) |  | [optional] 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | [optional]  if omitted the server will use the default value of 250
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | [optional]  if omitted the server will use the default value of 256
 **storage** | **int** | unit is MB | [optional]  if omitted the server will use the default value of 10240

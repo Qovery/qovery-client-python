@@ -54,7 +54,7 @@ with qovery.ApiClient(configuration) as api_client:
     project_deployment_rule_request = ProjectDeploymentRuleRequest(
         name="project-rule",
         description="description project rule",
-        mode="DEVELOPMENT",
+        mode=EnvironmentModeEnum("PRODUCTION"),
         cluster_id="cluster_id_example",
         auto_deploy=False,
         auto_stop=False,
@@ -63,7 +63,7 @@ with qovery.ApiClient(configuration) as api_client:
         start_time=dateutil_parser('1970-01-01T08:00:00Z'),
         stop_time=dateutil_parser('1970-01-01T19:00:00Z'),
         weekdays=[
-            "MONDAY",
+            WeekdayEnum("MONDAY"),
         ],
         wildcard="",
     ) # ProjectDeploymentRuleRequest |  (optional)
@@ -243,7 +243,7 @@ with qovery.ApiClient(configuration) as api_client:
     project_deployment_rule_request = ProjectDeploymentRuleRequest(
         name="project-rule",
         description="description project rule",
-        mode="DEVELOPMENT",
+        mode=EnvironmentModeEnum("PRODUCTION"),
         cluster_id="cluster_id_example",
         auto_deploy=False,
         auto_stop=False,
@@ -252,7 +252,7 @@ with qovery.ApiClient(configuration) as api_client:
         start_time=dateutil_parser('1970-01-01T08:00:00Z'),
         stop_time=dateutil_parser('1970-01-01T19:00:00Z'),
         weekdays=[
-            "MONDAY",
+            WeekdayEnum("MONDAY"),
         ],
         wildcard="",
     ) # ProjectDeploymentRuleRequest |  (optional)

@@ -32,8 +32,10 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.aliased_secret import AliasedSecret
+    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
     from qovery.model.overridden_secret import OverriddenSecret
     globals()['AliasedSecret'] = AliasedSecret
+    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
     globals()['OverriddenSecret'] = OverriddenSecret
 
 
@@ -62,12 +64,6 @@ class SecretResponseAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('scope',): {
-            'BUILT_IN': "BUILT_IN",
-            'ENVIRONMENT': "ENVIRONMENT",
-            'PROJECT': "PROJECT",
-            'APPLICATION': "APPLICATION",
-        },
     }
 
     validations = {
@@ -96,7 +92,7 @@ class SecretResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'scope': (str,),  # noqa: E501
+            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
             'key': (str,),  # noqa: E501
             'overridden_secret': (OverriddenSecret,),  # noqa: E501
             'aliased_secret': (AliasedSecret,),  # noqa: E501
@@ -125,7 +121,7 @@ class SecretResponseAllOf(ModelNormal):
         """SecretResponseAllOf - a model defined in OpenAPI
 
         Args:
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -213,7 +209,7 @@ class SecretResponseAllOf(ModelNormal):
         """SecretResponseAllOf - a model defined in OpenAPI
 
         Args:
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

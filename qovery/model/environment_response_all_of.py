@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.environment_mode_enum import EnvironmentModeEnum
     from qovery.model.environment_response_all_of_cloud_provider import EnvironmentResponseAllOfCloudProvider
     from qovery.model.reference_object import ReferenceObject
+    globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
     globals()['EnvironmentResponseAllOfCloudProvider'] = EnvironmentResponseAllOfCloudProvider
     globals()['ReferenceObject'] = ReferenceObject
 
@@ -62,12 +64,6 @@ class EnvironmentResponseAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('mode',): {
-            'PRODUCTION': "PRODUCTION",
-            'DEVELOPMENT': "DEVELOPMENT",
-            'STAGING': "STAGING",
-            'PREVIEW': "PREVIEW",
-        },
     }
 
     validations = {
@@ -98,7 +94,7 @@ class EnvironmentResponseAllOf(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'cloud_provider': (EnvironmentResponseAllOfCloudProvider,),  # noqa: E501
-            'mode': (str,),  # noqa: E501
+            'mode': (EnvironmentModeEnum,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'project': (ReferenceObject,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
@@ -131,7 +127,7 @@ class EnvironmentResponseAllOf(ModelNormal):
         Args:
             name (str): name is case insensitive
             cloud_provider (EnvironmentResponseAllOfCloudProvider):
-            mode (str):
+            mode (EnvironmentModeEnum):
             cluster_id (str):
 
         Keyword Args:
@@ -224,7 +220,7 @@ class EnvironmentResponseAllOf(ModelNormal):
         Args:
             name (str): name is case insensitive
             cloud_provider (EnvironmentResponseAllOfCloudProvider):
-            mode (str):
+            mode (EnvironmentModeEnum):
             cluster_id (str):
 
         Keyword Args:

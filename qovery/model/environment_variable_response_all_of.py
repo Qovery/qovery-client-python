@@ -33,8 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.environment_variable_response_all_of_aliased_variable import EnvironmentVariableResponseAllOfAliasedVariable
     from qovery.model.environment_variable_response_all_of_overridden_variable import EnvironmentVariableResponseAllOfOverriddenVariable
+    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
     globals()['EnvironmentVariableResponseAllOfAliasedVariable'] = EnvironmentVariableResponseAllOfAliasedVariable
     globals()['EnvironmentVariableResponseAllOfOverriddenVariable'] = EnvironmentVariableResponseAllOfOverriddenVariable
+    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
 
 
 class EnvironmentVariableResponseAllOf(ModelNormal):
@@ -62,12 +64,6 @@ class EnvironmentVariableResponseAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('scope',): {
-            'BUILT_IN': "BUILT_IN",
-            'ENVIRONMENT': "ENVIRONMENT",
-            'PROJECT': "PROJECT",
-            'APPLICATION': "APPLICATION",
-        },
     }
 
     validations = {
@@ -96,7 +92,7 @@ class EnvironmentVariableResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'scope': (str,),  # noqa: E501
+            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableResponseAllOfOverriddenVariable,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableResponseAllOfAliasedVariable,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
@@ -125,7 +121,7 @@ class EnvironmentVariableResponseAllOf(ModelNormal):
         """EnvironmentVariableResponseAllOf - a model defined in OpenAPI
 
         Args:
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -213,7 +209,7 @@ class EnvironmentVariableResponseAllOf(ModelNormal):
         """EnvironmentVariableResponseAllOf - a model defined in OpenAPI
 
         Args:
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

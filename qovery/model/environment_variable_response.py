@@ -36,11 +36,13 @@ def lazy_import():
     from qovery.model.environment_variable_response_all_of import EnvironmentVariableResponseAllOf
     from qovery.model.environment_variable_response_all_of_aliased_variable import EnvironmentVariableResponseAllOfAliasedVariable
     from qovery.model.environment_variable_response_all_of_overridden_variable import EnvironmentVariableResponseAllOfOverriddenVariable
+    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
     globals()['BaseResponse'] = BaseResponse
     globals()['EnvironmentVariableRequest'] = EnvironmentVariableRequest
     globals()['EnvironmentVariableResponseAllOf'] = EnvironmentVariableResponseAllOf
     globals()['EnvironmentVariableResponseAllOfAliasedVariable'] = EnvironmentVariableResponseAllOfAliasedVariable
     globals()['EnvironmentVariableResponseAllOfOverriddenVariable'] = EnvironmentVariableResponseAllOfOverriddenVariable
+    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
 
 
 class EnvironmentVariableResponse(ModelComposed):
@@ -68,12 +70,6 @@ class EnvironmentVariableResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('scope',): {
-            'BUILT_IN': "BUILT_IN",
-            'ENVIRONMENT': "ENVIRONMENT",
-            'PROJECT': "PROJECT",
-            'APPLICATION': "APPLICATION",
-        },
     }
 
     validations = {
@@ -106,7 +102,7 @@ class EnvironmentVariableResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'key': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
-            'scope': (str,),  # noqa: E501
+            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableResponseAllOfOverriddenVariable,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableResponseAllOfAliasedVariable,),  # noqa: E501
@@ -146,7 +142,7 @@ class EnvironmentVariableResponse(ModelComposed):
             created_at (datetime):
             key (str): key is case sensitive
             value (str): value of the env variable.
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -252,7 +248,7 @@ class EnvironmentVariableResponse(ModelComposed):
         Keyword Args:
             key (str): key is case sensitive
             value (str): value of the env variable.
-            scope (str):
+            scope (EnvironmentVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

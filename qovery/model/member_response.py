@@ -32,8 +32,10 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base_response import BaseResponse
+    from qovery.model.invite_member_role_enum import InviteMemberRoleEnum
     from qovery.model.member_response_all_of import MemberResponseAllOf
     globals()['BaseResponse'] = BaseResponse
+    globals()['InviteMemberRoleEnum'] = InviteMemberRoleEnum
     globals()['MemberResponseAllOf'] = MemberResponseAllOf
 
 
@@ -62,12 +64,6 @@ class MemberResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('role',): {
-            'OWNER': "OWNER",
-            'ADMIN': "ADMIN",
-            'DEVELOPER': "DEVELOPER",
-            'VIEWER': "VIEWER",
-        },
     }
 
     validations = {
@@ -104,7 +100,7 @@ class MemberResponse(ModelComposed):
             'nickname': (str,),  # noqa: E501
             'profile_picture_url': (str,),  # noqa: E501
             'last_activity_at': (datetime,),  # noqa: E501
-            'role': (str,),  # noqa: E501
+            'role': (InviteMemberRoleEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -174,7 +170,7 @@ class MemberResponse(ModelComposed):
             nickname (str): [optional]  # noqa: E501
             profile_picture_url (str): [optional]  # noqa: E501
             last_activity_at (datetime): last time the user was connected. [optional]  # noqa: E501
-            role (str): [optional]  # noqa: E501
+            role (InviteMemberRoleEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -280,7 +276,7 @@ class MemberResponse(ModelComposed):
             nickname (str): [optional]  # noqa: E501
             profile_picture_url (str): [optional]  # noqa: E501
             last_activity_at (datetime): last time the user was connected. [optional]  # noqa: E501
-            role (str): [optional]  # noqa: E501
+            role (InviteMemberRoleEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

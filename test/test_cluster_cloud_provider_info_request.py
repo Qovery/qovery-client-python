@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cluster_cloud_provider_info_request_credentials import ClusterCloudProviderInfoRequestCredentials
+globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['ClusterCloudProviderInfoRequestCredentials'] = ClusterCloudProviderInfoRequestCredentials
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
 

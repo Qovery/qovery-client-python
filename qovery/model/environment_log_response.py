@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.environment_log_response_scope import EnvironmentLogResponseScope
+    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     globals()['EnvironmentLogResponseScope'] = EnvironmentLogResponseScope
+    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
 
 
 class EnvironmentLogResponse(ModelNormal):
@@ -60,24 +62,6 @@ class EnvironmentLogResponse(ModelNormal):
     """
 
     allowed_values = {
-        ('state',): {
-            'BUILD_ERROR': "BUILD_ERROR",
-            'BUILDING': "BUILDING",
-            'BUILT': "BUILT",
-            'DELETE_ERROR': "DELETE_ERROR",
-            'DELETED': "DELETED",
-            'DELETING': "DELETING",
-            'DEPLOYED': "DEPLOYED",
-            'DEPLOYING': "DEPLOYING",
-            'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
-            'INITIALIZED': "INITIALIZED",
-            'QUEUED': "QUEUED",
-            'RUNNING': "RUNNING",
-            'RUNNING_ERROR': "RUNNING_ERROR",
-            'STOP_ERROR': "STOP_ERROR",
-            'STOPPED': "STOPPED",
-            'STOPPING': "STOPPING",
-        },
     }
 
     validations = {
@@ -110,7 +94,7 @@ class EnvironmentLogResponse(ModelNormal):
             'created_at': (datetime,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'scope': (EnvironmentLogResponseScope,),  # noqa: E501
-            'state': (str,),  # noqa: E501
+            'state': (GlobalDeploymentStatus,),  # noqa: E501
             'execution_id': (str,),  # noqa: E501
             'hint': (str,),  # noqa: E501
         }
@@ -177,7 +161,7 @@ class EnvironmentLogResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             scope (EnvironmentLogResponseScope): [optional]  # noqa: E501
-            state (str): Status is a state machine. It starts with `BUILDING` or `DEPLOYING` state (or `INITIALIZED`if auto-deploy is deactivated). Then finish with `*_ERROR` or any termination state. . [optional]  # noqa: E501
+            state (GlobalDeploymentStatus): [optional]  # noqa: E501
             execution_id (str): Only for errors. Helps Qovery team to investigate.. [optional]  # noqa: E501
             hint (str): [optional]  # noqa: E501
         """
@@ -270,7 +254,7 @@ class EnvironmentLogResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             scope (EnvironmentLogResponseScope): [optional]  # noqa: E501
-            state (str): Status is a state machine. It starts with `BUILDING` or `DEPLOYING` state (or `INITIALIZED`if auto-deploy is deactivated). Then finish with `*_ERROR` or any termination state. . [optional]  # noqa: E501
+            state (GlobalDeploymentStatus): [optional]  # noqa: E501
             execution_id (str): Only for errors. Helps Qovery team to investigate.. [optional]  # noqa: E501
             hint (str): [optional]  # noqa: E501
         """

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case insensitive | 
 **cloud_provider** | [**EnvironmentResponseAllOfCloudProvider**](EnvironmentResponseAllOfCloudProvider.md) |  | 
-**mode** | **str** |  | 
+**mode** | [**EnvironmentModeEnum**](EnvironmentModeEnum.md) |  | 
 **cluster_id** | **str** |  | 
 **project** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 
 **last_updated_by** | **str** | uuid of the user that made the last update | [optional] 

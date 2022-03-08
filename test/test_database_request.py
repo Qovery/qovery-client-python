@@ -13,6 +13,12 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.database_accessibility_enum import DatabaseAccessibilityEnum
+from qovery.model.database_mode_enum import DatabaseModeEnum
+from qovery.model.database_type_enum import DatabaseTypeEnum
+globals()['DatabaseAccessibilityEnum'] = DatabaseAccessibilityEnum
+globals()['DatabaseModeEnum'] = DatabaseModeEnum
+globals()['DatabaseTypeEnum'] = DatabaseTypeEnum
 from qovery.model.database_request import DatabaseRequest
 
 

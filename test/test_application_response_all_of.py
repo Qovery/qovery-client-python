@@ -14,10 +14,12 @@ import unittest
 
 import qovery
 from qovery.model.application_git_repository_response import ApplicationGitRepositoryResponse
+from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
 globals()['ApplicationGitRepositoryResponse'] = ApplicationGitRepositoryResponse
+globals()['BuildModeEnum'] = BuildModeEnum
 globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject

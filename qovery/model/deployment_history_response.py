@@ -34,9 +34,11 @@ def lazy_import():
     from qovery.model.base_response import BaseResponse
     from qovery.model.commit_response import CommitResponse
     from qovery.model.deployment_history_response_all_of import DeploymentHistoryResponseAllOf
+    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
     globals()['BaseResponse'] = BaseResponse
     globals()['CommitResponse'] = CommitResponse
     globals()['DeploymentHistoryResponseAllOf'] = DeploymentHistoryResponseAllOf
+    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 
 
 class DeploymentHistoryResponse(ModelComposed):
@@ -64,10 +66,6 @@ class DeploymentHistoryResponse(ModelComposed):
     """
 
     allowed_values = {
-        ('status',): {
-            'SUCCESS': "SUCCESS",
-            'FAILED': "FAILED",
-        },
     }
 
     validations = {
@@ -100,7 +98,7 @@ class DeploymentHistoryResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'commit': (CommitResponse,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -162,7 +160,7 @@ class DeploymentHistoryResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,7 +262,7 @@ class DeploymentHistoryResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             commit (CommitResponse): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

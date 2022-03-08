@@ -32,8 +32,10 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cost import Cost
+    from qovery.model.plan_enum import PlanEnum
     from qovery.model.remaining_credits import RemainingCredits
     globals()['Cost'] = Cost
+    globals()['PlanEnum'] = PlanEnum
     globals()['RemainingCredits'] = RemainingCredits
 
 
@@ -62,12 +64,6 @@ class CurrentCost(ModelNormal):
     """
 
     allowed_values = {
-        ('plan',): {
-            'COMMUNITY': "COMMUNITY",
-            'FREE': "FREE",
-            'PROFESSIONAL': "PROFESSIONAL",
-            'BUSINESS': "BUSINESS",
-        },
     }
 
     validations = {
@@ -96,7 +92,7 @@ class CurrentCost(ModelNormal):
         """
         lazy_import()
         return {
-            'plan': (str,),  # noqa: E501
+            'plan': (PlanEnum,),  # noqa: E501
             'remaining_trial_day': (int,),  # noqa: E501
             'remaining_credits': (RemainingCredits,),  # noqa: E501
             'cost': (Cost,),  # noqa: E501
@@ -155,7 +151,7 @@ class CurrentCost(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            plan (str): [optional]  # noqa: E501
+            plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
             remaining_credits (RemainingCredits): [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501
@@ -240,7 +236,7 @@ class CurrentCost(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            plan (str): [optional]  # noqa: E501
+            plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
             remaining_credits (RemainingCredits): [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501

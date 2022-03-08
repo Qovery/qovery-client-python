@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **name** | **str** | name is case insensitive | 
-**mode** | **str** |  | 
+**mode** | [**EnvironmentModeEnum**](EnvironmentModeEnum.md) |  | 
 **cluster_id** | **str** |  | 
 **timezone** | **str** |  | 
 **start_time** | **datetime** |  | 
 **stop_time** | **datetime** |  | 
-**weekdays** | **[str]** |  | 
+**weekdays** | [**[WeekdayEnum]**](WeekdayEnum.md) |  | 
 **wildcard** | **str** | wildcard pattern composed of &#39;?&#39; and/or &#39;*&#39; used to target new created environments | defaults to ""
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str, none_type** |  | [optional] 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **timezone** | **str** |  | 
 **start_time** | **datetime** |  | 
 **stop_time** | **datetime** |  | 
-**weekdays** | **[str]** |  | 
+**weekdays** | [**[WeekdayEnum]**](WeekdayEnum.md) |  | 
 **auto_deploy** | **bool** |  | [optional]  if omitted the server will use the default value of True
 **auto_delete** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **auto_stop** | **bool** |  | [optional]  if omitted the server will use the default value of False
