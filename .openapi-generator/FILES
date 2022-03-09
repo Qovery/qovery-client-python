@@ -302,7 +302,6 @@ docs/ProjectDeploymentRuleResponseAllOf.md
 docs/ProjectDeploymentRuleResponseList.md
 docs/ProjectEnvironmentVariableApi.md
 docs/ProjectMainCallsApi.md
-docs/ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder.md
 docs/ProjectRequest.md
 docs/ProjectResponse.md
 docs/ProjectResponseAllOf.md
@@ -660,7 +659,6 @@ qovery/model/project_deployment_rule_request.py
 qovery/model/project_deployment_rule_response.py
 qovery/model/project_deployment_rule_response_all_of.py
 qovery/model/project_deployment_rule_response_list.py
-qovery/model/project_project_id_deployment_rule_order_project_deployment_rule_ids_in_order.py
 qovery/model/project_request.py
 qovery/model/project_response.py
 qovery/model/project_response_all_of.py
@@ -1012,7 +1010,6 @@ test/test_project_deployment_rule_response_all_of.py
 test/test_project_deployment_rule_response_list.py
 test/test_project_environment_variable_api.py
 test/test_project_main_calls_api.py
-test/test_project_project_id_deployment_rule_order_project_deployment_rule_ids_in_order.py
 test/test_project_request.py
 test/test_project_response.py
 test/test_project_response_all_of.py

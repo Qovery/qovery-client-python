@@ -512,9 +512,7 @@ with qovery.ApiClient(configuration) as api_client:
     project_id = "projectId_example" # str | Project ID
     inline_object = InlineObject(
         project_deployment_rule_ids_in_order=[
-            ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder(
-                id="id_example",
-            ),
+            "project_deployment_rule_ids_in_order_example",
         ],
     ) # InlineObject |  (optional)
 

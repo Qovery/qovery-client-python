@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.project_project_id_deployment_rule_order_project_deployment_rule_ids_in_order import ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder
-globals()['ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder'] = ProjectProjectIdDeploymentRuleOrderProjectDeploymentRuleIdsInOrder
 from qovery.model.inline_object import InlineObject
 
 
