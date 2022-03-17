@@ -17,11 +17,11 @@ from qovery.model.deployment_restriction_mode_enum import DeploymentRestrictionM
 from qovery.model.deployment_restriction_type_enum import DeploymentRestrictionTypeEnum
 globals()['DeploymentRestrictionModeEnum'] = DeploymentRestrictionModeEnum
 globals()['DeploymentRestrictionTypeEnum'] = DeploymentRestrictionTypeEnum
-from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
+from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
 
 
-class TestApplicationDeploymentRestriction(unittest.TestCase):
-    """ApplicationDeploymentRestriction unit test stubs"""
+class TestApplicationDeploymentRestrictionRequest(unittest.TestCase):
+    """ApplicationDeploymentRestrictionRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestApplicationDeploymentRestriction(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationDeploymentRestriction(self):
-        """Test ApplicationDeploymentRestriction"""
+    def testApplicationDeploymentRestrictionRequest(self):
+        """Test ApplicationDeploymentRestrictionRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationDeploymentRestriction()  # noqa: E501
+        # model = ApplicationDeploymentRestrictionRequest()  # noqa: E501
         pass
 
 

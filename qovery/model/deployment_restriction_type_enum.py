@@ -53,7 +53,6 @@ class DeploymentRestrictionTypeEnum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'FILE': "FILE",
             'PATH': "PATH",
         },
     }
@@ -106,10 +105,10 @@ class DeploymentRestrictionTypeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["FILE", "PATH", ]  # noqa: E501
+            args[0] (str): if omitted defaults to "PATH", must be one of ["PATH", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["FILE", "PATH", ]  # noqa: E501
+            value (str): if omitted defaults to "PATH", must be one of ["PATH", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -150,11 +149,7 @@ class DeploymentRestrictionTypeEnum(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            raise ApiTypeError(
-                "value is required, but not passed in args or kwargs and doesn't have default",
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            value = "PATH"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -196,10 +191,10 @@ class DeploymentRestrictionTypeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["FILE", "PATH", ]  # noqa: E501
+            args[0] (str): if omitted defaults to "PATH", must be one of ["PATH", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["FILE", "PATH", ]  # noqa: E501
+            value (str): if omitted defaults to "PATH", must be one of ["PATH", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -242,11 +237,7 @@ class DeploymentRestrictionTypeEnum(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            raise ApiTypeError(
-                "value is required, but not passed in args or kwargs and doesn't have default",
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            value = "PATH"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
