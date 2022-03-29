@@ -195,6 +195,7 @@ from qovery.model.global_deployment_status import GlobalDeploymentStatus
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.inline_object import InlineObject
 from qovery.model.inline_object1 import InlineObject1
+from qovery.model.inline_object2 import InlineObject2
 from qovery.model.instance_response import InstanceResponse
 from qovery.model.instance_response_list import InstanceResponseList
 from qovery.model.invite_member_request import InviteMemberRequest
