@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.event_response import EventResponse
-globals()['EventResponse'] = EventResponse
+from qovery.model.event import Event
+globals()['Event'] = Event
 from qovery.model.event_paginated_response_list_all_of import EventPaginatedResponseListAllOf
 
 

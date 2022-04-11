@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.account_info_response import AccountInfoResponse
+from qovery.model.account_info import AccountInfo
 
 
 class AccountInfoApi(object):
@@ -38,7 +38,7 @@ class AccountInfoApi(object):
         self.api_client = api_client
         self.get_account_information_endpoint = _Endpoint(
             settings={
-                'response_type': (AccountInfoResponse,),
+                'response_type': (AccountInfo,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -123,7 +123,7 @@ class AccountInfoApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            AccountInfoResponse
+            AccountInfo
                 If the method is called asynchronously, returns the request
                 thread.
         """

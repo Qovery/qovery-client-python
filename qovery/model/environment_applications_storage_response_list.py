@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_applications_storage_response import EnvironmentApplicationsStorageResponse
-    globals()['EnvironmentApplicationsStorageResponse'] = EnvironmentApplicationsStorageResponse
+    from qovery.model.environment_applications_storage import EnvironmentApplicationsStorage
+    globals()['EnvironmentApplicationsStorage'] = EnvironmentApplicationsStorage
 
 
 class EnvironmentApplicationsStorageResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class EnvironmentApplicationsStorageResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([EnvironmentApplicationsStorageResponse],),  # noqa: E501
+            'results': ([EnvironmentApplicationsStorage],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class EnvironmentApplicationsStorageResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentApplicationsStorageResponse]): [optional]  # noqa: E501
+            results ([EnvironmentApplicationsStorage]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class EnvironmentApplicationsStorageResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentApplicationsStorageResponse]): [optional]  # noqa: E501
+            results ([EnvironmentApplicationsStorage]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

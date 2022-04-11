@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.application_network import ApplicationNetwork
 from qovery.model.application_network_request import ApplicationNetworkRequest
-from qovery.model.application_network_response import ApplicationNetworkResponse
 
 
 class ApplicationConfigurationApi(object):
@@ -39,7 +39,7 @@ class ApplicationConfigurationApi(object):
         self.api_client = api_client
         self.edit_application_network_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationNetworkResponse,),
+                'response_type': (ApplicationNetwork,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -96,7 +96,7 @@ class ApplicationConfigurationApi(object):
         )
         self.get_application_network_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationNetworkResponse,),
+                'response_type': (ApplicationNetwork,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -193,7 +193,7 @@ class ApplicationConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationNetworkResponse
+            ApplicationNetwork
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -271,7 +271,7 @@ class ApplicationConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationNetworkResponse
+            ApplicationNetwork
                 If the method is called asynchronously, returns the request
                 thread.
         """

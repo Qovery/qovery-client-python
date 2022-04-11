@@ -22,9 +22,9 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.organization import Organization
 from qovery.model.organization_edit_request import OrganizationEditRequest
 from qovery.model.organization_request import OrganizationRequest
-from qovery.model.organization_response import OrganizationResponse
 from qovery.model.organization_response_list import OrganizationResponseList
 
 
@@ -41,7 +41,7 @@ class OrganizationMainCallsApi(object):
         self.api_client = api_client
         self.create_organization_endpoint = _Endpoint(
             settings={
-                'response_type': (OrganizationResponse,),
+                'response_type': (Organization,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -140,7 +140,7 @@ class OrganizationMainCallsApi(object):
         )
         self.edit_organization_endpoint = _Endpoint(
             settings={
-                'response_type': (OrganizationResponse,),
+                'response_type': (Organization,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -197,7 +197,7 @@ class OrganizationMainCallsApi(object):
         )
         self.get_organization_endpoint = _Endpoint(
             settings={
-                'response_type': (OrganizationResponse,),
+                'response_type': (Organization,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -334,7 +334,7 @@ class OrganizationMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            OrganizationResponse
+            Organization
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -489,7 +489,7 @@ class OrganizationMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            OrganizationResponse
+            Organization
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -566,7 +566,7 @@ class OrganizationMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            OrganizationResponse
+            Organization
                 If the method is called asynchronously, returns the request
                 thread.
         """

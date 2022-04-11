@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.reference_object_status_response import ReferenceObjectStatusResponse
-    globals()['ReferenceObjectStatusResponse'] = ReferenceObjectStatusResponse
+    from qovery.model.reference_object_status import ReferenceObjectStatus
+    globals()['ReferenceObjectStatus'] = ReferenceObjectStatus
 
 
 class ReferenceObjectStatusResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class ReferenceObjectStatusResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([ReferenceObjectStatusResponse],),  # noqa: E501
+            'results': ([ReferenceObjectStatus],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class ReferenceObjectStatusResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ReferenceObjectStatusResponse]): [optional]  # noqa: E501
+            results ([ReferenceObjectStatus]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class ReferenceObjectStatusResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ReferenceObjectStatusResponse]): [optional]  # noqa: E501
+            results ([ReferenceObjectStatus]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

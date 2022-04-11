@@ -22,9 +22,9 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.backup import Backup
 from qovery.model.backup_paginated_response_list import BackupPaginatedResponseList
 from qovery.model.backup_request import BackupRequest
-from qovery.model.backup_response import BackupResponse
 
 
 class BackupsApi(object):
@@ -40,7 +40,7 @@ class BackupsApi(object):
         self.api_client = api_client
         self.add_backup_database_endpoint = _Endpoint(
             settings={
-                'response_type': (BackupResponse,),
+                'response_type': (Backup,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -253,7 +253,7 @@ class BackupsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            BackupResponse
+            Backup
                 If the method is called asynchronously, returns the request
                 thread.
         """

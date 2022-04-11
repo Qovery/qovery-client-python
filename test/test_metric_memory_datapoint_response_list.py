@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.metric_memory_datapoint_response import MetricMemoryDatapointResponse
-globals()['MetricMemoryDatapointResponse'] = MetricMemoryDatapointResponse
+from qovery.model.metric_memory_datapoint import MetricMemoryDatapoint
+globals()['MetricMemoryDatapoint'] = MetricMemoryDatapoint
 from qovery.model.metric_memory_datapoint_response_list import MetricMemoryDatapointResponseList
 
 

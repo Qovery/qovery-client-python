@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.project_current_cost_response import ProjectCurrentCostResponse
-globals()['ProjectCurrentCostResponse'] = ProjectCurrentCostResponse
+from qovery.model.project_current_cost import ProjectCurrentCost
+globals()['ProjectCurrentCost'] = ProjectCurrentCost
 from qovery.model.project_current_cost_response_list import ProjectCurrentCostResponseList
 
 

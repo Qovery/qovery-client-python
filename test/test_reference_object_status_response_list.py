@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.reference_object_status_response import ReferenceObjectStatusResponse
-globals()['ReferenceObjectStatusResponse'] = ReferenceObjectStatusResponse
+from qovery.model.reference_object_status import ReferenceObjectStatus
+globals()['ReferenceObjectStatus'] = ReferenceObjectStatus
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 
 

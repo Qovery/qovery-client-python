@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **attach_databaseto_application**
-> DatabaseResponse attach_databaseto_application(application_id, target_database_id)
+> Database attach_databaseto_application(application_id, target_database_id)
 
 Link a database to the application
 
@@ -25,7 +25,7 @@ Link a database to the application
 import time
 import qovery
 from qovery.api import application_database_api
-from qovery.model.database_response import DatabaseResponse
+from qovery.model.database import Database
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DatabaseResponse**](DatabaseResponse.md)
+[**Database**](Database.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **attach_logical_databaseto_application**
-> LogicalDatabaseResponse attach_logical_databaseto_application(application_id, target_logical_database_id)
+> LogicalDatabase attach_logical_databaseto_application(application_id, target_logical_database_id)
 
 Link a logical database to the application
 
@@ -107,7 +107,7 @@ Link a logical database to the application
 import time
 import qovery
 from qovery.api import application_database_api
-from qovery.model.logical_database_response import LogicalDatabaseResponse
+from qovery.model.logical_database import LogicalDatabase
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogicalDatabaseResponse**](LogicalDatabaseResponse.md)
+[**LogicalDatabase**](LogicalDatabase.md)
 
 ### Authorization
 

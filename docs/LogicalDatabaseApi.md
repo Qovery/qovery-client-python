@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **create_logical_database_on_database**
-> LogicalDatabaseResponse create_logical_database_on_database(database_id)
+> LogicalDatabase create_logical_database_on_database(database_id)
 
 Create a logical database on the database
 
@@ -30,7 +30,7 @@ import time
 import qovery
 from qovery.api import logical_database_api
 from qovery.model.logical_database_request import LogicalDatabaseRequest
-from qovery.model.logical_database_response import LogicalDatabaseResponse
+from qovery.model.logical_database import LogicalDatabase
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogicalDatabaseResponse**](LogicalDatabaseResponse.md)
+[**LogicalDatabase**](LogicalDatabase.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_logical_database**
-> LogicalDatabaseResponse edit_logical_database(logical_database_id)
+> LogicalDatabase edit_logical_database(logical_database_id)
 
 Edit a logical database
 
@@ -203,7 +203,7 @@ import time
 import qovery
 from qovery.api import logical_database_api
 from qovery.model.logical_database_request import LogicalDatabaseRequest
-from qovery.model.logical_database_response import LogicalDatabaseResponse
+from qovery.model.logical_database import LogicalDatabase
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogicalDatabaseResponse**](LogicalDatabaseResponse.md)
+[**LogicalDatabase**](LogicalDatabase.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_logical_database_credentials**
-> CredentialsResponse edit_logical_database_credentials(logical_database_id)
+> Credentials edit_logical_database_credentials(logical_database_id)
 
 Edit logical database credentials
 
@@ -296,7 +296,7 @@ Edit logical database credentials
 import time
 import qovery
 from qovery.api import logical_database_api
-from qovery.model.credentials_response import CredentialsResponse
+from qovery.model.credentials import Credentials
 from qovery.model.credentials_request import CredentialsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CredentialsResponse**](CredentialsResponse.md)
+[**Credentials**](Credentials.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_logical_database**
-> LogicalDatabaseResponse get_logical_database(logical_database_id)
+> LogicalDatabase get_logical_database(logical_database_id)
 
 Get logical database by ID
 
@@ -392,7 +392,7 @@ A logical database exists inside a database. The database is a service that exis
 import time
 import qovery
 from qovery.api import logical_database_api
-from qovery.model.logical_database_response import LogicalDatabaseResponse
+from qovery.model.logical_database import LogicalDatabase
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogicalDatabaseResponse**](LogicalDatabaseResponse.md)
+[**LogicalDatabase**](LogicalDatabase.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_logical_database_credentials**
-> CredentialsResponse get_logical_database_credentials(logical_database_id)
+> Credentials get_logical_database_credentials(logical_database_id)
 
 Get  credentials of the logical database
 
@@ -470,7 +470,7 @@ Get  credentials of the logical database
 import time
 import qovery
 from qovery.api import logical_database_api
-from qovery.model.credentials_response import CredentialsResponse
+from qovery.model.credentials import Credentials
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CredentialsResponse**](CredentialsResponse.md)
+[**Credentials**](Credentials.md)
 
 ### Authorization
 

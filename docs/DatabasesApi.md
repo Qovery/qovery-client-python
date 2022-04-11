@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_database**
-> DatabaseResponse create_database(environment_id)
+> Database create_database(environment_id)
 
 Create a database
 
@@ -25,7 +25,7 @@ import time
 import qovery
 from qovery.api import databases_api
 from qovery.model.database_request import DatabaseRequest
-from qovery.model.database_response import DatabaseResponse
+from qovery.model.database import Database
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DatabaseResponse**](DatabaseResponse.md)
+[**Database**](Database.md)
 
 ### Authorization
 

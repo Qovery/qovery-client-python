@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.application import Application
 from qovery.model.application_request import ApplicationRequest
-from qovery.model.application_response import ApplicationResponse
 from qovery.model.application_response_list import ApplicationResponseList
 from qovery.model.environment_applications_current_scale_response_list import EnvironmentApplicationsCurrentScaleResponseList
 from qovery.model.environment_applications_instance_response_list import EnvironmentApplicationsInstanceResponseList
@@ -47,7 +47,7 @@ class ApplicationsApi(object):
         self.api_client = api_client
         self.create_application_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationResponse,),
+                'response_type': (Application,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -517,7 +517,7 @@ class ApplicationsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationResponse
+            Application
                 If the method is called asynchronously, returns the request
                 thread.
         """

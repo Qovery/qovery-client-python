@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.referral_response import ReferralResponse
-from qovery.model.reward_claim_response import RewardClaimResponse
+from qovery.model.referral import Referral
+from qovery.model.reward_claim import RewardClaim
 
 
 class ReferralRewardsApi(object):
@@ -39,7 +39,7 @@ class ReferralRewardsApi(object):
         self.api_client = api_client
         self.get_account_referral_endpoint = _Endpoint(
             settings={
-                'response_type': (ReferralResponse,),
+                'response_type': (Referral,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -94,7 +94,7 @@ class ReferralRewardsApi(object):
             },
             params_map={
                 'all': [
-                    'reward_claim_response',
+                    'reward_claim',
                 ],
                 'required': [],
                 'nullable': [
@@ -110,13 +110,13 @@ class ReferralRewardsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'reward_claim_response':
-                        (RewardClaimResponse,),
+                    'reward_claim':
+                        (RewardClaim,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'reward_claim_response': 'body',
+                    'reward_claim': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -172,7 +172,7 @@ class ReferralRewardsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ReferralResponse
+            Referral
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -217,7 +217,7 @@ class ReferralRewardsApi(object):
 
 
         Keyword Args:
-            reward_claim_response (RewardClaimResponse): [optional]
+            reward_claim (RewardClaim): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

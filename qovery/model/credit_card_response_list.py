@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.credit_card_response import CreditCardResponse
-    globals()['CreditCardResponse'] = CreditCardResponse
+    from qovery.model.credit_card import CreditCard
+    globals()['CreditCard'] = CreditCard
 
 
 class CreditCardResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class CreditCardResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([CreditCardResponse],),  # noqa: E501
+            'results': ([CreditCard],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class CreditCardResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([CreditCardResponse]): [optional]  # noqa: E501
+            results ([CreditCard]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class CreditCardResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([CreditCardResponse]): [optional]  # noqa: E501
+            results ([CreditCard]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

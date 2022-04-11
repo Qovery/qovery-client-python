@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **create_aws_credentials**
-> ClusterCredentialsResponse create_aws_credentials(organization_id)
+> ClusterCredentials create_aws_credentials(organization_id)
 
 Create AWS credentials set
 
@@ -31,7 +31,7 @@ Create AWS credentials set
 import time
 import qovery
 from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
+from qovery.model.cluster_credentials import ClusterCredentials
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCredentialsResponse**](ClusterCredentialsResponse.md)
+[**ClusterCredentials**](ClusterCredentials.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_do_credentials**
-> ClusterCredentialsResponse create_do_credentials(organization_id)
+> ClusterCredentials create_do_credentials(organization_id)
 
 Create Digital Ocean credentials set
 
@@ -126,8 +126,8 @@ Create Digital Ocean credentials set
 import time
 import qovery
 from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from qovery.model.do_credentials_request import DoCredentialsRequest
+from qovery.model.cluster_credentials import ClusterCredentials
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCredentialsResponse**](ClusterCredentialsResponse.md)
+[**ClusterCredentials**](ClusterCredentials.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_scaleway_credentials**
-> ClusterCredentialsResponse create_scaleway_credentials(organization_id)
+> ClusterCredentials create_scaleway_credentials(organization_id)
 
 Create Scaleway credentials set
 
@@ -223,7 +223,7 @@ import time
 import qovery
 from qovery.api import cloud_provider_credentials_api
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
+from qovery.model.cluster_credentials import ClusterCredentials
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCredentialsResponse**](ClusterCredentialsResponse.md)
+[**ClusterCredentials**](ClusterCredentials.md)
 
 ### Authorization
 
@@ -540,7 +540,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_aws_credentials**
-> ClusterCredentialsResponse edit_aws_credentials(organization_id, credentials_id)
+> ClusterCredentials edit_aws_credentials(organization_id, credentials_id)
 
 Edit a set of AWS credentials
 
@@ -552,7 +552,7 @@ Edit a set of AWS credentials
 import time
 import qovery
 from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
+from qovery.model.cluster_credentials import ClusterCredentials
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCredentialsResponse**](ClusterCredentialsResponse.md)
+[**ClusterCredentials**](ClusterCredentials.md)
 
 ### Authorization
 
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_do_credentials**
-> ClusterCredentialsResponse edit_do_credentials(organization_id, credentials_id)
+> ClusterCredentials edit_do_credentials(organization_id, credentials_id)
 
 Edit a set of Digital Ocean credentials
 
@@ -649,8 +649,8 @@ Edit a set of Digital Ocean credentials
 import time
 import qovery
 from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
 from qovery.model.do_credentials_request import DoCredentialsRequest
+from qovery.model.cluster_credentials import ClusterCredentials
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCredentialsResponse**](ClusterCredentialsResponse.md)
+[**ClusterCredentials**](ClusterCredentials.md)
 
 ### Authorization
 
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_scaleway_credentials**
-> ClusterCredentialsResponse edit_scaleway_credentials(organization_id, credentials_id)
+> ClusterCredentials edit_scaleway_credentials(organization_id, credentials_id)
 
 Edit a set of Scaleway credentials
 
@@ -748,7 +748,7 @@ import time
 import qovery
 from qovery.api import cloud_provider_credentials_api
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
+from qovery.model.cluster_credentials import ClusterCredentials
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -808,7 +808,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCredentialsResponse**](ClusterCredentialsResponse.md)
+[**ClusterCredentials**](ClusterCredentials.md)
 
 ### Authorization
 

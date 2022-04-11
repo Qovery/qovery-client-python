@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cloud_provider_response import CloudProviderResponse
-globals()['CloudProviderResponse'] = CloudProviderResponse
+from qovery.model.cloud_provider import CloudProvider
+globals()['CloudProvider'] = CloudProvider
 from qovery.model.cloud_provider_response_list import CloudProviderResponseList
 
 

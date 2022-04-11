@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.git_repository_branch_response import GitRepositoryBranchResponse
-    globals()['GitRepositoryBranchResponse'] = GitRepositoryBranchResponse
+    from qovery.model.git_repository_branch import GitRepositoryBranch
+    globals()['GitRepositoryBranch'] = GitRepositoryBranch
 
 
 class GitRepositoryBranchResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class GitRepositoryBranchResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([GitRepositoryBranchResponse],),  # noqa: E501
+            'results': ([GitRepositoryBranch],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class GitRepositoryBranchResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([GitRepositoryBranchResponse]): [optional]  # noqa: E501
+            results ([GitRepositoryBranch]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class GitRepositoryBranchResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([GitRepositoryBranchResponse]): [optional]  # noqa: E501
+            results ([GitRepositoryBranch]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_databases_current_metric_response import EnvironmentDatabasesCurrentMetricResponse
-    globals()['EnvironmentDatabasesCurrentMetricResponse'] = EnvironmentDatabasesCurrentMetricResponse
+    from qovery.model.environment_databases_current_metric import EnvironmentDatabasesCurrentMetric
+    globals()['EnvironmentDatabasesCurrentMetric'] = EnvironmentDatabasesCurrentMetric
 
 
 class EnvironmentDatabasesCurrentMetricResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class EnvironmentDatabasesCurrentMetricResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([EnvironmentDatabasesCurrentMetricResponse],),  # noqa: E501
+            'results': ([EnvironmentDatabasesCurrentMetric],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class EnvironmentDatabasesCurrentMetricResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentDatabasesCurrentMetricResponse]): [optional]  # noqa: E501
+            results ([EnvironmentDatabasesCurrentMetric]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class EnvironmentDatabasesCurrentMetricResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentDatabasesCurrentMetricResponse]): [optional]  # noqa: E501
+            results ([EnvironmentDatabasesCurrentMetric]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

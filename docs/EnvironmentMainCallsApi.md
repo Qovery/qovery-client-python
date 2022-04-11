@@ -90,7 +90,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_environment**
-> EnvironmentResponse edit_environment(environment_id)
+> Environment edit_environment(environment_id)
 
 Edit an environment
 
@@ -105,7 +105,7 @@ import time
 import qovery
 from qovery.api import environment_main_calls_api
 from qovery.model.environment_edit_request import EnvironmentEditRequest
-from qovery.model.environment_response import EnvironmentResponse
+from qovery.model.environment import Environment
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentResponse**](EnvironmentResponse.md)
+[**Environment**](Environment.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_environment**
-> EnvironmentResponse get_environment(environment_id)
+> Environment get_environment(environment_id)
 
 Get environment by ID
 
@@ -199,7 +199,7 @@ Get environment by ID
 import time
 import qovery
 from qovery.api import environment_main_calls_api
-from qovery.model.environment_response import EnvironmentResponse
+from qovery.model.environment import Environment
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentResponse**](EnvironmentResponse.md)
+[**Environment**](Environment.md)
 
 ### Authorization
 

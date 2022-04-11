@@ -22,9 +22,9 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.environment_variable import EnvironmentVariable
 from qovery.model.environment_variable_edit_request import EnvironmentVariableEditRequest
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
-from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.environment_variable_response_list import EnvironmentVariableResponseList
 from qovery.model.key import Key
 from qovery.model.value import Value
@@ -43,7 +43,7 @@ class EnvironmentVariableApi(object):
         self.api_client = api_client
         self.create_environment_environment_variable_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentVariableResponse,),
+                'response_type': (EnvironmentVariable,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -100,7 +100,7 @@ class EnvironmentVariableApi(object):
         )
         self.create_environment_environment_variable_alias_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentVariableResponse,),
+                'response_type': (EnvironmentVariable,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -163,7 +163,7 @@ class EnvironmentVariableApi(object):
         )
         self.create_environment_environment_variable_override_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentVariableResponse,),
+                'response_type': (EnvironmentVariable,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -281,7 +281,7 @@ class EnvironmentVariableApi(object):
         )
         self.edit_environment_environment_variable_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentVariableResponse,),
+                'response_type': (EnvironmentVariable,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -442,7 +442,7 @@ class EnvironmentVariableApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentVariableResponse
+            EnvironmentVariable
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -523,7 +523,7 @@ class EnvironmentVariableApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentVariableResponse
+            EnvironmentVariable
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -606,7 +606,7 @@ class EnvironmentVariableApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentVariableResponse
+            EnvironmentVariable
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -772,7 +772,7 @@ class EnvironmentVariableApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentVariableResponse
+            EnvironmentVariable
                 If the method is called asynchronously, returns the request
                 thread.
         """

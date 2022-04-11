@@ -31,12 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.backup_response import BackupResponse
+    from qovery.model.backup import Backup
     from qovery.model.backup_response_list import BackupResponseList
-    from qovery.model.pagination_data_response import PaginationDataResponse
-    globals()['BackupResponse'] = BackupResponse
+    from qovery.model.pagination_data import PaginationData
+    globals()['Backup'] = Backup
     globals()['BackupResponseList'] = BackupResponseList
-    globals()['PaginationDataResponse'] = PaginationDataResponse
+    globals()['PaginationData'] = PaginationData
 
 
 class BackupPaginatedResponseList(ModelComposed):
@@ -94,7 +94,7 @@ class BackupPaginatedResponseList(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([BackupResponse],),  # noqa: E501
+            'results': ([Backup],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class BackupPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([BackupResponse]): [optional]  # noqa: E501
+            results ([Backup]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,7 +251,7 @@ class BackupPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([BackupResponse]): [optional]  # noqa: E501
+            results ([Backup]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,7 +318,7 @@ class BackupPaginatedResponseList(ModelComposed):
           ],
           'allOf': [
               BackupResponseList,
-              PaginationDataResponse,
+              PaginationData,
           ],
           'oneOf': [
           ],

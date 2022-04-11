@@ -22,9 +22,9 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.database import Database
 from qovery.model.database_configuration_response_list import DatabaseConfigurationResponseList
 from qovery.model.database_request import DatabaseRequest
-from qovery.model.database_response import DatabaseResponse
 from qovery.model.database_response_list import DatabaseResponseList
 from qovery.model.environment_databases_current_metric_response_list import EnvironmentDatabasesCurrentMetricResponseList
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
@@ -43,7 +43,7 @@ class DatabasesApi(object):
         self.api_client = api_client
         self.create_database_endpoint = _Endpoint(
             settings={
-                'response_type': (DatabaseResponse,),
+                'response_type': (Database,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -349,7 +349,7 @@ class DatabasesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DatabaseResponse
+            Database
                 If the method is called asynchronously, returns the request
                 thread.
         """

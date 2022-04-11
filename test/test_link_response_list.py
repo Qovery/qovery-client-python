@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.link_response import LinkResponse
-globals()['LinkResponse'] = LinkResponse
+from qovery.model.link import Link
+globals()['Link'] = Link
 from qovery.model.link_response_list import LinkResponseList
 
 

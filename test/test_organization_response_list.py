@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.organization_response import OrganizationResponse
-globals()['OrganizationResponse'] = OrganizationResponse
+from qovery.model.organization import Organization
+globals()['Organization'] = Organization
 from qovery.model.organization_response_list import OrganizationResponseList
 
 

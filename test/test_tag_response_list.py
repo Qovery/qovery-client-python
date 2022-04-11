@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.tag_response import TagResponse
-globals()['TagResponse'] = TagResponse
+from qovery.model.tag import Tag
+globals()['Tag'] = Tag
 from qovery.model.tag_response_list import TagResponseList
 
 

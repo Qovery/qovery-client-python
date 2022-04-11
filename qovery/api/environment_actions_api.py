@@ -23,7 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.clone_request import CloneRequest
-from qovery.model.environment_response import EnvironmentResponse
+from qovery.model.environment import Environment
 from qovery.model.environment_restart_request import EnvironmentRestartRequest
 from qovery.model.status import Status
 
@@ -92,7 +92,7 @@ class EnvironmentActionsApi(object):
         )
         self.clone_environment_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentResponse,),
+                'response_type': (Environment,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -432,7 +432,7 @@ class EnvironmentActionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentResponse
+            Environment
                 If the method is called asynchronously, returns the request
                 thread.
         """

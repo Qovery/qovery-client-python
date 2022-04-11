@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.invite_member import InviteMember
 from qovery.model.invite_member_request import InviteMemberRequest
-from qovery.model.invite_member_response import InviteMemberResponse
 from qovery.model.invite_member_response_list import InviteMemberResponseList
 from qovery.model.member_response_list import MemberResponseList
 from qovery.model.transfer_ownership_request import TransferOwnershipRequest
@@ -248,7 +248,7 @@ class MembersApi(object):
         )
         self.post_accept_invite_member_endpoint = _Endpoint(
             settings={
-                'response_type': (InviteMemberResponse,),
+                'response_type': (InviteMember,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -305,7 +305,7 @@ class MembersApi(object):
         )
         self.post_invite_member_endpoint = _Endpoint(
             settings={
-                'response_type': (InviteMemberResponse,),
+                'response_type': (InviteMember,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -775,7 +775,7 @@ class MembersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InviteMemberResponse
+            InviteMember
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -855,7 +855,7 @@ class MembersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InviteMemberResponse
+            InviteMember
                 If the method is called asynchronously, returns the request
                 thread.
         """

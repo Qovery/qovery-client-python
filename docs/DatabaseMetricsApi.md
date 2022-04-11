@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **get_database_current_metric**
-> DatabaseCurrentMetricResponse get_database_current_metric(database_id)
+> DatabaseCurrentMetric get_database_current_metric(database_id)
 
 Get current metric consumption of the database 
 
@@ -25,7 +25,7 @@ Get current metric consumption of the database
 import time
 import qovery
 from qovery.api import database_metrics_api
-from qovery.model.database_current_metric_response import DatabaseCurrentMetricResponse
+from qovery.model.database_current_metric import DatabaseCurrentMetric
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DatabaseCurrentMetricResponse**](DatabaseCurrentMetricResponse.md)
+[**DatabaseCurrentMetric**](DatabaseCurrentMetric.md)
 
 ### Authorization
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_database_metric_restart**
-> MetricRestartResponse get_database_metric_restart(database_id, last_seconds)
+> MetricRestart get_database_metric_restart(database_id, last_seconds)
 
 List database restarts
 
@@ -347,7 +347,7 @@ Get database restart message and timestamp.
 import time
 import qovery
 from qovery.api import database_metrics_api
-from qovery.model.metric_restart_response import MetricRestartResponse
+from qovery.model.metric_restart import MetricRestart
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MetricRestartResponse**](MetricRestartResponse.md)
+[**MetricRestart**](MetricRestart.md)
 
 ### Authorization
 

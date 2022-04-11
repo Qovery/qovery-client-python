@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_region_response import ClusterRegionResponse
-globals()['ClusterRegionResponse'] = ClusterRegionResponse
+from qovery.model.cluster_region import ClusterRegion
+globals()['ClusterRegion'] = ClusterRegion
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
 
 

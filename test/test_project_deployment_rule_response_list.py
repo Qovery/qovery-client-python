@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
-globals()['ProjectDeploymentRuleResponse'] = ProjectDeploymentRuleResponse
+from qovery.model.project_deployment_rule import ProjectDeploymentRule
+globals()['ProjectDeploymentRule'] = ProjectDeploymentRule
 from qovery.model.project_deployment_rule_response_list import ProjectDeploymentRuleResponseList
 
 

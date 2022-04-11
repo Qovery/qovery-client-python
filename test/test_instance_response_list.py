@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.instance_response import InstanceResponse
-globals()['InstanceResponse'] = InstanceResponse
+from qovery.model.instance import Instance
+globals()['Instance'] = Instance
 from qovery.model.instance_response_list import InstanceResponseList
 
 

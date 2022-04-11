@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.commit_response import CommitResponse
-    globals()['CommitResponse'] = CommitResponse
+    from qovery.model.commit import Commit
+    globals()['Commit'] = Commit
 
 
 class CommitResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class CommitResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([CommitResponse],),  # noqa: E501
+            'results': ([Commit],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class CommitResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([CommitResponse]): [optional]  # noqa: E501
+            results ([Commit]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class CommitResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([CommitResponse]): [optional]  # noqa: E501
+            results ([Commit]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

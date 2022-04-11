@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.git_repository_branch_response import GitRepositoryBranchResponse
-globals()['GitRepositoryBranchResponse'] = GitRepositoryBranchResponse
+from qovery.model.git_repository_branch import GitRepositoryBranch
+globals()['GitRepositoryBranch'] = GitRepositoryBranch
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 
 

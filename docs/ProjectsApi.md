@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_project**
-> ProjectResponse create_project(organization_id)
+> Project create_project(organization_id)
 
 Create a project
 
@@ -22,8 +22,8 @@ Create a project
 import time
 import qovery
 from qovery.api import projects_api
-from qovery.model.project_response import ProjectResponse
 from qovery.model.project_request import ProjectRequest
+from qovery.model.project import Project
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectResponse**](ProjectResponse.md)
+[**Project**](Project.md)
 
 ### Authorization
 

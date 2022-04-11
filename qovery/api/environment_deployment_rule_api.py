@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.environment_deployment_rule import EnvironmentDeploymentRule
 from qovery.model.environment_deployment_rule_edit_request import EnvironmentDeploymentRuleEditRequest
-from qovery.model.environment_deployment_rule_response import EnvironmentDeploymentRuleResponse
 
 
 class EnvironmentDeploymentRuleApi(object):
@@ -39,7 +39,7 @@ class EnvironmentDeploymentRuleApi(object):
         self.api_client = api_client
         self.edit_environment_deployment_rule_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentDeploymentRuleResponse,),
+                'response_type': (EnvironmentDeploymentRule,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -102,7 +102,7 @@ class EnvironmentDeploymentRuleApi(object):
         )
         self.get_environment_deployment_rule_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentDeploymentRuleResponse,),
+                'response_type': (EnvironmentDeploymentRule,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -200,7 +200,7 @@ class EnvironmentDeploymentRuleApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentDeploymentRuleResponse
+            EnvironmentDeploymentRule
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -279,7 +279,7 @@ class EnvironmentDeploymentRuleApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentDeploymentRuleResponse
+            EnvironmentDeploymentRule
                 If the method is called asynchronously, returns the request
                 thread.
         """

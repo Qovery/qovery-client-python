@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **edit_environment_deployment_rule**
-> EnvironmentDeploymentRuleResponse edit_environment_deployment_rule(environment_id, deployment_rule_id)
+> EnvironmentDeploymentRule edit_environment_deployment_rule(environment_id, deployment_rule_id)
 
 Edit an environment deployment rule
 
@@ -21,7 +21,7 @@ Edit an environment deployment rule
 import time
 import qovery
 from qovery.api import environment_deployment_rule_api
-from qovery.model.environment_deployment_rule_response import EnvironmentDeploymentRuleResponse
+from qovery.model.environment_deployment_rule import EnvironmentDeploymentRule
 from qovery.model.environment_deployment_rule_edit_request import EnvironmentDeploymentRuleEditRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentDeploymentRuleResponse**](EnvironmentDeploymentRuleResponse.md)
+[**EnvironmentDeploymentRule**](EnvironmentDeploymentRule.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_environment_deployment_rule**
-> EnvironmentDeploymentRuleResponse get_environment_deployment_rule(environment_id)
+> EnvironmentDeploymentRule get_environment_deployment_rule(environment_id)
 
 Get environment deployment rule
 
@@ -124,7 +124,7 @@ Get environment deployment rule
 import time
 import qovery
 from qovery.api import environment_deployment_rule_api
-from qovery.model.environment_deployment_rule_response import EnvironmentDeploymentRuleResponse
+from qovery.model.environment_deployment_rule import EnvironmentDeploymentRule
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentDeploymentRuleResponse**](EnvironmentDeploymentRuleResponse.md)
+[**EnvironmentDeploymentRule**](EnvironmentDeploymentRule.md)
 
 ### Authorization
 

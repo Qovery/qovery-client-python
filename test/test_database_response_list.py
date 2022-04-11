@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.database_response import DatabaseResponse
-globals()['DatabaseResponse'] = DatabaseResponse
+from qovery.model.database import Database
+globals()['Database'] = Database
 from qovery.model.database_response_list import DatabaseResponseList
 
 

@@ -22,12 +22,12 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.application_current_scale_response import ApplicationCurrentScaleResponse
+from qovery.model.application_current_scale import ApplicationCurrentScale
 from qovery.model.instance_response_list import InstanceResponseList
 from qovery.model.metric_cpu_response_list import MetricCPUResponseList
 from qovery.model.metric_generic_response_list import MetricGenericResponseList
 from qovery.model.metric_memory_response_list import MetricMemoryResponseList
-from qovery.model.metric_restart_response import MetricRestartResponse
+from qovery.model.metric_restart import MetricRestart
 from qovery.model.metric_storage_response_list import MetricStorageResponseList
 from qovery.model.storage_disk_response_list import StorageDiskResponseList
 
@@ -96,7 +96,7 @@ class ApplicationMetricsApi(object):
         )
         self.get_application_current_scale_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationCurrentScaleResponse,),
+                'response_type': (ApplicationCurrentScale,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -369,7 +369,7 @@ class ApplicationMetricsApi(object):
         )
         self.get_application_metric_restart_endpoint = _Endpoint(
             settings={
-                'response_type': (MetricRestartResponse,),
+                'response_type': (MetricRestart,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -605,7 +605,7 @@ class ApplicationMetricsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationCurrentScaleResponse
+            ApplicationCurrentScale
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1006,7 +1006,7 @@ class ApplicationMetricsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            MetricRestartResponse
+            MetricRestart
                 If the method is called asynchronously, returns the request
                 thread.
         """

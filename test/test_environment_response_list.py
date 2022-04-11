@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_response import EnvironmentResponse
-globals()['EnvironmentResponse'] = EnvironmentResponse
+from qovery.model.environment import Environment
+globals()['Environment'] = Environment
 from qovery.model.environment_response_list import EnvironmentResponseList
 
 

@@ -23,10 +23,10 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.application_response_list import ApplicationResponseList
+from qovery.model.credentials import Credentials
 from qovery.model.credentials_request import CredentialsRequest
-from qovery.model.credentials_response import CredentialsResponse
+from qovery.model.logical_database import LogicalDatabase
 from qovery.model.logical_database_request import LogicalDatabaseRequest
-from qovery.model.logical_database_response import LogicalDatabaseResponse
 from qovery.model.logical_database_response_list import LogicalDatabaseResponseList
 
 
@@ -43,7 +43,7 @@ class LogicalDatabaseApi(object):
         self.api_client = api_client
         self.create_logical_database_on_database_endpoint = _Endpoint(
             settings={
-                'response_type': (LogicalDatabaseResponse,),
+                'response_type': (LogicalDatabase,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -149,7 +149,7 @@ class LogicalDatabaseApi(object):
         )
         self.edit_logical_database_endpoint = _Endpoint(
             settings={
-                'response_type': (LogicalDatabaseResponse,),
+                'response_type': (LogicalDatabase,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -206,7 +206,7 @@ class LogicalDatabaseApi(object):
         )
         self.edit_logical_database_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (CredentialsResponse,),
+                'response_type': (Credentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -263,7 +263,7 @@ class LogicalDatabaseApi(object):
         )
         self.get_logical_database_endpoint = _Endpoint(
             settings={
-                'response_type': (LogicalDatabaseResponse,),
+                'response_type': (LogicalDatabase,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -314,7 +314,7 @@ class LogicalDatabaseApi(object):
         )
         self.get_logical_database_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (CredentialsResponse,),
+                'response_type': (Credentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -513,7 +513,7 @@ class LogicalDatabaseApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LogicalDatabaseResponse
+            LogicalDatabase
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -669,7 +669,7 @@ class LogicalDatabaseApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LogicalDatabaseResponse
+            LogicalDatabase
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -747,7 +747,7 @@ class LogicalDatabaseApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CredentialsResponse
+            Credentials
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -825,7 +825,7 @@ class LogicalDatabaseApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LogicalDatabaseResponse
+            LogicalDatabase
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -902,7 +902,7 @@ class LogicalDatabaseApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CredentialsResponse
+            Credentials
                 If the method is called asynchronously, returns the request
                 thread.
         """

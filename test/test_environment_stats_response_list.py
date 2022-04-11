@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_stats_response import EnvironmentStatsResponse
-globals()['EnvironmentStatsResponse'] = EnvironmentStatsResponse
+from qovery.model.environment_stats import EnvironmentStats
+globals()['EnvironmentStats'] = EnvironmentStats
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 
 

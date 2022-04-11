@@ -22,11 +22,11 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.database_current_metric_response import DatabaseCurrentMetricResponse
+from qovery.model.database_current_metric import DatabaseCurrentMetric
 from qovery.model.metric_cpu_datapoint_response_list import MetricCPUDatapointResponseList
 from qovery.model.metric_generic_response_list import MetricGenericResponseList
 from qovery.model.metric_memory_datapoint_response_list import MetricMemoryDatapointResponseList
-from qovery.model.metric_restart_response import MetricRestartResponse
+from qovery.model.metric_restart import MetricRestart
 from qovery.model.metric_storage_datapoint_response_list import MetricStorageDatapointResponseList
 
 
@@ -43,7 +43,7 @@ class DatabaseMetricsApi(object):
         self.api_client = api_client
         self.get_database_current_metric_endpoint = _Endpoint(
             settings={
-                'response_type': (DatabaseCurrentMetricResponse,),
+                'response_type': (DatabaseCurrentMetric,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -265,7 +265,7 @@ class DatabaseMetricsApi(object):
         )
         self.get_database_metric_restart_endpoint = _Endpoint(
             settings={
-                'response_type': (MetricRestartResponse,),
+                'response_type': (MetricRestart,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -423,7 +423,7 @@ class DatabaseMetricsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DatabaseCurrentMetricResponse
+            DatabaseCurrentMetric
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -747,7 +747,7 @@ class DatabaseMetricsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            MetricRestartResponse
+            MetricRestart
                 If the method is called asynchronously, returns the request
                 thread.
         """

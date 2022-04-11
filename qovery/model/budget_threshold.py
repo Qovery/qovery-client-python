@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.budget_response import BudgetResponse
-    globals()['BudgetResponse'] = BudgetResponse
+    from qovery.model.budget import Budget
+    globals()['Budget'] = Budget
 
 
 class BudgetThreshold(ModelComposed):
@@ -313,7 +313,7 @@ class BudgetThreshold(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              BudgetResponse,
+              Budget,
           ],
           'oneOf': [
           ],

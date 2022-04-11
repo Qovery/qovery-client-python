@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.secret_response import SecretResponse
-globals()['SecretResponse'] = SecretResponse
+from qovery.model.secret import Secret
+globals()['Secret'] = Secret
 from qovery.model.secret_response_list import SecretResponseList
 
 

@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.application_response import ApplicationResponse
+from qovery.model.application import Application
 from qovery.model.application_response_list import ApplicationResponseList
 
 
@@ -39,7 +39,7 @@ class DependencyApi(object):
         self.api_client = api_client
         self.create_application_dependency_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationResponse,),
+                'response_type': (Application,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -249,7 +249,7 @@ class DependencyApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationResponse
+            Application
                 If the method is called asynchronously, returns the request
                 thread.
         """

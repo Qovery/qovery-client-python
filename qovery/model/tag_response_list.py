@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.tag_response import TagResponse
-    globals()['TagResponse'] = TagResponse
+    from qovery.model.tag import Tag
+    globals()['Tag'] = Tag
 
 
 class TagResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class TagResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([TagResponse],),  # noqa: E501
+            'results': ([Tag],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class TagResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([TagResponse]): [optional]  # noqa: E501
+            results ([Tag]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class TagResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([TagResponse]): [optional]  # noqa: E501
+            results ([Tag]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

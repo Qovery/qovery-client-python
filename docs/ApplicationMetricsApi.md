@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_current_scale**
-> ApplicationCurrentScaleResponse get_application_current_scale(application_id)
+> ApplicationCurrentScale get_application_current_scale(application_id)
 
 Get current scaling of the application
 
@@ -107,7 +107,7 @@ Returns min, max, and running number of instances of the application
 import time
 import qovery
 from qovery.api import application_metrics_api
-from qovery.model.application_current_scale_response import ApplicationCurrentScaleResponse
+from qovery.model.application_current_scale import ApplicationCurrentScale
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationCurrentScaleResponse**](ApplicationCurrentScaleResponse.md)
+[**ApplicationCurrentScale**](ApplicationCurrentScale.md)
 
 ### Authorization
 
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_metric_restart**
-> MetricRestartResponse get_application_metric_restart(application_id, last_seconds)
+> MetricRestart get_application_metric_restart(application_id, last_seconds)
 
 List application restarts
 
@@ -507,7 +507,7 @@ Get application restart message and timestamp.
 import time
 import qovery
 from qovery.api import application_metrics_api
-from qovery.model.metric_restart_response import MetricRestartResponse
+from qovery.model.metric_restart import MetricRestart
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MetricRestartResponse**](MetricRestartResponse.md)
+[**MetricRestart**](MetricRestart.md)
 
 ### Authorization
 

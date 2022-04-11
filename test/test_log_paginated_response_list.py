@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.log import Log
 from qovery.model.log_paginated_response_list_all_of import LogPaginatedResponseListAllOf
-from qovery.model.log_response import LogResponse
-from qovery.model.pagination_data_response import PaginationDataResponse
+from qovery.model.pagination_data import PaginationData
+globals()['Log'] = Log
 globals()['LogPaginatedResponseListAllOf'] = LogPaginatedResponseListAllOf
-globals()['LogResponse'] = LogResponse
-globals()['PaginationDataResponse'] = PaginationDataResponse
+globals()['PaginationData'] = PaginationData
 from qovery.model.log_paginated_response_list import LogPaginatedResponseList
 
 

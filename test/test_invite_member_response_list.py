@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.invite_member_response import InviteMemberResponse
-globals()['InviteMemberResponse'] = InviteMemberResponse
+from qovery.model.invite_member import InviteMember
+globals()['InviteMember'] = InviteMember
 from qovery.model.invite_member_response_list import InviteMemberResponseList
 
 

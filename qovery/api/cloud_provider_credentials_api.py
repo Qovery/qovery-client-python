@@ -23,7 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
+from qovery.model.cluster_credentials import ClusterCredentials
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 from qovery.model.do_credentials_request import DoCredentialsRequest
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
@@ -42,7 +42,7 @@ class CloudProviderCredentialsApi(object):
         self.api_client = api_client
         self.create_aws_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCredentialsResponse,),
+                'response_type': (ClusterCredentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -99,7 +99,7 @@ class CloudProviderCredentialsApi(object):
         )
         self.create_do_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCredentialsResponse,),
+                'response_type': (ClusterCredentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -156,7 +156,7 @@ class CloudProviderCredentialsApi(object):
         )
         self.create_scaleway_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCredentialsResponse,),
+                'response_type': (ClusterCredentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -378,7 +378,7 @@ class CloudProviderCredentialsApi(object):
         )
         self.edit_aws_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCredentialsResponse,),
+                'response_type': (ClusterCredentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -441,7 +441,7 @@ class CloudProviderCredentialsApi(object):
         )
         self.edit_do_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCredentialsResponse,),
+                'response_type': (ClusterCredentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -504,7 +504,7 @@ class CloudProviderCredentialsApi(object):
         )
         self.edit_scaleway_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCredentialsResponse,),
+                'response_type': (ClusterCredentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -765,7 +765,7 @@ class CloudProviderCredentialsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCredentialsResponse
+            ClusterCredentials
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -843,7 +843,7 @@ class CloudProviderCredentialsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCredentialsResponse
+            ClusterCredentials
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -921,7 +921,7 @@ class CloudProviderCredentialsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCredentialsResponse
+            ClusterCredentials
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1244,7 +1244,7 @@ class CloudProviderCredentialsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCredentialsResponse
+            ClusterCredentials
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1326,7 +1326,7 @@ class CloudProviderCredentialsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCredentialsResponse
+            ClusterCredentials
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1408,7 +1408,7 @@ class CloudProviderCredentialsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCredentialsResponse
+            ClusterCredentials
                 If the method is called asynchronously, returns the request
                 thread.
         """

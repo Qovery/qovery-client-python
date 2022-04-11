@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_application_dependency**
-> ApplicationResponse create_application_dependency(application_id, target_application_id)
+> Application create_application_dependency(application_id, target_application_id)
 
 Add application dependency to this application.
 
@@ -24,7 +24,7 @@ Add application dependency to this application to prevent this application start
 import time
 import qovery
 from qovery.api import dependency_api
-from qovery.model.application_response import ApplicationResponse
+from qovery.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationResponse**](ApplicationResponse.md)
+[**Application**](Application.md)
 
 ### Authorization
 

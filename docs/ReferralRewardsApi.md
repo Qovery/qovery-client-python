@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_account_referral**
-> ReferralResponse get_account_referral()
+> Referral get_account_referral()
 
 Get your referral information
 
@@ -21,7 +21,7 @@ Get your referral information
 import time
 import qovery
 from qovery.api import referral__rewards_api
-from qovery.model.referral_response import ReferralResponse
+from qovery.model.referral import Referral
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ReferralResponse**](ReferralResponse.md)
+[**Referral**](Referral.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ A same code can be claimed only 3 times at max
 import time
 import qovery
 from qovery.api import referral__rewards_api
-from qovery.model.reward_claim_response import RewardClaimResponse
+from qovery.model.reward_claim import RewardClaim
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -117,16 +117,16 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = referral__rewards_api.ReferralRewardsApi(api_client)
-    reward_claim_response = RewardClaimResponse(
+    reward_claim = RewardClaim(
         type="INVITATION",
         code="xDowkWEl",
-    ) # RewardClaimResponse |  (optional)
+    ) # RewardClaim |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Claim a reward
-        api_instance.post_account_reward_claim(reward_claim_response=reward_claim_response)
+        api_instance.post_account_reward_claim(reward_claim=reward_claim)
     except qovery.ApiException as e:
         print("Exception when calling ReferralRewardsApi->post_account_reward_claim: %s\n" % e)
 ```
@@ -136,7 +136,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reward_claim_response** | [**RewardClaimResponse**](RewardClaimResponse.md)|  | [optional]
+ **reward_claim** | [**RewardClaim**](RewardClaim.md)|  | [optional]
 
 ### Return type
 

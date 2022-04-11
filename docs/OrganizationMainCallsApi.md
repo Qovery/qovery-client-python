@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_organization**
-> OrganizationResponse create_organization()
+> Organization create_organization()
 
 Create an organization
 
@@ -24,8 +24,8 @@ Create an organization
 import time
 import qovery
 from qovery.api import organization_main_calls_api
+from qovery.model.organization import Organization
 from qovery.model.organization_request import OrganizationRequest
-from qovery.model.organization_response import OrganizationResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationResponse**](OrganizationResponse.md)
+[**Organization**](Organization.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization**
-> OrganizationResponse edit_organization(organization_id)
+> Organization edit_organization(organization_id)
 
 Edit an organization
 
@@ -194,7 +194,7 @@ To edit an organization you must have the admin permission
 import time
 import qovery
 from qovery.api import organization_main_calls_api
-from qovery.model.organization_response import OrganizationResponse
+from qovery.model.organization import Organization
 from qovery.model.organization_edit_request import OrganizationEditRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationResponse**](OrganizationResponse.md)
+[**Organization**](Organization.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization**
-> OrganizationResponse get_organization(organization_id)
+> Organization get_organization(organization_id)
 
 Get organization by ID
 
@@ -293,7 +293,7 @@ Get organization by ID
 import time
 import qovery
 from qovery.api import organization_main_calls_api
-from qovery.model.organization_response import OrganizationResponse
+from qovery.model.organization import Organization
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationResponse**](OrganizationResponse.md)
+[**Organization**](Organization.md)
 
 ### Authorization
 

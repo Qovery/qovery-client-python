@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.git_auth_provider_response import GitAuthProviderResponse
-globals()['GitAuthProviderResponse'] = GitAuthProviderResponse
+from qovery.model.git_auth_provider import GitAuthProvider
+globals()['GitAuthProvider'] = GitAuthProvider
 from qovery.model.git_auth_provider_response_list import GitAuthProviderResponseList
 
 

@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.organization_api_token_response import OrganizationApiTokenResponse
-    globals()['OrganizationApiTokenResponse'] = OrganizationApiTokenResponse
+    from qovery.model.organization_api_token import OrganizationApiToken
+    globals()['OrganizationApiToken'] = OrganizationApiToken
 
 
 class OrganizationApiTokenResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class OrganizationApiTokenResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([OrganizationApiTokenResponse],),  # noqa: E501
+            'results': ([OrganizationApiToken],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class OrganizationApiTokenResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([OrganizationApiTokenResponse]): [optional]  # noqa: E501
+            results ([OrganizationApiToken]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class OrganizationApiTokenResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([OrganizationApiTokenResponse]): [optional]  # noqa: E501
+            results ([OrganizationApiToken]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

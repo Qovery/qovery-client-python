@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_environment**
-> EnvironmentResponse create_environment(project_id)
+> Environment create_environment(project_id)
 
 Create an environment
 
@@ -23,7 +23,7 @@ Create an environment
 import time
 import qovery
 from qovery.api import environments_api
-from qovery.model.environment_response import EnvironmentResponse
+from qovery.model.environment import Environment
 from qovery.model.environment_request import EnvironmentRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentResponse**](EnvironmentResponse.md)
+[**Environment**](Environment.md)
 
 ### Authorization
 

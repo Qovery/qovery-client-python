@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.custom_domain import CustomDomain
 from qovery.model.custom_domain_request import CustomDomainRequest
-from qovery.model.custom_domain_response import CustomDomainResponse
 from qovery.model.custom_domain_response_list import CustomDomainResponseList
 
 
@@ -40,7 +40,7 @@ class CustomDomainApi(object):
         self.api_client = api_client
         self.create_application_custom_domain_endpoint = _Endpoint(
             settings={
-                'response_type': (CustomDomainResponse,),
+                'response_type': (CustomDomain,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -152,7 +152,7 @@ class CustomDomainApi(object):
         )
         self.edit_custom_domain_endpoint = _Endpoint(
             settings={
-                'response_type': (CustomDomainResponse,),
+                'response_type': (CustomDomain,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -215,7 +215,7 @@ class CustomDomainApi(object):
         )
         self.get_custom_domain_status_endpoint = _Endpoint(
             settings={
-                'response_type': (CustomDomainResponse,),
+                'response_type': (CustomDomain,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -369,7 +369,7 @@ class CustomDomainApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CustomDomainResponse
+            CustomDomain
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -532,7 +532,7 @@ class CustomDomainApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CustomDomainResponse
+            CustomDomain
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -613,7 +613,7 @@ class CustomDomainApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CustomDomainResponse
+            CustomDomain
                 If the method is called asynchronously, returns the request
                 thread.
         """

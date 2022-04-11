@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.application import Application
 from qovery.model.application_edit_request import ApplicationEditRequest
-from qovery.model.application_response import ApplicationResponse
 from qovery.model.commit_response_list import CommitResponseList
 from qovery.model.link_response_list import LinkResponseList
 from qovery.model.status import Status
@@ -206,7 +206,7 @@ class ApplicationMainCallsApi(object):
         )
         self.edit_application_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationResponse,),
+                'response_type': (Application,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -263,7 +263,7 @@ class ApplicationMainCallsApi(object):
         )
         self.get_application_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationResponse,),
+                'response_type': (Application,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -862,7 +862,7 @@ class ApplicationMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationResponse
+            Application
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -939,7 +939,7 @@ class ApplicationMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationResponse
+            Application
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -22,18 +22,18 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.billing_info import BillingInfo
 from qovery.model.billing_info_request import BillingInfoRequest
-from qovery.model.billing_info_response import BillingInfoResponse
 from qovery.model.billing_status import BillingStatus
-from qovery.model.cost_range_response import CostRangeResponse
+from qovery.model.cost_range import CostRange
+from qovery.model.credit_card import CreditCard
 from qovery.model.credit_card_request import CreditCardRequest
-from qovery.model.credit_card_response import CreditCardResponse
 from qovery.model.credit_card_response_list import CreditCardResponseList
-from qovery.model.invoice_response import InvoiceResponse
+from qovery.model.invoice import Invoice
 from qovery.model.invoice_response_list import InvoiceResponseList
-from qovery.model.link_response import LinkResponse
+from qovery.model.link import Link
 from qovery.model.organization_credit_code_request import OrganizationCreditCodeRequest
-from qovery.model.organization_current_cost_response import OrganizationCurrentCostResponse
+from qovery.model.organization_current_cost import OrganizationCurrentCost
 
 
 class BillingApi(object):
@@ -49,7 +49,7 @@ class BillingApi(object):
         self.api_client = api_client
         self.add_credit_card_endpoint = _Endpoint(
             settings={
-                'response_type': (CreditCardResponse,),
+                'response_type': (CreditCard,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -216,7 +216,7 @@ class BillingApi(object):
         )
         self.edit_organization_billing_info_endpoint = _Endpoint(
             settings={
-                'response_type': (BillingInfoResponse,),
+                'response_type': (BillingInfo,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -273,7 +273,7 @@ class BillingApi(object):
         )
         self.get_cluster_current_cost_endpoint = _Endpoint(
             settings={
-                'response_type': (CostRangeResponse,),
+                'response_type': (CostRange,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -330,7 +330,7 @@ class BillingApi(object):
         )
         self.get_organization_billing_info_endpoint = _Endpoint(
             settings={
-                'response_type': (BillingInfoResponse,),
+                'response_type': (BillingInfo,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -432,7 +432,7 @@ class BillingApi(object):
         )
         self.get_organization_current_cost_endpoint = _Endpoint(
             settings={
-                'response_type': (OrganizationCurrentCostResponse,),
+                'response_type': (OrganizationCurrentCost,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -483,7 +483,7 @@ class BillingApi(object):
         )
         self.get_organization_invoice_endpoint = _Endpoint(
             settings={
-                'response_type': (InvoiceResponse,),
+                'response_type': (Invoice,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -540,7 +540,7 @@ class BillingApi(object):
         )
         self.get_organization_invoice_pdf_endpoint = _Endpoint(
             settings={
-                'response_type': (LinkResponse,),
+                'response_type': (Link,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -793,7 +793,7 @@ class BillingApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CreditCardResponse
+            CreditCard
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1030,7 +1030,7 @@ class BillingApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            BillingInfoResponse
+            BillingInfo
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1110,7 +1110,7 @@ class BillingApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CostRangeResponse
+            CostRange
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1189,7 +1189,7 @@ class BillingApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            BillingInfoResponse
+            BillingInfo
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1344,7 +1344,7 @@ class BillingApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            OrganizationCurrentCostResponse
+            OrganizationCurrentCost
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1423,7 +1423,7 @@ class BillingApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InvoiceResponse
+            Invoice
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1505,7 +1505,7 @@ class BillingApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LinkResponse
+            Link
                 If the method is called asynchronously, returns the request
                 thread.
         """

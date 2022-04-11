@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_deployment_rule**
-> ProjectDeploymentRuleResponse create_deployment_rule(project_id)
+> ProjectDeploymentRule create_deployment_rule(project_id)
 
 Create a deployment rule
 
@@ -28,7 +28,7 @@ import time
 import qovery
 from qovery.api import project_deployment_rule_api
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
-from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
+from qovery.model.project_deployment_rule import ProjectDeploymentRule
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectDeploymentRuleResponse**](ProjectDeploymentRuleResponse.md)
+[**ProjectDeploymentRule**](ProjectDeploymentRule.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_project_deployemtn_rule**
-> ProjectDeploymentRuleResponse edit_project_deployemtn_rule(project_id, deployment_rule_id)
+> ProjectDeploymentRule edit_project_deployemtn_rule(project_id, deployment_rule_id)
 
 Edit a project deployment rule
 
@@ -216,7 +216,7 @@ import time
 import qovery
 from qovery.api import project_deployment_rule_api
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
-from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
+from qovery.model.project_deployment_rule import ProjectDeploymentRule
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectDeploymentRuleResponse**](ProjectDeploymentRuleResponse.md)
+[**ProjectDeploymentRule**](ProjectDeploymentRule.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_project_deployment_rule**
-> ProjectDeploymentRuleResponse get_project_deployment_rule(project_id, deployment_rule_id)
+> ProjectDeploymentRule get_project_deployment_rule(project_id, deployment_rule_id)
 
 Get a project deployment rule
 
@@ -325,7 +325,7 @@ Get a project deployment rule
 import time
 import qovery
 from qovery.api import project_deployment_rule_api
-from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
+from qovery.model.project_deployment_rule import ProjectDeploymentRule
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectDeploymentRuleResponse**](ProjectDeploymentRuleResponse.md)
+[**ProjectDeploymentRule**](ProjectDeploymentRule.md)
 
 ### Authorization
 

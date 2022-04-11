@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.log_response import LogResponse
-globals()['LogResponse'] = LogResponse
+from qovery.model.log import Log
+globals()['Log'] = Log
 from qovery.model.log_response_list import LogResponseList
 
 

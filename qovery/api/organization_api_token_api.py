@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.organization_api_token_create import OrganizationApiTokenCreate
 from qovery.model.organization_api_token_create_request import OrganizationApiTokenCreateRequest
-from qovery.model.organization_api_token_create_response import OrganizationApiTokenCreateResponse
 from qovery.model.organization_api_token_response_list import OrganizationApiTokenResponseList
 
 
@@ -40,7 +40,7 @@ class OrganizationApiTokenApi(object):
         self.api_client = api_client
         self.create_organization_api_token_endpoint = _Endpoint(
             settings={
-                'response_type': (OrganizationApiTokenCreateResponse,),
+                'response_type': (OrganizationApiTokenCreate,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -249,7 +249,7 @@ class OrganizationApiTokenApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            OrganizationApiTokenCreateResponse
+            OrganizationApiTokenCreate
                 If the method is called asynchronously, returns the request
                 thread.
         """

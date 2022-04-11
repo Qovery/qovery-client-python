@@ -31,12 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.log import Log
     from qovery.model.log_paginated_response_list_all_of import LogPaginatedResponseListAllOf
-    from qovery.model.log_response import LogResponse
-    from qovery.model.pagination_data_response import PaginationDataResponse
+    from qovery.model.pagination_data import PaginationData
+    globals()['Log'] = Log
     globals()['LogPaginatedResponseListAllOf'] = LogPaginatedResponseListAllOf
-    globals()['LogResponse'] = LogResponse
-    globals()['PaginationDataResponse'] = PaginationDataResponse
+    globals()['PaginationData'] = PaginationData
 
 
 class LogPaginatedResponseList(ModelComposed):
@@ -94,7 +94,7 @@ class LogPaginatedResponseList(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([LogResponse],),  # noqa: E501
+            'results': ([Log],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class LogPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([LogResponse]): [optional]  # noqa: E501
+            results ([Log]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,7 +251,7 @@ class LogPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([LogResponse]): [optional]  # noqa: E501
+            results ([Log]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,7 +318,7 @@ class LogPaginatedResponseList(ModelComposed):
           ],
           'allOf': [
               LogPaginatedResponseListAllOf,
-              PaginationDataResponse,
+              PaginationData,
           ],
           'oneOf': [
           ],

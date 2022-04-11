@@ -266,7 +266,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_application**
-> ApplicationResponse edit_application(application_id)
+> Application edit_application(application_id)
 
 Edit application
 
@@ -280,8 +280,8 @@ Edit application
 import time
 import qovery
 from qovery.api import application_main_calls_api
+from qovery.model.application import Application
 from qovery.model.application_edit_request import ApplicationEditRequest
-from qovery.model.application_response import ApplicationResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationResponse**](ApplicationResponse.md)
+[**Application**](Application.md)
 
 ### Authorization
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application**
-> ApplicationResponse get_application(application_id)
+> Application get_application(application_id)
 
 Get application by ID
 
@@ -372,7 +372,7 @@ Get application by ID
 import time
 import qovery
 from qovery.api import application_main_calls_api
-from qovery.model.application_response import ApplicationResponse
+from qovery.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationResponse**](ApplicationResponse.md)
+[**Application**](Application.md)
 
 ### Authorization
 

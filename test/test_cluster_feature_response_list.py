@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_feature_response import ClusterFeatureResponse
-globals()['ClusterFeatureResponse'] = ClusterFeatureResponse
+from qovery.model.cluster_feature import ClusterFeature
+globals()['ClusterFeature'] = ClusterFeature
 from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
 
 

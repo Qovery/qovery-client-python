@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.deployment_history_environment_response import DeploymentHistoryEnvironmentResponse
-globals()['DeploymentHistoryEnvironmentResponse'] = DeploymentHistoryEnvironmentResponse
+from qovery.model.deployment_history_environment import DeploymentHistoryEnvironment
+globals()['DeploymentHistoryEnvironment'] = DeploymentHistoryEnvironment
 from qovery.model.deployment_history_environment_paginated_response_list_all_of import DeploymentHistoryEnvironmentPaginatedResponseListAllOf
 
 

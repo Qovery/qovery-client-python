@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.budget_response import BudgetResponse
-globals()['BudgetResponse'] = BudgetResponse
+from qovery.model.budget import Budget
+globals()['Budget'] = Budget
 from qovery.model.budget_threshold import BudgetThreshold
 
 

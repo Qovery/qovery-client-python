@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_credentials_response import ClusterCredentialsResponse
-globals()['ClusterCredentialsResponse'] = ClusterCredentialsResponse
+from qovery.model.cluster_credentials import ClusterCredentials
+globals()['ClusterCredentials'] = ClusterCredentials
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 
 

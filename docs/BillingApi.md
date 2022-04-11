@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **add_credit_card**
-> CreditCardResponse add_credit_card(organization_id)
+> CreditCard add_credit_card(organization_id)
 
 Add credit card
 
@@ -32,8 +32,8 @@ Add credit card
 import time
 import qovery
 from qovery.api import billing_api
-from qovery.model.credit_card_response import CreditCardResponse
 from qovery.model.credit_card_request import CreditCardRequest
+from qovery.model.credit_card import CreditCard
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreditCardResponse**](CreditCardResponse.md)
+[**CreditCard**](CreditCard.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization_billing_info**
-> BillingInfoResponse edit_organization_billing_info(organization_id)
+> BillingInfo edit_organization_billing_info(organization_id)
 
 Edit Organization Billing Info
 
@@ -296,8 +296,8 @@ Edit Organization Billing Info
 import time
 import qovery
 from qovery.api import billing_api
+from qovery.model.billing_info import BillingInfo
 from qovery.model.billing_info_request import BillingInfoRequest
-from qovery.model.billing_info_response import BillingInfoResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BillingInfoResponse**](BillingInfoResponse.md)
+[**BillingInfo**](BillingInfo.md)
 
 ### Authorization
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_current_cost**
-> CostRangeResponse get_cluster_current_cost(organization_id, cluster_id)
+> CostRange get_cluster_current_cost(organization_id, cluster_id)
 
 Get cluster current cost
 
@@ -400,7 +400,7 @@ Get your cluster cost range. We are unable to give a precise cost of your infras
 import time
 import qovery
 from qovery.api import billing_api
-from qovery.model.cost_range_response import CostRangeResponse
+from qovery.model.cost_range import CostRange
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CostRangeResponse**](CostRangeResponse.md)
+[**CostRange**](CostRange.md)
 
 ### Authorization
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_billing_info**
-> BillingInfoResponse get_organization_billing_info(organization_id)
+> BillingInfo get_organization_billing_info(organization_id)
 
 Get organization billing info
 
@@ -480,7 +480,7 @@ Get organization billing info
 import time
 import qovery
 from qovery.api import billing_api
-from qovery.model.billing_info_response import BillingInfoResponse
+from qovery.model.billing_info import BillingInfo
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BillingInfoResponse**](BillingInfoResponse.md)
+[**BillingInfo**](BillingInfo.md)
 
 ### Authorization
 
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_current_cost**
-> OrganizationCurrentCostResponse get_organization_current_cost(organization_id)
+> OrganizationCurrentCost get_organization_current_cost(organization_id)
 
 Get organization current cost
 
@@ -638,7 +638,7 @@ Get organization current cost
 import time
 import qovery
 from qovery.api import billing_api
-from qovery.model.organization_current_cost_response import OrganizationCurrentCostResponse
+from qovery.model.organization_current_cost import OrganizationCurrentCost
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationCurrentCostResponse**](OrganizationCurrentCostResponse.md)
+[**OrganizationCurrentCost**](OrganizationCurrentCost.md)
 
 ### Authorization
 
@@ -704,7 +704,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_invoice**
-> InvoiceResponse get_organization_invoice(organization_id, invoice_id)
+> Invoice get_organization_invoice(organization_id, invoice_id)
 
 Get organization invoice
 
@@ -716,7 +716,7 @@ Get organization invoice
 import time
 import qovery
 from qovery.api import billing_api
-from qovery.model.invoice_response import InvoiceResponse
+from qovery.model.invoice import Invoice
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InvoiceResponse**](InvoiceResponse.md)
+[**Invoice**](Invoice.md)
 
 ### Authorization
 
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_invoice_pdf**
-> LinkResponse get_organization_invoice_pdf(organization_id, invoice_id)
+> Link get_organization_invoice_pdf(organization_id, invoice_id)
 
 Get invoice link
 
@@ -798,7 +798,7 @@ This will return URL of the invoice PDF
 import time
 import qovery
 from qovery.api import billing_api
-from qovery.model.link_response import LinkResponse
+from qovery.model.link import Link
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -842,7 +842,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LinkResponse**](LinkResponse.md)
+[**Link**](Link.md)
 
 ### Authorization
 

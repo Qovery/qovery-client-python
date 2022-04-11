@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **create_cluster**
-> ClusterResponse create_cluster(organization_id)
+> Cluster create_cluster(organization_id)
 
 Create a cluster
 
@@ -34,7 +34,7 @@ import time
 import qovery
 from qovery.api import clusters_api
 from qovery.model.cluster_request import ClusterRequest
-from qovery.model.cluster_response import ClusterResponse
+from qovery.model.cluster import Cluster
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterResponse**](ClusterResponse.md)
+[**Cluster**](Cluster.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deploy_cluster**
-> ClusterStatusResponse deploy_cluster(organization_id, cluster_id)
+> ClusterStatus deploy_cluster(organization_id, cluster_id)
 
 Deploy a cluster
 
@@ -204,7 +204,7 @@ allows to deploy a cluster
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_status_response import ClusterStatusResponse
+from qovery.model.cluster_status import ClusterStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterStatusResponse**](ClusterStatusResponse.md)
+[**ClusterStatus**](ClusterStatus.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_cluster**
-> ClusterResponse edit_cluster(organization_id, cluster_id)
+> Cluster edit_cluster(organization_id, cluster_id)
 
 Edit a cluster
 
@@ -286,7 +286,7 @@ import time
 import qovery
 from qovery.api import clusters_api
 from qovery.model.cluster_request import ClusterRequest
-from qovery.model.cluster_response import ClusterResponse
+from qovery.model.cluster import Cluster
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterResponse**](ClusterResponse.md)
+[**Cluster**](Cluster.md)
 
 ### Authorization
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_routing_table**
-> ClusterRoutingTableResponse edit_routing_table(organization_id, cluster_id)
+> ClusterRoutingTable edit_routing_table(organization_id, cluster_id)
 
 Edit routing table
 
@@ -380,8 +380,8 @@ Edit routing table by returning updated table.
 import time
 import qovery
 from qovery.api import clusters_api
+from qovery.model.cluster_routing_table import ClusterRoutingTable
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest
-from qovery.model.cluster_routing_table_response import ClusterRoutingTableResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterRoutingTableResponse**](ClusterRoutingTableResponse.md)
+[**ClusterRoutingTable**](ClusterRoutingTable.md)
 
 ### Authorization
 
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_status**
-> ClusterStatusResponse get_cluster_status(organization_id, cluster_id)
+> ClusterStatus get_cluster_status(organization_id, cluster_id)
 
 Get cluster status
 
@@ -561,7 +561,7 @@ Get cluster status
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_status_response import ClusterStatusResponse
+from qovery.model.cluster_status import ClusterStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterStatusResponse**](ClusterStatusResponse.md)
+[**ClusterStatus**](ClusterStatus.md)
 
 ### Authorization
 
@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_cloud_provider_info**
-> ClusterCloudProviderInfoResponse get_organization_cloud_provider_info(organization_id, cluster_id)
+> ClusterCloudProviderInfo get_organization_cloud_provider_info(organization_id, cluster_id)
 
 Get cluster cloud provider info and credentials
 
@@ -641,7 +641,7 @@ Get cluster cloud provider info and credentials
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_cloud_provider_info_response import ClusterCloudProviderInfoResponse
+from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -685,7 +685,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCloudProviderInfoResponse**](ClusterCloudProviderInfoResponse.md)
+[**ClusterCloudProviderInfo**](ClusterCloudProviderInfo.md)
 
 ### Authorization
 
@@ -789,7 +789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_routing_table**
-> ClusterRoutingTableResponse get_routing_table(organization_id, cluster_id)
+> ClusterRoutingTable get_routing_table(organization_id, cluster_id)
 
 Get routing table
 
@@ -803,7 +803,7 @@ Retrieve network routing table where each line corresponds to a route between a 
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_routing_table_response import ClusterRoutingTableResponse
+from qovery.model.cluster_routing_table import ClusterRoutingTable
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -847,7 +847,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterRoutingTableResponse**](ClusterRoutingTableResponse.md)
+[**ClusterRoutingTable**](ClusterRoutingTable.md)
 
 ### Authorization
 
@@ -949,7 +949,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **specify_cluster_cloud_provider_info**
-> ClusterCloudProviderInfoResponse specify_cluster_cloud_provider_info(organization_id, cluster_id)
+> ClusterCloudProviderInfo specify_cluster_cloud_provider_info(organization_id, cluster_id)
 
 Specify cluster cloud provider info and credentials
 
@@ -961,8 +961,8 @@ Specify cluster cloud provider info and credentials
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_cloud_provider_info_response import ClusterCloudProviderInfoResponse
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
+from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -1024,7 +1024,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterCloudProviderInfoResponse**](ClusterCloudProviderInfoResponse.md)
+[**ClusterCloudProviderInfo**](ClusterCloudProviderInfo.md)
 
 ### Authorization
 
@@ -1049,7 +1049,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_cluster**
-> ClusterStatusResponse stop_cluster(organization_id, cluster_id)
+> ClusterStatus stop_cluster(organization_id, cluster_id)
 
 Stop cluster
 
@@ -1063,7 +1063,7 @@ Cluster stop has been requester.
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_status_response import ClusterStatusResponse
+from qovery.model.cluster_status import ClusterStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterStatusResponse**](ClusterStatusResponse.md)
+[**ClusterStatus**](ClusterStatus.md)
 
 ### Authorization
 
@@ -1132,7 +1132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_cluster**
-> ClusterStatusResponse update_cluster(organization_id, cluster_id)
+> ClusterStatus update_cluster(organization_id, cluster_id)
 
 Update a cluster Version
 
@@ -1146,7 +1146,7 @@ allows to update cluster version
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_status_response import ClusterStatusResponse
+from qovery.model.cluster_status import ClusterStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -1190,7 +1190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterStatusResponse**](ClusterStatusResponse.md)
+[**ClusterStatus**](ClusterStatus.md)
 
 ### Authorization
 

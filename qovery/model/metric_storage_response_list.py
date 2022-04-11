@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.metric_storage_response import MetricStorageResponse
-    globals()['MetricStorageResponse'] = MetricStorageResponse
+    from qovery.model.metric_storage import MetricStorage
+    globals()['MetricStorage'] = MetricStorage
 
 
 class MetricStorageResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class MetricStorageResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([MetricStorageResponse],),  # noqa: E501
+            'results': ([MetricStorage],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class MetricStorageResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([MetricStorageResponse]): [optional]  # noqa: E501
+            results ([MetricStorage]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class MetricStorageResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([MetricStorageResponse]): [optional]  # noqa: E501
+            results ([MetricStorage]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

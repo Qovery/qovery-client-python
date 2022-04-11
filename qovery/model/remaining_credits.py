@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cost_response import CostResponse
-    globals()['CostResponse'] = CostResponse
+    from qovery.model.cost import Cost
+    globals()['Cost'] = Cost
 
 
 class RemainingCredits(ModelComposed):
@@ -313,7 +313,7 @@ class RemainingCredits(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              CostResponse,
+              Cost,
           ],
           'oneOf': [
           ],

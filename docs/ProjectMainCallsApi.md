@@ -88,7 +88,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_project**
-> ProjectResponse edit_project(project_id)
+> Project edit_project(project_id)
 
 Edit a project
 
@@ -102,8 +102,8 @@ To edit a project you must have the admin permission
 import time
 import qovery
 from qovery.api import project_main_calls_api
-from qovery.model.project_response import ProjectResponse
 from qovery.model.project_request import ProjectRequest
+from qovery.model.project import Project
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectResponse**](ProjectResponse.md)
+[**Project**](Project.md)
 
 ### Authorization
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_project**
-> ProjectResponse get_project(project_id)
+> Project get_project(project_id)
 
 Get project by ID
 
@@ -197,7 +197,7 @@ Get project by ID
 import time
 import qovery
 from qovery.api import project_main_calls_api
-from qovery.model.project_response import ProjectResponse
+from qovery.model.project import Project
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectResponse**](ProjectResponse.md)
+[**Project**](Project.md)
 
 ### Authorization
 

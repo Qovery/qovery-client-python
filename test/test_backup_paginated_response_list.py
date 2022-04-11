@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.backup_response import BackupResponse
+from qovery.model.backup import Backup
 from qovery.model.backup_response_list import BackupResponseList
-from qovery.model.pagination_data_response import PaginationDataResponse
-globals()['BackupResponse'] = BackupResponse
+from qovery.model.pagination_data import PaginationData
+globals()['Backup'] = Backup
 globals()['BackupResponseList'] = BackupResponseList
-globals()['PaginationDataResponse'] = PaginationDataResponse
+globals()['PaginationData'] = PaginationData
 from qovery.model.backup_paginated_response_list import BackupPaginatedResponseList
 
 

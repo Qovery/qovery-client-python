@@ -22,9 +22,9 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.database_response import DatabaseResponse
+from qovery.model.database import Database
 from qovery.model.database_response_list import DatabaseResponseList
-from qovery.model.logical_database_response import LogicalDatabaseResponse
+from qovery.model.logical_database import LogicalDatabase
 from qovery.model.logical_database_response_list import LogicalDatabaseResponseList
 
 
@@ -41,7 +41,7 @@ class ApplicationDatabaseApi(object):
         self.api_client = api_client
         self.attach_databaseto_application_endpoint = _Endpoint(
             settings={
-                'response_type': (DatabaseResponse,),
+                'response_type': (Database,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -98,7 +98,7 @@ class ApplicationDatabaseApi(object):
         )
         self.attach_logical_databaseto_application_endpoint = _Endpoint(
             settings={
-                'response_type': (LogicalDatabaseResponse,),
+                'response_type': (LogicalDatabase,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -413,7 +413,7 @@ class ApplicationDatabaseApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DatabaseResponse
+            Database
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -494,7 +494,7 @@ class ApplicationDatabaseApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            LogicalDatabaseResponse
+            LogicalDatabase
                 If the method is called asynchronously, returns the request
                 thread.
         """

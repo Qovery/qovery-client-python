@@ -26,7 +26,7 @@ import time
 import qovery
 from qovery.api import application_deployment_restriction_api
 from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
-from qovery.model.base_response import BaseResponse
+from qovery.model.base import Base
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_deployment_restrictions**
-> ApplicationDeploymentRestrictionResponse get_application_deployment_restrictions(application_id)
+> ApplicationDeploymentRestriction get_application_deployment_restrictions(application_id)
 
 Get application deployment restrictions
 
@@ -299,7 +299,7 @@ Get application deployment restrictions
 import time
 import qovery
 from qovery.api import application_deployment_restriction_api
-from qovery.model.application_deployment_restriction_response import ApplicationDeploymentRestrictionResponse
+from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationDeploymentRestrictionResponse**](ApplicationDeploymentRestrictionResponse.md)
+[**ApplicationDeploymentRestriction**](ApplicationDeploymentRestriction.md)
 
 ### Authorization
 

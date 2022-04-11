@@ -31,12 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.commit import Commit
     from qovery.model.commit_paginated_response_list_all_of import CommitPaginatedResponseListAllOf
-    from qovery.model.commit_response import CommitResponse
-    from qovery.model.pagination_data_response import PaginationDataResponse
+    from qovery.model.pagination_data import PaginationData
+    globals()['Commit'] = Commit
     globals()['CommitPaginatedResponseListAllOf'] = CommitPaginatedResponseListAllOf
-    globals()['CommitResponse'] = CommitResponse
-    globals()['PaginationDataResponse'] = PaginationDataResponse
+    globals()['PaginationData'] = PaginationData
 
 
 class CommitPaginatedResponseList(ModelComposed):
@@ -94,7 +94,7 @@ class CommitPaginatedResponseList(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([CommitResponse],),  # noqa: E501
+            'results': ([Commit],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class CommitPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([CommitResponse]): [optional]  # noqa: E501
+            results ([Commit]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,7 +251,7 @@ class CommitPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([CommitResponse]): [optional]  # noqa: E501
+            results ([Commit]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,7 +318,7 @@ class CommitPaginatedResponseList(ModelComposed):
           ],
           'allOf': [
               CommitPaginatedResponseListAllOf,
-              PaginationDataResponse,
+              PaginationData,
           ],
           'oneOf': [
           ],

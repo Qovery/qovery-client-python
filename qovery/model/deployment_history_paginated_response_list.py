@@ -31,12 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.deployment_history import DeploymentHistory
     from qovery.model.deployment_history_paginated_response_list_all_of import DeploymentHistoryPaginatedResponseListAllOf
-    from qovery.model.deployment_history_response import DeploymentHistoryResponse
-    from qovery.model.pagination_data_response import PaginationDataResponse
+    from qovery.model.pagination_data import PaginationData
+    globals()['DeploymentHistory'] = DeploymentHistory
     globals()['DeploymentHistoryPaginatedResponseListAllOf'] = DeploymentHistoryPaginatedResponseListAllOf
-    globals()['DeploymentHistoryResponse'] = DeploymentHistoryResponse
-    globals()['PaginationDataResponse'] = PaginationDataResponse
+    globals()['PaginationData'] = PaginationData
 
 
 class DeploymentHistoryPaginatedResponseList(ModelComposed):
@@ -94,7 +94,7 @@ class DeploymentHistoryPaginatedResponseList(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([DeploymentHistoryResponse],),  # noqa: E501
+            'results': ([DeploymentHistory],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class DeploymentHistoryPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([DeploymentHistoryResponse]): [optional]  # noqa: E501
+            results ([DeploymentHistory]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,7 +251,7 @@ class DeploymentHistoryPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([DeploymentHistoryResponse]): [optional]  # noqa: E501
+            results ([DeploymentHistory]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,7 +318,7 @@ class DeploymentHistoryPaginatedResponseList(ModelComposed):
           ],
           'allOf': [
               DeploymentHistoryPaginatedResponseListAllOf,
-              PaginationDataResponse,
+              PaginationData,
           ],
           'oneOf': [
           ],

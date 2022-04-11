@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.commit_response import CommitResponse
-globals()['CommitResponse'] = CommitResponse
+from qovery.model.commit import Commit
+globals()['Commit'] = Commit
 from qovery.model.commit_response_list import CommitResponseList
 
 

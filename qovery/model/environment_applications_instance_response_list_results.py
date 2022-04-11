@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.instance_response import InstanceResponse
-    globals()['InstanceResponse'] = InstanceResponse
+    from qovery.model.instance import Instance
+    globals()['Instance'] = Instance
 
 
 class EnvironmentApplicationsInstanceResponseListResults(ModelNormal):
@@ -89,7 +89,7 @@ class EnvironmentApplicationsInstanceResponseListResults(ModelNormal):
         lazy_import()
         return {
             'application': (str,),  # noqa: E501
-            'instances': ([InstanceResponse],),  # noqa: E501
+            'instances': ([Instance],),  # noqa: E501
         }
 
     @cached_property
@@ -114,7 +114,7 @@ class EnvironmentApplicationsInstanceResponseListResults(ModelNormal):
 
         Args:
             application (str):
-            instances ([InstanceResponse]):
+            instances ([Instance]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -201,7 +201,7 @@ class EnvironmentApplicationsInstanceResponseListResults(ModelNormal):
 
         Args:
             application (str):
-            instances ([InstanceResponse]):
+            instances ([Instance]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.deployment_history_response import DeploymentHistoryResponse
-    globals()['DeploymentHistoryResponse'] = DeploymentHistoryResponse
+    from qovery.model.deployment_history import DeploymentHistory
+    globals()['DeploymentHistory'] = DeploymentHistory
 
 
 class DeploymentHistoryPaginatedResponseListAllOf(ModelNormal):
@@ -88,7 +88,7 @@ class DeploymentHistoryPaginatedResponseListAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([DeploymentHistoryResponse],),  # noqa: E501
+            'results': ([DeploymentHistory],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class DeploymentHistoryPaginatedResponseListAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([DeploymentHistoryResponse]): [optional]  # noqa: E501
+            results ([DeploymentHistory]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class DeploymentHistoryPaginatedResponseListAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([DeploymentHistoryResponse]): [optional]  # noqa: E501
+            results ([DeploymentHistory]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

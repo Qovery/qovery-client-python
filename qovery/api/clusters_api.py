@@ -22,15 +22,15 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.cluster import Cluster
+from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
-from qovery.model.cluster_cloud_provider_info_response import ClusterCloudProviderInfoResponse
 from qovery.model.cluster_readiness_status import ClusterReadinessStatus
 from qovery.model.cluster_request import ClusterRequest
-from qovery.model.cluster_response import ClusterResponse
 from qovery.model.cluster_response_list import ClusterResponseList
+from qovery.model.cluster_routing_table import ClusterRoutingTable
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest
-from qovery.model.cluster_routing_table_response import ClusterRoutingTableResponse
-from qovery.model.cluster_status_response import ClusterStatusResponse
+from qovery.model.cluster_status import ClusterStatus
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList
 
 
@@ -47,7 +47,7 @@ class ClustersApi(object):
         self.api_client = api_client
         self.create_cluster_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterResponse,),
+                'response_type': (Cluster,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -159,7 +159,7 @@ class ClustersApi(object):
         )
         self.deploy_cluster_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterStatusResponse,),
+                'response_type': (ClusterStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -216,7 +216,7 @@ class ClustersApi(object):
         )
         self.edit_cluster_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterResponse,),
+                'response_type': (Cluster,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -279,7 +279,7 @@ class ClustersApi(object):
         )
         self.edit_routing_table_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterRoutingTableResponse,),
+                'response_type': (ClusterRoutingTable,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -399,7 +399,7 @@ class ClustersApi(object):
         )
         self.get_cluster_status_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterStatusResponse,),
+                'response_type': (ClusterStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -456,7 +456,7 @@ class ClustersApi(object):
         )
         self.get_organization_cloud_provider_info_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCloudProviderInfoResponse,),
+                'response_type': (ClusterCloudProviderInfo,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -564,7 +564,7 @@ class ClustersApi(object):
         )
         self.get_routing_table_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterRoutingTableResponse,),
+                'response_type': (ClusterRoutingTable,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -672,7 +672,7 @@ class ClustersApi(object):
         )
         self.specify_cluster_cloud_provider_info_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterCloudProviderInfoResponse,),
+                'response_type': (ClusterCloudProviderInfo,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -735,7 +735,7 @@ class ClustersApi(object):
         )
         self.stop_cluster_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterStatusResponse,),
+                'response_type': (ClusterStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -792,7 +792,7 @@ class ClustersApi(object):
         )
         self.update_cluster_endpoint = _Endpoint(
             settings={
-                'response_type': (ClusterStatusResponse,),
+                'response_type': (ClusterStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -894,7 +894,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterResponse
+            Cluster
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1055,7 +1055,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterStatusResponse
+            ClusterStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1137,7 +1137,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterResponse
+            Cluster
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1220,7 +1220,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterRoutingTableResponse
+            ClusterRoutingTable
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1382,7 +1382,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterStatusResponse
+            ClusterStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1463,7 +1463,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCloudProviderInfoResponse
+            ClusterCloudProviderInfo
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1623,7 +1623,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterRoutingTableResponse
+            ClusterRoutingTable
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1782,7 +1782,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterCloudProviderInfoResponse
+            ClusterCloudProviderInfo
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1864,7 +1864,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterStatusResponse
+            ClusterStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1946,7 +1946,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ClusterStatusResponse
+            ClusterStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """

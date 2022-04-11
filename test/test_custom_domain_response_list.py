@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.custom_domain_response import CustomDomainResponse
-globals()['CustomDomainResponse'] = CustomDomainResponse
+from qovery.model.custom_domain import CustomDomain
+globals()['CustomDomain'] = CustomDomain
 from qovery.model.custom_domain_response_list import CustomDomainResponseList
 
 

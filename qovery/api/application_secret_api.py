@@ -23,9 +23,9 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.key import Key
+from qovery.model.secret import Secret
 from qovery.model.secret_edit_request import SecretEditRequest
 from qovery.model.secret_request import SecretRequest
-from qovery.model.secret_response import SecretResponse
 from qovery.model.secret_response_list import SecretResponseList
 from qovery.model.value import Value
 
@@ -43,7 +43,7 @@ class ApplicationSecretApi(object):
         self.api_client = api_client
         self.create_application_secret_endpoint = _Endpoint(
             settings={
-                'response_type': (SecretResponse,),
+                'response_type': (Secret,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -100,7 +100,7 @@ class ApplicationSecretApi(object):
         )
         self.create_application_secret_alias_endpoint = _Endpoint(
             settings={
-                'response_type': (SecretResponse,),
+                'response_type': (Secret,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -163,7 +163,7 @@ class ApplicationSecretApi(object):
         )
         self.create_application_secret_override_endpoint = _Endpoint(
             settings={
-                'response_type': (SecretResponse,),
+                'response_type': (Secret,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -281,7 +281,7 @@ class ApplicationSecretApi(object):
         )
         self.edit_application_secret_endpoint = _Endpoint(
             settings={
-                'response_type': (SecretResponse,),
+                'response_type': (Secret,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -442,7 +442,7 @@ class ApplicationSecretApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SecretResponse
+            Secret
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -523,7 +523,7 @@ class ApplicationSecretApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SecretResponse
+            Secret
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -606,7 +606,7 @@ class ApplicationSecretApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SecretResponse
+            Secret
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -772,7 +772,7 @@ class ApplicationSecretApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            SecretResponse
+            Secret
                 If the method is called asynchronously, returns the request
                 thread.
         """

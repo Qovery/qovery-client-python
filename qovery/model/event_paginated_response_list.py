@@ -31,12 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.event import Event
     from qovery.model.event_paginated_response_list_all_of import EventPaginatedResponseListAllOf
-    from qovery.model.event_response import EventResponse
-    from qovery.model.pagination_data_response import PaginationDataResponse
+    from qovery.model.pagination_data import PaginationData
+    globals()['Event'] = Event
     globals()['EventPaginatedResponseListAllOf'] = EventPaginatedResponseListAllOf
-    globals()['EventResponse'] = EventResponse
-    globals()['PaginationDataResponse'] = PaginationDataResponse
+    globals()['PaginationData'] = PaginationData
 
 
 class EventPaginatedResponseList(ModelComposed):
@@ -94,7 +94,7 @@ class EventPaginatedResponseList(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([EventResponse],),  # noqa: E501
+            'results': ([Event],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class EventPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EventResponse]): [optional]  # noqa: E501
+            results ([Event]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,7 +251,7 @@ class EventPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EventResponse]): [optional]  # noqa: E501
+            results ([Event]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,7 +318,7 @@ class EventPaginatedResponseList(ModelComposed):
           ],
           'allOf': [
               EventPaginatedResponseListAllOf,
-              PaginationDataResponse,
+              PaginationData,
           ],
           'oneOf': [
           ],

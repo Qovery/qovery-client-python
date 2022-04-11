@@ -31,12 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.environment_log import EnvironmentLog
     from qovery.model.environment_log_paginated_response_list_all_of import EnvironmentLogPaginatedResponseListAllOf
-    from qovery.model.environment_log_response import EnvironmentLogResponse
-    from qovery.model.pagination_data_response import PaginationDataResponse
+    from qovery.model.pagination_data import PaginationData
+    globals()['EnvironmentLog'] = EnvironmentLog
     globals()['EnvironmentLogPaginatedResponseListAllOf'] = EnvironmentLogPaginatedResponseListAllOf
-    globals()['EnvironmentLogResponse'] = EnvironmentLogResponse
-    globals()['PaginationDataResponse'] = PaginationDataResponse
+    globals()['PaginationData'] = PaginationData
 
 
 class EnvironmentLogPaginatedResponseList(ModelComposed):
@@ -94,7 +94,7 @@ class EnvironmentLogPaginatedResponseList(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([EnvironmentLogResponse],),  # noqa: E501
+            'results': ([EnvironmentLog],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class EnvironmentLogPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentLogResponse]): [optional]  # noqa: E501
+            results ([EnvironmentLog]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,7 +251,7 @@ class EnvironmentLogPaginatedResponseList(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentLogResponse]): [optional]  # noqa: E501
+            results ([EnvironmentLog]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -318,7 +318,7 @@ class EnvironmentLogPaginatedResponseList(ModelComposed):
           ],
           'allOf': [
               EnvironmentLogPaginatedResponseListAllOf,
-              PaginationDataResponse,
+              PaginationData,
           ],
           'oneOf': [
           ],

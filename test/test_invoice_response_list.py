@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.invoice_response import InvoiceResponse
-globals()['InvoiceResponse'] = InvoiceResponse
+from qovery.model.invoice import Invoice
+globals()['Invoice'] = Invoice
 from qovery.model.invoice_response_list import InvoiceResponseList
 
 

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_databases_current_metric_response import EnvironmentDatabasesCurrentMetricResponse
-globals()['EnvironmentDatabasesCurrentMetricResponse'] = EnvironmentDatabasesCurrentMetricResponse
+from qovery.model.environment_databases_current_metric import EnvironmentDatabasesCurrentMetric
+globals()['EnvironmentDatabasesCurrentMetric'] = EnvironmentDatabasesCurrentMetric
 from qovery.model.environment_databases_current_metric_response_list import EnvironmentDatabasesCurrentMetricResponseList
 
 

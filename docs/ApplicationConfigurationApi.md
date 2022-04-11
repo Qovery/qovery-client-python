@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **edit_application_network**
-> ApplicationNetworkResponse edit_application_network(application_id)
+> ApplicationNetwork edit_application_network(application_id)
 
 Edit Application Network
 
@@ -23,8 +23,8 @@ Edit the Network settings of the application.
 import time
 import qovery
 from qovery.api import application_configuration_api
+from qovery.model.application_network import ApplicationNetwork
 from qovery.model.application_network_request import ApplicationNetworkRequest
-from qovery.model.application_network_response import ApplicationNetworkResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationNetworkResponse**](ApplicationNetworkResponse.md)
+[**ApplicationNetwork**](ApplicationNetwork.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_network**
-> ApplicationNetworkResponse get_application_network(application_id)
+> ApplicationNetwork get_application_network(application_id)
 
 Get Application Network information
 
@@ -118,7 +118,7 @@ Get status of the application network settings.
 import time
 import qovery
 from qovery.api import application_configuration_api
-from qovery.model.application_network_response import ApplicationNetworkResponse
+from qovery.model.application_network import ApplicationNetwork
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationNetworkResponse**](ApplicationNetworkResponse.md)
+[**ApplicationNetwork**](ApplicationNetwork.md)
 
 ### Authorization
 

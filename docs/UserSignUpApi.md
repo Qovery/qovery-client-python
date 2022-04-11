@@ -118,7 +118,7 @@ import time
 import qovery
 from qovery.api import user_sign_up_api
 from qovery.model.errorunknown import ERRORUNKNOWN
-from qovery.model.base_response import BaseResponse
+from qovery.model.base import Base
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.

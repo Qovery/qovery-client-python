@@ -22,10 +22,10 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.credentials import Credentials
 from qovery.model.credentials_request import CredentialsRequest
-from qovery.model.credentials_response import CredentialsResponse
+from qovery.model.database import Database
 from qovery.model.database_edit_request import DatabaseEditRequest
-from qovery.model.database_response import DatabaseResponse
 from qovery.model.status import Status
 from qovery.model.version_response_list import VersionResponseList
 
@@ -92,7 +92,7 @@ class DatabaseMainCallsApi(object):
         )
         self.edit_database_endpoint = _Endpoint(
             settings={
-                'response_type': (DatabaseResponse,),
+                'response_type': (Database,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -149,7 +149,7 @@ class DatabaseMainCallsApi(object):
         )
         self.edit_database_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (CredentialsResponse,),
+                'response_type': (Credentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -206,7 +206,7 @@ class DatabaseMainCallsApi(object):
         )
         self.get_database_endpoint = _Endpoint(
             settings={
-                'response_type': (DatabaseResponse,),
+                'response_type': (Database,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -257,7 +257,7 @@ class DatabaseMainCallsApi(object):
         )
         self.get_database_master_credentials_endpoint = _Endpoint(
             settings={
-                'response_type': (CredentialsResponse,),
+                'response_type': (Credentials,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -534,7 +534,7 @@ class DatabaseMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DatabaseResponse
+            Database
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -612,7 +612,7 @@ class DatabaseMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CredentialsResponse
+            Credentials
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -689,7 +689,7 @@ class DatabaseMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DatabaseResponse
+            Database
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -766,7 +766,7 @@ class DatabaseMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CredentialsResponse
+            Credentials
                 If the method is called asynchronously, returns the request
                 thread.
         """

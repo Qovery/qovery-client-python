@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.base_response import BaseResponse
+from qovery.model.base import Base
 from qovery.model.errorunknown import ERRORUNKNOWN
 from qovery.model.inline_object2 import InlineObject2
 

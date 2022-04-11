@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_response import ApplicationResponse
-globals()['ApplicationResponse'] = ApplicationResponse
+from qovery.model.application import Application
+globals()['Application'] = Application
 from qovery.model.application_response_list import ApplicationResponseList
 
 

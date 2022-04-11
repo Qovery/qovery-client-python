@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.project import Project
 from qovery.model.project_request import ProjectRequest
-from qovery.model.project_response import ProjectResponse
 from qovery.model.project_response_list import ProjectResponseList
 from qovery.model.project_stats_response_list import ProjectStatsResponseList
 
@@ -41,7 +41,7 @@ class ProjectsApi(object):
         self.api_client = api_client
         self.create_project_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectResponse,),
+                'response_type': (Project,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -245,7 +245,7 @@ class ProjectsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectResponse
+            Project
                 If the method is called asynchronously, returns the request
                 thread.
         """

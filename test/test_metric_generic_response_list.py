@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.metric_generic_response import MetricGenericResponse
-globals()['MetricGenericResponse'] = MetricGenericResponse
+from qovery.model.metric_generic import MetricGeneric
+globals()['MetricGeneric'] = MetricGeneric
 from qovery.model.metric_generic_response_list import MetricGenericResponseList
 
 

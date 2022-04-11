@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.event import Event
 from qovery.model.event_paginated_response_list_all_of import EventPaginatedResponseListAllOf
-from qovery.model.event_response import EventResponse
-from qovery.model.pagination_data_response import PaginationDataResponse
+from qovery.model.pagination_data import PaginationData
+globals()['Event'] = Event
 globals()['EventPaginatedResponseListAllOf'] = EventPaginatedResponseListAllOf
-globals()['EventResponse'] = EventResponse
-globals()['PaginationDataResponse'] = PaginationDataResponse
+globals()['PaginationData'] = PaginationData
 from qovery.model.event_paginated_response_list import EventPaginatedResponseList
 
 

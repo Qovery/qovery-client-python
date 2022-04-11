@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.community_usage_response import CommunityUsageResponse
-globals()['CommunityUsageResponse'] = CommunityUsageResponse
+from qovery.model.project_current_cost import ProjectCurrentCost
+from qovery.model.project_current_cost_response_list import ProjectCurrentCostResponseList
+globals()['ProjectCurrentCost'] = ProjectCurrentCost
+globals()['ProjectCurrentCostResponseList'] = ProjectCurrentCostResponseList
 from qovery.model.community_usage import CommunityUsage
 
 

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **create_application**
-> ApplicationResponse create_application(environment_id)
+> Application create_application(environment_id)
 
 Create an application
 
@@ -27,7 +27,7 @@ Create an application
 import time
 import qovery
 from qovery.api import applications_api
-from qovery.model.application_response import ApplicationResponse
+from qovery.model.application import Application
 from qovery.model.application_request import ApplicationRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationResponse**](ApplicationResponse.md)
+[**Application**](Application.md)
 
 ### Authorization
 

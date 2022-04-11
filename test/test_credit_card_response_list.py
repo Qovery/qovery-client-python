@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.credit_card_response import CreditCardResponse
-globals()['CreditCardResponse'] = CreditCardResponse
+from qovery.model.credit_card import CreditCard
+globals()['CreditCard'] = CreditCard
 from qovery.model.credit_card_response_list import CreditCardResponseList
 
 

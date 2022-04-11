@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.database_configuration_response import DatabaseConfigurationResponse
-    globals()['DatabaseConfigurationResponse'] = DatabaseConfigurationResponse
+    from qovery.model.database_configuration import DatabaseConfiguration
+    globals()['DatabaseConfiguration'] = DatabaseConfiguration
 
 
 class DatabaseConfigurationResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class DatabaseConfigurationResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([DatabaseConfigurationResponse],),  # noqa: E501
+            'results': ([DatabaseConfiguration],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class DatabaseConfigurationResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([DatabaseConfigurationResponse]): [optional]  # noqa: E501
+            results ([DatabaseConfiguration]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class DatabaseConfigurationResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([DatabaseConfigurationResponse]): [optional]  # noqa: E501
+            results ([DatabaseConfiguration]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

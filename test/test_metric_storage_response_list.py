@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.metric_storage_response import MetricStorageResponse
-globals()['MetricStorageResponse'] = MetricStorageResponse
+from qovery.model.metric_storage import MetricStorage
+globals()['MetricStorage'] = MetricStorage
 from qovery.model.metric_storage_response_list import MetricStorageResponseList
 
 

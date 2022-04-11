@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.commit import Commit
 from qovery.model.commit_paginated_response_list_all_of import CommitPaginatedResponseListAllOf
-from qovery.model.commit_response import CommitResponse
-from qovery.model.pagination_data_response import PaginationDataResponse
+from qovery.model.pagination_data import PaginationData
+globals()['Commit'] = Commit
 globals()['CommitPaginatedResponseListAllOf'] = CommitPaginatedResponseListAllOf
-globals()['CommitResponse'] = CommitResponse
-globals()['PaginationDataResponse'] = PaginationDataResponse
+globals()['PaginationData'] = PaginationData
 from qovery.model.commit_paginated_response_list import CommitPaginatedResponseList
 
 

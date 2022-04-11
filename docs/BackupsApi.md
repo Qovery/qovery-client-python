@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **add_backup_database**
-> BackupResponse add_backup_database(database_id)
+> Backup add_backup_database(database_id)
 
 Add a backup to the Database 
 
@@ -22,8 +22,8 @@ Add a backup to the Database
 import time
 import qovery
 from qovery.api import backups_api
+from qovery.model.backup import Backup
 from qovery.model.backup_request import BackupRequest
-from qovery.model.backup_response import BackupResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BackupResponse**](BackupResponse.md)
+[**Backup**](Backup.md)
 
 ### Authorization
 

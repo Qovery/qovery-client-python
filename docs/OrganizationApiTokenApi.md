@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_organization_api_token**
-> OrganizationApiTokenCreateResponse create_organization_api_token(organization_id)
+> OrganizationApiTokenCreate create_organization_api_token(organization_id)
 
 Create an organization api token
 
@@ -24,8 +24,8 @@ Create an organization api token
 import time
 import qovery
 from qovery.api import organization_api_token_api
+from qovery.model.organization_api_token_create import OrganizationApiTokenCreate
 from qovery.model.organization_api_token_create_request import OrganizationApiTokenCreateRequest
-from qovery.model.organization_api_token_create_response import OrganizationApiTokenCreateResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrganizationApiTokenCreateResponse**](OrganizationApiTokenCreateResponse.md)
+[**OrganizationApiTokenCreate**](OrganizationApiTokenCreate.md)
 
 ### Authorization
 

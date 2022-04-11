@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_status_response import ClusterStatusResponse
-globals()['ClusterStatusResponse'] = ClusterStatusResponse
+from qovery.model.cluster_status import ClusterStatus
+globals()['ClusterStatus'] = ClusterStatus
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList
 
 

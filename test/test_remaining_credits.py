@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cost_response import CostResponse
-globals()['CostResponse'] = CostResponse
+from qovery.model.cost import Cost
+globals()['Cost'] = Cost
 from qovery.model.remaining_credits import RemainingCredits
 
 

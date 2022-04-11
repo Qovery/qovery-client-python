@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_accept_invite_member**
-> InviteMemberResponse post_accept_invite_member(organization_id, invite_id)
+> InviteMember post_accept_invite_member(organization_id, invite_id)
 
 Accept Invite in the organization
 
@@ -336,7 +336,7 @@ Accept Invite in the organization
 import time
 import qovery
 from qovery.api import members_api
-from qovery.model.invite_member_response import InviteMemberResponse
+from qovery.model.invite_member import InviteMember
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InviteMemberResponse**](InviteMemberResponse.md)
+[**InviteMember**](InviteMember.md)
 
 ### Authorization
 
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_invite_member**
-> InviteMemberResponse post_invite_member(organization_id)
+> InviteMember post_invite_member(organization_id)
 
 Invite someone in the organization
 
@@ -419,7 +419,7 @@ import time
 import qovery
 from qovery.api import members_api
 from qovery.model.invite_member_request import InviteMemberRequest
-from qovery.model.invite_member_response import InviteMemberResponse
+from qovery.model.invite_member import InviteMember
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InviteMemberResponse**](InviteMemberResponse.md)
+[**InviteMember**](InviteMember.md)
 
 ### Authorization
 

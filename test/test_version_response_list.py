@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.version_response import VersionResponse
-globals()['VersionResponse'] = VersionResponse
+from qovery.model.version import Version
+globals()['Version'] = Version
 from qovery.model.version_response_list import VersionResponseList
 
 

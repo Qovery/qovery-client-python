@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **create_application_environment_variable**
-> EnvironmentVariableResponse create_application_environment_variable(application_id)
+> EnvironmentVariable create_application_environment_variable(application_id)
 
 Add an environment variable to the application
 
@@ -28,7 +28,7 @@ Add an environment variable to the application
 import time
 import qovery
 from qovery.api import application_environment_variable_api
-from qovery.model.environment_variable_response import EnvironmentVariableResponse
+from qovery.model.environment_variable import EnvironmentVariable
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentVariableResponse**](EnvironmentVariableResponse.md)
+[**EnvironmentVariable**](EnvironmentVariable.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_application_environment_variable_alias**
-> EnvironmentVariableResponse create_application_environment_variable_alias(application_id, environment_variable_id)
+> EnvironmentVariable create_application_environment_variable_alias(application_id, environment_variable_id)
 
 Create an environment variable alias at the application level
 
@@ -124,8 +124,8 @@ Create an environment variable alias at the application level
 import time
 import qovery
 from qovery.api import application_environment_variable_api
-from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.key import Key
+from qovery.model.environment_variable import EnvironmentVariable
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentVariableResponse**](EnvironmentVariableResponse.md)
+[**EnvironmentVariable**](EnvironmentVariable.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_application_environment_variable_override**
-> EnvironmentVariableResponse create_application_environment_variable_override(application_id, environment_variable_id)
+> EnvironmentVariable create_application_environment_variable_override(application_id, environment_variable_id)
 
 Create an environment variable override at the application level
 
@@ -221,7 +221,7 @@ Create an environment variable override at the application level
 import time
 import qovery
 from qovery.api import application_environment_variable_api
-from qovery.model.environment_variable_response import EnvironmentVariableResponse
+from qovery.model.environment_variable import EnvironmentVariable
 from qovery.model.value import Value
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentVariableResponse**](EnvironmentVariableResponse.md)
+[**EnvironmentVariable**](EnvironmentVariable.md)
 
 ### Authorization
 
@@ -384,7 +384,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_application_environment_variable**
-> EnvironmentVariableResponse edit_application_environment_variable(application_id, environment_variable_id, environment_variable_edit_request)
+> EnvironmentVariable edit_application_environment_variable(application_id, environment_variable_id, environment_variable_edit_request)
 
 Edit an environment variable belonging to the application
 
@@ -398,8 +398,8 @@ Edit an environment variable belonging to the application
 import time
 import qovery
 from qovery.api import application_environment_variable_api
-from qovery.model.environment_variable_response import EnvironmentVariableResponse
 from qovery.model.environment_variable_edit_request import EnvironmentVariableEditRequest
+from qovery.model.environment_variable import EnvironmentVariable
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EnvironmentVariableResponse**](EnvironmentVariableResponse.md)
+[**EnvironmentVariable**](EnvironmentVariable.md)
 
 ### Authorization
 
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_environment_variable**
-> VariableImportResponse import_environment_variable(application_id)
+> VariableImport import_environment_variable(application_id)
 
 Import variables
 
@@ -487,7 +487,7 @@ Import environment variables in a defined scope, with a defined visibility.
 import time
 import qovery
 from qovery.api import application_environment_variable_api
-from qovery.model.variable_import_response import VariableImportResponse
+from qovery.model.variable_import import VariableImport
 from qovery.model.variable_import_request import VariableImportRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VariableImportResponse**](VariableImportResponse.md)
+[**VariableImport**](VariableImport.md)
 
 ### Authorization
 

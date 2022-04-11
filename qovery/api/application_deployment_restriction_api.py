@@ -22,9 +22,9 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
-from qovery.model.application_deployment_restriction_response import ApplicationDeploymentRestrictionResponse
-from qovery.model.base_response import BaseResponse
+from qovery.model.base import Base
 from qovery.model.errorunknown import ERRORUNKNOWN
 
 
@@ -210,7 +210,7 @@ class ApplicationDeploymentRestrictionApi(object):
         )
         self.get_application_deployment_restrictions_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationDeploymentRestrictionResponse,),
+                'response_type': (ApplicationDeploymentRestriction,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -546,7 +546,7 @@ class ApplicationDeploymentRestrictionApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationDeploymentRestrictionResponse
+            ApplicationDeploymentRestriction
                 If the method is called asynchronously, returns the request
                 thread.
         """

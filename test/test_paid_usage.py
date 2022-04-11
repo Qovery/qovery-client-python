@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.paid_usage_response import PaidUsageResponse
-globals()['PaidUsageResponse'] = PaidUsageResponse
 from qovery.model.paid_usage import PaidUsage
 
 

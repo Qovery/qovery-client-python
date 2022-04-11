@@ -92,7 +92,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_database**
-> DatabaseResponse edit_database(database_id)
+> Database edit_database(database_id)
 
 Edit a database 
 
@@ -107,7 +107,7 @@ import time
 import qovery
 from qovery.api import database_main_calls_api
 from qovery.model.database_edit_request import DatabaseEditRequest
-from qovery.model.database_response import DatabaseResponse
+from qovery.model.database import Database
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DatabaseResponse**](DatabaseResponse.md)
+[**Database**](Database.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_database_credentials**
-> CredentialsResponse edit_database_credentials(database_id)
+> Credentials edit_database_credentials(database_id)
 
 Edit database  master credentials
 
@@ -205,7 +205,7 @@ Edit database  master credentials
 import time
 import qovery
 from qovery.api import database_main_calls_api
-from qovery.model.credentials_response import CredentialsResponse
+from qovery.model.credentials import Credentials
 from qovery.model.credentials_request import CredentialsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CredentialsResponse**](CredentialsResponse.md)
+[**Credentials**](Credentials.md)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_database**
-> DatabaseResponse get_database(database_id)
+> Database get_database(database_id)
 
 Get database by ID
 
@@ -299,7 +299,7 @@ Get database by ID
 import time
 import qovery
 from qovery.api import database_main_calls_api
-from qovery.model.database_response import DatabaseResponse
+from qovery.model.database import Database
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DatabaseResponse**](DatabaseResponse.md)
+[**Database**](Database.md)
 
 ### Authorization
 
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_database_master_credentials**
-> CredentialsResponse get_database_master_credentials(database_id)
+> Credentials get_database_master_credentials(database_id)
 
 Get master credentials of the database
 
@@ -377,7 +377,7 @@ Get master credentials of the database
 import time
 import qovery
 from qovery.api import database_main_calls_api
-from qovery.model.credentials_response import CredentialsResponse
+from qovery.model.credentials import Credentials
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CredentialsResponse**](CredentialsResponse.md)
+[**Credentials**](Credentials.md)
 
 ### Authorization
 

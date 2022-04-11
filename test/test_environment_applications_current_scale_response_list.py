@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_applications_current_scale_response import EnvironmentApplicationsCurrentScaleResponse
-globals()['EnvironmentApplicationsCurrentScaleResponse'] = EnvironmentApplicationsCurrentScaleResponse
+from qovery.model.environment_applications_current_scale import EnvironmentApplicationsCurrentScale
+globals()['EnvironmentApplicationsCurrentScale'] = EnvironmentApplicationsCurrentScale
 from qovery.model.environment_applications_current_scale_response_list import EnvironmentApplicationsCurrentScaleResponseList
 
 

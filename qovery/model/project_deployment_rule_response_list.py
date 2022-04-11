@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
-    globals()['ProjectDeploymentRuleResponse'] = ProjectDeploymentRuleResponse
+    from qovery.model.project_deployment_rule import ProjectDeploymentRule
+    globals()['ProjectDeploymentRule'] = ProjectDeploymentRule
 
 
 class ProjectDeploymentRuleResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class ProjectDeploymentRuleResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([ProjectDeploymentRuleResponse],),  # noqa: E501
+            'results': ([ProjectDeploymentRule],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class ProjectDeploymentRuleResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ProjectDeploymentRuleResponse]): [optional]  # noqa: E501
+            results ([ProjectDeploymentRule]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class ProjectDeploymentRuleResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ProjectDeploymentRuleResponse]): [optional]  # noqa: E501
+            results ([ProjectDeploymentRule]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

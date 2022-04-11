@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.metric_cpu_datapoint_response import MetricCPUDatapointResponse
-globals()['MetricCPUDatapointResponse'] = MetricCPUDatapointResponse
+from qovery.model.metric_cpu_datapoint import MetricCPUDatapoint
+globals()['MetricCPUDatapoint'] = MetricCPUDatapoint
 from qovery.model.metric_cpu_datapoint_response_list import MetricCPUDatapointResponseList
 
 

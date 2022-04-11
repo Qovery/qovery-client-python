@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_log_response import EnvironmentLogResponse
-    globals()['EnvironmentLogResponse'] = EnvironmentLogResponse
+    from qovery.model.environment_log import EnvironmentLog
+    globals()['EnvironmentLog'] = EnvironmentLog
 
 
 class EnvironmentLogResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class EnvironmentLogResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([EnvironmentLogResponse],),  # noqa: E501
+            'results': ([EnvironmentLog],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class EnvironmentLogResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentLogResponse]): [optional]  # noqa: E501
+            results ([EnvironmentLog]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class EnvironmentLogResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentLogResponse]): [optional]  # noqa: E501
+            results ([EnvironmentLog]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

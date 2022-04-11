@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.organization_api_token_response import OrganizationApiTokenResponse
-globals()['OrganizationApiTokenResponse'] = OrganizationApiTokenResponse
+from qovery.model.organization_api_token import OrganizationApiToken
+globals()['OrganizationApiToken'] = OrganizationApiToken
 from qovery.model.organization_api_token_response_list import OrganizationApiTokenResponseList
 
 

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.backup_response import BackupResponse
-globals()['BackupResponse'] = BackupResponse
+from qovery.model.backup import Backup
+globals()['Backup'] = Backup
 from qovery.model.backup_response_list import BackupResponseList
 
 

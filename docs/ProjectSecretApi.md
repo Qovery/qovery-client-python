@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_project_secret**
-> SecretResponse create_project_secret(project_id)
+> Secret create_project_secret(project_id)
 
 Add a secret to the project
 
@@ -27,7 +27,7 @@ Add a secret to the project
 import time
 import qovery
 from qovery.api import project_secret_api
-from qovery.model.secret_response import SecretResponse
+from qovery.model.secret import Secret
 from qovery.model.secret_request import SecretRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecretResponse**](SecretResponse.md)
+[**Secret**](Secret.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_project_secret_alias**
-> SecretResponse create_project_secret_alias(project_id, secret_id)
+> Secret create_project_secret_alias(project_id, secret_id)
 
 Create a secret alias at the project level
 
@@ -123,7 +123,7 @@ Create a secret alias at the project level
 import time
 import qovery
 from qovery.api import project_secret_api
-from qovery.model.secret_response import SecretResponse
+from qovery.model.secret import Secret
 from qovery.model.key import Key
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecretResponse**](SecretResponse.md)
+[**Secret**](Secret.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_project_secret_override**
-> SecretResponse create_project_secret_override(project_id, secret_id)
+> Secret create_project_secret_override(project_id, secret_id)
 
 Create a secret override at the project level
 
@@ -220,7 +220,7 @@ Create a secret override at the project level
 import time
 import qovery
 from qovery.api import project_secret_api
-from qovery.model.secret_response import SecretResponse
+from qovery.model.secret import Secret
 from qovery.model.value import Value
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecretResponse**](SecretResponse.md)
+[**Secret**](Secret.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_project_secret**
-> SecretResponse edit_project_secret(project_id, secret_id, secret_edit_request)
+> Secret edit_project_secret(project_id, secret_id, secret_edit_request)
 
 Edit a secret belonging to the project
 
@@ -398,7 +398,7 @@ import time
 import qovery
 from qovery.api import project_secret_api
 from qovery.model.secret_edit_request import SecretEditRequest
-from qovery.model.secret_response import SecretResponse
+from qovery.model.secret import Secret
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -447,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecretResponse**](SecretResponse.md)
+[**Secret**](Secret.md)
 
 ### Authorization
 

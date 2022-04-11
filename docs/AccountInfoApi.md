@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_account_information**
-> AccountInfoResponse get_account_information()
+> AccountInfo get_account_information()
 
 Get Account information
 
@@ -20,7 +20,7 @@ Get Account information
 import time
 import qovery
 from qovery.api import account_info_api
-from qovery.model.account_info_response import AccountInfoResponse
+from qovery.model.account_info import AccountInfo
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AccountInfoResponse**](AccountInfoResponse.md)
+[**AccountInfo**](AccountInfo.md)
 
 ### Authorization
 

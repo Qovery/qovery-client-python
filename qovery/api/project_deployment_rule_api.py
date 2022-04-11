@@ -23,8 +23,8 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.inline_object import InlineObject
+from qovery.model.project_deployment_rule import ProjectDeploymentRule
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
-from qovery.model.project_deployment_rule_response import ProjectDeploymentRuleResponse
 from qovery.model.project_deployment_rule_response_list import ProjectDeploymentRuleResponseList
 
 
@@ -41,7 +41,7 @@ class ProjectDeploymentRuleApi(object):
         self.api_client = api_client
         self.create_deployment_rule_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectDeploymentRuleResponse,),
+                'response_type': (ProjectDeploymentRule,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -153,7 +153,7 @@ class ProjectDeploymentRuleApi(object):
         )
         self.edit_project_deployemtn_rule_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectDeploymentRuleResponse,),
+                'response_type': (ProjectDeploymentRule,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -216,7 +216,7 @@ class ProjectDeploymentRuleApi(object):
         )
         self.get_project_deployment_rule_endpoint = _Endpoint(
             settings={
-                'response_type': (ProjectDeploymentRuleResponse,),
+                'response_type': (ProjectDeploymentRule,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -425,7 +425,7 @@ class ProjectDeploymentRuleApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectDeploymentRuleResponse
+            ProjectDeploymentRule
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -588,7 +588,7 @@ class ProjectDeploymentRuleApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectDeploymentRuleResponse
+            ProjectDeploymentRule
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -670,7 +670,7 @@ class ProjectDeploymentRuleApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ProjectDeploymentRuleResponse
+            ProjectDeploymentRule
                 If the method is called asynchronously, returns the request
                 thread.
         """

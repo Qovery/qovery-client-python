@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.storage_disk_response import StorageDiskResponse
-globals()['StorageDiskResponse'] = StorageDiskResponse
+from qovery.model.storage_disk import StorageDisk
+globals()['StorageDisk'] = StorageDisk
 from qovery.model.storage_disk_response_list import StorageDiskResponseList
 
 

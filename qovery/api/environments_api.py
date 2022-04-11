@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.environment import Environment
 from qovery.model.environment_request import EnvironmentRequest
-from qovery.model.environment_response import EnvironmentResponse
 from qovery.model.environment_response_list import EnvironmentResponseList
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 from qovery.model.status import Status
@@ -42,7 +42,7 @@ class EnvironmentsApi(object):
         self.api_client = api_client
         self.create_environment_endpoint = _Endpoint(
             settings={
-                'response_type': (EnvironmentResponse,),
+                'response_type': (Environment,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -297,7 +297,7 @@ class EnvironmentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            EnvironmentResponse
+            Environment
                 If the method is called asynchronously, returns the request
                 thread.
         """

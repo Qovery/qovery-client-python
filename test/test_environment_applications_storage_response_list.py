@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_applications_storage_response import EnvironmentApplicationsStorageResponse
-globals()['EnvironmentApplicationsStorageResponse'] = EnvironmentApplicationsStorageResponse
+from qovery.model.environment_applications_storage import EnvironmentApplicationsStorage
+globals()['EnvironmentApplicationsStorage'] = EnvironmentApplicationsStorage
 from qovery.model.environment_applications_storage_response_list import EnvironmentApplicationsStorageResponseList
 
 
