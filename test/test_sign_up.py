@@ -13,11 +13,19 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_environment_id_application_deploy_applications import EnvironmentEnvironmentIdApplicationDeployApplications
+from qovery.model.base import Base
+from qovery.model.company_size_enum import CompanySizeEnum
+from qovery.model.sign_up_request import SignUpRequest
+from qovery.model.type_of_use_enum import TypeOfUseEnum
+globals()['Base'] = Base
+globals()['CompanySizeEnum'] = CompanySizeEnum
+globals()['SignUpRequest'] = SignUpRequest
+globals()['TypeOfUseEnum'] = TypeOfUseEnum
+from qovery.model.sign_up import SignUp
 
 
-class TestEnvironmentEnvironmentIdApplicationDeployApplications(unittest.TestCase):
-    """EnvironmentEnvironmentIdApplicationDeployApplications unit test stubs"""
+class TestSignUp(unittest.TestCase):
+    """SignUp unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +33,10 @@ class TestEnvironmentEnvironmentIdApplicationDeployApplications(unittest.TestCas
     def tearDown(self):
         pass
 
-    def testEnvironmentEnvironmentIdApplicationDeployApplications(self):
-        """Test EnvironmentEnvironmentIdApplicationDeployApplications"""
+    def testSignUp(self):
+        """Test SignUp"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EnvironmentEnvironmentIdApplicationDeployApplications()  # noqa: E501
+        # model = SignUp()  # noqa: E501
         pass
 
 

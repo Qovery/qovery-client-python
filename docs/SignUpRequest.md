@@ -1,4 +1,4 @@
-# InlineObject2
+# SignUpRequest
 
 
 ## Properties
@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **first_name** | **str** |  | 
 **last_name** | **str** |  | 
 **user_email** | **str** |  | 
-**type_of_use** | **str** |  | 
+**type_of_use** | [**TypeOfUseEnum**](TypeOfUseEnum.md) |  | 
 **qovery_usage** | **str** |  | 
 **company_name** | **str, none_type** |  | [optional] 
-**company_size** | **str** |  | [optional] 
+**company_size** | [**CompanySizeEnum**](CompanySizeEnum.md) |  | [optional] 
 **user_role** | **str, none_type** |  | [optional] 
 **qovery_usage_other** | **str, none_type** |  | [optional] 
 **user_questions** | **str, none_type** |  | [optional] 

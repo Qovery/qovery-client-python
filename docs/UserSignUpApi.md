@@ -23,7 +23,7 @@ Send a Sign Up request containing the user information
 import time
 import qovery
 from qovery.api import user_sign_up_api
-from qovery.model.inline_object2 import InlineObject2
+from qovery.model.sign_up_request import SignUpRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -45,26 +45,26 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_sign_up_api.UserSignUpApi(api_client)
-    inline_object2 = InlineObject2(
+    sign_up_request = SignUpRequest(
         first_name="first_name_example",
         last_name="last_name_example",
         user_email="user_email_example",
-        type_of_use="PERSONAL",
+        type_of_use=TypeOfUseEnum("PERSONAL"),
         qovery_usage="qovery_usage_example",
         company_name="company_name_example",
-        company_size="1-10",
+        company_size=CompanySizeEnum("1-10"),
         user_role="user_role_example",
         qovery_usage_other="qovery_usage_other_example",
         user_questions="user_questions_example",
         current_step="current_step_example",
         dx_auth=True,
-    ) # InlineObject2 |  (optional)
+    ) # SignUpRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Send Sign Up request
-        api_instance.create_user_sign_up(inline_object2=inline_object2)
+        api_instance.create_user_sign_up(sign_up_request=sign_up_request)
     except qovery.ApiException as e:
         print("Exception when calling UserSignUpApi->create_user_sign_up: %s\n" % e)
 ```
@@ -74,7 +74,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inline_object2** | [**InlineObject2**](InlineObject2.md)|  | [optional]
+ **sign_up_request** | [**SignUpRequest**](SignUpRequest.md)|  | [optional]
 
 ### Return type
 
@@ -103,7 +103,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_sign_up**
-> bool, date, datetime, dict, float, int, list, str, none_type get_user_sign_up()
+> SignUp get_user_sign_up()
 
 Get Sign up information
 
@@ -117,8 +117,7 @@ Retrieve the Sign Up information of the user
 import time
 import qovery
 from qovery.api import user_sign_up_api
-from qovery.model.errorunknown import ERRORUNKNOWN
-from qovery.model.base import Base
+from qovery.model.sign_up import SignUp
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -156,7 +155,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**bool, date, datetime, dict, float, int, list, str, none_type**
+[**SignUp**](SignUp.md)
 
 ### Authorization
 

@@ -487,7 +487,7 @@ Update deployment rules priority order
 import time
 import qovery
 from qovery.api import project_deployment_rule_api
-from qovery.model.inline_object import InlineObject
+from qovery.model.project_deployment_rules_priority_order_request import ProjectDeploymentRulesPriorityOrderRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -510,11 +510,11 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
     project_id = "projectId_example" # str | Project ID
-    inline_object = InlineObject(
+    project_deployment_rules_priority_order_request = ProjectDeploymentRulesPriorityOrderRequest(
         project_deployment_rule_ids_in_order=[
             "project_deployment_rule_ids_in_order_example",
         ],
-    ) # InlineObject |  (optional)
+    ) # ProjectDeploymentRulesPriorityOrderRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -527,7 +527,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update deployment rules priority order
-        api_instance.update_deployment_rules_priority_order(project_id, inline_object=inline_object)
+        api_instance.update_deployment_rules_priority_order(project_id, project_deployment_rules_priority_order_request=project_deployment_rules_priority_order_request)
     except qovery.ApiException as e:
         print("Exception when calling ProjectDeploymentRuleApi->update_deployment_rules_priority_order: %s\n" % e)
 ```
@@ -538,7 +538,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project ID |
- **inline_object** | [**InlineObject**](InlineObject.md)|  | [optional]
+ **project_deployment_rules_priority_order_request** | [**ProjectDeploymentRulesPriorityOrderRequest**](ProjectDeploymentRulesPriorityOrderRequest.md)|  | [optional]
 
 ### Return type
 

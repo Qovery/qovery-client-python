@@ -101,6 +101,7 @@ docs/CommitPaginatedResponseList.md
 docs/CommitPaginatedResponseListAllOf.md
 docs/CommitResponseList.md
 docs/CommunityUsage.md
+docs/CompanySizeEnum.md
 docs/Cost.md
 docs/CostRange.md
 docs/Credentials.md
@@ -133,6 +134,8 @@ docs/DatabaseTypeEnum.md
 docs/DatabaseVersionMode.md
 docs/DatabasesApi.md
 docs/DependencyApi.md
+docs/DeployAllRequest.md
+docs/DeployAllRequestApplications.md
 docs/DeployRequest.md
 docs/DeploymentHistory.md
 docs/DeploymentHistoryAllOf.md
@@ -175,7 +178,6 @@ docs/EnvironmentDeploymentRuleAllOf.md
 docs/EnvironmentDeploymentRuleApi.md
 docs/EnvironmentDeploymentRuleEditRequest.md
 docs/EnvironmentEditRequest.md
-docs/EnvironmentEnvironmentIdApplicationDeployApplications.md
 docs/EnvironmentLog.md
 docs/EnvironmentLogPaginatedResponseList.md
 docs/EnvironmentLogPaginatedResponseListAllOf.md
@@ -218,9 +220,6 @@ docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponseList.md
 docs/GlobalDeploymentStatus.md
 docs/Healthcheck.md
-docs/InlineObject.md
-docs/InlineObject1.md
-docs/InlineObject2.md
 docs/Instance.md
 docs/InstanceResponseList.md
 docs/InviteMember.md
@@ -299,6 +298,7 @@ docs/ProjectDeploymentRuleAllOf.md
 docs/ProjectDeploymentRuleApi.md
 docs/ProjectDeploymentRuleRequest.md
 docs/ProjectDeploymentRuleResponseList.md
+docs/ProjectDeploymentRulesPriorityOrderRequest.md
 docs/ProjectEnvironmentVariableApi.md
 docs/ProjectMainCallsApi.md
 docs/ProjectRequest.md
@@ -326,6 +326,8 @@ docs/ServiceDeploymentStatusEnum.md
 docs/ServiceResponseList.md
 docs/ServiceTotalNumber.md
 docs/ServiceTypeEnum.md
+docs/SignUp.md
+docs/SignUpRequest.md
 docs/Status.md
 docs/StorageDisk.md
 docs/StorageDiskResponseList.md
@@ -335,6 +337,7 @@ docs/TagRequest.md
 docs/TagResponseList.md
 docs/ThresholdMetricStatusEnum.md
 docs/TransferOwnershipRequest.md
+docs/TypeOfUseEnum.md
 docs/UnexpectedError.md
 docs/User.md
 docs/UserResponseList.md
@@ -481,6 +484,7 @@ qovery/model/commit_paginated_response_list.py
 qovery/model/commit_paginated_response_list_all_of.py
 qovery/model/commit_response_list.py
 qovery/model/community_usage.py
+qovery/model/company_size_enum.py
 qovery/model/cost.py
 qovery/model/cost_range.py
 qovery/model/credentials.py
@@ -505,6 +509,8 @@ qovery/model/database_request.py
 qovery/model/database_response_list.py
 qovery/model/database_type_enum.py
 qovery/model/database_version_mode.py
+qovery/model/deploy_all_request.py
+qovery/model/deploy_all_request_applications.py
 qovery/model/deploy_request.py
 qovery/model/deployment_history.py
 qovery/model/deployment_history_all_of.py
@@ -544,7 +550,6 @@ qovery/model/environment_deployment_rule.py
 qovery/model/environment_deployment_rule_all_of.py
 qovery/model/environment_deployment_rule_edit_request.py
 qovery/model/environment_edit_request.py
-qovery/model/environment_environment_id_application_deploy_applications.py
 qovery/model/environment_log.py
 qovery/model/environment_log_paginated_response_list.py
 qovery/model/environment_log_paginated_response_list_all_of.py
@@ -581,9 +586,6 @@ qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
 qovery/model/global_deployment_status.py
 qovery/model/healthcheck.py
-qovery/model/inline_object.py
-qovery/model/inline_object1.py
-qovery/model/inline_object2.py
 qovery/model/instance.py
 qovery/model/instance_response_list.py
 qovery/model/invite_member.py
@@ -657,6 +659,7 @@ qovery/model/project_deployment_rule.py
 qovery/model/project_deployment_rule_all_of.py
 qovery/model/project_deployment_rule_request.py
 qovery/model/project_deployment_rule_response_list.py
+qovery/model/project_deployment_rules_priority_order_request.py
 qovery/model/project_request.py
 qovery/model/project_response_list.py
 qovery/model/project_stats.py
@@ -679,6 +682,8 @@ qovery/model/service_deployment_status_enum.py
 qovery/model/service_response_list.py
 qovery/model/service_total_number.py
 qovery/model/service_type_enum.py
+qovery/model/sign_up.py
+qovery/model/sign_up_request.py
 qovery/model/status.py
 qovery/model/storage_disk.py
 qovery/model/storage_disk_response_list.py
@@ -688,6 +693,7 @@ qovery/model/tag_request.py
 qovery/model/tag_response_list.py
 qovery/model/threshold_metric_status_enum.py
 qovery/model/transfer_ownership_request.py
+qovery/model/type_of_use_enum.py
 qovery/model/unexpected_error.py
 qovery/model/user.py
 qovery/model/user_response_list.py
@@ -805,6 +811,7 @@ test/test_commit_paginated_response_list.py
 test/test_commit_paginated_response_list_all_of.py
 test/test_commit_response_list.py
 test/test_community_usage.py
+test/test_company_size_enum.py
 test/test_cost.py
 test/test_cost_range.py
 test/test_credentials.py
@@ -837,6 +844,8 @@ test/test_database_type_enum.py
 test/test_database_version_mode.py
 test/test_databases_api.py
 test/test_dependency_api.py
+test/test_deploy_all_request.py
+test/test_deploy_all_request_applications.py
 test/test_deploy_request.py
 test/test_deployment_history.py
 test/test_deployment_history_all_of.py
@@ -879,7 +888,6 @@ test/test_environment_deployment_rule_all_of.py
 test/test_environment_deployment_rule_api.py
 test/test_environment_deployment_rule_edit_request.py
 test/test_environment_edit_request.py
-test/test_environment_environment_id_application_deploy_applications.py
 test/test_environment_log.py
 test/test_environment_log_paginated_response_list.py
 test/test_environment_log_paginated_response_list_all_of.py
@@ -922,9 +930,6 @@ test/test_git_repository_branch_response_list.py
 test/test_git_repository_response_list.py
 test/test_global_deployment_status.py
 test/test_healthcheck.py
-test/test_inline_object.py
-test/test_inline_object1.py
-test/test_inline_object2.py
 test/test_instance.py
 test/test_instance_response_list.py
 test/test_invite_member.py
@@ -1003,6 +1008,7 @@ test/test_project_deployment_rule_all_of.py
 test/test_project_deployment_rule_api.py
 test/test_project_deployment_rule_request.py
 test/test_project_deployment_rule_response_list.py
+test/test_project_deployment_rules_priority_order_request.py
 test/test_project_environment_variable_api.py
 test/test_project_main_calls_api.py
 test/test_project_request.py
@@ -1030,6 +1036,8 @@ test/test_service_deployment_status_enum.py
 test/test_service_response_list.py
 test/test_service_total_number.py
 test/test_service_type_enum.py
+test/test_sign_up.py
+test/test_sign_up_request.py
 test/test_status.py
 test/test_storage_disk.py
 test/test_storage_disk_response_list.py
@@ -1039,6 +1047,7 @@ test/test_tag_request.py
 test/test_tag_response_list.py
 test/test_threshold_metric_status_enum.py
 test/test_transfer_ownership_request.py
+test/test_type_of_use_enum.py
 test/test_unexpected_error.py
 test/test_user.py
 test/test_user_response_list.py

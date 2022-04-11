@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_environment_id_application_deploy_applications import EnvironmentEnvironmentIdApplicationDeployApplications
-globals()['EnvironmentEnvironmentIdApplicationDeployApplications'] = EnvironmentEnvironmentIdApplicationDeployApplications
-from qovery.model.inline_object1 import InlineObject1
+from qovery.model.deploy_all_request_applications import DeployAllRequestApplications
 
 
-class TestInlineObject1(unittest.TestCase):
-    """InlineObject1 unit test stubs"""
+class TestDeployAllRequestApplications(unittest.TestCase):
+    """DeployAllRequestApplications unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestInlineObject1(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineObject1(self):
-        """Test InlineObject1"""
+    def testDeployAllRequestApplications(self):
+        """Test DeployAllRequestApplications"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = InlineObject1()  # noqa: E501
+        # model = DeployAllRequestApplications()  # noqa: E501
         pass
 
 

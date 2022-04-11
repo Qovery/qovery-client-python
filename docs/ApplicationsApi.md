@@ -121,7 +121,7 @@ Deploy to the last commit the applications you specified.
 import time
 import qovery
 from qovery.api import applications_api
-from qovery.model.inline_object1 import InlineObject1
+from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -145,14 +145,14 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = applications_api.ApplicationsApi(api_client)
     environment_id = "environmentId_example" # str | Environment ID
-    inline_object1 = InlineObject1(
+    deploy_all_request = DeployAllRequest(
         applications=[
-            EnvironmentEnvironmentIdApplicationDeployApplications(
+            DeployAllRequestApplications(
                 application_id="application_id_example",
                 git_commit_id="git_commit_id_example",
             ),
         ],
-    ) # InlineObject1 |  (optional)
+    ) # DeployAllRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -166,7 +166,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Deploy applications
-        api_response = api_instance.deploy_all_applications(environment_id, inline_object1=inline_object1)
+        api_response = api_instance.deploy_all_applications(environment_id, deploy_all_request=deploy_all_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ApplicationsApi->deploy_all_applications: %s\n" % e)
@@ -178,7 +178,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **environment_id** | **str**| Environment ID |
- **inline_object1** | [**InlineObject1**](InlineObject1.md)|  | [optional]
+ **deploy_all_request** | [**DeployAllRequest**](DeployAllRequest.md)|  | [optional]
 
 ### Return type
 

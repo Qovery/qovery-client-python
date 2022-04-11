@@ -22,10 +22,10 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.inline_object import InlineObject
 from qovery.model.project_deployment_rule import ProjectDeploymentRule
 from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
 from qovery.model.project_deployment_rule_response_list import ProjectDeploymentRuleResponseList
+from qovery.model.project_deployment_rules_priority_order_request import ProjectDeploymentRulesPriorityOrderRequest
 
 
 class ProjectDeploymentRuleApi(object):
@@ -336,7 +336,7 @@ class ProjectDeploymentRuleApi(object):
             params_map={
                 'all': [
                     'project_id',
-                    'inline_object',
+                    'project_deployment_rules_priority_order_request',
                 ],
                 'required': [
                     'project_id',
@@ -356,15 +356,15 @@ class ProjectDeploymentRuleApi(object):
                 'openapi_types': {
                     'project_id':
                         (str,),
-                    'inline_object':
-                        (InlineObject,),
+                    'project_deployment_rules_priority_order_request':
+                        (ProjectDeploymentRulesPriorityOrderRequest,),
                 },
                 'attribute_map': {
                     'project_id': 'projectId',
                 },
                 'location_map': {
                     'project_id': 'path',
-                    'inline_object': 'body',
+                    'project_deployment_rules_priority_order_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -800,7 +800,7 @@ class ProjectDeploymentRuleApi(object):
             project_id (str): Project ID
 
         Keyword Args:
-            inline_object (InlineObject): [optional]
+            project_deployment_rules_priority_order_request (ProjectDeploymentRulesPriorityOrderRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

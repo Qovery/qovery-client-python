@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.inline_object2 import InlineObject2
+from qovery.model.company_size_enum import CompanySizeEnum
 
 
-class TestInlineObject2(unittest.TestCase):
-    """InlineObject2 unit test stubs"""
+class TestCompanySizeEnum(unittest.TestCase):
+    """CompanySizeEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestInlineObject2(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineObject2(self):
-        """Test InlineObject2"""
+    def testCompanySizeEnum(self):
+        """Test CompanySizeEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = InlineObject2()  # noqa: E501
+        # model = CompanySizeEnum()  # noqa: E501
         pass
 
 

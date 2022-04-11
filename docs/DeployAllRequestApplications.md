@@ -1,10 +1,11 @@
-# InlineObject1
+# DeployAllRequestApplications
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**applications** | [**[EnvironmentEnvironmentIdApplicationDeployApplications]**](EnvironmentEnvironmentIdApplicationDeployApplications.md) |  | [optional] 
+**application_id** | **str** | id of the application to be deployed. | 
+**git_commit_id** | **str** | Commit ID to deploy. | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

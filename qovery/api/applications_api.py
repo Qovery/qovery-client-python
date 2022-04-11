@@ -25,11 +25,11 @@ from qovery.model_utils import (  # noqa: F401
 from qovery.model.application import Application
 from qovery.model.application_request import ApplicationRequest
 from qovery.model.application_response_list import ApplicationResponseList
+from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.environment_applications_current_scale_response_list import EnvironmentApplicationsCurrentScaleResponseList
 from qovery.model.environment_applications_instance_response_list import EnvironmentApplicationsInstanceResponseList
 from qovery.model.environment_applications_storage_response_list import EnvironmentApplicationsStorageResponseList
 from qovery.model.environment_applications_supported_language_list import EnvironmentApplicationsSupportedLanguageList
-from qovery.model.inline_object1 import InlineObject1
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from qovery.model.status import Status
 
@@ -116,7 +116,7 @@ class ApplicationsApi(object):
             params_map={
                 'all': [
                     'environment_id',
-                    'inline_object1',
+                    'deploy_all_request',
                 ],
                 'required': [
                     'environment_id',
@@ -136,15 +136,15 @@ class ApplicationsApi(object):
                 'openapi_types': {
                     'environment_id':
                         (str,),
-                    'inline_object1':
-                        (InlineObject1,),
+                    'deploy_all_request':
+                        (DeployAllRequest,),
                 },
                 'attribute_map': {
                     'environment_id': 'environmentId',
                 },
                 'location_map': {
                     'environment_id': 'path',
-                    'inline_object1': 'body',
+                    'deploy_all_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -567,7 +567,7 @@ class ApplicationsApi(object):
             environment_id (str): Environment ID
 
         Keyword Args:
-            inline_object1 (InlineObject1): [optional]
+            deploy_all_request (DeployAllRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

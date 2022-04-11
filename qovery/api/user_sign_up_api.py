@@ -22,9 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.base import Base
-from qovery.model.errorunknown import ERRORUNKNOWN
-from qovery.model.inline_object2 import InlineObject2
+from qovery.model.sign_up import SignUp
+from qovery.model.sign_up_request import SignUpRequest
 
 
 class UserSignUpApi(object):
@@ -51,7 +50,7 @@ class UserSignUpApi(object):
             },
             params_map={
                 'all': [
-                    'inline_object2',
+                    'sign_up_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -67,13 +66,13 @@ class UserSignUpApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'inline_object2':
-                        (InlineObject2,),
+                    'sign_up_request':
+                        (SignUpRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'inline_object2': 'body',
+                    'sign_up_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -88,7 +87,7 @@ class UserSignUpApi(object):
         )
         self.get_user_sign_up_endpoint = _Endpoint(
             settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
+                'response_type': (SignUp,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -146,7 +145,7 @@ class UserSignUpApi(object):
 
 
         Keyword Args:
-            inline_object2 (InlineObject2): [optional]
+            sign_up_request (SignUpRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -248,7 +247,7 @@ class UserSignUpApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            bool, date, datetime, dict, float, int, list, str, none_type
+            SignUp
                 If the method is called asynchronously, returns the request
                 thread.
         """

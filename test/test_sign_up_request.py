@@ -13,11 +13,15 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.inline_object import InlineObject
+from qovery.model.company_size_enum import CompanySizeEnum
+from qovery.model.type_of_use_enum import TypeOfUseEnum
+globals()['CompanySizeEnum'] = CompanySizeEnum
+globals()['TypeOfUseEnum'] = TypeOfUseEnum
+from qovery.model.sign_up_request import SignUpRequest
 
 
-class TestInlineObject(unittest.TestCase):
-    """InlineObject unit test stubs"""
+class TestSignUpRequest(unittest.TestCase):
+    """SignUpRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +29,10 @@ class TestInlineObject(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineObject(self):
-        """Test InlineObject"""
+    def testSignUpRequest(self):
+        """Test SignUpRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = InlineObject()  # noqa: E501
+        # model = SignUpRequest()  # noqa: E501
         pass
 
 
