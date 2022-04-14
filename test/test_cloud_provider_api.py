@@ -31,6 +31,13 @@ class TestCloudProviderApi(unittest.TestCase):
         """
         pass
 
+    def test_list_aws_instance_type(self):
+        """Test case for list_aws_instance_type
+
+        List AWS available instance types  # noqa: E501
+        """
+        pass
+
     def test_list_aws_regions(self):
         """Test case for list_aws_regions
 
@@ -52,6 +59,13 @@ class TestCloudProviderApi(unittest.TestCase):
         """
         pass
 
+    def test_list_do_instance_type(self):
+        """Test case for list_do_instance_type
+
+        List DO available instance types  # noqa: E501
+        """
+        pass
+
     def test_list_do_regions(self):
         """Test case for list_do_regions
 
@@ -63,6 +77,13 @@ class TestCloudProviderApi(unittest.TestCase):
         """Test case for list_scaleway_features
 
         List Scaleway features available  # noqa: E501
+        """
+        pass
+
+    def test_list_scaleway_instance_type(self):
+        """Test case for list_scaleway_instance_type
+
+        List Scaleway available instance types  # noqa: E501
         """
         pass
 

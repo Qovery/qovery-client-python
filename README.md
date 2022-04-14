@@ -165,11 +165,14 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**list_organization_invoice**](docs/BillingApi.md#list_organization_invoice) | **GET** /organization/{organizationId}/invoice | List organization invoices
 *BillingApi* | [**organization_download_all_invoices**](docs/BillingApi.md#organization_download_all_invoices) | **POST** /organization/{organizationId}/downloadInvoices | Download all invoices
 *CloudProviderApi* | [**list_aws_features**](docs/CloudProviderApi.md#list_aws_features) | **GET** /aws/clusterFeature | List AWS features available
+*CloudProviderApi* | [**list_aws_instance_type**](docs/CloudProviderApi.md#list_aws_instance_type) | **GET** /aws/instanceType | List AWS available instance types
 *CloudProviderApi* | [**list_aws_regions**](docs/CloudProviderApi.md#list_aws_regions) | **GET** /aws/region | List AWS regions
 *CloudProviderApi* | [**list_cloud_provider**](docs/CloudProviderApi.md#list_cloud_provider) | **GET** /cloudProvider | List Cloud providers available
 *CloudProviderApi* | [**list_do_features**](docs/CloudProviderApi.md#list_do_features) | **GET** /digitalOcean/clusterFeature | List DO features available
+*CloudProviderApi* | [**list_do_instance_type**](docs/CloudProviderApi.md#list_do_instance_type) | **GET** /digitalOcean/instanceType | List DO available instance types
 *CloudProviderApi* | [**list_do_regions**](docs/CloudProviderApi.md#list_do_regions) | **GET** /digitalOcean/region | List DO regions
 *CloudProviderApi* | [**list_scaleway_features**](docs/CloudProviderApi.md#list_scaleway_features) | **GET** /scaleway/clusterFeature | List Scaleway features available
+*CloudProviderApi* | [**list_scaleway_instance_type**](docs/CloudProviderApi.md#list_scaleway_instance_type) | **GET** /scaleway/instanceType | List Scaleway available instance types
 *CloudProviderApi* | [**list_scaleway_regions**](docs/CloudProviderApi.md#list_scaleway_regions) | **GET** /scaleway/region | List Scaleway regions
 *CloudProviderCredentialsApi* | [**create_aws_credentials**](docs/CloudProviderCredentialsApi.md#create_aws_credentials) | **POST** /organization/{organizationId}/aws/credentials | Create AWS credentials set
 *CloudProviderCredentialsApi* | [**create_do_credentials**](docs/CloudProviderCredentialsApi.md#create_do_credentials) | **POST** /organization/{organizationId}/digitalOcean/credentials | Create Digital Ocean credentials set
@@ -503,6 +506,8 @@ Class | Method | HTTP request | Description
  - [GitRepositoryResponseList](docs/GitRepositoryResponseList.md)
  - [GlobalDeploymentStatus](docs/GlobalDeploymentStatus.md)
  - [Healthcheck](docs/Healthcheck.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse200Results](docs/InlineResponse200Results.md)
  - [Instance](docs/Instance.md)
  - [InstanceResponseList](docs/InstanceResponseList.md)
  - [InviteMember](docs/InviteMember.md)

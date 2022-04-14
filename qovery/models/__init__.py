@@ -191,6 +191,8 @@ from qovery.model.git_repository_branch_response_list import GitRepositoryBranch
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
 from qovery.model.global_deployment_status import GlobalDeploymentStatus
 from qovery.model.healthcheck import Healthcheck
+from qovery.model.inline_response200 import InlineResponse200
+from qovery.model.inline_response200_results import InlineResponse200Results
 from qovery.model.instance import Instance
 from qovery.model.instance_response_list import InstanceResponseList
 from qovery.model.invite_member import InviteMember
