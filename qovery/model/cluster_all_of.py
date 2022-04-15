@@ -97,6 +97,7 @@ class ClusterAllOf(ModelNormal):
             'memory': (int,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
+            'instance_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class ClusterAllOf(ModelNormal):
         'memory': 'memory',  # noqa: E501
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
+        'instance_type': 'instance_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -168,6 +170,7 @@ class ClusterAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,6 +266,7 @@ class ClusterAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

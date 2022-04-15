@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | [optional]  if omitted the server will use the default value of 256
 **min_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **max_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
+**instance_type** | **str** | the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType | [optional] 
 **title** | **str** |  | [optional] 
 **cost_per_month_in_cents** | **int, none_type** |  | [optional] 
 **cost_per_month** | **float, none_type** |  | [optional] 

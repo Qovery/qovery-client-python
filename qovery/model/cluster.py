@@ -113,6 +113,7 @@ class Cluster(ModelComposed):
             'memory': (int,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
+            'instance_type': (str,),  # noqa: E501
             'title': (str,),  # noqa: E501
             'cost_per_month_in_cents': (int, none_type,),  # noqa: E501
             'cost_per_month': (float, none_type,),  # noqa: E501
@@ -146,6 +147,7 @@ class Cluster(ModelComposed):
         'memory': 'memory',  # noqa: E501
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
+        'instance_type': 'instance_type',  # noqa: E501
         'title': 'title',  # noqa: E501
         'cost_per_month_in_cents': 'cost_per_month_in_cents',  # noqa: E501
         'cost_per_month': 'cost_per_month',  # noqa: E501
@@ -214,6 +216,7 @@ class Cluster(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             cost_per_month_in_cents (int, none_type): [optional]  # noqa: E501
             cost_per_month (float, none_type): [optional]  # noqa: E501
@@ -337,6 +340,7 @@ class Cluster(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             title (str): [optional]  # noqa: E501
             cost_per_month_in_cents (int, none_type): [optional]  # noqa: E501
             cost_per_month (float, none_type): [optional]  # noqa: E501
