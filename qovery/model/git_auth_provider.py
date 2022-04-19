@@ -85,6 +85,7 @@ class GitAuthProvider(ModelNormal):
             'name': (str,),  # noqa: E501
             'owner': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'use_bot': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class GitAuthProvider(ModelNormal):
         'name': 'name',  # noqa: E501
         'owner': 'owner',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'use_bot': 'use_bot',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +146,7 @@ class GitAuthProvider(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
+            use_bot (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +235,7 @@ class GitAuthProvider(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
+            use_bot (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -269,6 +269,7 @@ docs/MetricStorageDatapointResponseList.md
 docs/MetricStorageResponseList.md
 docs/Name.md
 docs/Organization.md
+docs/OrganizationAccountGitRepositoriesApi.md
 docs/OrganizationAllOf.md
 docs/OrganizationApiToken.md
 docs/OrganizationApiTokenAllOf.md
@@ -392,6 +393,7 @@ qovery/api/environments_api.py
 qovery/api/git_repositories_api.py
 qovery/api/logical_database_api.py
 qovery/api/members_api.py
+qovery/api/organization_account_git_repositories_api.py
 qovery/api/organization_api_token_api.py
 qovery/api/organization_main_calls_api.py
 qovery/api/project_deployment_rule_api.py
@@ -983,6 +985,7 @@ test/test_metric_storage_datapoint_response_list.py
 test/test_metric_storage_response_list.py
 test/test_name.py
 test/test_organization.py
+test/test_organization_account_git_repositories_api.py
 test/test_organization_all_of.py
 test/test_organization_api_token.py
 test/test_organization_api_token_all_of.py

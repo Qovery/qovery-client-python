@@ -51,6 +51,7 @@ from qovery.api.environments_api import EnvironmentsApi
 from qovery.api.git_repositories_api import GitRepositoriesApi
 from qovery.api.logical_database_api import LogicalDatabaseApi
 from qovery.api.members_api import MembersApi
+from qovery.api.organization_account_git_repositories_api import OrganizationAccountGitRepositoriesApi
 from qovery.api.organization_api_token_api import OrganizationApiTokenApi
 from qovery.api.organization_main_calls_api import OrganizationMainCallsApi
 from qovery.api.project_deployment_rule_api import ProjectDeploymentRuleApi
