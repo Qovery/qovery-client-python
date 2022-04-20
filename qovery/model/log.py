@@ -85,6 +85,8 @@ class Log(ModelNormal):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'message': (str,),  # noqa: E501
+            'pod_name': (str,),  # noqa: E501
+            'application_commit_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +98,8 @@ class Log(ModelNormal):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'message': 'message',  # noqa: E501
+        'pod_name': 'pod_name',  # noqa: E501
+        'application_commit_id': 'application_commit_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +148,8 @@ class Log(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pod_name (str): [optional]  # noqa: E501
+            application_commit_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,6 +239,8 @@ class Log(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pod_name (str): [optional]  # noqa: E501
+            application_commit_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
