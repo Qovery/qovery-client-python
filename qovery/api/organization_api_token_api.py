@@ -209,7 +209,7 @@ class OrganizationApiTokenApi(object):
     ):
         """Create an organization api token  # noqa: E501
 
-        Create an organization api token  # noqa: E501
+        Create an organization api token. You can use the generated token to interact in a programmatic way with our API.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
