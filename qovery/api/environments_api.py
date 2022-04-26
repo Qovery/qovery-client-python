@@ -26,7 +26,7 @@ from qovery.model.environment import Environment
 from qovery.model.environment_request import EnvironmentRequest
 from qovery.model.environment_response_list import EnvironmentResponseList
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
-from qovery.model.status import Status
+from qovery.model.environment_status_list import EnvironmentStatusList
 
 
 class EnvironmentsApi(object):
@@ -148,14 +148,14 @@ class EnvironmentsApi(object):
             },
             api_client=api_client
         )
-        self.get_project_environment_status_endpoint = _Endpoint(
+        self.get_project_environments_status_endpoint = _Endpoint(
             settings={
-                'response_type': (Status,),
+                'response_type': (EnvironmentStatusList,),
                 'auth': [
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/environment/status',
-                'operation_id': 'get_project_environment_status',
+                'operation_id': 'get_project_environments_status',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -407,7 +407,7 @@ class EnvironmentsApi(object):
             project_id
         return self.get_project_environment_service_number_endpoint.call_with_http_info(**kwargs)
 
-    def get_project_environment_status(
+    def get_project_environments_status(
         self,
         project_id,
         **kwargs
@@ -418,7 +418,7 @@ class EnvironmentsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_project_environment_status(project_id, async_req=True)
+        >>> thread = api.get_project_environments_status(project_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -453,7 +453,7 @@ class EnvironmentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Status
+            EnvironmentStatusList
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -483,7 +483,7 @@ class EnvironmentsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['project_id'] = \
             project_id
-        return self.get_project_environment_status_endpoint.call_with_http_info(**kwargs)
+        return self.get_project_environments_status_endpoint.call_with_http_info(**kwargs)
 
     def list_environment(
         self,

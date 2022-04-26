@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_environment**](EnvironmentsApi.md#create_environment) | **POST** /project/{projectId}/environment | Create an environment
 [**get_project_environment_service_number**](EnvironmentsApi.md#get_project_environment_service_number) | **GET** /project/{projectId}/environment/stats | List total number of services for each environment of the project
-[**get_project_environment_status**](EnvironmentsApi.md#get_project_environment_status) | **GET** /project/{projectId}/environment/status | List environments statuses
+[**get_project_environments_status**](EnvironmentsApi.md#get_project_environments_status) | **GET** /project/{projectId}/environment/status | List environments statuses
 [**list_environment**](EnvironmentsApi.md#list_environment) | **GET** /project/{projectId}/environment | List environments
 
 
@@ -186,8 +186,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_project_environment_status**
-> Status get_project_environment_status(project_id)
+# **get_project_environments_status**
+> EnvironmentStatusList get_project_environments_status(project_id)
 
 List environments statuses
 
@@ -201,7 +201,7 @@ Returns a list of environments with only their id and status.
 import time
 import qovery
 from qovery.api import environments_api
-from qovery.model.status import Status
+from qovery.model.environment_status_list import EnvironmentStatusList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -228,10 +228,10 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # List environments statuses
-        api_response = api_instance.get_project_environment_status(project_id)
+        api_response = api_instance.get_project_environments_status(project_id)
         pprint(api_response)
     except qovery.ApiException as e:
-        print("Exception when calling EnvironmentsApi->get_project_environment_status: %s\n" % e)
+        print("Exception when calling EnvironmentsApi->get_project_environments_status: %s\n" % e)
 ```
 
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Status**](Status.md)
+[**EnvironmentStatusList**](EnvironmentStatusList.md)
 
 ### Authorization
 

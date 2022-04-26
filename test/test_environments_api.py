@@ -38,8 +38,8 @@ class TestEnvironmentsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_project_environment_status(self):
-        """Test case for get_project_environment_status
+    def test_get_project_environments_status(self):
+        """Test case for get_project_environments_status
 
         List environments statuses  # noqa: E501
         """

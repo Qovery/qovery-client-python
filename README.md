@@ -260,7 +260,7 @@ Class | Method | HTTP request | Description
 *EnvironmentVariableApi* | [**list_environment_environment_variable**](docs/EnvironmentVariableApi.md#list_environment_environment_variable) | **GET** /environment/{environmentId}/environmentVariable | List environment variables
 *EnvironmentsApi* | [**create_environment**](docs/EnvironmentsApi.md#create_environment) | **POST** /project/{projectId}/environment | Create an environment
 *EnvironmentsApi* | [**get_project_environment_service_number**](docs/EnvironmentsApi.md#get_project_environment_service_number) | **GET** /project/{projectId}/environment/stats | List total number of services for each environment of the project
-*EnvironmentsApi* | [**get_project_environment_status**](docs/EnvironmentsApi.md#get_project_environment_status) | **GET** /project/{projectId}/environment/status | List environments statuses
+*EnvironmentsApi* | [**get_project_environments_status**](docs/EnvironmentsApi.md#get_project_environments_status) | **GET** /project/{projectId}/environment/status | List environments statuses
 *EnvironmentsApi* | [**list_environment**](docs/EnvironmentsApi.md#list_environment) | **GET** /project/{projectId}/environment | List environments
 *GitRepositoriesApi* | [**get_bitbucket_repositories**](docs/GitRepositoriesApi.md#get_bitbucket_repositories) | **GET** /account/bitbucket/repository | Get bitbucket repositories of the connected user
 *GitRepositoriesApi* | [**get_bitbucket_repository_branches**](docs/GitRepositoriesApi.md#get_bitbucket_repository_branches) | **GET** /account/bitbucket/repository/branch | Get bitbucket branches of the specified repository
@@ -489,6 +489,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentRestartRequest](docs/EnvironmentRestartRequest.md)
  - [EnvironmentStats](docs/EnvironmentStats.md)
  - [EnvironmentStatsResponseList](docs/EnvironmentStatsResponseList.md)
+ - [EnvironmentStatusList](docs/EnvironmentStatusList.md)
  - [EnvironmentTotalNumber](docs/EnvironmentTotalNumber.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
  - [EnvironmentVariableAllOf](docs/EnvironmentVariableAllOf.md)

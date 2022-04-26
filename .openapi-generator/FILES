@@ -193,6 +193,7 @@ docs/EnvironmentRestartRequest.md
 docs/EnvironmentSecretApi.md
 docs/EnvironmentStats.md
 docs/EnvironmentStatsResponseList.md
+docs/EnvironmentStatusList.md
 docs/EnvironmentTotalNumber.md
 docs/EnvironmentVariable.md
 docs/EnvironmentVariableAllOf.md
@@ -566,6 +567,7 @@ qovery/model/environment_response_list.py
 qovery/model/environment_restart_request.py
 qovery/model/environment_stats.py
 qovery/model/environment_stats_response_list.py
+qovery/model/environment_status_list.py
 qovery/model/environment_total_number.py
 qovery/model/environment_variable.py
 qovery/model/environment_variable_all_of.py
@@ -909,6 +911,7 @@ test/test_environment_restart_request.py
 test/test_environment_secret_api.py
 test/test_environment_stats.py
 test/test_environment_stats_response_list.py
+test/test_environment_status_list.py
 test/test_environment_total_number.py
 test/test_environment_variable.py
 test/test_environment_variable_all_of.py
