@@ -83,6 +83,8 @@ docs/ClusterFeature.md
 docs/ClusterFeatureRequest.md
 docs/ClusterFeatureRequestFeatures.md
 docs/ClusterFeatureResponseList.md
+docs/ClusterInstanceTypeResponseList.md
+docs/ClusterInstanceTypeResponseListResults.md
 docs/ClusterReadinessStatus.md
 docs/ClusterRegion.md
 docs/ClusterRegionResponseList.md
@@ -221,8 +223,6 @@ docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponseList.md
 docs/GlobalDeploymentStatus.md
 docs/Healthcheck.md
-docs/InlineResponse200.md
-docs/InlineResponse200Results.md
 docs/Instance.md
 docs/InstanceResponseList.md
 docs/InviteMember.md
@@ -472,6 +472,8 @@ qovery/model/cluster_feature.py
 qovery/model/cluster_feature_request.py
 qovery/model/cluster_feature_request_features.py
 qovery/model/cluster_feature_response_list.py
+qovery/model/cluster_instance_type_response_list.py
+qovery/model/cluster_instance_type_response_list_results.py
 qovery/model/cluster_readiness_status.py
 qovery/model/cluster_region.py
 qovery/model/cluster_region_response_list.py
@@ -592,8 +594,6 @@ qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
 qovery/model/global_deployment_status.py
 qovery/model/healthcheck.py
-qovery/model/inline_response200.py
-qovery/model/inline_response200_results.py
 qovery/model/instance.py
 qovery/model/instance_response_list.py
 qovery/model/invite_member.py
@@ -801,6 +801,8 @@ test/test_cluster_feature.py
 test/test_cluster_feature_request.py
 test/test_cluster_feature_request_features.py
 test/test_cluster_feature_response_list.py
+test/test_cluster_instance_type_response_list.py
+test/test_cluster_instance_type_response_list_results.py
 test/test_cluster_readiness_status.py
 test/test_cluster_region.py
 test/test_cluster_region_response_list.py
@@ -939,8 +941,6 @@ test/test_git_repository_branch_response_list.py
 test/test_git_repository_response_list.py
 test/test_global_deployment_status.py
 test/test_healthcheck.py
-test/test_inline_response200.py
-test/test_inline_response200_results.py
 test/test_instance.py
 test/test_instance_response_list.py
 test/test_invite_member.py

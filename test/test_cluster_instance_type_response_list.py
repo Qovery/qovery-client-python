@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.inline_response200_results import InlineResponse200Results
+from qovery.model.cluster_instance_type_response_list_results import ClusterInstanceTypeResponseListResults
+globals()['ClusterInstanceTypeResponseListResults'] = ClusterInstanceTypeResponseListResults
+from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
 
 
-class TestInlineResponse200Results(unittest.TestCase):
-    """InlineResponse200Results unit test stubs"""
+class TestClusterInstanceTypeResponseList(unittest.TestCase):
+    """ClusterInstanceTypeResponseList unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestInlineResponse200Results(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineResponse200Results(self):
-        """Test InlineResponse200Results"""
+    def testClusterInstanceTypeResponseList(self):
+        """Test ClusterInstanceTypeResponseList"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = InlineResponse200Results()  # noqa: E501
+        # model = ClusterInstanceTypeResponseList()  # noqa: E501
         pass
 
 

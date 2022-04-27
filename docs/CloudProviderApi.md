@@ -91,7 +91,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_aws_instance_type**
-> InlineResponse200 list_aws_instance_type()
+> ClusterInstanceTypeResponseList list_aws_instance_type()
 
 List AWS available instance types
 
@@ -103,7 +103,7 @@ List AWS available instance types
 import time
 import qovery
 from qovery.api import cloud_provider_api
-from qovery.model.inline_response200 import InlineResponse200
+from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -141,7 +141,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**ClusterInstanceTypeResponseList**](ClusterInstanceTypeResponseList.md)
 
 ### Authorization
 
@@ -387,7 +387,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_do_instance_type**
-> ERRORUNKNOWN list_do_instance_type()
+> ClusterInstanceTypeResponseList list_do_instance_type()
 
 List DO available instance types
 
@@ -399,7 +399,7 @@ List DO available instance types
 import time
 import qovery
 from qovery.api import cloud_provider_api
-from qovery.model.errorunknown import ERRORUNKNOWN
+from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -437,7 +437,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+[**ClusterInstanceTypeResponseList**](ClusterInstanceTypeResponseList.md)
 
 ### Authorization
 
@@ -609,7 +609,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_scaleway_instance_type**
-> ERRORUNKNOWN list_scaleway_instance_type()
+> ClusterInstanceTypeResponseList list_scaleway_instance_type()
 
 List Scaleway available instance types
 
@@ -621,7 +621,7 @@ List Scaleway available instance types
 import time
 import qovery
 from qovery.api import cloud_provider_api
-from qovery.model.errorunknown import ERRORUNKNOWN
+from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -659,7 +659,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+[**ClusterInstanceTypeResponseList**](ClusterInstanceTypeResponseList.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_application_deployment_restriction**
-> bool, date, datetime, dict, float, int, list, str, none_type create_application_deployment_restriction(application_id)
+> ApplicationDeploymentRestriction create_application_deployment_restriction(application_id)
 
 Create an application deployment restriction
 
@@ -26,7 +26,7 @@ import time
 import qovery
 from qovery.api import application_deployment_restriction_api
 from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
-from qovery.model.base import Base
+from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**bool, date, datetime, dict, float, int, list, str, none_type**
+[**ApplicationDeploymentRestriction**](ApplicationDeploymentRestriction.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_application_deployment_restriction**
-> ERRORUNKNOWN edit_application_deployment_restriction(application_id, deployment_restriction_id)
+> ApplicationDeploymentRestriction edit_application_deployment_restriction(application_id, deployment_restriction_id)
 
 Edit an application deployment restriction
 
@@ -201,7 +201,7 @@ import time
 import qovery
 from qovery.api import application_deployment_restriction_api
 from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
-from qovery.model.errorunknown import ERRORUNKNOWN
+from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+[**ApplicationDeploymentRestriction**](ApplicationDeploymentRestriction.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_deployment_restrictions**
-> ApplicationDeploymentRestriction get_application_deployment_restrictions(application_id)
+> ApplicationDeploymentRestrictionResponseList get_application_deployment_restrictions(application_id)
 
 Get application deployment restrictions
 
@@ -299,7 +299,7 @@ Get application deployment restrictions
 import time
 import qovery
 from qovery.api import application_deployment_restriction_api
-from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
+from qovery.model.application_deployment_restriction_response_list import ApplicationDeploymentRestrictionResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationDeploymentRestriction**](ApplicationDeploymentRestriction.md)
+[**ApplicationDeploymentRestrictionResponseList**](ApplicationDeploymentRestrictionResponseList.md)
 
 ### Authorization
 

@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
+globals()['ApplicationDeploymentRestriction'] = ApplicationDeploymentRestriction
 from qovery.model.application_deployment_restriction_response_list import ApplicationDeploymentRestrictionResponseList
 
 

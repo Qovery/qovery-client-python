@@ -24,9 +24,8 @@ from qovery.model_utils import (  # noqa: F401
 )
 from qovery.model.cloud_provider_response_list import CloudProviderResponseList
 from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
+from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
-from qovery.model.errorunknown import ERRORUNKNOWN
-from qovery.model.inline_response200 import InlineResponse200
 
 
 class CloudProviderApi(object):
@@ -86,7 +85,7 @@ class CloudProviderApi(object):
         )
         self.list_aws_instance_type_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse200,),
+                'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -262,7 +261,7 @@ class CloudProviderApi(object):
         )
         self.list_do_instance_type_endpoint = _Endpoint(
             settings={
-                'response_type': (ERRORUNKNOWN,),
+                'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -394,7 +393,7 @@ class CloudProviderApi(object):
         )
         self.list_scaleway_instance_type_endpoint = _Endpoint(
             settings={
-                'response_type': (ERRORUNKNOWN,),
+                'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -595,7 +594,7 @@ class CloudProviderApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse200
+            ClusterInstanceTypeResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -883,7 +882,7 @@ class CloudProviderApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ERRORUNKNOWN
+            ClusterInstanceTypeResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1099,7 +1098,7 @@ class CloudProviderApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ERRORUNKNOWN
+            ClusterInstanceTypeResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """

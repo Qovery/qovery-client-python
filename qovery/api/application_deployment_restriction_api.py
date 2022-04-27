@@ -24,8 +24,7 @@ from qovery.model_utils import (  # noqa: F401
 )
 from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
-from qovery.model.base import Base
-from qovery.model.errorunknown import ERRORUNKNOWN
+from qovery.model.application_deployment_restriction_response_list import ApplicationDeploymentRestrictionResponseList
 
 
 class ApplicationDeploymentRestrictionApi(object):
@@ -41,7 +40,7 @@ class ApplicationDeploymentRestrictionApi(object):
         self.api_client = api_client
         self.create_application_deployment_restriction_endpoint = _Endpoint(
             settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
+                'response_type': (ApplicationDeploymentRestriction,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -147,7 +146,7 @@ class ApplicationDeploymentRestrictionApi(object):
         )
         self.edit_application_deployment_restriction_endpoint = _Endpoint(
             settings={
-                'response_type': (ERRORUNKNOWN,),
+                'response_type': (ApplicationDeploymentRestriction,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -210,7 +209,7 @@ class ApplicationDeploymentRestrictionApi(object):
         )
         self.get_application_deployment_restrictions_endpoint = _Endpoint(
             settings={
-                'response_type': (ApplicationDeploymentRestriction,),
+                'response_type': (ApplicationDeploymentRestrictionResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -307,7 +306,7 @@ class ApplicationDeploymentRestrictionApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            bool, date, datetime, dict, float, int, list, str, none_type
+            ApplicationDeploymentRestriction
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -466,7 +465,7 @@ class ApplicationDeploymentRestrictionApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ERRORUNKNOWN
+            ApplicationDeploymentRestriction
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -546,7 +545,7 @@ class ApplicationDeploymentRestrictionApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ApplicationDeploymentRestriction
+            ApplicationDeploymentRestrictionResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """
