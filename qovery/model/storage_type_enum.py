@@ -53,9 +53,7 @@ class StorageTypeEnum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'AWS': "AWS",
-            'DIGITAL_OCEAN': "DIGITAL_OCEAN",
-            'SCALEWAY': "SCALEWAY",
+            'FAST_SSD': "FAST_SSD",
         },
     }
 
@@ -107,10 +105,10 @@ class StorageTypeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            args[0] (str): if omitted defaults to "FAST_SSD", must be one of ["FAST_SSD", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            value (str): if omitted defaults to "FAST_SSD", must be one of ["FAST_SSD", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -151,11 +149,7 @@ class StorageTypeEnum(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            raise ApiTypeError(
-                "value is required, but not passed in args or kwargs and doesn't have default",
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            value = "FAST_SSD"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
@@ -197,10 +191,10 @@ class StorageTypeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            args[0] (str): if omitted defaults to "FAST_SSD", must be one of ["FAST_SSD", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            value (str): if omitted defaults to "FAST_SSD", must be one of ["FAST_SSD", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -243,11 +237,7 @@ class StorageTypeEnum(ModelSimple):
             args = list(args)
             value = args.pop(0)
         else:
-            raise ApiTypeError(
-                "value is required, but not passed in args or kwargs and doesn't have default",
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            value = "FAST_SSD"
 
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
