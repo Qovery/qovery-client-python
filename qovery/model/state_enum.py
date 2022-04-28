@@ -54,8 +54,8 @@ class StateEnum(ModelSimple):
     allowed_values = {
         ('value',): {
             'BUILDING': "BUILDING",
-            'BUILD_ERROR': "BUILD_ERROR",
-            'BUILT': "BUILT",
+            'CANCELED': "CANCELED",
+            'CANCELING': "CANCELING",
             'DELETED': "DELETED",
             'DELETE_ERROR': "DELETE_ERROR",
             'DELETE_QUEUED': "DELETE_QUEUED",
@@ -63,10 +63,10 @@ class StateEnum(ModelSimple):
             'DEPLOYED': "DEPLOYED",
             'DEPLOYING': "DEPLOYING",
             'DEPLOYMENT_ERROR': "DEPLOYMENT_ERROR",
+            'DEPLOYMENT_QUEUED': "DEPLOYMENT_QUEUED",
             'QUEUED': "QUEUED",
             'READY': "READY",
             'RUNNING': "RUNNING",
-            'RUNNING_ERROR': "RUNNING_ERROR",
             'STOPPED': "STOPPED",
             'STOPPING': "STOPPING",
             'STOP_ERROR': "STOP_ERROR",
@@ -122,10 +122,10 @@ class StateEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["BUILDING", "BUILD_ERROR", "BUILT", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "QUEUED", "READY", "RUNNING", "RUNNING_ERROR", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
+            args[0] (str):, must be one of ["BUILDING", "CANCELED", "CANCELING", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "DEPLOYMENT_QUEUED", "QUEUED", "READY", "RUNNING", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["BUILDING", "BUILD_ERROR", "BUILT", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "QUEUED", "READY", "RUNNING", "RUNNING_ERROR", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
+            value (str):, must be one of ["BUILDING", "CANCELED", "CANCELING", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "DEPLOYMENT_QUEUED", "QUEUED", "READY", "RUNNING", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -212,10 +212,10 @@ class StateEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["BUILDING", "BUILD_ERROR", "BUILT", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "QUEUED", "READY", "RUNNING", "RUNNING_ERROR", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
+            args[0] (str):, must be one of ["BUILDING", "CANCELED", "CANCELING", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "DEPLOYMENT_QUEUED", "QUEUED", "READY", "RUNNING", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["BUILDING", "BUILD_ERROR", "BUILT", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "QUEUED", "READY", "RUNNING", "RUNNING_ERROR", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
+            value (str):, must be one of ["BUILDING", "CANCELED", "CANCELING", "DELETED", "DELETE_ERROR", "DELETE_QUEUED", "DELETING", "DEPLOYED", "DEPLOYING", "DEPLOYMENT_ERROR", "DEPLOYMENT_QUEUED", "QUEUED", "READY", "RUNNING", "STOPPED", "STOPPING", "STOP_ERROR", "STOP_QUEUED", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
