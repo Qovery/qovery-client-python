@@ -55,8 +55,8 @@ class ServiceDeploymentStatusEnum(ModelSimple):
         ('value',): {
             'None': None,
             'NEVER_DEPLOYED': "NEVER_DEPLOYED",
-            'UP_TO_DATE': "UP_TO_DATE",
             'OUT_OF_DATE': "OUT_OF_DATE",
+            'UP_TO_DATE': "UP_TO_DATE",
         },
     }
 
@@ -108,10 +108,10 @@ class ServiceDeploymentStatusEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["NEVER_DEPLOYED", "UP_TO_DATE", "OUT_OF_DATE", ]  # noqa: E501
+            args[0] (str):, must be one of ["NEVER_DEPLOYED", "OUT_OF_DATE", "UP_TO_DATE", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["NEVER_DEPLOYED", "UP_TO_DATE", "OUT_OF_DATE", ]  # noqa: E501
+            value (str):, must be one of ["NEVER_DEPLOYED", "OUT_OF_DATE", "UP_TO_DATE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -198,10 +198,10 @@ class ServiceDeploymentStatusEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["NEVER_DEPLOYED", "UP_TO_DATE", "OUT_OF_DATE", ]  # noqa: E501
+            args[0] (str):, must be one of ["NEVER_DEPLOYED", "OUT_OF_DATE", "UP_TO_DATE", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["NEVER_DEPLOYED", "UP_TO_DATE", "OUT_OF_DATE", ]  # noqa: E501
+            value (str):, must be one of ["NEVER_DEPLOYED", "OUT_OF_DATE", "UP_TO_DATE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

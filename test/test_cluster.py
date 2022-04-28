@@ -18,13 +18,13 @@ from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cluster_all_of import ClusterAllOf
 from qovery.model.cluster_base import ClusterBase
 from qovery.model.cluster_feature import ClusterFeature
-from qovery.model.cluster_status_enum import ClusterStatusEnum
+from qovery.model.state_enum import StateEnum
 globals()['Base'] = Base
 globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['ClusterAllOf'] = ClusterAllOf
 globals()['ClusterBase'] = ClusterBase
 globals()['ClusterFeature'] = ClusterFeature
-globals()['ClusterStatusEnum'] = ClusterStatusEnum
+globals()['StateEnum'] = StateEnum
 from qovery.model.cluster import Cluster
 
 

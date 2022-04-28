@@ -67,7 +67,6 @@ from qovery.model.cluster_cloud_provider_info_request_credentials import Cluster
 from qovery.model.cluster_credentials import ClusterCredentials
 from qovery.model.cluster_credentials_request import ClusterCredentialsRequest
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
-from qovery.model.cluster_deployment_status_enum import ClusterDeploymentStatusEnum
 from qovery.model.cluster_feature import ClusterFeature
 from qovery.model.cluster_feature_request import ClusterFeatureRequest
 from qovery.model.cluster_feature_request_features import ClusterFeatureRequestFeatures
@@ -84,7 +83,6 @@ from qovery.model.cluster_routing_table_request import ClusterRoutingTableReques
 from qovery.model.cluster_routing_table_request_routes import ClusterRoutingTableRequestRoutes
 from qovery.model.cluster_routing_table_results import ClusterRoutingTableResults
 from qovery.model.cluster_status import ClusterStatus
-from qovery.model.cluster_status_enum import ClusterStatusEnum
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList
 from qovery.model.commit import Commit
 from qovery.model.commit_paginated_response_list import CommitPaginatedResponseList
@@ -192,7 +190,6 @@ from qovery.model.git_repository import GitRepository
 from qovery.model.git_repository_branch import GitRepositoryBranch
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
-from qovery.model.global_deployment_status import GlobalDeploymentStatus
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.instance import Instance
 from qovery.model.instance_response_list import InstanceResponseList
@@ -292,7 +289,9 @@ from qovery.model.service_total_number import ServiceTotalNumber
 from qovery.model.service_type_enum import ServiceTypeEnum
 from qovery.model.sign_up import SignUp
 from qovery.model.sign_up_request import SignUpRequest
+from qovery.model.state_enum import StateEnum
 from qovery.model.status import Status
+from qovery.model.status_kind_enum import StatusKindEnum
 from qovery.model.storage_disk import StorageDisk
 from qovery.model.storage_disk_response_list import StorageDiskResponseList
 from qovery.model.storage_type_enum import StorageTypeEnum

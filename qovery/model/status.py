@@ -31,10 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+    from qovery.model.state_enum import StateEnum
     globals()['ServiceDeploymentStatusEnum'] = ServiceDeploymentStatusEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class Status(ModelNormal):
@@ -90,7 +90,7 @@ class Status(ModelNormal):
         """
         lazy_import()
         return {
-            'state': (GlobalDeploymentStatus,),  # noqa: E501
+            'state': (StateEnum,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
@@ -119,7 +119,7 @@ class Status(ModelNormal):
         """Status - a model defined in OpenAPI
 
         Args:
-            state (GlobalDeploymentStatus):
+            state (StateEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -207,7 +207,7 @@ class Status(ModelNormal):
         """Status - a model defined in OpenAPI
 
         Args:
-            state (GlobalDeploymentStatus):
+            state (StateEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -34,11 +34,11 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.commit import Commit
     from qovery.model.deployment_history_application_all_of import DeploymentHistoryApplicationAllOf
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
+    from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['Commit'] = Commit
     globals()['DeploymentHistoryApplicationAllOf'] = DeploymentHistoryApplicationAllOf
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryApplication(ModelComposed):
@@ -99,7 +99,7 @@ class DeploymentHistoryApplication(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'commit': (Commit,),  # noqa: E501
-            'status': (GlobalDeploymentStatus,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -163,7 +163,7 @@ class DeploymentHistoryApplication(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,7 +266,7 @@ class DeploymentHistoryApplication(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

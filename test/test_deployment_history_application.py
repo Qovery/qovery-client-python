@@ -16,11 +16,11 @@ import qovery
 from qovery.model.base import Base
 from qovery.model.commit import Commit
 from qovery.model.deployment_history_application_all_of import DeploymentHistoryApplicationAllOf
-from qovery.model.global_deployment_status import GlobalDeploymentStatus
+from qovery.model.state_enum import StateEnum
 globals()['Base'] = Base
 globals()['Commit'] = Commit
 globals()['DeploymentHistoryApplicationAllOf'] = DeploymentHistoryApplicationAllOf
-globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+globals()['StateEnum'] = StateEnum
 from qovery.model.deployment_history_application import DeploymentHistoryApplication
 
 

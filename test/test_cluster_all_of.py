@@ -14,9 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.cluster_feature import ClusterFeature
-from qovery.model.cluster_status_enum import ClusterStatusEnum
+from qovery.model.state_enum import StateEnum
 globals()['ClusterFeature'] = ClusterFeature
-globals()['ClusterStatusEnum'] = ClusterStatusEnum
+globals()['StateEnum'] = StateEnum
 from qovery.model.cluster_all_of import ClusterAllOf
 
 

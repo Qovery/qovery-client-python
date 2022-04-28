@@ -35,12 +35,12 @@ def lazy_import():
     from qovery.model.deployment_history_application import DeploymentHistoryApplication
     from qovery.model.deployment_history_database import DeploymentHistoryDatabase
     from qovery.model.deployment_history_environment_all_of import DeploymentHistoryEnvironmentAllOf
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
+    from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
     globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
     globals()['DeploymentHistoryEnvironmentAllOf'] = DeploymentHistoryEnvironmentAllOf
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryEnvironment(ModelComposed):
@@ -99,7 +99,7 @@ class DeploymentHistoryEnvironment(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'status': (GlobalDeploymentStatus,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'applications': ([DeploymentHistoryApplication],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabase],),  # noqa: E501
         }
@@ -163,7 +163,7 @@ class DeploymentHistoryEnvironment(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """
@@ -266,7 +266,7 @@ class DeploymentHistoryEnvironment(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """

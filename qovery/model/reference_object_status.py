@@ -31,13 +31,13 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
+    from qovery.model.state_enum import StateEnum
     from qovery.model.status import Status
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServiceDeploymentStatusEnum'] = ServiceDeploymentStatusEnum
+    globals()['StateEnum'] = StateEnum
     globals()['Status'] = Status
 
 
@@ -95,7 +95,7 @@ class ReferenceObjectStatus(ModelComposed):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'state': (GlobalDeploymentStatus,),  # noqa: E501
+            'state': (StateEnum,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
         }
@@ -122,7 +122,7 @@ class ReferenceObjectStatus(ModelComposed):
 
         Keyword Args:
             id (str):
-            state (GlobalDeploymentStatus):
+            state (StateEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -225,7 +225,7 @@ class ReferenceObjectStatus(ModelComposed):
 
         Keyword Args:
             id (str):
-            state (GlobalDeploymentStatus):
+            state (StateEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

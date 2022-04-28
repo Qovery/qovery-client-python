@@ -32,9 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.environment_log_scope import EnvironmentLogScope
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
+    from qovery.model.status_kind_enum import StatusKindEnum
     globals()['EnvironmentLogScope'] = EnvironmentLogScope
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+    globals()['StatusKindEnum'] = StatusKindEnum
 
 
 class EnvironmentLog(ModelNormal):
@@ -94,7 +94,7 @@ class EnvironmentLog(ModelNormal):
             'created_at': (datetime,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'scope': (EnvironmentLogScope,),  # noqa: E501
-            'state': (GlobalDeploymentStatus,),  # noqa: E501
+            'state': (StatusKindEnum,),  # noqa: E501
             'execution_id': (str,),  # noqa: E501
             'hint': (str,),  # noqa: E501
         }
@@ -161,7 +161,7 @@ class EnvironmentLog(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             scope (EnvironmentLogScope): [optional]  # noqa: E501
-            state (GlobalDeploymentStatus): [optional]  # noqa: E501
+            state (StatusKindEnum): [optional]  # noqa: E501
             execution_id (str): Only for errors. Helps Qovery team to investigate.. [optional]  # noqa: E501
             hint (str): [optional]  # noqa: E501
         """
@@ -254,7 +254,7 @@ class EnvironmentLog(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             scope (EnvironmentLogScope): [optional]  # noqa: E501
-            state (GlobalDeploymentStatus): [optional]  # noqa: E501
+            state (StatusKindEnum): [optional]  # noqa: E501
             execution_id (str): Only for errors. Helps Qovery team to investigate.. [optional]  # noqa: E501
             hint (str): [optional]  # noqa: E501
         """

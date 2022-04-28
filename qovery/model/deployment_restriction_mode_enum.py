@@ -53,8 +53,8 @@ class DeploymentRestrictionModeEnum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'MATCH': "MATCH",
             'EXCLUDE': "EXCLUDE",
+            'MATCH': "MATCH",
         },
     }
 
@@ -106,10 +106,10 @@ class DeploymentRestrictionModeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["MATCH", "EXCLUDE", ]  # noqa: E501
+            args[0] (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["EXCLUDE", "MATCH", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["MATCH", "EXCLUDE", ]  # noqa: E501
+            value (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["EXCLUDE", "MATCH", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -196,10 +196,10 @@ class DeploymentRestrictionModeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["MATCH", "EXCLUDE", ]  # noqa: E501
+            args[0] (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["EXCLUDE", "MATCH", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["MATCH", "EXCLUDE", ]  # noqa: E501
+            value (str): Match mode will rebuild app only if specified items are updated. Exclude mode will not rebuild app if specified items are updated.., must be one of ["EXCLUDE", "MATCH", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

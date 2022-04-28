@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | [**GlobalDeploymentStatus**](GlobalDeploymentStatus.md) |  | 
+**state** | [**StateEnum**](StateEnum.md) |  | 
 **id** | **str** |  | [optional] 
 **message** | **str, none_type** | message related to the state | [optional] 
 **service_deployment_status** | [**ServiceDeploymentStatusEnum**](ServiceDeploymentStatusEnum.md) |  | [optional] 

@@ -36,13 +36,13 @@ def lazy_import():
     from qovery.model.cluster_all_of import ClusterAllOf
     from qovery.model.cluster_base import ClusterBase
     from qovery.model.cluster_feature import ClusterFeature
-    from qovery.model.cluster_status_enum import ClusterStatusEnum
+    from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterAllOf'] = ClusterAllOf
     globals()['ClusterBase'] = ClusterBase
     globals()['ClusterFeature'] = ClusterFeature
-    globals()['ClusterStatusEnum'] = ClusterStatusEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class Cluster(ModelComposed):
@@ -112,7 +112,7 @@ class Cluster(ModelComposed):
             'max_running_nodes': (int,),  # noqa: E501
             'instance_type': (str,),  # noqa: E501
             'estimated_cloud_provider_cost': (int,),  # noqa: E501
-            'status': (ClusterStatusEnum,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'features': (ClusterFeature,),  # noqa: E501
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
@@ -202,7 +202,7 @@ class Cluster(ModelComposed):
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (ClusterStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             features (ClusterFeature): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
@@ -318,7 +318,7 @@ class Cluster(ModelComposed):
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (ClusterStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             features (ClusterFeature): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501

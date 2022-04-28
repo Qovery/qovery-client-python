@@ -53,8 +53,8 @@ class BuildModeEnum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'DOCKER': "DOCKER",
             'BUILDPACKS': "BUILDPACKS",
+            'DOCKER': "DOCKER",
         },
     }
 
@@ -106,10 +106,10 @@ class BuildModeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["DOCKER", "BUILDPACKS", ]  # noqa: E501
+            args[0] (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["BUILDPACKS", "DOCKER", ]  # noqa: E501
 
         Keyword Args:
-            value (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["DOCKER", "BUILDPACKS", ]  # noqa: E501
+            value (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["BUILDPACKS", "DOCKER", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -192,10 +192,10 @@ class BuildModeEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["DOCKER", "BUILDPACKS", ]  # noqa: E501
+            args[0] (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["BUILDPACKS", "DOCKER", ]  # noqa: E501
 
         Keyword Args:
-            value (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["DOCKER", "BUILDPACKS", ]  # noqa: E501
+            value (str): `DOCKER` requires `dockerfile_path` `BUILDPACKS` does not require any `dockerfile_path` . if omitted defaults to "BUILDPACKS", must be one of ["BUILDPACKS", "DOCKER", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

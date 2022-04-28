@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.global_deployment_status import GlobalDeploymentStatus
 from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
-globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+from qovery.model.state_enum import StateEnum
 globals()['ServiceDeploymentStatusEnum'] = ServiceDeploymentStatusEnum
+globals()['StateEnum'] = StateEnum
 from qovery.model.status import Status
 
 

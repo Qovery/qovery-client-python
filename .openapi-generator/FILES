@@ -78,7 +78,6 @@ docs/ClusterCloudProviderInfoRequestCredentials.md
 docs/ClusterCredentials.md
 docs/ClusterCredentialsRequest.md
 docs/ClusterCredentialsResponseList.md
-docs/ClusterDeploymentStatusEnum.md
 docs/ClusterFeature.md
 docs/ClusterFeatureRequest.md
 docs/ClusterFeatureRequestFeatures.md
@@ -95,7 +94,6 @@ docs/ClusterRoutingTableRequest.md
 docs/ClusterRoutingTableRequestRoutes.md
 docs/ClusterRoutingTableResults.md
 docs/ClusterStatus.md
-docs/ClusterStatusEnum.md
 docs/ClusterStatusResponseList.md
 docs/ClustersApi.md
 docs/Commit.md
@@ -221,7 +219,6 @@ docs/GitRepository.md
 docs/GitRepositoryBranch.md
 docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponseList.md
-docs/GlobalDeploymentStatus.md
 docs/Healthcheck.md
 docs/Instance.md
 docs/InstanceResponseList.md
@@ -332,7 +329,9 @@ docs/ServiceTotalNumber.md
 docs/ServiceTypeEnum.md
 docs/SignUp.md
 docs/SignUpRequest.md
+docs/StateEnum.md
 docs/Status.md
+docs/StatusKindEnum.md
 docs/StorageDisk.md
 docs/StorageDiskResponseList.md
 docs/StorageTypeEnum.md
@@ -467,7 +466,6 @@ qovery/model/cluster_cloud_provider_info_request_credentials.py
 qovery/model/cluster_credentials.py
 qovery/model/cluster_credentials_request.py
 qovery/model/cluster_credentials_response_list.py
-qovery/model/cluster_deployment_status_enum.py
 qovery/model/cluster_feature.py
 qovery/model/cluster_feature_request.py
 qovery/model/cluster_feature_request_features.py
@@ -484,7 +482,6 @@ qovery/model/cluster_routing_table_request.py
 qovery/model/cluster_routing_table_request_routes.py
 qovery/model/cluster_routing_table_results.py
 qovery/model/cluster_status.py
-qovery/model/cluster_status_enum.py
 qovery/model/cluster_status_response_list.py
 qovery/model/commit.py
 qovery/model/commit_paginated_response_list.py
@@ -592,7 +589,6 @@ qovery/model/git_repository.py
 qovery/model/git_repository_branch.py
 qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
-qovery/model/global_deployment_status.py
 qovery/model/healthcheck.py
 qovery/model/instance.py
 qovery/model/instance_response_list.py
@@ -692,7 +688,9 @@ qovery/model/service_total_number.py
 qovery/model/service_type_enum.py
 qovery/model/sign_up.py
 qovery/model/sign_up_request.py
+qovery/model/state_enum.py
 qovery/model/status.py
+qovery/model/status_kind_enum.py
 qovery/model/storage_disk.py
 qovery/model/storage_disk_response_list.py
 qovery/model/storage_type_enum.py
@@ -796,7 +794,6 @@ test/test_cluster_cloud_provider_info_request_credentials.py
 test/test_cluster_credentials.py
 test/test_cluster_credentials_request.py
 test/test_cluster_credentials_response_list.py
-test/test_cluster_deployment_status_enum.py
 test/test_cluster_feature.py
 test/test_cluster_feature_request.py
 test/test_cluster_feature_request_features.py
@@ -813,7 +810,6 @@ test/test_cluster_routing_table_request.py
 test/test_cluster_routing_table_request_routes.py
 test/test_cluster_routing_table_results.py
 test/test_cluster_status.py
-test/test_cluster_status_enum.py
 test/test_cluster_status_response_list.py
 test/test_clusters_api.py
 test/test_commit.py
@@ -939,7 +935,6 @@ test/test_git_repository.py
 test/test_git_repository_branch.py
 test/test_git_repository_branch_response_list.py
 test/test_git_repository_response_list.py
-test/test_global_deployment_status.py
 test/test_healthcheck.py
 test/test_instance.py
 test/test_instance_response_list.py
@@ -1050,7 +1045,9 @@ test/test_service_total_number.py
 test/test_service_type_enum.py
 test/test_sign_up.py
 test/test_sign_up_request.py
+test/test_state_enum.py
 test/test_status.py
+test/test_status_kind_enum.py
 test/test_storage_disk.py
 test/test_storage_disk_response_list.py
 test/test_storage_type_enum.py

@@ -33,10 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.deployment_history_application import DeploymentHistoryApplication
     from qovery.model.deployment_history_database import DeploymentHistoryDatabase
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
+    from qovery.model.state_enum import StateEnum
     globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
     globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryEnvironmentAllOf(ModelNormal):
@@ -92,7 +92,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'status': (GlobalDeploymentStatus,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'applications': ([DeploymentHistoryApplication],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabase],),  # noqa: E501
         }
@@ -149,7 +149,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """
@@ -233,7 +233,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """

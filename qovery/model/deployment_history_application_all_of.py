@@ -32,9 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.commit import Commit
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
+    from qovery.model.state_enum import StateEnum
     globals()['Commit'] = Commit
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryApplicationAllOf(ModelNormal):
@@ -92,7 +92,7 @@ class DeploymentHistoryApplicationAllOf(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'commit': (Commit,),  # noqa: E501
-            'status': (GlobalDeploymentStatus,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class DeploymentHistoryApplicationAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,7 +233,7 @@ class DeploymentHistoryApplicationAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

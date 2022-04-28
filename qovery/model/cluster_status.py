@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cluster_deployment_status_enum import ClusterDeploymentStatusEnum
-    globals()['ClusterDeploymentStatusEnum'] = ClusterDeploymentStatusEnum
+    from qovery.model.state_enum import StateEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class ClusterStatus(ModelNormal):
@@ -89,7 +89,7 @@ class ClusterStatus(ModelNormal):
         lazy_import()
         return {
             'cluster_id': (str,),  # noqa: E501
-            'status': (ClusterDeploymentStatusEnum,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'is_deployed': (bool,),  # noqa: E501
         }
 
@@ -146,7 +146,7 @@ class ClusterStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cluster_id (str): [optional]  # noqa: E501
-            status (ClusterDeploymentStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             is_deployed (bool): [optional]  # noqa: E501
         """
 
@@ -230,7 +230,7 @@ class ClusterStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cluster_id (str): [optional]  # noqa: E501
-            status (ClusterDeploymentStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             is_deployed (bool): [optional]  # noqa: E501
         """
 

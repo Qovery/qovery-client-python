@@ -32,9 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cluster_feature import ClusterFeature
-    from qovery.model.cluster_status_enum import ClusterStatusEnum
+    from qovery.model.state_enum import StateEnum
     globals()['ClusterFeature'] = ClusterFeature
-    globals()['ClusterStatusEnum'] = ClusterStatusEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class ClusterAllOf(ModelNormal):
@@ -91,7 +91,7 @@ class ClusterAllOf(ModelNormal):
         lazy_import()
         return {
             'estimated_cloud_provider_cost': (int,),  # noqa: E501
-            'status': (ClusterStatusEnum,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'features': (ClusterFeature,),  # noqa: E501
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
@@ -154,7 +154,7 @@ class ClusterAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (ClusterStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             features (ClusterFeature): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
@@ -241,7 +241,7 @@ class ClusterAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (ClusterStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             features (ClusterFeature): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501

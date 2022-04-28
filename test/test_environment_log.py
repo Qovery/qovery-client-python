@@ -14,9 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.environment_log_scope import EnvironmentLogScope
-from qovery.model.global_deployment_status import GlobalDeploymentStatus
+from qovery.model.status_kind_enum import StatusKindEnum
 globals()['EnvironmentLogScope'] = EnvironmentLogScope
-globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+globals()['StatusKindEnum'] = StatusKindEnum
 from qovery.model.environment_log import EnvironmentLog
 
 

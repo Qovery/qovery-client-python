@@ -444,7 +444,7 @@ with qovery.ApiClient(configuration) as api_client:
     organization_id = "organizationId_example" # str | Organization ID
     invite_member_request = InviteMemberRequest(
         email="email_example",
-        role=InviteMemberRoleEnum("OWNER"),
+        role=InviteMemberRoleEnum("ADMIN"),
     ) # InviteMemberRequest |  (optional)
 
     # example passing only required values which don't have defaults set

@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.global_deployment_status import GlobalDeploymentStatus
-    globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+    from qovery.model.state_enum import StateEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryDatabaseAllOf(ModelNormal):
@@ -89,7 +89,7 @@ class DeploymentHistoryDatabaseAllOf(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'status': (GlobalDeploymentStatus,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -144,7 +144,7 @@ class DeploymentHistoryDatabaseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class DeploymentHistoryDatabaseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            status (GlobalDeploymentStatus): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

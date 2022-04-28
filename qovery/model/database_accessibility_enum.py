@@ -53,8 +53,8 @@ class DatabaseAccessibilityEnum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'PUBLIC': "PUBLIC",
             'PRIVATE': "PRIVATE",
+            'PUBLIC': "PUBLIC",
         },
     }
 
@@ -106,10 +106,10 @@ class DatabaseAccessibilityEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): if omitted defaults to "PRIVATE", must be one of ["PUBLIC", "PRIVATE", ]  # noqa: E501
+            args[0] (str): if omitted defaults to "PRIVATE", must be one of ["PRIVATE", "PUBLIC", ]  # noqa: E501
 
         Keyword Args:
-            value (str): if omitted defaults to "PRIVATE", must be one of ["PUBLIC", "PRIVATE", ]  # noqa: E501
+            value (str): if omitted defaults to "PRIVATE", must be one of ["PRIVATE", "PUBLIC", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -192,10 +192,10 @@ class DatabaseAccessibilityEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): if omitted defaults to "PRIVATE", must be one of ["PUBLIC", "PRIVATE", ]  # noqa: E501
+            args[0] (str): if omitted defaults to "PRIVATE", must be one of ["PRIVATE", "PUBLIC", ]  # noqa: E501
 
         Keyword Args:
-            value (str): if omitted defaults to "PRIVATE", must be one of ["PUBLIC", "PRIVATE", ]  # noqa: E501
+            value (str): if omitted defaults to "PRIVATE", must be one of ["PRIVATE", "PUBLIC", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

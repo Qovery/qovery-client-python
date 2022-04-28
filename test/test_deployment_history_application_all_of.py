@@ -14,9 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.commit import Commit
-from qovery.model.global_deployment_status import GlobalDeploymentStatus
+from qovery.model.state_enum import StateEnum
 globals()['Commit'] = Commit
-globals()['GlobalDeploymentStatus'] = GlobalDeploymentStatus
+globals()['StateEnum'] = StateEnum
 from qovery.model.deployment_history_application_all_of import DeploymentHistoryApplicationAllOf
 
 

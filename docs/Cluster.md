@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **max_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **instance_type** | **str** | the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType | [optional] 
 **estimated_cloud_provider_cost** | **int** | This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration | [optional] 
-**status** | [**ClusterStatusEnum**](ClusterStatusEnum.md) |  | [optional] 
+**status** | [**StateEnum**](StateEnum.md) |  | [optional] 
 **features** | [**ClusterFeature**](ClusterFeature.md) |  | [optional] 
 **has_access** | **bool** |  | [optional] 
 **version** | **str** |  | [optional] 

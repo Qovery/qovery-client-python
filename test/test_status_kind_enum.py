@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.global_deployment_status import GlobalDeploymentStatus
+from qovery.model.status_kind_enum import StatusKindEnum
 
 
-class TestGlobalDeploymentStatus(unittest.TestCase):
-    """GlobalDeploymentStatus unit test stubs"""
+class TestStatusKindEnum(unittest.TestCase):
+    """StatusKindEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestGlobalDeploymentStatus(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGlobalDeploymentStatus(self):
-        """Test GlobalDeploymentStatus"""
+    def testStatusKindEnum(self):
+        """Test StatusKindEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GlobalDeploymentStatus()  # noqa: E501
+        # model = StatusKindEnum()  # noqa: E501
         pass
 
 
