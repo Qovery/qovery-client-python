@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **instance_type** | **str** | the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType | [optional] 
 **estimated_cloud_provider_cost** | **int** | This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration | [optional] 
 **status** | [**StateEnum**](StateEnum.md) |  | [optional] 
-**features** | [**ClusterFeature**](ClusterFeature.md) |  | [optional] 
+**features** | [**[ClusterFeature]**](ClusterFeature.md) |  | [optional] 
 **has_access** | **bool** |  | [optional] 
 **version** | **str** |  | [optional] 
 **is_default** | **bool** |  | [optional] 

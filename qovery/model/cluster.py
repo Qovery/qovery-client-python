@@ -113,7 +113,7 @@ class Cluster(ModelComposed):
             'instance_type': (str,),  # noqa: E501
             'estimated_cloud_provider_cost': (int,),  # noqa: E501
             'status': (StateEnum,),  # noqa: E501
-            'features': (ClusterFeature,),  # noqa: E501
+            'features': ([ClusterFeature],),  # noqa: E501
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
@@ -203,7 +203,7 @@ class Cluster(ModelComposed):
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
-            features (ClusterFeature): [optional]  # noqa: E501
+            features ([ClusterFeature]): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
@@ -319,7 +319,7 @@ class Cluster(ModelComposed):
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
-            features (ClusterFeature): [optional]  # noqa: E501
+            features ([ClusterFeature]): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
