@@ -34,13 +34,13 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_all_of import ClusterAllOf
-    from qovery.model.cluster_all_of1 import ClusterAllOf1
+    from qovery.model.cluster_base import ClusterBase
     from qovery.model.cluster_feature import ClusterFeature
     from qovery.model.cluster_status_enum import ClusterStatusEnum
     globals()['Base'] = Base
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterAllOf'] = ClusterAllOf
-    globals()['ClusterAllOf1'] = ClusterAllOf1
+    globals()['ClusterBase'] = ClusterBase
     globals()['ClusterFeature'] = ClusterFeature
     globals()['ClusterStatusEnum'] = ClusterStatusEnum
 
@@ -70,9 +70,6 @@ class Cluster(ModelComposed):
     """
 
     allowed_values = {
-        ('value_type',): {
-            'BOOLEAN': "BOOLEAN",
-        },
     }
 
     validations = {
@@ -107,23 +104,16 @@ class Cluster(ModelComposed):
             'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'description': (str, none_type,),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'auto_update': (bool,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
             'instance_type': (str,),  # noqa: E501
-            'title': (str,),  # noqa: E501
-            'cost_per_month_in_cents': (int, none_type,),  # noqa: E501
-            'cost_per_month': (float, none_type,),  # noqa: E501
-            'currency_code': (str, none_type,),  # noqa: E501
-            'value_type': (str,),  # noqa: E501
-            'value': (str, none_type,),  # noqa: E501
-            'is_value_updatable': (bool,),  # noqa: E501
-            'accepted_values': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
             'estimated_cloud_provider_cost': (int,),  # noqa: E501
             'status': (ClusterStatusEnum,),  # noqa: E501
+            'features': (ClusterFeature,),  # noqa: E501
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
@@ -148,22 +138,16 @@ class Cluster(ModelComposed):
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
         'instance_type': 'instance_type',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'cost_per_month_in_cents': 'cost_per_month_in_cents',  # noqa: E501
-        'cost_per_month': 'cost_per_month',  # noqa: E501
-        'currency_code': 'currency_code',  # noqa: E501
-        'value_type': 'value_type',  # noqa: E501
-        'value': 'value',  # noqa: E501
-        'is_value_updatable': 'is_value_updatable',  # noqa: E501
-        'accepted_values': 'accepted_values',  # noqa: E501
         'estimated_cloud_provider_cost': 'estimated_cloud_provider_cost',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'features': 'features',  # noqa: E501
         'has_access': 'has_access',  # noqa: E501
         'version': 'version',  # noqa: E501
         'is_default': 'is_default',  # noqa: E501
     }
 
     read_only_vars = {
+        'id',  # noqa: E501
         'created_at',  # noqa: E501
         'updated_at',  # noqa: E501
     }
@@ -210,23 +194,16 @@ class Cluster(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
             auto_update (bool): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
-            title (str): [optional]  # noqa: E501
-            cost_per_month_in_cents (int, none_type): [optional]  # noqa: E501
-            cost_per_month (float, none_type): [optional]  # noqa: E501
-            currency_code (str, none_type): [optional]  # noqa: E501
-            value_type (str): [optional] if omitted the server will use the default value of "BOOLEAN"  # noqa: E501
-            value (str, none_type): [optional]  # noqa: E501
-            is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
             status (ClusterStatusEnum): [optional]  # noqa: E501
+            features (ClusterFeature): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
@@ -299,7 +276,6 @@ class Cluster(ModelComposed):
         """Cluster - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
             name (str): name is case-insensitive
             cloud_provider (CloudProviderEnum):
             region (str):
@@ -334,23 +310,16 @@ class Cluster(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            description (str, none_type): [optional]  # noqa: E501
+            description (str): [optional]  # noqa: E501
             auto_update (bool): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
-            title (str): [optional]  # noqa: E501
-            cost_per_month_in_cents (int, none_type): [optional]  # noqa: E501
-            cost_per_month (float, none_type): [optional]  # noqa: E501
-            currency_code (str, none_type): [optional]  # noqa: E501
-            value_type (str): [optional] if omitted the server will use the default value of "BOOLEAN"  # noqa: E501
-            value (str, none_type): [optional]  # noqa: E501
-            is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
             status (ClusterStatusEnum): [optional]  # noqa: E501
+            features (ClusterFeature): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
@@ -421,8 +390,7 @@ class Cluster(ModelComposed):
           'allOf': [
               Base,
               ClusterAllOf,
-              ClusterAllOf1,
-              ClusterFeature,
+              ClusterBase,
           ],
           'oneOf': [
           ],

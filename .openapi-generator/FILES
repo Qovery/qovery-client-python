@@ -71,7 +71,7 @@ docs/CloudProviderResponseList.md
 docs/CluserCredentials.md
 docs/Cluster.md
 docs/ClusterAllOf.md
-docs/ClusterAllOf1.md
+docs/ClusterBase.md
 docs/ClusterCloudProviderInfo.md
 docs/ClusterCloudProviderInfoRequest.md
 docs/ClusterCloudProviderInfoRequestCredentials.md
@@ -460,7 +460,7 @@ qovery/model/cloud_provider_response_list.py
 qovery/model/cluser_credentials.py
 qovery/model/cluster.py
 qovery/model/cluster_all_of.py
-qovery/model/cluster_all_of1.py
+qovery/model/cluster_base.py
 qovery/model/cluster_cloud_provider_info.py
 qovery/model/cluster_cloud_provider_info_request.py
 qovery/model/cluster_cloud_provider_info_request_credentials.py
@@ -789,7 +789,7 @@ test/test_cloud_provider_response_list.py
 test/test_cluser_credentials.py
 test/test_cluster.py
 test/test_cluster_all_of.py
-test/test_cluster_all_of1.py
+test/test_cluster_base.py
 test/test_cluster_cloud_provider_info.py
 test/test_cluster_cloud_provider_info_request.py
 test/test_cluster_cloud_provider_info_request_credentials.py

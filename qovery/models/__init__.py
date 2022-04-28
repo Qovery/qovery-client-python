@@ -60,7 +60,7 @@ from qovery.model.cloud_provider_response_list import CloudProviderResponseList
 from qovery.model.cluser_credentials import CluserCredentials
 from qovery.model.cluster import Cluster
 from qovery.model.cluster_all_of import ClusterAllOf
-from qovery.model.cluster_all_of1 import ClusterAllOf1
+from qovery.model.cluster_base import ClusterBase
 from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
 from qovery.model.cluster_cloud_provider_info_request_credentials import ClusterCloudProviderInfoRequestCredentials

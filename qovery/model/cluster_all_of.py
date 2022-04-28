@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cloud_provider_enum import CloudProviderEnum
-    globals()['CloudProviderEnum'] = CloudProviderEnum
+    from qovery.model.cluster_feature import ClusterFeature
+    from qovery.model.cluster_status_enum import ClusterStatusEnum
+    globals()['ClusterFeature'] = ClusterFeature
+    globals()['ClusterStatusEnum'] = ClusterStatusEnum
 
 
 class ClusterAllOf(ModelNormal):
@@ -88,16 +90,12 @@ class ClusterAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
-            'cloud_provider': (CloudProviderEnum,),  # noqa: E501
-            'region': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'auto_update': (bool,),  # noqa: E501
-            'cpu': (int,),  # noqa: E501
-            'memory': (int,),  # noqa: E501
-            'min_running_nodes': (int,),  # noqa: E501
-            'max_running_nodes': (int,),  # noqa: E501
-            'instance_type': (str,),  # noqa: E501
+            'estimated_cloud_provider_cost': (int,),  # noqa: E501
+            'status': (ClusterStatusEnum,),  # noqa: E501
+            'features': (ClusterFeature,),  # noqa: E501
+            'has_access': (bool,),  # noqa: E501
+            'version': (str,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -106,16 +104,12 @@ class ClusterAllOf(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
-        'cloud_provider': 'cloud_provider',  # noqa: E501
-        'region': 'region',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'auto_update': 'auto_update',  # noqa: E501
-        'cpu': 'cpu',  # noqa: E501
-        'memory': 'memory',  # noqa: E501
-        'min_running_nodes': 'min_running_nodes',  # noqa: E501
-        'max_running_nodes': 'max_running_nodes',  # noqa: E501
-        'instance_type': 'instance_type',  # noqa: E501
+        'estimated_cloud_provider_cost': 'estimated_cloud_provider_cost',  # noqa: E501
+        'status': 'status',  # noqa: E501
+        'features': 'features',  # noqa: E501
+        'has_access': 'has_access',  # noqa: E501
+        'version': 'version',  # noqa: E501
+        'is_default': 'is_default',  # noqa: E501
     }
 
     read_only_vars = {
@@ -125,13 +119,8 @@ class ClusterAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, cloud_provider, region, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """ClusterAllOf - a model defined in OpenAPI
-
-        Args:
-            name (str): name is case-insensitive
-            cloud_provider (CloudProviderEnum):
-            region (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -164,13 +153,12 @@ class ClusterAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): [optional]  # noqa: E501
-            auto_update (bool): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
-            min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
+            estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
+            status (ClusterStatusEnum): [optional]  # noqa: E501
+            features (ClusterFeature): [optional]  # noqa: E501
+            has_access (bool): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
+            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -198,9 +186,6 @@ class ClusterAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
-        self.cloud_provider = cloud_provider
-        self.region = region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -221,13 +206,8 @@ class ClusterAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, cloud_provider, region, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """ClusterAllOf - a model defined in OpenAPI
-
-        Args:
-            name (str): name is case-insensitive
-            cloud_provider (CloudProviderEnum):
-            region (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,13 +240,12 @@ class ClusterAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): [optional]  # noqa: E501
-            auto_update (bool): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
-            min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
+            estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
+            status (ClusterStatusEnum): [optional]  # noqa: E501
+            features (ClusterFeature): [optional]  # noqa: E501
+            has_access (bool): [optional]  # noqa: E501
+            version (str): [optional]  # noqa: E501
+            is_default (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -292,9 +271,6 @@ class ClusterAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
-        self.cloud_provider = cloud_provider
-        self.region = region
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

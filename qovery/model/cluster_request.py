@@ -31,12 +31,14 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.cloud_provider_enum import CloudProviderEnum
+    from qovery.model.cluster_base import ClusterBase
     from qovery.model.cluster_feature_request import ClusterFeatureRequest
     from qovery.model.cluster_feature_request_features import ClusterFeatureRequestFeatures
-    from qovery.model.model1 import Model1
+    globals()['CloudProviderEnum'] = CloudProviderEnum
+    globals()['ClusterBase'] = ClusterBase
     globals()['ClusterFeatureRequest'] = ClusterFeatureRequest
     globals()['ClusterFeatureRequestFeatures'] = ClusterFeatureRequestFeatures
-    globals()['Model1'] = Model1
 
 
 class ClusterRequest(ModelComposed):
@@ -92,6 +94,16 @@ class ClusterRequest(ModelComposed):
         """
         lazy_import()
         return {
+            'name': (str,),  # noqa: E501
+            'cloud_provider': (CloudProviderEnum,),  # noqa: E501
+            'region': (str,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'auto_update': (bool,),  # noqa: E501
+            'cpu': (int,),  # noqa: E501
+            'memory': (int,),  # noqa: E501
+            'min_running_nodes': (int,),  # noqa: E501
+            'max_running_nodes': (int,),  # noqa: E501
+            'instance_type': (str,),  # noqa: E501
             'features': ([ClusterFeatureRequestFeatures],),  # noqa: E501
         }
 
@@ -101,6 +113,16 @@ class ClusterRequest(ModelComposed):
 
 
     attribute_map = {
+        'name': 'name',  # noqa: E501
+        'cloud_provider': 'cloud_provider',  # noqa: E501
+        'region': 'region',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'auto_update': 'auto_update',  # noqa: E501
+        'cpu': 'cpu',  # noqa: E501
+        'memory': 'memory',  # noqa: E501
+        'min_running_nodes': 'min_running_nodes',  # noqa: E501
+        'max_running_nodes': 'max_running_nodes',  # noqa: E501
+        'instance_type': 'instance_type',  # noqa: E501
         'features': 'features',  # noqa: E501
     }
 
@@ -113,6 +135,9 @@ class ClusterRequest(ModelComposed):
         """ClusterRequest - a model defined in OpenAPI
 
         Keyword Args:
+            name (str): name is case-insensitive
+            cloud_provider (CloudProviderEnum):
+            region (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -143,6 +168,13 @@ class ClusterRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): [optional]  # noqa: E501
+            auto_update (bool): [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             features ([ClusterFeatureRequestFeatures]): [optional]  # noqa: E501
         """
 
@@ -213,6 +245,9 @@ class ClusterRequest(ModelComposed):
         """ClusterRequest - a model defined in OpenAPI
 
         Keyword Args:
+            name (str): name is case-insensitive
+            cloud_provider (CloudProviderEnum):
+            region (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -243,6 +278,13 @@ class ClusterRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): [optional]  # noqa: E501
+            auto_update (bool): [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             features ([ClusterFeatureRequestFeatures]): [optional]  # noqa: E501
         """
 
@@ -309,8 +351,8 @@ class ClusterRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              ClusterBase,
               ClusterFeatureRequest,
-              Model1,
           ],
           'oneOf': [
           ],

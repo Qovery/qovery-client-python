@@ -13,12 +13,14 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.cloud_provider_enum import CloudProviderEnum
+from qovery.model.cluster_base import ClusterBase
 from qovery.model.cluster_feature_request import ClusterFeatureRequest
 from qovery.model.cluster_feature_request_features import ClusterFeatureRequestFeatures
-from qovery.model.model1 import Model1
+globals()['CloudProviderEnum'] = CloudProviderEnum
+globals()['ClusterBase'] = ClusterBase
 globals()['ClusterFeatureRequest'] = ClusterFeatureRequest
 globals()['ClusterFeatureRequestFeatures'] = ClusterFeatureRequestFeatures
-globals()['Model1'] = Model1
 from qovery.model.cluster_request import ClusterRequest
 
 

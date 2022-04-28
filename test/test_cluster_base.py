@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_status_enum import ClusterStatusEnum
-globals()['ClusterStatusEnum'] = ClusterStatusEnum
-from qovery.model.cluster_all_of1 import ClusterAllOf1
+from qovery.model.cloud_provider_enum import CloudProviderEnum
+globals()['CloudProviderEnum'] = CloudProviderEnum
+from qovery.model.cluster_base import ClusterBase
 
 
-class TestClusterAllOf1(unittest.TestCase):
-    """ClusterAllOf1 unit test stubs"""
+class TestClusterBase(unittest.TestCase):
+    """ClusterBase unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestClusterAllOf1(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterAllOf1(self):
-        """Test ClusterAllOf1"""
+    def testClusterBase(self):
+        """Test ClusterBase"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterAllOf1()  # noqa: E501
+        # model = ClusterBase()  # noqa: E501
         pass
 
 

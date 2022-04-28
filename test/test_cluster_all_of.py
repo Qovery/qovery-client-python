@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cloud_provider_enum import CloudProviderEnum
-globals()['CloudProviderEnum'] = CloudProviderEnum
+from qovery.model.cluster_feature import ClusterFeature
+from qovery.model.cluster_status_enum import ClusterStatusEnum
+globals()['ClusterFeature'] = ClusterFeature
+globals()['ClusterStatusEnum'] = ClusterStatusEnum
 from qovery.model.cluster_all_of import ClusterAllOf
 
 
