@@ -92,7 +92,7 @@ class ClusterFeature(ModelNormal):
             'cost_per_month': (float, none_type,),  # noqa: E501
             'currency_code': (str, none_type,),  # noqa: E501
             'value_type': (str,),  # noqa: E501
-            'value': (str, none_type,),  # noqa: E501
+            'value': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'is_value_updatable': (bool,),  # noqa: E501
             'accepted_values': ([bool, date, datetime, dict, float, int, list, str, none_type],),  # noqa: E501
         }
@@ -163,7 +163,7 @@ class ClusterFeature(ModelNormal):
             cost_per_month (float, none_type): [optional]  # noqa: E501
             currency_code (str, none_type): [optional]  # noqa: E501
             value_type (str): [optional] if omitted the server will use the default value of "BOOLEAN"  # noqa: E501
-            value (str, none_type): [optional]  # noqa: E501
+            value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
         """
@@ -254,7 +254,7 @@ class ClusterFeature(ModelNormal):
             cost_per_month (float, none_type): [optional]  # noqa: E501
             currency_code (str, none_type): [optional]  # noqa: E501
             value_type (str): [optional] if omitted the server will use the default value of "BOOLEAN"  # noqa: E501
-            value (str, none_type): [optional]  # noqa: E501
+            value (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             is_value_updatable (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             accepted_values ([bool, date, datetime, dict, float, int, list, str, none_type]): [optional]  # noqa: E501
         """
