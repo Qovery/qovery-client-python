@@ -104,6 +104,7 @@ class ClusterRequest(ModelComposed):
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
             'instance_type': (str,),  # noqa: E501
+            'disk_size': (int,),  # noqa: E501
             'features': ([ClusterFeatureRequestFeatures],),  # noqa: E501
         }
 
@@ -123,6 +124,7 @@ class ClusterRequest(ModelComposed):
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
         'instance_type': 'instance_type',  # noqa: E501
+        'disk_size': 'disk_size',  # noqa: E501
         'features': 'features',  # noqa: E501
     }
 
@@ -175,6 +177,7 @@ class ClusterRequest(ModelComposed):
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
+            disk_size (int): the disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
             features ([ClusterFeatureRequestFeatures]): [optional]  # noqa: E501
         """
 
@@ -285,6 +288,7 @@ class ClusterRequest(ModelComposed):
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
+            disk_size (int): the disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
             features ([ClusterFeatureRequestFeatures]): [optional]  # noqa: E501
         """
 
