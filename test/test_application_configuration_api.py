@@ -24,10 +24,24 @@ class TestApplicationConfigurationApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_edit_advanced_settings(self):
+        """Test case for edit_advanced_settings
+
+        Edit advanced settings  # noqa: E501
+        """
+        pass
+
     def test_edit_application_network(self):
         """Test case for edit_application_network
 
         Edit Application Network  # noqa: E501
+        """
+        pass
+
+    def test_get_advanced_settings(self):
+        """Test case for get_advanced_settings
+
+        Get advanced settings  # noqa: E501
         """
         pass
 

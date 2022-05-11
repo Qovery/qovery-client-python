@@ -220,6 +220,7 @@ docs/GitRepositoryBranch.md
 docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponseList.md
 docs/Healthcheck.md
+docs/InlineResponse200.md
 docs/Instance.md
 docs/InstanceResponseList.md
 docs/InviteMember.md
@@ -590,6 +591,7 @@ qovery/model/git_repository_branch.py
 qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
 qovery/model/healthcheck.py
+qovery/model/inline_response200.py
 qovery/model/instance.py
 qovery/model/instance_response_list.py
 qovery/model/invite_member.py
@@ -936,6 +938,7 @@ test/test_git_repository_branch.py
 test/test_git_repository_branch_response_list.py
 test/test_git_repository_response_list.py
 test/test_healthcheck.py
+test/test_inline_response200.py
 test/test_instance.py
 test/test_instance_response_list.py
 test/test_invite_member.py
