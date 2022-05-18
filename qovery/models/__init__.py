@@ -13,6 +13,9 @@ from qovery.model.account_info import AccountInfo
 from qovery.model.account_info_edit_request import AccountInfoEditRequest
 from qovery.model.aliased_secret import AliasedSecret
 from qovery.model.application import Application
+from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
+from qovery.model.application_advanced_settings_request import ApplicationAdvancedSettingsRequest
+from qovery.model.application_advanced_settings_response import ApplicationAdvancedSettingsResponse
 from qovery.model.application_all_of import ApplicationAllOf
 from qovery.model.application_current_scale import ApplicationCurrentScale
 from qovery.model.application_dependency_request import ApplicationDependencyRequest
@@ -191,7 +194,6 @@ from qovery.model.git_repository_branch import GitRepositoryBranch
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
 from qovery.model.healthcheck import Healthcheck
-from qovery.model.inline_response200 import InlineResponse200
 from qovery.model.instance import Instance
 from qovery.model.instance_response_list import InstanceResponseList
 from qovery.model.invite_member import InviteMember

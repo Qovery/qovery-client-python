@@ -22,10 +22,10 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.application_advanced_settings_request import ApplicationAdvancedSettingsRequest
+from qovery.model.application_advanced_settings_response import ApplicationAdvancedSettingsResponse
 from qovery.model.application_network import ApplicationNetwork
 from qovery.model.application_network_request import ApplicationNetworkRequest
-from qovery.model.errorunknown import ERRORUNKNOWN
-from qovery.model.inline_response200 import InlineResponse200
 
 
 class ApplicationConfigurationApi(object):
@@ -41,7 +41,7 @@ class ApplicationConfigurationApi(object):
         self.api_client = api_client
         self.edit_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': (ERRORUNKNOWN,),
+                'response_type': (ApplicationAdvancedSettingsResponse,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -53,7 +53,7 @@ class ApplicationConfigurationApi(object):
             params_map={
                 'all': [
                     'application_id',
-                    'inline_response200',
+                    'application_advanced_settings_request',
                 ],
                 'required': [
                     'application_id',
@@ -73,15 +73,15 @@ class ApplicationConfigurationApi(object):
                 'openapi_types': {
                     'application_id':
                         (str,),
-                    'inline_response200':
-                        ([InlineResponse200],),
+                    'application_advanced_settings_request':
+                        (ApplicationAdvancedSettingsRequest,),
                 },
                 'attribute_map': {
                     'application_id': 'applicationId',
                 },
                 'location_map': {
                     'application_id': 'path',
-                    'inline_response200': 'body',
+                    'application_advanced_settings_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -155,7 +155,7 @@ class ApplicationConfigurationApi(object):
         )
         self.get_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': ([InlineResponse200],),
+                'response_type': (ApplicationAdvancedSettingsResponse,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -274,7 +274,7 @@ class ApplicationConfigurationApi(object):
             application_id (str): Application ID
 
         Keyword Args:
-            inline_response200 ([InlineResponse200]): [optional]
+            application_advanced_settings_request (ApplicationAdvancedSettingsRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -303,7 +303,7 @@ class ApplicationConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ERRORUNKNOWN
+            ApplicationAdvancedSettingsResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -460,7 +460,7 @@ class ApplicationConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [InlineResponse200]
+            ApplicationAdvancedSettingsResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """

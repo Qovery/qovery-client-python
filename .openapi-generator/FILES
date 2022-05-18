@@ -9,6 +9,9 @@ docs/AccountInfoEditRequest.md
 docs/AliasedSecret.md
 docs/Application.md
 docs/ApplicationActionsApi.md
+docs/ApplicationAdvancedSettings.md
+docs/ApplicationAdvancedSettingsRequest.md
+docs/ApplicationAdvancedSettingsResponse.md
 docs/ApplicationAllOf.md
 docs/ApplicationConfigurationApi.md
 docs/ApplicationCurrentScale.md
@@ -220,7 +223,6 @@ docs/GitRepositoryBranch.md
 docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponseList.md
 docs/Healthcheck.md
-docs/InlineResponse200.md
 docs/Instance.md
 docs/InstanceResponseList.md
 docs/InviteMember.md
@@ -413,6 +415,9 @@ qovery/model/account_info.py
 qovery/model/account_info_edit_request.py
 qovery/model/aliased_secret.py
 qovery/model/application.py
+qovery/model/application_advanced_settings.py
+qovery/model/application_advanced_settings_request.py
+qovery/model/application_advanced_settings_response.py
 qovery/model/application_all_of.py
 qovery/model/application_current_scale.py
 qovery/model/application_dependency_request.py
@@ -591,7 +596,6 @@ qovery/model/git_repository_branch.py
 qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
 qovery/model/healthcheck.py
-qovery/model/inline_response200.py
 qovery/model/instance.py
 qovery/model/instance_response_list.py
 qovery/model/invite_member.py
@@ -727,6 +731,9 @@ test/test_account_info_edit_request.py
 test/test_aliased_secret.py
 test/test_application.py
 test/test_application_actions_api.py
+test/test_application_advanced_settings.py
+test/test_application_advanced_settings_request.py
+test/test_application_advanced_settings_response.py
 test/test_application_all_of.py
 test/test_application_configuration_api.py
 test/test_application_current_scale.py
@@ -938,7 +945,6 @@ test/test_git_repository_branch.py
 test/test_git_repository_branch_response_list.py
 test/test_git_repository_response_list.py
 test/test_healthcheck.py
-test/test_inline_response200.py
 test/test_instance.py
 test/test_instance_response_list.py
 test/test_invite_member.py

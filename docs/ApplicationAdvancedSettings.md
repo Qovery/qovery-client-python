@@ -1,4 +1,4 @@
-# InlineResponse200
+# ApplicationAdvancedSettings
 
 
 ## Properties
