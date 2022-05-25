@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
-**storage** | [**[ApplicationStorageStorage]**](ApplicationStorageStorage.md) |  | [optional] 
+**storage** | [**[ContainerStorageStorage]**](ContainerStorageStorage.md) |  | [optional] 
 **ports** | [**[ApplicationPortPorts]**](ApplicationPortPorts.md) |  | [optional] 
 **environment** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 
 **git_repository** | [**ApplicationGitRepository**](ApplicationGitRepository.md) |  | [optional] 

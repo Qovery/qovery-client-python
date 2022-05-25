@@ -73,6 +73,13 @@ class TestLogicalDatabaseApi(unittest.TestCase):
         """
         pass
 
+    def test_list_logical_database_container(self):
+        """Test case for list_logical_database_container
+
+        List linked containers  # noqa: E501
+        """
+        pass
+
     def test_list_logical_database_database(self):
         """Test case for list_logical_database_database
 

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_applications_instance_response_list_results import EnvironmentApplicationsInstanceResponseListResults
-globals()['EnvironmentApplicationsInstanceResponseListResults'] = EnvironmentApplicationsInstanceResponseListResults
+from qovery.model.inline_response2001_results import InlineResponse2001Results
+globals()['InlineResponse2001Results'] = InlineResponse2001Results
 from qovery.model.environment_applications_instance_response_list import EnvironmentApplicationsInstanceResponseList
 
 

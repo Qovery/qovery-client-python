@@ -13,12 +13,12 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_databases_current_metric_cpu import EnvironmentDatabasesCurrentMetricCpu
-from qovery.model.environment_databases_current_metric_memory import EnvironmentDatabasesCurrentMetricMemory
-from qovery.model.environment_databases_current_metric_storage import EnvironmentDatabasesCurrentMetricStorage
-globals()['EnvironmentDatabasesCurrentMetricCpu'] = EnvironmentDatabasesCurrentMetricCpu
-globals()['EnvironmentDatabasesCurrentMetricMemory'] = EnvironmentDatabasesCurrentMetricMemory
-globals()['EnvironmentDatabasesCurrentMetricStorage'] = EnvironmentDatabasesCurrentMetricStorage
+from qovery.model.database_current_metric_cpu import DatabaseCurrentMetricCpu
+from qovery.model.database_current_metric_memory import DatabaseCurrentMetricMemory
+from qovery.model.database_current_metric_storage import DatabaseCurrentMetricStorage
+globals()['DatabaseCurrentMetricCpu'] = DatabaseCurrentMetricCpu
+globals()['DatabaseCurrentMetricMemory'] = DatabaseCurrentMetricMemory
+globals()['DatabaseCurrentMetricStorage'] = DatabaseCurrentMetricStorage
 from qovery.model.database_current_metric import DatabaseCurrentMetric
 
 

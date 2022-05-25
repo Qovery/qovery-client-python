@@ -31,10 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_databases_current_metric_cpu import EnvironmentDatabasesCurrentMetricCpu
-    from qovery.model.environment_databases_current_metric_memory import EnvironmentDatabasesCurrentMetricMemory
-    globals()['EnvironmentDatabasesCurrentMetricCpu'] = EnvironmentDatabasesCurrentMetricCpu
-    globals()['EnvironmentDatabasesCurrentMetricMemory'] = EnvironmentDatabasesCurrentMetricMemory
+    from qovery.model.database_current_metric_cpu import DatabaseCurrentMetricCpu
+    from qovery.model.database_current_metric_memory import DatabaseCurrentMetricMemory
+    globals()['DatabaseCurrentMetricCpu'] = DatabaseCurrentMetricCpu
+    globals()['DatabaseCurrentMetricMemory'] = DatabaseCurrentMetricMemory
 
 
 class Instance(ModelNormal):
@@ -92,8 +92,8 @@ class Instance(ModelNormal):
         return {
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'cpu': (EnvironmentDatabasesCurrentMetricCpu,),  # noqa: E501
-            'memory': (EnvironmentDatabasesCurrentMetricMemory,),  # noqa: E501
+            'cpu': (DatabaseCurrentMetricCpu,),  # noqa: E501
+            'memory': (DatabaseCurrentMetricMemory,),  # noqa: E501
         }
 
     @cached_property
@@ -151,8 +151,8 @@ class Instance(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             created_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            cpu (EnvironmentDatabasesCurrentMetricCpu): [optional]  # noqa: E501
-            memory (EnvironmentDatabasesCurrentMetricMemory): [optional]  # noqa: E501
+            cpu (DatabaseCurrentMetricCpu): [optional]  # noqa: E501
+            memory (DatabaseCurrentMetricMemory): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,8 +236,8 @@ class Instance(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             created_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
-            cpu (EnvironmentDatabasesCurrentMetricCpu): [optional]  # noqa: E501
-            memory (EnvironmentDatabasesCurrentMetricMemory): [optional]  # noqa: E501
+            cpu (DatabaseCurrentMetricCpu): [optional]  # noqa: E501
+            memory (DatabaseCurrentMetricMemory): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

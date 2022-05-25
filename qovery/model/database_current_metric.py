@@ -31,12 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_databases_current_metric_cpu import EnvironmentDatabasesCurrentMetricCpu
-    from qovery.model.environment_databases_current_metric_memory import EnvironmentDatabasesCurrentMetricMemory
-    from qovery.model.environment_databases_current_metric_storage import EnvironmentDatabasesCurrentMetricStorage
-    globals()['EnvironmentDatabasesCurrentMetricCpu'] = EnvironmentDatabasesCurrentMetricCpu
-    globals()['EnvironmentDatabasesCurrentMetricMemory'] = EnvironmentDatabasesCurrentMetricMemory
-    globals()['EnvironmentDatabasesCurrentMetricStorage'] = EnvironmentDatabasesCurrentMetricStorage
+    from qovery.model.database_current_metric_cpu import DatabaseCurrentMetricCpu
+    from qovery.model.database_current_metric_memory import DatabaseCurrentMetricMemory
+    from qovery.model.database_current_metric_storage import DatabaseCurrentMetricStorage
+    globals()['DatabaseCurrentMetricCpu'] = DatabaseCurrentMetricCpu
+    globals()['DatabaseCurrentMetricMemory'] = DatabaseCurrentMetricMemory
+    globals()['DatabaseCurrentMetricStorage'] = DatabaseCurrentMetricStorage
 
 
 class DatabaseCurrentMetric(ModelNormal):
@@ -92,9 +92,9 @@ class DatabaseCurrentMetric(ModelNormal):
         """
         lazy_import()
         return {
-            'cpu': (EnvironmentDatabasesCurrentMetricCpu,),  # noqa: E501
-            'memory': (EnvironmentDatabasesCurrentMetricMemory,),  # noqa: E501
-            'storage': (EnvironmentDatabasesCurrentMetricStorage,),  # noqa: E501
+            'cpu': (DatabaseCurrentMetricCpu,),  # noqa: E501
+            'memory': (DatabaseCurrentMetricMemory,),  # noqa: E501
+            'storage': (DatabaseCurrentMetricStorage,),  # noqa: E501
         }
 
     @cached_property
@@ -149,9 +149,9 @@ class DatabaseCurrentMetric(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            cpu (EnvironmentDatabasesCurrentMetricCpu): [optional]  # noqa: E501
-            memory (EnvironmentDatabasesCurrentMetricMemory): [optional]  # noqa: E501
-            storage (EnvironmentDatabasesCurrentMetricStorage): [optional]  # noqa: E501
+            cpu (DatabaseCurrentMetricCpu): [optional]  # noqa: E501
+            memory (DatabaseCurrentMetricMemory): [optional]  # noqa: E501
+            storage (DatabaseCurrentMetricStorage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,9 +233,9 @@ class DatabaseCurrentMetric(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            cpu (EnvironmentDatabasesCurrentMetricCpu): [optional]  # noqa: E501
-            memory (EnvironmentDatabasesCurrentMetricMemory): [optional]  # noqa: E501
-            storage (EnvironmentDatabasesCurrentMetricStorage): [optional]  # noqa: E501
+            cpu (DatabaseCurrentMetricCpu): [optional]  # noqa: E501
+            memory (DatabaseCurrentMetricMemory): [optional]  # noqa: E501
+            storage (DatabaseCurrentMetricStorage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

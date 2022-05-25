@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_application_secret**](ApplicationSecretApi.md#create_application_secret) | **POST** /application/{applicationId}/secret | Add a secret to the application
 [**create_application_secret_alias**](ApplicationSecretApi.md#create_application_secret_alias) | **POST** /application/{applicationId}/secret/{secretId}/alias | Create a secret alias at the application level
 [**create_application_secret_override**](ApplicationSecretApi.md#create_application_secret_override) | **POST** /application/{applicationId}/secret/{secretId}/override | Create a secret override at the application level
+[**create_container_secret_override**](ApplicationSecretApi.md#create_container_secret_override) | **POST** /container/{containerId}/secret/{secretId}/override | Create a secret override at the container level
 [**delete_application_secret**](ApplicationSecretApi.md#delete_application_secret) | **DELETE** /application/{applicationId}/secret/{secretId} | Delete a secret from an application
 [**edit_application_secret**](ApplicationSecretApi.md#edit_application_secret) | **PUT** /application/{applicationId}/secret/{secretId} | Edit a secret belonging to the application
 [**list_application_secrets**](ApplicationSecretApi.md#list_application_secrets) | **GET** /application/{applicationId}/secret | List application secrets
@@ -273,6 +274,103 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **str**| Application ID |
+ **secret_id** | **str**| Secret ID |
+ **value** | [**Value**](Value.md)|  | [optional]
+
+### Return type
+
+[**Secret**](Secret.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Create secret override |  -  |
+**400** | Can&#39;t create an override on a higher scope. Overrides can only be created from one scope to a lower scope. Scope hierarchy is BUILT_IN &gt; PROJECT &gt; ENVIRONMENT &gt; APPLICATION |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_container_secret_override**
+> Secret create_container_secret_override(container_id, secret_id)
+
+Create a secret override at the container level
+
+- Allows you to override at container level a secret that has a higher scope. - You only have to specify a value in the request body - The system will create a new secret at container level with the same key as the one corresponding to the secret id in the path - The response body will contain the newly created secret - Information regarding the overridden_secret will be exposed in the \"overridden_secret\" field of the newly created secret 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import application_secret_api
+from qovery.model.secret import Secret
+from qovery.model.value import Value
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = application_secret_api.ApplicationSecretApi(api_client)
+    container_id = "containerId_example" # str | Container ID
+    secret_id = "secretId_example" # str | Secret ID
+    value = Value(
+        value="value_example",
+    ) # Value |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Create a secret override at the container level
+        api_response = api_instance.create_container_secret_override(container_id, secret_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationSecretApi->create_container_secret_override: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create a secret override at the container level
+        api_response = api_instance.create_container_secret_override(container_id, secret_id, value=value)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationSecretApi->create_container_secret_override: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**| Container ID |
  **secret_id** | **str**| Secret ID |
  **value** | [**Value**](Value.md)|  | [optional]
 

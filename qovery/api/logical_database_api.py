@@ -23,6 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.application_response_list import ApplicationResponseList
+from qovery.model.container_response_list import ContainerResponseList
 from qovery.model.credentials import Credentials
 from qovery.model.credentials_request import CredentialsRequest
 from qovery.model.logical_database import LogicalDatabase
@@ -371,6 +372,57 @@ class LogicalDatabaseApi(object):
                 ],
                 'endpoint_path': '/logicalDatabase/{logicalDatabaseId}/application',
                 'operation_id': 'list_logical_database_application',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'logical_database_id',
+                ],
+                'required': [
+                    'logical_database_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'logical_database_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'logical_database_id': 'logicalDatabaseId',
+                },
+                'location_map': {
+                    'logical_database_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_logical_database_container_endpoint = _Endpoint(
+            settings={
+                'response_type': (ContainerResponseList,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/logicalDatabase/{logicalDatabaseId}/container',
+                'operation_id': 'list_logical_database_container',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1010,6 +1062,83 @@ class LogicalDatabaseApi(object):
         kwargs['logical_database_id'] = \
             logical_database_id
         return self.list_logical_database_application_endpoint.call_with_http_info(**kwargs)
+
+    def list_logical_database_container(
+        self,
+        logical_database_id,
+        **kwargs
+    ):
+        """List linked containers  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_logical_database_container(logical_database_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            logical_database_id (str): Logical Database ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ContainerResponseList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['logical_database_id'] = \
+            logical_database_id
+        return self.list_logical_database_container_endpoint.call_with_http_info(**kwargs)
 
     def list_logical_database_database(
         self,

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**storage** | [**[ApplicationStorageStorage]**](ApplicationStorageStorage.md) |  | [optional] 
+**storage** | [**[ContainerStorageStorage]**](ContainerStorageStorage.md) |  | [optional] 
 **ports** | [**[ApplicationPortPorts]**](ApplicationPortPorts.md) |  | [optional] 
 **name** | **str** | name is case insensitive | [optional] 
 **description** | **str** | give a description to this application | [optional] 

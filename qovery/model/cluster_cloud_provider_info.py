@@ -32,9 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cloud_provider_enum import CloudProviderEnum
-    from qovery.model.cluster_cloud_provider_info_request_credentials import ClusterCloudProviderInfoRequestCredentials
+    from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
     globals()['CloudProviderEnum'] = CloudProviderEnum
-    globals()['ClusterCloudProviderInfoRequestCredentials'] = ClusterCloudProviderInfoRequestCredentials
+    globals()['ClusterCloudProviderInfoCredentials'] = ClusterCloudProviderInfoCredentials
 
 
 class ClusterCloudProviderInfo(ModelNormal):
@@ -91,7 +91,7 @@ class ClusterCloudProviderInfo(ModelNormal):
         lazy_import()
         return {
             'cloud_provider': (CloudProviderEnum,),  # noqa: E501
-            'credentials': (ClusterCloudProviderInfoRequestCredentials,),  # noqa: E501
+            'credentials': (ClusterCloudProviderInfoCredentials,),  # noqa: E501
             'region': (str,),  # noqa: E501
         }
 
@@ -148,7 +148,7 @@ class ClusterCloudProviderInfo(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cloud_provider (CloudProviderEnum): [optional]  # noqa: E501
-            credentials (ClusterCloudProviderInfoRequestCredentials): [optional]  # noqa: E501
+            credentials (ClusterCloudProviderInfoCredentials): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
         """
 
@@ -232,7 +232,7 @@ class ClusterCloudProviderInfo(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cloud_provider (CloudProviderEnum): [optional]  # noqa: E501
-            credentials (ClusterCloudProviderInfoRequestCredentials): [optional]  # noqa: E501
+            credentials (ClusterCloudProviderInfoCredentials): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
         """
 

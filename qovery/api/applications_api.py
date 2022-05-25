@@ -428,7 +428,6 @@ class ApplicationsApi(object):
             params_map={
                 'all': [
                     'environment_id',
-                    'to_update',
                 ],
                 'required': [
                     'environment_id',
@@ -448,16 +447,12 @@ class ApplicationsApi(object):
                 'openapi_types': {
                     'environment_id':
                         (str,),
-                    'to_update':
-                        (bool,),
                 },
                 'attribute_map': {
                     'environment_id': 'environmentId',
-                    'to_update': 'toUpdate',
                 },
                 'location_map': {
                     'environment_id': 'path',
-                    'to_update': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1033,7 +1028,6 @@ class ApplicationsApi(object):
             environment_id (str): Environment ID
 
         Keyword Args:
-            to_update (bool): return (or not) results that must be updated. [optional] if omitted the server will use the default value of False
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

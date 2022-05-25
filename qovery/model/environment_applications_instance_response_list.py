@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_applications_instance_response_list_results import EnvironmentApplicationsInstanceResponseListResults
-    globals()['EnvironmentApplicationsInstanceResponseListResults'] = EnvironmentApplicationsInstanceResponseListResults
+    from qovery.model.inline_response2001_results import InlineResponse2001Results
+    globals()['InlineResponse2001Results'] = InlineResponse2001Results
 
 
 class EnvironmentApplicationsInstanceResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class EnvironmentApplicationsInstanceResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([EnvironmentApplicationsInstanceResponseListResults],),  # noqa: E501
+            'results': ([InlineResponse2001Results],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class EnvironmentApplicationsInstanceResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentApplicationsInstanceResponseListResults]): [optional]  # noqa: E501
+            results ([InlineResponse2001Results]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class EnvironmentApplicationsInstanceResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([EnvironmentApplicationsInstanceResponseListResults]): [optional]  # noqa: E501
+            results ([InlineResponse2001Results]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
