@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cluster_instance_type_response_list_results import ClusterInstanceTypeResponseListResults
-    globals()['ClusterInstanceTypeResponseListResults'] = ClusterInstanceTypeResponseListResults
+    from qovery.model.cluster_instance_type_response_list_results_inner import ClusterInstanceTypeResponseListResultsInner
+    globals()['ClusterInstanceTypeResponseListResultsInner'] = ClusterInstanceTypeResponseListResultsInner
 
 
 class ClusterInstanceTypeResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class ClusterInstanceTypeResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([ClusterInstanceTypeResponseListResults],),  # noqa: E501
+            'results': ([ClusterInstanceTypeResponseListResultsInner],),  # noqa: E501
         }
 
     @cached_property
@@ -141,11 +141,11 @@ class ClusterInstanceTypeResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ClusterInstanceTypeResponseListResults]): [optional]  # noqa: E501
+            results ([ClusterInstanceTypeResponseListResultsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -153,14 +153,18 @@ class ClusterInstanceTypeResponseList(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -223,7 +227,7 @@ class ClusterInstanceTypeResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ClusterInstanceTypeResponseListResults]): [optional]  # noqa: E501
+            results ([ClusterInstanceTypeResponseListResultsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,14 +237,18 @@ class ClusterInstanceTypeResponseList(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

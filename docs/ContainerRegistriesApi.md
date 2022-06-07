@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_container_registry**
-> InlineResponse200 list_container_registry(organization_id)
+> ListContainerRegistry200Response list_container_registry(organization_id)
 
 List organization container registries
 
@@ -276,7 +276,7 @@ List organization container registries
 import time
 import qovery
 from qovery.api import container_registries_api
-from qovery.model.inline_response200 import InlineResponse200
+from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**ListContainerRegistry200Response**](ListContainerRegistry200Response.md)
 
 ### Authorization
 

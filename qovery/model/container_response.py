@@ -32,17 +32,17 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.application_port import ApplicationPort
-    from qovery.model.application_port_ports import ApplicationPortPorts
+    from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
     from qovery.model.application_storage import ApplicationStorage
-    from qovery.model.application_storage_storage import ApplicationStorageStorage
+    from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
     from qovery.model.base import Base
     from qovery.model.container_response_all_of import ContainerResponseAllOf
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     globals()['ApplicationPort'] = ApplicationPort
-    globals()['ApplicationPortPorts'] = ApplicationPortPorts
+    globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
     globals()['ApplicationStorage'] = ApplicationStorage
-    globals()['ApplicationStorageStorage'] = ApplicationStorageStorage
+    globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
     globals()['Base'] = Base
     globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
     globals()['Healthcheck'] = Healthcheck
@@ -108,8 +108,8 @@ class ContainerResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'storage': ([ApplicationStorageStorage],),  # noqa: E501
-            'ports': ([ApplicationPortPorts],),  # noqa: E501
+            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
+            'ports': ([ApplicationPortPortsInner],),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
@@ -196,8 +196,8 @@ class ContainerResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
@@ -222,14 +222,18 @@ class ContainerResponse(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -311,8 +315,8 @@ class ContainerResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
@@ -335,14 +339,18 @@ class ContainerResponse(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.variable_import_request_vars import VariableImportRequestVars
-globals()['VariableImportRequestVars'] = VariableImportRequestVars
+from qovery.model.variable_import_request_vars_inner import VariableImportRequestVarsInner
+globals()['VariableImportRequestVarsInner'] = VariableImportRequestVarsInner
 from qovery.model.variable_import_request import VariableImportRequest
 
 

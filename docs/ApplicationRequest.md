@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case insensitive | 
 **git_repository** | [**ApplicationGitRepositoryRequest**](ApplicationGitRepositoryRequest.md) |  | 
-**storage** | [**[ApplicationStorageRequestStorage]**](ApplicationStorageRequestStorage.md) |  | [optional] 
-**ports** | [**[ApplicationPortRequestPorts]**](ApplicationPortRequestPorts.md) |  | [optional] 
+**storage** | [**[ApplicationStorageRequestStorageInner]**](ApplicationStorageRequestStorageInner.md) |  | [optional] 
+**ports** | [**[ApplicationPortRequestPortsInner]**](ApplicationPortRequestPortsInner.md) |  | [optional] 
 **description** | **str, none_type** | give a description to this application | [optional] 
 **build_mode** | [**BuildModeEnum**](BuildModeEnum.md) |  | [optional] 
 **dockerfile_path** | **str, none_type** | The path of the associated Dockerfile. Only if you are using build_mode &#x3D; DOCKER | [optional] 

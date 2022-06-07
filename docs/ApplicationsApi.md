@@ -147,7 +147,7 @@ with qovery.ApiClient(configuration) as api_client:
     environment_id = "environmentId_example" # str | Environment ID
     deploy_all_request = DeployAllRequest(
         applications=[
-            DeployAllRequestApplications(
+            DeployAllRequestApplicationsInner(
                 application_id="application_id_example",
                 git_commit_id="git_commit_id_example",
             ),

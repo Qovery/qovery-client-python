@@ -514,7 +514,7 @@ with qovery.ApiClient(configuration) as api_client:
     variable_import_request = VariableImportRequest(
         overwrite=False,
         vars=[
-            VariableImportRequestVars(
+            VariableImportRequestVarsInner(
                 name="name_example",
                 value="value_example",
                 scope=EnvironmentVariableScopeEnum("APPLICATION"),

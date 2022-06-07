@@ -34,9 +34,9 @@ def lazy_import():
     from qovery.model.application_all_of import ApplicationAllOf
     from qovery.model.application_git_repository import ApplicationGitRepository
     from qovery.model.application_port import ApplicationPort
-    from qovery.model.application_port_ports import ApplicationPortPorts
+    from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
     from qovery.model.application_storage import ApplicationStorage
-    from qovery.model.application_storage_storage import ApplicationStorageStorage
+    from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
     from qovery.model.base import Base
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
@@ -45,9 +45,9 @@ def lazy_import():
     globals()['ApplicationAllOf'] = ApplicationAllOf
     globals()['ApplicationGitRepository'] = ApplicationGitRepository
     globals()['ApplicationPort'] = ApplicationPort
-    globals()['ApplicationPortPorts'] = ApplicationPortPorts
+    globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
     globals()['ApplicationStorage'] = ApplicationStorage
-    globals()['ApplicationStorageStorage'] = ApplicationStorageStorage
+    globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
     globals()['Base'] = Base
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
@@ -114,8 +114,8 @@ class Application(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'storage': ([ApplicationStorageStorage],),  # noqa: E501
-            'ports': ([ApplicationPortPorts],),  # noqa: E501
+            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
+            'ports': ([ApplicationPortPortsInner],),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
@@ -206,8 +206,8 @@ class Application(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -234,14 +234,18 @@ class Application(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -323,8 +327,8 @@ class Application(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -349,14 +353,18 @@ class Application(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

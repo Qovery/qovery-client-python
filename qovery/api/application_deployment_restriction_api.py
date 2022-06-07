@@ -297,6 +297,10 @@ class ApplicationDeploymentRestrictionApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -328,6 +332,7 @@ class ApplicationDeploymentRestrictionApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['application_id'] = \
             application_id
         return self.create_application_deployment_restriction_endpoint.call_with_http_info(**kwargs)
@@ -375,6 +380,10 @@ class ApplicationDeploymentRestrictionApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -406,6 +415,7 @@ class ApplicationDeploymentRestrictionApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['application_id'] = \
             application_id
         return self.delete_application_deployment_restriction_endpoint.call_with_http_info(**kwargs)
@@ -454,6 +464,10 @@ class ApplicationDeploymentRestrictionApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -485,6 +499,7 @@ class ApplicationDeploymentRestrictionApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['application_id'] = \
             application_id
         return self.edit_application_deployment_restriction_endpoint.call_with_http_info(**kwargs)
@@ -532,6 +547,10 @@ class ApplicationDeploymentRestrictionApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -563,6 +582,7 @@ class ApplicationDeploymentRestrictionApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['application_id'] = \
             application_id
         return self.get_application_deployment_restrictions_endpoint.call_with_http_info(**kwargs)

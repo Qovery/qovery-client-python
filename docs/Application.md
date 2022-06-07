@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
-**storage** | [**[ApplicationStorageStorage]**](ApplicationStorageStorage.md) |  | [optional] 
-**ports** | [**[ApplicationPortPorts]**](ApplicationPortPorts.md) |  | [optional] 
+**storage** | [**[ApplicationStorageStorageInner]**](ApplicationStorageStorageInner.md) |  | [optional] 
+**ports** | [**[ApplicationPortPortsInner]**](ApplicationPortPortsInner.md) |  | [optional] 
 **environment** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 
 **git_repository** | [**ApplicationGitRepository**](ApplicationGitRepository.md) |  | [optional] 
 **maximum_cpu** | **int** | Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m &#x3D; 1 cpu | [optional]  if omitted the server will use the default value of 250

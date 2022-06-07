@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **name** | **str** | name is case insensitive | 
 **registry_id** | **str** | id of the linked registry | 
 **image_name** | **str** | name of the image container | 
-**storage** | [**[ApplicationStorageRequestStorage]**](ApplicationStorageRequestStorage.md) |  | [optional] 
-**ports** | [**[ApplicationPortRequestPorts]**](ApplicationPortRequestPorts.md) |  | [optional] 
+**storage** | [**[ApplicationStorageRequestStorageInner]**](ApplicationStorageRequestStorageInner.md) |  | [optional] 
+**ports** | [**[ApplicationPortRequestPortsInner]**](ApplicationPortRequestPortsInner.md) |  | [optional] 
 **description** | **str, none_type** | give a description to this container | [optional] 
 **arguments** | **str** |  | [optional] 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | [optional]  if omitted the server will use the default value of 250

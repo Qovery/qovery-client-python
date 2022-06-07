@@ -16,11 +16,11 @@ import qovery
 from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cluster_base import ClusterBase
 from qovery.model.cluster_feature_request import ClusterFeatureRequest
-from qovery.model.cluster_feature_request_features import ClusterFeatureRequestFeatures
+from qovery.model.cluster_feature_request_features_inner import ClusterFeatureRequestFeaturesInner
 globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['ClusterBase'] = ClusterBase
 globals()['ClusterFeatureRequest'] = ClusterFeatureRequest
-globals()['ClusterFeatureRequestFeatures'] = ClusterFeatureRequestFeatures
+globals()['ClusterFeatureRequestFeaturesInner'] = ClusterFeatureRequestFeaturesInner
 from qovery.model.cluster_request import ClusterRequest
 
 

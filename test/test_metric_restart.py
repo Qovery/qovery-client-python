@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.metric_restart_results import MetricRestartResults
-globals()['MetricRestartResults'] = MetricRestartResults
+from qovery.model.metric_restart_results_inner import MetricRestartResultsInner
+globals()['MetricRestartResultsInner'] = MetricRestartResultsInner
 from qovery.model.metric_restart import MetricRestart
 
 

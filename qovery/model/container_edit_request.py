@@ -32,15 +32,15 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.application_port import ApplicationPort
-    from qovery.model.application_port_ports import ApplicationPortPorts
+    from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
     from qovery.model.application_storage import ApplicationStorage
-    from qovery.model.application_storage_storage import ApplicationStorageStorage
+    from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
     from qovery.model.container_edit_request_all_of import ContainerEditRequestAllOf
     from qovery.model.healthcheck import Healthcheck
     globals()['ApplicationPort'] = ApplicationPort
-    globals()['ApplicationPortPorts'] = ApplicationPortPorts
+    globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
     globals()['ApplicationStorage'] = ApplicationStorage
-    globals()['ApplicationStorageStorage'] = ApplicationStorageStorage
+    globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
     globals()['ContainerEditRequestAllOf'] = ContainerEditRequestAllOf
     globals()['Healthcheck'] = Healthcheck
 
@@ -101,8 +101,8 @@ class ContainerEditRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'storage': ([ApplicationStorageStorage],),  # noqa: E501
-            'ports': ([ApplicationPortPorts],),  # noqa: E501
+            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
+            'ports': ([ApplicationPortPortsInner],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'registry_id': (str,),  # noqa: E501
@@ -176,8 +176,8 @@ class ContainerEditRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             registry_id (str): id of the linked registry. [optional]  # noqa: E501
@@ -200,14 +200,18 @@ class ContainerEditRequest(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -288,8 +292,8 @@ class ContainerEditRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             registry_id (str): id of the linked registry. [optional]  # noqa: E501
@@ -310,14 +314,18 @@ class ContainerEditRequest(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

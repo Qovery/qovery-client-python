@@ -20,7 +20,7 @@ Get your referral information
 ```python
 import time
 import qovery
-from qovery.api import referral__rewards_api
+from qovery.api import referral_rewards_api
 from qovery.model.referral import Referral
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -42,7 +42,7 @@ configuration = qovery.Configuration(
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = referral__rewards_api.ReferralRewardsApi(api_client)
+    api_instance = referral_rewards_api.ReferralRewardsApi(api_client)
 
     # example, this endpoint has no required or optional parameters
     try:
@@ -94,7 +94,7 @@ A same code can be claimed only 3 times at max
 ```python
 import time
 import qovery
-from qovery.api import referral__rewards_api
+from qovery.api import referral_rewards_api
 from qovery.model.reward_claim import RewardClaim
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -116,7 +116,7 @@ configuration = qovery.Configuration(
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = referral__rewards_api.ReferralRewardsApi(api_client)
+    api_instance = referral_rewards_api.ReferralRewardsApi(api_client)
     reward_claim = RewardClaim(
         type="INVITATION",
         code="xDowkWEl",

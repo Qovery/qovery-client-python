@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.account_info_api import AccountInfoApi
+#   from qovery.api.account_info_api import AccountInfoApi
 #
 # or import this package, but before doing it, use:
 #
@@ -76,5 +76,5 @@ from qovery.api.project_environment_variable_api import ProjectEnvironmentVariab
 from qovery.api.project_main_calls_api import ProjectMainCallsApi
 from qovery.api.project_secret_api import ProjectSecretApi
 from qovery.api.projects_api import ProjectsApi
-from qovery.api.referral__rewards_api import ReferralRewardsApi
+from qovery.api.referral_rewards_api import ReferralRewardsApi
 from qovery.api.user_sign_up_api import UserSignUpApi

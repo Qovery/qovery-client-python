@@ -25,7 +25,7 @@ from qovery.model_utils import (  # noqa: F401
 from qovery.model.available_container_registry_response import AvailableContainerRegistryResponse
 from qovery.model.container_registry_request import ContainerRegistryRequest
 from qovery.model.container_registry_response import ContainerRegistryResponse
-from qovery.model.inline_response200 import InlineResponse200
+from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
 
 
 class ContainerRegistriesApi(object):
@@ -198,7 +198,7 @@ class ContainerRegistriesApi(object):
         )
         self.list_container_registry_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse200,),
+                'response_type': (ListContainerRegistry200Response,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -291,6 +291,10 @@ class ContainerRegistriesApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -322,6 +326,7 @@ class ContainerRegistriesApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
         return self.create_container_registry_endpoint.call_with_http_info(**kwargs)
@@ -368,6 +373,10 @@ class ContainerRegistriesApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -399,6 +408,7 @@ class ContainerRegistriesApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
         return self.delete_container_registry_endpoint.call_with_http_info(**kwargs)
@@ -446,6 +456,10 @@ class ContainerRegistriesApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -477,6 +491,7 @@ class ContainerRegistriesApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
         return self.list_available_container_registry_endpoint.call_with_http_info(**kwargs)
@@ -523,10 +538,14 @@ class ContainerRegistriesApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse200
+            ListContainerRegistry200Response
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -554,6 +573,7 @@ class ContainerRegistriesApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
         return self.list_container_registry_endpoint.call_with_http_info(**kwargs)

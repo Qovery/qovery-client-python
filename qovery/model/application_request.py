@@ -33,19 +33,19 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
     from qovery.model.application_port_request import ApplicationPortRequest
-    from qovery.model.application_port_request_ports import ApplicationPortRequestPorts
+    from qovery.model.application_port_request_ports_inner import ApplicationPortRequestPortsInner
     from qovery.model.application_request_all_of import ApplicationRequestAllOf
     from qovery.model.application_storage_request import ApplicationStorageRequest
-    from qovery.model.application_storage_request_storage import ApplicationStorageRequestStorage
+    from qovery.model.application_storage_request_storage_inner import ApplicationStorageRequestStorageInner
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
     globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
     globals()['ApplicationPortRequest'] = ApplicationPortRequest
-    globals()['ApplicationPortRequestPorts'] = ApplicationPortRequestPorts
+    globals()['ApplicationPortRequestPortsInner'] = ApplicationPortRequestPortsInner
     globals()['ApplicationRequestAllOf'] = ApplicationRequestAllOf
     globals()['ApplicationStorageRequest'] = ApplicationStorageRequest
-    globals()['ApplicationStorageRequestStorage'] = ApplicationStorageRequestStorage
+    globals()['ApplicationStorageRequestStorageInner'] = ApplicationStorageRequestStorageInner
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
@@ -109,8 +109,8 @@ class ApplicationRequest(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
-            'storage': ([ApplicationStorageRequestStorage],),  # noqa: E501
-            'ports': ([ApplicationPortRequestPorts],),  # noqa: E501
+            'storage': ([ApplicationStorageRequestStorageInner],),  # noqa: E501
+            'ports': ([ApplicationPortRequestPortsInner],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
@@ -186,8 +186,8 @@ class ApplicationRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageRequestStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -209,14 +209,18 @@ class ApplicationRequest(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -299,8 +303,8 @@ class ApplicationRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageRequestStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -320,14 +324,18 @@ class ApplicationRequest(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

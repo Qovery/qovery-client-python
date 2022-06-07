@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_instance_type_response_list_results import ClusterInstanceTypeResponseListResults
-globals()['ClusterInstanceTypeResponseListResults'] = ClusterInstanceTypeResponseListResults
+from qovery.model.cluster_instance_type_response_list_results_inner import ClusterInstanceTypeResponseListResultsInner
+globals()['ClusterInstanceTypeResponseListResultsInner'] = ClusterInstanceTypeResponseListResultsInner
 from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
 
 

@@ -146,7 +146,7 @@ with qovery.ApiClient(configuration) as api_client:
     environment_id = "environmentId_example" # str | Environment ID
     deploy_all_request = DeployAllRequest(
         applications=[
-            DeployAllRequestApplications(
+            DeployAllRequestApplicationsInner(
                 application_id="application_id_example",
                 git_commit_id="git_commit_id_example",
             ),
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_environment_container_current_instance**
-> InlineResponse2001 get_environment_container_current_instance(environment_id)
+> GetEnvironmentContainerCurrentInstance200Response get_environment_container_current_instance(environment_id)
 
 List running instances with CPU and RAM usage for each container
 
@@ -219,7 +219,7 @@ List running instances with CPU and RAM usage for each container
 import time
 import qovery
 from qovery.api import containers_api
-from qovery.model.inline_response2001 import InlineResponse2001
+from qovery.model.get_environment_container_current_instance200_response import GetEnvironmentContainerCurrentInstance200Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**GetEnvironmentContainerCurrentInstance200Response**](GetEnvironmentContainerCurrentInstance200Response.md)
 
 ### Authorization
 

@@ -516,7 +516,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_container_tags**
-> InlineResponse2002 get_container_tags(container_id)
+> GetContainerTags200Response get_container_tags(container_id)
 
 List image tags
 
@@ -530,7 +530,7 @@ List all image container tags already deployed in the Qovery environment.
 import time
 import qovery
 from qovery.api import container_main_calls_api
-from qovery.model.inline_response2002 import InlineResponse2002
+from qovery.model.get_container_tags200_response import GetContainerTags200Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -572,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**GetContainerTags200Response**](GetContainerTags200Response.md)
 
 ### Authorization
 

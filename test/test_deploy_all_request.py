@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.deploy_all_request_applications import DeployAllRequestApplications
-globals()['DeployAllRequestApplications'] = DeployAllRequestApplications
+from qovery.model.deploy_all_request_applications_inner import DeployAllRequestApplicationsInner
+globals()['DeployAllRequestApplicationsInner'] = DeployAllRequestApplicationsInner
 from qovery.model.deploy_all_request import DeployAllRequest
 
 

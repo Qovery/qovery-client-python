@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.variable_import_request_vars import VariableImportRequestVars
-    globals()['VariableImportRequestVars'] = VariableImportRequestVars
+    from qovery.model.variable_import_request_vars_inner import VariableImportRequestVarsInner
+    globals()['VariableImportRequestVarsInner'] = VariableImportRequestVarsInner
 
 
 class VariableImportRequest(ModelNormal):
@@ -89,7 +89,7 @@ class VariableImportRequest(ModelNormal):
         lazy_import()
         return {
             'overwrite': (bool,),  # noqa: E501
-            'vars': ([VariableImportRequestVars],),  # noqa: E501
+            'vars': ([VariableImportRequestVarsInner],),  # noqa: E501
         }
 
     @cached_property
@@ -113,7 +113,7 @@ class VariableImportRequest(ModelNormal):
         """VariableImportRequest - a model defined in OpenAPI
 
         Args:
-            vars ([VariableImportRequestVars]):
+            vars ([VariableImportRequestVarsInner]):
 
         Keyword Args:
             overwrite (bool): defaults to False  # noqa: E501
@@ -151,7 +151,7 @@ class VariableImportRequest(ModelNormal):
 
         overwrite = kwargs.get('overwrite', False)
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -159,14 +159,18 @@ class VariableImportRequest(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -201,7 +205,7 @@ class VariableImportRequest(ModelNormal):
         """VariableImportRequest - a model defined in OpenAPI
 
         Args:
-            vars ([VariableImportRequestVars]):
+            vars ([VariableImportRequestVarsInner]):
 
         Keyword Args:
             overwrite (bool): defaults to False  # noqa: E501
@@ -245,14 +249,18 @@ class VariableImportRequest(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

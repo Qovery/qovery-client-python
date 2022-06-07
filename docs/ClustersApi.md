@@ -407,7 +407,7 @@ with qovery.ApiClient(configuration) as api_client:
     cluster_id = "clusterId_example" # str | Cluster ID
     cluster_routing_table_request = ClusterRoutingTableRequest(
         routes=[
-            ClusterRoutingTableRequestRoutes(
+            ClusterRoutingTableRequestRoutesInner(
                 destination="destination_example",
                 target="target_example",
                 description="description_example",

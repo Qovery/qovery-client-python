@@ -34,11 +34,11 @@ def lazy_import():
     from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_base import ClusterBase
     from qovery.model.cluster_feature_request import ClusterFeatureRequest
-    from qovery.model.cluster_feature_request_features import ClusterFeatureRequestFeatures
+    from qovery.model.cluster_feature_request_features_inner import ClusterFeatureRequestFeaturesInner
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterBase'] = ClusterBase
     globals()['ClusterFeatureRequest'] = ClusterFeatureRequest
-    globals()['ClusterFeatureRequestFeatures'] = ClusterFeatureRequestFeatures
+    globals()['ClusterFeatureRequestFeaturesInner'] = ClusterFeatureRequestFeaturesInner
 
 
 class ClusterRequest(ModelComposed):
@@ -105,7 +105,7 @@ class ClusterRequest(ModelComposed):
             'max_running_nodes': (int,),  # noqa: E501
             'instance_type': (str,),  # noqa: E501
             'disk_size': (int,),  # noqa: E501
-            'features': ([ClusterFeatureRequestFeatures],),  # noqa: E501
+            'features': ([ClusterFeatureRequestFeaturesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -178,7 +178,7 @@ class ClusterRequest(ModelComposed):
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             disk_size (int): the disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
-            features ([ClusterFeatureRequestFeatures]): [optional]  # noqa: E501
+            features ([ClusterFeatureRequestFeaturesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -190,14 +190,18 @@ class ClusterRequest(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -289,7 +293,7 @@ class ClusterRequest(ModelComposed):
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             disk_size (int): the disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
-            features ([ClusterFeatureRequestFeatures]): [optional]  # noqa: E501
+            features ([ClusterFeatureRequestFeaturesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -299,14 +303,18 @@ class ClusterRequest(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

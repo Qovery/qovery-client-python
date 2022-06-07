@@ -32,15 +32,15 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.application_port_request import ApplicationPortRequest
-    from qovery.model.application_port_request_ports import ApplicationPortRequestPorts
+    from qovery.model.application_port_request_ports_inner import ApplicationPortRequestPortsInner
     from qovery.model.application_storage_request import ApplicationStorageRequest
-    from qovery.model.application_storage_request_storage import ApplicationStorageRequestStorage
+    from qovery.model.application_storage_request_storage_inner import ApplicationStorageRequestStorageInner
     from qovery.model.container_request_all_of import ContainerRequestAllOf
     from qovery.model.healthcheck import Healthcheck
     globals()['ApplicationPortRequest'] = ApplicationPortRequest
-    globals()['ApplicationPortRequestPorts'] = ApplicationPortRequestPorts
+    globals()['ApplicationPortRequestPortsInner'] = ApplicationPortRequestPortsInner
     globals()['ApplicationStorageRequest'] = ApplicationStorageRequest
-    globals()['ApplicationStorageRequestStorage'] = ApplicationStorageRequestStorage
+    globals()['ApplicationStorageRequestStorageInner'] = ApplicationStorageRequestStorageInner
     globals()['ContainerRequestAllOf'] = ContainerRequestAllOf
     globals()['Healthcheck'] = Healthcheck
 
@@ -104,8 +104,8 @@ class ContainerRequest(ModelComposed):
             'name': (str,),  # noqa: E501
             'registry_id': (str,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
-            'storage': ([ApplicationStorageRequestStorage],),  # noqa: E501
-            'ports': ([ApplicationPortRequestPorts],),  # noqa: E501
+            'storage': ([ApplicationStorageRequestStorageInner],),  # noqa: E501
+            'ports': ([ApplicationPortRequestPortsInner],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'arguments': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
@@ -177,8 +177,8 @@ class ContainerRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageRequestStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this container. [optional]  # noqa: E501
             arguments (str): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -197,14 +197,18 @@ class ContainerRequest(ModelComposed):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -288,8 +292,8 @@ class ContainerRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageRequestStorage]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPorts]): [optional]  # noqa: E501
+            storage ([ApplicationStorageRequestStorageInner]): [optional]  # noqa: E501
+            ports ([ApplicationPortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this container. [optional]  # noqa: E501
             arguments (str): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -306,14 +310,18 @@ class ContainerRequest(ModelComposed):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type

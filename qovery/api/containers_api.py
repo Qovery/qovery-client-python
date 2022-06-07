@@ -28,7 +28,7 @@ from qovery.model.container_response_list import ContainerResponseList
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.environment_containers_current_scale_response_list import EnvironmentContainersCurrentScaleResponseList
 from qovery.model.environment_containers_storage_response_list import EnvironmentContainersStorageResponseList
-from qovery.model.inline_response2001 import InlineResponse2001
+from qovery.model.get_environment_container_current_instance200_response import GetEnvironmentContainerCurrentInstance200Response
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from qovery.model.status import Status
 
@@ -160,7 +160,7 @@ class ContainersApi(object):
         )
         self.get_environment_container_current_instance_endpoint = _Endpoint(
             settings={
-                'response_type': (InlineResponse2001,),
+                'response_type': (GetEnvironmentContainerCurrentInstance200Response,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -462,6 +462,10 @@ class ContainersApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -493,6 +497,7 @@ class ContainersApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
         return self.create_container_endpoint.call_with_http_info(**kwargs)
@@ -541,6 +546,10 @@ class ContainersApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -572,6 +581,7 @@ class ContainersApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
         return self.deploy_all_containers_endpoint.call_with_http_info(**kwargs)
@@ -618,10 +628,14 @@ class ContainersApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
-            InlineResponse2001
+            GetEnvironmentContainerCurrentInstance200Response
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -649,6 +663,7 @@ class ContainersApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
         return self.get_environment_container_current_instance_endpoint.call_with_http_info(**kwargs)
@@ -696,6 +711,10 @@ class ContainersApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -727,6 +746,7 @@ class ContainersApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
         return self.get_environment_container_current_scale_endpoint.call_with_http_info(**kwargs)
@@ -773,6 +793,10 @@ class ContainersApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -804,6 +828,7 @@ class ContainersApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
         return self.get_environment_container_current_storage_endpoint.call_with_http_info(**kwargs)
@@ -851,6 +876,10 @@ class ContainersApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -882,6 +911,7 @@ class ContainersApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
         return self.get_environment_container_status_endpoint.call_with_http_info(**kwargs)
@@ -929,6 +959,10 @@ class ContainersApi(object):
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
             async_req (bool): execute request asynchronously
 
         Returns:
@@ -960,6 +994,7 @@ class ContainersApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
         return self.list_container_endpoint.call_with_http_info(**kwargs)

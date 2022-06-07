@@ -16,9 +16,9 @@ import qovery
 from qovery.model.application_all_of import ApplicationAllOf
 from qovery.model.application_git_repository import ApplicationGitRepository
 from qovery.model.application_port import ApplicationPort
-from qovery.model.application_port_ports import ApplicationPortPorts
+from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
 from qovery.model.application_storage import ApplicationStorage
-from qovery.model.application_storage_storage import ApplicationStorageStorage
+from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
 from qovery.model.base import Base
 from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
@@ -27,9 +27,9 @@ from qovery.model.reference_object import ReferenceObject
 globals()['ApplicationAllOf'] = ApplicationAllOf
 globals()['ApplicationGitRepository'] = ApplicationGitRepository
 globals()['ApplicationPort'] = ApplicationPort
-globals()['ApplicationPortPorts'] = ApplicationPortPorts
+globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
 globals()['ApplicationStorage'] = ApplicationStorage
-globals()['ApplicationStorageStorage'] = ApplicationStorageStorage
+globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
 globals()['Base'] = Base
 globals()['BuildModeEnum'] = BuildModeEnum
 globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum

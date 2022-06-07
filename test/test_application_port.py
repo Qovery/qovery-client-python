@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_port_ports import ApplicationPortPorts
-globals()['ApplicationPortPorts'] = ApplicationPortPorts
+from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
+globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
 from qovery.model.application_port import ApplicationPort
 
 

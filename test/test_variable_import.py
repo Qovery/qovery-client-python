@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.variable_import_successful_imported_variables import VariableImportSuccessfulImportedVariables
-globals()['VariableImportSuccessfulImportedVariables'] = VariableImportSuccessfulImportedVariables
+from qovery.model.variable_import_successful_imported_variables_inner import VariableImportSuccessfulImportedVariablesInner
+globals()['VariableImportSuccessfulImportedVariablesInner'] = VariableImportSuccessfulImportedVariablesInner
 from qovery.model.variable_import import VariableImport
 
 
