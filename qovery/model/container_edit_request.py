@@ -33,15 +33,15 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.application_port import ApplicationPort
     from qovery.model.application_port_ports import ApplicationPortPorts
+    from qovery.model.application_storage import ApplicationStorage
+    from qovery.model.application_storage_storage import ApplicationStorageStorage
     from qovery.model.container_edit_request_all_of import ContainerEditRequestAllOf
-    from qovery.model.container_storage import ContainerStorage
-    from qovery.model.container_storage_storage import ContainerStorageStorage
     from qovery.model.healthcheck import Healthcheck
     globals()['ApplicationPort'] = ApplicationPort
     globals()['ApplicationPortPorts'] = ApplicationPortPorts
+    globals()['ApplicationStorage'] = ApplicationStorage
+    globals()['ApplicationStorageStorage'] = ApplicationStorageStorage
     globals()['ContainerEditRequestAllOf'] = ContainerEditRequestAllOf
-    globals()['ContainerStorage'] = ContainerStorage
-    globals()['ContainerStorageStorage'] = ContainerStorageStorage
     globals()['Healthcheck'] = Healthcheck
 
 
@@ -101,7 +101,7 @@ class ContainerEditRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'storage': ([ContainerStorageStorage],),  # noqa: E501
+            'storage': ([ApplicationStorageStorage],),  # noqa: E501
             'ports': ([ApplicationPortPorts],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -176,7 +176,7 @@ class ContainerEditRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ContainerStorageStorage]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortPorts]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
@@ -288,7 +288,7 @@ class ContainerEditRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ContainerStorageStorage]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortPorts]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
@@ -367,8 +367,8 @@ class ContainerEditRequest(ModelComposed):
           ],
           'allOf': [
               ApplicationPort,
+              ApplicationStorage,
               ContainerEditRequestAllOf,
-              ContainerStorage,
           ],
           'oneOf': [
           ],

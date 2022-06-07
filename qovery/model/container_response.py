@@ -33,18 +33,18 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.application_port import ApplicationPort
     from qovery.model.application_port_ports import ApplicationPortPorts
+    from qovery.model.application_storage import ApplicationStorage
+    from qovery.model.application_storage_storage import ApplicationStorageStorage
     from qovery.model.base import Base
     from qovery.model.container_response_all_of import ContainerResponseAllOf
-    from qovery.model.container_storage import ContainerStorage
-    from qovery.model.container_storage_storage import ContainerStorageStorage
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     globals()['ApplicationPort'] = ApplicationPort
     globals()['ApplicationPortPorts'] = ApplicationPortPorts
+    globals()['ApplicationStorage'] = ApplicationStorage
+    globals()['ApplicationStorageStorage'] = ApplicationStorageStorage
     globals()['Base'] = Base
     globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
-    globals()['ContainerStorage'] = ContainerStorage
-    globals()['ContainerStorageStorage'] = ContainerStorageStorage
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
 
@@ -108,7 +108,7 @@ class ContainerResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'storage': ([ContainerStorageStorage],),  # noqa: E501
+            'storage': ([ApplicationStorageStorage],),  # noqa: E501
             'ports': ([ApplicationPortPorts],),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
@@ -196,7 +196,7 @@ class ContainerResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ContainerStorageStorage]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortPorts]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -311,7 +311,7 @@ class ContainerResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ContainerStorageStorage]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortPorts]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -392,9 +392,9 @@ class ContainerResponse(ModelComposed):
           ],
           'allOf': [
               ApplicationPort,
+              ApplicationStorage,
               Base,
               ContainerResponseAllOf,
-              ContainerStorage,
           ],
           'oneOf': [
           ],

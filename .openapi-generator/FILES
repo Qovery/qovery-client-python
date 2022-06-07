@@ -44,6 +44,7 @@ docs/ApplicationSecretApi.md
 docs/ApplicationStorage.md
 docs/ApplicationStorageRequest.md
 docs/ApplicationStorageRequestStorage.md
+docs/ApplicationStorageStorage.md
 docs/ApplicationsApi.md
 docs/AvailableContainerRegistryResponse.md
 docs/AwsCredentialsRequest.md
@@ -141,7 +142,6 @@ docs/ContainerResponseAllOf.md
 docs/ContainerResponseList.md
 docs/ContainerSecretApi.md
 docs/ContainerStorage.md
-docs/ContainerStorageStorage.md
 docs/ContainersApi.md
 docs/Cost.md
 docs/CostRange.md
@@ -505,6 +505,7 @@ qovery/model/application_response_list.py
 qovery/model/application_storage.py
 qovery/model/application_storage_request.py
 qovery/model/application_storage_request_storage.py
+qovery/model/application_storage_storage.py
 qovery/model/available_container_registry_response.py
 qovery/model/aws_credentials_request.py
 qovery/model/backup.py
@@ -582,7 +583,6 @@ qovery/model/container_response.py
 qovery/model/container_response_all_of.py
 qovery/model/container_response_list.py
 qovery/model/container_storage.py
-qovery/model/container_storage_storage.py
 qovery/model/cost.py
 qovery/model/cost_range.py
 qovery/model/credentials.py
@@ -862,6 +862,7 @@ test/test_application_secret_api.py
 test/test_application_storage.py
 test/test_application_storage_request.py
 test/test_application_storage_request_storage.py
+test/test_application_storage_storage.py
 test/test_applications_api.py
 test/test_available_container_registry_response.py
 test/test_aws_credentials_request.py
@@ -959,7 +960,6 @@ test/test_container_response_all_of.py
 test/test_container_response_list.py
 test/test_container_secret_api.py
 test/test_container_storage.py
-test/test_container_storage_storage.py
 test/test_containers_api.py
 test/test_cost.py
 test/test_cost_range.py

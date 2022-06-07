@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.storage_type_enum import StorageTypeEnum
 globals()['StorageTypeEnum'] = StorageTypeEnum
-from qovery.model.container_storage_storage import ContainerStorageStorage
+from qovery.model.application_storage_storage import ApplicationStorageStorage
 
 
-class TestContainerStorageStorage(unittest.TestCase):
-    """ContainerStorageStorage unit test stubs"""
+class TestApplicationStorageStorage(unittest.TestCase):
+    """ApplicationStorageStorage unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestContainerStorageStorage(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testContainerStorageStorage(self):
-        """Test ContainerStorageStorage"""
+    def testApplicationStorageStorage(self):
+        """Test ApplicationStorageStorage"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ContainerStorageStorage()  # noqa: E501
+        # model = ApplicationStorageStorage()  # noqa: E501
         pass
 
 

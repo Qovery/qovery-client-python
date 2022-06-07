@@ -38,6 +38,7 @@ from qovery.model.application_response_list import ApplicationResponseList
 from qovery.model.application_storage import ApplicationStorage
 from qovery.model.application_storage_request import ApplicationStorageRequest
 from qovery.model.application_storage_request_storage import ApplicationStorageRequestStorage
+from qovery.model.application_storage_storage import ApplicationStorageStorage
 from qovery.model.available_container_registry_response import AvailableContainerRegistryResponse
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from qovery.model.backup import Backup
@@ -115,7 +116,6 @@ from qovery.model.container_response import ContainerResponse
 from qovery.model.container_response_all_of import ContainerResponseAllOf
 from qovery.model.container_response_list import ContainerResponseList
 from qovery.model.container_storage import ContainerStorage
-from qovery.model.container_storage_storage import ContainerStorageStorage
 from qovery.model.cost import Cost
 from qovery.model.cost_range import CostRange
 from qovery.model.credentials import Credentials

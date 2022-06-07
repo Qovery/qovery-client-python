@@ -35,22 +35,22 @@ def lazy_import():
     from qovery.model.application_git_repository import ApplicationGitRepository
     from qovery.model.application_port import ApplicationPort
     from qovery.model.application_port_ports import ApplicationPortPorts
+    from qovery.model.application_storage import ApplicationStorage
+    from qovery.model.application_storage_storage import ApplicationStorageStorage
     from qovery.model.base import Base
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
-    from qovery.model.container_storage import ContainerStorage
-    from qovery.model.container_storage_storage import ContainerStorageStorage
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     globals()['ApplicationAllOf'] = ApplicationAllOf
     globals()['ApplicationGitRepository'] = ApplicationGitRepository
     globals()['ApplicationPort'] = ApplicationPort
     globals()['ApplicationPortPorts'] = ApplicationPortPorts
+    globals()['ApplicationStorage'] = ApplicationStorage
+    globals()['ApplicationStorageStorage'] = ApplicationStorageStorage
     globals()['Base'] = Base
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
-    globals()['ContainerStorage'] = ContainerStorage
-    globals()['ContainerStorageStorage'] = ContainerStorageStorage
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
 
@@ -114,7 +114,7 @@ class Application(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'storage': ([ContainerStorageStorage],),  # noqa: E501
+            'storage': ([ApplicationStorageStorage],),  # noqa: E501
             'ports': ([ApplicationPortPorts],),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
@@ -206,7 +206,7 @@ class Application(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ContainerStorageStorage]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortPorts]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
@@ -323,7 +323,7 @@ class Application(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ContainerStorageStorage]): [optional]  # noqa: E501
+            storage ([ApplicationStorageStorage]): [optional]  # noqa: E501
             ports ([ApplicationPortPorts]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
@@ -407,8 +407,8 @@ class Application(ModelComposed):
           'allOf': [
               ApplicationAllOf,
               ApplicationPort,
+              ApplicationStorage,
               Base,
-              ContainerStorage,
           ],
           'oneOf': [
           ],
