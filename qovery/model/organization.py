@@ -104,6 +104,7 @@ class Organization(ModelComposed):
             'repository': (str, none_type,),  # noqa: E501
             'logo_url': (str, none_type,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
+            'admin_emails': ([str], none_type,),  # noqa: E501
             'owner': (str,),  # noqa: E501
         }
 
@@ -123,6 +124,7 @@ class Organization(ModelComposed):
         'repository': 'repository',  # noqa: E501
         'logo_url': 'logo_url',  # noqa: E501
         'icon_url': 'icon_url',  # noqa: E501
+        'admin_emails': 'admin_emails',  # noqa: E501
         'owner': 'owner',  # noqa: E501
     }
 
@@ -178,6 +180,7 @@ class Organization(ModelComposed):
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
+            admin_emails ([str], none_type): [optional]  # noqa: E501
             owner (str): uuid of the user owning the organization. [optional]  # noqa: E501
         """
 
@@ -290,6 +293,7 @@ class Organization(ModelComposed):
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
+            admin_emails ([str], none_type): [optional]  # noqa: E501
             owner (str): uuid of the user owning the organization. [optional]  # noqa: E501
         """
 

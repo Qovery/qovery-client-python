@@ -95,6 +95,7 @@ class OrganizationRequest(ModelNormal):
             'repository': (str, none_type,),  # noqa: E501
             'logo_url': (str, none_type,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
+            'admin_emails': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class OrganizationRequest(ModelNormal):
         'repository': 'repository',  # noqa: E501
         'logo_url': 'logo_url',  # noqa: E501
         'icon_url': 'icon_url',  # noqa: E501
+        'admin_emails': 'admin_emails',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,6 +164,7 @@ class OrganizationRequest(ModelNormal):
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
+            admin_emails ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,6 +261,7 @@ class OrganizationRequest(ModelNormal):
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
+            admin_emails ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

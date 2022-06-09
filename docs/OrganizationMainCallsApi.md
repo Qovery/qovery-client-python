@@ -55,6 +55,9 @@ with qovery.ApiClient(configuration) as api_client:
         repository="repository_example",
         logo_url="logo_url_example",
         icon_url="icon_url_example",
+        admin_emails=[
+            "admin_emails_example",
+        ],
     ) # OrganizationRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -225,6 +228,9 @@ with qovery.ApiClient(configuration) as api_client:
         repository="repository_example",
         logo_url="logo_url_example",
         icon_url="icon_url_example",
+        admin_emails=[
+            "admin_emails_example",
+        ],
     ) # OrganizationEditRequest |  (optional)
 
     # example passing only required values which don't have defaults set
