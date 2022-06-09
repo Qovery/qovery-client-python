@@ -88,7 +88,7 @@ class OrganizationEditRequest(ModelNormal):
             'repository': (str, none_type,),  # noqa: E501
             'logo_url': (str, none_type,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
-            'admin_emails': ([str],),  # noqa: E501
+            'admin_emails': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -155,7 +155,7 @@ class OrganizationEditRequest(ModelNormal):
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
-            admin_emails ([str]): [optional]  # noqa: E501
+            admin_emails ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -250,7 +250,7 @@ class OrganizationEditRequest(ModelNormal):
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
             icon_url (str, none_type): [optional]  # noqa: E501
-            admin_emails ([str]): [optional]  # noqa: E501
+            admin_emails ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
