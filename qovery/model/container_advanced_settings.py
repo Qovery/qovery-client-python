@@ -56,6 +56,16 @@ class ContainerAdvancedSettings(ModelNormal):
     """
 
     allowed_values = {
+        ('readiness_probe_type',): {
+            'NONE': "NONE",
+            'TCP': "TCP",
+            'HTTP': "HTTP",
+        },
+        ('liveness_probe_type',): {
+            'NONE': "NONE",
+            'TCP': "TCP",
+            'HTTP': "HTTP",
+        },
     }
 
     validations = {
@@ -83,7 +93,27 @@ class ContainerAdvancedSettings(ModelNormal):
         """
         return {
             'deployment_delay_start_time_sec': (int,),  # noqa: E501
+            'deployment_custom_domain_check_enabled': (bool,),  # noqa: E501
             'build_timeout_max_sec': (int,),  # noqa: E501
+            'network_ingress_proxy_body_size_mb': (int,),  # noqa: E501
+            'network_ingress_enable_cors': (bool,),  # noqa: E501
+            'network_ingress_cors_allow_origin': (str,),  # noqa: E501
+            'network_ingress_cors_allow_methods': (str,),  # noqa: E501
+            'network_ingress_cors_allow_headers': (str,),  # noqa: E501
+            'readiness_probe_type': (str,),  # noqa: E501
+            'readiness_probe_http_get_path': (str,),  # noqa: E501
+            'readiness_probe_initial_delay_seconds': (int,),  # noqa: E501
+            'readiness_probe_period_seconds': (int,),  # noqa: E501
+            'readiness_probe_timeout_seconds': (int,),  # noqa: E501
+            'readiness_probe_success_threshold': (int,),  # noqa: E501
+            'readiness_probe_failure_threshold': (int,),  # noqa: E501
+            'liveness_probe_type': (str,),  # noqa: E501
+            'liveness_probe_http_get_path': (str,),  # noqa: E501
+            'liveness_probe_initial_delay_seconds': (int,),  # noqa: E501
+            'liveness_probe_period_seconds': (int,),  # noqa: E501
+            'liveness_probe_timeout_seconds': (int,),  # noqa: E501
+            'liveness_probe_success_threshold': (int,),  # noqa: E501
+            'liveness_probe_failure_threshold': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -93,7 +123,27 @@ class ContainerAdvancedSettings(ModelNormal):
 
     attribute_map = {
         'deployment_delay_start_time_sec': 'deployment.delay_start_time_sec',  # noqa: E501
+        'deployment_custom_domain_check_enabled': 'deployment.custom_domain_check_enabled',  # noqa: E501
         'build_timeout_max_sec': 'build.timeout_max_sec',  # noqa: E501
+        'network_ingress_proxy_body_size_mb': 'network.ingress.proxy_body_size_mb',  # noqa: E501
+        'network_ingress_enable_cors': 'network.ingress.enable_cors',  # noqa: E501
+        'network_ingress_cors_allow_origin': 'network.ingress.cors_allow_origin',  # noqa: E501
+        'network_ingress_cors_allow_methods': 'network.ingress.cors_allow_methods',  # noqa: E501
+        'network_ingress_cors_allow_headers': 'network.ingress.cors_allow_headers',  # noqa: E501
+        'readiness_probe_type': 'readiness_probe.type',  # noqa: E501
+        'readiness_probe_http_get_path': 'readiness_probe.http_get.path',  # noqa: E501
+        'readiness_probe_initial_delay_seconds': 'readiness_probe.initial_delay_seconds',  # noqa: E501
+        'readiness_probe_period_seconds': 'readiness_probe.period_seconds',  # noqa: E501
+        'readiness_probe_timeout_seconds': 'readiness_probe.timeout_seconds',  # noqa: E501
+        'readiness_probe_success_threshold': 'readiness_probe.success_threshold',  # noqa: E501
+        'readiness_probe_failure_threshold': 'readiness_probe.failure_threshold',  # noqa: E501
+        'liveness_probe_type': 'liveness_probe.type',  # noqa: E501
+        'liveness_probe_http_get_path': 'liveness_probe.http_get.path',  # noqa: E501
+        'liveness_probe_initial_delay_seconds': 'liveness_probe.initial_delay_seconds',  # noqa: E501
+        'liveness_probe_period_seconds': 'liveness_probe.period_seconds',  # noqa: E501
+        'liveness_probe_timeout_seconds': 'liveness_probe.timeout_seconds',  # noqa: E501
+        'liveness_probe_success_threshold': 'liveness_probe.success_threshold',  # noqa: E501
+        'liveness_probe_failure_threshold': 'liveness_probe.failure_threshold',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,7 +188,27 @@ class ContainerAdvancedSettings(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             deployment_delay_start_time_sec (int): [optional]  # noqa: E501
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional]  # noqa: E501
             build_timeout_max_sec (int): [optional]  # noqa: E501
+            network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
+            network_ingress_enable_cors (bool): [optional]  # noqa: E501
+            network_ingress_cors_allow_origin (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_methods (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_headers (str): [optional]  # noqa: E501
+            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional]  # noqa: E501
+            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
+            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
+            readiness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
+            readiness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
+            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
+            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
+            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional]  # noqa: E501
+            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
+            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
+            liveness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
+            liveness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
+            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
+            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,7 +295,27 @@ class ContainerAdvancedSettings(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             deployment_delay_start_time_sec (int): [optional]  # noqa: E501
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional]  # noqa: E501
             build_timeout_max_sec (int): [optional]  # noqa: E501
+            network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
+            network_ingress_enable_cors (bool): [optional]  # noqa: E501
+            network_ingress_cors_allow_origin (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_methods (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_headers (str): [optional]  # noqa: E501
+            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional]  # noqa: E501
+            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
+            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
+            readiness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
+            readiness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
+            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
+            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
+            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional]  # noqa: E501
+            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
+            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
+            liveness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
+            liveness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
+            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
+            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

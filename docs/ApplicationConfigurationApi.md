@@ -52,7 +52,27 @@ with qovery.ApiClient(configuration) as api_client:
     application_advanced_settings_request = ApplicationAdvancedSettingsRequest([
         ApplicationAdvancedSettings(
             deployment_delay_start_time_sec=1,
+            deployment_custom_domain_check_enabled=True,
             build_timeout_max_sec=1,
+            network_ingress_proxy_body_size_mb=1,
+            network_ingress_enable_cors=True,
+            network_ingress_cors_allow_origin="network_ingress_cors_allow_origin_example",
+            network_ingress_cors_allow_methods="network_ingress_cors_allow_methods_example",
+            network_ingress_cors_allow_headers="network_ingress_cors_allow_headers_example",
+            readiness_probe_type="NONE",
+            readiness_probe_http_get_path="/",
+            readiness_probe_initial_delay_seconds=1,
+            readiness_probe_period_seconds=1,
+            readiness_probe_timeout_seconds=1,
+            readiness_probe_success_threshold=1,
+            readiness_probe_failure_threshold=1,
+            liveness_probe_type="NONE",
+            liveness_probe_http_get_path="/",
+            liveness_probe_initial_delay_seconds=1,
+            liveness_probe_period_seconds=1,
+            liveness_probe_timeout_seconds=1,
+            liveness_probe_success_threshold=1,
+            liveness_probe_failure_threshold=1,
         ),
     ]) # ApplicationAdvancedSettingsRequest |  (optional)
 
