@@ -187,28 +187,28 @@ class ApplicationAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_delay_start_time_sec (int): [optional]  # noqa: E501
-            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional]  # noqa: E501
-            build_timeout_max_sec (int): [optional]  # noqa: E501
-            network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
-            network_ingress_enable_cors (bool): [optional]  # noqa: E501
-            network_ingress_cors_allow_origin (str): [optional]  # noqa: E501
-            network_ingress_cors_allow_methods (str): [optional]  # noqa: E501
-            network_ingress_cors_allow_headers (str): [optional]  # noqa: E501
-            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional]  # noqa: E501
+            deployment_delay_start_time_sec (int): please use `readiness_probe.initial_delay_seconds` and `liveness_probe.initial_delay_seconds` instead. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
+            build_timeout_max_sec (int): [optional] if omitted the server will use the default value of 1800  # noqa: E501
+            network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
+            network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
+            network_ingress_cors_allow_methods (str): [optional] if omitted the server will use the default value of "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # noqa: E501
+            network_ingress_cors_allow_headers (str): [optional] if omitted the server will use the default value of "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"  # noqa: E501
+            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
-            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional]  # noqa: E501
+            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
+            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
+            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
+            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
+            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -294,28 +294,28 @@ class ApplicationAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_delay_start_time_sec (int): [optional]  # noqa: E501
-            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional]  # noqa: E501
-            build_timeout_max_sec (int): [optional]  # noqa: E501
-            network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
-            network_ingress_enable_cors (bool): [optional]  # noqa: E501
-            network_ingress_cors_allow_origin (str): [optional]  # noqa: E501
-            network_ingress_cors_allow_methods (str): [optional]  # noqa: E501
-            network_ingress_cors_allow_headers (str): [optional]  # noqa: E501
-            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional]  # noqa: E501
+            deployment_delay_start_time_sec (int): please use `readiness_probe.initial_delay_seconds` and `liveness_probe.initial_delay_seconds` instead. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
+            build_timeout_max_sec (int): [optional] if omitted the server will use the default value of 1800  # noqa: E501
+            network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
+            network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
+            network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
+            network_ingress_cors_allow_methods (str): [optional] if omitted the server will use the default value of "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # noqa: E501
+            network_ingress_cors_allow_headers (str): [optional] if omitted the server will use the default value of "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"  # noqa: E501
+            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
-            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional]  # noqa: E501
+            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
+            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional]  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional]  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional]  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional]  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional]  # noqa: E501
+            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
+            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
+            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
+            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
+            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
