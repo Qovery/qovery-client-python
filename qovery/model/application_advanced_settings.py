@@ -114,6 +114,7 @@ class ApplicationAdvancedSettings(ModelNormal):
             'liveness_probe_timeout_seconds': (int,),  # noqa: E501
             'liveness_probe_success_threshold': (int,),  # noqa: E501
             'liveness_probe_failure_threshold': (int,),  # noqa: E501
+            'hpa_cpu_average_utilization_percent': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -144,6 +145,7 @@ class ApplicationAdvancedSettings(ModelNormal):
         'liveness_probe_timeout_seconds': 'liveness_probe.timeout_seconds',  # noqa: E501
         'liveness_probe_success_threshold': 'liveness_probe.success_threshold',  # noqa: E501
         'liveness_probe_failure_threshold': 'liveness_probe.failure_threshold',  # noqa: E501
+        'hpa_cpu_average_utilization_percent': 'hpa.cpu.average_utilization_percent',  # noqa: E501
     }
 
     read_only_vars = {
@@ -209,6 +211,7 @@ class ApplicationAdvancedSettings(ModelNormal):
             liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
             liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
             liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -316,6 +319,7 @@ class ApplicationAdvancedSettings(ModelNormal):
             liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
             liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
             liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
