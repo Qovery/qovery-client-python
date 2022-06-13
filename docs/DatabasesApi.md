@@ -56,7 +56,7 @@ with qovery.ApiClient(configuration) as api_client:
         accessibility=DatabaseAccessibilityEnum("PRIVATE"),
         cpu=1250,
         memory=1024,
-        storage=10240,
+        storage=10,
     ) # DatabaseRequest |  (optional)
 
     # example passing only required values which don't have defaults set

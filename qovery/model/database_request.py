@@ -168,7 +168,7 @@ class DatabaseRequest(ModelNormal):
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
-            storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501
+            storage (int): unit is GB. [optional] if omitted the server will use the default value of 10  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -267,7 +267,7 @@ class DatabaseRequest(ModelNormal):
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
-            storage (int): unit is MB. [optional] if omitted the server will use the default value of 10240  # noqa: E501
+            storage (int): unit is GB. [optional] if omitted the server will use the default value of 10  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

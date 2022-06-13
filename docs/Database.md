@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **accessibility** | [**DatabaseAccessibilityEnum**](DatabaseAccessibilityEnum.md) |  | [optional] 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | [optional]  if omitted the server will use the default value of 250
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | [optional]  if omitted the server will use the default value of 256
-**storage** | **int** | unit is MB | [optional]  if omitted the server will use the default value of 10240
+**storage** | **int** | unit is GB | [optional]  if omitted the server will use the default value of 10
 **environment** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 
 **host** | **str** |  | [optional] 
 **port** | **int** |  | [optional] 
