@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.container_registry_kind import ContainerRegistryKind
-    globals()['ContainerRegistryKind'] = ContainerRegistryKind
+    from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
+    globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
 
 
 class ContainerRegistryResponse(ModelNormal):
@@ -89,7 +89,7 @@ class ContainerRegistryResponse(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'kind': (ContainerRegistryKind,),  # noqa: E501
+            'kind': (ContainerRegistryKindEnum,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
             'config': (str,),  # noqa: E501
@@ -150,7 +150,7 @@ class ContainerRegistryResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            kind (ContainerRegistryKind): [optional]  # noqa: E501
+            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the container registry. [optional]  # noqa: E501
             config (str): authentification configuration. [optional]  # noqa: E501
@@ -240,7 +240,7 @@ class ContainerRegistryResponse(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
-            kind (ContainerRegistryKind): [optional]  # noqa: E501
+            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the container registry. [optional]  # noqa: E501
             config (str): authentification configuration. [optional]  # noqa: E501

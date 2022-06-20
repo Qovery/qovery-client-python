@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
-globals()['ApplicationAdvancedSettings'] = ApplicationAdvancedSettings
-from qovery.model.application_advanced_settings_request import ApplicationAdvancedSettingsRequest
+from qovery.model.environment_mode_enum import EnvironmentModeEnum
+globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
+from qovery.model.organization_webhook_create_request import OrganizationWebhookCreateRequest
 
 
-class TestApplicationAdvancedSettingsRequest(unittest.TestCase):
-    """ApplicationAdvancedSettingsRequest unit test stubs"""
+class TestOrganizationWebhookCreateRequest(unittest.TestCase):
+    """OrganizationWebhookCreateRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestApplicationAdvancedSettingsRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationAdvancedSettingsRequest(self):
-        """Test ApplicationAdvancedSettingsRequest"""
+    def testOrganizationWebhookCreateRequest(self):
+        """Test OrganizationWebhookCreateRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationAdvancedSettingsRequest()  # noqa: E501
+        # model = OrganizationWebhookCreateRequest()  # noqa: E501
         pass
 
 

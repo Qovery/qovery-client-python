@@ -54,7 +54,7 @@ with qovery.ApiClient(configuration) as api_client:
     project_deployment_rule_request = ProjectDeploymentRuleRequest(
         name="project-rule",
         description="description project rule",
-        mode=EnvironmentModeEnum("DEVELOPMENT"),
+        mode=EnvironmentModeEnum("PRODUCTION"),
         cluster_id="cluster_id_example",
         auto_deploy=False,
         auto_stop=False,
@@ -243,7 +243,7 @@ with qovery.ApiClient(configuration) as api_client:
     project_deployment_rule_request = ProjectDeploymentRuleRequest(
         name="project-rule",
         description="description project rule",
-        mode=EnvironmentModeEnum("DEVELOPMENT"),
+        mode=EnvironmentModeEnum("PRODUCTION"),
         cluster_id="cluster_id_example",
         auto_deploy=False,
         auto_stop=False,

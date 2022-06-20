@@ -157,8 +157,8 @@ class StorageDisk(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             created_at (datetime): [optional]  # noqa: E501
             storage_id (str): [optional]  # noqa: E501
-            requested_in_gb (int): [optional]  # noqa: E501
-            consumed_in_gb (float): [optional]  # noqa: E501
+            requested_in_gb (int): Unit is in GB.. [optional]  # noqa: E501
+            consumed_in_gb (float): Unit is in GB.. [optional]  # noqa: E501
             consumed_in_percent (float): [optional]  # noqa: E501
             warning_threshold_in_percent (float): [optional]  # noqa: E501
             alert_threshold_in_percent (float): [optional]  # noqa: E501
@@ -250,8 +250,8 @@ class StorageDisk(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             created_at (datetime): [optional]  # noqa: E501
             storage_id (str): [optional]  # noqa: E501
-            requested_in_gb (int): [optional]  # noqa: E501
-            consumed_in_gb (float): [optional]  # noqa: E501
+            requested_in_gb (int): Unit is in GB.. [optional]  # noqa: E501
+            consumed_in_gb (float): Unit is in GB.. [optional]  # noqa: E501
             consumed_in_percent (float): [optional]  # noqa: E501
             warning_threshold_in_percent (float): [optional]  # noqa: E501
             alert_threshold_in_percent (float): [optional]  # noqa: E501

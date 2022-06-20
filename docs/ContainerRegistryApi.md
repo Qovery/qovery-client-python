@@ -47,7 +47,7 @@ with qovery.ApiClient(configuration) as api_client:
     container_registry_id = "containerRegistryId_example" # str | Container Registry ID
     container_registry_request = ContainerRegistryRequest(
         name="name_example",
-        kind=ContainerRegistryKind("ECR"),
+        kind=ContainerRegistryKindEnum("ECR"),
         description="description_example",
         url="url_example",
         config={},

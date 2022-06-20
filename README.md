@@ -377,6 +377,11 @@ Class | Method | HTTP request | Description
 *OrganizationMainCallsApi* | [**edit_organization**](docs/OrganizationMainCallsApi.md#edit_organization) | **PUT** /organization/{organizationId} | Edit an organization
 *OrganizationMainCallsApi* | [**get_organization**](docs/OrganizationMainCallsApi.md#get_organization) | **GET** /organization/{organizationId} | Get organization by ID
 *OrganizationMainCallsApi* | [**list_organization**](docs/OrganizationMainCallsApi.md#list_organization) | **GET** /organization | List user organizations
+*OrganizationWebhookApi* | [**create_organization_webhook**](docs/OrganizationWebhookApi.md#create_organization_webhook) | **POST** /organization/{organizationId}/webhook | Create an organization webhook
+*OrganizationWebhookApi* | [**delete_organization_webhook**](docs/OrganizationWebhookApi.md#delete_organization_webhook) | **DELETE** /organization/{organizationId}/webhook/{webhookId} | Delete organization webhook
+*OrganizationWebhookApi* | [**edit_organization_webhook**](docs/OrganizationWebhookApi.md#edit_organization_webhook) | **PUT** /organization/{organizationId}/webhook/{webhookId} | Edit an organization webhook
+*OrganizationWebhookApi* | [**get_organization_webhook**](docs/OrganizationWebhookApi.md#get_organization_webhook) | **GET** /organization/{organizationId}/webhook/{webhookId} | Get an Organization webhook
+*OrganizationWebhookApi* | [**list_organization_web_hooks**](docs/OrganizationWebhookApi.md#list_organization_web_hooks) | **GET** /organization/{organizationId}/webhook | List organization webhooks
 *ProjectDeploymentRuleApi* | [**create_deployment_rule**](docs/ProjectDeploymentRuleApi.md#create_deployment_rule) | **POST** /project/{projectId}/deploymentRule | Create a deployment rule
 *ProjectDeploymentRuleApi* | [**delete_project_deployment_rule**](docs/ProjectDeploymentRuleApi.md#delete_project_deployment_rule) | **DELETE** /project/{projectId}/deploymentRule/{deploymentRuleId} | Delete a project deployment rule
 *ProjectDeploymentRuleApi* | [**edit_project_deployemtn_rule**](docs/ProjectDeploymentRuleApi.md#edit_project_deployemtn_rule) | **PUT** /project/{projectId}/deploymentRule/{deploymentRuleId} | Edit a project deployment rule
@@ -414,8 +419,6 @@ Class | Method | HTTP request | Description
  - [AliasedSecret](docs/AliasedSecret.md)
  - [Application](docs/Application.md)
  - [ApplicationAdvancedSettings](docs/ApplicationAdvancedSettings.md)
- - [ApplicationAdvancedSettingsRequest](docs/ApplicationAdvancedSettingsRequest.md)
- - [ApplicationAdvancedSettingsResponse](docs/ApplicationAdvancedSettingsResponse.md)
  - [ApplicationAllOf](docs/ApplicationAllOf.md)
  - [ApplicationCurrentScale](docs/ApplicationCurrentScale.md)
  - [ApplicationDependencyRequest](docs/ApplicationDependencyRequest.md)
@@ -465,6 +468,7 @@ Class | Method | HTTP request | Description
  - [Cluster](docs/Cluster.md)
  - [ClusterAllOf](docs/ClusterAllOf.md)
  - [ClusterBase](docs/ClusterBase.md)
+ - [ClusterBaseSshKey](docs/ClusterBaseSshKey.md)
  - [ClusterCloudProviderInfo](docs/ClusterCloudProviderInfo.md)
  - [ClusterCloudProviderInfoCredentials](docs/ClusterCloudProviderInfoCredentials.md)
  - [ClusterCloudProviderInfoRequest](docs/ClusterCloudProviderInfoRequest.md)
@@ -509,7 +513,7 @@ Class | Method | HTTP request | Description
  - [ContainerEditRequestAllOf](docs/ContainerEditRequestAllOf.md)
  - [ContainerNetwork](docs/ContainerNetwork.md)
  - [ContainerNetworkRequest](docs/ContainerNetworkRequest.md)
- - [ContainerRegistryKind](docs/ContainerRegistryKind.md)
+ - [ContainerRegistryKindEnum](docs/ContainerRegistryKindEnum.md)
  - [ContainerRegistryRequest](docs/ContainerRegistryRequest.md)
  - [ContainerRegistryResponse](docs/ContainerRegistryResponse.md)
  - [ContainerRequest](docs/ContainerRequest.md)
@@ -581,7 +585,10 @@ Class | Method | HTTP request | Description
  - [EnvironmentContainersStorage](docs/EnvironmentContainersStorage.md)
  - [EnvironmentContainersStorageResponseList](docs/EnvironmentContainersStorageResponseList.md)
  - [EnvironmentDatabasesCurrentMetric](docs/EnvironmentDatabasesCurrentMetric.md)
+ - [EnvironmentDatabasesCurrentMetricCpu](docs/EnvironmentDatabasesCurrentMetricCpu.md)
+ - [EnvironmentDatabasesCurrentMetricMemory](docs/EnvironmentDatabasesCurrentMetricMemory.md)
  - [EnvironmentDatabasesCurrentMetricResponseList](docs/EnvironmentDatabasesCurrentMetricResponseList.md)
+ - [EnvironmentDatabasesCurrentMetricStorage](docs/EnvironmentDatabasesCurrentMetricStorage.md)
  - [EnvironmentDeploymentRule](docs/EnvironmentDeploymentRule.md)
  - [EnvironmentDeploymentRuleAllOf](docs/EnvironmentDeploymentRuleAllOf.md)
  - [EnvironmentDeploymentRuleEditRequest](docs/EnvironmentDeploymentRuleEditRequest.md)
@@ -626,6 +633,7 @@ Class | Method | HTTP request | Description
  - [GitRepositoryResponseList](docs/GitRepositoryResponseList.md)
  - [Healthcheck](docs/Healthcheck.md)
  - [Instance](docs/Instance.md)
+ - [InstanceMemory](docs/InstanceMemory.md)
  - [InstanceResponseList](docs/InstanceResponseList.md)
  - [InviteMember](docs/InviteMember.md)
  - [InviteMemberAllOf](docs/InviteMemberAllOf.md)
@@ -638,6 +646,7 @@ Class | Method | HTTP request | Description
  - [InvoiceResponseList](docs/InvoiceResponseList.md)
  - [InvoiceStatusEnum](docs/InvoiceStatusEnum.md)
  - [Key](docs/Key.md)
+ - [KubernetesEnum](docs/KubernetesEnum.md)
  - [Link](docs/Link.md)
  - [LinkResponseList](docs/LinkResponseList.md)
  - [ListContainerRegistry200Response](docs/ListContainerRegistry200Response.md)
@@ -686,6 +695,11 @@ Class | Method | HTTP request | Description
  - [OrganizationGithubAppConnectRequest](docs/OrganizationGithubAppConnectRequest.md)
  - [OrganizationRequest](docs/OrganizationRequest.md)
  - [OrganizationResponseList](docs/OrganizationResponseList.md)
+ - [OrganizationWebhookCreateRequest](docs/OrganizationWebhookCreateRequest.md)
+ - [OrganizationWebhookCreateResponse](docs/OrganizationWebhookCreateResponse.md)
+ - [OrganizationWebhookCreateResponseAllOf](docs/OrganizationWebhookCreateResponseAllOf.md)
+ - [OrganizationWebhookResponse](docs/OrganizationWebhookResponse.md)
+ - [OrganizationWebhookResponseList](docs/OrganizationWebhookResponseList.md)
  - [OverriddenSecret](docs/OverriddenSecret.md)
  - [PaginationData](docs/PaginationData.md)
  - [PaidUsage](docs/PaidUsage.md)

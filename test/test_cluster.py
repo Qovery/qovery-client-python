@@ -17,13 +17,17 @@ from qovery.model.base import Base
 from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cluster_all_of import ClusterAllOf
 from qovery.model.cluster_base import ClusterBase
+from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
 from qovery.model.cluster_feature import ClusterFeature
+from qovery.model.kubernetes_enum import KubernetesEnum
 from qovery.model.state_enum import StateEnum
 globals()['Base'] = Base
 globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['ClusterAllOf'] = ClusterAllOf
 globals()['ClusterBase'] = ClusterBase
+globals()['ClusterBaseSshKey'] = ClusterBaseSshKey
 globals()['ClusterFeature'] = ClusterFeature
+globals()['KubernetesEnum'] = KubernetesEnum
 globals()['StateEnum'] = StateEnum
 from qovery.model.cluster import Cluster
 

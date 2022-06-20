@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.container_registry_kind import ContainerRegistryKind
-    globals()['ContainerRegistryKind'] = ContainerRegistryKind
+    from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
+    globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
 
 
 class ContainerRegistryRequest(ModelNormal):
@@ -89,7 +89,7 @@ class ContainerRegistryRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'kind': (ContainerRegistryKind,),  # noqa: E501
+            'kind': (ContainerRegistryKindEnum,),  # noqa: E501
             'url': (str,),  # noqa: E501
             'config': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -120,7 +120,7 @@ class ContainerRegistryRequest(ModelNormal):
 
         Args:
             name (str):
-            kind (ContainerRegistryKind):
+            kind (ContainerRegistryKindEnum):
             url (str): URL of the container registry
             config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): authentification configuration
 
@@ -216,7 +216,7 @@ class ContainerRegistryRequest(ModelNormal):
 
         Args:
             name (str):
-            kind (ContainerRegistryKind):
+            kind (ContainerRegistryKindEnum):
             url (str): URL of the container registry
             config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): authentification configuration
 

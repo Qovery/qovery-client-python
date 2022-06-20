@@ -10,8 +10,6 @@ docs/AliasedSecret.md
 docs/Application.md
 docs/ApplicationActionsApi.md
 docs/ApplicationAdvancedSettings.md
-docs/ApplicationAdvancedSettingsRequest.md
-docs/ApplicationAdvancedSettingsResponse.md
 docs/ApplicationAllOf.md
 docs/ApplicationConfigurationApi.md
 docs/ApplicationCurrentScale.md
@@ -76,6 +74,7 @@ docs/CluserCredentials.md
 docs/Cluster.md
 docs/ClusterAllOf.md
 docs/ClusterBase.md
+docs/ClusterBaseSshKey.md
 docs/ClusterCloudProviderInfo.md
 docs/ClusterCloudProviderInfoCredentials.md
 docs/ClusterCloudProviderInfoRequest.md
@@ -134,7 +133,7 @@ docs/ContainerNetwork.md
 docs/ContainerNetworkRequest.md
 docs/ContainerRegistriesApi.md
 docs/ContainerRegistryApi.md
-docs/ContainerRegistryKind.md
+docs/ContainerRegistryKindEnum.md
 docs/ContainerRegistryRequest.md
 docs/ContainerRegistryResponse.md
 docs/ContainerRequest.md
@@ -218,7 +217,10 @@ docs/EnvironmentContainersCurrentScaleResponseList.md
 docs/EnvironmentContainersStorage.md
 docs/EnvironmentContainersStorageResponseList.md
 docs/EnvironmentDatabasesCurrentMetric.md
+docs/EnvironmentDatabasesCurrentMetricCpu.md
+docs/EnvironmentDatabasesCurrentMetricMemory.md
 docs/EnvironmentDatabasesCurrentMetricResponseList.md
+docs/EnvironmentDatabasesCurrentMetricStorage.md
 docs/EnvironmentDeploymentHistoryApi.md
 docs/EnvironmentDeploymentRule.md
 docs/EnvironmentDeploymentRuleAllOf.md
@@ -272,6 +274,7 @@ docs/GitRepositoryResponseList.md
 docs/GithubAppApi.md
 docs/Healthcheck.md
 docs/Instance.md
+docs/InstanceMemory.md
 docs/InstanceResponseList.md
 docs/InviteMember.md
 docs/InviteMemberAllOf.md
@@ -284,6 +287,7 @@ docs/InvoiceAllOf.md
 docs/InvoiceResponseList.md
 docs/InvoiceStatusEnum.md
 docs/Key.md
+docs/KubernetesEnum.md
 docs/Link.md
 docs/LinkResponseList.md
 docs/ListContainerRegistry200Response.md
@@ -337,6 +341,12 @@ docs/OrganizationGithubAppConnectRequest.md
 docs/OrganizationMainCallsApi.md
 docs/OrganizationRequest.md
 docs/OrganizationResponseList.md
+docs/OrganizationWebhookApi.md
+docs/OrganizationWebhookCreateRequest.md
+docs/OrganizationWebhookCreateResponse.md
+docs/OrganizationWebhookCreateResponseAllOf.md
+docs/OrganizationWebhookResponse.md
+docs/OrganizationWebhookResponseList.md
 docs/OverriddenSecret.md
 docs/PaginationData.md
 docs/PaidUsage.md
@@ -466,6 +476,7 @@ qovery/api/members_api.py
 qovery/api/organization_account_git_repositories_api.py
 qovery/api/organization_api_token_api.py
 qovery/api/organization_main_calls_api.py
+qovery/api/organization_webhook_api.py
 qovery/api/project_deployment_rule_api.py
 qovery/api/project_environment_variable_api.py
 qovery/api/project_main_calls_api.py
@@ -483,8 +494,6 @@ qovery/model/account_info_edit_request.py
 qovery/model/aliased_secret.py
 qovery/model/application.py
 qovery/model/application_advanced_settings.py
-qovery/model/application_advanced_settings_request.py
-qovery/model/application_advanced_settings_response.py
 qovery/model/application_all_of.py
 qovery/model/application_current_scale.py
 qovery/model/application_dependency_request.py
@@ -534,6 +543,7 @@ qovery/model/cluser_credentials.py
 qovery/model/cluster.py
 qovery/model/cluster_all_of.py
 qovery/model/cluster_base.py
+qovery/model/cluster_base_ssh_key.py
 qovery/model/cluster_cloud_provider_info.py
 qovery/model/cluster_cloud_provider_info_credentials.py
 qovery/model/cluster_cloud_provider_info_request.py
@@ -578,7 +588,7 @@ qovery/model/container_edit_request.py
 qovery/model/container_edit_request_all_of.py
 qovery/model/container_network.py
 qovery/model/container_network_request.py
-qovery/model/container_registry_kind.py
+qovery/model/container_registry_kind_enum.py
 qovery/model/container_registry_request.py
 qovery/model/container_registry_response.py
 qovery/model/container_request.py
@@ -650,7 +660,10 @@ qovery/model/environment_containers_current_scale_response_list.py
 qovery/model/environment_containers_storage.py
 qovery/model/environment_containers_storage_response_list.py
 qovery/model/environment_databases_current_metric.py
+qovery/model/environment_databases_current_metric_cpu.py
+qovery/model/environment_databases_current_metric_memory.py
 qovery/model/environment_databases_current_metric_response_list.py
+qovery/model/environment_databases_current_metric_storage.py
 qovery/model/environment_deployment_rule.py
 qovery/model/environment_deployment_rule_all_of.py
 qovery/model/environment_deployment_rule_edit_request.py
@@ -695,6 +708,7 @@ qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
 qovery/model/healthcheck.py
 qovery/model/instance.py
+qovery/model/instance_memory.py
 qovery/model/instance_response_list.py
 qovery/model/invite_member.py
 qovery/model/invite_member_all_of.py
@@ -707,6 +721,7 @@ qovery/model/invoice_all_of.py
 qovery/model/invoice_response_list.py
 qovery/model/invoice_status_enum.py
 qovery/model/key.py
+qovery/model/kubernetes_enum.py
 qovery/model/link.py
 qovery/model/link_response_list.py
 qovery/model/list_container_registry200_response.py
@@ -755,6 +770,11 @@ qovery/model/organization_edit_request.py
 qovery/model/organization_github_app_connect_request.py
 qovery/model/organization_request.py
 qovery/model/organization_response_list.py
+qovery/model/organization_webhook_create_request.py
+qovery/model/organization_webhook_create_response.py
+qovery/model/organization_webhook_create_response_all_of.py
+qovery/model/organization_webhook_response.py
+qovery/model/organization_webhook_response_list.py
 qovery/model/overridden_secret.py
 qovery/model/pagination_data.py
 qovery/model/paid_usage.py
@@ -832,8 +852,6 @@ test/test_aliased_secret.py
 test/test_application.py
 test/test_application_actions_api.py
 test/test_application_advanced_settings.py
-test/test_application_advanced_settings_request.py
-test/test_application_advanced_settings_response.py
 test/test_application_all_of.py
 test/test_application_configuration_api.py
 test/test_application_current_scale.py
@@ -898,6 +916,7 @@ test/test_cluser_credentials.py
 test/test_cluster.py
 test/test_cluster_all_of.py
 test/test_cluster_base.py
+test/test_cluster_base_ssh_key.py
 test/test_cluster_cloud_provider_info.py
 test/test_cluster_cloud_provider_info_credentials.py
 test/test_cluster_cloud_provider_info_request.py
@@ -956,7 +975,7 @@ test/test_container_network.py
 test/test_container_network_request.py
 test/test_container_registries_api.py
 test/test_container_registry_api.py
-test/test_container_registry_kind.py
+test/test_container_registry_kind_enum.py
 test/test_container_registry_request.py
 test/test_container_registry_response.py
 test/test_container_request.py
@@ -1040,7 +1059,10 @@ test/test_environment_containers_current_scale_response_list.py
 test/test_environment_containers_storage.py
 test/test_environment_containers_storage_response_list.py
 test/test_environment_databases_current_metric.py
+test/test_environment_databases_current_metric_cpu.py
+test/test_environment_databases_current_metric_memory.py
 test/test_environment_databases_current_metric_response_list.py
+test/test_environment_databases_current_metric_storage.py
 test/test_environment_deployment_history_api.py
 test/test_environment_deployment_rule.py
 test/test_environment_deployment_rule_all_of.py
@@ -1094,6 +1116,7 @@ test/test_git_repository_response_list.py
 test/test_github_app_api.py
 test/test_healthcheck.py
 test/test_instance.py
+test/test_instance_memory.py
 test/test_instance_response_list.py
 test/test_invite_member.py
 test/test_invite_member_all_of.py
@@ -1106,6 +1129,7 @@ test/test_invoice_all_of.py
 test/test_invoice_response_list.py
 test/test_invoice_status_enum.py
 test/test_key.py
+test/test_kubernetes_enum.py
 test/test_link.py
 test/test_link_response_list.py
 test/test_list_container_registry200_response.py
@@ -1159,6 +1183,12 @@ test/test_organization_github_app_connect_request.py
 test/test_organization_main_calls_api.py
 test/test_organization_request.py
 test/test_organization_response_list.py
+test/test_organization_webhook_api.py
+test/test_organization_webhook_create_request.py
+test/test_organization_webhook_create_response.py
+test/test_organization_webhook_create_response_all_of.py
+test/test_organization_webhook_response.py
+test/test_organization_webhook_response_list.py
 test/test_overridden_secret.py
 test/test_pagination_data.py
 test/test_paid_usage.py

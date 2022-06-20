@@ -50,7 +50,7 @@ with qovery.ApiClient(configuration) as api_client:
     environment_request = EnvironmentRequest(
         name="name_example",
         cluster="cluster_example",
-        mode=EnvironmentModeEnum("DEVELOPMENT"),
+        mode=EnvironmentModeEnum("PRODUCTION"),
     ) # EnvironmentRequest |  (optional)
 
     # example passing only required values which don't have defaults set

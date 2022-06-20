@@ -71,6 +71,7 @@ from qovery.api.members_api import MembersApi
 from qovery.api.organization_account_git_repositories_api import OrganizationAccountGitRepositoriesApi
 from qovery.api.organization_api_token_api import OrganizationApiTokenApi
 from qovery.api.organization_main_calls_api import OrganizationMainCallsApi
+from qovery.api.organization_webhook_api import OrganizationWebhookApi
 from qovery.api.project_deployment_rule_api import ProjectDeploymentRuleApi
 from qovery.api.project_environment_variable_api import ProjectEnvironmentVariableApi
 from qovery.api.project_main_calls_api import ProjectMainCallsApi

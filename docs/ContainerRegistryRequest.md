@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**kind** | [**ContainerRegistryKind**](ContainerRegistryKind.md) |  | 
+**kind** | [**ContainerRegistryKindEnum**](ContainerRegistryKindEnum.md) |  | 
 **url** | **str** | URL of the container registry | 
 **config** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | authentification configuration | 
 **description** | **str** |  | [optional] 

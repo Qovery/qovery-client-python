@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **edit_advanced_settings**
-> ApplicationAdvancedSettingsResponse edit_advanced_settings(application_id)
+> ApplicationAdvancedSettings edit_advanced_settings(application_id)
 
 Edit advanced settings
 
@@ -25,8 +25,7 @@ Edit advanced settings by returning table of advanced settings.
 import time
 import qovery
 from qovery.api import application_configuration_api
-from qovery.model.application_advanced_settings_request import ApplicationAdvancedSettingsRequest
-from qovery.model.application_advanced_settings_response import ApplicationAdvancedSettingsResponse
+from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -49,33 +48,31 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = application_configuration_api.ApplicationConfigurationApi(api_client)
     application_id = "applicationId_example" # str | Application ID
-    application_advanced_settings_request = ApplicationAdvancedSettingsRequest([
-        ApplicationAdvancedSettings(
-            deployment_delay_start_time_sec=30,
-            deployment_custom_domain_check_enabled=True,
-            build_timeout_max_sec=1800,
-            network_ingress_proxy_body_size_mb=100,
-            network_ingress_enable_cors=False,
-            network_ingress_cors_allow_origin="*",
-            network_ingress_cors_allow_methods="GET, PUT, POST, DELETE, PATCH, OPTIONS",
-            network_ingress_cors_allow_headers="DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
-            readiness_probe_type="TCP",
-            readiness_probe_http_get_path="/",
-            readiness_probe_initial_delay_seconds=30,
-            readiness_probe_period_seconds=10,
-            readiness_probe_timeout_seconds=1,
-            readiness_probe_success_threshold=1,
-            readiness_probe_failure_threshold=3,
-            liveness_probe_type="TCP",
-            liveness_probe_http_get_path="/",
-            liveness_probe_initial_delay_seconds=30,
-            liveness_probe_period_seconds=10,
-            liveness_probe_timeout_seconds=5,
-            liveness_probe_success_threshold=1,
-            liveness_probe_failure_threshold=3,
-            hpa_cpu_average_utilization_percent=60,
-        ),
-    ]) # ApplicationAdvancedSettingsRequest |  (optional)
+    application_advanced_settings = ApplicationAdvancedSettings(
+        deployment_delay_start_time_sec=30,
+        deployment_custom_domain_check_enabled=True,
+        build_timeout_max_sec=1800,
+        network_ingress_proxy_body_size_mb=100,
+        network_ingress_enable_cors=False,
+        network_ingress_cors_allow_origin="*",
+        network_ingress_cors_allow_methods="GET, PUT, POST, DELETE, PATCH, OPTIONS",
+        network_ingress_cors_allow_headers="DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+        readiness_probe_type="TCP",
+        readiness_probe_http_get_path="/",
+        readiness_probe_initial_delay_seconds=30,
+        readiness_probe_period_seconds=10,
+        readiness_probe_timeout_seconds=1,
+        readiness_probe_success_threshold=1,
+        readiness_probe_failure_threshold=3,
+        liveness_probe_type="TCP",
+        liveness_probe_http_get_path="/",
+        liveness_probe_initial_delay_seconds=30,
+        liveness_probe_period_seconds=10,
+        liveness_probe_timeout_seconds=5,
+        liveness_probe_success_threshold=1,
+        liveness_probe_failure_threshold=3,
+        hpa_cpu_average_utilization_percent=60,
+    ) # ApplicationAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -89,7 +86,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit advanced settings
-        api_response = api_instance.edit_advanced_settings(application_id, application_advanced_settings_request=application_advanced_settings_request)
+        api_response = api_instance.edit_advanced_settings(application_id, application_advanced_settings=application_advanced_settings)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ApplicationConfigurationApi->edit_advanced_settings: %s\n" % e)
@@ -101,11 +98,11 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **str**| Application ID |
- **application_advanced_settings_request** | [**ApplicationAdvancedSettingsRequest**](ApplicationAdvancedSettingsRequest.md)|  | [optional]
+ **application_advanced_settings** | [**ApplicationAdvancedSettings**](ApplicationAdvancedSettings.md)|  | [optional]
 
 ### Return type
 
-[**ApplicationAdvancedSettingsResponse**](ApplicationAdvancedSettingsResponse.md)
+[**ApplicationAdvancedSettings**](ApplicationAdvancedSettings.md)
 
 ### Authorization
 
@@ -225,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_advanced_settings**
-> ApplicationAdvancedSettingsResponse get_advanced_settings(application_id)
+> ApplicationAdvancedSettings get_advanced_settings(application_id)
 
 Get advanced settings
 
@@ -239,7 +236,7 @@ Get list and values of the advanced settings of the application.
 import time
 import qovery
 from qovery.api import application_configuration_api
-from qovery.model.application_advanced_settings_response import ApplicationAdvancedSettingsResponse
+from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -281,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationAdvancedSettingsResponse**](ApplicationAdvancedSettingsResponse.md)
+[**ApplicationAdvancedSettings**](ApplicationAdvancedSettings.md)
 
 ### Authorization
 

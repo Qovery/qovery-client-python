@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.database_current_metric_cpu import DatabaseCurrentMetricCpu
-from qovery.model.database_current_metric_memory import DatabaseCurrentMetricMemory
-globals()['DatabaseCurrentMetricCpu'] = DatabaseCurrentMetricCpu
-globals()['DatabaseCurrentMetricMemory'] = DatabaseCurrentMetricMemory
+from qovery.model.environment_databases_current_metric_cpu import EnvironmentDatabasesCurrentMetricCpu
+from qovery.model.instance_memory import InstanceMemory
+globals()['EnvironmentDatabasesCurrentMetricCpu'] = EnvironmentDatabasesCurrentMetricCpu
+globals()['InstanceMemory'] = InstanceMemory
 from qovery.model.instance import Instance
 
 

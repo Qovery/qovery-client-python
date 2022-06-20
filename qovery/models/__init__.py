@@ -14,8 +14,6 @@ from qovery.model.account_info_edit_request import AccountInfoEditRequest
 from qovery.model.aliased_secret import AliasedSecret
 from qovery.model.application import Application
 from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
-from qovery.model.application_advanced_settings_request import ApplicationAdvancedSettingsRequest
-from qovery.model.application_advanced_settings_response import ApplicationAdvancedSettingsResponse
 from qovery.model.application_all_of import ApplicationAllOf
 from qovery.model.application_current_scale import ApplicationCurrentScale
 from qovery.model.application_dependency_request import ApplicationDependencyRequest
@@ -65,6 +63,7 @@ from qovery.model.cluser_credentials import CluserCredentials
 from qovery.model.cluster import Cluster
 from qovery.model.cluster_all_of import ClusterAllOf
 from qovery.model.cluster_base import ClusterBase
+from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
 from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
@@ -109,7 +108,7 @@ from qovery.model.container_edit_request import ContainerEditRequest
 from qovery.model.container_edit_request_all_of import ContainerEditRequestAllOf
 from qovery.model.container_network import ContainerNetwork
 from qovery.model.container_network_request import ContainerNetworkRequest
-from qovery.model.container_registry_kind import ContainerRegistryKind
+from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
 from qovery.model.container_registry_request import ContainerRegistryRequest
 from qovery.model.container_registry_response import ContainerRegistryResponse
 from qovery.model.container_request import ContainerRequest
@@ -181,7 +180,10 @@ from qovery.model.environment_containers_current_scale_response_list import Envi
 from qovery.model.environment_containers_storage import EnvironmentContainersStorage
 from qovery.model.environment_containers_storage_response_list import EnvironmentContainersStorageResponseList
 from qovery.model.environment_databases_current_metric import EnvironmentDatabasesCurrentMetric
+from qovery.model.environment_databases_current_metric_cpu import EnvironmentDatabasesCurrentMetricCpu
+from qovery.model.environment_databases_current_metric_memory import EnvironmentDatabasesCurrentMetricMemory
 from qovery.model.environment_databases_current_metric_response_list import EnvironmentDatabasesCurrentMetricResponseList
+from qovery.model.environment_databases_current_metric_storage import EnvironmentDatabasesCurrentMetricStorage
 from qovery.model.environment_deployment_rule import EnvironmentDeploymentRule
 from qovery.model.environment_deployment_rule_all_of import EnvironmentDeploymentRuleAllOf
 from qovery.model.environment_deployment_rule_edit_request import EnvironmentDeploymentRuleEditRequest
@@ -226,6 +228,7 @@ from qovery.model.git_repository_branch_response_list import GitRepositoryBranch
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.instance import Instance
+from qovery.model.instance_memory import InstanceMemory
 from qovery.model.instance_response_list import InstanceResponseList
 from qovery.model.invite_member import InviteMember
 from qovery.model.invite_member_all_of import InviteMemberAllOf
@@ -238,6 +241,7 @@ from qovery.model.invoice_all_of import InvoiceAllOf
 from qovery.model.invoice_response_list import InvoiceResponseList
 from qovery.model.invoice_status_enum import InvoiceStatusEnum
 from qovery.model.key import Key
+from qovery.model.kubernetes_enum import KubernetesEnum
 from qovery.model.link import Link
 from qovery.model.link_response_list import LinkResponseList
 from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
@@ -286,6 +290,11 @@ from qovery.model.organization_edit_request import OrganizationEditRequest
 from qovery.model.organization_github_app_connect_request import OrganizationGithubAppConnectRequest
 from qovery.model.organization_request import OrganizationRequest
 from qovery.model.organization_response_list import OrganizationResponseList
+from qovery.model.organization_webhook_create_request import OrganizationWebhookCreateRequest
+from qovery.model.organization_webhook_create_response import OrganizationWebhookCreateResponse
+from qovery.model.organization_webhook_create_response_all_of import OrganizationWebhookCreateResponseAllOf
+from qovery.model.organization_webhook_response import OrganizationWebhookResponse
+from qovery.model.organization_webhook_response_list import OrganizationWebhookResponseList
 from qovery.model.overridden_secret import OverriddenSecret
 from qovery.model.pagination_data import PaginationData
 from qovery.model.paid_usage import PaidUsage

@@ -105,6 +105,7 @@ class GithubAppApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'force',
                 ],
                 'required': [
                     'organization_id',
@@ -124,12 +125,16 @@ class GithubAppApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'force':
+                        (bool,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'force': 'force',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'force': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -241,6 +246,7 @@ class GithubAppApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
+            force (bool): Indicates if the github app should be disconnected despite github applications linked to organization. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

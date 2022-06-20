@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.container_registry_kind import ContainerRegistryKind
-    globals()['ContainerRegistryKind'] = ContainerRegistryKind
+    from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
+    globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
 
 
 class AvailableContainerRegistryResponse(ModelNormal):
@@ -88,7 +88,7 @@ class AvailableContainerRegistryResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'kind': (ContainerRegistryKind,),  # noqa: E501
+            'kind': (ContainerRegistryKindEnum,),  # noqa: E501
             'required_config': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
         }
 
@@ -143,7 +143,7 @@ class AvailableContainerRegistryResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            kind (ContainerRegistryKind): [optional]  # noqa: E501
+            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 
@@ -230,7 +230,7 @@ class AvailableContainerRegistryResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            kind (ContainerRegistryKind): [optional]  # noqa: E501
+            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
         """
 

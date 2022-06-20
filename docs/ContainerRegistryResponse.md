@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
-**kind** | [**ContainerRegistryKind**](ContainerRegistryKind.md) |  | [optional] 
+**kind** | [**ContainerRegistryKindEnum**](ContainerRegistryKindEnum.md) |  | [optional] 
 **description** | **str** |  | [optional] 
 **url** | **str** | URL of the container registry | [optional] 
 **config** | **str** | authentification configuration | [optional] 

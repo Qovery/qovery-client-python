@@ -14,7 +14,11 @@ import unittest
 
 import qovery
 from qovery.model.cloud_provider_enum import CloudProviderEnum
+from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
+from qovery.model.kubernetes_enum import KubernetesEnum
 globals()['CloudProviderEnum'] = CloudProviderEnum
+globals()['ClusterBaseSshKey'] = ClusterBaseSshKey
+globals()['KubernetesEnum'] = KubernetesEnum
 from qovery.model.cluster_base import ClusterBase
 
 

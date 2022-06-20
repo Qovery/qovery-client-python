@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
-globals()['ApplicationAdvancedSettings'] = ApplicationAdvancedSettings
-from qovery.model.application_advanced_settings_response import ApplicationAdvancedSettingsResponse
+from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
 
 
-class TestApplicationAdvancedSettingsResponse(unittest.TestCase):
-    """ApplicationAdvancedSettingsResponse unit test stubs"""
+class TestClusterBaseSshKey(unittest.TestCase):
+    """ClusterBaseSshKey unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestApplicationAdvancedSettingsResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationAdvancedSettingsResponse(self):
-        """Test ApplicationAdvancedSettingsResponse"""
+    def testClusterBaseSshKey(self):
+        """Test ClusterBaseSshKey"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationAdvancedSettingsResponse()  # noqa: E501
+        # model = ClusterBaseSshKey()  # noqa: E501
         pass
 
 

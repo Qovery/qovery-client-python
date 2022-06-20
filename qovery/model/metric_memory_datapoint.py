@@ -112,8 +112,8 @@ class MetricMemoryDatapoint(ModelNormal):
 
         Args:
             created_at (datetime):
-            requested_in_mb (int):
-            consumed_in_mb (int):
+            requested_in_mb (int): unit is MB. 1024 MB = 1GB
+            consumed_in_mb (int): unit is MB. 1024 MB = 1GB
             consumed_in_percent (float):
 
         Keyword Args:
@@ -207,8 +207,8 @@ class MetricMemoryDatapoint(ModelNormal):
 
         Args:
             created_at (datetime):
-            requested_in_mb (int):
-            consumed_in_mb (int):
+            requested_in_mb (int): unit is MB. 1024 MB = 1GB
+            consumed_in_mb (int): unit is MB. 1024 MB = 1GB
             consumed_in_percent (float):
 
         Keyword Args:

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.container_registry_kind import ContainerRegistryKind
-globals()['ContainerRegistryKind'] = ContainerRegistryKind
+from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
+globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
 from qovery.model.container_registry_response import ContainerRegistryResponse
 
 

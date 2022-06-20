@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.container_registry_kind import ContainerRegistryKind
+from qovery.model.threshold_metric_status_enum import ThresholdMetricStatusEnum
+globals()['ThresholdMetricStatusEnum'] = ThresholdMetricStatusEnum
+from qovery.model.instance_memory import InstanceMemory
 
 
-class TestContainerRegistryKind(unittest.TestCase):
-    """ContainerRegistryKind unit test stubs"""
+class TestInstanceMemory(unittest.TestCase):
+    """InstanceMemory unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestContainerRegistryKind(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testContainerRegistryKind(self):
-        """Test ContainerRegistryKind"""
+    def testInstanceMemory(self):
+        """Test InstanceMemory"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ContainerRegistryKind()  # noqa: E501
+        # model = InstanceMemory()  # noqa: E501
         pass
 
 

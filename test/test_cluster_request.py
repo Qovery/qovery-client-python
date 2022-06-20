@@ -15,12 +15,16 @@ import unittest
 import qovery
 from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cluster_base import ClusterBase
+from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
 from qovery.model.cluster_feature_request import ClusterFeatureRequest
 from qovery.model.cluster_feature_request_features_inner import ClusterFeatureRequestFeaturesInner
+from qovery.model.kubernetes_enum import KubernetesEnum
 globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['ClusterBase'] = ClusterBase
+globals()['ClusterBaseSshKey'] = ClusterBaseSshKey
 globals()['ClusterFeatureRequest'] = ClusterFeatureRequest
 globals()['ClusterFeatureRequestFeaturesInner'] = ClusterFeatureRequestFeaturesInner
+globals()['KubernetesEnum'] = KubernetesEnum
 from qovery.model.cluster_request import ClusterRequest
 
 

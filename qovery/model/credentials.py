@@ -82,6 +82,8 @@ class Credentials(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'host': (str,),  # noqa: E501
+            'port': (int,),  # noqa: E501
             'login': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
         }
@@ -92,6 +94,8 @@ class Credentials(ModelNormal):
 
 
     attribute_map = {
+        'host': 'host',  # noqa: E501
+        'port': 'port',  # noqa: E501
         'login': 'login',  # noqa: E501
         'password': 'password',  # noqa: E501
     }
@@ -103,10 +107,12 @@ class Credentials(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, login, password, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, host, port, login, password, *args, **kwargs):  # noqa: E501
         """Credentials - a model defined in OpenAPI
 
         Args:
+            host (str):
+            port (int):
             login (str):
             password (str):
 
@@ -172,6 +178,8 @@ class Credentials(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.host = host
+        self.port = port
         self.login = login
         self.password = password
         for var_name, var_value in kwargs.items():
@@ -194,10 +202,12 @@ class Credentials(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, login, password, *args, **kwargs):  # noqa: E501
+    def __init__(self, host, port, login, password, *args, **kwargs):  # noqa: E501
         """Credentials - a model defined in OpenAPI
 
         Args:
+            host (str):
+            port (int):
             login (str):
             password (str):
 
@@ -261,6 +271,8 @@ class Credentials(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.host = host
+        self.port = port
         self.login = login
         self.password = password
         for var_name, var_value in kwargs.items():

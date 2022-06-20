@@ -112,7 +112,7 @@ class MetricCPUDatapoint(ModelNormal):
 
         Args:
             created_at (datetime):
-            consumed_in_number (float):
+            consumed_in_number (float): unit is millicores (m). 1000m = 1 cpu
             consumed_in_percent (float):
 
         Keyword Args:
@@ -146,7 +146,7 @@ class MetricCPUDatapoint(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            requested_in_number (float): [optional]  # noqa: E501
+            requested_in_number (float): unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -206,7 +206,7 @@ class MetricCPUDatapoint(ModelNormal):
 
         Args:
             created_at (datetime):
-            consumed_in_number (float):
+            consumed_in_number (float): unit is millicores (m). 1000m = 1 cpu
             consumed_in_percent (float):
 
         Keyword Args:
@@ -240,7 +240,7 @@ class MetricCPUDatapoint(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            requested_in_number (float): [optional]  # noqa: E501
+            requested_in_number (float): unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

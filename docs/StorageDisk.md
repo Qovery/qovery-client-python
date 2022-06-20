@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_at** | **datetime** |  | [optional] 
 **storage_id** | **str** |  | [optional] 
-**requested_in_gb** | **int** |  | [optional] 
-**consumed_in_gb** | **float** |  | [optional] 
+**requested_in_gb** | **int** | Unit is in GB. | [optional] 
+**consumed_in_gb** | **float** | Unit is in GB. | [optional] 
 **consumed_in_percent** | **float** |  | [optional] 
 **warning_threshold_in_percent** | **float** |  | [optional] 
 **alert_threshold_in_percent** | **float** |  | [optional] 

@@ -145,8 +145,8 @@ class MetricStorageDatapoint(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            requested_in_gb (int): [optional]  # noqa: E501
-            consumed_in_gb (float): [optional]  # noqa: E501
+            requested_in_gb (int): Unit is in GB.. [optional]  # noqa: E501
+            consumed_in_gb (float): Unit is in GB.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,8 +238,8 @@ class MetricStorageDatapoint(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            requested_in_gb (int): [optional]  # noqa: E501
-            consumed_in_gb (float): [optional]  # noqa: E501
+            requested_in_gb (int): Unit is in GB.. [optional]  # noqa: E501
+            consumed_in_gb (float): Unit is in GB.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

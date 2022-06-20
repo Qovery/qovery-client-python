@@ -134,11 +134,20 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = github_app_api.GithubAppApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    force = True # bool | Indicates if the github app should be disconnected despite github applications linked to organization (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Disconnect a github account from an organization
         api_instance.organization_github_app_disconnect(organization_id)
+    except qovery.ApiException as e:
+        print("Exception when calling GithubAppApi->organization_github_app_disconnect: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Disconnect a github account from an organization
+        api_instance.organization_github_app_disconnect(organization_id, force=force)
     except qovery.ApiException as e:
         print("Exception when calling GithubAppApi->organization_github_app_disconnect: %s\n" % e)
 ```
@@ -149,6 +158,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **force** | **bool**| Indicates if the github app should be disconnected despite github applications linked to organization | [optional]
 
 ### Return type
 
