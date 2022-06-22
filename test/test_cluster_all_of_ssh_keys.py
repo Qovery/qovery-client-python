@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
+from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
 
 
-class TestClusterBaseSshKey(unittest.TestCase):
-    """ClusterBaseSshKey unit test stubs"""
+class TestClusterAllOfSshKeys(unittest.TestCase):
+    """ClusterAllOfSshKeys unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestClusterBaseSshKey(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterBaseSshKey(self):
-        """Test ClusterBaseSshKey"""
+    def testClusterAllOfSshKeys(self):
+        """Test ClusterAllOfSshKeys"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterBaseSshKey()  # noqa: E501
+        # model = ClusterAllOfSshKeys()  # noqa: E501
         pass
 
 

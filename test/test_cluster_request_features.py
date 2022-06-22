@@ -13,17 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cloud_provider_enum import CloudProviderEnum
-from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
-from qovery.model.kubernetes_enum import KubernetesEnum
-globals()['CloudProviderEnum'] = CloudProviderEnum
-globals()['ClusterBaseSshKey'] = ClusterBaseSshKey
-globals()['KubernetesEnum'] = KubernetesEnum
-from qovery.model.cluster_base import ClusterBase
+from qovery.model.cluster_request_features_features_inner import ClusterRequestFeaturesFeaturesInner
+globals()['ClusterRequestFeaturesFeaturesInner'] = ClusterRequestFeaturesFeaturesInner
+from qovery.model.cluster_request_features import ClusterRequestFeatures
 
 
-class TestClusterBase(unittest.TestCase):
-    """ClusterBase unit test stubs"""
+class TestClusterRequestFeatures(unittest.TestCase):
+    """ClusterRequestFeatures unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +27,10 @@ class TestClusterBase(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterBase(self):
-        """Test ClusterBase"""
+    def testClusterRequestFeatures(self):
+        """Test ClusterRequestFeatures"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterBase()  # noqa: E501
+        # model = ClusterRequestFeatures()  # noqa: E501
         pass
 
 

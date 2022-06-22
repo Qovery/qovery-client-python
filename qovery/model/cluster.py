@@ -34,17 +34,15 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_all_of import ClusterAllOf
-    from qovery.model.cluster_base import ClusterBase
-    from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
-    from qovery.model.cluster_feature import ClusterFeature
+    from qovery.model.cluster_all_of_features import ClusterAllOfFeatures
+    from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
     from qovery.model.kubernetes_enum import KubernetesEnum
     from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterAllOf'] = ClusterAllOf
-    globals()['ClusterBase'] = ClusterBase
-    globals()['ClusterBaseSshKey'] = ClusterBaseSshKey
-    globals()['ClusterFeature'] = ClusterFeature
+    globals()['ClusterAllOfFeatures'] = ClusterAllOfFeatures
+    globals()['ClusterAllOfSshKeys'] = ClusterAllOfSshKeys
     globals()['KubernetesEnum'] = KubernetesEnum
     globals()['StateEnum'] = StateEnum
 
@@ -105,25 +103,24 @@ class Cluster(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'region': (str,),  # noqa: E501
-            'kubernetes': (KubernetesEnum,),  # noqa: E501
+            'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
-            'auto_update': (bool,),  # noqa: E501
-            'cpu': (int,),  # noqa: E501
-            'memory': (int,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
-            'instance_type': (str,),  # noqa: E501
             'disk_size': (int,),  # noqa: E501
-            'ssh_key': (ClusterBaseSshKey,),  # noqa: E501
+            'instance_type': (str,),  # noqa: E501
+            'kubernetes': (KubernetesEnum,),  # noqa: E501
+            'cpu': (int,),  # noqa: E501
+            'memory': (int,),  # noqa: E501
             'estimated_cloud_provider_cost': (int,),  # noqa: E501
             'status': (StateEnum,),  # noqa: E501
-            'features': ([ClusterFeature],),  # noqa: E501
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
+            'ssh_keys': (ClusterAllOfSshKeys,),  # noqa: E501
+            'features': ([ClusterAllOfFeatures],),  # noqa: E501
         }
 
     @cached_property
@@ -135,25 +132,24 @@ class Cluster(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'cloud_provider': 'cloud_provider',  # noqa: E501
         'region': 'region',  # noqa: E501
-        'kubernetes': 'kubernetes',  # noqa: E501
+        'cloud_provider': 'cloud_provider',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'auto_update': 'auto_update',  # noqa: E501
-        'cpu': 'cpu',  # noqa: E501
-        'memory': 'memory',  # noqa: E501
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
-        'instance_type': 'instance_type',  # noqa: E501
         'disk_size': 'disk_size',  # noqa: E501
-        'ssh_key': 'ssh_key',  # noqa: E501
+        'instance_type': 'instance_type',  # noqa: E501
+        'kubernetes': 'kubernetes',  # noqa: E501
+        'cpu': 'cpu',  # noqa: E501
+        'memory': 'memory',  # noqa: E501
         'estimated_cloud_provider_cost': 'estimated_cloud_provider_cost',  # noqa: E501
         'status': 'status',  # noqa: E501
-        'features': 'features',  # noqa: E501
         'has_access': 'has_access',  # noqa: E501
         'version': 'version',  # noqa: E501
         'is_default': 'is_default',  # noqa: E501
+        'ssh_keys': 'ssh_keys',  # noqa: E501
+        'features': 'features',  # noqa: E501
     }
 
     read_only_vars = {
@@ -171,9 +167,8 @@ class Cluster(ModelComposed):
             id (str):
             created_at (datetime):
             name (str): name is case-insensitive
-            cloud_provider (CloudProviderEnum):
             region (str):
-            kubernetes (KubernetesEnum):
+            cloud_provider (CloudProviderEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -206,20 +201,20 @@ class Cluster(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            auto_update (bool): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
-            ssh_key (ClusterBaseSshKey): [optional]  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
+            kubernetes (KubernetesEnum): [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
-            features ([ClusterFeature]): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
+            ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
+            features ([ClusterAllOfFeatures]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -294,9 +289,8 @@ class Cluster(ModelComposed):
 
         Keyword Args:
             name (str): name is case-insensitive
-            cloud_provider (CloudProviderEnum):
             region (str):
-            kubernetes (KubernetesEnum):
+            cloud_provider (CloudProviderEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -329,20 +323,20 @@ class Cluster(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            auto_update (bool): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
-            ssh_key (ClusterBaseSshKey): [optional]  # noqa: E501
+            instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
+            kubernetes (KubernetesEnum): [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
-            features ([ClusterFeature]): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
+            ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
+            features ([ClusterAllOfFeatures]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -414,7 +408,6 @@ class Cluster(ModelComposed):
           'allOf': [
               Base,
               ClusterAllOf,
-              ClusterBase,
           ],
           'oneOf': [
           ],

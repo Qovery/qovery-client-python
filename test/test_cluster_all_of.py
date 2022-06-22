@@ -13,9 +13,15 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_feature import ClusterFeature
+from qovery.model.cloud_provider_enum import CloudProviderEnum
+from qovery.model.cluster_all_of_features import ClusterAllOfFeatures
+from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
+from qovery.model.kubernetes_enum import KubernetesEnum
 from qovery.model.state_enum import StateEnum
-globals()['ClusterFeature'] = ClusterFeature
+globals()['CloudProviderEnum'] = CloudProviderEnum
+globals()['ClusterAllOfFeatures'] = ClusterAllOfFeatures
+globals()['ClusterAllOfSshKeys'] = ClusterAllOfSshKeys
+globals()['KubernetesEnum'] = KubernetesEnum
 globals()['StateEnum'] = StateEnum
 from qovery.model.cluster_all_of import ClusterAllOf
 

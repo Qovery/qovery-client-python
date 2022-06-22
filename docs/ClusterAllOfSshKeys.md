@@ -1,4 +1,4 @@
-# ClusterBaseSshKey
+# ClusterAllOfSshKeys
 
 Indicate your public ssh_key to remotely connect to your EC2 instance.
 

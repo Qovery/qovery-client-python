@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_feature_request_features_inner import ClusterFeatureRequestFeaturesInner
-globals()['ClusterFeatureRequestFeaturesInner'] = ClusterFeatureRequestFeaturesInner
-from qovery.model.cluster_feature_request import ClusterFeatureRequest
+from qovery.model.cluster_all_of_features import ClusterAllOfFeatures
 
 
-class TestClusterFeatureRequest(unittest.TestCase):
-    """ClusterFeatureRequest unit test stubs"""
+class TestClusterAllOfFeatures(unittest.TestCase):
+    """ClusterAllOfFeatures unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestClusterFeatureRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterFeatureRequest(self):
-        """Test ClusterFeatureRequest"""
+    def testClusterAllOfFeatures(self):
+        """Test ClusterAllOfFeatures"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterFeatureRequest()  # noqa: E501
+        # model = ClusterAllOfFeatures()  # noqa: E501
         pass
 
 

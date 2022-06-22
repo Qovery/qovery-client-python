@@ -57,7 +57,30 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = clusters_api.ClustersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    cluster_request = ClusterRequest(None) # ClusterRequest |  (optional)
+    cluster_request = ClusterRequest(
+        name="name_example",
+        description="description_example",
+        region="region_example",
+        cloud_provider=CloudProviderEnum("AWS"),
+        min_running_nodes=1,
+        max_running_nodes=1,
+        disk_size=50,
+        instance_type="T3A_LARGE",
+        kubernetes=KubernetesEnum("K3S"),
+        ssh_keys=ClusterAllOfSshKeys(
+            results=[
+                "results_example",
+            ],
+        ),
+        features=ClusterRequestFeatures(
+            features=[
+                ClusterRequestFeaturesFeaturesInner(
+                    id="id_example",
+                    value="value_example",
+                ),
+            ],
+        ),
+    ) # ClusterRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -310,7 +333,30 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = clusters_api.ClustersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     cluster_id = "clusterId_example" # str | Cluster ID
-    cluster_request = ClusterRequest(None) # ClusterRequest |  (optional)
+    cluster_request = ClusterRequest(
+        name="name_example",
+        description="description_example",
+        region="region_example",
+        cloud_provider=CloudProviderEnum("AWS"),
+        min_running_nodes=1,
+        max_running_nodes=1,
+        disk_size=50,
+        instance_type="T3A_LARGE",
+        kubernetes=KubernetesEnum("K3S"),
+        ssh_keys=ClusterAllOfSshKeys(
+            results=[
+                "results_example",
+            ],
+        ),
+        features=ClusterRequestFeatures(
+            features=[
+                ClusterRequestFeaturesFeaturesInner(
+                    id="id_example",
+                    value="value_example",
+                ),
+            ],
+        ),
+    ) # ClusterRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:

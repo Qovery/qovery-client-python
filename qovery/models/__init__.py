@@ -62,8 +62,8 @@ from qovery.model.cloud_provider_response_list import CloudProviderResponseList
 from qovery.model.cluser_credentials import CluserCredentials
 from qovery.model.cluster import Cluster
 from qovery.model.cluster_all_of import ClusterAllOf
-from qovery.model.cluster_base import ClusterBase
-from qovery.model.cluster_base_ssh_key import ClusterBaseSshKey
+from qovery.model.cluster_all_of_features import ClusterAllOfFeatures
+from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
 from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
@@ -72,8 +72,6 @@ from qovery.model.cluster_credentials_request import ClusterCredentialsRequest
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 from qovery.model.cluster_feature import ClusterFeature
 from qovery.model.cluster_feature_accepted_values_inner import ClusterFeatureAcceptedValuesInner
-from qovery.model.cluster_feature_request import ClusterFeatureRequest
-from qovery.model.cluster_feature_request_features_inner import ClusterFeatureRequestFeaturesInner
 from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
 from qovery.model.cluster_feature_value import ClusterFeatureValue
 from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
@@ -82,6 +80,8 @@ from qovery.model.cluster_readiness_status import ClusterReadinessStatus
 from qovery.model.cluster_region import ClusterRegion
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
 from qovery.model.cluster_request import ClusterRequest
+from qovery.model.cluster_request_features import ClusterRequestFeatures
+from qovery.model.cluster_request_features_features_inner import ClusterRequestFeaturesFeaturesInner
 from qovery.model.cluster_response_list import ClusterResponseList
 from qovery.model.cluster_routing_table import ClusterRoutingTable
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest

@@ -73,8 +73,8 @@ docs/CloudProviderResponseList.md
 docs/CluserCredentials.md
 docs/Cluster.md
 docs/ClusterAllOf.md
-docs/ClusterBase.md
-docs/ClusterBaseSshKey.md
+docs/ClusterAllOfFeatures.md
+docs/ClusterAllOfSshKeys.md
 docs/ClusterCloudProviderInfo.md
 docs/ClusterCloudProviderInfoCredentials.md
 docs/ClusterCloudProviderInfoRequest.md
@@ -83,8 +83,6 @@ docs/ClusterCredentialsRequest.md
 docs/ClusterCredentialsResponseList.md
 docs/ClusterFeature.md
 docs/ClusterFeatureAcceptedValuesInner.md
-docs/ClusterFeatureRequest.md
-docs/ClusterFeatureRequestFeaturesInner.md
 docs/ClusterFeatureResponseList.md
 docs/ClusterFeatureValue.md
 docs/ClusterInstanceTypeResponseList.md
@@ -93,6 +91,8 @@ docs/ClusterReadinessStatus.md
 docs/ClusterRegion.md
 docs/ClusterRegionResponseList.md
 docs/ClusterRequest.md
+docs/ClusterRequestFeatures.md
+docs/ClusterRequestFeaturesFeaturesInner.md
 docs/ClusterResponseList.md
 docs/ClusterRoutingTable.md
 docs/ClusterRoutingTableRequest.md
@@ -542,8 +542,8 @@ qovery/model/cloud_provider_response_list.py
 qovery/model/cluser_credentials.py
 qovery/model/cluster.py
 qovery/model/cluster_all_of.py
-qovery/model/cluster_base.py
-qovery/model/cluster_base_ssh_key.py
+qovery/model/cluster_all_of_features.py
+qovery/model/cluster_all_of_ssh_keys.py
 qovery/model/cluster_cloud_provider_info.py
 qovery/model/cluster_cloud_provider_info_credentials.py
 qovery/model/cluster_cloud_provider_info_request.py
@@ -552,8 +552,6 @@ qovery/model/cluster_credentials_request.py
 qovery/model/cluster_credentials_response_list.py
 qovery/model/cluster_feature.py
 qovery/model/cluster_feature_accepted_values_inner.py
-qovery/model/cluster_feature_request.py
-qovery/model/cluster_feature_request_features_inner.py
 qovery/model/cluster_feature_response_list.py
 qovery/model/cluster_feature_value.py
 qovery/model/cluster_instance_type_response_list.py
@@ -562,6 +560,8 @@ qovery/model/cluster_readiness_status.py
 qovery/model/cluster_region.py
 qovery/model/cluster_region_response_list.py
 qovery/model/cluster_request.py
+qovery/model/cluster_request_features.py
+qovery/model/cluster_request_features_features_inner.py
 qovery/model/cluster_response_list.py
 qovery/model/cluster_routing_table.py
 qovery/model/cluster_routing_table_request.py
@@ -915,8 +915,8 @@ test/test_cloud_provider_response_list.py
 test/test_cluser_credentials.py
 test/test_cluster.py
 test/test_cluster_all_of.py
-test/test_cluster_base.py
-test/test_cluster_base_ssh_key.py
+test/test_cluster_all_of_features.py
+test/test_cluster_all_of_ssh_keys.py
 test/test_cluster_cloud_provider_info.py
 test/test_cluster_cloud_provider_info_credentials.py
 test/test_cluster_cloud_provider_info_request.py
@@ -925,8 +925,6 @@ test/test_cluster_credentials_request.py
 test/test_cluster_credentials_response_list.py
 test/test_cluster_feature.py
 test/test_cluster_feature_accepted_values_inner.py
-test/test_cluster_feature_request.py
-test/test_cluster_feature_request_features_inner.py
 test/test_cluster_feature_response_list.py
 test/test_cluster_feature_value.py
 test/test_cluster_instance_type_response_list.py
@@ -935,6 +933,8 @@ test/test_cluster_readiness_status.py
 test/test_cluster_region.py
 test/test_cluster_region_response_list.py
 test/test_cluster_request.py
+test/test_cluster_request_features.py
+test/test_cluster_request_features_features_inner.py
 test/test_cluster_response_list.py
 test/test_cluster_routing_table.py
 test/test_cluster_routing_table_request.py
