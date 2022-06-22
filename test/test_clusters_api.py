@@ -94,6 +94,13 @@ class TestClustersApi(unittest.TestCase):
         """
         pass
 
+    def test_list_cluster_logs(self):
+        """Test case for list_cluster_logs
+
+        List Cluster Logs  # noqa: E501
+        """
+        pass
+
     def test_list_organization_cluster(self):
         """Test case for list_organization_cluster
 

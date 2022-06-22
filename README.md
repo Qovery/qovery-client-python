@@ -199,6 +199,7 @@ Class | Method | HTTP request | Description
 *ClustersApi* | [**get_organization_cloud_provider_info**](docs/ClustersApi.md#get_organization_cloud_provider_info) | **GET** /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo | Get cluster cloud provider info and credentials
 *ClustersApi* | [**get_organization_cluster_status**](docs/ClustersApi.md#get_organization_cluster_status) | **GET** /organization/{organizationId}/cluster/status | List all clusters statuses
 *ClustersApi* | [**get_routing_table**](docs/ClustersApi.md#get_routing_table) | **GET** /organization/{organizationId}/cluster/{clusterId}/routingTable | Get routing table
+*ClustersApi* | [**list_cluster_logs**](docs/ClustersApi.md#list_cluster_logs) | **GET** /organization/{organizationId}/cluster/{clusterId}/logs | List Cluster Logs
 *ClustersApi* | [**list_organization_cluster**](docs/ClustersApi.md#list_organization_cluster) | **GET** /organization/{organizationId}/cluster | List organization clusters
 *ClustersApi* | [**specify_cluster_cloud_provider_info**](docs/ClustersApi.md#specify_cluster_cloud_provider_info) | **POST** /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo | Specify cluster cloud provider info and credentials
 *ClustersApi* | [**stop_cluster**](docs/ClustersApi.md#stop_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/stop | Stop cluster
@@ -481,6 +482,14 @@ Class | Method | HTTP request | Description
  - [ClusterFeatureValue](docs/ClusterFeatureValue.md)
  - [ClusterInstanceTypeResponseList](docs/ClusterInstanceTypeResponseList.md)
  - [ClusterInstanceTypeResponseListResultsInner](docs/ClusterInstanceTypeResponseListResultsInner.md)
+ - [ClusterLogs](docs/ClusterLogs.md)
+ - [ClusterLogsDetails](docs/ClusterLogsDetails.md)
+ - [ClusterLogsError](docs/ClusterLogsError.md)
+ - [ClusterLogsErrorEventDetails](docs/ClusterLogsErrorEventDetails.md)
+ - [ClusterLogsErrorEventDetailsTransmitter](docs/ClusterLogsErrorEventDetailsTransmitter.md)
+ - [ClusterLogsErrorEventDetailsUnderlyingError](docs/ClusterLogsErrorEventDetailsUnderlyingError.md)
+ - [ClusterLogsMessage](docs/ClusterLogsMessage.md)
+ - [ClusterLogsResponseList](docs/ClusterLogsResponseList.md)
  - [ClusterReadinessStatus](docs/ClusterReadinessStatus.md)
  - [ClusterRegion](docs/ClusterRegion.md)
  - [ClusterRegionResponseList](docs/ClusterRegionResponseList.md)
@@ -649,6 +658,7 @@ Class | Method | HTTP request | Description
  - [KubernetesEnum](docs/KubernetesEnum.md)
  - [Link](docs/Link.md)
  - [LinkResponseList](docs/LinkResponseList.md)
+ - [ListClusterLogs200Response](docs/ListClusterLogs200Response.md)
  - [ListContainerRegistry200Response](docs/ListContainerRegistry200Response.md)
  - [Log](docs/Log.md)
  - [LogPaginatedResponseList](docs/LogPaginatedResponseList.md)

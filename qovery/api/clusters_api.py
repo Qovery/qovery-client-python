@@ -32,6 +32,7 @@ from qovery.model.cluster_routing_table import ClusterRoutingTable
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest
 from qovery.model.cluster_status import ClusterStatus
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList
+from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
 
 
 class ClustersApi(object):
@@ -570,6 +571,63 @@ class ClustersApi(object):
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/routingTable',
                 'operation_id': 'get_routing_table',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'cluster_id',
+                ],
+                'required': [
+                    'organization_id',
+                    'cluster_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'cluster_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                    'cluster_id': 'clusterId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'cluster_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_cluster_logs_endpoint = _Endpoint(
+            settings={
+                'response_type': (ListClusterLogs200Response,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/logs',
+                'operation_id': 'list_cluster_logs',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1706,6 +1764,93 @@ class ClustersApi(object):
         kwargs['cluster_id'] = \
             cluster_id
         return self.get_routing_table_endpoint.call_with_http_info(**kwargs)
+
+    def list_cluster_logs(
+        self,
+        organization_id,
+        cluster_id,
+        **kwargs
+    ):
+        """List Cluster Logs  # noqa: E501
+
+        List Cluster Logs  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_cluster_logs(organization_id, cluster_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+            cluster_id (str): Cluster ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ListClusterLogs200Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        kwargs['cluster_id'] = \
+            cluster_id
+        return self.list_cluster_logs_endpoint.call_with_http_info(**kwargs)
 
     def list_organization_cluster(
         self,

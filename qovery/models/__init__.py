@@ -76,6 +76,14 @@ from qovery.model.cluster_feature_response_list import ClusterFeatureResponseLis
 from qovery.model.cluster_feature_value import ClusterFeatureValue
 from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
 from qovery.model.cluster_instance_type_response_list_results_inner import ClusterInstanceTypeResponseListResultsInner
+from qovery.model.cluster_logs import ClusterLogs
+from qovery.model.cluster_logs_details import ClusterLogsDetails
+from qovery.model.cluster_logs_error import ClusterLogsError
+from qovery.model.cluster_logs_error_event_details import ClusterLogsErrorEventDetails
+from qovery.model.cluster_logs_error_event_details_transmitter import ClusterLogsErrorEventDetailsTransmitter
+from qovery.model.cluster_logs_error_event_details_underlying_error import ClusterLogsErrorEventDetailsUnderlyingError
+from qovery.model.cluster_logs_message import ClusterLogsMessage
+from qovery.model.cluster_logs_response_list import ClusterLogsResponseList
 from qovery.model.cluster_readiness_status import ClusterReadinessStatus
 from qovery.model.cluster_region import ClusterRegion
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
@@ -244,6 +252,7 @@ from qovery.model.key import Key
 from qovery.model.kubernetes_enum import KubernetesEnum
 from qovery.model.link import Link
 from qovery.model.link_response_list import LinkResponseList
+from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
 from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
 from qovery.model.log import Log
 from qovery.model.log_paginated_response_list import LogPaginatedResponseList
