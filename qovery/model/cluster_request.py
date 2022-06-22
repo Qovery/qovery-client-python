@@ -103,6 +103,7 @@ class ClusterRequest(ModelNormal):
             'disk_size': (int,),  # noqa: E501
             'instance_type': (str,),  # noqa: E501
             'kubernetes': (KubernetesEnum,),  # noqa: E501
+            'production': (bool,),  # noqa: E501
             'ssh_keys': (ClusterAllOfSshKeys,),  # noqa: E501
             'features': (ClusterRequestFeatures,),  # noqa: E501
         }
@@ -122,6 +123,7 @@ class ClusterRequest(ModelNormal):
         'disk_size': 'disk_size',  # noqa: E501
         'instance_type': 'instance_type',  # noqa: E501
         'kubernetes': 'kubernetes',  # noqa: E501
+        'production': 'production',  # noqa: E501
         'ssh_keys': 'ssh_keys',  # noqa: E501
         'features': 'features',  # noqa: E501
     }
@@ -178,6 +180,7 @@ class ClusterRequest(ModelNormal):
             disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
+            production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
             features (ClusterRequestFeatures): [optional]  # noqa: E501
         """
@@ -279,6 +282,7 @@ class ClusterRequest(ModelNormal):
             disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
+            production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
             features (ClusterRequestFeatures): [optional]  # noqa: E501
         """

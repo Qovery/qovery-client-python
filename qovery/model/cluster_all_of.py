@@ -112,6 +112,7 @@ class ClusterAllOf(ModelNormal):
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
+            'production': (bool,),  # noqa: E501
             'ssh_keys': (ClusterAllOfSshKeys,),  # noqa: E501
             'features': ([ClusterAllOfFeatures],),  # noqa: E501
         }
@@ -138,6 +139,7 @@ class ClusterAllOf(ModelNormal):
         'has_access': 'has_access',  # noqa: E501
         'version': 'version',  # noqa: E501
         'is_default': 'is_default',  # noqa: E501
+        'production': 'production',  # noqa: E501
         'ssh_keys': 'ssh_keys',  # noqa: E501
         'features': 'features',  # noqa: E501
     }
@@ -201,6 +203,7 @@ class ClusterAllOf(ModelNormal):
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
+            production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
             features ([ClusterAllOfFeatures]): [optional]  # noqa: E501
         """
@@ -309,6 +312,7 @@ class ClusterAllOf(ModelNormal):
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
+            production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
             features ([ClusterAllOfFeatures]): [optional]  # noqa: E501
         """
