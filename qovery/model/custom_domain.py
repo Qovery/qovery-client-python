@@ -34,9 +34,11 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.custom_domain_all_of import CustomDomainAllOf
     from qovery.model.custom_domain_request import CustomDomainRequest
+    from qovery.model.custom_domain_status_enum import CustomDomainStatusEnum
     globals()['Base'] = Base
     globals()['CustomDomainAllOf'] = CustomDomainAllOf
     globals()['CustomDomainRequest'] = CustomDomainRequest
+    globals()['CustomDomainStatusEnum'] = CustomDomainStatusEnum
 
 
 class CustomDomain(ModelComposed):
@@ -64,12 +66,6 @@ class CustomDomain(ModelComposed):
     """
 
     allowed_values = {
-        ('status',): {
-            'DEPLOYING': "deploying",
-            'CHECKING': "checking",
-            'READY': "ready",
-            'ERROR': "error",
-        },
     }
 
     validations = {
@@ -103,7 +99,7 @@ class CustomDomain(ModelComposed):
             'domain': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'validation_domain': (str,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (CustomDomainStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -167,7 +163,7 @@ class CustomDomain(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             validation_domain (str): URL provided by Qovery. You must create a CNAME on your DNS provider using that URL. [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (CustomDomainStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,7 +270,7 @@ class CustomDomain(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             validation_domain (str): URL provided by Qovery. You must create a CNAME on your DNS provider using that URL. [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (CustomDomainStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

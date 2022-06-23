@@ -137,6 +137,7 @@ from qovery.model.custom_domain import CustomDomain
 from qovery.model.custom_domain_all_of import CustomDomainAllOf
 from qovery.model.custom_domain_request import CustomDomainRequest
 from qovery.model.custom_domain_response_list import CustomDomainResponseList
+from qovery.model.custom_domain_status_enum import CustomDomainStatusEnum
 from qovery.model.database import Database
 from qovery.model.database_accessibility_enum import DatabaseAccessibilityEnum
 from qovery.model.database_all_of import DatabaseAllOf

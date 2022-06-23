@@ -13,19 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.base import Base
-from qovery.model.custom_domain_all_of import CustomDomainAllOf
-from qovery.model.custom_domain_request import CustomDomainRequest
 from qovery.model.custom_domain_status_enum import CustomDomainStatusEnum
-globals()['Base'] = Base
-globals()['CustomDomainAllOf'] = CustomDomainAllOf
-globals()['CustomDomainRequest'] = CustomDomainRequest
-globals()['CustomDomainStatusEnum'] = CustomDomainStatusEnum
-from qovery.model.custom_domain import CustomDomain
 
 
-class TestCustomDomain(unittest.TestCase):
-    """CustomDomain unit test stubs"""
+class TestCustomDomainStatusEnum(unittest.TestCase):
+    """CustomDomainStatusEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -33,10 +25,10 @@ class TestCustomDomain(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCustomDomain(self):
-        """Test CustomDomain"""
+    def testCustomDomainStatusEnum(self):
+        """Test CustomDomainStatusEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CustomDomain()  # noqa: E501
+        # model = CustomDomainStatusEnum()  # noqa: E501
         pass
 
 

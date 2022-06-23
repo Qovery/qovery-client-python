@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.custom_domain_status_enum import CustomDomainStatusEnum
+globals()['CustomDomainStatusEnum'] = CustomDomainStatusEnum
 from qovery.model.custom_domain_all_of import CustomDomainAllOf
 
 

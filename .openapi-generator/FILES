@@ -165,6 +165,7 @@ docs/CustomDomainAllOf.md
 docs/CustomDomainApi.md
 docs/CustomDomainRequest.md
 docs/CustomDomainResponseList.md
+docs/CustomDomainStatusEnum.md
 docs/Database.md
 docs/DatabaseAccessibilityEnum.md
 docs/DatabaseActionsApi.md
@@ -626,6 +627,7 @@ qovery/model/custom_domain.py
 qovery/model/custom_domain_all_of.py
 qovery/model/custom_domain_request.py
 qovery/model/custom_domain_response_list.py
+qovery/model/custom_domain_status_enum.py
 qovery/model/database.py
 qovery/model/database_accessibility_enum.py
 qovery/model/database_all_of.py
@@ -1025,6 +1027,7 @@ test/test_custom_domain_all_of.py
 test/test_custom_domain_api.py
 test/test_custom_domain_request.py
 test/test_custom_domain_response_list.py
+test/test_custom_domain_status_enum.py
 test/test_database.py
 test/test_database_accessibility_enum.py
 test/test_database_actions_api.py
