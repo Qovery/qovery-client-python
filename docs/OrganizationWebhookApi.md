@@ -59,8 +59,8 @@ with qovery.ApiClient(configuration) as api_client:
         events=[
             OrganizationWebhookEventEnum("DEPLOYMENT_STARTED"),
         ],
-        project_id_filter=[
-            "project_id_filter_example",
+        project_names_filter=[
+            "project_names_filter_example",
         ],
         environment_types_filter=[
             EnvironmentModeEnum("PRODUCTION"),
@@ -244,8 +244,8 @@ with qovery.ApiClient(configuration) as api_client:
         events=[
             OrganizationWebhookEventEnum("DEPLOYMENT_STARTED"),
         ],
-        project_id_filter=[
-            "project_id_filter_example",
+        project_names_filter=[
+            "project_names_filter_example",
         ],
         environment_types_filter=[
             EnvironmentModeEnum("PRODUCTION"),

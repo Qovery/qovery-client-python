@@ -33,14 +33,14 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.environment_mode_enum import EnvironmentModeEnum
+    from qovery.model.organization_webhook_create_response_all_of import OrganizationWebhookCreateResponseAllOf
     from qovery.model.organization_webhook_event_enum import OrganizationWebhookEventEnum
     from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindEnum
-    from qovery.model.organization_webhook_response_all_of import OrganizationWebhookResponseAllOf
     globals()['Base'] = Base
     globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
+    globals()['OrganizationWebhookCreateResponseAllOf'] = OrganizationWebhookCreateResponseAllOf
     globals()['OrganizationWebhookEventEnum'] = OrganizationWebhookEventEnum
     globals()['OrganizationWebhookKindEnum'] = OrganizationWebhookKindEnum
-    globals()['OrganizationWebhookResponseAllOf'] = OrganizationWebhookResponseAllOf
 
 
 class OrganizationWebhookResponse(ModelComposed):
@@ -105,7 +105,7 @@ class OrganizationWebhookResponse(ModelComposed):
             'description': (str,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
             'events': ([OrganizationWebhookEventEnum],),  # noqa: E501
-            'project_id_filter': ([str],),  # noqa: E501
+            'project_names_filter': ([str],),  # noqa: E501
             'environment_types_filter': ([EnvironmentModeEnum],),  # noqa: E501
         }
 
@@ -124,7 +124,7 @@ class OrganizationWebhookResponse(ModelComposed):
         'description': 'description',  # noqa: E501
         'enabled': 'enabled',  # noqa: E501
         'events': 'events',  # noqa: E501
-        'project_id_filter': 'project_id_filter',  # noqa: E501
+        'project_names_filter': 'project_names_filter',  # noqa: E501
         'environment_types_filter': 'environment_types_filter',  # noqa: E501
     }
 
@@ -179,7 +179,7 @@ class OrganizationWebhookResponse(ModelComposed):
             description (str): [optional]  # noqa: E501
             enabled (bool): Turn on or off your endpoint.. [optional]  # noqa: E501
             events ([OrganizationWebhookEventEnum]): [optional]  # noqa: E501
-            project_id_filter ([str]): [optional]  # noqa: E501
+            project_names_filter ([str]): [optional]  # noqa: E501
             environment_types_filter ([EnvironmentModeEnum]): Specify the environment modes you want to filter to. This webhook will be triggered only if the event is coming from an environment with the specified mode. . [optional]  # noqa: E501
         """
 
@@ -291,7 +291,7 @@ class OrganizationWebhookResponse(ModelComposed):
             description (str): [optional]  # noqa: E501
             enabled (bool): Turn on or off your endpoint.. [optional]  # noqa: E501
             events ([OrganizationWebhookEventEnum]): [optional]  # noqa: E501
-            project_id_filter ([str]): [optional]  # noqa: E501
+            project_names_filter ([str]): [optional]  # noqa: E501
             environment_types_filter ([EnvironmentModeEnum]): Specify the environment modes you want to filter to. This webhook will be triggered only if the event is coming from an environment with the specified mode. . [optional]  # noqa: E501
         """
 
@@ -363,7 +363,7 @@ class OrganizationWebhookResponse(ModelComposed):
           ],
           'allOf': [
               Base,
-              OrganizationWebhookResponseAllOf,
+              OrganizationWebhookCreateResponseAllOf,
           ],
           'oneOf': [
           ],

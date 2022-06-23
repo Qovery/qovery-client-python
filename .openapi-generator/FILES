@@ -356,7 +356,6 @@ docs/OrganizationWebhookCreateResponseAllOf.md
 docs/OrganizationWebhookEventEnum.md
 docs/OrganizationWebhookKindEnum.md
 docs/OrganizationWebhookResponse.md
-docs/OrganizationWebhookResponseAllOf.md
 docs/OrganizationWebhookResponseList.md
 docs/OverriddenSecret.md
 docs/PaginationData.md
@@ -795,7 +794,6 @@ qovery/model/organization_webhook_create_response_all_of.py
 qovery/model/organization_webhook_event_enum.py
 qovery/model/organization_webhook_kind_enum.py
 qovery/model/organization_webhook_response.py
-qovery/model/organization_webhook_response_all_of.py
 qovery/model/organization_webhook_response_list.py
 qovery/model/overridden_secret.py
 qovery/model/pagination_data.py
@@ -1220,7 +1218,6 @@ test/test_organization_webhook_create_response_all_of.py
 test/test_organization_webhook_event_enum.py
 test/test_organization_webhook_kind_enum.py
 test/test_organization_webhook_response.py
-test/test_organization_webhook_response_all_of.py
 test/test_organization_webhook_response_list.py
 test/test_overridden_secret.py
 test/test_pagination_data.py

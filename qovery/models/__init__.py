@@ -304,7 +304,6 @@ from qovery.model.organization_webhook_create_response_all_of import Organizatio
 from qovery.model.organization_webhook_event_enum import OrganizationWebhookEventEnum
 from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindEnum
 from qovery.model.organization_webhook_response import OrganizationWebhookResponse
-from qovery.model.organization_webhook_response_all_of import OrganizationWebhookResponseAllOf
 from qovery.model.organization_webhook_response_list import OrganizationWebhookResponseList
 from qovery.model.overridden_secret import OverriddenSecret
 from qovery.model.pagination_data import PaginationData

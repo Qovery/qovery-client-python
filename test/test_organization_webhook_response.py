@@ -15,14 +15,14 @@ import unittest
 import qovery
 from qovery.model.base import Base
 from qovery.model.environment_mode_enum import EnvironmentModeEnum
+from qovery.model.organization_webhook_create_response_all_of import OrganizationWebhookCreateResponseAllOf
 from qovery.model.organization_webhook_event_enum import OrganizationWebhookEventEnum
 from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindEnum
-from qovery.model.organization_webhook_response_all_of import OrganizationWebhookResponseAllOf
 globals()['Base'] = Base
 globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
+globals()['OrganizationWebhookCreateResponseAllOf'] = OrganizationWebhookCreateResponseAllOf
 globals()['OrganizationWebhookEventEnum'] = OrganizationWebhookEventEnum
 globals()['OrganizationWebhookKindEnum'] = OrganizationWebhookKindEnum
-globals()['OrganizationWebhookResponseAllOf'] = OrganizationWebhookResponseAllOf
 from qovery.model.organization_webhook_response import OrganizationWebhookResponse
 
 
