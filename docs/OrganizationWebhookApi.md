@@ -51,13 +51,13 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     organization_webhook_create_request = OrganizationWebhookCreateRequest(
-        kind="STANDARD",
+        kind=OrganizationWebhookKindEnum("STANDARD"),
         target_url="target_url_example",
         target_secret="target_secret_example",
         description="description_example",
         enabled=True,
         events=[
-            "DEPLOYMENT_STARTED",
+            OrganizationWebhookEventEnum("DEPLOYMENT_STARTED"),
         ],
         project_id_filter=[
             "project_id_filter_example",
@@ -236,13 +236,13 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     organization_webhook_create_request = OrganizationWebhookCreateRequest(
-        kind="STANDARD",
+        kind=OrganizationWebhookKindEnum("STANDARD"),
         target_url="target_url_example",
         target_secret="target_secret_example",
         description="description_example",
         enabled=True,
         events=[
-            "DEPLOYMENT_STARTED",
+            OrganizationWebhookEventEnum("DEPLOYMENT_STARTED"),
         ],
         project_id_filter=[
             "project_id_filter_example",

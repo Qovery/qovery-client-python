@@ -19,11 +19,11 @@ from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindE
 globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
 globals()['OrganizationWebhookEventEnum'] = OrganizationWebhookEventEnum
 globals()['OrganizationWebhookKindEnum'] = OrganizationWebhookKindEnum
-from qovery.model.organization_webhook_create_request import OrganizationWebhookCreateRequest
+from qovery.model.organization_webhook_response_all_of import OrganizationWebhookResponseAllOf
 
 
-class TestOrganizationWebhookCreateRequest(unittest.TestCase):
-    """OrganizationWebhookCreateRequest unit test stubs"""
+class TestOrganizationWebhookResponseAllOf(unittest.TestCase):
+    """OrganizationWebhookResponseAllOf unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +31,10 @@ class TestOrganizationWebhookCreateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testOrganizationWebhookCreateRequest(self):
-        """Test OrganizationWebhookCreateRequest"""
+    def testOrganizationWebhookResponseAllOf(self):
+        """Test OrganizationWebhookResponseAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = OrganizationWebhookCreateRequest()  # noqa: E501
+        # model = OrganizationWebhookResponseAllOf()  # noqa: E501
         pass
 
 

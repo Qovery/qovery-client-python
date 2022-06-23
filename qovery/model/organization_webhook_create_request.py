@@ -32,7 +32,11 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.environment_mode_enum import EnvironmentModeEnum
+    from qovery.model.organization_webhook_event_enum import OrganizationWebhookEventEnum
+    from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindEnum
     globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
+    globals()['OrganizationWebhookEventEnum'] = OrganizationWebhookEventEnum
+    globals()['OrganizationWebhookKindEnum'] = OrganizationWebhookKindEnum
 
 
 class OrganizationWebhookCreateRequest(ModelNormal):
@@ -60,16 +64,6 @@ class OrganizationWebhookCreateRequest(ModelNormal):
     """
 
     allowed_values = {
-        ('kind',): {
-            'STANDARD': "STANDARD",
-            'SLACK': "SLACK",
-        },
-        ('events',): {
-            'STARTED': "DEPLOYMENT_STARTED",
-            'CANCELLED': "DEPLOYMENT_CANCELLED",
-            'FAILURE': "DEPLOYMENT_FAILURE",
-            'SUCCESSFUL': "DEPLOYMENT_SUCCESSFUL",
-        },
     }
 
     validations = {
@@ -98,9 +92,9 @@ class OrganizationWebhookCreateRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'kind': (str,),  # noqa: E501
+            'kind': (OrganizationWebhookKindEnum,),  # noqa: E501
             'target_url': (str,),  # noqa: E501
-            'events': ([str],),  # noqa: E501
+            'events': ([OrganizationWebhookEventEnum],),  # noqa: E501
             'target_secret': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
@@ -135,9 +129,9 @@ class OrganizationWebhookCreateRequest(ModelNormal):
         """OrganizationWebhookCreateRequest - a model defined in OpenAPI
 
         Args:
-            kind (str): Define the type of the webhook. `SLACK` is a special webhook type to push notifications directly to slack. The `target_url` must be a Slack compatible endpoint.
+            kind (OrganizationWebhookKindEnum):
             target_url (str): Set the public HTTP or HTTPS endpoint that will receive the specified events. The target URL must starts with `http://` or `https://` 
-            events ([str]):
+            events ([OrganizationWebhookEventEnum]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -174,7 +168,7 @@ class OrganizationWebhookCreateRequest(ModelNormal):
             description (str): [optional]  # noqa: E501
             enabled (bool): Turn on or off your endpoint.. [optional]  # noqa: E501
             project_id_filter ([str]): [optional]  # noqa: E501
-            environment_types_filter ([EnvironmentModeEnum]): [optional]  # noqa: E501
+            environment_types_filter ([EnvironmentModeEnum]): Specify the environment modes you want to filter to. This webhook will be triggered only if the event is coming from an environment with the specified mode. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,9 +227,9 @@ class OrganizationWebhookCreateRequest(ModelNormal):
         """OrganizationWebhookCreateRequest - a model defined in OpenAPI
 
         Args:
-            kind (str): Define the type of the webhook. `SLACK` is a special webhook type to push notifications directly to slack. The `target_url` must be a Slack compatible endpoint.
+            kind (OrganizationWebhookKindEnum):
             target_url (str): Set the public HTTP or HTTPS endpoint that will receive the specified events. The target URL must starts with `http://` or `https://` 
-            events ([str]):
+            events ([OrganizationWebhookEventEnum]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -272,7 +266,7 @@ class OrganizationWebhookCreateRequest(ModelNormal):
             description (str): [optional]  # noqa: E501
             enabled (bool): Turn on or off your endpoint.. [optional]  # noqa: E501
             project_id_filter ([str]): [optional]  # noqa: E501
-            environment_types_filter ([EnvironmentModeEnum]): [optional]  # noqa: E501
+            environment_types_filter ([EnvironmentModeEnum]): Specify the environment modes you want to filter to. This webhook will be triggered only if the event is coming from an environment with the specified mode. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

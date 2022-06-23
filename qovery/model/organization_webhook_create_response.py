@@ -33,14 +33,14 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.environment_mode_enum import EnvironmentModeEnum
-    from qovery.model.items import Items
-    from qovery.model.kind import Kind
     from qovery.model.organization_webhook_create_response_all_of import OrganizationWebhookCreateResponseAllOf
+    from qovery.model.organization_webhook_event_enum import OrganizationWebhookEventEnum
+    from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindEnum
     globals()['Base'] = Base
     globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
-    globals()['Items'] = Items
-    globals()['Kind'] = Kind
     globals()['OrganizationWebhookCreateResponseAllOf'] = OrganizationWebhookCreateResponseAllOf
+    globals()['OrganizationWebhookEventEnum'] = OrganizationWebhookEventEnum
+    globals()['OrganizationWebhookKindEnum'] = OrganizationWebhookKindEnum
 
 
 class OrganizationWebhookCreateResponse(ModelComposed):
@@ -99,12 +99,12 @@ class OrganizationWebhookCreateResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'kind': (Kind,),  # noqa: E501
+            'kind': (OrganizationWebhookKindEnum,),  # noqa: E501
             'target_url': (str,),  # noqa: E501
             'target_secret_set': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'enabled': (bool,),  # noqa: E501
-            'events': ([Items],),  # noqa: E501
+            'events': ([OrganizationWebhookEventEnum],),  # noqa: E501
             'project_id_filter': ([str],),  # noqa: E501
             'environment_types_filter': ([EnvironmentModeEnum],),  # noqa: E501
         }
@@ -173,14 +173,14 @@ class OrganizationWebhookCreateResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            kind (Kind): [optional]  # noqa: E501
+            kind (OrganizationWebhookKindEnum): [optional]  # noqa: E501
             target_url (str): Set the public HTTP or HTTPS endpoint that will receive the specified events. The target URL must starts with `http://` or `https://` . [optional]  # noqa: E501
             target_secret_set (bool): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             enabled (bool): Turn on or off your endpoint.. [optional]  # noqa: E501
-            events ([Items]): [optional]  # noqa: E501
+            events ([OrganizationWebhookEventEnum]): [optional]  # noqa: E501
             project_id_filter ([str]): [optional]  # noqa: E501
-            environment_types_filter ([EnvironmentModeEnum]): [optional]  # noqa: E501
+            environment_types_filter ([EnvironmentModeEnum]): Specify the environment modes you want to filter to. This webhook will be triggered only if the event is coming from an environment with the specified mode. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,14 +285,14 @@ class OrganizationWebhookCreateResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            kind (Kind): [optional]  # noqa: E501
+            kind (OrganizationWebhookKindEnum): [optional]  # noqa: E501
             target_url (str): Set the public HTTP or HTTPS endpoint that will receive the specified events. The target URL must starts with `http://` or `https://` . [optional]  # noqa: E501
             target_secret_set (bool): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             enabled (bool): Turn on or off your endpoint.. [optional]  # noqa: E501
-            events ([Items]): [optional]  # noqa: E501
+            events ([OrganizationWebhookEventEnum]): [optional]  # noqa: E501
             project_id_filter ([str]): [optional]  # noqa: E501
-            environment_types_filter ([EnvironmentModeEnum]): [optional]  # noqa: E501
+            environment_types_filter ([EnvironmentModeEnum]): Specify the environment modes you want to filter to. This webhook will be triggered only if the event is coming from an environment with the specified mode. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
