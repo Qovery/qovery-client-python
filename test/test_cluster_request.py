@@ -14,11 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.cloud_provider_enum import CloudProviderEnum
-from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
 from qovery.model.cluster_request_features import ClusterRequestFeatures
 from qovery.model.kubernetes_enum import KubernetesEnum
 globals()['CloudProviderEnum'] = CloudProviderEnum
-globals()['ClusterAllOfSshKeys'] = ClusterAllOfSshKeys
 globals()['ClusterRequestFeatures'] = ClusterRequestFeatures
 globals()['KubernetesEnum'] = KubernetesEnum
 from qovery.model.cluster_request import ClusterRequest

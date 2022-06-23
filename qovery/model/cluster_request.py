@@ -32,11 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cloud_provider_enum import CloudProviderEnum
-    from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
     from qovery.model.cluster_request_features import ClusterRequestFeatures
     from qovery.model.kubernetes_enum import KubernetesEnum
     globals()['CloudProviderEnum'] = CloudProviderEnum
-    globals()['ClusterAllOfSshKeys'] = ClusterAllOfSshKeys
     globals()['ClusterRequestFeatures'] = ClusterRequestFeatures
     globals()['KubernetesEnum'] = KubernetesEnum
 
@@ -104,7 +102,7 @@ class ClusterRequest(ModelNormal):
             'instance_type': (str,),  # noqa: E501
             'kubernetes': (KubernetesEnum,),  # noqa: E501
             'production': (bool,),  # noqa: E501
-            'ssh_keys': (ClusterAllOfSshKeys,),  # noqa: E501
+            'ssh_keys': ([str],),  # noqa: E501
             'features': (ClusterRequestFeatures,),  # noqa: E501
         }
 
@@ -181,7 +179,7 @@ class ClusterRequest(ModelNormal):
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
-            ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
+            ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
             features (ClusterRequestFeatures): [optional]  # noqa: E501
         """
 
@@ -283,7 +281,7 @@ class ClusterRequest(ModelNormal):
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
-            ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
+            ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
             features (ClusterRequestFeatures): [optional]  # noqa: E501
         """
 

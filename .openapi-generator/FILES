@@ -73,7 +73,6 @@ docs/CloudProviderResponseList.md
 docs/CluserCredentials.md
 docs/Cluster.md
 docs/ClusterAllOf.md
-docs/ClusterAllOfSshKeys.md
 docs/ClusterCloudProviderInfo.md
 docs/ClusterCloudProviderInfoCredentials.md
 docs/ClusterCloudProviderInfoRequest.md
@@ -554,7 +553,6 @@ qovery/model/cloud_provider_response_list.py
 qovery/model/cluser_credentials.py
 qovery/model/cluster.py
 qovery/model/cluster_all_of.py
-qovery/model/cluster_all_of_ssh_keys.py
 qovery/model/cluster_cloud_provider_info.py
 qovery/model/cluster_cloud_provider_info_credentials.py
 qovery/model/cluster_cloud_provider_info_request.py
@@ -939,7 +937,6 @@ test/test_cloud_provider_response_list.py
 test/test_cluser_credentials.py
 test/test_cluster.py
 test/test_cluster_all_of.py
-test/test_cluster_all_of_ssh_keys.py
 test/test_cluster_cloud_provider_info.py
 test/test_cluster_cloud_provider_info_credentials.py
 test/test_cluster_cloud_provider_info_request.py

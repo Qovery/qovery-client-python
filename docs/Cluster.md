@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **version** | **str** |  | [optional] 
 **is_default** | **bool** |  | [optional] 
 **production** | **bool** | specific flag to indicate that this cluster is a production one | [optional] 
-**ssh_keys** | [**ClusterAllOfSshKeys**](ClusterAllOfSshKeys.md) |  | [optional] 
+**ssh_keys** | **[str]** | Indicate your public ssh_key to remotely connect to your EC2 instance. | [optional] 
 **features** | [**[ClusterFeature]**](ClusterFeature.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

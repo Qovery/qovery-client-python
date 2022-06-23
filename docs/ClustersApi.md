@@ -69,11 +69,9 @@ with qovery.ApiClient(configuration) as api_client:
         instance_type="T3A_LARGE",
         kubernetes=KubernetesEnum("K3S"),
         production=True,
-        ssh_keys=ClusterAllOfSshKeys(
-            results=[
-                "results_example",
-            ],
-        ),
+        ssh_keys=[
+            "ssh_keys_example",
+        ],
         features=ClusterRequestFeatures(
             features=[
                 ClusterRequestFeaturesFeaturesInner(
@@ -346,11 +344,9 @@ with qovery.ApiClient(configuration) as api_client:
         instance_type="T3A_LARGE",
         kubernetes=KubernetesEnum("K3S"),
         production=True,
-        ssh_keys=ClusterAllOfSshKeys(
-            results=[
-                "results_example",
-            ],
-        ),
+        ssh_keys=[
+            "ssh_keys_example",
+        ],
         features=ClusterRequestFeatures(
             features=[
                 ClusterRequestFeaturesFeaturesInner(

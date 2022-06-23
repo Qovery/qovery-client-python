@@ -34,14 +34,12 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_all_of import ClusterAllOf
-    from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
     from qovery.model.cluster_feature import ClusterFeature
     from qovery.model.kubernetes_enum import KubernetesEnum
     from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterAllOf'] = ClusterAllOf
-    globals()['ClusterAllOfSshKeys'] = ClusterAllOfSshKeys
     globals()['ClusterFeature'] = ClusterFeature
     globals()['KubernetesEnum'] = KubernetesEnum
     globals()['StateEnum'] = StateEnum
@@ -120,7 +118,7 @@ class Cluster(ModelComposed):
             'version': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
             'production': (bool,),  # noqa: E501
-            'ssh_keys': (ClusterAllOfSshKeys,),  # noqa: E501
+            'ssh_keys': ([str],),  # noqa: E501
             'features': ([ClusterFeature],),  # noqa: E501
         }
 
@@ -216,7 +214,7 @@ class Cluster(ModelComposed):
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
-            ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
+            ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
             features ([ClusterFeature]): [optional]  # noqa: E501
         """
 
@@ -339,7 +337,7 @@ class Cluster(ModelComposed):
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
-            ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
+            ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
             features ([ClusterFeature]): [optional]  # noqa: E501
         """
 
