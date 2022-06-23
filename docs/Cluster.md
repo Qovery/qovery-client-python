@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **is_default** | **bool** |  | [optional] 
 **production** | **bool** | specific flag to indicate that this cluster is a production one | [optional] 
 **ssh_keys** | [**ClusterAllOfSshKeys**](ClusterAllOfSshKeys.md) |  | [optional] 
-**features** | [**[ClusterAllOfFeatures]**](ClusterAllOfFeatures.md) |  | [optional] 
+**features** | [**[ClusterFeature]**](ClusterFeature.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

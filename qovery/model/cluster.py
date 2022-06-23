@@ -34,15 +34,15 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_all_of import ClusterAllOf
-    from qovery.model.cluster_all_of_features import ClusterAllOfFeatures
     from qovery.model.cluster_all_of_ssh_keys import ClusterAllOfSshKeys
+    from qovery.model.cluster_feature import ClusterFeature
     from qovery.model.kubernetes_enum import KubernetesEnum
     from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterAllOf'] = ClusterAllOf
-    globals()['ClusterAllOfFeatures'] = ClusterAllOfFeatures
     globals()['ClusterAllOfSshKeys'] = ClusterAllOfSshKeys
+    globals()['ClusterFeature'] = ClusterFeature
     globals()['KubernetesEnum'] = KubernetesEnum
     globals()['StateEnum'] = StateEnum
 
@@ -121,7 +121,7 @@ class Cluster(ModelComposed):
             'is_default': (bool,),  # noqa: E501
             'production': (bool,),  # noqa: E501
             'ssh_keys': (ClusterAllOfSshKeys,),  # noqa: E501
-            'features': ([ClusterAllOfFeatures],),  # noqa: E501
+            'features': ([ClusterFeature],),  # noqa: E501
         }
 
     @cached_property
@@ -217,7 +217,7 @@ class Cluster(ModelComposed):
             is_default (bool): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
-            features ([ClusterAllOfFeatures]): [optional]  # noqa: E501
+            features ([ClusterFeature]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -340,7 +340,7 @@ class Cluster(ModelComposed):
             is_default (bool): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys (ClusterAllOfSshKeys): [optional]  # noqa: E501
-            features ([ClusterAllOfFeatures]): [optional]  # noqa: E501
+            features ([ClusterFeature]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
