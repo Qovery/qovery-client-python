@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_database_deployment_history**
-> DeploymentHistoryPaginatedResponseList list_database_deployment_history(database_id)
+> ListDatabaseDeploymentHistory200Response list_database_deployment_history(database_id)
 
 List database deploys
 
@@ -22,7 +22,7 @@ By default it returns the 20 last results. The response is paginated.
 import time
 import qovery
 from qovery.api import database_deployment_history_api
-from qovery.model.deployment_history_paginated_response_list import DeploymentHistoryPaginatedResponseList
+from qovery.model.list_database_deployment_history200_response import ListDatabaseDeploymentHistory200Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeploymentHistoryPaginatedResponseList**](DeploymentHistoryPaginatedResponseList.md)
+[**ListDatabaseDeploymentHistory200Response**](ListDatabaseDeploymentHistory200Response.md)
 
 ### Authorization
 

@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.deployment_history_paginated_response_list import DeploymentHistoryPaginatedResponseList
+from qovery.model.list_database_deployment_history200_response import ListDatabaseDeploymentHistory200Response
 
 
 class DatabaseDeploymentHistoryApi(object):
@@ -38,7 +38,7 @@ class DatabaseDeploymentHistoryApi(object):
         self.api_client = api_client
         self.list_database_deployment_history_endpoint = _Endpoint(
             settings={
-                'response_type': (DeploymentHistoryPaginatedResponseList,),
+                'response_type': (ListDatabaseDeploymentHistory200Response,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -138,7 +138,7 @@ class DatabaseDeploymentHistoryApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            DeploymentHistoryPaginatedResponseList
+            ListDatabaseDeploymentHistory200Response
                 If the method is called asynchronously, returns the request
                 thread.
         """

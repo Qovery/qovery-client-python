@@ -253,6 +253,8 @@ from qovery.model.link import Link
 from qovery.model.link_response_list import LinkResponseList
 from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
 from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
+from qovery.model.list_database_deployment_history200_response import ListDatabaseDeploymentHistory200Response
+from qovery.model.list_database_deployment_history200_response_all_of import ListDatabaseDeploymentHistory200ResponseAllOf
 from qovery.model.log import Log
 from qovery.model.log_paginated_response_list import LogPaginatedResponseList
 from qovery.model.log_paginated_response_list_all_of import LogPaginatedResponseListAllOf
