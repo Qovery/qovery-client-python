@@ -45,11 +45,21 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = database_deployment_history_api.DatabaseDeploymentHistoryApi(api_client)
     database_id = "databaseId_example" # str | Database ID
+    start_id = "startId_example" # str | Starting point after which to return results (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # List database deploys
         api_response = api_instance.list_database_deployment_history(database_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling DatabaseDeploymentHistoryApi->list_database_deployment_history: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List database deploys
+        api_response = api_instance.list_database_deployment_history(database_id, start_id=start_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling DatabaseDeploymentHistoryApi->list_database_deployment_history: %s\n" % e)
@@ -61,6 +71,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **database_id** | **str**| Database ID |
+ **start_id** | **str**| Starting point after which to return results | [optional]
 
 ### Return type
 

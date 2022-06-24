@@ -50,6 +50,7 @@ class DatabaseDeploymentHistoryApi(object):
             params_map={
                 'all': [
                     'database_id',
+                    'start_id',
                 ],
                 'required': [
                     'database_id',
@@ -69,12 +70,16 @@ class DatabaseDeploymentHistoryApi(object):
                 'openapi_types': {
                     'database_id':
                         (str,),
+                    'start_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'database_id': 'databaseId',
+                    'start_id': 'startId',
                 },
                 'location_map': {
                     'database_id': 'path',
+                    'start_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -106,6 +111,7 @@ class DatabaseDeploymentHistoryApi(object):
             database_id (str): Database ID
 
         Keyword Args:
+            start_id (str): Starting point after which to return results. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
