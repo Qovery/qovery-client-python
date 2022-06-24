@@ -15,10 +15,10 @@ import unittest
 import qovery
 from qovery.model.base import Base
 from qovery.model.deployment_history_database_all_of import DeploymentHistoryDatabaseAllOf
-from qovery.model.state_enum import StateEnum
+from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
 globals()['Base'] = Base
 globals()['DeploymentHistoryDatabaseAllOf'] = DeploymentHistoryDatabaseAllOf
-globals()['StateEnum'] = StateEnum
+globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 from qovery.model.deployment_history_database import DeploymentHistoryDatabase
 
 

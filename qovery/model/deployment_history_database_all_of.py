@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.state_enum import StateEnum
-    globals()['StateEnum'] = StateEnum
+    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
+    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 
 
 class DeploymentHistoryDatabaseAllOf(ModelNormal):
@@ -89,7 +89,7 @@ class DeploymentHistoryDatabaseAllOf(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'status': (StateEnum,),  # noqa: E501
+            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -143,8 +143,8 @@ class DeploymentHistoryDatabaseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            status (StateEnum): [optional]  # noqa: E501
+            name (str): name of the service. [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,8 +230,8 @@ class DeploymentHistoryDatabaseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            status (StateEnum): [optional]  # noqa: E501
+            name (str): name of the service. [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

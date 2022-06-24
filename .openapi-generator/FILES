@@ -176,6 +176,7 @@ docs/DatabaseCurrentMetric.md
 docs/DatabaseCurrentMetricCpu.md
 docs/DatabaseCurrentMetricMemory.md
 docs/DatabaseCurrentMetricStorage.md
+docs/DatabaseDeploymentHistoryApi.md
 docs/DatabaseEditRequest.md
 docs/DatabaseEventApi.md
 docs/DatabaseMainCallsApi.md
@@ -466,6 +467,7 @@ qovery/api/custom_domain_api.py
 qovery/api/database_actions_api.py
 qovery/api/database_application_api.py
 qovery/api/database_container_api.py
+qovery/api/database_deployment_history_api.py
 qovery/api/database_event_api.py
 qovery/api/database_main_calls_api.py
 qovery/api/database_metrics_api.py
@@ -1038,6 +1040,7 @@ test/test_database_current_metric.py
 test/test_database_current_metric_cpu.py
 test/test_database_current_metric_memory.py
 test/test_database_current_metric_storage.py
+test/test_database_deployment_history_api.py
 test/test_database_edit_request.py
 test/test_database_event_api.py
 test/test_database_main_calls_api.py

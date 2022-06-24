@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.state_enum import StateEnum
-globals()['StateEnum'] = StateEnum
+from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
+globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 from qovery.model.deployment_history_database_all_of import DeploymentHistoryDatabaseAllOf
 
 

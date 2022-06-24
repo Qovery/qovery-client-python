@@ -33,10 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.deployment_history_database_all_of import DeploymentHistoryDatabaseAllOf
-    from qovery.model.state_enum import StateEnum
+    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
     globals()['Base'] = Base
     globals()['DeploymentHistoryDatabaseAllOf'] = DeploymentHistoryDatabaseAllOf
-    globals()['StateEnum'] = StateEnum
+    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
 
 
 class DeploymentHistoryDatabase(ModelComposed):
@@ -96,7 +96,7 @@ class DeploymentHistoryDatabase(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'status': (StateEnum,),  # noqa: E501
+            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -157,8 +157,8 @@ class DeploymentHistoryDatabase(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            status (StateEnum): [optional]  # noqa: E501
+            name (str): name of the service. [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,8 +263,8 @@ class DeploymentHistoryDatabase(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            status (StateEnum): [optional]  # noqa: E501
+            name (str): name of the service. [optional]  # noqa: E501
+            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

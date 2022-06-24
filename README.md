@@ -286,6 +286,7 @@ Class | Method | HTTP request | Description
 *DatabaseApplicationApi* | [**remove_application_from_database**](docs/DatabaseApplicationApi.md#remove_application_from_database) | **DELETE** /database/{databaseId}/application/{targetApplicationId} | Remove an application from this database 
 *DatabaseContainerApi* | [**list_database_container**](docs/DatabaseContainerApi.md#list_database_container) | **GET** /database/{databaseId}/container | List container using the database
 *DatabaseContainerApi* | [**remove_container_from_database**](docs/DatabaseContainerApi.md#remove_container_from_database) | **DELETE** /database/{databaseId}/container/{targetContainerId} | Remove an container from this database 
+*DatabaseDeploymentHistoryApi* | [**list_database_deployment_history**](docs/DatabaseDeploymentHistoryApi.md#list_database_deployment_history) | **GET** /database/{databaseId}/deploymentHistory | List database deploys
 *DatabaseEventApi* | [**list_database_event**](docs/DatabaseEventApi.md#list_database_event) | **GET** /database/{databaseId}/event | List database  events
 *DatabaseMainCallsApi* | [**delete_database**](docs/DatabaseMainCallsApi.md#delete_database) | **DELETE** /database/{databaseId} | Delete a database 
 *DatabaseMainCallsApi* | [**edit_database**](docs/DatabaseMainCallsApi.md#edit_database) | **PUT** /database/{databaseId} | Edit a database 

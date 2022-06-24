@@ -90,6 +90,7 @@ class DeploymentHistoryAllOf(ModelNormal):
         """
         lazy_import()
         return {
+            'name': (str,),  # noqa: E501
             'commit': (Commit,),  # noqa: E501
             'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
         }
@@ -100,6 +101,7 @@ class DeploymentHistoryAllOf(ModelNormal):
 
 
     attribute_map = {
+        'name': 'name',  # noqa: E501
         'commit': 'commit',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
@@ -145,6 +147,7 @@ class DeploymentHistoryAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): name of the service. [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
             status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
@@ -232,6 +235,7 @@ class DeploymentHistoryAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str): name of the service. [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
             status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
         """
