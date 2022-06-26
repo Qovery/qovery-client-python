@@ -13,9 +13,7 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.community_usage import CommunityUsage
 from qovery.model.paid_usage import PaidUsage
-globals()['CommunityUsage'] = CommunityUsage
 globals()['PaidUsage'] = PaidUsage
 from qovery.model.organization_current_cost_all_of import OrganizationCurrentCostAllOf
 

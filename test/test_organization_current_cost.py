@@ -13,14 +13,12 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.community_usage import CommunityUsage
 from qovery.model.cost import Cost
 from qovery.model.current_cost import CurrentCost
 from qovery.model.organization_current_cost_all_of import OrganizationCurrentCostAllOf
 from qovery.model.paid_usage import PaidUsage
 from qovery.model.plan_enum import PlanEnum
 from qovery.model.remaining_credits import RemainingCredits
-globals()['CommunityUsage'] = CommunityUsage
 globals()['Cost'] = Cost
 globals()['CurrentCost'] = CurrentCost
 globals()['OrganizationCurrentCostAllOf'] = OrganizationCurrentCostAllOf

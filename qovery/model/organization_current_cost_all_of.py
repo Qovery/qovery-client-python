@@ -31,9 +31,7 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.community_usage import CommunityUsage
     from qovery.model.paid_usage import PaidUsage
-    globals()['CommunityUsage'] = CommunityUsage
     globals()['PaidUsage'] = PaidUsage
 
 
@@ -91,7 +89,6 @@ class OrganizationCurrentCostAllOf(ModelNormal):
         lazy_import()
         return {
             'paid_usage': (PaidUsage,),  # noqa: E501
-            'community_usage': (CommunityUsage,),  # noqa: E501
         }
 
     @cached_property
@@ -101,7 +98,6 @@ class OrganizationCurrentCostAllOf(ModelNormal):
 
     attribute_map = {
         'paid_usage': 'paid_usage',  # noqa: E501
-        'community_usage': 'community_usage',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,7 +142,6 @@ class OrganizationCurrentCostAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             paid_usage (PaidUsage): [optional]  # noqa: E501
-            community_usage (CommunityUsage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,7 +228,6 @@ class OrganizationCurrentCostAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             paid_usage (PaidUsage): [optional]  # noqa: E501
-            community_usage (CommunityUsage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
