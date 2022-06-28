@@ -150,7 +150,7 @@ class ClusterStatus(ModelNormal):
             cluster_id (str): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
             is_deployed (bool): [optional]  # noqa: E501
-            last_execution_id (str): [optional]  # noqa: E501
+            last_execution_id (str): Only set for /organization/{organizationId}/cluster/status. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,7 +239,7 @@ class ClusterStatus(ModelNormal):
             cluster_id (str): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
             is_deployed (bool): [optional]  # noqa: E501
-            last_execution_id (str): [optional]  # noqa: E501
+            last_execution_id (str): Only set for /organization/{organizationId}/cluster/status. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
