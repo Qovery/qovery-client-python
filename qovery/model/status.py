@@ -94,6 +94,7 @@ class Status(ModelNormal):
             'id': (str,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
+            'last_deployment_date': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +107,7 @@ class Status(ModelNormal):
         'id': 'id',  # noqa: E501
         'message': 'message',  # noqa: E501
         'service_deployment_status': 'service_deployment_status',  # noqa: E501
+        'last_deployment_date': 'last_deployment_date',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,6 +157,7 @@ class Status(ModelNormal):
             id (str): [optional]  # noqa: E501
             message (str, none_type): message related to the state. [optional]  # noqa: E501
             service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
+            last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,6 +250,7 @@ class Status(ModelNormal):
             id (str): [optional]  # noqa: E501
             message (str, none_type): message related to the state. [optional]  # noqa: E501
             service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
+            last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

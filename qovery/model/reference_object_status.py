@@ -98,6 +98,7 @@ class ReferenceObjectStatus(ModelComposed):
             'state': (StateEnum,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
+            'last_deployment_date': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class ReferenceObjectStatus(ModelComposed):
         'state': 'state',  # noqa: E501
         'message': 'message',  # noqa: E501
         'service_deployment_status': 'service_deployment_status',  # noqa: E501
+        'last_deployment_date': 'last_deployment_date',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,6 +157,7 @@ class ReferenceObjectStatus(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): message related to the state. [optional]  # noqa: E501
             service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
+            last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -262,6 +265,7 @@ class ReferenceObjectStatus(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): message related to the state. [optional]  # noqa: E501
             service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
+            last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
