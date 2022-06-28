@@ -486,7 +486,7 @@ Class | Method | HTTP request | Description
  - [ClusterLogsError](docs/ClusterLogsError.md)
  - [ClusterLogsErrorEventDetails](docs/ClusterLogsErrorEventDetails.md)
  - [ClusterLogsErrorEventDetailsTransmitter](docs/ClusterLogsErrorEventDetailsTransmitter.md)
- - [ClusterLogsErrorEventDetailsUnderlyingError](docs/ClusterLogsErrorEventDetailsUnderlyingError.md)
+ - [ClusterLogsErrorUnderlyingError](docs/ClusterLogsErrorUnderlyingError.md)
  - [ClusterLogsMessage](docs/ClusterLogsMessage.md)
  - [ClusterLogsResponseList](docs/ClusterLogsResponseList.md)
  - [ClusterReadinessStatus](docs/ClusterReadinessStatus.md)

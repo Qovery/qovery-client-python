@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.cluster_logs_error_event_details import ClusterLogsErrorEventDetails
+from qovery.model.cluster_logs_error_underlying_error import ClusterLogsErrorUnderlyingError
 globals()['ClusterLogsErrorEventDetails'] = ClusterLogsErrorEventDetails
+globals()['ClusterLogsErrorUnderlyingError'] = ClusterLogsErrorUnderlyingError
 from qovery.model.cluster_logs_error import ClusterLogsError
 
 

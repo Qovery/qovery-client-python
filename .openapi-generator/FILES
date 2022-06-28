@@ -90,7 +90,7 @@ docs/ClusterLogsDetails.md
 docs/ClusterLogsError.md
 docs/ClusterLogsErrorEventDetails.md
 docs/ClusterLogsErrorEventDetailsTransmitter.md
-docs/ClusterLogsErrorEventDetailsUnderlyingError.md
+docs/ClusterLogsErrorUnderlyingError.md
 docs/ClusterLogsMessage.md
 docs/ClusterLogsResponseList.md
 docs/ClusterReadinessStatus.md
@@ -573,7 +573,7 @@ qovery/model/cluster_logs_details.py
 qovery/model/cluster_logs_error.py
 qovery/model/cluster_logs_error_event_details.py
 qovery/model/cluster_logs_error_event_details_transmitter.py
-qovery/model/cluster_logs_error_event_details_underlying_error.py
+qovery/model/cluster_logs_error_underlying_error.py
 qovery/model/cluster_logs_message.py
 qovery/model/cluster_logs_response_list.py
 qovery/model/cluster_readiness_status.py
@@ -958,7 +958,7 @@ test/test_cluster_logs_details.py
 test/test_cluster_logs_error.py
 test/test_cluster_logs_error_event_details.py
 test/test_cluster_logs_error_event_details_transmitter.py
-test/test_cluster_logs_error_event_details_underlying_error.py
+test/test_cluster_logs_error_underlying_error.py
 test/test_cluster_logs_message.py
 test/test_cluster_logs_response_list.py
 test/test_cluster_readiness_status.py

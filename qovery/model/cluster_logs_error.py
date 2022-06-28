@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cluster_logs_error_event_details import ClusterLogsErrorEventDetails
+    from qovery.model.cluster_logs_error_underlying_error import ClusterLogsErrorUnderlyingError
     globals()['ClusterLogsErrorEventDetails'] = ClusterLogsErrorEventDetails
+    globals()['ClusterLogsErrorUnderlyingError'] = ClusterLogsErrorUnderlyingError
 
 
 class ClusterLogsError(ModelNormal):
@@ -93,6 +95,7 @@ class ClusterLogsError(ModelNormal):
             'link': (str,),  # noqa: E501
             'hint_message': (str,),  # noqa: E501
             'event_details': (ClusterLogsErrorEventDetails,),  # noqa: E501
+            'underlying_error': (ClusterLogsErrorUnderlyingError,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +109,7 @@ class ClusterLogsError(ModelNormal):
         'link': 'link',  # noqa: E501
         'hint_message': 'hint_message',  # noqa: E501
         'event_details': 'event_details',  # noqa: E501
+        'underlying_error': 'underlying_error',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,6 +158,7 @@ class ClusterLogsError(ModelNormal):
             link (str): link to our documentation. [optional]  # noqa: E501
             hint_message (str): hint the user can follow. [optional]  # noqa: E501
             event_details (ClusterLogsErrorEventDetails): [optional]  # noqa: E501
+            underlying_error (ClusterLogsErrorUnderlyingError): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,6 +249,7 @@ class ClusterLogsError(ModelNormal):
             link (str): link to our documentation. [optional]  # noqa: E501
             hint_message (str): hint the user can follow. [optional]  # noqa: E501
             event_details (ClusterLogsErrorEventDetails): [optional]  # noqa: E501
+            underlying_error (ClusterLogsErrorUnderlyingError): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

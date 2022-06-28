@@ -32,9 +32,7 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cluster_logs_error_event_details_transmitter import ClusterLogsErrorEventDetailsTransmitter
-    from qovery.model.cluster_logs_error_event_details_underlying_error import ClusterLogsErrorEventDetailsUnderlyingError
     globals()['ClusterLogsErrorEventDetailsTransmitter'] = ClusterLogsErrorEventDetailsTransmitter
-    globals()['ClusterLogsErrorEventDetailsUnderlyingError'] = ClusterLogsErrorEventDetailsUnderlyingError
 
 
 class ClusterLogsErrorEventDetails(ModelNormal):
@@ -93,7 +91,6 @@ class ClusterLogsErrorEventDetails(ModelNormal):
             'provider_kind': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'transmitter': (ClusterLogsErrorEventDetailsTransmitter,),  # noqa: E501
-            'underlying_error': (ClusterLogsErrorEventDetailsUnderlyingError,),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +102,6 @@ class ClusterLogsErrorEventDetails(ModelNormal):
         'provider_kind': 'provider_kind',  # noqa: E501
         'region': 'region',  # noqa: E501
         'transmitter': 'transmitter',  # noqa: E501
-        'underlying_error': 'underlying_error',  # noqa: E501
     }
 
     read_only_vars = {
@@ -152,7 +148,6 @@ class ClusterLogsErrorEventDetails(ModelNormal):
             provider_kind (str): cloud provider used. [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
             transmitter (ClusterLogsErrorEventDetailsTransmitter): [optional]  # noqa: E501
-            underlying_error (ClusterLogsErrorEventDetailsUnderlyingError): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +236,6 @@ class ClusterLogsErrorEventDetails(ModelNormal):
             provider_kind (str): cloud provider used. [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
             transmitter (ClusterLogsErrorEventDetailsTransmitter): [optional]  # noqa: E501
-            underlying_error (ClusterLogsErrorEventDetailsUnderlyingError): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

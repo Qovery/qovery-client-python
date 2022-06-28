@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_logs_error_event_details_underlying_error import ClusterLogsErrorEventDetailsUnderlyingError
+from qovery.model.cluster_logs_error_underlying_error import ClusterLogsErrorUnderlyingError
 
 
-class TestClusterLogsErrorEventDetailsUnderlyingError(unittest.TestCase):
-    """ClusterLogsErrorEventDetailsUnderlyingError unit test stubs"""
+class TestClusterLogsErrorUnderlyingError(unittest.TestCase):
+    """ClusterLogsErrorUnderlyingError unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestClusterLogsErrorEventDetailsUnderlyingError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterLogsErrorEventDetailsUnderlyingError(self):
-        """Test ClusterLogsErrorEventDetailsUnderlyingError"""
+    def testClusterLogsErrorUnderlyingError(self):
+        """Test ClusterLogsErrorUnderlyingError"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterLogsErrorEventDetailsUnderlyingError()  # noqa: E501
+        # model = ClusterLogsErrorUnderlyingError()  # noqa: E501
         pass
 
 

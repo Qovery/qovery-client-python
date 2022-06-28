@@ -14,9 +14,7 @@ import unittest
 
 import qovery
 from qovery.model.cluster_logs_error_event_details_transmitter import ClusterLogsErrorEventDetailsTransmitter
-from qovery.model.cluster_logs_error_event_details_underlying_error import ClusterLogsErrorEventDetailsUnderlyingError
 globals()['ClusterLogsErrorEventDetailsTransmitter'] = ClusterLogsErrorEventDetailsTransmitter
-globals()['ClusterLogsErrorEventDetailsUnderlyingError'] = ClusterLogsErrorEventDetailsUnderlyingError
 from qovery.model.cluster_logs_error_event_details import ClusterLogsErrorEventDetails
 
 

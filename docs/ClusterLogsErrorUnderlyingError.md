@@ -1,4 +1,4 @@
-# ClusterLogsErrorEventDetailsUnderlyingError
+# ClusterLogsErrorUnderlyingError
 
 
 ## Properties
