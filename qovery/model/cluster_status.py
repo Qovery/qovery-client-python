@@ -91,6 +91,7 @@ class ClusterStatus(ModelNormal):
             'cluster_id': (str,),  # noqa: E501
             'status': (StateEnum,),  # noqa: E501
             'is_deployed': (bool,),  # noqa: E501
+            'last_execution_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class ClusterStatus(ModelNormal):
         'cluster_id': 'cluster_id',  # noqa: E501
         'status': 'status',  # noqa: E501
         'is_deployed': 'is_deployed',  # noqa: E501
+        'last_execution_id': 'last_execution_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,6 +150,7 @@ class ClusterStatus(ModelNormal):
             cluster_id (str): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
             is_deployed (bool): [optional]  # noqa: E501
+            last_execution_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,6 +239,7 @@ class ClusterStatus(ModelNormal):
             cluster_id (str): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
             is_deployed (bool): [optional]  # noqa: E501
+            last_execution_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
