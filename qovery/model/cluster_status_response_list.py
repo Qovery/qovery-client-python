@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cluster_status import ClusterStatus
-    globals()['ClusterStatus'] = ClusterStatus
+    from qovery.model.cluster_status_get import ClusterStatusGet
+    globals()['ClusterStatusGet'] = ClusterStatusGet
 
 
 class ClusterStatusResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class ClusterStatusResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([ClusterStatus],),  # noqa: E501
+            'results': ([ClusterStatusGet],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class ClusterStatusResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ClusterStatus]): [optional]  # noqa: E501
+            results ([ClusterStatusGet]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class ClusterStatusResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ClusterStatus]): [optional]  # noqa: E501
+            results ([ClusterStatusGet]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

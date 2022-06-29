@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.state_enum import StateEnum
+globals()['StateEnum'] = StateEnum
 from qovery.model.cluster_status_get import ClusterStatusGet
-globals()['ClusterStatusGet'] = ClusterStatusGet
-from qovery.model.cluster_status_response_list import ClusterStatusResponseList
 
 
-class TestClusterStatusResponseList(unittest.TestCase):
-    """ClusterStatusResponseList unit test stubs"""
+class TestClusterStatusGet(unittest.TestCase):
+    """ClusterStatusGet unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestClusterStatusResponseList(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterStatusResponseList(self):
-        """Test ClusterStatusResponseList"""
+    def testClusterStatusGet(self):
+        """Test ClusterStatusGet"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterStatusResponseList()  # noqa: E501
+        # model = ClusterStatusGet()  # noqa: E501
         pass
 
 

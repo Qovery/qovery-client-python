@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_status**
-> ClusterStatus get_cluster_status(organization_id, cluster_id)
+> ClusterStatusGet get_cluster_status(organization_id, cluster_id)
 
 Get cluster status
 
@@ -606,7 +606,7 @@ Get cluster status
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.cluster_status import ClusterStatus
+from qovery.model.cluster_status_get import ClusterStatusGet
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -650,7 +650,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ClusterStatus**](ClusterStatus.md)
+[**ClusterStatusGet**](ClusterStatusGet.md)
 
 ### Authorization
 
