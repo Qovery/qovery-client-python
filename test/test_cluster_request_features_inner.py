@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_request_features_features_inner import ClusterRequestFeaturesFeaturesInner
+from qovery.model.cluster_request_features_inner import ClusterRequestFeaturesInner
 
 
-class TestClusterRequestFeaturesFeaturesInner(unittest.TestCase):
-    """ClusterRequestFeaturesFeaturesInner unit test stubs"""
+class TestClusterRequestFeaturesInner(unittest.TestCase):
+    """ClusterRequestFeaturesInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestClusterRequestFeaturesFeaturesInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterRequestFeaturesFeaturesInner(self):
-        """Test ClusterRequestFeaturesFeaturesInner"""
+    def testClusterRequestFeaturesInner(self):
+        """Test ClusterRequestFeaturesInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterRequestFeaturesFeaturesInner()  # noqa: E501
+        # model = ClusterRequestFeaturesInner()  # noqa: E501
         pass
 
 

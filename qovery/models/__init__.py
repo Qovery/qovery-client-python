@@ -86,8 +86,7 @@ from qovery.model.cluster_readiness_status import ClusterReadinessStatus
 from qovery.model.cluster_region import ClusterRegion
 from qovery.model.cluster_region_response_list import ClusterRegionResponseList
 from qovery.model.cluster_request import ClusterRequest
-from qovery.model.cluster_request_features import ClusterRequestFeatures
-from qovery.model.cluster_request_features_features_inner import ClusterRequestFeaturesFeaturesInner
+from qovery.model.cluster_request_features_inner import ClusterRequestFeaturesInner
 from qovery.model.cluster_response_list import ClusterResponseList
 from qovery.model.cluster_routing_table import ClusterRoutingTable
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest

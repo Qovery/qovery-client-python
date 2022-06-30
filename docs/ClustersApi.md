@@ -72,14 +72,12 @@ with qovery.ApiClient(configuration) as api_client:
         ssh_keys=[
             "ssh_keys_example",
         ],
-        features=ClusterRequestFeatures(
-            features=[
-                ClusterRequestFeaturesFeaturesInner(
-                    id="id_example",
-                    value="value_example",
-                ),
-            ],
-        ),
+        features=[
+            ClusterRequestFeaturesInner(
+                id="id_example",
+                value="value_example",
+            ),
+        ],
     ) # ClusterRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -347,14 +345,12 @@ with qovery.ApiClient(configuration) as api_client:
         ssh_keys=[
             "ssh_keys_example",
         ],
-        features=ClusterRequestFeatures(
-            features=[
-                ClusterRequestFeaturesFeaturesInner(
-                    id="id_example",
-                    value="value_example",
-                ),
-            ],
-        ),
+        features=[
+            ClusterRequestFeaturesInner(
+                id="id_example",
+                value="value_example",
+            ),
+        ],
     ) # ClusterRequest |  (optional)
 
     # example passing only required values which don't have defaults set

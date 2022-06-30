@@ -32,10 +32,10 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cloud_provider_enum import CloudProviderEnum
-    from qovery.model.cluster_request_features import ClusterRequestFeatures
+    from qovery.model.cluster_request_features_inner import ClusterRequestFeaturesInner
     from qovery.model.kubernetes_enum import KubernetesEnum
     globals()['CloudProviderEnum'] = CloudProviderEnum
-    globals()['ClusterRequestFeatures'] = ClusterRequestFeatures
+    globals()['ClusterRequestFeaturesInner'] = ClusterRequestFeaturesInner
     globals()['KubernetesEnum'] = KubernetesEnum
 
 
@@ -103,7 +103,7 @@ class ClusterRequest(ModelNormal):
             'kubernetes': (KubernetesEnum,),  # noqa: E501
             'production': (bool,),  # noqa: E501
             'ssh_keys': ([str],),  # noqa: E501
-            'features': (ClusterRequestFeatures,),  # noqa: E501
+            'features': ([ClusterRequestFeaturesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -180,7 +180,7 @@ class ClusterRequest(ModelNormal):
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
-            features (ClusterRequestFeatures): [optional]  # noqa: E501
+            features ([ClusterRequestFeaturesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -282,7 +282,7 @@ class ClusterRequest(ModelNormal):
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
-            features (ClusterRequestFeatures): [optional]  # noqa: E501
+            features ([ClusterRequestFeaturesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

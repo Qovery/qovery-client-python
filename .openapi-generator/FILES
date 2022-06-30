@@ -97,8 +97,7 @@ docs/ClusterReadinessStatus.md
 docs/ClusterRegion.md
 docs/ClusterRegionResponseList.md
 docs/ClusterRequest.md
-docs/ClusterRequestFeatures.md
-docs/ClusterRequestFeaturesFeaturesInner.md
+docs/ClusterRequestFeaturesInner.md
 docs/ClusterResponseList.md
 docs/ClusterRoutingTable.md
 docs/ClusterRoutingTableRequest.md
@@ -581,8 +580,7 @@ qovery/model/cluster_readiness_status.py
 qovery/model/cluster_region.py
 qovery/model/cluster_region_response_list.py
 qovery/model/cluster_request.py
-qovery/model/cluster_request_features.py
-qovery/model/cluster_request_features_features_inner.py
+qovery/model/cluster_request_features_inner.py
 qovery/model/cluster_response_list.py
 qovery/model/cluster_routing_table.py
 qovery/model/cluster_routing_table_request.py
@@ -967,8 +965,7 @@ test/test_cluster_readiness_status.py
 test/test_cluster_region.py
 test/test_cluster_region_response_list.py
 test/test_cluster_request.py
-test/test_cluster_request_features.py
-test/test_cluster_request_features_features_inner.py
+test/test_cluster_request_features_inner.py
 test/test_cluster_response_list.py
 test/test_cluster_routing_table.py
 test/test_cluster_routing_table_request.py

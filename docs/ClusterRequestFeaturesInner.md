@@ -1,4 +1,4 @@
-# ClusterRequestFeaturesFeaturesInner
+# ClusterRequestFeaturesInner
 
 
 ## Properties
