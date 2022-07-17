@@ -38,6 +38,13 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
+    def test_change_plan(self):
+        """Test case for change_plan
+
+        Change organization plan  # noqa: E501
+        """
+        pass
+
     def test_delete_credit_card(self):
         """Test case for delete_credit_card
 

@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
 *BackupsApi* | [**remove_database_backup**](docs/BackupsApi.md#remove_database_backup) | **DELETE** /database/{databaseId}/backup/{backupId} | Remove database  backup
 *BillingApi* | [**add_credit_card**](docs/BillingApi.md#add_credit_card) | **POST** /organization/{organizationId}/creditCard | Add credit card
 *BillingApi* | [**add_credit_code**](docs/BillingApi.md#add_credit_code) | **POST** /organization/{organizationId}/creditCode | Add credit code
+*BillingApi* | [**change_plan**](docs/BillingApi.md#change_plan) | **POST** /organization/{organizationId}/changePlan | Change organization plan
 *BillingApi* | [**delete_credit_card**](docs/BillingApi.md#delete_credit_card) | **DELETE** /organization/{organizationId}/creditCard/{creditCardId} | Delete credit card
 *BillingApi* | [**edit_organization_billing_info**](docs/BillingApi.md#edit_organization_billing_info) | **PUT** /organization/{organizationId}/billingInfo | Edit Organization Billing Info
 *BillingApi* | [**get_cluster_current_cost**](docs/BillingApi.md#get_cluster_current_cost) | **GET** /organization/{organizationId}/cluster/{clusterId}/currentCost | Get cluster current cost
@@ -462,6 +463,7 @@ Class | Method | HTTP request | Description
  - [BudgetThreshold](docs/BudgetThreshold.md)
  - [BuildModeEnum](docs/BuildModeEnum.md)
  - [BuildPackLanguageEnum](docs/BuildPackLanguageEnum.md)
+ - [ChangePlanRequest](docs/ChangePlanRequest.md)
  - [CloneRequest](docs/CloneRequest.md)
  - [CloudProvider](docs/CloudProvider.md)
  - [CloudProviderEnum](docs/CloudProviderEnum.md)

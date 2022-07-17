@@ -55,6 +55,7 @@ from qovery.model.budget import Budget
 from qovery.model.budget_threshold import BudgetThreshold
 from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
+from qovery.model.change_plan_request import ChangePlanRequest
 from qovery.model.clone_request import CloneRequest
 from qovery.model.cloud_provider import CloudProvider
 from qovery.model.cloud_provider_enum import CloudProviderEnum

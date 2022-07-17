@@ -64,6 +64,7 @@ docs/Budget.md
 docs/BudgetThreshold.md
 docs/BuildModeEnum.md
 docs/BuildPackLanguageEnum.md
+docs/ChangePlanRequest.md
 docs/CloneRequest.md
 docs/CloudProvider.md
 docs/CloudProviderApi.md
@@ -549,6 +550,7 @@ qovery/model/budget.py
 qovery/model/budget_threshold.py
 qovery/model/build_mode_enum.py
 qovery/model/build_pack_language_enum.py
+qovery/model/change_plan_request.py
 qovery/model/clone_request.py
 qovery/model/cloud_provider.py
 qovery/model/cloud_provider_enum.py
@@ -932,6 +934,7 @@ test/test_budget.py
 test/test_budget_threshold.py
 test/test_build_mode_enum.py
 test/test_build_pack_language_enum.py
+test/test_change_plan_request.py
 test/test_clone_request.py
 test/test_cloud_provider.py
 test/test_cloud_provider_api.py
