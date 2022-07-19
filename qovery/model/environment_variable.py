@@ -70,6 +70,10 @@ class EnvironmentVariable(ModelComposed):
     """
 
     allowed_values = {
+        ('service_type',): {
+            'APPLICATION': "APPLICATION",
+            'DATABASE': "DATABASE",
+        },
     }
 
     validations = {
@@ -106,7 +110,9 @@ class EnvironmentVariable(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableAllOfOverriddenVariable,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableAllOfAliasedVariable,),  # noqa: E501
+            'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
+            'service_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -123,7 +129,9 @@ class EnvironmentVariable(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
         'service_name': 'service_name',  # noqa: E501
+        'service_type': 'service_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -176,7 +184,9 @@ class EnvironmentVariable(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableAllOfOverriddenVariable): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAllOfAliasedVariable): [optional]  # noqa: E501
-            service_name (str): [optional]  # noqa: E501
+            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_type (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -286,7 +296,9 @@ class EnvironmentVariable(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableAllOfOverriddenVariable): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAllOfAliasedVariable): [optional]  # noqa: E501
-            service_name (str): [optional]  # noqa: E501
+            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_type (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
