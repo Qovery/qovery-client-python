@@ -13,17 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.base import Base
 from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
-from qovery.model.container_registry_response_all_of import ContainerRegistryResponseAllOf
-globals()['Base'] = Base
 globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
-globals()['ContainerRegistryResponseAllOf'] = ContainerRegistryResponseAllOf
-from qovery.model.container_registry_response import ContainerRegistryResponse
+from qovery.model.container_registry_response_all_of import ContainerRegistryResponseAllOf
 
 
-class TestContainerRegistryResponse(unittest.TestCase):
-    """ContainerRegistryResponse unit test stubs"""
+class TestContainerRegistryResponseAllOf(unittest.TestCase):
+    """ContainerRegistryResponseAllOf unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +27,10 @@ class TestContainerRegistryResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testContainerRegistryResponse(self):
-        """Test ContainerRegistryResponse"""
+    def testContainerRegistryResponseAllOf(self):
+        """Test ContainerRegistryResponseAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ContainerRegistryResponse()  # noqa: E501
+        # model = ContainerRegistryResponseAllOf()  # noqa: E501
         pass
 
 

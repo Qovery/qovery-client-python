@@ -1,12 +1,9 @@
-# ContainerRegistryResponse
+# ContainerRegistryResponseAllOf
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [readonly] 
-**created_at** | **datetime** |  | [readonly] 
-**updated_at** | **datetime** |  | [optional] [readonly] 
 **name** | **str** |  | [optional] 
 **kind** | [**ContainerRegistryKindEnum**](ContainerRegistryKindEnum.md) |  | [optional] 
 **description** | **str** |  | [optional] 

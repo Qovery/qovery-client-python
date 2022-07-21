@@ -143,6 +143,7 @@ docs/ContainerRegistryApi.md
 docs/ContainerRegistryKindEnum.md
 docs/ContainerRegistryRequest.md
 docs/ContainerRegistryResponse.md
+docs/ContainerRegistryResponseAllOf.md
 docs/ContainerRequest.md
 docs/ContainerRequestAllOf.md
 docs/ContainerResponse.md
@@ -613,6 +614,7 @@ qovery/model/container_network_request.py
 qovery/model/container_registry_kind_enum.py
 qovery/model/container_registry_request.py
 qovery/model/container_registry_response.py
+qovery/model/container_registry_response_all_of.py
 qovery/model/container_request.py
 qovery/model/container_request_all_of.py
 qovery/model/container_response.py
@@ -1013,6 +1015,7 @@ test/test_container_registry_api.py
 test/test_container_registry_kind_enum.py
 test/test_container_registry_request.py
 test/test_container_registry_response.py
+test/test_container_registry_response_all_of.py
 test/test_container_request.py
 test/test_container_request_all_of.py
 test/test_container_response.py

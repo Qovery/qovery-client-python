@@ -118,6 +118,7 @@ from qovery.model.container_network_request import ContainerNetworkRequest
 from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
 from qovery.model.container_registry_request import ContainerRegistryRequest
 from qovery.model.container_registry_response import ContainerRegistryResponse
+from qovery.model.container_registry_response_all_of import ContainerRegistryResponseAllOf
 from qovery.model.container_request import ContainerRequest
 from qovery.model.container_request_all_of import ContainerRequestAllOf
 from qovery.model.container_response import ContainerResponse
