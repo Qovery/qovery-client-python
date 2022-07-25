@@ -487,7 +487,7 @@ class ContainerMetricsApi(object):
         container_id,
         **kwargs
     ):
-        """List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
+        """NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -569,7 +569,7 @@ class ContainerMetricsApi(object):
         container_id,
         **kwargs
     ):
-        """Get current scaling of the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Get current scaling of the container  # noqa: E501
 
         Returns min, max, and running number of instances of the application  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -652,7 +652,7 @@ class ContainerMetricsApi(object):
         container_id,
         **kwargs
     ):
-        """List current storage disk usage  # noqa: E501
+        """NOT YET IMPLEMENTED - List current storage disk usage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -735,7 +735,7 @@ class ContainerMetricsApi(object):
         last_seconds,
         **kwargs
     ):
-        """Get CPU consumption metric over time for the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Get CPU consumption metric over time for the container  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -821,7 +821,7 @@ class ContainerMetricsApi(object):
         last_seconds,
         **kwargs
     ):
-        """Get Health Check latency  metric over time for the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Get Health Check latency  metric over time for the container  # noqa: E501
 
         The value returned corresponds to the 95th centile  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -908,7 +908,7 @@ class ContainerMetricsApi(object):
         last_seconds,
         **kwargs
     ):
-        """Get Memory consumption metric over time for the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Get Memory consumption metric over time for the container  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -994,7 +994,7 @@ class ContainerMetricsApi(object):
         last_seconds,
         **kwargs
     ):
-        """List container restarts  # noqa: E501
+        """NOT YET IMPLEMENTED - List container restarts  # noqa: E501
 
         Get container restart message and timestamp.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1081,7 +1081,7 @@ class ContainerMetricsApi(object):
         last_seconds,
         **kwargs
     ):
-        """Get Storage consumption metric over time for the container   # noqa: E501
+        """NOT YET IMPLEMENTED - Get Storage consumption metric over time for the container   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

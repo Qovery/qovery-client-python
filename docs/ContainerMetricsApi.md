@@ -4,20 +4,20 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_container_current_instance**](ContainerMetricsApi.md#get_container_current_instance) | **GET** /container/{containerId}/instance | List currently running instances of the container with their CPU and RAM metrics
-[**get_container_current_scale**](ContainerMetricsApi.md#get_container_current_scale) | **GET** /container/{containerId}/currentScale | Get current scaling of the container
-[**get_container_current_storage_disk**](ContainerMetricsApi.md#get_container_current_storage_disk) | **GET** /container/{containerId}/currentStorage | List current storage disk usage
-[**get_container_metric_cpu**](ContainerMetricsApi.md#get_container_metric_cpu) | **GET** /container/{containerId}/metric/cpu | Get CPU consumption metric over time for the container
-[**get_container_metric_health_check**](ContainerMetricsApi.md#get_container_metric_health_check) | **GET** /container/{containerId}/metric/healthCheck | Get Health Check latency  metric over time for the container
-[**get_container_metric_memory**](ContainerMetricsApi.md#get_container_metric_memory) | **GET** /container/{containerId}/metric/memory | Get Memory consumption metric over time for the container
-[**get_container_metric_restart**](ContainerMetricsApi.md#get_container_metric_restart) | **GET** /container/{containerId}/metric/restart | List container restarts
-[**get_container_metric_storage**](ContainerMetricsApi.md#get_container_metric_storage) | **GET** /container/{containerId}/metric/storage | Get Storage consumption metric over time for the container 
+[**get_container_current_instance**](ContainerMetricsApi.md#get_container_current_instance) | **GET** /container/{containerId}/instance | NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics
+[**get_container_current_scale**](ContainerMetricsApi.md#get_container_current_scale) | **GET** /container/{containerId}/currentScale | NOT YET IMPLEMENTED - Get current scaling of the container
+[**get_container_current_storage_disk**](ContainerMetricsApi.md#get_container_current_storage_disk) | **GET** /container/{containerId}/currentStorage | NOT YET IMPLEMENTED - List current storage disk usage
+[**get_container_metric_cpu**](ContainerMetricsApi.md#get_container_metric_cpu) | **GET** /container/{containerId}/metric/cpu | NOT YET IMPLEMENTED - Get CPU consumption metric over time for the container
+[**get_container_metric_health_check**](ContainerMetricsApi.md#get_container_metric_health_check) | **GET** /container/{containerId}/metric/healthCheck | NOT YET IMPLEMENTED - Get Health Check latency  metric over time for the container
+[**get_container_metric_memory**](ContainerMetricsApi.md#get_container_metric_memory) | **GET** /container/{containerId}/metric/memory | NOT YET IMPLEMENTED - Get Memory consumption metric over time for the container
+[**get_container_metric_restart**](ContainerMetricsApi.md#get_container_metric_restart) | **GET** /container/{containerId}/metric/restart | NOT YET IMPLEMENTED - List container restarts
+[**get_container_metric_storage**](ContainerMetricsApi.md#get_container_metric_storage) | **GET** /container/{containerId}/metric/storage | NOT YET IMPLEMENTED - Get Storage consumption metric over time for the container 
 
 
 # **get_container_current_instance**
 > InstanceResponseList get_container_current_instance(container_id)
 
-List currently running instances of the container with their CPU and RAM metrics
+NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics
 
 ### Example
 
@@ -53,7 +53,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List currently running instances of the container with their CPU and RAM metrics
+        # NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics
         api_response = api_instance.get_container_current_instance(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **get_container_current_scale**
 > ContainerCurrentScale get_container_current_scale(container_id)
 
-Get current scaling of the container
+NOT YET IMPLEMENTED - Get current scaling of the container
 
 Returns min, max, and running number of instances of the application
 
@@ -133,7 +133,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get current scaling of the container
+        # NOT YET IMPLEMENTED - Get current scaling of the container
         api_response = api_instance.get_container_current_scale(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 # **get_container_current_storage_disk**
 > StorageDiskResponseList get_container_current_storage_disk(container_id)
 
-List current storage disk usage
+NOT YET IMPLEMENTED - List current storage disk usage
 
 ### Example
 
@@ -211,7 +211,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List current storage disk usage
+        # NOT YET IMPLEMENTED - List current storage disk usage
         api_response = api_instance.get_container_current_storage_disk(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 # **get_container_metric_cpu**
 > MetricCPUResponseList get_container_metric_cpu(container_id, last_seconds)
 
-Get CPU consumption metric over time for the container
+NOT YET IMPLEMENTED - Get CPU consumption metric over time for the container
 
 ### Example
 
@@ -290,7 +290,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get CPU consumption metric over time for the container
+        # NOT YET IMPLEMENTED - Get CPU consumption metric over time for the container
         api_response = api_instance.get_container_metric_cpu(container_id, last_seconds)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 # **get_container_metric_health_check**
 > MetricGenericResponseList get_container_metric_health_check(container_id, last_seconds)
 
-Get Health Check latency  metric over time for the container
+NOT YET IMPLEMENTED - Get Health Check latency  metric over time for the container
 
 The value returned corresponds to the 95th centile
 
@@ -372,7 +372,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Health Check latency  metric over time for the container
+        # NOT YET IMPLEMENTED - Get Health Check latency  metric over time for the container
         api_response = api_instance.get_container_metric_health_check(container_id, last_seconds)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 # **get_container_metric_memory**
 > MetricMemoryResponseList get_container_metric_memory(container_id, last_seconds)
 
-Get Memory consumption metric over time for the container
+NOT YET IMPLEMENTED - Get Memory consumption metric over time for the container
 
 ### Example
 
@@ -452,7 +452,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Memory consumption metric over time for the container
+        # NOT YET IMPLEMENTED - Get Memory consumption metric over time for the container
         api_response = api_instance.get_container_metric_memory(container_id, last_seconds)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 # **get_container_metric_restart**
 > MetricRestart get_container_metric_restart(container_id, last_seconds)
 
-List container restarts
+NOT YET IMPLEMENTED - List container restarts
 
 Get container restart message and timestamp.
 
@@ -534,7 +534,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List container restarts
+        # NOT YET IMPLEMENTED - List container restarts
         api_response = api_instance.get_container_metric_restart(container_id, last_seconds)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 # **get_container_metric_storage**
 > MetricStorageResponseList get_container_metric_storage(container_id, last_seconds)
 
-Get Storage consumption metric over time for the container 
+NOT YET IMPLEMENTED - Get Storage consumption metric over time for the container 
 
 ### Example
 
@@ -614,7 +614,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Storage consumption metric over time for the container 
+        # NOT YET IMPLEMENTED - Get Storage consumption metric over time for the container 
         api_response = api_instance.get_container_metric_storage(container_id, last_seconds)
         pprint(api_response)
     except qovery.ApiException as e:

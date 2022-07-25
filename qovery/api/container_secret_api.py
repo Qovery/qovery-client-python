@@ -336,7 +336,7 @@ class ContainerSecretApi(object):
         container_id,
         **kwargs
     ):
-        """Add a secret to the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Add a secret to the container  # noqa: E501
 
         - Add a secret to the container.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -421,7 +421,7 @@ class ContainerSecretApi(object):
         secret_id,
         **kwargs
     ):
-        """Create a secret alias at the container level  # noqa: E501
+        """NOT YET IMPLEMENTED - Create a secret alias at the container level  # noqa: E501
 
         - Allows you to add an alias at container level on an existing secret having higher scope, in order to customize its key. - You only have to specify a key in the request body - The system will create a new secret at container level with the same value as the one corresponding to the secret id in the path - The response body will contain the newly created secret - Information regarding the aliased_secret will be exposed in the \"aliased_secret\" field of the newly created secret - Only 1 alias level is allowed. You can't create an alias on an alias   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -509,7 +509,7 @@ class ContainerSecretApi(object):
         secret_id,
         **kwargs
     ):
-        """Delete a secret from an container  # noqa: E501
+        """NOT YET IMPLEMENTED - Delete a secret from an container  # noqa: E501
 
         - To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -597,7 +597,7 @@ class ContainerSecretApi(object):
         secret_edit_request,
         **kwargs
     ):
-        """Edit a secret belonging to the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Edit a secret belonging to the container  # noqa: E501
 
         - You can't edit a BUILT_IN secret - For an override, you can't edit the key - For an alias, you can't edit the value - An override can only have a scope lower to the secret it is overriding (hierarchy is BUILT_IN > PROJECT > ENVIRONMENT > CONTAINER)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -686,7 +686,7 @@ class ContainerSecretApi(object):
         container_id,
         **kwargs
     ):
-        """List container secrets  # noqa: E501
+        """NOT YET IMPLEMENTED - List container secrets  # noqa: E501
 
         Secrets are like environment variables, but they are secured and can't be revealed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

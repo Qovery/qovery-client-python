@@ -27,70 +27,70 @@ class TestContainerMainCallsApi(unittest.TestCase):
     def test_create_container_tag(self):
         """Test case for create_container_tag
 
-        Add container tag  # noqa: E501
+        NOT YET IMPLEMENTED - Add container tag  # noqa: E501
         """
         pass
 
     def test_delete_container(self):
         """Test case for delete_container
 
-        Delete container  # noqa: E501
+        NOT YET IMPLEMENTED - Delete container  # noqa: E501
         """
         pass
 
     def test_delete_container_tag(self):
         """Test case for delete_container_tag
 
-        Delete container tag  # noqa: E501
+        NOT YET IMPLEMENTED - Delete container tag  # noqa: E501
         """
         pass
 
     def test_edit_container(self):
         """Test case for edit_container
 
-        Edit container  # noqa: E501
+        NOT YET IMPLEMENTED - Edit container  # noqa: E501
         """
         pass
 
     def test_get_container(self):
         """Test case for get_container
 
-        Get container by ID  # noqa: E501
+        NOT YET IMPLEMENTED - Get container by ID  # noqa: E501
         """
         pass
 
     def test_get_container_status(self):
         """Test case for get_container_status
 
-        Get container status  # noqa: E501
+        NOT YET IMPLEMENTED - Get container status  # noqa: E501
         """
         pass
 
     def test_get_container_tags(self):
         """Test case for get_container_tags
 
-        List image tags  # noqa: E501
+        NOT YET IMPLEMENTED - List image tags  # noqa: E501
         """
         pass
 
     def test_list_container_contributor(self):
         """Test case for list_container_contributor
 
-        List contributors  # noqa: E501
+        NOT YET IMPLEMENTED -List contributors  # noqa: E501
         """
         pass
 
     def test_list_container_links(self):
         """Test case for list_container_links
 
-        List all URLs of the container  # noqa: E501
+        NOT YET IMPLEMENTED - List all URLs of the container  # noqa: E501
         """
         pass
 
     def test_list_container_tag(self):
         """Test case for list_container_tag
 
-        List tags  # noqa: E501
+        NOT YET IMPLEMENTED - List tags  # noqa: E501
         """
         pass
 

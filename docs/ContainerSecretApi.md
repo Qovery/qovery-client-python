@@ -4,17 +4,17 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_container_secret**](ContainerSecretApi.md#create_container_secret) | **POST** /container/{containerId}/secret | Add a secret to the container
-[**create_container_secret_alias**](ContainerSecretApi.md#create_container_secret_alias) | **POST** /container/{containerId}/secret/{secretId}/alias | Create a secret alias at the container level
-[**delete_container_secret**](ContainerSecretApi.md#delete_container_secret) | **DELETE** /container/{containerId}/secret/{secretId} | Delete a secret from an container
-[**edit_container_secret**](ContainerSecretApi.md#edit_container_secret) | **PUT** /container/{containerId}/secret/{secretId} | Edit a secret belonging to the container
-[**list_container_secrets**](ContainerSecretApi.md#list_container_secrets) | **GET** /container/{containerId}/secret | List container secrets
+[**create_container_secret**](ContainerSecretApi.md#create_container_secret) | **POST** /container/{containerId}/secret | NOT YET IMPLEMENTED - Add a secret to the container
+[**create_container_secret_alias**](ContainerSecretApi.md#create_container_secret_alias) | **POST** /container/{containerId}/secret/{secretId}/alias | NOT YET IMPLEMENTED - Create a secret alias at the container level
+[**delete_container_secret**](ContainerSecretApi.md#delete_container_secret) | **DELETE** /container/{containerId}/secret/{secretId} | NOT YET IMPLEMENTED - Delete a secret from an container
+[**edit_container_secret**](ContainerSecretApi.md#edit_container_secret) | **PUT** /container/{containerId}/secret/{secretId} | NOT YET IMPLEMENTED - Edit a secret belonging to the container
+[**list_container_secrets**](ContainerSecretApi.md#list_container_secrets) | **GET** /container/{containerId}/secret | NOT YET IMPLEMENTED - List container secrets
 
 
 # **create_container_secret**
 > Secret create_container_secret(container_id)
 
-Add a secret to the container
+NOT YET IMPLEMENTED - Add a secret to the container
 
 - Add a secret to the container. 
 
@@ -57,7 +57,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Add a secret to the container
+        # NOT YET IMPLEMENTED - Add a secret to the container
         api_response = api_instance.create_container_secret(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -66,7 +66,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Add a secret to the container
+        # NOT YET IMPLEMENTED - Add a secret to the container
         api_response = api_instance.create_container_secret(container_id, secret_request=secret_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 # **create_container_secret_alias**
 > Secret create_container_secret_alias(container_id, secret_id)
 
-Create a secret alias at the container level
+NOT YET IMPLEMENTED - Create a secret alias at the container level
 
 - Allows you to add an alias at container level on an existing secret having higher scope, in order to customize its key. - You only have to specify a key in the request body - The system will create a new secret at container level with the same value as the one corresponding to the secret id in the path - The response body will contain the newly created secret - Information regarding the aliased_secret will be exposed in the \"aliased_secret\" field of the newly created secret - Only 1 alias level is allowed. You can't create an alias on an alias 
 
@@ -153,7 +153,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create a secret alias at the container level
+        # NOT YET IMPLEMENTED - Create a secret alias at the container level
         api_response = api_instance.create_container_secret_alias(container_id, secret_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -162,7 +162,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create a secret alias at the container level
+        # NOT YET IMPLEMENTED - Create a secret alias at the container level
         api_response = api_instance.create_container_secret_alias(container_id, secret_id, key=key)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 # **delete_container_secret**
 > delete_container_secret(container_id, secret_id)
 
-Delete a secret from an container
+NOT YET IMPLEMENTED - Delete a secret from an container
 
 - To delete a secret you must have the project user permission - You can't delete a BUILT_IN secret - If you delete a secret having override or alias, the associated override/alias will be deleted as well 
 
@@ -245,7 +245,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete a secret from an container
+        # NOT YET IMPLEMENTED - Delete a secret from an container
         api_instance.delete_container_secret(container_id, secret_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerSecretApi->delete_container_secret: %s\n" % e)
@@ -287,7 +287,7 @@ void (empty response body)
 # **edit_container_secret**
 > Secret edit_container_secret(container_id, secret_id, secret_edit_request)
 
-Edit a secret belonging to the container
+NOT YET IMPLEMENTED - Edit a secret belonging to the container
 
 - You can't edit a BUILT_IN secret - For an override, you can't edit the key - For an alias, you can't edit the value - An override can only have a scope lower to the secret it is overriding (hierarchy is BUILT_IN > PROJECT > ENVIRONMENT > CONTAINER) 
 
@@ -331,7 +331,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Edit a secret belonging to the container
+        # NOT YET IMPLEMENTED - Edit a secret belonging to the container
         api_response = api_instance.edit_container_secret(container_id, secret_id, secret_edit_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 # **list_container_secrets**
 > SecretResponseList list_container_secrets(container_id)
 
-List container secrets
+NOT YET IMPLEMENTED - List container secrets
 
 Secrets are like environment variables, but they are secured and can't be revealed.
 
@@ -414,7 +414,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List container secrets
+        # NOT YET IMPLEMENTED - List container secrets
         api_response = api_instance.list_container_secrets(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

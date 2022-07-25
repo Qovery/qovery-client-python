@@ -27,7 +27,7 @@ class TestContainerEventApi(unittest.TestCase):
     def test_list_container_event(self):
         """Test case for list_container_event
 
-        List container events  # noqa: E501
+        NOT YET IMPLEMENTED - List container events  # noqa: E501
         """
         pass
 

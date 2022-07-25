@@ -27,28 +27,28 @@ class TestContainerDeploymentRestrictionApi(unittest.TestCase):
     def test_create_container_deployment_restriction(self):
         """Test case for create_container_deployment_restriction
 
-        Create an container deployment restriction  # noqa: E501
+        NOT YET IMPLEMENTED - Create an container deployment restriction  # noqa: E501
         """
         pass
 
     def test_delete_container_deployment_restriction(self):
         """Test case for delete_container_deployment_restriction
 
-        Delete a container deployment restriction  # noqa: E501
+        NOT YET IMPLEMENTED - Delete a container deployment restriction  # noqa: E501
         """
         pass
 
     def test_edit_container_deployment_restriction(self):
         """Test case for edit_container_deployment_restriction
 
-        Edit a container deployment restriction  # noqa: E501
+        NOT YET IMPLEMENTED - Edit a container deployment restriction  # noqa: E501
         """
         pass
 
     def test_get_container_deployment_restrictions(self):
         """Test case for get_container_deployment_restrictions
 
-        Get container deployment restrictions  # noqa: E501
+        NOT YET IMPLEMENTED - Get container deployment restrictions  # noqa: E501
         """
         pass
 

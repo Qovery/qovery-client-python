@@ -372,7 +372,7 @@ class ContainerDatabaseApi(object):
         target_database_id,
         **kwargs
     ):
-        """Link a database to the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Link a database to the container  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -458,7 +458,7 @@ class ContainerDatabaseApi(object):
         target_logical_database_id,
         **kwargs
     ):
-        """Link a logical database to the container  # noqa: E501
+        """NOT YET IMPLEMENTED - Link a logical database to the container  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -543,7 +543,7 @@ class ContainerDatabaseApi(object):
         container_id,
         **kwargs
     ):
-        """List linked databases  # noqa: E501
+        """NOT YET IMPLEMENTED - List linked databases  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -625,7 +625,7 @@ class ContainerDatabaseApi(object):
         container_id,
         **kwargs
     ):
-        """List linked logical databases  # noqa: E501
+        """NOT YET IMPLEMENTED - List linked logical databases  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -708,7 +708,7 @@ class ContainerDatabaseApi(object):
         target_database_id,
         **kwargs
     ):
-        """Remove database link to this container.  # noqa: E501
+        """NOT YET IMPLEMENTED - Remove database link to this container.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -794,7 +794,7 @@ class ContainerDatabaseApi(object):
         target_logical_database_id,
         **kwargs
     ):
-        """Remove logical database link to this container.  # noqa: E501
+        """NOT YET IMPLEMENTED - Remove logical database link to this container.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

@@ -4,16 +4,16 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**edit_container_advanced_settings**](ContainerConfigurationApi.md#edit_container_advanced_settings) | **PUT** /container/{containerId}/advancedSettings | Edit advanced settings
-[**edit_container_network**](ContainerConfigurationApi.md#edit_container_network) | **PUT** /container/{containerId}/network | Edit Container Network
-[**get_container_advanced_settings**](ContainerConfigurationApi.md#get_container_advanced_settings) | **GET** /container/{containerId}/advancedSettings | Get advanced settings
-[**get_container_network**](ContainerConfigurationApi.md#get_container_network) | **GET** /container/{containerId}/network | Get Container Network information
+[**edit_container_advanced_settings**](ContainerConfigurationApi.md#edit_container_advanced_settings) | **PUT** /container/{containerId}/advancedSettings | NOT YET IMPLEMENTED - Edit advanced settings
+[**edit_container_network**](ContainerConfigurationApi.md#edit_container_network) | **PUT** /container/{containerId}/network | NOT YET IMPLEMENTED - Edit Container Network
+[**get_container_advanced_settings**](ContainerConfigurationApi.md#get_container_advanced_settings) | **GET** /container/{containerId}/advancedSettings | NOT YET IMPLEMENTED - Get advanced settings
+[**get_container_network**](ContainerConfigurationApi.md#get_container_network) | **GET** /container/{containerId}/network | NOT YET IMPLEMENTED - Get Container Network information
 
 
 # **edit_container_advanced_settings**
 > ContainerAdvancedSettingsResponse edit_container_advanced_settings(container_id)
 
-Edit advanced settings
+NOT YET IMPLEMENTED - Edit advanced settings
 
 Edit advanced settings by returning table of advanced settings.
 
@@ -78,7 +78,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Edit advanced settings
+        # NOT YET IMPLEMENTED - Edit advanced settings
         api_response = api_instance.edit_container_advanced_settings(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -87,7 +87,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Edit advanced settings
+        # NOT YET IMPLEMENTED - Edit advanced settings
         api_response = api_instance.edit_container_advanced_settings(container_id, container_advanced_settings_request=container_advanced_settings_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 # **edit_container_network**
 > ContainerNetwork edit_container_network(container_id)
 
-Edit Container Network
+NOT YET IMPLEMENTED - Edit Container Network
 
 Edit the Network settings of the container.
 
@@ -173,7 +173,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Edit Container Network
+        # NOT YET IMPLEMENTED - Edit Container Network
         api_response = api_instance.edit_container_network(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -182,7 +182,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Edit Container Network
+        # NOT YET IMPLEMENTED - Edit Container Network
         api_response = api_instance.edit_container_network(container_id, container_network_request=container_network_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 # **get_container_advanced_settings**
 > ContainerAdvancedSettingsResponse get_container_advanced_settings(container_id)
 
-Get advanced settings
+NOT YET IMPLEMENTED - Get advanced settings
 
 Get list and values of the advanced settings of the container.
 
@@ -264,7 +264,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get advanced settings
+        # NOT YET IMPLEMENTED - Get advanced settings
         api_response = api_instance.get_container_advanced_settings(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 # **get_container_network**
 > ContainerNetwork get_container_network(container_id)
 
-Get Container Network information
+NOT YET IMPLEMENTED - Get Container Network information
 
 Get status of the container network settings.
 
@@ -344,7 +344,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get Container Network information
+        # NOT YET IMPLEMENTED - Get Container Network information
         api_response = api_instance.get_container_network(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

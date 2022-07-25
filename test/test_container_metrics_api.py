@@ -27,56 +27,56 @@ class TestContainerMetricsApi(unittest.TestCase):
     def test_get_container_current_instance(self):
         """Test case for get_container_current_instance
 
-        List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
+        NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
         """
         pass
 
     def test_get_container_current_scale(self):
         """Test case for get_container_current_scale
 
-        Get current scaling of the container  # noqa: E501
+        NOT YET IMPLEMENTED - Get current scaling of the container  # noqa: E501
         """
         pass
 
     def test_get_container_current_storage_disk(self):
         """Test case for get_container_current_storage_disk
 
-        List current storage disk usage  # noqa: E501
+        NOT YET IMPLEMENTED - List current storage disk usage  # noqa: E501
         """
         pass
 
     def test_get_container_metric_cpu(self):
         """Test case for get_container_metric_cpu
 
-        Get CPU consumption metric over time for the container  # noqa: E501
+        NOT YET IMPLEMENTED - Get CPU consumption metric over time for the container  # noqa: E501
         """
         pass
 
     def test_get_container_metric_health_check(self):
         """Test case for get_container_metric_health_check
 
-        Get Health Check latency  metric over time for the container  # noqa: E501
+        NOT YET IMPLEMENTED - Get Health Check latency  metric over time for the container  # noqa: E501
         """
         pass
 
     def test_get_container_metric_memory(self):
         """Test case for get_container_metric_memory
 
-        Get Memory consumption metric over time for the container  # noqa: E501
+        NOT YET IMPLEMENTED - Get Memory consumption metric over time for the container  # noqa: E501
         """
         pass
 
     def test_get_container_metric_restart(self):
         """Test case for get_container_metric_restart
 
-        List container restarts  # noqa: E501
+        NOT YET IMPLEMENTED - List container restarts  # noqa: E501
         """
         pass
 
     def test_get_container_metric_storage(self):
         """Test case for get_container_metric_storage
 
-        Get Storage consumption metric over time for the container   # noqa: E501
+        NOT YET IMPLEMENTED - Get Storage consumption metric over time for the container   # noqa: E501
         """
         pass
 

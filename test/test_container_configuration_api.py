@@ -27,28 +27,28 @@ class TestContainerConfigurationApi(unittest.TestCase):
     def test_edit_container_advanced_settings(self):
         """Test case for edit_container_advanced_settings
 
-        Edit advanced settings  # noqa: E501
+        NOT YET IMPLEMENTED - Edit advanced settings  # noqa: E501
         """
         pass
 
     def test_edit_container_network(self):
         """Test case for edit_container_network
 
-        Edit Container Network  # noqa: E501
+        NOT YET IMPLEMENTED - Edit Container Network  # noqa: E501
         """
         pass
 
     def test_get_container_advanced_settings(self):
         """Test case for get_container_advanced_settings
 
-        Get advanced settings  # noqa: E501
+        NOT YET IMPLEMENTED - Get advanced settings  # noqa: E501
         """
         pass
 
     def test_get_container_network(self):
         """Test case for get_container_network
 
-        Get Container Network information  # noqa: E501
+        NOT YET IMPLEMENTED - Get Container Network information  # noqa: E501
         """
         pass
 

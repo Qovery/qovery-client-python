@@ -194,7 +194,7 @@ class ContainerDependencyApi(object):
         container_id,
         **kwargs
     ):
-        """Add container dependency to this application.  # noqa: E501
+        """NOT YET IMPLEMENTED - Add container dependency to this application.  # noqa: E501
 
         Add container dependency to this container to prevent this container starting before the linked dependencies  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -277,7 +277,7 @@ class ContainerDependencyApi(object):
         container_id,
         **kwargs
     ):
-        """List container dependencies  # noqa: E501
+        """NOT YET IMPLEMENTED - List container dependencies  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -359,7 +359,7 @@ class ContainerDependencyApi(object):
         container_id,
         **kwargs
     ):
-        """Remove container dependency to this container.  # noqa: E501
+        """NOT YET IMPLEMENTED - Remove container dependency to this container.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

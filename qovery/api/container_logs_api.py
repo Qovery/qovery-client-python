@@ -93,7 +93,7 @@ class ContainerLogsApi(object):
         container_id,
         **kwargs
     ):
-        """List logs  # noqa: E501
+        """NOT YET IMPLEMENTED - List logs  # noqa: E501
 
         This will list the last 1000 logs of the container  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

@@ -27,42 +27,42 @@ class TestContainerDatabaseApi(unittest.TestCase):
     def test_attach_database_to_container(self):
         """Test case for attach_database_to_container
 
-        Link a database to the container  # noqa: E501
+        NOT YET IMPLEMENTED - Link a database to the container  # noqa: E501
         """
         pass
 
     def test_attach_logical_database_to_container(self):
         """Test case for attach_logical_database_to_container
 
-        Link a logical database to the container  # noqa: E501
+        NOT YET IMPLEMENTED - Link a logical database to the container  # noqa: E501
         """
         pass
 
     def test_list_container_database(self):
         """Test case for list_container_database
 
-        List linked databases  # noqa: E501
+        NOT YET IMPLEMENTED - List linked databases  # noqa: E501
         """
         pass
 
     def test_list_container_logical_database(self):
         """Test case for list_container_logical_database
 
-        List linked logical databases  # noqa: E501
+        NOT YET IMPLEMENTED - List linked logical databases  # noqa: E501
         """
         pass
 
     def test_remove_database_from_container(self):
         """Test case for remove_database_from_container
 
-        Remove database link to this container.  # noqa: E501
+        NOT YET IMPLEMENTED - Remove database link to this container.  # noqa: E501
         """
         pass
 
     def test_remove_logical_database_from_container(self):
         """Test case for remove_logical_database_from_container
 
-        Remove logical database link to this container.  # noqa: E501
+        NOT YET IMPLEMENTED - Remove logical database link to this container.  # noqa: E501
         """
         pass
 

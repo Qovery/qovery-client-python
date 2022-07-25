@@ -27,35 +27,35 @@ class TestContainerCustomDomainApi(unittest.TestCase):
     def test_create_container_custom_domain(self):
         """Test case for create_container_custom_domain
 
-        Add custom domain to the container.  # noqa: E501
+        NOT YET IMPLEMENTED - Add custom domain to the container.  # noqa: E501
         """
         pass
 
     def test_delete_container_custom_domain(self):
         """Test case for delete_container_custom_domain
 
-        Delete a Custom Domain  # noqa: E501
+        NOT YET IMPLEMENTED - Delete a Custom Domain  # noqa: E501
         """
         pass
 
     def test_edit_container_custom_domain(self):
         """Test case for edit_container_custom_domain
 
-        Edit a Custom Domain  # noqa: E501
+        NOT YET IMPLEMENTED - Edit a Custom Domain  # noqa: E501
         """
         pass
 
     def test_get_container_custom_domain_status(self):
         """Test case for get_container_custom_domain_status
 
-        Get Custom Domain status  # noqa: E501
+        NOT YET IMPLEMENTED - Get Custom Domain status  # noqa: E501
         """
         pass
 
     def test_list_container_custom_domain(self):
         """Test case for list_container_custom_domain
 
-        List container custom domains  # noqa: E501
+        NOT YET IMPLEMENTED - List container custom domains  # noqa: E501
         """
         pass
 

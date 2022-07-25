@@ -98,7 +98,7 @@ class ContainerEventApi(object):
         container_id,
         **kwargs
     ):
-        """List container events  # noqa: E501
+        """NOT YET IMPLEMENTED - List container events  # noqa: E501
 
         By default it returns the 20 last results. The response is paginated. In order to request the next page, you can use the startId query parameter  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

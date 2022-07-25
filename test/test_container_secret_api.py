@@ -27,35 +27,35 @@ class TestContainerSecretApi(unittest.TestCase):
     def test_create_container_secret(self):
         """Test case for create_container_secret
 
-        Add a secret to the container  # noqa: E501
+        NOT YET IMPLEMENTED - Add a secret to the container  # noqa: E501
         """
         pass
 
     def test_create_container_secret_alias(self):
         """Test case for create_container_secret_alias
 
-        Create a secret alias at the container level  # noqa: E501
+        NOT YET IMPLEMENTED - Create a secret alias at the container level  # noqa: E501
         """
         pass
 
     def test_delete_container_secret(self):
         """Test case for delete_container_secret
 
-        Delete a secret from an container  # noqa: E501
+        NOT YET IMPLEMENTED - Delete a secret from an container  # noqa: E501
         """
         pass
 
     def test_edit_container_secret(self):
         """Test case for edit_container_secret
 
-        Edit a secret belonging to the container  # noqa: E501
+        NOT YET IMPLEMENTED - Edit a secret belonging to the container  # noqa: E501
         """
         pass
 
     def test_list_container_secrets(self):
         """Test case for list_container_secrets
 
-        List container secrets  # noqa: E501
+        NOT YET IMPLEMENTED - List container secrets  # noqa: E501
         """
         pass
 

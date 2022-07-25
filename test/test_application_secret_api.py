@@ -48,7 +48,7 @@ class TestApplicationSecretApi(unittest.TestCase):
     def test_create_container_secret_override(self):
         """Test case for create_container_secret_override
 
-        Create a secret override at the container level  # noqa: E501
+        NOT YET IMPLEMENTED - Create a secret override at the container level  # noqa: E501
         """
         pass
 

@@ -4,16 +4,16 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_container_deployment_restriction**](ContainerDeploymentRestrictionApi.md#create_container_deployment_restriction) | **POST** /container/{containerId}/deploymentRestriction | Create an container deployment restriction
-[**delete_container_deployment_restriction**](ContainerDeploymentRestrictionApi.md#delete_container_deployment_restriction) | **DELETE** /container/{containerId}/deploymentRestriction/{deploymentRestrictionId} | Delete a container deployment restriction
-[**edit_container_deployment_restriction**](ContainerDeploymentRestrictionApi.md#edit_container_deployment_restriction) | **PUT** /container/{containerId}/deploymentRestriction/{deploymentRestrictionId} | Edit a container deployment restriction
-[**get_container_deployment_restrictions**](ContainerDeploymentRestrictionApi.md#get_container_deployment_restrictions) | **GET** /container/{containerId}/deploymentRestriction | Get container deployment restrictions
+[**create_container_deployment_restriction**](ContainerDeploymentRestrictionApi.md#create_container_deployment_restriction) | **POST** /container/{containerId}/deploymentRestriction | NOT YET IMPLEMENTED - Create an container deployment restriction
+[**delete_container_deployment_restriction**](ContainerDeploymentRestrictionApi.md#delete_container_deployment_restriction) | **DELETE** /container/{containerId}/deploymentRestriction/{deploymentRestrictionId} | NOT YET IMPLEMENTED - Delete a container deployment restriction
+[**edit_container_deployment_restriction**](ContainerDeploymentRestrictionApi.md#edit_container_deployment_restriction) | **PUT** /container/{containerId}/deploymentRestriction/{deploymentRestrictionId} | NOT YET IMPLEMENTED - Edit a container deployment restriction
+[**get_container_deployment_restrictions**](ContainerDeploymentRestrictionApi.md#get_container_deployment_restrictions) | **GET** /container/{containerId}/deploymentRestriction | NOT YET IMPLEMENTED - Get container deployment restrictions
 
 
 # **create_container_deployment_restriction**
 > ContainerDeploymentRestriction create_container_deployment_restriction(container_id)
 
-Create an container deployment restriction
+NOT YET IMPLEMENTED - Create an container deployment restriction
 
 Create an container deployment restriction
 
@@ -57,7 +57,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create an container deployment restriction
+        # NOT YET IMPLEMENTED - Create an container deployment restriction
         api_response = api_instance.create_container_deployment_restriction(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -66,7 +66,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create an container deployment restriction
+        # NOT YET IMPLEMENTED - Create an container deployment restriction
         api_response = api_instance.create_container_deployment_restriction(container_id, container_deployment_restriction_request=container_deployment_restriction_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 # **delete_container_deployment_restriction**
 > delete_container_deployment_restriction(container_id)
 
-Delete a container deployment restriction
+NOT YET IMPLEMENTED - Delete a container deployment restriction
 
 Delete a container deployment restriction
 
@@ -147,7 +147,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete a container deployment restriction
+        # NOT YET IMPLEMENTED - Delete a container deployment restriction
         api_instance.delete_container_deployment_restriction(container_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerDeploymentRestrictionApi->delete_container_deployment_restriction: %s\n" % e)
@@ -188,7 +188,7 @@ void (empty response body)
 # **edit_container_deployment_restriction**
 > ContainerDeploymentRestriction edit_container_deployment_restriction(container_id, deployment_restriction_id)
 
-Edit a container deployment restriction
+NOT YET IMPLEMENTED - Edit a container deployment restriction
 
 Edit a container deployment restriction
 
@@ -233,7 +233,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Edit a container deployment restriction
+        # NOT YET IMPLEMENTED - Edit a container deployment restriction
         api_response = api_instance.edit_container_deployment_restriction(container_id, deployment_restriction_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -242,7 +242,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Edit a container deployment restriction
+        # NOT YET IMPLEMENTED - Edit a container deployment restriction
         api_response = api_instance.edit_container_deployment_restriction(container_id, deployment_restriction_id, container_deployment_restriction_request=container_deployment_restriction_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 # **get_container_deployment_restrictions**
 > ContainerDeploymentRestrictionResponseList get_container_deployment_restrictions(container_id)
 
-Get container deployment restrictions
+NOT YET IMPLEMENTED - Get container deployment restrictions
 
 Get container deployment restrictions
 
@@ -325,7 +325,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get container deployment restrictions
+        # NOT YET IMPLEMENTED - Get container deployment restrictions
         api_response = api_instance.get_container_deployment_restrictions(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

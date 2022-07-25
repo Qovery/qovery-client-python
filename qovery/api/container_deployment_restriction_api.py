@@ -264,7 +264,7 @@ class ContainerDeploymentRestrictionApi(object):
         container_id,
         **kwargs
     ):
-        """Create an container deployment restriction  # noqa: E501
+        """NOT YET IMPLEMENTED - Create an container deployment restriction  # noqa: E501
 
         Create an container deployment restriction  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -348,7 +348,7 @@ class ContainerDeploymentRestrictionApi(object):
         container_id,
         **kwargs
     ):
-        """Delete a container deployment restriction  # noqa: E501
+        """NOT YET IMPLEMENTED - Delete a container deployment restriction  # noqa: E501
 
         Delete a container deployment restriction  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -432,7 +432,7 @@ class ContainerDeploymentRestrictionApi(object):
         deployment_restriction_id,
         **kwargs
     ):
-        """Edit a container deployment restriction  # noqa: E501
+        """NOT YET IMPLEMENTED - Edit a container deployment restriction  # noqa: E501
 
         Edit a container deployment restriction  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -519,7 +519,7 @@ class ContainerDeploymentRestrictionApi(object):
         container_id,
         **kwargs
     ):
-        """Get container deployment restrictions  # noqa: E501
+        """NOT YET IMPLEMENTED - Get container deployment restrictions  # noqa: E501
 
         Get container deployment restrictions  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

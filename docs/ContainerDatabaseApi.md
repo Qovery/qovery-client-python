@@ -4,18 +4,18 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attach_database_to_container**](ContainerDatabaseApi.md#attach_database_to_container) | **POST** /container/{containerId}/database/{targetDatabaseId} | Link a database to the container
-[**attach_logical_database_to_container**](ContainerDatabaseApi.md#attach_logical_database_to_container) | **POST** /container/{containerId}/logicalDatabase/{targetLogicalDatabaseId} | Link a logical database to the container
-[**list_container_database**](ContainerDatabaseApi.md#list_container_database) | **GET** /container/{containerId}/database | List linked databases
-[**list_container_logical_database**](ContainerDatabaseApi.md#list_container_logical_database) | **GET** /container/{containerId}/logicalDatabase | List linked logical databases
-[**remove_database_from_container**](ContainerDatabaseApi.md#remove_database_from_container) | **DELETE** /container/{containerId}/database/{targetDatabaseId} | Remove database link to this container.
-[**remove_logical_database_from_container**](ContainerDatabaseApi.md#remove_logical_database_from_container) | **DELETE** /container/{containerId}/logicalDatabase/{targetLogicalDatabaseId} | Remove logical database link to this container.
+[**attach_database_to_container**](ContainerDatabaseApi.md#attach_database_to_container) | **POST** /container/{containerId}/database/{targetDatabaseId} | NOT YET IMPLEMENTED - Link a database to the container
+[**attach_logical_database_to_container**](ContainerDatabaseApi.md#attach_logical_database_to_container) | **POST** /container/{containerId}/logicalDatabase/{targetLogicalDatabaseId} | NOT YET IMPLEMENTED - Link a logical database to the container
+[**list_container_database**](ContainerDatabaseApi.md#list_container_database) | **GET** /container/{containerId}/database | NOT YET IMPLEMENTED - List linked databases
+[**list_container_logical_database**](ContainerDatabaseApi.md#list_container_logical_database) | **GET** /container/{containerId}/logicalDatabase | NOT YET IMPLEMENTED - List linked logical databases
+[**remove_database_from_container**](ContainerDatabaseApi.md#remove_database_from_container) | **DELETE** /container/{containerId}/database/{targetDatabaseId} | NOT YET IMPLEMENTED - Remove database link to this container.
+[**remove_logical_database_from_container**](ContainerDatabaseApi.md#remove_logical_database_from_container) | **DELETE** /container/{containerId}/logicalDatabase/{targetLogicalDatabaseId} | NOT YET IMPLEMENTED - Remove logical database link to this container.
 
 
 # **attach_database_to_container**
 > Database attach_database_to_container(container_id, target_database_id)
 
-Link a database to the container
+NOT YET IMPLEMENTED - Link a database to the container
 
 ### Example
 
@@ -52,7 +52,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Link a database to the container
+        # NOT YET IMPLEMENTED - Link a database to the container
         api_response = api_instance.attach_database_to_container(container_id, target_database_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **attach_logical_database_to_container**
 > LogicalDatabase attach_logical_database_to_container(container_id, target_logical_database_id)
 
-Link a logical database to the container
+NOT YET IMPLEMENTED - Link a logical database to the container
 
 ### Example
 
@@ -134,7 +134,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Link a logical database to the container
+        # NOT YET IMPLEMENTED - Link a logical database to the container
         api_response = api_instance.attach_logical_database_to_container(container_id, target_logical_database_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **list_container_database**
 > DatabaseResponseList list_container_database(container_id)
 
-List linked databases
+NOT YET IMPLEMENTED - List linked databases
 
 ### Example
 
@@ -215,7 +215,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List linked databases
+        # NOT YET IMPLEMENTED - List linked databases
         api_response = api_instance.list_container_database(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 # **list_container_logical_database**
 > LogicalDatabaseResponseList list_container_logical_database(container_id)
 
-List linked logical databases
+NOT YET IMPLEMENTED - List linked logical databases
 
 ### Example
 
@@ -293,7 +293,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List linked logical databases
+        # NOT YET IMPLEMENTED - List linked logical databases
         api_response = api_instance.list_container_logical_database(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 # **remove_database_from_container**
 > remove_database_from_container(container_id, target_database_id)
 
-Remove database link to this container.
+NOT YET IMPLEMENTED - Remove database link to this container.
 
 ### Example
 
@@ -371,7 +371,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Remove database link to this container.
+        # NOT YET IMPLEMENTED - Remove database link to this container.
         api_instance.remove_database_from_container(container_id, target_database_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerDatabaseApi->remove_database_from_container: %s\n" % e)
@@ -413,7 +413,7 @@ void (empty response body)
 # **remove_logical_database_from_container**
 > remove_logical_database_from_container(container_id, target_logical_database_id)
 
-Remove logical database link to this container.
+NOT YET IMPLEMENTED - Remove logical database link to this container.
 
 ### Example
 
@@ -449,7 +449,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Remove logical database link to this container.
+        # NOT YET IMPLEMENTED - Remove logical database link to this container.
         api_instance.remove_logical_database_from_container(container_id, target_logical_database_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerDatabaseApi->remove_logical_database_from_container: %s\n" % e)

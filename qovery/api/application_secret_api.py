@@ -724,7 +724,7 @@ class ApplicationSecretApi(object):
         secret_id,
         **kwargs
     ):
-        """Create a secret override at the container level  # noqa: E501
+        """NOT YET IMPLEMENTED - Create a secret override at the container level  # noqa: E501
 
         - Allows you to override at container level a secret that has a higher scope. - You only have to specify a value in the request body - The system will create a new secret at container level with the same key as the one corresponding to the secret id in the path - The response body will contain the newly created secret - Information regarding the overridden_secret will be exposed in the \"overridden_secret\" field of the newly created secret   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

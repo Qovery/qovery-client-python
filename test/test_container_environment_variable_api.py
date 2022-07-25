@@ -34,42 +34,42 @@ class TestContainerEnvironmentVariableApi(unittest.TestCase):
     def test_create_container_environment_variable_alias(self):
         """Test case for create_container_environment_variable_alias
 
-        Create an environment variable alias at the container level  # noqa: E501
+        NOT YET IMPLEMENTED - Create an environment variable alias at the container level  # noqa: E501
         """
         pass
 
     def test_create_container_environment_variable_override(self):
         """Test case for create_container_environment_variable_override
 
-        Create an environment variable override at the container level  # noqa: E501
+        NOT YET IMPLEMENTED - Create an environment variable override at the container level  # noqa: E501
         """
         pass
 
     def test_delete_container_environment_variable(self):
         """Test case for delete_container_environment_variable
 
-        Delete an environment variable from a container  # noqa: E501
+        NOT YET IMPLEMENTED - Delete an environment variable from a container  # noqa: E501
         """
         pass
 
     def test_edit_container_environment_variable(self):
         """Test case for edit_container_environment_variable
 
-        Edit an environment variable belonging to the container  # noqa: E501
+        NOT YET IMPLEMENTED - Edit an environment variable belonging to the container  # noqa: E501
         """
         pass
 
     def test_import_container_environment_variable(self):
         """Test case for import_container_environment_variable
 
-        Import variables  # noqa: E501
+        NOT YET IMPLEMENTED - Import variables  # noqa: E501
         """
         pass
 
     def test_list_container_environment_variable(self):
         """Test case for list_container_environment_variable
 
-        List environment variables  # noqa: E501
+        NOT YET IMPLEMENTED - List environment variables  # noqa: E501
         """
         pass
 

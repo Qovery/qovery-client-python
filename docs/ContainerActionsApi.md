@@ -4,16 +4,16 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deploy_container**](ContainerActionsApi.md#deploy_container) | **POST** /container/{containerId}/deploy | Deploy container
-[**preview_environment_container**](ContainerActionsApi.md#preview_environment_container) | **POST** /container/{containerId}/previewEnvironment | Deploy a preview environment with your container application
-[**restart_container**](ContainerActionsApi.md#restart_container) | **POST** /container/{containerId}/restart | Restart container
-[**stop_container**](ContainerActionsApi.md#stop_container) | **POST** /container/{containerId}/stop | Stop container
+[**deploy_container**](ContainerActionsApi.md#deploy_container) | **POST** /container/{containerId}/deploy | NOT YET IMPLEMENTED - Deploy container
+[**preview_environment_container**](ContainerActionsApi.md#preview_environment_container) | **POST** /container/{containerId}/previewEnvironment | NOT YET IMPLEMENTED - Deploy a preview environment with your container application
+[**restart_container**](ContainerActionsApi.md#restart_container) | **POST** /container/{containerId}/restart | NOT YET IMPLEMENTED - Restart container
+[**stop_container**](ContainerActionsApi.md#stop_container) | **POST** /container/{containerId}/stop | NOT YET IMPLEMENTED - Stop container
 
 
 # **deploy_container**
 > Status deploy_container(container_id)
 
-Deploy container
+NOT YET IMPLEMENTED - Deploy container
 
 You must provide a git commit id
 
@@ -55,7 +55,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Deploy container
+        # NOT YET IMPLEMENTED - Deploy container
         api_response = api_instance.deploy_container(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -64,7 +64,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Deploy container
+        # NOT YET IMPLEMENTED - Deploy container
         api_response = api_instance.deploy_container(container_id, container_deploy_request=container_deploy_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 # **preview_environment_container**
 > Status preview_environment_container(container_id)
 
-Deploy a preview environment with your container application
+NOT YET IMPLEMENTED - Deploy a preview environment with your container application
 
 You must provide the image tag.
 
@@ -151,7 +151,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Deploy a preview environment with your container application
+        # NOT YET IMPLEMENTED - Deploy a preview environment with your container application
         api_response = api_instance.preview_environment_container(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -160,7 +160,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Deploy a preview environment with your container application
+        # NOT YET IMPLEMENTED - Deploy a preview environment with your container application
         api_response = api_instance.preview_environment_container(container_id, container_deploy_request=container_deploy_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 # **restart_container**
 > Status restart_container(container_id)
 
-Restart container
+NOT YET IMPLEMENTED - Restart container
 
 ### Example
 
@@ -241,7 +241,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Restart container
+        # NOT YET IMPLEMENTED - Restart container
         api_response = api_instance.restart_container(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 # **stop_container**
 > Status stop_container(container_id)
 
-Stop container
+NOT YET IMPLEMENTED - Stop container
 
 ### Example
 
@@ -320,7 +320,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Stop container
+        # NOT YET IMPLEMENTED - Stop container
         api_response = api_instance.stop_container(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

@@ -5,12 +5,12 @@ All URIs are relative to *https://api.qovery.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_container_environment_variable**](ContainerEnvironmentVariableApi.md#create_container_environment_variable) | **POST** /container/{containerId}/environmentVariable | Add an environment variable to the container
-[**create_container_environment_variable_alias**](ContainerEnvironmentVariableApi.md#create_container_environment_variable_alias) | **POST** /container/{containerId}/environmentVariable/{environmentVariableId}/alias | Create an environment variable alias at the container level
-[**create_container_environment_variable_override**](ContainerEnvironmentVariableApi.md#create_container_environment_variable_override) | **POST** /container/{containerId}/environmentVariable/{environmentVariableId}/override | Create an environment variable override at the container level
-[**delete_container_environment_variable**](ContainerEnvironmentVariableApi.md#delete_container_environment_variable) | **DELETE** /container/{containerId}/environmentVariable/{environmentVariableId} | Delete an environment variable from a container
-[**edit_container_environment_variable**](ContainerEnvironmentVariableApi.md#edit_container_environment_variable) | **PUT** /container/{containerId}/environmentVariable/{environmentVariableId} | Edit an environment variable belonging to the container
-[**import_container_environment_variable**](ContainerEnvironmentVariableApi.md#import_container_environment_variable) | **POST** /container/{containerId}/environmentVariable/import | Import variables
-[**list_container_environment_variable**](ContainerEnvironmentVariableApi.md#list_container_environment_variable) | **GET** /container/{containerId}/environmentVariable | List environment variables
+[**create_container_environment_variable_alias**](ContainerEnvironmentVariableApi.md#create_container_environment_variable_alias) | **POST** /container/{containerId}/environmentVariable/{environmentVariableId}/alias | NOT YET IMPLEMENTED - Create an environment variable alias at the container level
+[**create_container_environment_variable_override**](ContainerEnvironmentVariableApi.md#create_container_environment_variable_override) | **POST** /container/{containerId}/environmentVariable/{environmentVariableId}/override | NOT YET IMPLEMENTED - Create an environment variable override at the container level
+[**delete_container_environment_variable**](ContainerEnvironmentVariableApi.md#delete_container_environment_variable) | **DELETE** /container/{containerId}/environmentVariable/{environmentVariableId} | NOT YET IMPLEMENTED - Delete an environment variable from a container
+[**edit_container_environment_variable**](ContainerEnvironmentVariableApi.md#edit_container_environment_variable) | **PUT** /container/{containerId}/environmentVariable/{environmentVariableId} | NOT YET IMPLEMENTED - Edit an environment variable belonging to the container
+[**import_container_environment_variable**](ContainerEnvironmentVariableApi.md#import_container_environment_variable) | **POST** /container/{containerId}/environmentVariable/import | NOT YET IMPLEMENTED - Import variables
+[**list_container_environment_variable**](ContainerEnvironmentVariableApi.md#list_container_environment_variable) | **GET** /container/{containerId}/environmentVariable | NOT YET IMPLEMENTED - List environment variables
 
 
 # **create_container_environment_variable**
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 # **create_container_environment_variable_alias**
 > EnvironmentVariable create_container_environment_variable_alias(container_id, environment_variable_id)
 
-Create an environment variable alias at the container level
+NOT YET IMPLEMENTED - Create an environment variable alias at the container level
 
 - Allows you to add an alias at container level on an existing environment variable having higher scope, in order to customize its key. - You only have to specify a key in the request body - The system will create a new environment variable at container level with the same value as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the aliased_variable will be exposed in the \"aliased_variable\" field of the newly created variable - Only 1 alias level is allowed. You can't create an alias on an alias 
 
@@ -155,7 +155,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create an environment variable alias at the container level
+        # NOT YET IMPLEMENTED - Create an environment variable alias at the container level
         api_response = api_instance.create_container_environment_variable_alias(container_id, environment_variable_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -164,7 +164,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create an environment variable alias at the container level
+        # NOT YET IMPLEMENTED - Create an environment variable alias at the container level
         api_response = api_instance.create_container_environment_variable_alias(container_id, environment_variable_id, key=key)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 # **create_container_environment_variable_override**
 > EnvironmentVariable create_container_environment_variable_override(container_id, environment_variable_id)
 
-Create an environment variable override at the container level
+NOT YET IMPLEMENTED - Create an environment variable override at the container level
 
 - Allows you to override at container level an environment variable that has a higher scope. - You only have to specify a value in the request body - The system will create a new environment variable at container level with the same key as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the overridden_variable will be exposed in the \"overridden_variable\" field of the newly created variable 
 
@@ -252,7 +252,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Create an environment variable override at the container level
+        # NOT YET IMPLEMENTED - Create an environment variable override at the container level
         api_response = api_instance.create_container_environment_variable_override(container_id, environment_variable_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -261,7 +261,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Create an environment variable override at the container level
+        # NOT YET IMPLEMENTED - Create an environment variable override at the container level
         api_response = api_instance.create_container_environment_variable_override(container_id, environment_variable_id, value=value)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 # **delete_container_environment_variable**
 > delete_container_environment_variable(container_id, environment_variable_id)
 
-Delete an environment variable from a container
+NOT YET IMPLEMENTED - Delete an environment variable from a container
 
 - To delete an environment variable from an container you must have the project user permission - You can't delete a BUILT_IN variable - If you delete a variable having override or alias, the associated override/alias will be deleted as well 
 
@@ -344,7 +344,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete an environment variable from a container
+        # NOT YET IMPLEMENTED - Delete an environment variable from a container
         api_instance.delete_container_environment_variable(container_id, environment_variable_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerEnvironmentVariableApi->delete_container_environment_variable: %s\n" % e)
@@ -386,7 +386,7 @@ void (empty response body)
 # **edit_container_environment_variable**
 > EnvironmentVariable edit_container_environment_variable(container_id, environment_variable_id, environment_variable_edit_request)
 
-Edit an environment variable belonging to the container
+NOT YET IMPLEMENTED - Edit an environment variable belonging to the container
 
 - You can't edit a BUILT_IN variable - For an override, you can't edit the key - For an alias, you can't edit the value - An override can only have a scope lower to the variable it is overriding (hierarchy is BUILT_IN > PROJECT > ENVIRONMENT > CONTAINER) 
 
@@ -430,7 +430,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Edit an environment variable belonging to the container
+        # NOT YET IMPLEMENTED - Edit an environment variable belonging to the container
         api_response = api_instance.edit_container_environment_variable(container_id, environment_variable_id, environment_variable_edit_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -475,7 +475,7 @@ Name | Type | Description  | Notes
 # **import_container_environment_variable**
 > VariableImport import_container_environment_variable(container_id)
 
-Import variables
+NOT YET IMPLEMENTED - Import variables
 
 Import environment variables in a defined scope, with a defined visibility.
 
@@ -525,7 +525,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Import variables
+        # NOT YET IMPLEMENTED - Import variables
         api_response = api_instance.import_container_environment_variable(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -534,7 +534,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Import variables
+        # NOT YET IMPLEMENTED - Import variables
         api_response = api_instance.import_container_environment_variable(container_id, variable_import_request=variable_import_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -578,7 +578,7 @@ Name | Type | Description  | Notes
 # **list_container_environment_variable**
 > EnvironmentVariableResponseList list_container_environment_variable(container_id)
 
-List environment variables
+NOT YET IMPLEMENTED - List environment variables
 
 ### Example
 
@@ -614,7 +614,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List environment variables
+        # NOT YET IMPLEMENTED - List environment variables
         api_response = api_instance.list_container_environment_variable(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

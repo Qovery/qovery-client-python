@@ -4,13 +4,13 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_container_event**](ContainerEventApi.md#list_container_event) | **GET** /container/{containerId}/event | List container events
+[**list_container_event**](ContainerEventApi.md#list_container_event) | **GET** /container/{containerId}/event | NOT YET IMPLEMENTED - List container events
 
 
 # **list_container_event**
 > EventPaginatedResponseList list_container_event(container_id)
 
-List container events
+NOT YET IMPLEMENTED - List container events
 
 By default it returns the 20 last results. The response is paginated. In order to request the next page, you can use the startId query parameter
 
@@ -49,7 +49,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List container events
+        # NOT YET IMPLEMENTED - List container events
         api_response = api_instance.list_container_event(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -58,7 +58,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # List container events
+        # NOT YET IMPLEMENTED - List container events
         api_response = api_instance.list_container_event(container_id, start_id=start_id)
         pprint(api_response)
     except qovery.ApiException as e:

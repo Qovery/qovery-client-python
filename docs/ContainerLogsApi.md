@@ -4,13 +4,13 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_container_log**](ContainerLogsApi.md#list_container_log) | **GET** /container/{containerId}/log | List logs
+[**list_container_log**](ContainerLogsApi.md#list_container_log) | **GET** /container/{containerId}/log | NOT YET IMPLEMENTED - List logs
 
 
 # **list_container_log**
 > LogResponseList list_container_log(container_id)
 
-List logs
+NOT YET IMPLEMENTED - List logs
 
 This will list the last 1000 logs of the container
 
@@ -48,7 +48,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List logs
+        # NOT YET IMPLEMENTED - List logs
         api_response = api_instance.list_container_log(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
