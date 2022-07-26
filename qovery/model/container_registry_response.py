@@ -99,7 +99,6 @@ class ContainerRegistryResponse(ModelComposed):
             'kind': (ContainerRegistryKindEnum,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
-            'config': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -115,7 +114,6 @@ class ContainerRegistryResponse(ModelComposed):
         'kind': 'kind',  # noqa: E501
         'description': 'description',  # noqa: E501
         'url': 'url',  # noqa: E501
-        'config': 'config',  # noqa: E501
     }
 
     read_only_vars = {
@@ -167,7 +165,6 @@ class ContainerRegistryResponse(ModelComposed):
             kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the container registry. [optional]  # noqa: E501
-            config (str): authentification configuration. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,7 +273,6 @@ class ContainerRegistryResponse(ModelComposed):
             kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the container registry. [optional]  # noqa: E501
-            config (str): authentification configuration. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
