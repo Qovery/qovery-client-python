@@ -32,23 +32,23 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
-    from qovery.model.application_port_request import ApplicationPortRequest
-    from qovery.model.application_port_request_ports_inner import ApplicationPortRequestPortsInner
     from qovery.model.application_request_all_of import ApplicationRequestAllOf
-    from qovery.model.application_storage_request import ApplicationStorageRequest
-    from qovery.model.application_storage_request_storage_inner import ApplicationStorageRequestStorageInner
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
+    from qovery.model.service_port_request import ServicePortRequest
+    from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
+    from qovery.model.service_storage_request import ServiceStorageRequest
+    from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
     globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
-    globals()['ApplicationPortRequest'] = ApplicationPortRequest
-    globals()['ApplicationPortRequestPortsInner'] = ApplicationPortRequestPortsInner
     globals()['ApplicationRequestAllOf'] = ApplicationRequestAllOf
-    globals()['ApplicationStorageRequest'] = ApplicationStorageRequest
-    globals()['ApplicationStorageRequestStorageInner'] = ApplicationStorageRequestStorageInner
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
+    globals()['ServicePortRequest'] = ServicePortRequest
+    globals()['ServicePortRequestPortsInner'] = ServicePortRequestPortsInner
+    globals()['ServiceStorageRequest'] = ServiceStorageRequest
+    globals()['ServiceStorageRequestStorageInner'] = ServiceStorageRequestStorageInner
 
 
 class ApplicationRequest(ModelComposed):
@@ -109,8 +109,8 @@ class ApplicationRequest(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
-            'storage': ([ApplicationStorageRequestStorageInner],),  # noqa: E501
-            'ports': ([ApplicationPortRequestPortsInner],),  # noqa: E501
+            'storage': ([ServiceStorageRequestStorageInner],),  # noqa: E501
+            'ports': ([ServicePortRequestPortsInner],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
@@ -186,8 +186,8 @@ class ApplicationRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageRequestStorageInner]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPortsInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
+            ports ([ServicePortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -303,8 +303,8 @@ class ApplicationRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageRequestStorageInner]): [optional]  # noqa: E501
-            ports ([ApplicationPortRequestPortsInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
+            ports ([ServicePortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -384,9 +384,9 @@ class ApplicationRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ApplicationPortRequest,
               ApplicationRequestAllOf,
-              ApplicationStorageRequest,
+              ServicePortRequest,
+              ServiceStorageRequest,
           ],
           'oneOf': [
           ],

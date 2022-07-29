@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.port_protocol_enum import PortProtocolEnum
 globals()['PortProtocolEnum'] = PortProtocolEnum
-from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
+from qovery.model.service_port_ports_inner import ServicePortPortsInner
 
 
-class TestApplicationPortPortsInner(unittest.TestCase):
-    """ApplicationPortPortsInner unit test stubs"""
+class TestServicePortPortsInner(unittest.TestCase):
+    """ServicePortPortsInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestApplicationPortPortsInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationPortPortsInner(self):
-        """Test ApplicationPortPortsInner"""
+    def testServicePortPortsInner(self):
+        """Test ServicePortPortsInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationPortPortsInner()  # noqa: E501
+        # model = ServicePortPortsInner()  # noqa: E501
         pass
 
 

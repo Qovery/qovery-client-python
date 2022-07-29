@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.container_advanced_settings import ContainerAdvancedSettings
+globals()['ContainerAdvancedSettings'] = ContainerAdvancedSettings
 from qovery.model.container_advanced_settings_response import ContainerAdvancedSettingsResponse
 
 

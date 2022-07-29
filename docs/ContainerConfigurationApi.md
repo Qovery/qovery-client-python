@@ -51,9 +51,7 @@ with qovery.ApiClient(configuration) as api_client:
     container_id = "containerId_example" # str | Container ID
     container_advanced_settings_request = ContainerAdvancedSettingsRequest([
         ContainerAdvancedSettings(
-            deployment_delay_start_time_sec=30,
             deployment_custom_domain_check_enabled=True,
-            build_timeout_max_sec=1800,
             network_ingress_proxy_body_size_mb=100,
             network_ingress_enable_cors=False,
             network_ingress_cors_allow_origin="*",

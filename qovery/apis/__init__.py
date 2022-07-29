@@ -50,7 +50,6 @@ from qovery.api.containers_api import ContainersApi
 from qovery.api.custom_domain_api import CustomDomainApi
 from qovery.api.database_actions_api import DatabaseActionsApi
 from qovery.api.database_application_api import DatabaseApplicationApi
-from qovery.api.database_container_api import DatabaseContainerApi
 from qovery.api.database_deployment_history_api import DatabaseDeploymentHistoryApi
 from qovery.api.database_event_api import DatabaseEventApi
 from qovery.api.database_main_calls_api import DatabaseMainCallsApi

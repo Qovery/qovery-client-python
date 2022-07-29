@@ -285,8 +285,6 @@ Class | Method | HTTP request | Description
 *DatabaseActionsApi* | [**stop_database**](docs/DatabaseActionsApi.md#stop_database) | **POST** /database/{databaseId}/stop | Stop database
 *DatabaseApplicationApi* | [**list_database_application**](docs/DatabaseApplicationApi.md#list_database_application) | **GET** /database/{databaseId}/application | List applications using the database
 *DatabaseApplicationApi* | [**remove_application_from_database**](docs/DatabaseApplicationApi.md#remove_application_from_database) | **DELETE** /database/{databaseId}/application/{targetApplicationId} | Remove an application from this database 
-*DatabaseContainerApi* | [**list_database_container**](docs/DatabaseContainerApi.md#list_database_container) | **GET** /database/{databaseId}/container | List container using the database
-*DatabaseContainerApi* | [**remove_container_from_database**](docs/DatabaseContainerApi.md#remove_container_from_database) | **DELETE** /database/{databaseId}/container/{targetContainerId} | Remove an container from this database 
 *DatabaseDeploymentHistoryApi* | [**list_database_deployment_history**](docs/DatabaseDeploymentHistoryApi.md#list_database_deployment_history) | **GET** /database/{databaseId}/deploymentHistory | List database deploys
 *DatabaseEventApi* | [**list_database_event**](docs/DatabaseEventApi.md#list_database_event) | **GET** /database/{databaseId}/event | List database  events
 *DatabaseMainCallsApi* | [**delete_database**](docs/DatabaseMainCallsApi.md#delete_database) | **DELETE** /database/{databaseId} | Delete a database 
@@ -434,16 +432,10 @@ Class | Method | HTTP request | Description
  - [ApplicationGitRepositoryRequest](docs/ApplicationGitRepositoryRequest.md)
  - [ApplicationNetwork](docs/ApplicationNetwork.md)
  - [ApplicationNetworkRequest](docs/ApplicationNetworkRequest.md)
- - [ApplicationPort](docs/ApplicationPort.md)
- - [ApplicationPortPortsInner](docs/ApplicationPortPortsInner.md)
- - [ApplicationPortRequest](docs/ApplicationPortRequest.md)
- - [ApplicationPortRequestPortsInner](docs/ApplicationPortRequestPortsInner.md)
  - [ApplicationRequest](docs/ApplicationRequest.md)
  - [ApplicationRequestAllOf](docs/ApplicationRequestAllOf.md)
  - [ApplicationResponseList](docs/ApplicationResponseList.md)
  - [ApplicationStorage](docs/ApplicationStorage.md)
- - [ApplicationStorageRequest](docs/ApplicationStorageRequest.md)
- - [ApplicationStorageRequestStorageInner](docs/ApplicationStorageRequestStorageInner.md)
  - [ApplicationStorageStorageInner](docs/ApplicationStorageStorageInner.md)
  - [AvailableContainerRegistryResponse](docs/AvailableContainerRegistryResponse.md)
  - [AwsCredentialsRequest](docs/AwsCredentialsRequest.md)
@@ -751,7 +743,13 @@ Class | Method | HTTP request | Description
  - [Service](docs/Service.md)
  - [ServiceAllOf](docs/ServiceAllOf.md)
  - [ServiceDeploymentStatusEnum](docs/ServiceDeploymentStatusEnum.md)
+ - [ServicePort](docs/ServicePort.md)
+ - [ServicePortPortsInner](docs/ServicePortPortsInner.md)
+ - [ServicePortRequest](docs/ServicePortRequest.md)
+ - [ServicePortRequestPortsInner](docs/ServicePortRequestPortsInner.md)
  - [ServiceResponseList](docs/ServiceResponseList.md)
+ - [ServiceStorageRequest](docs/ServiceStorageRequest.md)
+ - [ServiceStorageRequestStorageInner](docs/ServiceStorageRequestStorageInner.md)
  - [ServiceTotalNumber](docs/ServiceTotalNumber.md)
  - [ServiceTypeEnum](docs/ServiceTypeEnum.md)
  - [SignUp](docs/SignUp.md)

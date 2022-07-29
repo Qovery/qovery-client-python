@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.healthcheck import Healthcheck
-globals()['Healthcheck'] = Healthcheck
 from qovery.model.container_request_all_of import ContainerRequestAllOf
 
 

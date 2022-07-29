@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_container_dependency**
-> ContainerResponse create_container_dependency(container_id)
+> ContainerResponse create_container_dependency(container_id, target_container_id)
 
 NOT YET IMPLEMENTED - Add container dependency to this application.
 
@@ -47,11 +47,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = container_dependency_api.ContainerDependencyApi(api_client)
     container_id = "containerId_example" # str | Container ID
+    target_container_id = "targetContainerId_example" # str | Target container ID
 
     # example passing only required values which don't have defaults set
     try:
         # NOT YET IMPLEMENTED - Add container dependency to this application.
-        api_response = api_instance.create_container_dependency(container_id)
+        api_response = api_instance.create_container_dependency(container_id, target_container_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainerDependencyApi->create_container_dependency: %s\n" % e)
@@ -63,6 +64,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**| Container ID |
+ **target_container_id** | **str**| Target container ID |
 
 ### Return type
 

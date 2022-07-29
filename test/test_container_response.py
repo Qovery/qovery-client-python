@@ -13,22 +13,20 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_port import ApplicationPort
-from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
 from qovery.model.application_storage import ApplicationStorage
 from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
 from qovery.model.base import Base
 from qovery.model.container_response_all_of import ContainerResponseAllOf
-from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
-globals()['ApplicationPort'] = ApplicationPort
-globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
+from qovery.model.service_port import ServicePort
+from qovery.model.service_port_ports_inner import ServicePortPortsInner
 globals()['ApplicationStorage'] = ApplicationStorage
 globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
 globals()['Base'] = Base
 globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
-globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject
+globals()['ServicePort'] = ServicePort
+globals()['ServicePortPortsInner'] = ServicePortPortsInner
 from qovery.model.container_response import ContainerResponse
 
 

@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_port_request_ports_inner import ApplicationPortRequestPortsInner
-globals()['ApplicationPortRequestPortsInner'] = ApplicationPortRequestPortsInner
-from qovery.model.application_port_request import ApplicationPortRequest
+from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
+globals()['ServicePortRequestPortsInner'] = ServicePortRequestPortsInner
+from qovery.model.service_port_request import ServicePortRequest
 
 
-class TestApplicationPortRequest(unittest.TestCase):
-    """ApplicationPortRequest unit test stubs"""
+class TestServicePortRequest(unittest.TestCase):
+    """ServicePortRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestApplicationPortRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationPortRequest(self):
-        """Test ApplicationPortRequest"""
+    def testServicePortRequest(self):
+        """Test ServicePortRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationPortRequest()  # noqa: E501
+        # model = ServicePortRequest()  # noqa: E501
         pass
 
 

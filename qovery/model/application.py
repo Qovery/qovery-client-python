@@ -33,8 +33,6 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.application_all_of import ApplicationAllOf
     from qovery.model.application_git_repository import ApplicationGitRepository
-    from qovery.model.application_port import ApplicationPort
-    from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
     from qovery.model.application_storage import ApplicationStorage
     from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
     from qovery.model.base import Base
@@ -42,10 +40,10 @@ def lazy_import():
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
+    from qovery.model.service_port import ServicePort
+    from qovery.model.service_port_ports_inner import ServicePortPortsInner
     globals()['ApplicationAllOf'] = ApplicationAllOf
     globals()['ApplicationGitRepository'] = ApplicationGitRepository
-    globals()['ApplicationPort'] = ApplicationPort
-    globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
     globals()['ApplicationStorage'] = ApplicationStorage
     globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
     globals()['Base'] = Base
@@ -53,6 +51,8 @@ def lazy_import():
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
+    globals()['ServicePort'] = ServicePort
+    globals()['ServicePortPortsInner'] = ServicePortPortsInner
 
 
 class Application(ModelComposed):
@@ -115,7 +115,7 @@ class Application(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
-            'ports': ([ApplicationPortPortsInner],),  # noqa: E501
+            'ports': ([ServicePortPortsInner],),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
@@ -207,7 +207,7 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
+            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -328,7 +328,7 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
+            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -414,9 +414,9 @@ class Application(ModelComposed):
           ],
           'allOf': [
               ApplicationAllOf,
-              ApplicationPort,
               ApplicationStorage,
               Base,
+              ServicePort,
           ],
           'oneOf': [
           ],

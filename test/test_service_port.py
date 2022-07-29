@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_storage_request_storage_inner import ApplicationStorageRequestStorageInner
-globals()['ApplicationStorageRequestStorageInner'] = ApplicationStorageRequestStorageInner
-from qovery.model.application_storage_request import ApplicationStorageRequest
+from qovery.model.service_port_ports_inner import ServicePortPortsInner
+globals()['ServicePortPortsInner'] = ServicePortPortsInner
+from qovery.model.service_port import ServicePort
 
 
-class TestApplicationStorageRequest(unittest.TestCase):
-    """ApplicationStorageRequest unit test stubs"""
+class TestServicePort(unittest.TestCase):
+    """ServicePort unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestApplicationStorageRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationStorageRequest(self):
-        """Test ApplicationStorageRequest"""
+    def testServicePort(self):
+        """Test ServicePort"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationStorageRequest()  # noqa: E501
+        # model = ServicePort()  # noqa: E501
         pass
 
 

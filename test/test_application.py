@@ -15,8 +15,6 @@ import unittest
 import qovery
 from qovery.model.application_all_of import ApplicationAllOf
 from qovery.model.application_git_repository import ApplicationGitRepository
-from qovery.model.application_port import ApplicationPort
-from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
 from qovery.model.application_storage import ApplicationStorage
 from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
 from qovery.model.base import Base
@@ -24,10 +22,10 @@ from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
+from qovery.model.service_port import ServicePort
+from qovery.model.service_port_ports_inner import ServicePortPortsInner
 globals()['ApplicationAllOf'] = ApplicationAllOf
 globals()['ApplicationGitRepository'] = ApplicationGitRepository
-globals()['ApplicationPort'] = ApplicationPort
-globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
 globals()['ApplicationStorage'] = ApplicationStorage
 globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
 globals()['Base'] = Base
@@ -35,6 +33,8 @@ globals()['BuildModeEnum'] = BuildModeEnum
 globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject
+globals()['ServicePort'] = ServicePort
+globals()['ServicePortPortsInner'] = ServicePortPortsInner
 from qovery.model.application import Application
 
 

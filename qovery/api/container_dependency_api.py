@@ -51,9 +51,11 @@ class ContainerDependencyApi(object):
             params_map={
                 'all': [
                     'container_id',
+                    'target_container_id',
                 ],
                 'required': [
                     'container_id',
+                    'target_container_id',
                 ],
                 'nullable': [
                 ],
@@ -70,12 +72,16 @@ class ContainerDependencyApi(object):
                 'openapi_types': {
                     'container_id':
                         (str,),
+                    'target_container_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'container_id': 'containerId',
+                    'target_container_id': 'targetContainerId',
                 },
                 'location_map': {
                     'container_id': 'path',
+                    'target_container_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -192,6 +198,7 @@ class ContainerDependencyApi(object):
     def create_container_dependency(
         self,
         container_id,
+        target_container_id,
         **kwargs
     ):
         """NOT YET IMPLEMENTED - Add container dependency to this application.  # noqa: E501
@@ -200,11 +207,12 @@ class ContainerDependencyApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_container_dependency(container_id, async_req=True)
+        >>> thread = api.create_container_dependency(container_id, target_container_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             container_id (str): Container ID
+            target_container_id (str): Target container ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -270,6 +278,8 @@ class ContainerDependencyApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['container_id'] = \
             container_id
+        kwargs['target_container_id'] = \
+            target_container_id
         return self.create_container_dependency_endpoint.call_with_http_info(**kwargs)
 
     def list_container_dependency(

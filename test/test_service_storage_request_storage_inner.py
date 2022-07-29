@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.port_protocol_enum import PortProtocolEnum
-globals()['PortProtocolEnum'] = PortProtocolEnum
-from qovery.model.application_port_request_ports_inner import ApplicationPortRequestPortsInner
+from qovery.model.storage_type_enum import StorageTypeEnum
+globals()['StorageTypeEnum'] = StorageTypeEnum
+from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
 
 
-class TestApplicationPortRequestPortsInner(unittest.TestCase):
-    """ApplicationPortRequestPortsInner unit test stubs"""
+class TestServiceStorageRequestStorageInner(unittest.TestCase):
+    """ServiceStorageRequestStorageInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestApplicationPortRequestPortsInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationPortRequestPortsInner(self):
-        """Test ApplicationPortRequestPortsInner"""
+    def testServiceStorageRequestStorageInner(self):
+        """Test ServiceStorageRequestStorageInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationPortRequestPortsInner()  # noqa: E501
+        # model = ServiceStorageRequestStorageInner()  # noqa: E501
         pass
 
 

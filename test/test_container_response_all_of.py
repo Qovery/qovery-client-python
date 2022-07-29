@@ -13,9 +13,7 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
-globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.container_response_all_of import ContainerResponseAllOf
 

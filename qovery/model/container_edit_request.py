@@ -31,18 +31,16 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.application_port import ApplicationPort
-    from qovery.model.application_port_ports_inner import ApplicationPortPortsInner
     from qovery.model.application_storage import ApplicationStorage
     from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
     from qovery.model.container_edit_request_all_of import ContainerEditRequestAllOf
-    from qovery.model.healthcheck import Healthcheck
-    globals()['ApplicationPort'] = ApplicationPort
-    globals()['ApplicationPortPortsInner'] = ApplicationPortPortsInner
+    from qovery.model.service_port import ServicePort
+    from qovery.model.service_port_ports_inner import ServicePortPortsInner
     globals()['ApplicationStorage'] = ApplicationStorage
     globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
     globals()['ContainerEditRequestAllOf'] = ContainerEditRequestAllOf
-    globals()['Healthcheck'] = Healthcheck
+    globals()['ServicePort'] = ServicePort
+    globals()['ServicePortPortsInner'] = ServicePortPortsInner
 
 
 class ContainerEditRequest(ModelComposed):
@@ -101,19 +99,18 @@ class ContainerEditRequest(ModelComposed):
         """
         lazy_import()
         return {
-            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
-            'ports': ([ApplicationPortPortsInner],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
             'registry_id': (str,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
-            'arguments': (str,),  # noqa: E501
+            'tag': (str,),  # noqa: E501
+            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
+            'ports': ([ServicePortPortsInner],),  # noqa: E501
+            'arguments': ([str],),  # noqa: E501
+            'entrypoint': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
-            'healthcheck': (Healthcheck,),  # noqa: E501
-            'sticky_session': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -122,19 +119,18 @@ class ContainerEditRequest(ModelComposed):
 
 
     attribute_map = {
-        'storage': 'storage',  # noqa: E501
-        'ports': 'ports',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'registry_id': 'registry_id',  # noqa: E501
         'image_name': 'image_name',  # noqa: E501
+        'tag': 'tag',  # noqa: E501
+        'storage': 'storage',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
+        'entrypoint': 'entrypoint',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
-        'healthcheck': 'healthcheck',  # noqa: E501
-        'sticky_session': 'sticky_session',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,6 +142,10 @@ class ContainerEditRequest(ModelComposed):
         """ContainerEditRequest - a model defined in OpenAPI
 
         Keyword Args:
+            name (str): name is case insensitive
+            registry_id (str): id of the linked registry
+            image_name (str): name of the image container
+            tag (str): tag of the image container
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -177,18 +177,13 @@ class ContainerEditRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
-            description (str): give a description to this application. [optional]  # noqa: E501
-            registry_id (str): id of the linked registry. [optional]  # noqa: E501
-            image_name (str): name of the image container. [optional]  # noqa: E501
-            arguments (str): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            arguments ([str]): [optional]  # noqa: E501
+            entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthcheck (Healthcheck): [optional]  # noqa: E501
-            sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -262,6 +257,10 @@ class ContainerEditRequest(ModelComposed):
         """ContainerEditRequest - a model defined in OpenAPI
 
         Keyword Args:
+            name (str): name is case insensitive
+            registry_id (str): id of the linked registry
+            image_name (str): name of the image container
+            tag (str): tag of the image container
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -293,18 +292,13 @@ class ContainerEditRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ApplicationPortPortsInner]): [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
-            description (str): give a description to this application. [optional]  # noqa: E501
-            registry_id (str): id of the linked registry. [optional]  # noqa: E501
-            image_name (str): name of the image container. [optional]  # noqa: E501
-            arguments (str): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            arguments ([str]): [optional]  # noqa: E501
+            entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthcheck (Healthcheck): [optional]  # noqa: E501
-            sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -374,9 +368,9 @@ class ContainerEditRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ApplicationPort,
               ApplicationStorage,
               ContainerEditRequestAllOf,
+              ServicePort,
           ],
           'oneOf': [
           ],
