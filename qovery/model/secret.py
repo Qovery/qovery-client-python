@@ -68,6 +68,10 @@ class Secret(ModelComposed):
     """
 
     allowed_values = {
+        ('service_type',): {
+            'APPLICATION': "APPLICATION",
+            'DATABASE': "DATABASE",
+        },
     }
 
     validations = {
@@ -103,6 +107,9 @@ class Secret(ModelComposed):
             'key': (str,),  # noqa: E501
             'overridden_secret': (OverriddenSecret,),  # noqa: E501
             'aliased_secret': (AliasedSecret,),  # noqa: E501
+            'service_id': (str,),  # noqa: E501
+            'service_name': (str,),  # noqa: E501
+            'service_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +125,9 @@ class Secret(ModelComposed):
         'key': 'key',  # noqa: E501
         'overridden_secret': 'overridden_secret',  # noqa: E501
         'aliased_secret': 'aliased_secret',  # noqa: E501
+        'service_id': 'service_id',  # noqa: E501
+        'service_name': 'service_name',  # noqa: E501
+        'service_type': 'service_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -169,6 +179,9 @@ class Secret(ModelComposed):
             key (str): key is case sensitive. [optional]  # noqa: E501
             overridden_secret (OverriddenSecret): [optional]  # noqa: E501
             aliased_secret (AliasedSecret): [optional]  # noqa: E501
+            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_type (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,6 +290,9 @@ class Secret(ModelComposed):
             key (str): key is case sensitive. [optional]  # noqa: E501
             overridden_secret (OverriddenSecret): [optional]  # noqa: E501
             aliased_secret (AliasedSecret): [optional]  # noqa: E501
+            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_type (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
