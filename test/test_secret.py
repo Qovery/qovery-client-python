@@ -16,11 +16,13 @@ import qovery
 from qovery.model.aliased_secret import AliasedSecret
 from qovery.model.base import Base
 from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
+from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
 from qovery.model.overridden_secret import OverriddenSecret
 from qovery.model.secret_all_of import SecretAllOf
 globals()['AliasedSecret'] = AliasedSecret
 globals()['Base'] = Base
 globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
+globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 globals()['OverriddenSecret'] = OverriddenSecret
 globals()['SecretAllOf'] = SecretAllOf
 from qovery.model.secret import Secret

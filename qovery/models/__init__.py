@@ -247,6 +247,7 @@ from qovery.model.key import Key
 from qovery.model.kubernetes_enum import KubernetesEnum
 from qovery.model.link import Link
 from qovery.model.link_response_list import LinkResponseList
+from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
 from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
 from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
 from qovery.model.list_database_deployment_history200_response import ListDatabaseDeploymentHistory200Response

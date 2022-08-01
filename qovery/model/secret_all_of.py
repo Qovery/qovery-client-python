@@ -33,9 +33,11 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.aliased_secret import AliasedSecret
     from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
+    from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
     from qovery.model.overridden_secret import OverriddenSecret
     globals()['AliasedSecret'] = AliasedSecret
     globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
+    globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
     globals()['OverriddenSecret'] = OverriddenSecret
 
 
@@ -64,10 +66,6 @@ class SecretAllOf(ModelNormal):
     """
 
     allowed_values = {
-        ('service_type',): {
-            'APPLICATION': "APPLICATION",
-            'DATABASE': "DATABASE",
-        },
     }
 
     validations = {
@@ -102,7 +100,7 @@ class SecretAllOf(ModelNormal):
             'aliased_secret': (AliasedSecret,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
-            'service_type': (str,),  # noqa: E501
+            'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -169,7 +167,7 @@ class SecretAllOf(ModelNormal):
             aliased_secret (AliasedSecret): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_type (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,7 +262,7 @@ class SecretAllOf(ModelNormal):
             aliased_secret (AliasedSecret): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_type (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

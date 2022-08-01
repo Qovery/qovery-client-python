@@ -37,14 +37,14 @@ def lazy_import():
     from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
     from qovery.model.environment_variable_request import EnvironmentVariableRequest
     from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
-    from qovery.model.service_type import ServiceType
+    from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
     globals()['Base'] = Base
     globals()['EnvironmentVariableAllOf'] = EnvironmentVariableAllOf
     globals()['EnvironmentVariableAllOfAliasedVariable'] = EnvironmentVariableAllOfAliasedVariable
     globals()['EnvironmentVariableAllOfOverriddenVariable'] = EnvironmentVariableAllOfOverriddenVariable
     globals()['EnvironmentVariableRequest'] = EnvironmentVariableRequest
     globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
-    globals()['ServiceType'] = ServiceType
+    globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 
 
 class EnvironmentVariable(ModelComposed):
@@ -110,7 +110,7 @@ class EnvironmentVariable(ModelComposed):
             'aliased_variable': (EnvironmentVariableAllOfAliasedVariable,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
-            'service_type': (ServiceType,),  # noqa: E501
+            'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -184,7 +184,7 @@ class EnvironmentVariable(ModelComposed):
             aliased_variable (EnvironmentVariableAllOfAliasedVariable): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_type (ServiceType): [optional]  # noqa: E501
+            service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -296,7 +296,7 @@ class EnvironmentVariable(ModelComposed):
             aliased_variable (EnvironmentVariableAllOfAliasedVariable): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_type (ServiceType): [optional]  # noqa: E501
+            service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

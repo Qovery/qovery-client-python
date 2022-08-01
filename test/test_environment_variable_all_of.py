@@ -16,11 +16,11 @@ import qovery
 from qovery.model.environment_variable_all_of_aliased_variable import EnvironmentVariableAllOfAliasedVariable
 from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
 from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
-from qovery.model.service_type import ServiceType
+from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
 globals()['EnvironmentVariableAllOfAliasedVariable'] = EnvironmentVariableAllOfAliasedVariable
 globals()['EnvironmentVariableAllOfOverriddenVariable'] = EnvironmentVariableAllOfOverriddenVariable
 globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
-globals()['ServiceType'] = ServiceType
+globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 from qovery.model.environment_variable_all_of import EnvironmentVariableAllOf
 
 

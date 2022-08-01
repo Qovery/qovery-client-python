@@ -15,9 +15,11 @@ import unittest
 import qovery
 from qovery.model.aliased_secret import AliasedSecret
 from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
+from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
 from qovery.model.overridden_secret import OverriddenSecret
 globals()['AliasedSecret'] = AliasedSecret
 globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
+globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 globals()['OverriddenSecret'] = OverriddenSecret
 from qovery.model.secret_all_of import SecretAllOf
 
