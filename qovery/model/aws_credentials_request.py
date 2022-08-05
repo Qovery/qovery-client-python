@@ -105,11 +105,13 @@ class AwsCredentialsRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, access_key_id, secret_access_key, *args, **kwargs):  # noqa: E501
         """AwsCredentialsRequest - a model defined in OpenAPI
 
         Args:
             name (str):
+            access_key_id (str):
+            secret_access_key (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,8 +144,6 @@ class AwsCredentialsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            access_key_id (str): [optional]  # noqa: E501
-            secret_access_key (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -176,6 +176,8 @@ class AwsCredentialsRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.access_key_id = access_key_id
+        self.secret_access_key = secret_access_key
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -196,11 +198,13 @@ class AwsCredentialsRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, access_key_id, secret_access_key, *args, **kwargs):  # noqa: E501
         """AwsCredentialsRequest - a model defined in OpenAPI
 
         Args:
             name (str):
+            access_key_id (str):
+            secret_access_key (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,8 +237,6 @@ class AwsCredentialsRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            access_key_id (str): [optional]  # noqa: E501
-            secret_access_key (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,6 +267,8 @@ class AwsCredentialsRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.access_key_id = access_key_id
+        self.secret_access_key = secret_access_key
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
