@@ -98,6 +98,7 @@ class EnvironmentAllOf(ModelNormal):
             'cluster_id': (str,),  # noqa: E501
             'project': (ReferenceObject,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
+            'cluster_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +113,7 @@ class EnvironmentAllOf(ModelNormal):
         'cluster_id': 'cluster_id',  # noqa: E501
         'project': 'project',  # noqa: E501
         'last_updated_by': 'last_updated_by',  # noqa: E501
+        'cluster_name': 'cluster_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,6 +165,7 @@ class EnvironmentAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
+            cluster_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +263,7 @@ class EnvironmentAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
+            cluster_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -105,6 +105,7 @@ class Environment(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'project': (ReferenceObject,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
+            'cluster_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -122,6 +123,7 @@ class Environment(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'project': 'project',  # noqa: E501
         'last_updated_by': 'last_updated_by',  # noqa: E501
+        'cluster_name': 'cluster_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -175,6 +177,7 @@ class Environment(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
+            cluster_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,6 +288,7 @@ class Environment(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
+            cluster_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
