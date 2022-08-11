@@ -87,6 +87,27 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_aws_credentials(self):
+        """Test case for get_aws_credentials
+
+        Get a set of AWS credentials  # noqa: E501
+        """
+        pass
+
+    def test_get_do_credentials(self):
+        """Test case for get_do_credentials
+
+        Get a set of Digital Ocean credentials  # noqa: E501
+        """
+        pass
+
+    def test_get_scaleway_credentials(self):
+        """Test case for get_scaleway_credentials
+
+        Get a set of Scaleway credentials  # noqa: E501
+        """
+        pass
+
     def test_list_aws_credentials(self):
         """Test case for list_aws_credentials
 

@@ -13,6 +13,9 @@ Method | HTTP request | Description
 [**edit_aws_credentials**](CloudProviderCredentialsApi.md#edit_aws_credentials) | **PUT** /organization/{organizationId}/aws/credentials/{credentialsId} | Edit a set of AWS credentials
 [**edit_do_credentials**](CloudProviderCredentialsApi.md#edit_do_credentials) | **PUT** /organization/{organizationId}/digitalOcean/credentials/{credentialsId} | Edit a set of Digital Ocean credentials
 [**edit_scaleway_credentials**](CloudProviderCredentialsApi.md#edit_scaleway_credentials) | **PUT** /organization/{organizationId}/scaleway/credentials/{credentialsId} | Edit a set of Scaleway credentials
+[**get_aws_credentials**](CloudProviderCredentialsApi.md#get_aws_credentials) | **GET** /organization/{organizationId}/aws/credentials/{credentialsId} | Get a set of AWS credentials
+[**get_do_credentials**](CloudProviderCredentialsApi.md#get_do_credentials) | **GET** /organization/{organizationId}/digitalOcean/credentials/{credentialsId} | Get a set of Digital Ocean credentials
+[**get_scaleway_credentials**](CloudProviderCredentialsApi.md#get_scaleway_credentials) | **GET** /organization/{organizationId}/scaleway/credentials/{credentialsId} | Get a set of Scaleway credentials
 [**list_aws_credentials**](CloudProviderCredentialsApi.md#list_aws_credentials) | **GET** /organization/{organizationId}/aws/credentials | List AWS credentials
 [**list_do_credentials**](CloudProviderCredentialsApi.md#list_do_credentials) | **GET** /organization/{organizationId}/digitalOcean/credentials | List DO credentials
 [**list_scaleway_credentials**](CloudProviderCredentialsApi.md#list_scaleway_credentials) | **GET** /organization/{organizationId}/scaleway/credentials | List Scaleway credentials
@@ -628,7 +631,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Edit a CustomDomain |  -  |
+**200** | Edit a set of AWS credentials |  -  |
 **400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
@@ -726,7 +729,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Edit a CustomDomain |  -  |
+**200** | Edit a set of Digital Ocean credentials |  -  |
 **400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
@@ -824,7 +827,250 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Edit a CustomDomain |  -  |
+**200** | Edit a set of Scaleway credentials |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_aws_credentials**
+> ClusterCredentials get_aws_credentials(organization_id, credentials_id)
+
+Get a set of AWS credentials
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import cloud_provider_credentials_api
+from qovery.model.cluster_credentials import ClusterCredentials
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    credentials_id = "credentialsId_example" # str | Credentials ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get a set of AWS credentials
+        api_response = api_instance.get_aws_credentials(organization_id, credentials_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling CloudProviderCredentialsApi->get_aws_credentials: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **credentials_id** | **str**| Credentials ID |
+
+### Return type
+
+[**ClusterCredentials**](ClusterCredentials.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Get a set of AWS credentials |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_do_credentials**
+> ClusterCredentials get_do_credentials(organization_id, credentials_id)
+
+Get a set of Digital Ocean credentials
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import cloud_provider_credentials_api
+from qovery.model.cluster_credentials import ClusterCredentials
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    credentials_id = "credentialsId_example" # str | Credentials ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get a set of Digital Ocean credentials
+        api_response = api_instance.get_do_credentials(organization_id, credentials_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling CloudProviderCredentialsApi->get_do_credentials: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **credentials_id** | **str**| Credentials ID |
+
+### Return type
+
+[**ClusterCredentials**](ClusterCredentials.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Get a set of Digital Ocean credentials |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_scaleway_credentials**
+> ClusterCredentials get_scaleway_credentials(organization_id, credentials_id)
+
+Get a set of Scaleway credentials
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import cloud_provider_credentials_api
+from qovery.model.cluster_credentials import ClusterCredentials
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    credentials_id = "credentialsId_example" # str | Credentials ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get a set of Scaleway credentials
+        api_response = api_instance.get_scaleway_credentials(organization_id, credentials_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling CloudProviderCredentialsApi->get_scaleway_credentials: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **credentials_id** | **str**| Credentials ID |
+
+### Return type
+
+[**ClusterCredentials**](ClusterCredentials.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Get a set of Scaleway credentials |  -  |
 **400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
