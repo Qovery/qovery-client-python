@@ -57,6 +57,7 @@ with qovery.ApiClient(configuration) as api_client:
         network_ingress_cors_allow_origin="*",
         network_ingress_cors_allow_methods="GET, PUT, POST, DELETE, PATCH, OPTIONS",
         network_ingress_cors_allow_headers="DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+        network_ingress_proxy_buffer_size_kb=4,
         readiness_probe_type="TCP",
         readiness_probe_http_get_path="/",
         readiness_probe_initial_delay_seconds=30,

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **network_ingress_cors_allow_origin** | **str** |  | [optional]  if omitted the server will use the default value of "*"
 **network_ingress_cors_allow_methods** | **str** |  | [optional]  if omitted the server will use the default value of "GET, PUT, POST, DELETE, PATCH, OPTIONS"
 **network_ingress_cors_allow_headers** | **str** |  | [optional]  if omitted the server will use the default value of "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"
+**network_ingress_proxy_buffer_size_kb** | **int** | header buffer size used while reading response header from upstream | [optional]  if omitted the server will use the default value of 4
 **readiness_probe_type** | **str** | &#x60;NONE&#x60; disable readiness probe &#x60;TCP&#x60; enable TCP readiness probe &#x60;HTTP&#x60; enable HTTP readiness probe  | [optional]  if omitted the server will use the default value of "TCP"
 **readiness_probe_http_get_path** | **str** | HTTP GET path to check status (must returns 2xx E.g \&quot;/healtz\&quot;) - only usable with TYPE &#x3D; HTTP | [optional]  if omitted the server will use the default value of "/"
 **readiness_probe_initial_delay_seconds** | **int** | Delay before liveness probe is initiated | [optional]  if omitted the server will use the default value of 30
