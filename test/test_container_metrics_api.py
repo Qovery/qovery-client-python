@@ -45,41 +45,6 @@ class TestContainerMetricsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_container_metric_cpu(self):
-        """Test case for get_container_metric_cpu
-
-        NOT YET IMPLEMENTED - Get CPU consumption metric over time for the container  # noqa: E501
-        """
-        pass
-
-    def test_get_container_metric_health_check(self):
-        """Test case for get_container_metric_health_check
-
-        NOT YET IMPLEMENTED - Get Health Check latency  metric over time for the container  # noqa: E501
-        """
-        pass
-
-    def test_get_container_metric_memory(self):
-        """Test case for get_container_metric_memory
-
-        NOT YET IMPLEMENTED - Get Memory consumption metric over time for the container  # noqa: E501
-        """
-        pass
-
-    def test_get_container_metric_restart(self):
-        """Test case for get_container_metric_restart
-
-        NOT YET IMPLEMENTED - List container restarts  # noqa: E501
-        """
-        pass
-
-    def test_get_container_metric_storage(self):
-        """Test case for get_container_metric_storage
-
-        NOT YET IMPLEMENTED - Get Storage consumption metric over time for the container   # noqa: E501
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

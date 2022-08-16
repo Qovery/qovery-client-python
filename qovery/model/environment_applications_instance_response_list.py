@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.get_environment_container_current_instance200_response_results_inner import GetEnvironmentContainerCurrentInstance200ResponseResultsInner
-    globals()['GetEnvironmentContainerCurrentInstance200ResponseResultsInner'] = GetEnvironmentContainerCurrentInstance200ResponseResultsInner
+    from qovery.model.environment_applications_instance_response_list_results_inner import EnvironmentApplicationsInstanceResponseListResultsInner
+    globals()['EnvironmentApplicationsInstanceResponseListResultsInner'] = EnvironmentApplicationsInstanceResponseListResultsInner
 
 
 class EnvironmentApplicationsInstanceResponseList(ModelNormal):
@@ -88,7 +88,7 @@ class EnvironmentApplicationsInstanceResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([GetEnvironmentContainerCurrentInstance200ResponseResultsInner],),  # noqa: E501
+            'results': ([EnvironmentApplicationsInstanceResponseListResultsInner],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class EnvironmentApplicationsInstanceResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([GetEnvironmentContainerCurrentInstance200ResponseResultsInner]): [optional]  # noqa: E501
+            results ([EnvironmentApplicationsInstanceResponseListResultsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class EnvironmentApplicationsInstanceResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([GetEnvironmentContainerCurrentInstance200ResponseResultsInner]): [optional]  # noqa: E501
+            results ([EnvironmentApplicationsInstanceResponseListResultsInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

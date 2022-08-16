@@ -38,13 +38,6 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_environment_application_current_instance(self):
-        """Test case for get_environment_application_current_instance
-
-        List running instances with CPU and RAM usage for each application  # noqa: E501
-        """
-        pass
-
     def test_get_environment_application_current_scale(self):
         """Test case for get_environment_application_current_scale
 

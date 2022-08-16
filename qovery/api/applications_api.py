@@ -27,7 +27,6 @@ from qovery.model.application_request import ApplicationRequest
 from qovery.model.application_response_list import ApplicationResponseList
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.environment_applications_current_scale_response_list import EnvironmentApplicationsCurrentScaleResponseList
-from qovery.model.environment_applications_instance_response_list import EnvironmentApplicationsInstanceResponseList
 from qovery.model.environment_applications_storage_response_list import EnvironmentApplicationsStorageResponseList
 from qovery.model.environment_applications_supported_language_list import EnvironmentApplicationsSupportedLanguageList
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
@@ -156,57 +155,6 @@ class ApplicationsApi(object):
                 'content_type': [
                     'application/json'
                 ]
-            },
-            api_client=api_client
-        )
-        self.get_environment_application_current_instance_endpoint = _Endpoint(
-            settings={
-                'response_type': (EnvironmentApplicationsInstanceResponseList,),
-                'auth': [
-                    'bearerAuth'
-                ],
-                'endpoint_path': '/environment/{environmentId}/application/instance',
-                'operation_id': 'get_environment_application_current_instance',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'environment_id',
-                ],
-                'required': [
-                    'environment_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'environment_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'environment_id': 'environmentId',
-                },
-                'location_map': {
-                    'environment_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
             },
             api_client=api_client
         )
@@ -632,88 +580,6 @@ class ApplicationsApi(object):
         kwargs['environment_id'] = \
             environment_id
         return self.deploy_all_applications_endpoint.call_with_http_info(**kwargs)
-
-    def get_environment_application_current_instance(
-        self,
-        environment_id,
-        **kwargs
-    ):
-        """List running instances with CPU and RAM usage for each application  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_environment_application_current_instance(environment_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            environment_id (str): Environment ID
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            EnvironmentApplicationsInstanceResponseList
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['environment_id'] = \
-            environment_id
-        return self.get_environment_application_current_instance_endpoint.call_with_http_info(**kwargs)
 
     def get_environment_application_current_scale(
         self,

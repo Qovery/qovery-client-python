@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.get_container_tags200_response import GetContainerTags200Response
+from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
 
 
-class TestGetContainerTags200Response(unittest.TestCase):
-    """GetContainerTags200Response unit test stubs"""
+class TestAutoDeployContainerEnvironmentsRequest(unittest.TestCase):
+    """AutoDeployContainerEnvironmentsRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestGetContainerTags200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGetContainerTags200Response(self):
-        """Test GetContainerTags200Response"""
+    def testAutoDeployContainerEnvironmentsRequest(self):
+        """Test AutoDeployContainerEnvironmentsRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GetContainerTags200Response()  # noqa: E501
+        # model = AutoDeployContainerEnvironmentsRequest()  # noqa: E501
         pass
 
 

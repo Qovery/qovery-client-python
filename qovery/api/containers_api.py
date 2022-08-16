@@ -22,13 +22,14 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
 from qovery.model.container_request import ContainerRequest
 from qovery.model.container_response import ContainerResponse
 from qovery.model.container_response_list import ContainerResponseList
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.environment_containers_current_scale_response_list import EnvironmentContainersCurrentScaleResponseList
 from qovery.model.environment_containers_storage_response_list import EnvironmentContainersStorageResponseList
-from qovery.model.get_environment_container_current_instance200_response import GetEnvironmentContainerCurrentInstance200Response
+from qovery.model.preview_container_environments_request import PreviewContainerEnvironmentsRequest
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from qovery.model.status import Status
 
@@ -44,6 +45,63 @@ class ContainersApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.auto_deploy_container_environments_endpoint = _Endpoint(
+            settings={
+                'response_type': (Status,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/container/deploy',
+                'operation_id': 'auto_deploy_container_environments',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'auto_deploy_container_environments_request',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'auto_deploy_container_environments_request':
+                        (AutoDeployContainerEnvironmentsRequest,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'auto_deploy_container_environments_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.create_container_endpoint = _Endpoint(
             settings={
                 'response_type': (ContainerResponse,),
@@ -155,57 +213,6 @@ class ContainersApi(object):
                 'content_type': [
                     'application/json'
                 ]
-            },
-            api_client=api_client
-        )
-        self.get_environment_container_current_instance_endpoint = _Endpoint(
-            settings={
-                'response_type': (GetEnvironmentContainerCurrentInstance200Response,),
-                'auth': [
-                    'bearerAuth'
-                ],
-                'endpoint_path': '/environment/{environmentId}/container/instance',
-                'operation_id': 'get_environment_container_current_instance',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'environment_id',
-                ],
-                'required': [
-                    'environment_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'environment_id':
-                        (str,),
-                },
-                'attribute_map': {
-                    'environment_id': 'environmentId',
-                },
-                'location_map': {
-                    'environment_id': 'path',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
             },
             api_client=api_client
         )
@@ -418,6 +425,147 @@ class ContainersApi(object):
             },
             api_client=api_client
         )
+        self.preview_container_environments_endpoint = _Endpoint(
+            settings={
+                'response_type': (Status,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/container/preview',
+                'operation_id': 'preview_container_environments',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'preview_container_environments_request',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'preview_container_environments_request':
+                        (PreviewContainerEnvironmentsRequest,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'preview_container_environments_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+
+    def auto_deploy_container_environments(
+        self,
+        organization_id,
+        **kwargs
+    ):
+        """NOT YET IMPLEMENTED - Auto deploy containers  # noqa: E501
+
+        Triggers a new container deploy in each environment matching the following conditions - environment should have the auto-deploy enabled - the container should have the same image name and a different tag   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.auto_deploy_container_environments(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+
+        Keyword Args:
+            auto_deploy_container_environments_request (AutoDeployContainerEnvironmentsRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Status
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.auto_deploy_container_environments_endpoint.call_with_http_info(**kwargs)
 
     def create_container(
         self,
@@ -585,88 +733,6 @@ class ContainersApi(object):
         kwargs['environment_id'] = \
             environment_id
         return self.deploy_all_containers_endpoint.call_with_http_info(**kwargs)
-
-    def get_environment_container_current_instance(
-        self,
-        environment_id,
-        **kwargs
-    ):
-        """List running instances with CPU and RAM usage for each container  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_environment_container_current_instance(environment_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            environment_id (str): Environment ID
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            GetEnvironmentContainerCurrentInstance200Response
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['environment_id'] = \
-            environment_id
-        return self.get_environment_container_current_instance_endpoint.call_with_http_info(**kwargs)
 
     def get_environment_container_current_scale(
         self,
@@ -998,4 +1064,88 @@ class ContainersApi(object):
         kwargs['environment_id'] = \
             environment_id
         return self.list_container_endpoint.call_with_http_info(**kwargs)
+
+    def preview_container_environments(
+        self,
+        organization_id,
+        **kwargs
+    ):
+        """NOT YET IMPLEMENTED - Preview container environments  # noqa: E501
+
+        Triggers a new container preview for each environment matching the following conditions - preview environment feature should be enabled for the container - the container should have the same image name and a different tag   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.preview_container_environments(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+
+        Keyword Args:
+            preview_container_environments_request (PreviewContainerEnvironmentsRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Status
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.preview_container_environments_endpoint.call_with_http_info(**kwargs)
 

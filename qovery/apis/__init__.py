@@ -37,9 +37,8 @@ from qovery.api.container_configuration_api import ContainerConfigurationApi
 from qovery.api.container_custom_domain_api import ContainerCustomDomainApi
 from qovery.api.container_database_api import ContainerDatabaseApi
 from qovery.api.container_dependency_api import ContainerDependencyApi
-from qovery.api.container_deployment_restriction_api import ContainerDeploymentRestrictionApi
+from qovery.api.container_deployment_history_api import ContainerDeploymentHistoryApi
 from qovery.api.container_environment_variable_api import ContainerEnvironmentVariableApi
-from qovery.api.container_event_api import ContainerEventApi
 from qovery.api.container_logs_api import ContainerLogsApi
 from qovery.api.container_main_calls_api import ContainerMainCallsApi
 from qovery.api.container_metrics_api import ContainerMetricsApi

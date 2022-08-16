@@ -24,24 +24,10 @@ class TestContainerMainCallsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_container_tag(self):
-        """Test case for create_container_tag
-
-        NOT YET IMPLEMENTED - Add container tag  # noqa: E501
-        """
-        pass
-
     def test_delete_container(self):
         """Test case for delete_container
 
         NOT YET IMPLEMENTED - Delete container  # noqa: E501
-        """
-        pass
-
-    def test_delete_container_tag(self):
-        """Test case for delete_container_tag
-
-        NOT YET IMPLEMENTED - Delete container tag  # noqa: E501
         """
         pass
 
@@ -66,31 +52,10 @@ class TestContainerMainCallsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_container_tags(self):
-        """Test case for get_container_tags
-
-        NOT YET IMPLEMENTED - List image tags  # noqa: E501
-        """
-        pass
-
-    def test_list_container_contributor(self):
-        """Test case for list_container_contributor
-
-        NOT YET IMPLEMENTED -List contributors  # noqa: E501
-        """
-        pass
-
     def test_list_container_links(self):
         """Test case for list_container_links
 
         NOT YET IMPLEMENTED - List all URLs of the container  # noqa: E501
-        """
-        pass
-
-    def test_list_container_tag(self):
-        """Test case for list_container_tag
-
-        NOT YET IMPLEMENTED - List tags  # noqa: E501
         """
         pass
 

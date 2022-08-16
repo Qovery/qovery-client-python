@@ -31,13 +31,6 @@ class TestContainerActionsApi(unittest.TestCase):
         """
         pass
 
-    def test_preview_environment_container(self):
-        """Test case for preview_environment_container
-
-        NOT YET IMPLEMENTED - Deploy a preview environment with your container application  # noqa: E501
-        """
-        pass
-
     def test_restart_container(self):
         """Test case for restart_container
 

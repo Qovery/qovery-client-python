@@ -158,10 +158,12 @@ class ApplicationDeploymentRestrictionApi(object):
             params_map={
                 'all': [
                     'application_id',
+                    'deployment_restriction_id',
                     'application_deployment_restriction_request',
                 ],
                 'required': [
                     'application_id',
+                    'deployment_restriction_id',
                 ],
                 'nullable': [
                 ],
@@ -178,14 +180,18 @@ class ApplicationDeploymentRestrictionApi(object):
                 'openapi_types': {
                     'application_id':
                         (str,),
+                    'deployment_restriction_id':
+                        (str,),
                     'application_deployment_restriction_request':
                         (ApplicationDeploymentRestrictionRequest,),
                 },
                 'attribute_map': {
                     'application_id': 'applicationId',
+                    'deployment_restriction_id': 'deploymentRestrictionId',
                 },
                 'location_map': {
                     'application_id': 'path',
+                    'deployment_restriction_id': 'path',
                     'application_deployment_restriction_request': 'body',
                 },
                 'collection_format_map': {
@@ -423,6 +429,7 @@ class ApplicationDeploymentRestrictionApi(object):
     def edit_application_deployment_restriction(
         self,
         application_id,
+        deployment_restriction_id,
         **kwargs
     ):
         """Edit an application deployment restriction  # noqa: E501
@@ -431,11 +438,12 @@ class ApplicationDeploymentRestrictionApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_application_deployment_restriction(application_id, async_req=True)
+        >>> thread = api.edit_application_deployment_restriction(application_id, deployment_restriction_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             application_id (str): Application ID
+            deployment_restriction_id (str): Deployment Restriction ID
 
         Keyword Args:
             application_deployment_restriction_request (ApplicationDeploymentRestrictionRequest): [optional]
@@ -502,6 +510,8 @@ class ApplicationDeploymentRestrictionApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['application_id'] = \
             application_id
+        kwargs['deployment_restriction_id'] = \
+            deployment_restriction_id
         return self.edit_application_deployment_restriction_endpoint.call_with_http_info(**kwargs)
 
     def get_application_deployment_restrictions(

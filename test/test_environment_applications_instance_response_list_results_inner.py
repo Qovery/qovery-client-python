@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.instance import Instance
 globals()['Instance'] = Instance
-from qovery.model.get_environment_container_current_instance200_response_results_inner import GetEnvironmentContainerCurrentInstance200ResponseResultsInner
+from qovery.model.environment_applications_instance_response_list_results_inner import EnvironmentApplicationsInstanceResponseListResultsInner
 
 
-class TestGetEnvironmentContainerCurrentInstance200ResponseResultsInner(unittest.TestCase):
-    """GetEnvironmentContainerCurrentInstance200ResponseResultsInner unit test stubs"""
+class TestEnvironmentApplicationsInstanceResponseListResultsInner(unittest.TestCase):
+    """EnvironmentApplicationsInstanceResponseListResultsInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestGetEnvironmentContainerCurrentInstance200ResponseResultsInner(unittest
     def tearDown(self):
         pass
 
-    def testGetEnvironmentContainerCurrentInstance200ResponseResultsInner(self):
-        """Test GetEnvironmentContainerCurrentInstance200ResponseResultsInner"""
+    def testEnvironmentApplicationsInstanceResponseListResultsInner(self):
+        """Test EnvironmentApplicationsInstanceResponseListResultsInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GetEnvironmentContainerCurrentInstance200ResponseResultsInner()  # noqa: E501
+        # model = EnvironmentApplicationsInstanceResponseListResultsInner()  # noqa: E501
         pass
 
 

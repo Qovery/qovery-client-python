@@ -24,6 +24,13 @@ class TestContainersApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_auto_deploy_container_environments(self):
+        """Test case for auto_deploy_container_environments
+
+        NOT YET IMPLEMENTED - Auto deploy containers  # noqa: E501
+        """
+        pass
+
     def test_create_container(self):
         """Test case for create_container
 
@@ -35,13 +42,6 @@ class TestContainersApi(unittest.TestCase):
         """Test case for deploy_all_containers
 
         Deploy containers  # noqa: E501
-        """
-        pass
-
-    def test_get_environment_container_current_instance(self):
-        """Test case for get_environment_container_current_instance
-
-        List running instances with CPU and RAM usage for each container  # noqa: E501
         """
         pass
 
@@ -70,6 +70,13 @@ class TestContainersApi(unittest.TestCase):
         """Test case for list_container
 
         List containers  # noqa: E501
+        """
+        pass
+
+    def test_preview_container_environments(self):
+        """Test case for preview_container_environments
+
+        NOT YET IMPLEMENTED - Preview container environments  # noqa: E501
         """
         pass
 

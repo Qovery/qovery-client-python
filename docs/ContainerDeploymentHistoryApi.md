@@ -1,18 +1,18 @@
-# qovery.ContainerEventApi
+# qovery.ContainerDeploymentHistoryApi
 
 All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_container_event**](ContainerEventApi.md#list_container_event) | **GET** /container/{containerId}/event | NOT YET IMPLEMENTED - List container events
+[**list_container_deployment_history**](ContainerDeploymentHistoryApi.md#list_container_deployment_history) | **GET** /container/{containerId}/deploymentHistory | NOT YET IMPLEMENTED - List container deployments
 
 
-# **list_container_event**
-> EventPaginatedResponseList list_container_event(container_id)
+# **list_container_deployment_history**
+> ListContainerDeploymentHistory200Response list_container_deployment_history(container_id)
 
-NOT YET IMPLEMENTED - List container events
+NOT YET IMPLEMENTED - List container deployments
 
-By default it returns the 20 last results. The response is paginated. In order to request the next page, you can use the startId query parameter
+Returns the 20 last container deployments
 
 ### Example
 
@@ -21,8 +21,8 @@ By default it returns the 20 last results. The response is paginated. In order t
 ```python
 import time
 import qovery
-from qovery.api import container_event_api
-from qovery.model.event_paginated_response_list import EventPaginatedResponseList
+from qovery.api import container_deployment_history_api
+from qovery.model.list_container_deployment_history200_response import ListContainerDeploymentHistory200Response
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -43,26 +43,16 @@ configuration = qovery.Configuration(
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_event_api.ContainerEventApi(api_client)
+    api_instance = container_deployment_history_api.ContainerDeploymentHistoryApi(api_client)
     container_id = "containerId_example" # str | Container ID
-    start_id = "startId_example" # str | Starting point after which to return results (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - List container events
-        api_response = api_instance.list_container_event(container_id)
+        # NOT YET IMPLEMENTED - List container deployments
+        api_response = api_instance.list_container_deployment_history(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
-        print("Exception when calling ContainerEventApi->list_container_event: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # NOT YET IMPLEMENTED - List container events
-        api_response = api_instance.list_container_event(container_id, start_id=start_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ContainerEventApi->list_container_event: %s\n" % e)
+        print("Exception when calling ContainerDeploymentHistoryApi->list_container_deployment_history: %s\n" % e)
 ```
 
 
@@ -71,11 +61,10 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**| Container ID |
- **start_id** | **str**| Starting point after which to return results | [optional]
 
 ### Return type
 
-[**EventPaginatedResponseList**](EventPaginatedResponseList.md)
+[**ListContainerDeploymentHistory200Response**](ListContainerDeploymentHistory200Response.md)
 
 ### Authorization
 
@@ -91,7 +80,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | List events |  -  |
+**200** | List deployment history |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

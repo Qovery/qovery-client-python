@@ -12,22 +12,22 @@
 import unittest
 
 import qovery
-from qovery.api.container_event_api import ContainerEventApi  # noqa: E501
+from qovery.api.container_deployment_history_api import ContainerDeploymentHistoryApi  # noqa: E501
 
 
-class TestContainerEventApi(unittest.TestCase):
-    """ContainerEventApi unit test stubs"""
+class TestContainerDeploymentHistoryApi(unittest.TestCase):
+    """ContainerDeploymentHistoryApi unit test stubs"""
 
     def setUp(self):
-        self.api = ContainerEventApi()  # noqa: E501
+        self.api = ContainerDeploymentHistoryApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_list_container_event(self):
-        """Test case for list_container_event
+    def test_list_container_deployment_history(self):
+        """Test case for list_container_deployment_history
 
-        NOT YET IMPLEMENTED - List container events  # noqa: E501
+        NOT YET IMPLEMENTED - List container deployments  # noqa: E501
         """
         pass
 

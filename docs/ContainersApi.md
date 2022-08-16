@@ -4,14 +4,112 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**auto_deploy_container_environments**](ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | NOT YET IMPLEMENTED - Auto deploy containers
 [**create_container**](ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
 [**deploy_all_containers**](ContainersApi.md#deploy_all_containers) | **POST** /environment/{environmentId}/container/deploy | Deploy containers
-[**get_environment_container_current_instance**](ContainersApi.md#get_environment_container_current_instance) | **GET** /environment/{environmentId}/container/instance | List running instances with CPU and RAM usage for each container
 [**get_environment_container_current_scale**](ContainersApi.md#get_environment_container_current_scale) | **GET** /environment/{environmentId}/container/currentScale | List current scaling information for each container
 [**get_environment_container_current_storage**](ContainersApi.md#get_environment_container_current_storage) | **GET** /environment/{environmentId}/container/currentStorage | List current storage disk usage for each containers
 [**get_environment_container_status**](ContainersApi.md#get_environment_container_status) | **GET** /environment/{environmentId}/container/status | List all environment container statuses
 [**list_container**](ContainersApi.md#list_container) | **GET** /environment/{environmentId}/container | List containers
+[**preview_container_environments**](ContainersApi.md#preview_container_environments) | **POST** /organization/{organizationId}/container/preview | NOT YET IMPLEMENTED - Preview container environments
 
+
+# **auto_deploy_container_environments**
+> Status auto_deploy_container_environments(organization_id)
+
+NOT YET IMPLEMENTED - Auto deploy containers
+
+Triggers a new container deploy in each environment matching the following conditions - environment should have the auto-deploy enabled - the container should have the same image name and a different tag 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import containers_api
+from qovery.model.status import Status
+from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = containers_api.ContainersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    auto_deploy_container_environments_request = AutoDeployContainerEnvironmentsRequest(
+        image_name="image_name_example",
+        tag="tag_example",
+    ) # AutoDeployContainerEnvironmentsRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # NOT YET IMPLEMENTED - Auto deploy containers
+        api_response = api_instance.auto_deploy_container_environments(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->auto_deploy_container_environments: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # NOT YET IMPLEMENTED - Auto deploy containers
+        api_response = api_instance.auto_deploy_container_environments(organization_id, auto_deploy_container_environments_request=auto_deploy_container_environments_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->auto_deploy_container_environments: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **auto_deploy_container_environments_request** | [**AutoDeployContainerEnvironmentsRequest**](AutoDeployContainerEnvironmentsRequest.md)|  | [optional]
+
+### Return type
+
+[**Status**](Status.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Deployed containers |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+**409** | Operation is in progress |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_container**
 > ContainerResponse create_container(environment_id)
@@ -203,84 +301,6 @@ Name | Type | Description  | Notes
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
 **409** | Operation is in progress |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_environment_container_current_instance**
-> GetEnvironmentContainerCurrentInstance200Response get_environment_container_current_instance(environment_id)
-
-List running instances with CPU and RAM usage for each container
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import time
-import qovery
-from qovery.api import containers_api
-from qovery.model.get_environment_container_current_instance200_response import GetEnvironmentContainerCurrentInstance200Response
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.qovery.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = qovery.Configuration(
-    host = "https://api.qovery.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with qovery.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = containers_api.ContainersApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # List running instances with CPU and RAM usage for each container
-        api_response = api_instance.get_environment_container_current_instance(environment_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ContainersApi->get_environment_container_current_instance: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
-
-### Return type
-
-[**GetEnvironmentContainerCurrentInstance200Response**](GetEnvironmentContainerCurrentInstance200Response.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Know current resource consumption for each container of the environment |  -  |
-**401** | Access token is missing or invalid |  -  |
-**403** | Access forbidden |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -608,6 +628,103 @@ Name | Type | Description  | Notes
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **preview_container_environments**
+> Status preview_container_environments(organization_id)
+
+NOT YET IMPLEMENTED - Preview container environments
+
+Triggers a new container preview for each environment matching the following conditions - preview environment feature should be enabled for the container - the container should have the same image name and a different tag 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import containers_api
+from qovery.model.status import Status
+from qovery.model.preview_container_environments_request import PreviewContainerEnvironmentsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = containers_api.ContainersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    preview_container_environments_request = PreviewContainerEnvironmentsRequest(
+        image_name="image_name_example",
+        tag="tag_example",
+    ) # PreviewContainerEnvironmentsRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # NOT YET IMPLEMENTED - Preview container environments
+        api_response = api_instance.preview_container_environments(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->preview_container_environments: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # NOT YET IMPLEMENTED - Preview container environments
+        api_response = api_instance.preview_container_environments(organization_id, preview_container_environments_request=preview_container_environments_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->preview_container_environments: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **preview_container_environments_request** | [**PreviewContainerEnvironmentsRequest**](PreviewContainerEnvironmentsRequest.md)|  | [optional]
+
+### Return type
+
+[**Status**](Status.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Preview environments processing |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+**409** | Operation is in progress |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -5,9 +5,9 @@ All URIs are relative to *https://api.qovery.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_container_registry**](ContainerRegistriesApi.md#create_container_registry) | **POST** /organization/{organizationId}/containerRegistry | Create a container registry
-[**delete_container_registry**](ContainerRegistriesApi.md#delete_container_registry) | **DELETE** /organization/{organizationId}/containerRegistry/{containerRegistryId} | Delete a container registry
+[**delete_container_registry**](ContainerRegistriesApi.md#delete_container_registry) | **DELETE** /organization/{organizationId}/containerRegistry/{containerRegistryId} | NOT YET IMPLEMENTED - Delete a container registry
 [**list_available_container_registry**](ContainerRegistriesApi.md#list_available_container_registry) | **GET** /organization/{organizationId}/availableContainerRegistry | List supported container registries
-[**list_container_registry**](ContainerRegistriesApi.md#list_container_registry) | **GET** /organization/{organizationId}/containerRegistry | List organization container registries
+[**list_container_registry**](ContainerRegistriesApi.md#list_container_registry) | **GET** /organization/{organizationId}/containerRegistry | NOT YET IMPLEMENTED - List organization container registries
 
 
 # **create_container_registry**
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 # **delete_container_registry**
 > delete_container_registry(organization_id)
 
-Delete a container registry
+NOT YET IMPLEMENTED - Delete a container registry
 
 ### Example
 
@@ -145,7 +145,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Delete a container registry
+        # NOT YET IMPLEMENTED - Delete a container registry
         api_instance.delete_container_registry(organization_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerRegistriesApi->delete_container_registry: %s\n" % e)
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 # **list_container_registry**
 > ListContainerRegistry200Response list_container_registry(organization_id)
 
-List organization container registries
+NOT YET IMPLEMENTED - List organization container registries
 
 ### Example
 
@@ -302,7 +302,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # List organization container registries
+        # NOT YET IMPLEMENTED - List organization container registries
         api_response = api_instance.list_container_registry(organization_id)
         pprint(api_response)
     except qovery.ApiException as e:

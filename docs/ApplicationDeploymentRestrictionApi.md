@@ -186,7 +186,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_application_deployment_restriction**
-> ApplicationDeploymentRestriction edit_application_deployment_restriction(application_id)
+> ApplicationDeploymentRestriction edit_application_deployment_restriction(application_id, deployment_restriction_id)
 
 Edit an application deployment restriction
 
@@ -224,6 +224,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = application_deployment_restriction_api.ApplicationDeploymentRestrictionApi(api_client)
     application_id = "applicationId_example" # str | Application ID
+    deployment_restriction_id = "deploymentRestrictionId_example" # str | Deployment Restriction ID
     application_deployment_restriction_request = ApplicationDeploymentRestrictionRequest(
         mode=DeploymentRestrictionModeEnum("MATCH"),
         type=DeploymentRestrictionTypeEnum("PATH"),
@@ -233,7 +234,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Edit an application deployment restriction
-        api_response = api_instance.edit_application_deployment_restriction(application_id)
+        api_response = api_instance.edit_application_deployment_restriction(application_id, deployment_restriction_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ApplicationDeploymentRestrictionApi->edit_application_deployment_restriction: %s\n" % e)
@@ -242,7 +243,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit an application deployment restriction
-        api_response = api_instance.edit_application_deployment_restriction(application_id, application_deployment_restriction_request=application_deployment_restriction_request)
+        api_response = api_instance.edit_application_deployment_restriction(application_id, deployment_restriction_id, application_deployment_restriction_request=application_deployment_restriction_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ApplicationDeploymentRestrictionApi->edit_application_deployment_restriction: %s\n" % e)
@@ -254,6 +255,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **str**| Application ID |
+ **deployment_restriction_id** | **str**| Deployment Restriction ID |
  **application_deployment_restriction_request** | [**ApplicationDeploymentRestrictionRequest**](ApplicationDeploymentRestrictionRequest.md)|  | [optional]
 
 ### Return type

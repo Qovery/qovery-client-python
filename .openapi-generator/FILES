@@ -38,6 +38,7 @@ docs/ApplicationSecretApi.md
 docs/ApplicationStorage.md
 docs/ApplicationStorageStorageInner.md
 docs/ApplicationsApi.md
+docs/AutoDeployContainerEnvironmentsRequest.md
 docs/AvailableContainerRegistryResponse.md
 docs/AwsCredentialsRequest.md
 docs/Backup.md
@@ -119,14 +120,10 @@ docs/ContainerDatabaseApi.md
 docs/ContainerDependencyApi.md
 docs/ContainerDependencyRequest.md
 docs/ContainerDeployRequest.md
-docs/ContainerDeploymentRestriction.md
-docs/ContainerDeploymentRestrictionApi.md
-docs/ContainerDeploymentRestrictionRequest.md
-docs/ContainerDeploymentRestrictionResponseList.md
+docs/ContainerDeploymentHistoryApi.md
 docs/ContainerEditRequest.md
 docs/ContainerEditRequestAllOf.md
 docs/ContainerEnvironmentVariableApi.md
-docs/ContainerEventApi.md
 docs/ContainerLogsApi.md
 docs/ContainerMainCallsApi.md
 docs/ContainerMetricsApi.md
@@ -211,6 +208,7 @@ docs/EnvironmentAllOfCloudProvider.md
 docs/EnvironmentApplicationsCurrentScale.md
 docs/EnvironmentApplicationsCurrentScaleResponseList.md
 docs/EnvironmentApplicationsInstanceResponseList.md
+docs/EnvironmentApplicationsInstanceResponseListResultsInner.md
 docs/EnvironmentApplicationsStorage.md
 docs/EnvironmentApplicationsStorageResponseList.md
 docs/EnvironmentApplicationsSupportedLanguage.md
@@ -263,9 +261,6 @@ docs/EventPaginatedResponseList.md
 docs/EventPaginatedResponseListAllOf.md
 docs/EventResponseList.md
 docs/GenericObjectCurrentCost.md
-docs/GetContainerTags200Response.md
-docs/GetEnvironmentContainerCurrentInstance200Response.md
-docs/GetEnvironmentContainerCurrentInstance200ResponseResultsInner.md
 docs/GitAuthProvider.md
 docs/GitAuthProviderResponseList.md
 docs/GitProviderEnum.md
@@ -295,6 +290,10 @@ docs/Link.md
 docs/LinkResponseList.md
 docs/LinkedServiceTypeEnum.md
 docs/ListClusterLogs200Response.md
+docs/ListContainerDeploymentHistory200Response.md
+docs/ListContainerDeploymentHistory200ResponseAllOf.md
+docs/ListContainerDeploymentHistory200ResponseAllOfResultsInner.md
+docs/ListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf.md
 docs/ListContainerRegistry200Response.md
 docs/ListDatabaseDeploymentHistory200Response.md
 docs/ListDatabaseDeploymentHistory200ResponseAllOf.md
@@ -361,6 +360,7 @@ docs/PaginationData.md
 docs/PaidUsage.md
 docs/PlanEnum.md
 docs/PortProtocolEnum.md
+docs/PreviewContainerEnvironmentsRequest.md
 docs/Project.md
 docs/ProjectAllOf.md
 docs/ProjectCurrentCost.md
@@ -457,9 +457,8 @@ qovery/api/container_configuration_api.py
 qovery/api/container_custom_domain_api.py
 qovery/api/container_database_api.py
 qovery/api/container_dependency_api.py
-qovery/api/container_deployment_restriction_api.py
+qovery/api/container_deployment_history_api.py
 qovery/api/container_environment_variable_api.py
-qovery/api/container_event_api.py
 qovery/api/container_logs_api.py
 qovery/api/container_main_calls_api.py
 qovery/api/container_metrics_api.py
@@ -526,6 +525,7 @@ qovery/model/application_request_all_of.py
 qovery/model/application_response_list.py
 qovery/model/application_storage.py
 qovery/model/application_storage_storage_inner.py
+qovery/model/auto_deploy_container_environments_request.py
 qovery/model/available_container_registry_response.py
 qovery/model/aws_credentials_request.py
 qovery/model/backup.py
@@ -597,9 +597,6 @@ qovery/model/container_advanced_settings_response.py
 qovery/model/container_current_scale.py
 qovery/model/container_dependency_request.py
 qovery/model/container_deploy_request.py
-qovery/model/container_deployment_restriction.py
-qovery/model/container_deployment_restriction_request.py
-qovery/model/container_deployment_restriction_response_list.py
 qovery/model/container_edit_request.py
 qovery/model/container_edit_request_all_of.py
 qovery/model/container_network.py
@@ -669,6 +666,7 @@ qovery/model/environment_all_of_cloud_provider.py
 qovery/model/environment_applications_current_scale.py
 qovery/model/environment_applications_current_scale_response_list.py
 qovery/model/environment_applications_instance_response_list.py
+qovery/model/environment_applications_instance_response_list_results_inner.py
 qovery/model/environment_applications_storage.py
 qovery/model/environment_applications_storage_response_list.py
 qovery/model/environment_applications_supported_language.py
@@ -714,9 +712,6 @@ qovery/model/event_paginated_response_list.py
 qovery/model/event_paginated_response_list_all_of.py
 qovery/model/event_response_list.py
 qovery/model/generic_object_current_cost.py
-qovery/model/get_container_tags200_response.py
-qovery/model/get_environment_container_current_instance200_response.py
-qovery/model/get_environment_container_current_instance200_response_results_inner.py
 qovery/model/git_auth_provider.py
 qovery/model/git_auth_provider_response_list.py
 qovery/model/git_provider_enum.py
@@ -744,6 +739,10 @@ qovery/model/link.py
 qovery/model/link_response_list.py
 qovery/model/linked_service_type_enum.py
 qovery/model/list_cluster_logs200_response.py
+qovery/model/list_container_deployment_history200_response.py
+qovery/model/list_container_deployment_history200_response_all_of.py
+qovery/model/list_container_deployment_history200_response_all_of_results_inner.py
+qovery/model/list_container_deployment_history200_response_all_of_results_inner_all_of.py
 qovery/model/list_container_registry200_response.py
 qovery/model/list_database_deployment_history200_response.py
 qovery/model/list_database_deployment_history200_response_all_of.py
@@ -804,6 +803,7 @@ qovery/model/pagination_data.py
 qovery/model/paid_usage.py
 qovery/model/plan_enum.py
 qovery/model/port_protocol_enum.py
+qovery/model/preview_container_environments_request.py
 qovery/model/project.py
 qovery/model/project_all_of.py
 qovery/model/project_current_cost.py
@@ -910,6 +910,7 @@ test/test_application_secret_api.py
 test/test_application_storage.py
 test/test_application_storage_storage_inner.py
 test/test_applications_api.py
+test/test_auto_deploy_container_environments_request.py
 test/test_available_container_registry_response.py
 test/test_aws_credentials_request.py
 test/test_backup.py
@@ -991,14 +992,10 @@ test/test_container_database_api.py
 test/test_container_dependency_api.py
 test/test_container_dependency_request.py
 test/test_container_deploy_request.py
-test/test_container_deployment_restriction.py
-test/test_container_deployment_restriction_api.py
-test/test_container_deployment_restriction_request.py
-test/test_container_deployment_restriction_response_list.py
+test/test_container_deployment_history_api.py
 test/test_container_edit_request.py
 test/test_container_edit_request_all_of.py
 test/test_container_environment_variable_api.py
-test/test_container_event_api.py
 test/test_container_logs_api.py
 test/test_container_main_calls_api.py
 test/test_container_metrics_api.py
@@ -1083,6 +1080,7 @@ test/test_environment_all_of_cloud_provider.py
 test/test_environment_applications_current_scale.py
 test/test_environment_applications_current_scale_response_list.py
 test/test_environment_applications_instance_response_list.py
+test/test_environment_applications_instance_response_list_results_inner.py
 test/test_environment_applications_storage.py
 test/test_environment_applications_storage_response_list.py
 test/test_environment_applications_supported_language.py
@@ -1135,9 +1133,6 @@ test/test_event_paginated_response_list.py
 test/test_event_paginated_response_list_all_of.py
 test/test_event_response_list.py
 test/test_generic_object_current_cost.py
-test/test_get_container_tags200_response.py
-test/test_get_environment_container_current_instance200_response.py
-test/test_get_environment_container_current_instance200_response_results_inner.py
 test/test_git_auth_provider.py
 test/test_git_auth_provider_response_list.py
 test/test_git_provider_enum.py
@@ -1167,6 +1162,10 @@ test/test_link.py
 test/test_link_response_list.py
 test/test_linked_service_type_enum.py
 test/test_list_cluster_logs200_response.py
+test/test_list_container_deployment_history200_response.py
+test/test_list_container_deployment_history200_response_all_of.py
+test/test_list_container_deployment_history200_response_all_of_results_inner.py
+test/test_list_container_deployment_history200_response_all_of_results_inner_all_of.py
 test/test_list_container_registry200_response.py
 test/test_list_database_deployment_history200_response.py
 test/test_list_database_deployment_history200_response_all_of.py
@@ -1233,6 +1232,7 @@ test/test_pagination_data.py
 test/test_paid_usage.py
 test/test_plan_enum.py
 test/test_port_protocol_enum.py
+test/test_preview_container_environments_request.py
 test/test_project.py
 test/test_project_all_of.py
 test/test_project_current_cost.py

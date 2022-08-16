@@ -34,7 +34,7 @@ class TestContainerRegistriesApi(unittest.TestCase):
     def test_delete_container_registry(self):
         """Test case for delete_container_registry
 
-        Delete a container registry  # noqa: E501
+        NOT YET IMPLEMENTED - Delete a container registry  # noqa: E501
         """
         pass
 
@@ -48,7 +48,7 @@ class TestContainerRegistriesApi(unittest.TestCase):
     def test_list_container_registry(self):
         """Test case for list_container_registry
 
-        List organization container registries  # noqa: E501
+        NOT YET IMPLEMENTED - List organization container registries  # noqa: E501
         """
         pass
 

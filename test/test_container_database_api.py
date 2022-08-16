@@ -24,13 +24,6 @@ class TestContainerDatabaseApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_attach_database_to_container(self):
-        """Test case for attach_database_to_container
-
-        NOT YET IMPLEMENTED - Link a database to the container  # noqa: E501
-        """
-        pass
-
     def test_attach_logical_database_to_container(self):
         """Test case for attach_logical_database_to_container
 
@@ -38,24 +31,10 @@ class TestContainerDatabaseApi(unittest.TestCase):
         """
         pass
 
-    def test_list_container_database(self):
-        """Test case for list_container_database
-
-        NOT YET IMPLEMENTED - List linked databases  # noqa: E501
-        """
-        pass
-
     def test_list_container_logical_database(self):
         """Test case for list_container_logical_database
 
         NOT YET IMPLEMENTED - List linked logical databases  # noqa: E501
-        """
-        pass
-
-    def test_remove_database_from_container(self):
-        """Test case for remove_database_from_container
-
-        NOT YET IMPLEMENTED - Remove database link to this container.  # noqa: E501
         """
         pass
 
