@@ -93,7 +93,7 @@ class ContainerDeploymentHistoryApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - List container deployments  # noqa: E501
+        """List container deployments  # noqa: E501
 
         Returns the 20 last container deployments  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

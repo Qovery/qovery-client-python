@@ -329,7 +329,7 @@ class ContainerRegistriesApi(object):
         organization_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Delete a container registry  # noqa: E501
+        """Delete a container registry  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -489,7 +489,7 @@ class ContainerRegistriesApi(object):
         organization_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - List organization container registries  # noqa: E501
+        """List organization container registries  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

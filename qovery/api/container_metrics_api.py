@@ -197,7 +197,7 @@ class ContainerMetricsApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
+        """List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -279,7 +279,7 @@ class ContainerMetricsApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Get current scaling of the container  # noqa: E501
+        """Get current scaling of the container  # noqa: E501
 
         Returns min, max, and running number of instances of the application  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -362,7 +362,7 @@ class ContainerMetricsApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - List current storage disk usage  # noqa: E501
+        """List current storage disk usage  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

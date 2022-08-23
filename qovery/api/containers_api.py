@@ -488,7 +488,7 @@ class ContainersApi(object):
         organization_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Auto deploy containers  # noqa: E501
+        """Auto deploy containers  # noqa: E501
 
         Triggers a new container deploy in each environment matching the following conditions - environment should have the auto-deploy enabled - the container should have the same image name and a different tag   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1070,7 +1070,7 @@ class ContainersApi(object):
         organization_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Preview container environments  # noqa: E501
+        """Preview container environments  # noqa: E501
 
         Triggers a new container preview for each environment matching the following conditions - preview environment feature should be enabled for the container - the container should have the same image name and a different tag   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

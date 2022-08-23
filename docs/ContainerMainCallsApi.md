@@ -4,17 +4,17 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_container**](ContainerMainCallsApi.md#delete_container) | **DELETE** /container/{containerId} | NOT YET IMPLEMENTED - Delete container
-[**edit_container**](ContainerMainCallsApi.md#edit_container) | **PUT** /container/{containerId} | NOT YET IMPLEMENTED - Edit container
-[**get_container**](ContainerMainCallsApi.md#get_container) | **GET** /container/{containerId} | NOT YET IMPLEMENTED - Get container by ID
-[**get_container_status**](ContainerMainCallsApi.md#get_container_status) | **GET** /container/{containerId}/status | NOT YET IMPLEMENTED - Get container status
-[**list_container_links**](ContainerMainCallsApi.md#list_container_links) | **GET** /container/{containerId}/link | NOT YET IMPLEMENTED - List all URLs of the container
+[**delete_container**](ContainerMainCallsApi.md#delete_container) | **DELETE** /container/{containerId} | Delete container
+[**edit_container**](ContainerMainCallsApi.md#edit_container) | **PUT** /container/{containerId} | Edit container
+[**get_container**](ContainerMainCallsApi.md#get_container) | **GET** /container/{containerId} | Get container by ID
+[**get_container_status**](ContainerMainCallsApi.md#get_container_status) | **GET** /container/{containerId}/status | Get container status
+[**list_container_links**](ContainerMainCallsApi.md#list_container_links) | **GET** /container/{containerId}/link | List all URLs of the container
 
 
 # **delete_container**
 > delete_container(container_id)
 
-NOT YET IMPLEMENTED - Delete container
+Delete container
 
 To delete the container you must have the admin permission
 
@@ -51,7 +51,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Delete container
+        # Delete container
         api_instance.delete_container(container_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerMainCallsApi->delete_container: %s\n" % e)
@@ -92,7 +92,7 @@ void (empty response body)
 # **edit_container**
 > ContainerResponse edit_container(container_id)
 
-NOT YET IMPLEMENTED - Edit container
+Edit container
 
 - To edit the container you must have the admin permission. - For port edition, if you provide a port id, we will update the corresponding port. If you don't we will create a new one. If you remove a port from the payload, we will delete it. - For storage edition, if you provide a storage id, we will update the corresponding storage. If you don't we will create a new one. If you remove a storage from the payload, we will delete it. 
 
@@ -132,7 +132,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Edit container
+        # Edit container
         api_response = api_instance.edit_container(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -141,7 +141,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # NOT YET IMPLEMENTED - Edit container
+        # Edit container
         api_response = api_instance.edit_container(container_id, container_edit_request=container_edit_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 # **get_container**
 > ContainerResponse get_container(container_id)
 
-NOT YET IMPLEMENTED - Get container by ID
+Get container by ID
 
 ### Example
 
@@ -222,7 +222,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Get container by ID
+        # Get container by ID
         api_response = api_instance.get_container(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 # **get_container_status**
 > Status get_container_status(container_id)
 
-NOT YET IMPLEMENTED - Get container status
+Get container status
 
 ### Example
 
@@ -300,7 +300,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Get container status
+        # Get container status
         api_response = api_instance.get_container_status(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 # **list_container_links**
 > LinkResponseList list_container_links(container_id)
 
-NOT YET IMPLEMENTED - List all URLs of the container
+List all URLs of the container
 
 This will return all the custom domains and Qovery autogenerated domain for the given container
 
@@ -380,7 +380,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - List all URLs of the container
+        # List all URLs of the container
         api_response = api_instance.list_container_links(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

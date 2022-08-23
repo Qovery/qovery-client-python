@@ -27,21 +27,21 @@ class TestContainerActionsApi(unittest.TestCase):
     def test_deploy_container(self):
         """Test case for deploy_container
 
-        NOT YET IMPLEMENTED - Deploy container  # noqa: E501
+        Deploy container  # noqa: E501
         """
         pass
 
     def test_restart_container(self):
         """Test case for restart_container
 
-        NOT YET IMPLEMENTED - Restart container  # noqa: E501
+        Restart container  # noqa: E501
         """
         pass
 
     def test_stop_container(self):
         """Test case for stop_container
 
-        NOT YET IMPLEMENTED - Stop container  # noqa: E501
+        Stop container  # noqa: E501
         """
         pass
 

@@ -261,7 +261,7 @@ class ContainerConfigurationApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Edit advanced settings  # noqa: E501
+        """Edit advanced settings  # noqa: E501
 
         Edit advanced settings by returning table of advanced settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -345,7 +345,7 @@ class ContainerConfigurationApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Edit Container Network  # noqa: E501
+        """Edit Container Network  # noqa: E501
 
         Edit the Network settings of the container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -429,7 +429,7 @@ class ContainerConfigurationApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Get advanced settings  # noqa: E501
+        """Get advanced settings  # noqa: E501
 
         Get list and values of the advanced settings of the container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -512,7 +512,7 @@ class ContainerConfigurationApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Get Container Network information  # noqa: E501
+        """Get Container Network information  # noqa: E501
 
         Get status of the container network settings.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

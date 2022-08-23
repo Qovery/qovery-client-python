@@ -27,7 +27,7 @@ class TestContainersApi(unittest.TestCase):
     def test_auto_deploy_container_environments(self):
         """Test case for auto_deploy_container_environments
 
-        NOT YET IMPLEMENTED - Auto deploy containers  # noqa: E501
+        Auto deploy containers  # noqa: E501
         """
         pass
 
@@ -76,7 +76,7 @@ class TestContainersApi(unittest.TestCase):
     def test_preview_container_environments(self):
         """Test case for preview_container_environments
 
-        NOT YET IMPLEMENTED - Preview container environments  # noqa: E501
+        Preview container environments  # noqa: E501
         """
         pass
 

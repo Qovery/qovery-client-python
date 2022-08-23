@@ -4,15 +4,15 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_container_dependency**](ContainerDependencyApi.md#create_container_dependency) | **POST** /container/{containerId}/dependency/{targetContainerId} | NOT YET IMPLEMENTED - Add container dependency to this application.
-[**list_container_dependency**](ContainerDependencyApi.md#list_container_dependency) | **GET** /container/{containerId}/dependency | NOT YET IMPLEMENTED - List container dependencies
-[**remove_container_dependency**](ContainerDependencyApi.md#remove_container_dependency) | **DELETE** /container/{containerId}/dependency/{targetContainerId} | NOT YET IMPLEMENTED - Remove container dependency to this container.
+[**create_container_dependency**](ContainerDependencyApi.md#create_container_dependency) | **POST** /container/{containerId}/dependency/{targetContainerId} | Add container dependency to this application.
+[**list_container_dependency**](ContainerDependencyApi.md#list_container_dependency) | **GET** /container/{containerId}/dependency | List container dependencies
+[**remove_container_dependency**](ContainerDependencyApi.md#remove_container_dependency) | **DELETE** /container/{containerId}/dependency/{targetContainerId} | Remove container dependency to this container.
 
 
 # **create_container_dependency**
 > ContainerResponse create_container_dependency(container_id, target_container_id)
 
-NOT YET IMPLEMENTED - Add container dependency to this application.
+Add container dependency to this application.
 
 Add container dependency to this container to prevent this container starting before the linked dependencies
 
@@ -51,7 +51,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Add container dependency to this application.
+        # Add container dependency to this application.
         api_response = api_instance.create_container_dependency(container_id, target_container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **list_container_dependency**
 > ContainerResponseList list_container_dependency(container_id)
 
-NOT YET IMPLEMENTED - List container dependencies
+List container dependencies
 
 ### Example
 
@@ -131,7 +131,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - List container dependencies
+        # List container dependencies
         api_response = api_instance.list_container_dependency(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 # **remove_container_dependency**
 > remove_container_dependency(container_id)
 
-NOT YET IMPLEMENTED - Remove container dependency to this container.
+Remove container dependency to this container.
 
 ### Example
 
@@ -208,7 +208,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Remove container dependency to this container.
+        # Remove container dependency to this container.
         api_instance.remove_container_dependency(container_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerDependencyApi->remove_container_dependency: %s\n" % e)

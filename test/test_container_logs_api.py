@@ -27,7 +27,7 @@ class TestContainerLogsApi(unittest.TestCase):
     def test_list_container_log(self):
         """Test case for list_container_log
 
-        NOT YET IMPLEMENTED - List logs  # noqa: E501
+        List logs  # noqa: E501
         """
         pass
 

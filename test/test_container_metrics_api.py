@@ -27,21 +27,21 @@ class TestContainerMetricsApi(unittest.TestCase):
     def test_get_container_current_instance(self):
         """Test case for get_container_current_instance
 
-        NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
+        List currently running instances of the container with their CPU and RAM metrics  # noqa: E501
         """
         pass
 
     def test_get_container_current_scale(self):
         """Test case for get_container_current_scale
 
-        NOT YET IMPLEMENTED - Get current scaling of the container  # noqa: E501
+        Get current scaling of the container  # noqa: E501
         """
         pass
 
     def test_get_container_current_storage_disk(self):
         """Test case for get_container_current_storage_disk
 
-        NOT YET IMPLEMENTED - List current storage disk usage  # noqa: E501
+        List current storage disk usage  # noqa: E501
         """
         pass
 

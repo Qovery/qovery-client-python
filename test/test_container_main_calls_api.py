@@ -27,35 +27,35 @@ class TestContainerMainCallsApi(unittest.TestCase):
     def test_delete_container(self):
         """Test case for delete_container
 
-        NOT YET IMPLEMENTED - Delete container  # noqa: E501
+        Delete container  # noqa: E501
         """
         pass
 
     def test_edit_container(self):
         """Test case for edit_container
 
-        NOT YET IMPLEMENTED - Edit container  # noqa: E501
+        Edit container  # noqa: E501
         """
         pass
 
     def test_get_container(self):
         """Test case for get_container
 
-        NOT YET IMPLEMENTED - Get container by ID  # noqa: E501
+        Get container by ID  # noqa: E501
         """
         pass
 
     def test_get_container_status(self):
         """Test case for get_container_status
 
-        NOT YET IMPLEMENTED - Get container status  # noqa: E501
+        Get container status  # noqa: E501
         """
         pass
 
     def test_list_container_links(self):
         """Test case for list_container_links
 
-        NOT YET IMPLEMENTED - List all URLs of the container  # noqa: E501
+        List all URLs of the container  # noqa: E501
         """
         pass
 

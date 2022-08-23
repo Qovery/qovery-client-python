@@ -4,13 +4,13 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_container_deployment_history**](ContainerDeploymentHistoryApi.md#list_container_deployment_history) | **GET** /container/{containerId}/deploymentHistory | NOT YET IMPLEMENTED - List container deployments
+[**list_container_deployment_history**](ContainerDeploymentHistoryApi.md#list_container_deployment_history) | **GET** /container/{containerId}/deploymentHistory | List container deployments
 
 
 # **list_container_deployment_history**
 > ListContainerDeploymentHistory200Response list_container_deployment_history(container_id)
 
-NOT YET IMPLEMENTED - List container deployments
+List container deployments
 
 Returns the 20 last container deployments
 
@@ -48,7 +48,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - List container deployments
+        # List container deployments
         api_response = api_instance.list_container_deployment_history(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

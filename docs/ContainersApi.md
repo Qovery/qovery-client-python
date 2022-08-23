@@ -4,20 +4,20 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**auto_deploy_container_environments**](ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | NOT YET IMPLEMENTED - Auto deploy containers
+[**auto_deploy_container_environments**](ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | Auto deploy containers
 [**create_container**](ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
 [**deploy_all_containers**](ContainersApi.md#deploy_all_containers) | **POST** /environment/{environmentId}/container/deploy | Deploy containers
 [**get_environment_container_current_scale**](ContainersApi.md#get_environment_container_current_scale) | **GET** /environment/{environmentId}/container/currentScale | List current scaling information for each container
 [**get_environment_container_current_storage**](ContainersApi.md#get_environment_container_current_storage) | **GET** /environment/{environmentId}/container/currentStorage | List current storage disk usage for each containers
 [**get_environment_container_status**](ContainersApi.md#get_environment_container_status) | **GET** /environment/{environmentId}/container/status | List all environment container statuses
 [**list_container**](ContainersApi.md#list_container) | **GET** /environment/{environmentId}/container | List containers
-[**preview_container_environments**](ContainersApi.md#preview_container_environments) | **POST** /organization/{organizationId}/container/preview | NOT YET IMPLEMENTED - Preview container environments
+[**preview_container_environments**](ContainersApi.md#preview_container_environments) | **POST** /organization/{organizationId}/container/preview | Preview container environments
 
 
 # **auto_deploy_container_environments**
 > Status auto_deploy_container_environments(organization_id)
 
-NOT YET IMPLEMENTED - Auto deploy containers
+Auto deploy containers
 
 Triggers a new container deploy in each environment matching the following conditions - environment should have the auto-deploy enabled - the container should have the same image name and a different tag 
 
@@ -60,7 +60,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Auto deploy containers
+        # Auto deploy containers
         api_response = api_instance.auto_deploy_container_environments(organization_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -69,7 +69,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # NOT YET IMPLEMENTED - Auto deploy containers
+        # Auto deploy containers
         api_response = api_instance.auto_deploy_container_environments(organization_id, auto_deploy_container_environments_request=auto_deploy_container_environments_request)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 # **preview_container_environments**
 > Status preview_container_environments(organization_id)
 
-NOT YET IMPLEMENTED - Preview container environments
+Preview container environments
 
 Triggers a new container preview for each environment matching the following conditions - preview environment feature should be enabled for the container - the container should have the same image name and a different tag 
 
@@ -677,7 +677,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Preview container environments
+        # Preview container environments
         api_response = api_instance.preview_container_environments(organization_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -686,7 +686,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # NOT YET IMPLEMENTED - Preview container environments
+        # Preview container environments
         api_response = api_instance.preview_container_environments(organization_id, preview_container_environments_request=preview_container_environments_request)
         pprint(api_response)
     except qovery.ApiException as e:

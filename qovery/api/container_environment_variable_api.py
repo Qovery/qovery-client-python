@@ -544,7 +544,7 @@ class ContainerEnvironmentVariableApi(object):
         environment_variable_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Create an environment variable alias at the container level  # noqa: E501
+        """Create an environment variable alias at the container level  # noqa: E501
 
         - Allows you to add an alias at container level on an existing environment variable having higher scope, in order to customize its key. - You only have to specify a key in the request body - The system will create a new environment variable at container level with the same value as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the aliased_variable will be exposed in the \"aliased_variable\" field of the newly created variable - Only 1 alias level is allowed. You can't create an alias on an alias   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -632,7 +632,7 @@ class ContainerEnvironmentVariableApi(object):
         environment_variable_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Create an environment variable override at the container level  # noqa: E501
+        """Create an environment variable override at the container level  # noqa: E501
 
         - Allows you to override at container level an environment variable that has a higher scope. - You only have to specify a value in the request body - The system will create a new environment variable at container level with the same key as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the overridden_variable will be exposed in the \"overridden_variable\" field of the newly created variable   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -720,7 +720,7 @@ class ContainerEnvironmentVariableApi(object):
         environment_variable_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Delete an environment variable from a container  # noqa: E501
+        """Delete an environment variable from a container  # noqa: E501
 
         - To delete an environment variable from an container you must have the project user permission - You can't delete a BUILT_IN variable - If you delete a variable having override or alias, the associated override/alias will be deleted as well   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -808,7 +808,7 @@ class ContainerEnvironmentVariableApi(object):
         environment_variable_edit_request,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Edit an environment variable belonging to the container  # noqa: E501
+        """Edit an environment variable belonging to the container  # noqa: E501
 
         - You can't edit a BUILT_IN variable - For an override, you can't edit the key - For an alias, you can't edit the value - An override can only have a scope lower to the variable it is overriding (hierarchy is BUILT_IN > PROJECT > ENVIRONMENT > CONTAINER)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -897,7 +897,7 @@ class ContainerEnvironmentVariableApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Import variables  # noqa: E501
+        """Import variables  # noqa: E501
 
         Import environment variables in a defined scope, with a defined visibility.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -981,7 +981,7 @@ class ContainerEnvironmentVariableApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - List environment variables  # noqa: E501
+        """List environment variables  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

@@ -27,21 +27,21 @@ class TestContainerDependencyApi(unittest.TestCase):
     def test_create_container_dependency(self):
         """Test case for create_container_dependency
 
-        NOT YET IMPLEMENTED - Add container dependency to this application.  # noqa: E501
+        Add container dependency to this application.  # noqa: E501
         """
         pass
 
     def test_list_container_dependency(self):
         """Test case for list_container_dependency
 
-        NOT YET IMPLEMENTED - List container dependencies  # noqa: E501
+        List container dependencies  # noqa: E501
         """
         pass
 
     def test_remove_container_dependency(self):
         """Test case for remove_container_dependency
 
-        NOT YET IMPLEMENTED - Remove container dependency to this container.  # noqa: E501
+        Remove container dependency to this container.  # noqa: E501
         """
         pass
 

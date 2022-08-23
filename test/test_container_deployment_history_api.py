@@ -27,7 +27,7 @@ class TestContainerDeploymentHistoryApi(unittest.TestCase):
     def test_list_container_deployment_history(self):
         """Test case for list_container_deployment_history
 
-        NOT YET IMPLEMENTED - List container deployments  # noqa: E501
+        List container deployments  # noqa: E501
         """
         pass
 

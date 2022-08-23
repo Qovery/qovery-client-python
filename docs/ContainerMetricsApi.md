@@ -4,15 +4,15 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_container_current_instance**](ContainerMetricsApi.md#get_container_current_instance) | **GET** /container/{containerId}/instance | NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics
-[**get_container_current_scale**](ContainerMetricsApi.md#get_container_current_scale) | **GET** /container/{containerId}/currentScale | NOT YET IMPLEMENTED - Get current scaling of the container
-[**get_container_current_storage_disk**](ContainerMetricsApi.md#get_container_current_storage_disk) | **GET** /container/{containerId}/currentStorage | NOT YET IMPLEMENTED - List current storage disk usage
+[**get_container_current_instance**](ContainerMetricsApi.md#get_container_current_instance) | **GET** /container/{containerId}/instance | List currently running instances of the container with their CPU and RAM metrics
+[**get_container_current_scale**](ContainerMetricsApi.md#get_container_current_scale) | **GET** /container/{containerId}/currentScale | Get current scaling of the container
+[**get_container_current_storage_disk**](ContainerMetricsApi.md#get_container_current_storage_disk) | **GET** /container/{containerId}/currentStorage | List current storage disk usage
 
 
 # **get_container_current_instance**
 > InstanceResponseList get_container_current_instance(container_id)
 
-NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics
+List currently running instances of the container with their CPU and RAM metrics
 
 ### Example
 
@@ -48,7 +48,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - List currently running instances of the container with their CPU and RAM metrics
+        # List currently running instances of the container with their CPU and RAM metrics
         api_response = api_instance.get_container_current_instance(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 # **get_container_current_scale**
 > ContainerCurrentScale get_container_current_scale(container_id)
 
-NOT YET IMPLEMENTED - Get current scaling of the container
+Get current scaling of the container
 
 Returns min, max, and running number of instances of the application
 
@@ -128,7 +128,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - Get current scaling of the container
+        # Get current scaling of the container
         api_response = api_instance.get_container_current_scale(container_id)
         pprint(api_response)
     except qovery.ApiException as e:
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 # **get_container_current_storage_disk**
 > StorageDiskResponseList get_container_current_storage_disk(container_id)
 
-NOT YET IMPLEMENTED - List current storage disk usage
+List current storage disk usage
 
 ### Example
 
@@ -206,7 +206,7 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # NOT YET IMPLEMENTED - List current storage disk usage
+        # List current storage disk usage
         api_response = api_instance.get_container_current_storage_disk(container_id)
         pprint(api_response)
     except qovery.ApiException as e:

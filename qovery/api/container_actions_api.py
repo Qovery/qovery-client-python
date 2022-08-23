@@ -202,7 +202,7 @@ class ContainerActionsApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Deploy container  # noqa: E501
+        """Deploy container  # noqa: E501
 
         You must provide a git commit id  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -286,7 +286,7 @@ class ContainerActionsApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Restart container  # noqa: E501
+        """Restart container  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -368,7 +368,7 @@ class ContainerActionsApi(object):
         container_id,
         **kwargs
     ):
-        """NOT YET IMPLEMENTED - Stop container  # noqa: E501
+        """Stop container  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
