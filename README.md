@@ -196,7 +196,9 @@ Class | Method | HTTP request | Description
 *ClustersApi* | [**delete_cluster**](docs/ClustersApi.md#delete_cluster) | **DELETE** /organization/{organizationId}/cluster/{clusterId} | Delete a cluster
 *ClustersApi* | [**deploy_cluster**](docs/ClustersApi.md#deploy_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/deploy | Deploy a cluster
 *ClustersApi* | [**edit_cluster**](docs/ClustersApi.md#edit_cluster) | **PUT** /organization/{organizationId}/cluster/{clusterId} | Edit a cluster
+*ClustersApi* | [**edit_cluster_advanced_settings**](docs/ClustersApi.md#edit_cluster_advanced_settings) | **PUT** /organization/{organizationId}/cluster/{clusterId}/advancedSettings | Edit advanced settings
 *ClustersApi* | [**edit_routing_table**](docs/ClustersApi.md#edit_routing_table) | **PUT** /organization/{organizationId}/cluster/{clusterId}/routingTable | Edit routing table
+*ClustersApi* | [**get_cluster_advanced_settings**](docs/ClustersApi.md#get_cluster_advanced_settings) | **GET** /organization/{organizationId}/cluster/{clusterId}/advancedSettings | Get advanced settings
 *ClustersApi* | [**get_cluster_readiness_status**](docs/ClustersApi.md#get_cluster_readiness_status) | **GET** /organization/{organizationId}/cluster/{clusterId}/isReady | Know if a cluster is ready to be deployed or not
 *ClustersApi* | [**get_cluster_status**](docs/ClustersApi.md#get_cluster_status) | **GET** /organization/{organizationId}/cluster/{clusterId}/status | Get cluster status
 *ClustersApi* | [**get_organization_cloud_provider_info**](docs/ClustersApi.md#get_organization_cloud_provider_info) | **GET** /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo | Get cluster cloud provider info and credentials
@@ -557,6 +559,7 @@ Class | Method | HTTP request | Description
  - [DeploymentRestrictionTypeEnum](docs/DeploymentRestrictionTypeEnum.md)
  - [DeploymentRuleRequest](docs/DeploymentRuleRequest.md)
  - [DoCredentialsRequest](docs/DoCredentialsRequest.md)
+ - [EditClusterAdvancedSettingsRequest](docs/EditClusterAdvancedSettingsRequest.md)
  - [Environment](docs/Environment.md)
  - [EnvironmentAllOf](docs/EnvironmentAllOf.md)
  - [EnvironmentAllOfCloudProvider](docs/EnvironmentAllOfCloudProvider.md)

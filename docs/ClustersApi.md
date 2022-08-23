@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**delete_cluster**](ClustersApi.md#delete_cluster) | **DELETE** /organization/{organizationId}/cluster/{clusterId} | Delete a cluster
 [**deploy_cluster**](ClustersApi.md#deploy_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/deploy | Deploy a cluster
 [**edit_cluster**](ClustersApi.md#edit_cluster) | **PUT** /organization/{organizationId}/cluster/{clusterId} | Edit a cluster
+[**edit_cluster_advanced_settings**](ClustersApi.md#edit_cluster_advanced_settings) | **PUT** /organization/{organizationId}/cluster/{clusterId}/advancedSettings | Edit advanced settings
 [**edit_routing_table**](ClustersApi.md#edit_routing_table) | **PUT** /organization/{organizationId}/cluster/{clusterId}/routingTable | Edit routing table
+[**get_cluster_advanced_settings**](ClustersApi.md#get_cluster_advanced_settings) | **GET** /organization/{organizationId}/cluster/{clusterId}/advancedSettings | Get advanced settings
 [**get_cluster_readiness_status**](ClustersApi.md#get_cluster_readiness_status) | **GET** /organization/{organizationId}/cluster/{clusterId}/isReady | Know if a cluster is ready to be deployed or not
 [**get_cluster_status**](ClustersApi.md#get_cluster_status) | **GET** /organization/{organizationId}/cluster/{clusterId}/status | Get cluster status
 [**get_organization_cloud_provider_info**](ClustersApi.md#get_organization_cloud_provider_info) | **GET** /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo | Get cluster cloud provider info and credentials
@@ -406,6 +408,106 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **edit_cluster_advanced_settings**
+> ERRORUNKNOWN edit_cluster_advanced_settings(organization_id, cluster_id)
+
+Edit advanced settings
+
+Edit advanced settings by returning table of advanced settings.
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import clusters_api
+from qovery.model.errorunknown import ERRORUNKNOWN
+from qovery.model.edit_cluster_advanced_settings_request import EditClusterAdvancedSettingsRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
+    edit_cluster_advanced_settings_request = EditClusterAdvancedSettingsRequest(
+        registry_image_retention_time=31536000,
+        load_balancer_size="lb-s",
+        pleco_resources_ttl=-1,
+        loki_log_retention_in_week=12,
+    ) # EditClusterAdvancedSettingsRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit advanced settings
+        api_response = api_instance.edit_cluster_advanced_settings(organization_id, cluster_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->edit_cluster_advanced_settings: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Edit advanced settings
+        api_response = api_instance.edit_cluster_advanced_settings(organization_id, cluster_id, edit_cluster_advanced_settings_request=edit_cluster_advanced_settings_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->edit_cluster_advanced_settings: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
+ **edit_cluster_advanced_settings_request** | [**EditClusterAdvancedSettingsRequest**](EditClusterAdvancedSettingsRequest.md)|  | [optional]
+
+### Return type
+
+[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Updated advanced settings |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **edit_routing_table**
 > ClusterRoutingTable edit_routing_table(organization_id, cluster_id)
 
@@ -503,6 +605,88 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **201** | Updated routing table |  -  |
 **400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_cluster_advanced_settings**
+> ERRORUNKNOWN get_cluster_advanced_settings(organization_id, cluster_id)
+
+Get advanced settings
+
+Get list and values of the advanced settings of the cluster.
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import clusters_api
+from qovery.model.errorunknown import ERRORUNKNOWN
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get advanced settings
+        api_response = api_instance.get_cluster_advanced_settings(organization_id, cluster_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->get_cluster_advanced_settings: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
+
+### Return type
+
+[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Advanced settings list |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

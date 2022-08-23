@@ -52,10 +52,24 @@ class TestClustersApi(unittest.TestCase):
         """
         pass
 
+    def test_edit_cluster_advanced_settings(self):
+        """Test case for edit_cluster_advanced_settings
+
+        Edit advanced settings  # noqa: E501
+        """
+        pass
+
     def test_edit_routing_table(self):
         """Test case for edit_routing_table
 
         Edit routing table  # noqa: E501
+        """
+        pass
+
+    def test_get_cluster_advanced_settings(self):
+        """Test case for get_cluster_advanced_settings
+
+        Get advanced settings  # noqa: E501
         """
         pass
 

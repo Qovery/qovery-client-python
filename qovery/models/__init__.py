@@ -166,6 +166,7 @@ from qovery.model.deployment_restriction_mode_enum import DeploymentRestrictionM
 from qovery.model.deployment_restriction_type_enum import DeploymentRestrictionTypeEnum
 from qovery.model.deployment_rule_request import DeploymentRuleRequest
 from qovery.model.do_credentials_request import DoCredentialsRequest
+from qovery.model.edit_cluster_advanced_settings_request import EditClusterAdvancedSettingsRequest
 from qovery.model.environment import Environment
 from qovery.model.environment_all_of import EnvironmentAllOf
 from qovery.model.environment_all_of_cloud_provider import EnvironmentAllOfCloudProvider
