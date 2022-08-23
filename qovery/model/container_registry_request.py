@@ -121,7 +121,7 @@ class ContainerRegistryRequest(ModelNormal):
         Args:
             name (str):
             kind (ContainerRegistryKindEnum):
-            url (str): URL of the container registry
+            url (str): URL of the container registry.  Must start by 'https://' and for docker_hub should be 'https://docker.io' 
             config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): authentification configuration
 
         Keyword Args:
@@ -217,7 +217,7 @@ class ContainerRegistryRequest(ModelNormal):
         Args:
             name (str):
             kind (ContainerRegistryKindEnum):
-            url (str): URL of the container registry
+            url (str): URL of the container registry.  Must start by 'https://' and for docker_hub should be 'https://docker.io' 
             config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): authentification configuration
 
         Keyword Args:
