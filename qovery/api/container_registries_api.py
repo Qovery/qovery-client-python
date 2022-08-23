@@ -151,18 +151,15 @@ class ContainerRegistriesApi(object):
                 'auth': [
                     'bearerAuth'
                 ],
-                'endpoint_path': '/organization/{organizationId}/availableContainerRegistry',
+                'endpoint_path': '/availableContainerRegistry',
                 'operation_id': 'list_available_container_registry',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'organization_id',
                 ],
-                'required': [
-                    'organization_id',
-                ],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
@@ -176,14 +173,10 @@ class ContainerRegistriesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'organization_id':
-                        (str,),
                 },
                 'attribute_map': {
-                    'organization_id': 'organizationId',
                 },
                 'location_map': {
-                    'organization_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -415,7 +408,6 @@ class ContainerRegistriesApi(object):
 
     def list_available_container_registry(
         self,
-        organization_id,
         **kwargs
     ):
         """List supported container registries  # noqa: E501
@@ -424,11 +416,9 @@ class ContainerRegistriesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_available_container_registry(organization_id, async_req=True)
+        >>> thread = api.list_available_container_registry(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            organization_id (str): Organization ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -492,8 +482,6 @@ class ContainerRegistriesApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['organization_id'] = \
-            organization_id
         return self.list_available_container_registry_endpoint.call_with_http_info(**kwargs)
 
     def list_container_registry(

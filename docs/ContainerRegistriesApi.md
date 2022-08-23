@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_container_registry**](ContainerRegistriesApi.md#create_container_registry) | **POST** /organization/{organizationId}/containerRegistry | Create a container registry
 [**delete_container_registry**](ContainerRegistriesApi.md#delete_container_registry) | **DELETE** /organization/{organizationId}/containerRegistry/{containerRegistryId} | NOT YET IMPLEMENTED - Delete a container registry
-[**list_available_container_registry**](ContainerRegistriesApi.md#list_available_container_registry) | **GET** /organization/{organizationId}/availableContainerRegistry | List supported container registries
+[**list_available_container_registry**](ContainerRegistriesApi.md#list_available_container_registry) | **GET** /availableContainerRegistry | List supported container registries
 [**list_container_registry**](ContainerRegistriesApi.md#list_container_registry) | **GET** /organization/{organizationId}/containerRegistry | NOT YET IMPLEMENTED - List organization container registries
 
 
@@ -184,7 +184,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_available_container_registry**
-> AvailableContainerRegistryResponse list_available_container_registry(organization_id)
+> AvailableContainerRegistryResponse list_available_container_registry()
 
 List supported container registries
 
@@ -220,12 +220,11 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = container_registries_api.ContainerRegistriesApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
 
-    # example passing only required values which don't have defaults set
+    # example, this endpoint has no required or optional parameters
     try:
         # List supported container registries
-        api_response = api_instance.list_available_container_registry(organization_id)
+        api_response = api_instance.list_available_container_registry()
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainerRegistriesApi->list_available_container_registry: %s\n" % e)
@@ -233,10 +232,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+This endpoint does not need any parameter.
 
 ### Return type
 
