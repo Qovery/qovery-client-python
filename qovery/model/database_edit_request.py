@@ -155,7 +155,7 @@ class DatabaseEditRequest(ModelNormal):
             version (str): [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
             storage (int): unit is GB. [optional]  # noqa: E501
         """
 
@@ -246,7 +246,7 @@ class DatabaseEditRequest(ModelNormal):
             version (str): [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
             storage (int): unit is GB. [optional]  # noqa: E501
         """
 

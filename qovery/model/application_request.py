@@ -192,8 +192,8 @@ class ApplicationRequest(ModelComposed):
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
@@ -309,8 +309,8 @@ class ApplicationRequest(ModelComposed):
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
             buildpack_language (BuildPackLanguageEnum): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 256  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
