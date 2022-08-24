@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_application**](ApplicationsApi.md#create_application) | **POST** /environment/{environmentId}/application | Create an application
 [**deploy_all_applications**](ApplicationsApi.md#deploy_all_applications) | **POST** /environment/{environmentId}/application/deploy | Deploy applications
+[**deploy_all_services**](ApplicationsApi.md#deploy_all_services) | **POST** /environment/{environmentId}/container/deploy | Deploy services
 [**get_default_application_advanced_settings**](ApplicationsApi.md#get_default_application_advanced_settings) | **GET** /defaultApplicationAdvancedSettings | List default application advanced settings
 [**get_environment_application_current_scale**](ApplicationsApi.md#get_environment_application_current_scale) | **GET** /environment/{environmentId}/application/currentScale | List current scaling information for each application
 [**get_environment_application_current_storage**](ApplicationsApi.md#get_environment_application_current_storage) | **GET** /environment/{environmentId}/application/currentStorage | List current storage disk usage for each application
@@ -152,6 +153,12 @@ with qovery.ApiClient(configuration) as api_client:
                 git_commit_id="git_commit_id_example",
             ),
         ],
+        containers=[
+            DeployAllRequestContainersInner(
+                id="id_example",
+                image_tag="image_tag_example",
+            ),
+        ],
     ) # DeployAllRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -199,6 +206,113 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Deployed applications |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+**409** | Operation is in progress |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deploy_all_services**
+> Status deploy_all_services(environment_id)
+
+Deploy services
+
+Update and deploy the selected services
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import applications_api
+from qovery.model.deploy_all_request import DeployAllRequest
+from qovery.model.status import Status
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = applications_api.ApplicationsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    deploy_all_request = DeployAllRequest(
+        applications=[
+            DeployAllRequestApplicationsInner(
+                application_id="application_id_example",
+                git_commit_id="git_commit_id_example",
+            ),
+        ],
+        containers=[
+            DeployAllRequestContainersInner(
+                id="id_example",
+                image_tag="image_tag_example",
+            ),
+        ],
+    ) # DeployAllRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Deploy services
+        api_response = api_instance.deploy_all_services(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationsApi->deploy_all_services: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Deploy services
+        api_response = api_instance.deploy_all_services(environment_id, deploy_all_request=deploy_all_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationsApi->deploy_all_services: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **environment_id** | **str**| Environment ID |
+ **deploy_all_request** | [**DeployAllRequest**](DeployAllRequest.md)|  | [optional]
+
+### Return type
+
+[**Status**](Status.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Deployed services |  -  |
 **400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |

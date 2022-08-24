@@ -159,14 +159,14 @@ class ContainersApi(object):
             },
             api_client=api_client
         )
-        self.deploy_all_containers_endpoint = _Endpoint(
+        self.deploy_all_services_endpoint = _Endpoint(
             settings={
                 'response_type': (Status,),
                 'auth': [
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/container/deploy',
-                'operation_id': 'deploy_all_containers',
+                'operation_id': 'deploy_all_services',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -650,18 +650,18 @@ class ContainersApi(object):
             environment_id
         return self.create_container_endpoint.call_with_http_info(**kwargs)
 
-    def deploy_all_containers(
+    def deploy_all_services(
         self,
         environment_id,
         **kwargs
     ):
-        """Deploy containers  # noqa: E501
+        """Deploy services  # noqa: E501
 
-        Deploy to the last commit the containers you specified.  # noqa: E501
+        Update and deploy the selected services  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.deploy_all_containers(environment_id, async_req=True)
+        >>> thread = api.deploy_all_services(environment_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -732,7 +732,7 @@ class ContainersApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['environment_id'] = \
             environment_id
-        return self.deploy_all_containers_endpoint.call_with_http_info(**kwargs)
+        return self.deploy_all_services_endpoint.call_with_http_info(**kwargs)
 
     def get_environment_container_current_scale(
         self,

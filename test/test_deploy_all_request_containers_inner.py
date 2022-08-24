@@ -13,15 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.deploy_all_request_applications_inner import DeployAllRequestApplicationsInner
 from qovery.model.deploy_all_request_containers_inner import DeployAllRequestContainersInner
-globals()['DeployAllRequestApplicationsInner'] = DeployAllRequestApplicationsInner
-globals()['DeployAllRequestContainersInner'] = DeployAllRequestContainersInner
-from qovery.model.deploy_all_request import DeployAllRequest
 
 
-class TestDeployAllRequest(unittest.TestCase):
-    """DeployAllRequest unit test stubs"""
+class TestDeployAllRequestContainersInner(unittest.TestCase):
+    """DeployAllRequestContainersInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +25,10 @@ class TestDeployAllRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testDeployAllRequest(self):
-        """Test DeployAllRequest"""
+    def testDeployAllRequestContainersInner(self):
+        """Test DeployAllRequestContainersInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = DeployAllRequest()  # noqa: E501
+        # model = DeployAllRequestContainersInner()  # noqa: E501
         pass
 
 

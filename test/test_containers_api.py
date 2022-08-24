@@ -38,10 +38,10 @@ class TestContainersApi(unittest.TestCase):
         """
         pass
 
-    def test_deploy_all_containers(self):
-        """Test case for deploy_all_containers
+    def test_deploy_all_services(self):
+        """Test case for deploy_all_services
 
-        Deploy containers  # noqa: E501
+        Deploy services  # noqa: E501
         """
         pass
 

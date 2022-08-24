@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**auto_deploy_container_environments**](ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | Auto deploy containers
 [**create_container**](ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
-[**deploy_all_containers**](ContainersApi.md#deploy_all_containers) | **POST** /environment/{environmentId}/container/deploy | Deploy containers
+[**deploy_all_services**](ContainersApi.md#deploy_all_services) | **POST** /environment/{environmentId}/container/deploy | Deploy services
 [**get_environment_container_current_scale**](ContainersApi.md#get_environment_container_current_scale) | **GET** /environment/{environmentId}/container/currentScale | List current scaling information for each container
 [**get_environment_container_current_storage**](ContainersApi.md#get_environment_container_current_storage) | **GET** /environment/{environmentId}/container/currentStorage | List current storage disk usage for each containers
 [**get_environment_container_status**](ContainersApi.md#get_environment_container_status) | **GET** /environment/{environmentId}/container/status | List all environment container statuses
@@ -203,12 +203,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deploy_all_containers**
-> Status deploy_all_containers(environment_id)
+# **deploy_all_services**
+> Status deploy_all_services(environment_id)
 
-Deploy containers
+Deploy services
 
-Deploy to the last commit the containers you specified.
+Update and deploy the selected services
 
 ### Example
 
@@ -249,24 +249,30 @@ with qovery.ApiClient(configuration) as api_client:
                 git_commit_id="git_commit_id_example",
             ),
         ],
+        containers=[
+            DeployAllRequestContainersInner(
+                id="id_example",
+                image_tag="image_tag_example",
+            ),
+        ],
     ) # DeployAllRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        # Deploy containers
-        api_response = api_instance.deploy_all_containers(environment_id)
+        # Deploy services
+        api_response = api_instance.deploy_all_services(environment_id)
         pprint(api_response)
     except qovery.ApiException as e:
-        print("Exception when calling ContainersApi->deploy_all_containers: %s\n" % e)
+        print("Exception when calling ContainersApi->deploy_all_services: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Deploy containers
-        api_response = api_instance.deploy_all_containers(environment_id, deploy_all_request=deploy_all_request)
+        # Deploy services
+        api_response = api_instance.deploy_all_services(environment_id, deploy_all_request=deploy_all_request)
         pprint(api_response)
     except qovery.ApiException as e:
-        print("Exception when calling ContainersApi->deploy_all_containers: %s\n" % e)
+        print("Exception when calling ContainersApi->deploy_all_services: %s\n" % e)
 ```
 
 
@@ -295,7 +301,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Deployed containers |  -  |
+**202** | Deployed services |  -  |
 **400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |

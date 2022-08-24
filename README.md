@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 *ApplicationSecretApi* | [**list_application_secrets**](docs/ApplicationSecretApi.md#list_application_secrets) | **GET** /application/{applicationId}/secret | List application secrets
 *ApplicationsApi* | [**create_application**](docs/ApplicationsApi.md#create_application) | **POST** /environment/{environmentId}/application | Create an application
 *ApplicationsApi* | [**deploy_all_applications**](docs/ApplicationsApi.md#deploy_all_applications) | **POST** /environment/{environmentId}/application/deploy | Deploy applications
+*ApplicationsApi* | [**deploy_all_services**](docs/ApplicationsApi.md#deploy_all_services) | **POST** /environment/{environmentId}/container/deploy | Deploy services
 *ApplicationsApi* | [**get_default_application_advanced_settings**](docs/ApplicationsApi.md#get_default_application_advanced_settings) | **GET** /defaultApplicationAdvancedSettings | List default application advanced settings
 *ApplicationsApi* | [**get_environment_application_current_scale**](docs/ApplicationsApi.md#get_environment_application_current_scale) | **GET** /environment/{environmentId}/application/currentScale | List current scaling information for each application
 *ApplicationsApi* | [**get_environment_application_current_storage**](docs/ApplicationsApi.md#get_environment_application_current_storage) | **GET** /environment/{environmentId}/application/currentStorage | List current storage disk usage for each application
@@ -257,7 +258,7 @@ Class | Method | HTTP request | Description
 *ContainerSecretApi* | [**list_container_secrets**](docs/ContainerSecretApi.md#list_container_secrets) | **GET** /container/{containerId}/secret | List container secrets
 *ContainersApi* | [**auto_deploy_container_environments**](docs/ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | Auto deploy containers
 *ContainersApi* | [**create_container**](docs/ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
-*ContainersApi* | [**deploy_all_containers**](docs/ContainersApi.md#deploy_all_containers) | **POST** /environment/{environmentId}/container/deploy | Deploy containers
+*ContainersApi* | [**deploy_all_services**](docs/ContainersApi.md#deploy_all_services) | **POST** /environment/{environmentId}/container/deploy | Deploy services
 *ContainersApi* | [**get_environment_container_current_scale**](docs/ContainersApi.md#get_environment_container_current_scale) | **GET** /environment/{environmentId}/container/currentScale | List current scaling information for each container
 *ContainersApi* | [**get_environment_container_current_storage**](docs/ContainersApi.md#get_environment_container_current_storage) | **GET** /environment/{environmentId}/container/currentStorage | List current storage disk usage for each containers
 *ContainersApi* | [**get_environment_container_status**](docs/ContainersApi.md#get_environment_container_status) | **GET** /environment/{environmentId}/container/status | List all environment container statuses
@@ -541,6 +542,7 @@ Class | Method | HTTP request | Description
  - [DatabaseVersionMode](docs/DatabaseVersionMode.md)
  - [DeployAllRequest](docs/DeployAllRequest.md)
  - [DeployAllRequestApplicationsInner](docs/DeployAllRequestApplicationsInner.md)
+ - [DeployAllRequestContainersInner](docs/DeployAllRequestContainersInner.md)
  - [DeployRequest](docs/DeployRequest.md)
  - [DeploymentHistory](docs/DeploymentHistory.md)
  - [DeploymentHistoryAllOf](docs/DeploymentHistoryAllOf.md)
