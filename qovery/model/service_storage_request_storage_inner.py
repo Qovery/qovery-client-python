@@ -116,7 +116,7 @@ class ServiceStorageRequestStorageInner(ModelNormal):
 
         Args:
             type (StorageTypeEnum):
-            size (int): unit is GB
+            size (int): unit is GB Minimum size is 4 GB 
             mount_point (str):
 
         Keyword Args:
@@ -209,7 +209,7 @@ class ServiceStorageRequestStorageInner(ModelNormal):
 
         Args:
             type (StorageTypeEnum):
-            size (int): unit is GB
+            size (int): unit is GB Minimum size is 4 GB 
             mount_point (str):
 
         Keyword Args:

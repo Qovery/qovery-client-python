@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**StorageTypeEnum**](StorageTypeEnum.md) |  | 
-**size** | **int** | unit is GB | 
+**size** | **int** | unit is GB Minimum size is 4 GB  | 
 **mount_point** | **str** |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
