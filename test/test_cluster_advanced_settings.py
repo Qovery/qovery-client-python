@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.edit_cluster_advanced_settings_request import EditClusterAdvancedSettingsRequest
+from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 
 
-class TestEditClusterAdvancedSettingsRequest(unittest.TestCase):
-    """EditClusterAdvancedSettingsRequest unit test stubs"""
+class TestClusterAdvancedSettings(unittest.TestCase):
+    """ClusterAdvancedSettings unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestEditClusterAdvancedSettingsRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEditClusterAdvancedSettingsRequest(self):
-        """Test EditClusterAdvancedSettingsRequest"""
+    def testClusterAdvancedSettings(self):
+        """Test ClusterAdvancedSettings"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EditClusterAdvancedSettingsRequest()  # noqa: E501
+        # model = ClusterAdvancedSettings()  # noqa: E501
         pass
 
 

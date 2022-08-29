@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_cluster_advanced_settings**
-> ERRORUNKNOWN edit_cluster_advanced_settings(organization_id, cluster_id)
+> ClusterAdvancedSettings edit_cluster_advanced_settings(organization_id, cluster_id)
 
 Edit advanced settings
 
@@ -423,8 +423,7 @@ Edit advanced settings by returning table of advanced settings.
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.errorunknown import ERRORUNKNOWN
-from qovery.model.edit_cluster_advanced_settings_request import EditClusterAdvancedSettingsRequest
+from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -448,12 +447,12 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = clusters_api.ClustersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     cluster_id = "clusterId_example" # str | Cluster ID
-    edit_cluster_advanced_settings_request = EditClusterAdvancedSettingsRequest(
+    cluster_advanced_settings = ClusterAdvancedSettings(
         registry_image_retention_time=31536000,
         load_balancer_size="lb-s",
         pleco_resources_ttl=-1,
         loki_log_retention_in_week=12,
-    ) # EditClusterAdvancedSettingsRequest |  (optional)
+    ) # ClusterAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -467,7 +466,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit advanced settings
-        api_response = api_instance.edit_cluster_advanced_settings(organization_id, cluster_id, edit_cluster_advanced_settings_request=edit_cluster_advanced_settings_request)
+        api_response = api_instance.edit_cluster_advanced_settings(organization_id, cluster_id, cluster_advanced_settings=cluster_advanced_settings)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ClustersApi->edit_cluster_advanced_settings: %s\n" % e)
@@ -480,11 +479,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
  **cluster_id** | **str**| Cluster ID |
- **edit_cluster_advanced_settings_request** | [**EditClusterAdvancedSettingsRequest**](EditClusterAdvancedSettingsRequest.md)|  | [optional]
+ **cluster_advanced_settings** | [**ClusterAdvancedSettings**](ClusterAdvancedSettings.md)|  | [optional]
 
 ### Return type
 
-[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+[**ClusterAdvancedSettings**](ClusterAdvancedSettings.md)
 
 ### Authorization
 
@@ -612,7 +611,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cluster_advanced_settings**
-> ERRORUNKNOWN get_cluster_advanced_settings(organization_id, cluster_id)
+> ClusterAdvancedSettings get_cluster_advanced_settings(organization_id, cluster_id)
 
 Get advanced settings
 
@@ -626,7 +625,7 @@ Get list and values of the advanced settings of the cluster.
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.errorunknown import ERRORUNKNOWN
+from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -670,7 +669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ERRORUNKNOWN**](ERRORUNKNOWN.md)
+[**ClusterAdvancedSettings**](ClusterAdvancedSettings.md)
 
 ### Authorization
 

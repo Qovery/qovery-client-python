@@ -23,6 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.cluster import Cluster
+from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
 from qovery.model.cluster_readiness_status import ClusterReadinessStatus
@@ -33,8 +34,6 @@ from qovery.model.cluster_routing_table_request import ClusterRoutingTableReques
 from qovery.model.cluster_status import ClusterStatus
 from qovery.model.cluster_status_get import ClusterStatusGet
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList
-from qovery.model.errorunknown import ERRORUNKNOWN
-from qovery.model.edit_cluster_advanced_settings_request import EditClusterAdvancedSettingsRequest
 from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
 
 
@@ -283,7 +282,7 @@ class ClustersApi(object):
         )
         self.edit_cluster_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': (ERRORUNKNOWN,),
+                'response_type': (ClusterAdvancedSettings,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -296,7 +295,7 @@ class ClustersApi(object):
                 'all': [
                     'organization_id',
                     'cluster_id',
-                    'edit_cluster_advanced_settings_request',
+                    'cluster_advanced_settings',
                 ],
                 'required': [
                     'organization_id',
@@ -319,8 +318,8 @@ class ClustersApi(object):
                         (str,),
                     'cluster_id':
                         (str,),
-                    'edit_cluster_advanced_settings_request':
-                        (EditClusterAdvancedSettingsRequest,),
+                    'cluster_advanced_settings':
+                        (ClusterAdvancedSettings,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
@@ -329,7 +328,7 @@ class ClustersApi(object):
                 'location_map': {
                     'organization_id': 'path',
                     'cluster_id': 'path',
-                    'edit_cluster_advanced_settings_request': 'body',
+                    'cluster_advanced_settings': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -409,7 +408,7 @@ class ClustersApi(object):
         )
         self.get_cluster_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': (ERRORUNKNOWN,),
+                'response_type': (ClusterAdvancedSettings,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -1392,7 +1391,7 @@ class ClustersApi(object):
             cluster_id (str): Cluster ID
 
         Keyword Args:
-            edit_cluster_advanced_settings_request (EditClusterAdvancedSettingsRequest): [optional]
+            cluster_advanced_settings (ClusterAdvancedSettings): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1425,7 +1424,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ERRORUNKNOWN
+            ClusterAdvancedSettings
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1600,7 +1599,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ERRORUNKNOWN
+            ClusterAdvancedSettings
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -1,4 +1,4 @@
-# EditClusterAdvancedSettingsRequest
+# ClusterAdvancedSettings
 
 
 ## Properties

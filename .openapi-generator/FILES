@@ -68,6 +68,7 @@ docs/CloudProviderEnum.md
 docs/CloudProviderResponseList.md
 docs/CluserCredentials.md
 docs/Cluster.md
+docs/ClusterAdvancedSettings.md
 docs/ClusterAllOf.md
 docs/ClusterCloudProviderInfo.md
 docs/ClusterCloudProviderInfoCredentials.md
@@ -202,7 +203,6 @@ docs/DeploymentRestrictionModeEnum.md
 docs/DeploymentRestrictionTypeEnum.md
 docs/DeploymentRuleRequest.md
 docs/DoCredentialsRequest.md
-docs/EditClusterAdvancedSettingsRequest.md
 docs/Environment.md
 docs/EnvironmentActionsApi.md
 docs/EnvironmentAllOf.md
@@ -553,6 +553,7 @@ qovery/model/cloud_provider_enum.py
 qovery/model/cloud_provider_response_list.py
 qovery/model/cluser_credentials.py
 qovery/model/cluster.py
+qovery/model/cluster_advanced_settings.py
 qovery/model/cluster_all_of.py
 qovery/model/cluster_cloud_provider_info.py
 qovery/model/cluster_cloud_provider_info_credentials.py
@@ -663,7 +664,6 @@ qovery/model/deployment_restriction_mode_enum.py
 qovery/model/deployment_restriction_type_enum.py
 qovery/model/deployment_rule_request.py
 qovery/model/do_credentials_request.py
-qovery/model/edit_cluster_advanced_settings_request.py
 qovery/model/environment.py
 qovery/model/environment_all_of.py
 qovery/model/environment_all_of_cloud_provider.py
@@ -944,6 +944,7 @@ test/test_cloud_provider_enum.py
 test/test_cloud_provider_response_list.py
 test/test_cluser_credentials.py
 test/test_cluster.py
+test/test_cluster_advanced_settings.py
 test/test_cluster_all_of.py
 test/test_cluster_cloud_provider_info.py
 test/test_cluster_cloud_provider_info_credentials.py
@@ -1078,7 +1079,6 @@ test/test_deployment_restriction_mode_enum.py
 test/test_deployment_restriction_type_enum.py
 test/test_deployment_rule_request.py
 test/test_do_credentials_request.py
-test/test_edit_cluster_advanced_settings_request.py
 test/test_environment.py
 test/test_environment_actions_api.py
 test/test_environment_all_of.py
