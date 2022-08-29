@@ -38,13 +38,6 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
-    def test_deploy_all_services(self):
-        """Test case for deploy_all_services
-
-        Deploy services  # noqa: E501
-        """
-        pass
-
     def test_get_default_application_advanced_settings(self):
         """Test case for get_default_application_advanced_settings
 
