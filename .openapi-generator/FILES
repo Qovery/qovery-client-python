@@ -131,7 +131,6 @@ docs/ContainerMetricsApi.md
 docs/ContainerNetwork.md
 docs/ContainerNetworkRequest.md
 docs/ContainerRegistriesApi.md
-docs/ContainerRegistryApi.md
 docs/ContainerRegistryKindEnum.md
 docs/ContainerRegistryRequest.md
 docs/ContainerRegistryResponse.md
@@ -465,7 +464,6 @@ qovery/api/container_logs_api.py
 qovery/api/container_main_calls_api.py
 qovery/api/container_metrics_api.py
 qovery/api/container_registries_api.py
-qovery/api/container_registry_api.py
 qovery/api/container_secret_api.py
 qovery/api/containers_api.py
 qovery/api/custom_domain_api.py
@@ -1007,7 +1005,6 @@ test/test_container_metrics_api.py
 test/test_container_network.py
 test/test_container_network_request.py
 test/test_container_registries_api.py
-test/test_container_registry_api.py
 test/test_container_registry_kind_enum.py
 test/test_container_registry_request.py
 test/test_container_registry_response.py

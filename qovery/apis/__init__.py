@@ -43,7 +43,6 @@ from qovery.api.container_logs_api import ContainerLogsApi
 from qovery.api.container_main_calls_api import ContainerMainCallsApi
 from qovery.api.container_metrics_api import ContainerMetricsApi
 from qovery.api.container_registries_api import ContainerRegistriesApi
-from qovery.api.container_registry_api import ContainerRegistryApi
 from qovery.api.container_secret_api import ContainerSecretApi
 from qovery.api.containers_api import ContainersApi
 from qovery.api.custom_domain_api import CustomDomainApi

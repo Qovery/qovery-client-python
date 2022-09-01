@@ -38,6 +38,13 @@ class TestContainerRegistriesApi(unittest.TestCase):
         """
         pass
 
+    def test_edit_container_registry(self):
+        """Test case for edit_container_registry
+
+        Edit a container registry  # noqa: E501
+        """
+        pass
+
     def test_get_container_registry(self):
         """Test case for get_container_registry
 
