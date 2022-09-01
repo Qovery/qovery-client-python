@@ -54,10 +54,10 @@ class ContainerRegistryKindEnum(ModelSimple):
     allowed_values = {
         ('value',): {
             'ECR': "ECR",
-            'DOCR': "DOCR",
             'SCALEWAY_CR': "SCALEWAY_CR",
             'DOCKER_HUB': "DOCKER_HUB",
             'PUBLIC_ECR': "PUBLIC_ECR",
+            'DOCR': "DOCR",
         },
     }
 
@@ -109,10 +109,10 @@ class ContainerRegistryKindEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): ECR needs the following parameters - region, access_key_id, secret_access_key DOCR needs the following parameters - token  SCALEWAY_CR needs the following parameters - scaleway_access_key, scaleway_secret_key DOCKER_HUB needs the following parameters - username, password  PUBLIC_ECR needs the followinf parameters - access_key_id, secret_access_key . if omitted defaults to "ECR", must be one of ["ECR", "DOCR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", ]  # noqa: E501
+            args[0] (str): The type of your container registry. if omitted defaults to "ECR", must be one of ["ECR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", "DOCR", ]  # noqa: E501
 
         Keyword Args:
-            value (str): ECR needs the following parameters - region, access_key_id, secret_access_key DOCR needs the following parameters - token  SCALEWAY_CR needs the following parameters - scaleway_access_key, scaleway_secret_key DOCKER_HUB needs the following parameters - username, password  PUBLIC_ECR needs the followinf parameters - access_key_id, secret_access_key . if omitted defaults to "ECR", must be one of ["ECR", "DOCR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", ]  # noqa: E501
+            value (str): The type of your container registry. if omitted defaults to "ECR", must be one of ["ECR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", "DOCR", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -199,10 +199,10 @@ class ContainerRegistryKindEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): ECR needs the following parameters - region, access_key_id, secret_access_key DOCR needs the following parameters - token  SCALEWAY_CR needs the following parameters - scaleway_access_key, scaleway_secret_key DOCKER_HUB needs the following parameters - username, password  PUBLIC_ECR needs the followinf parameters - access_key_id, secret_access_key . if omitted defaults to "ECR", must be one of ["ECR", "DOCR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", ]  # noqa: E501
+            args[0] (str): The type of your container registry. if omitted defaults to "ECR", must be one of ["ECR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", "DOCR", ]  # noqa: E501
 
         Keyword Args:
-            value (str): ECR needs the following parameters - region, access_key_id, secret_access_key DOCR needs the following parameters - token  SCALEWAY_CR needs the following parameters - scaleway_access_key, scaleway_secret_key DOCKER_HUB needs the following parameters - username, password  PUBLIC_ECR needs the followinf parameters - access_key_id, secret_access_key . if omitted defaults to "ECR", must be one of ["ECR", "DOCR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", ]  # noqa: E501
+            value (str): The type of your container registry. if omitted defaults to "ECR", must be one of ["ECR", "SCALEWAY_CR", "DOCKER_HUB", "PUBLIC_ECR", "DOCR", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

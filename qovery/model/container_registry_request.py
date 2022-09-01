@@ -121,8 +121,8 @@ class ContainerRegistryRequest(ModelNormal):
         Args:
             name (str):
             kind (ContainerRegistryKindEnum):
-            url (str): URL of the container registry.  Must start by 'https://' and for docker_hub should be 'https://docker.io' 
-            config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): authentification configuration
+            url (str): URL of the container registry: * For `DOCKER_HUB`: should be `https://docker.io` * For others: must start by `https://` 
+            config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): This field is dependent of the container registry kind: * `ECR` needs in the config: region, access_key_id, secret_access_key * `SCALEWAY_CR` needs in the config: region, scaleway_access_key, scaleway_secret_key * `DOCKER_HUB` needs in the config: username, password * `PUBLIC_ECR` needs in the config: access_key_id, secret_access_key * `DOCR` is not supported anymore 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,8 +217,8 @@ class ContainerRegistryRequest(ModelNormal):
         Args:
             name (str):
             kind (ContainerRegistryKindEnum):
-            url (str): URL of the container registry.  Must start by 'https://' and for docker_hub should be 'https://docker.io' 
-            config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): authentification configuration
+            url (str): URL of the container registry: * For `DOCKER_HUB`: should be `https://docker.io` * For others: must start by `https://` 
+            config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): This field is dependent of the container registry kind: * `ECR` needs in the config: region, access_key_id, secret_access_key * `SCALEWAY_CR` needs in the config: region, scaleway_access_key, scaleway_secret_key * `DOCKER_HUB` needs in the config: username, password * `PUBLIC_ECR` needs in the config: access_key_id, secret_access_key * `DOCR` is not supported anymore 
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

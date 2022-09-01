@@ -128,7 +128,7 @@ class ContainerEditRequestAllOf(ModelNormal):
         Args:
             name (str): name is case insensitive
             registry_id (str): id of the linked registry
-            image_name (str): name of the image container
+            image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `namespace/image` * `PUBLIC_ECR`: `registry_alias/repository` 
             tag (str): tag of the image container
 
         Keyword Args:
@@ -229,7 +229,7 @@ class ContainerEditRequestAllOf(ModelNormal):
         Args:
             name (str): name is case insensitive
             registry_id (str): id of the linked registry
-            image_name (str): name of the image container
+            image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `namespace/image` * `PUBLIC_ECR`: `registry_alias/repository` 
             tag (str): tag of the image container
 
         Keyword Args:
