@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_container_registry**](ContainerRegistriesApi.md#create_container_registry) | **POST** /organization/{organizationId}/containerRegistry | Create a container registry
 [**delete_container_registry**](ContainerRegistriesApi.md#delete_container_registry) | **DELETE** /organization/{organizationId}/containerRegistry/{containerRegistryId} | Delete a container registry
+[**get_container_registry**](ContainerRegistriesApi.md#get_container_registry) | **GET** /organization/{organizationId}/containerRegistry/{containerRegistryId} | Get a container registry
 [**list_available_container_registry**](ContainerRegistriesApi.md#list_available_container_registry) | **GET** /availableContainerRegistry | List supported container registries
 [**list_container_registry**](ContainerRegistriesApi.md#list_container_registry) | **GET** /organization/{organizationId}/containerRegistry | List organization container registries
 
@@ -177,6 +178,86 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_container_registry**
+> ContainerRegistryResponse get_container_registry(organization_id, container_registry_id)
+
+Get a container registry
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import container_registries_api
+from qovery.model.container_registry_response import ContainerRegistryResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = container_registries_api.ContainerRegistriesApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get a container registry
+        api_response = api_instance.get_container_registry(organization_id, container_registry_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainerRegistriesApi->get_container_registry: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **container_registry_id** | **str**| Container Registry ID |
+
+### Return type
+
+[**ContainerRegistryResponse**](ContainerRegistryResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The container registry |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

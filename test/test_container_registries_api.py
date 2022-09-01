@@ -38,6 +38,13 @@ class TestContainerRegistriesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_container_registry(self):
+        """Test case for get_container_registry
+
+        Get a container registry  # noqa: E501
+        """
+        pass
+
     def test_list_available_container_registry(self):
         """Test case for list_available_container_registry
 
