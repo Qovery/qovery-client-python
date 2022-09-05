@@ -54,7 +54,9 @@ with qovery.ApiClient(configuration) as api_client:
         kind=ContainerRegistryKindEnum("ECR"),
         description="description_example",
         url="url_example",
-        config={},
+        config={
+            "key": "key_example",
+        },
     ) # ContainerRegistryRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -227,7 +229,9 @@ with qovery.ApiClient(configuration) as api_client:
         kind=ContainerRegistryKindEnum("ECR"),
         description="description_example",
         url="url_example",
-        config={},
+        config={
+            "key": "key_example",
+        },
     ) # ContainerRegistryRequest |  (optional)
 
     # example passing only required values which don't have defaults set
