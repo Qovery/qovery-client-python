@@ -22,8 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.create_environment_request import CreateEnvironmentRequest
 from qovery.model.environment import Environment
-from qovery.model.environment_request import EnvironmentRequest
 from qovery.model.environment_response_list import EnvironmentResponseList
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 from qovery.model.environment_status_list import EnvironmentStatusList
@@ -54,7 +54,7 @@ class EnvironmentsApi(object):
             params_map={
                 'all': [
                     'project_id',
-                    'environment_request',
+                    'create_environment_request',
                 ],
                 'required': [
                     'project_id',
@@ -74,15 +74,15 @@ class EnvironmentsApi(object):
                 'openapi_types': {
                     'project_id':
                         (str,),
-                    'environment_request':
-                        (EnvironmentRequest,),
+                    'create_environment_request':
+                        (CreateEnvironmentRequest,),
                 },
                 'attribute_map': {
                     'project_id': 'projectId',
                 },
                 'location_map': {
                     'project_id': 'path',
-                    'environment_request': 'body',
+                    'create_environment_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -268,7 +268,7 @@ class EnvironmentsApi(object):
             project_id (str): Project ID
 
         Keyword Args:
-            environment_request (EnvironmentRequest): [optional]
+            create_environment_request (CreateEnvironmentRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

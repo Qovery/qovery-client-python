@@ -120,6 +120,8 @@ from qovery.model.container_response_list import ContainerResponseList
 from qovery.model.container_storage import ContainerStorage
 from qovery.model.cost import Cost
 from qovery.model.cost_range import CostRange
+from qovery.model.create_environment_mode_enum import CreateEnvironmentModeEnum
+from qovery.model.create_environment_request import CreateEnvironmentRequest
 from qovery.model.credentials import Credentials
 from qovery.model.credentials_request import CredentialsRequest
 from qovery.model.credit_card import CreditCard
@@ -199,7 +201,6 @@ from qovery.model.environment_log_response_list import EnvironmentLogResponseLis
 from qovery.model.environment_log_scope import EnvironmentLogScope
 from qovery.model.environment_log_type_enum import EnvironmentLogTypeEnum
 from qovery.model.environment_mode_enum import EnvironmentModeEnum
-from qovery.model.environment_request import EnvironmentRequest
 from qovery.model.environment_response_list import EnvironmentResponseList
 from qovery.model.environment_restart_request import EnvironmentRestartRequest
 from qovery.model.environment_stats import EnvironmentStats

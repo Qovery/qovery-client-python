@@ -24,7 +24,7 @@ import time
 import qovery
 from qovery.api import environments_api
 from qovery.model.environment import Environment
-from qovery.model.environment_request import EnvironmentRequest
+from qovery.model.create_environment_request import CreateEnvironmentRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -47,11 +47,11 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environments_api.EnvironmentsApi(api_client)
     project_id = "projectId_example" # str | Project ID
-    environment_request = EnvironmentRequest(
+    create_environment_request = CreateEnvironmentRequest(
         name="name_example",
         cluster="cluster_example",
-        mode=EnvironmentModeEnum("PRODUCTION"),
-    ) # EnvironmentRequest |  (optional)
+        mode=CreateEnvironmentModeEnum("PRODUCTION"),
+    ) # CreateEnvironmentRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -65,7 +65,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an environment
-        api_response = api_instance.create_environment(project_id, environment_request=environment_request)
+        api_response = api_instance.create_environment(project_id, create_environment_request=create_environment_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling EnvironmentsApi->create_environment: %s\n" % e)
@@ -77,7 +77,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| Project ID |
- **environment_request** | [**EnvironmentRequest**](EnvironmentRequest.md)|  | [optional]
+ **create_environment_request** | [**CreateEnvironmentRequest**](CreateEnvironmentRequest.md)|  | [optional]
 
 ### Return type
 

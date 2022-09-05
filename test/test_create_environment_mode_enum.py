@@ -14,12 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.create_environment_mode_enum import CreateEnvironmentModeEnum
-globals()['CreateEnvironmentModeEnum'] = CreateEnvironmentModeEnum
-from qovery.model.environment_edit_request import EnvironmentEditRequest
 
 
-class TestEnvironmentEditRequest(unittest.TestCase):
-    """EnvironmentEditRequest unit test stubs"""
+class TestCreateEnvironmentModeEnum(unittest.TestCase):
+    """CreateEnvironmentModeEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestEnvironmentEditRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEnvironmentEditRequest(self):
-        """Test EnvironmentEditRequest"""
+    def testCreateEnvironmentModeEnum(self):
+        """Test CreateEnvironmentModeEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EnvironmentEditRequest()  # noqa: E501
+        # model = CreateEnvironmentModeEnum()  # noqa: E501
         pass
 
 
