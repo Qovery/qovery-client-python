@@ -13,15 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
 from qovery.model.container_registry_request_config import ContainerRegistryRequestConfig
-globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
-globals()['ContainerRegistryRequestConfig'] = ContainerRegistryRequestConfig
-from qovery.model.container_registry_request import ContainerRegistryRequest
 
 
-class TestContainerRegistryRequest(unittest.TestCase):
-    """ContainerRegistryRequest unit test stubs"""
+class TestContainerRegistryRequestConfig(unittest.TestCase):
+    """ContainerRegistryRequestConfig unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +25,10 @@ class TestContainerRegistryRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testContainerRegistryRequest(self):
-        """Test ContainerRegistryRequest"""
+    def testContainerRegistryRequestConfig(self):
+        """Test ContainerRegistryRequestConfig"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ContainerRegistryRequest()  # noqa: E501
+        # model = ContainerRegistryRequestConfig()  # noqa: E501
         pass
 
 

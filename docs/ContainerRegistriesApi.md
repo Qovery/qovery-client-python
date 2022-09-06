@@ -54,9 +54,15 @@ with qovery.ApiClient(configuration) as api_client:
         kind=ContainerRegistryKindEnum("ECR"),
         description="description_example",
         url="url_example",
-        config={
-            "key": "key_example",
-        },
+        config=ContainerRegistryRequestConfig(
+            access_key_id="access_key_id_example",
+            secret_access_key="secret_access_key_example",
+            region="region_example",
+            scaleway_access_key="scaleway_access_key_example",
+            scaleway_secret_key="scaleway_secret_key_example",
+            username="username_example",
+            password="password_example",
+        ),
     ) # ContainerRegistryRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -229,9 +235,15 @@ with qovery.ApiClient(configuration) as api_client:
         kind=ContainerRegistryKindEnum("ECR"),
         description="description_example",
         url="url_example",
-        config={
-            "key": "key_example",
-        },
+        config=ContainerRegistryRequestConfig(
+            access_key_id="access_key_id_example",
+            secret_access_key="secret_access_key_example",
+            region="region_example",
+            scaleway_access_key="scaleway_access_key_example",
+            scaleway_secret_key="scaleway_secret_key_example",
+            username="username_example",
+            password="password_example",
+        ),
     ) # ContainerRegistryRequest |  (optional)
 
     # example passing only required values which don't have defaults set
