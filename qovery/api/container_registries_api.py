@@ -110,9 +110,11 @@ class ContainerRegistriesApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'container_registry_id',
                 ],
                 'required': [
                     'organization_id',
+                    'container_registry_id',
                 ],
                 'nullable': [
                 ],
@@ -129,12 +131,16 @@ class ContainerRegistriesApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'container_registry_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'container_registry_id': 'containerRegistryId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'container_registry_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -159,10 +165,12 @@ class ContainerRegistriesApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'container_registry_id',
                     'container_registry_request',
                 ],
                 'required': [
                     'organization_id',
+                    'container_registry_id',
                 ],
                 'nullable': [
                 ],
@@ -179,14 +187,18 @@ class ContainerRegistriesApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'container_registry_id':
+                        (str,),
                     'container_registry_request':
                         (ContainerRegistryRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'container_registry_id': 'containerRegistryId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'container_registry_id': 'path',
                     'container_registry_request': 'body',
                 },
                 'collection_format_map': {
@@ -441,6 +453,7 @@ class ContainerRegistriesApi(object):
     def delete_container_registry(
         self,
         organization_id,
+        container_registry_id,
         **kwargs
     ):
         """Delete a container registry  # noqa: E501
@@ -448,11 +461,12 @@ class ContainerRegistriesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_container_registry(organization_id, async_req=True)
+        >>> thread = api.delete_container_registry(organization_id, container_registry_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            container_registry_id (str): Container Registry ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -518,11 +532,14 @@ class ContainerRegistriesApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['container_registry_id'] = \
+            container_registry_id
         return self.delete_container_registry_endpoint.call_with_http_info(**kwargs)
 
     def edit_container_registry(
         self,
         organization_id,
+        container_registry_id,
         **kwargs
     ):
         """Edit a container registry  # noqa: E501
@@ -530,11 +547,12 @@ class ContainerRegistriesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_container_registry(organization_id, async_req=True)
+        >>> thread = api.edit_container_registry(organization_id, container_registry_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            container_registry_id (str): Container Registry ID
 
         Keyword Args:
             container_registry_request (ContainerRegistryRequest): [optional]
@@ -601,6 +619,8 @@ class ContainerRegistriesApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['container_registry_id'] = \
+            container_registry_id
         return self.edit_container_registry_endpoint.call_with_http_info(**kwargs)
 
     def get_container_registry(

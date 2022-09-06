@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_container_registry**
-> delete_container_registry(organization_id)
+> delete_container_registry(organization_id, container_registry_id)
 
 Delete a container registry
 
@@ -152,11 +152,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = container_registries_api.ContainerRegistriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
 
     # example passing only required values which don't have defaults set
     try:
         # Delete a container registry
-        api_instance.delete_container_registry(organization_id)
+        api_instance.delete_container_registry(organization_id, container_registry_id)
     except qovery.ApiException as e:
         print("Exception when calling ContainerRegistriesApi->delete_container_registry: %s\n" % e)
 ```
@@ -167,6 +168,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **container_registry_id** | **str**| Container Registry ID |
 
 ### Return type
 
@@ -194,7 +196,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_container_registry**
-> ContainerRegistryResponse edit_container_registry(organization_id)
+> ContainerRegistryResponse edit_container_registry(organization_id, container_registry_id)
 
 Edit a container registry
 
@@ -230,6 +232,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = container_registries_api.ContainerRegistriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
     container_registry_request = ContainerRegistryRequest(
         name="name_example",
         kind=ContainerRegistryKindEnum("ECR"),
@@ -249,7 +252,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Edit a container registry
-        api_response = api_instance.edit_container_registry(organization_id)
+        api_response = api_instance.edit_container_registry(organization_id, container_registry_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainerRegistriesApi->edit_container_registry: %s\n" % e)
@@ -258,7 +261,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit a container registry
-        api_response = api_instance.edit_container_registry(organization_id, container_registry_request=container_registry_request)
+        api_response = api_instance.edit_container_registry(organization_id, container_registry_id, container_registry_request=container_registry_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainerRegistriesApi->edit_container_registry: %s\n" % e)
@@ -270,6 +273,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **container_registry_id** | **str**| Container Registry ID |
  **container_registry_request** | [**ContainerRegistryRequest**](ContainerRegistryRequest.md)|  | [optional]
 
 ### Return type
