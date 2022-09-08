@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**storage** | [**[ApplicationStorageStorageInner]**](ApplicationStorageStorageInner.md) |  | [optional] 
+**storage** | [**[ServiceStorageRequestStorageInner]**](ServiceStorageRequestStorageInner.md) |  | [optional] 
 **ports** | [**[ServicePortPortsInner]**](ServicePortPortsInner.md) |  | [optional] 
 **name** | **str** | name is case insensitive | [optional] 
 **description** | **str** | give a description to this application | [optional] 

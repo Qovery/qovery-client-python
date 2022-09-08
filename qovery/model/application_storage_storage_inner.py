@@ -88,10 +88,10 @@ class ApplicationStorageStorageInner(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'type': (StorageTypeEnum,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'mount_point': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -100,10 +100,10 @@ class ApplicationStorageStorageInner(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'type': 'type',  # noqa: E501
         'size': 'size',  # noqa: E501
         'mount_point': 'mount_point',  # noqa: E501
-        'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,10 +113,11 @@ class ApplicationStorageStorageInner(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, size, mount_point, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, type, size, mount_point, *args, **kwargs):  # noqa: E501
         """ApplicationStorageStorageInner - a model defined in OpenAPI
 
         Args:
+            id (str):
             type (StorageTypeEnum):
             size (int): unit is GB
             mount_point (str):
@@ -152,7 +153,6 @@ class ApplicationStorageStorageInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,6 +184,7 @@ class ApplicationStorageStorageInner(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.type = type
         self.size = size
         self.mount_point = mount_point
@@ -207,10 +208,11 @@ class ApplicationStorageStorageInner(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, size, mount_point, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, type, size, mount_point, *args, **kwargs):  # noqa: E501
         """ApplicationStorageStorageInner - a model defined in OpenAPI
 
         Args:
+            id (str):
             type (StorageTypeEnum):
             size (int): unit is GB
             mount_point (str):
@@ -246,7 +248,6 @@ class ApplicationStorageStorageInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,6 +277,7 @@ class ApplicationStorageStorageInner(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.type = type
         self.size = size
         self.mount_point = mount_point
