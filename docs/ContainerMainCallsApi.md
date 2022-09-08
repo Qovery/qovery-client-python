@@ -104,8 +104,8 @@ Edit container
 import time
 import qovery
 from qovery.api import container_main_calls_api
+from qovery.model.container_request import ContainerRequest
 from qovery.model.container_response import ContainerResponse
-from qovery.model.container_edit_request import ContainerEditRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -128,7 +128,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = container_main_calls_api.ContainerMainCallsApi(api_client)
     container_id = "containerId_example" # str | Container ID
-    container_edit_request = ContainerEditRequest(None) # ContainerEditRequest |  (optional)
+    container_request = ContainerRequest(None) # ContainerRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -142,7 +142,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit container
-        api_response = api_instance.edit_container(container_id, container_edit_request=container_edit_request)
+        api_response = api_instance.edit_container(container_id, container_request=container_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainerMainCallsApi->edit_container: %s\n" % e)
@@ -154,7 +154,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**| Container ID |
- **container_edit_request** | [**ContainerEditRequest**](ContainerEditRequest.md)|  | [optional]
+ **container_request** | [**ContainerRequest**](ContainerRequest.md)|  | [optional]
 
 ### Return type
 

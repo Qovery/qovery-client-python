@@ -104,8 +104,6 @@ from qovery.model.container_advanced_settings_response import ContainerAdvancedS
 from qovery.model.container_current_scale import ContainerCurrentScale
 from qovery.model.container_dependency_request import ContainerDependencyRequest
 from qovery.model.container_deploy_request import ContainerDeployRequest
-from qovery.model.container_edit_request import ContainerEditRequest
-from qovery.model.container_edit_request_all_of import ContainerEditRequestAllOf
 from qovery.model.container_network import ContainerNetwork
 from qovery.model.container_network_request import ContainerNetworkRequest
 from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum

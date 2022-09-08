@@ -122,8 +122,6 @@ docs/ContainerDependencyApi.md
 docs/ContainerDependencyRequest.md
 docs/ContainerDeployRequest.md
 docs/ContainerDeploymentHistoryApi.md
-docs/ContainerEditRequest.md
-docs/ContainerEditRequestAllOf.md
 docs/ContainerEnvironmentVariableApi.md
 docs/ContainerLogsApi.md
 docs/ContainerMainCallsApi.md
@@ -600,8 +598,6 @@ qovery/model/container_advanced_settings_response.py
 qovery/model/container_current_scale.py
 qovery/model/container_dependency_request.py
 qovery/model/container_deploy_request.py
-qovery/model/container_edit_request.py
-qovery/model/container_edit_request_all_of.py
 qovery/model/container_network.py
 qovery/model/container_network_request.py
 qovery/model/container_registry_kind_enum.py
@@ -1000,8 +996,6 @@ test/test_container_dependency_api.py
 test/test_container_dependency_request.py
 test/test_container_deploy_request.py
 test/test_container_deployment_history_api.py
-test/test_container_edit_request.py
-test/test_container_edit_request_all_of.py
 test/test_container_environment_variable_api.py
 test/test_container_logs_api.py
 test/test_container_main_calls_api.py

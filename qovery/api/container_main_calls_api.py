@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.container_edit_request import ContainerEditRequest
+from qovery.model.container_request import ContainerRequest
 from qovery.model.container_response import ContainerResponse
 from qovery.model.link_response_list import LinkResponseList
 from qovery.model.status import Status
@@ -102,7 +102,7 @@ class ContainerMainCallsApi(object):
             params_map={
                 'all': [
                     'container_id',
-                    'container_edit_request',
+                    'container_request',
                 ],
                 'required': [
                     'container_id',
@@ -122,15 +122,15 @@ class ContainerMainCallsApi(object):
                 'openapi_types': {
                     'container_id':
                         (str,),
-                    'container_edit_request':
-                        (ContainerEditRequest,),
+                    'container_request':
+                        (ContainerRequest,),
                 },
                 'attribute_map': {
                     'container_id': 'containerId',
                 },
                 'location_map': {
                     'container_id': 'path',
-                    'container_edit_request': 'body',
+                    'container_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -400,7 +400,7 @@ class ContainerMainCallsApi(object):
             container_id (str): Container ID
 
         Keyword Args:
-            container_edit_request (ContainerEditRequest): [optional]
+            container_request (ContainerRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
