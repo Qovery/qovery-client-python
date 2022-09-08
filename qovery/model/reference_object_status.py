@@ -96,8 +96,8 @@ class ReferenceObjectStatus(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'state': (StateEnum,),  # noqa: E501
-            'message': (str, none_type,),  # noqa: E501
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
+            'message': (str, none_type,),  # noqa: E501
             'last_deployment_date': (datetime,),  # noqa: E501
         }
 
@@ -109,8 +109,8 @@ class ReferenceObjectStatus(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'state': 'state',  # noqa: E501
-        'message': 'message',  # noqa: E501
         'service_deployment_status': 'service_deployment_status',  # noqa: E501
+        'message': 'message',  # noqa: E501
         'last_deployment_date': 'last_deployment_date',  # noqa: E501
     }
 
@@ -125,6 +125,7 @@ class ReferenceObjectStatus(ModelComposed):
         Keyword Args:
             id (str):
             state (StateEnum):
+            service_deployment_status (ServiceDeploymentStatusEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -156,7 +157,6 @@ class ReferenceObjectStatus(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): message related to the state. [optional]  # noqa: E501
-            service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
             last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
@@ -233,6 +233,7 @@ class ReferenceObjectStatus(ModelComposed):
         Keyword Args:
             id (str):
             state (StateEnum):
+            service_deployment_status (ServiceDeploymentStatusEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -264,7 +265,6 @@ class ReferenceObjectStatus(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             message (str, none_type): message related to the state. [optional]  # noqa: E501
-            service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
             last_deployment_date (datetime): [optional]  # noqa: E501
         """
 

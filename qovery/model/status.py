@@ -90,10 +90,10 @@ class Status(ModelNormal):
         """
         lazy_import()
         return {
-            'state': (StateEnum,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'message': (str, none_type,),  # noqa: E501
+            'state': (StateEnum,),  # noqa: E501
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
+            'message': (str, none_type,),  # noqa: E501
             'last_deployment_date': (datetime,),  # noqa: E501
         }
 
@@ -103,10 +103,10 @@ class Status(ModelNormal):
 
 
     attribute_map = {
-        'state': 'state',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'message': 'message',  # noqa: E501
+        'state': 'state',  # noqa: E501
         'service_deployment_status': 'service_deployment_status',  # noqa: E501
+        'message': 'message',  # noqa: E501
         'last_deployment_date': 'last_deployment_date',  # noqa: E501
     }
 
@@ -117,11 +117,13 @@ class Status(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, state, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, state, service_deployment_status, *args, **kwargs):  # noqa: E501
         """Status - a model defined in OpenAPI
 
         Args:
+            id (str):
             state (StateEnum):
+            service_deployment_status (ServiceDeploymentStatusEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,9 +156,7 @@ class Status(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             message (str, none_type): message related to the state. [optional]  # noqa: E501
-            service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
             last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
@@ -189,7 +189,9 @@ class Status(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.state = state
+        self.service_deployment_status = service_deployment_status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -210,11 +212,13 @@ class Status(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, state, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, state, service_deployment_status, *args, **kwargs):  # noqa: E501
         """Status - a model defined in OpenAPI
 
         Args:
+            id (str):
             state (StateEnum):
+            service_deployment_status (ServiceDeploymentStatusEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,9 +251,7 @@ class Status(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             message (str, none_type): message related to the state. [optional]  # noqa: E501
-            service_deployment_status (ServiceDeploymentStatusEnum): [optional]  # noqa: E501
             last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
@@ -280,7 +282,9 @@ class Status(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.state = state
+        self.service_deployment_status = service_deployment_status
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
