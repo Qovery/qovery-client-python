@@ -90,10 +90,10 @@ class ServicePortPortsInner(ModelNormal):
         return {
             'internal_port': (int,),  # noqa: E501
             'publicly_accessible': (bool,),  # noqa: E501
+            'protocol': (PortProtocolEnum,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'external_port': (int,),  # noqa: E501
-            'protocol': (PortProtocolEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -104,10 +104,10 @@ class ServicePortPortsInner(ModelNormal):
     attribute_map = {
         'internal_port': 'internal_port',  # noqa: E501
         'publicly_accessible': 'publicly_accessible',  # noqa: E501
+        'protocol': 'protocol',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'external_port': 'external_port',  # noqa: E501
-        'protocol': 'protocol',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,12 +117,13 @@ class ServicePortPortsInner(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, internal_port, publicly_accessible, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
         """ServicePortPortsInner - a model defined in OpenAPI
 
         Args:
             internal_port (int): The listening port of your service.
             publicly_accessible (bool): Expose the port to the world
+            protocol (PortProtocolEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -158,7 +159,6 @@ class ServicePortPortsInner(ModelNormal):
             id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
-            protocol (PortProtocolEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -192,6 +192,7 @@ class ServicePortPortsInner(ModelNormal):
 
         self.internal_port = internal_port
         self.publicly_accessible = publicly_accessible
+        self.protocol = protocol
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -212,12 +213,13 @@ class ServicePortPortsInner(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, internal_port, publicly_accessible, *args, **kwargs):  # noqa: E501
+    def __init__(self, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
         """ServicePortPortsInner - a model defined in OpenAPI
 
         Args:
             internal_port (int): The listening port of your service.
             publicly_accessible (bool): Expose the port to the world
+            protocol (PortProtocolEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,7 +255,6 @@ class ServicePortPortsInner(ModelNormal):
             id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
-            protocol (PortProtocolEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,6 +286,7 @@ class ServicePortPortsInner(ModelNormal):
 
         self.internal_port = internal_port
         self.publicly_accessible = publicly_accessible
+        self.protocol = protocol
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
