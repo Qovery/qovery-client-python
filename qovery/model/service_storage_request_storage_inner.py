@@ -91,6 +91,7 @@ class ServiceStorageRequestStorageInner(ModelNormal):
             'type': (StorageTypeEnum,),  # noqa: E501
             'size': (int,),  # noqa: E501
             'mount_point': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class ServiceStorageRequestStorageInner(ModelNormal):
         'type': 'type',  # noqa: E501
         'size': 'size',  # noqa: E501
         'mount_point': 'mount_point',  # noqa: E501
+        'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +152,7 @@ class ServiceStorageRequestStorageInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -243,6 +246,7 @@ class ServiceStorageRequestStorageInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
