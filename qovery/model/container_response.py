@@ -105,6 +105,8 @@ class ContainerResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'environment': (ReferenceObject,),  # noqa: E501
+            'registry': (ReferenceObject,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -118,8 +120,6 @@ class ContainerResponse(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
             'ports': ([ServicePortPortsInner],),  # noqa: E501
-            'environment': (ReferenceObject,),  # noqa: E501
-            'registry': (ReferenceObject,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
         }
@@ -132,6 +132,8 @@ class ContainerResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'environment': 'environment',  # noqa: E501
+        'registry': 'registry',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -145,8 +147,6 @@ class ContainerResponse(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'storage': 'storage',  # noqa: E501
         'ports': 'ports',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
-        'registry': 'registry',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
     }
@@ -165,6 +165,8 @@ class ContainerResponse(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
+            environment (ReferenceObject):
+            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -208,8 +210,6 @@ class ContainerResponse(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortPortsInner]): [optional]  # noqa: E501
-            environment (ReferenceObject): [optional]  # noqa: E501
-            registry (ReferenceObject): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
         """
@@ -287,6 +287,8 @@ class ContainerResponse(ModelComposed):
         """ContainerResponse - a model defined in OpenAPI
 
         Keyword Args:
+            environment (ReferenceObject):
+            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -330,8 +332,6 @@ class ContainerResponse(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortPortsInner]): [optional]  # noqa: E501
-            environment (ReferenceObject): [optional]  # noqa: E501
-            registry (ReferenceObject): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
         """

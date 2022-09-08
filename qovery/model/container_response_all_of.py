@@ -91,6 +91,8 @@ class ContainerResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
+            'environment': (ReferenceObject,),  # noqa: E501
+            'registry': (ReferenceObject,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -101,8 +103,6 @@ class ContainerResponseAllOf(ModelNormal):
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
-            'environment': (ReferenceObject,),  # noqa: E501
-            'registry': (ReferenceObject,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
         }
@@ -113,6 +113,8 @@ class ContainerResponseAllOf(ModelNormal):
 
 
     attribute_map = {
+        'environment': 'environment',  # noqa: E501
+        'registry': 'registry',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -123,8 +125,6 @@ class ContainerResponseAllOf(ModelNormal):
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
-        'registry': 'registry',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
     }
@@ -136,10 +136,12 @@ class ContainerResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, maximum_cpu, maximum_memory, name, image_name, tag, cpu, memory, auto_preview, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment, registry, maximum_cpu, maximum_memory, name, image_name, tag, cpu, memory, auto_preview, *args, **kwargs):  # noqa: E501
         """ContainerResponseAllOf - a model defined in OpenAPI
 
         Args:
+            environment (ReferenceObject):
+            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -182,8 +184,6 @@ class ContainerResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (ReferenceObject): [optional]  # noqa: E501
-            registry (ReferenceObject): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
         """
@@ -219,6 +219,8 @@ class ContainerResponseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.environment = environment
+        self.registry = registry
         self.maximum_cpu = maximum_cpu
         self.maximum_memory = maximum_memory
         self.name = name
@@ -249,10 +251,12 @@ class ContainerResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, maximum_cpu, maximum_memory, name, image_name, tag, cpu, memory, auto_preview, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment, registry, maximum_cpu, maximum_memory, name, image_name, tag, cpu, memory, auto_preview, *args, **kwargs):  # noqa: E501
         """ContainerResponseAllOf - a model defined in OpenAPI
 
         Args:
+            environment (ReferenceObject):
+            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -295,8 +299,6 @@ class ContainerResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (ReferenceObject): [optional]  # noqa: E501
-            registry (ReferenceObject): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
         """
@@ -330,6 +332,8 @@ class ContainerResponseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.environment = environment
+        self.registry = registry
         self.maximum_cpu = maximum_cpu
         self.maximum_memory = maximum_memory
         self.name = name
