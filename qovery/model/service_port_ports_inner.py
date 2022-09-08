@@ -88,10 +88,10 @@ class ServicePortPortsInner(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'internal_port': (int,),  # noqa: E501
             'publicly_accessible': (bool,),  # noqa: E501
             'protocol': (PortProtocolEnum,),  # noqa: E501
-            'id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'external_port': (int,),  # noqa: E501
         }
@@ -102,10 +102,10 @@ class ServicePortPortsInner(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'internal_port': 'internal_port',  # noqa: E501
         'publicly_accessible': 'publicly_accessible',  # noqa: E501
         'protocol': 'protocol',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'external_port': 'external_port',  # noqa: E501
     }
@@ -117,10 +117,11 @@ class ServicePortPortsInner(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
         """ServicePortPortsInner - a model defined in OpenAPI
 
         Args:
+            id (str):
             internal_port (int): The listening port of your service.
             publicly_accessible (bool): Expose the port to the world
             protocol (PortProtocolEnum):
@@ -156,7 +157,6 @@ class ServicePortPortsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
         """
@@ -190,6 +190,7 @@ class ServicePortPortsInner(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.internal_port = internal_port
         self.publicly_accessible = publicly_accessible
         self.protocol = protocol
@@ -213,10 +214,11 @@ class ServicePortPortsInner(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
         """ServicePortPortsInner - a model defined in OpenAPI
 
         Args:
+            id (str):
             internal_port (int): The listening port of your service.
             publicly_accessible (bool): Expose the port to the world
             protocol (PortProtocolEnum):
@@ -252,7 +254,6 @@ class ServicePortPortsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
         """
@@ -284,6 +285,7 @@ class ServicePortPortsInner(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         self.internal_port = internal_port
         self.publicly_accessible = publicly_accessible
         self.protocol = protocol

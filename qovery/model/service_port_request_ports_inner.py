@@ -90,7 +90,7 @@ class ServicePortRequestPortsInner(ModelNormal):
         return {
             'internal_port': (int,),  # noqa: E501
             'publicly_accessible': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'external_port': (int,),  # noqa: E501
             'protocol': (PortProtocolEnum,),  # noqa: E501
         }
@@ -153,7 +153,7 @@ class ServicePortRequestPortsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
             protocol (PortProtocolEnum): [optional]  # noqa: E501
         """
@@ -247,7 +247,7 @@ class ServicePortRequestPortsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str, none_type): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
             protocol (PortProtocolEnum): [optional]  # noqa: E501
         """
