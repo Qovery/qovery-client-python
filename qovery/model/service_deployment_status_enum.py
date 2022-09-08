@@ -53,7 +53,6 @@ class ServiceDeploymentStatusEnum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'None': None,
             'NEVER_DEPLOYED': "NEVER_DEPLOYED",
             'OUT_OF_DATE': "OUT_OF_DATE",
             'UP_TO_DATE': "UP_TO_DATE",
@@ -65,7 +64,7 @@ class ServiceDeploymentStatusEnum(ModelSimple):
 
     additional_properties_type = None
 
-    _nullable = True
+    _nullable = False
 
     @cached_property
     def openapi_types():
