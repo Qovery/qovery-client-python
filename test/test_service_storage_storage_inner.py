@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
-globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
-from qovery.model.application_storage import ApplicationStorage
+from qovery.model.storage_type_enum import StorageTypeEnum
+globals()['StorageTypeEnum'] = StorageTypeEnum
+from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
 
 
-class TestApplicationStorage(unittest.TestCase):
-    """ApplicationStorage unit test stubs"""
+class TestServiceStorageStorageInner(unittest.TestCase):
+    """ServiceStorageStorageInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestApplicationStorage(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApplicationStorage(self):
-        """Test ApplicationStorage"""
+    def testServiceStorageStorageInner(self):
+        """Test ServiceStorageStorageInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApplicationStorage()  # noqa: E501
+        # model = ServiceStorageStorageInner()  # noqa: E501
         pass
 
 

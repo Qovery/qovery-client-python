@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_storage import ApplicationStorage
-from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
-globals()['ApplicationStorage'] = ApplicationStorage
-globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
+from qovery.model.service_storage import ServiceStorage
+from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
+globals()['ServiceStorage'] = ServiceStorage
+globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 from qovery.model.container_storage import ContainerStorage
 
 

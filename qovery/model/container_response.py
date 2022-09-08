@@ -31,20 +31,20 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.application_storage import ApplicationStorage
-    from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
     from qovery.model.base import Base
     from qovery.model.container_response_all_of import ContainerResponseAllOf
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port import ServicePort
     from qovery.model.service_port_ports_inner import ServicePortPortsInner
-    globals()['ApplicationStorage'] = ApplicationStorage
-    globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
+    from qovery.model.service_storage import ServiceStorage
+    from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
     globals()['Base'] = Base
     globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePort'] = ServicePort
     globals()['ServicePortPortsInner'] = ServicePortPortsInner
+    globals()['ServiceStorage'] = ServiceStorage
+    globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 
 
 class ContainerResponse(ModelComposed):
@@ -118,7 +118,7 @@ class ContainerResponse(ModelComposed):
             'max_running_instances': (int,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
+            'storage': ([ServiceStorageStorageInner],),  # noqa: E501
             'ports': ([ServicePortPortsInner],),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
@@ -208,7 +208,7 @@ class ContainerResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortPortsInner]): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
@@ -330,7 +330,7 @@ class ContainerResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortPortsInner]): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
@@ -405,10 +405,10 @@ class ContainerResponse(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ApplicationStorage,
               Base,
               ContainerResponseAllOf,
               ServicePort,
+              ServiceStorage,
           ],
           'oneOf': [
           ],

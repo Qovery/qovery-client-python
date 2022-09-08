@@ -33,8 +33,6 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.application_all_of import ApplicationAllOf
     from qovery.model.application_git_repository import ApplicationGitRepository
-    from qovery.model.application_storage import ApplicationStorage
-    from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
     from qovery.model.base import Base
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
@@ -42,10 +40,10 @@ def lazy_import():
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port import ServicePort
     from qovery.model.service_port_ports_inner import ServicePortPortsInner
+    from qovery.model.service_storage import ServiceStorage
+    from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
     globals()['ApplicationAllOf'] = ApplicationAllOf
     globals()['ApplicationGitRepository'] = ApplicationGitRepository
-    globals()['ApplicationStorage'] = ApplicationStorage
-    globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
     globals()['Base'] = Base
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
@@ -53,6 +51,8 @@ def lazy_import():
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePort'] = ServicePort
     globals()['ServicePortPortsInner'] = ServicePortPortsInner
+    globals()['ServiceStorage'] = ServiceStorage
+    globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 
 
 class Application(ModelComposed):
@@ -114,7 +114,7 @@ class Application(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
+            'storage': ([ServiceStorageStorageInner],),  # noqa: E501
             'ports': ([ServicePortPortsInner],),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
@@ -206,7 +206,7 @@ class Application(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
@@ -327,7 +327,7 @@ class Application(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortPortsInner]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
@@ -414,9 +414,9 @@ class Application(ModelComposed):
           ],
           'allOf': [
               ApplicationAllOf,
-              ApplicationStorage,
               Base,
               ServicePort,
+              ServiceStorage,
           ],
           'oneOf': [
           ],

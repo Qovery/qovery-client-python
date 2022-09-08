@@ -31,10 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.application_storage import ApplicationStorage
-    from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
-    globals()['ApplicationStorage'] = ApplicationStorage
-    globals()['ApplicationStorageStorageInner'] = ApplicationStorageStorageInner
+    from qovery.model.service_storage import ServiceStorage
+    from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
+    globals()['ServiceStorage'] = ServiceStorage
+    globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 
 
 class ContainerStorage(ModelComposed):
@@ -90,7 +90,7 @@ class ContainerStorage(ModelComposed):
         """
         lazy_import()
         return {
-            'storage': ([ApplicationStorageStorageInner],),  # noqa: E501
+            'storage': ([ServiceStorageStorageInner],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class ContainerStorage(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,7 +245,7 @@ class ContainerStorage(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            storage ([ApplicationStorageStorageInner]): [optional]  # noqa: E501
+            storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -315,7 +315,7 @@ class ContainerStorage(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              ApplicationStorage,
+              ServiceStorage,
           ],
           'oneOf': [
           ],

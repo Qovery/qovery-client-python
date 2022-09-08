@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **min_running_instances** | **int** | Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running.  | defaults to 1
 **max_running_instances** | **int** | Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit.  | defaults to 1
 **updated_at** | **datetime** |  | [optional] [readonly] 
-**storage** | [**[ApplicationStorageStorageInner]**](ApplicationStorageStorageInner.md) |  | [optional] 
+**storage** | [**[ServiceStorageStorageInner]**](ServiceStorageStorageInner.md) |  | [optional] 
 **ports** | [**[ServicePortPortsInner]**](ServicePortPortsInner.md) |  | [optional] 
 **arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 

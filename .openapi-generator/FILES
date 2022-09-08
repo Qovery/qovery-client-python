@@ -35,8 +35,6 @@ docs/ApplicationRequest.md
 docs/ApplicationRequestAllOf.md
 docs/ApplicationResponseList.md
 docs/ApplicationSecretApi.md
-docs/ApplicationStorage.md
-docs/ApplicationStorageStorageInner.md
 docs/ApplicationsApi.md
 docs/AutoDeployContainerEnvironmentsRequest.md
 docs/AvailableContainerRegistryResponse.md
@@ -402,8 +400,10 @@ docs/ServicePortPortsInner.md
 docs/ServicePortRequest.md
 docs/ServicePortRequestPortsInner.md
 docs/ServiceResponseList.md
+docs/ServiceStorage.md
 docs/ServiceStorageRequest.md
 docs/ServiceStorageRequestStorageInner.md
+docs/ServiceStorageStorageInner.md
 docs/ServiceTotalNumber.md
 docs/ServiceTypeEnum.md
 docs/SignUp.md
@@ -523,8 +523,6 @@ qovery/model/application_network_request.py
 qovery/model/application_request.py
 qovery/model/application_request_all_of.py
 qovery/model/application_response_list.py
-qovery/model/application_storage.py
-qovery/model/application_storage_storage_inner.py
 qovery/model/auto_deploy_container_environments_request.py
 qovery/model/available_container_registry_response.py
 qovery/model/aws_credentials_request.py
@@ -840,8 +838,10 @@ qovery/model/service_port_ports_inner.py
 qovery/model/service_port_request.py
 qovery/model/service_port_request_ports_inner.py
 qovery/model/service_response_list.py
+qovery/model/service_storage.py
 qovery/model/service_storage_request.py
 qovery/model/service_storage_request_storage_inner.py
+qovery/model/service_storage_storage_inner.py
 qovery/model/service_total_number.py
 qovery/model/service_type_enum.py
 qovery/model/sign_up.py
@@ -909,8 +909,6 @@ test/test_application_request.py
 test/test_application_request_all_of.py
 test/test_application_response_list.py
 test/test_application_secret_api.py
-test/test_application_storage.py
-test/test_application_storage_storage_inner.py
 test/test_applications_api.py
 test/test_auto_deploy_container_environments_request.py
 test/test_available_container_registry_response.py
@@ -1276,8 +1274,10 @@ test/test_service_port_ports_inner.py
 test/test_service_port_request.py
 test/test_service_port_request_ports_inner.py
 test/test_service_response_list.py
+test/test_service_storage.py
 test/test_service_storage_request.py
 test/test_service_storage_request_storage_inner.py
+test/test_service_storage_storage_inner.py
 test/test_service_total_number.py
 test/test_service_type_enum.py
 test/test_sign_up.py

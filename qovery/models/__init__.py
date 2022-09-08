@@ -29,8 +29,6 @@ from qovery.model.application_network_request import ApplicationNetworkRequest
 from qovery.model.application_request import ApplicationRequest
 from qovery.model.application_request_all_of import ApplicationRequestAllOf
 from qovery.model.application_response_list import ApplicationResponseList
-from qovery.model.application_storage import ApplicationStorage
-from qovery.model.application_storage_storage_inner import ApplicationStorageStorageInner
 from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
 from qovery.model.available_container_registry_response import AvailableContainerRegistryResponse
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
@@ -346,8 +344,10 @@ from qovery.model.service_port_ports_inner import ServicePortPortsInner
 from qovery.model.service_port_request import ServicePortRequest
 from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
 from qovery.model.service_response_list import ServiceResponseList
+from qovery.model.service_storage import ServiceStorage
 from qovery.model.service_storage_request import ServiceStorageRequest
 from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
+from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
 from qovery.model.service_total_number import ServiceTotalNumber
 from qovery.model.service_type_enum import ServiceTypeEnum
 from qovery.model.sign_up import SignUp
