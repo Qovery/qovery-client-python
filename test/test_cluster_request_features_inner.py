@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.cluster_feature_value import ClusterFeatureValue
+globals()['ClusterFeatureValue'] = ClusterFeatureValue
 from qovery.model.cluster_request_features_inner import ClusterRequestFeaturesInner
 
 
