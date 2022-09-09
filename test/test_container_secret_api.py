@@ -38,6 +38,13 @@ class TestContainerSecretApi(unittest.TestCase):
         """
         pass
 
+    def test_create_container_secret_override(self):
+        """Test case for create_container_secret_override
+
+        Create a secret override at the container level  # noqa: E501
+        """
+        pass
+
     def test_delete_container_secret(self):
         """Test case for delete_container_secret
 
