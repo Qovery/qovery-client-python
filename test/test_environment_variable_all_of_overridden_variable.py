@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
-globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
 from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
 
 

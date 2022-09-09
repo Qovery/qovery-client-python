@@ -3,10 +3,10 @@
 .openapi-generator-ignore
 .travis.yml
 README.md
+docs/APIVariableScopeEnum.md
 docs/AccountInfo.md
 docs/AccountInfoApi.md
 docs/AccountInfoEditRequest.md
-docs/AliasedSecret.md
 docs/Application.md
 docs/ApplicationActionsApi.md
 docs/ApplicationAdvancedSettings.md
@@ -252,7 +252,6 @@ docs/EnvironmentVariableApi.md
 docs/EnvironmentVariableEditRequest.md
 docs/EnvironmentVariableRequest.md
 docs/EnvironmentVariableResponseList.md
-docs/EnvironmentVariableScopeEnum.md
 docs/EnvironmentsApi.md
 docs/Event.md
 docs/EventAllOf.md
@@ -354,7 +353,6 @@ docs/OrganizationWebhookEventEnum.md
 docs/OrganizationWebhookKindEnum.md
 docs/OrganizationWebhookResponse.md
 docs/OrganizationWebhookResponseList.md
-docs/OverriddenSecret.md
 docs/PaginationData.md
 docs/PaidUsage.md
 docs/PlanEnum.md
@@ -388,8 +386,10 @@ docs/RemainingCredits.md
 docs/RewardClaim.md
 docs/ScalewayCredentialsRequest.md
 docs/Secret.md
+docs/SecretAlias.md
 docs/SecretAllOf.md
 docs/SecretEditRequest.md
+docs/SecretOverride.md
 docs/SecretRequest.md
 docs/SecretResponseList.md
 docs/Service.md
@@ -505,7 +505,7 @@ qovery/exceptions.py
 qovery/model/__init__.py
 qovery/model/account_info.py
 qovery/model/account_info_edit_request.py
-qovery/model/aliased_secret.py
+qovery/model/api_variable_scope_enum.py
 qovery/model/application.py
 qovery/model/application_advanced_settings.py
 qovery/model/application_all_of.py
@@ -705,7 +705,6 @@ qovery/model/environment_variable_all_of_overridden_variable.py
 qovery/model/environment_variable_edit_request.py
 qovery/model/environment_variable_request.py
 qovery/model/environment_variable_response_list.py
-qovery/model/environment_variable_scope_enum.py
 qovery/model/event.py
 qovery/model/event_all_of.py
 qovery/model/event_paginated_response_list.py
@@ -798,7 +797,6 @@ qovery/model/organization_webhook_event_enum.py
 qovery/model/organization_webhook_kind_enum.py
 qovery/model/organization_webhook_response.py
 qovery/model/organization_webhook_response_list.py
-qovery/model/overridden_secret.py
 qovery/model/pagination_data.py
 qovery/model/paid_usage.py
 qovery/model/plan_enum.py
@@ -826,8 +824,10 @@ qovery/model/remaining_credits.py
 qovery/model/reward_claim.py
 qovery/model/scaleway_credentials_request.py
 qovery/model/secret.py
+qovery/model/secret_alias.py
 qovery/model/secret_all_of.py
 qovery/model/secret_edit_request.py
+qovery/model/secret_override.py
 qovery/model/secret_request.py
 qovery/model/secret_response_list.py
 qovery/model/service.py
@@ -880,7 +880,7 @@ test/__init__.py
 test/test_account_info.py
 test/test_account_info_api.py
 test/test_account_info_edit_request.py
-test/test_aliased_secret.py
+test/test_api_variable_scope_enum.py
 test/test_application.py
 test/test_application_actions_api.py
 test/test_application_advanced_settings.py
@@ -1126,7 +1126,6 @@ test/test_environment_variable_api.py
 test/test_environment_variable_edit_request.py
 test/test_environment_variable_request.py
 test/test_environment_variable_response_list.py
-test/test_environment_variable_scope_enum.py
 test/test_environments_api.py
 test/test_event.py
 test/test_event_all_of.py
@@ -1228,7 +1227,6 @@ test/test_organization_webhook_event_enum.py
 test/test_organization_webhook_kind_enum.py
 test/test_organization_webhook_response.py
 test/test_organization_webhook_response_list.py
-test/test_overridden_secret.py
 test/test_pagination_data.py
 test/test_paid_usage.py
 test/test_plan_enum.py
@@ -1262,8 +1260,10 @@ test/test_remaining_credits.py
 test/test_reward_claim.py
 test/test_scaleway_credentials_request.py
 test/test_secret.py
+test/test_secret_alias.py
 test/test_secret_all_of.py
 test/test_secret_edit_request.py
+test/test_secret_override.py
 test/test_secret_request.py
 test/test_secret_response_list.py
 test/test_service.py

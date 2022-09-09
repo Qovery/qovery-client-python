@@ -31,14 +31,14 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.aliased_secret import AliasedSecret
-    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
+    from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
-    from qovery.model.overridden_secret import OverriddenSecret
-    globals()['AliasedSecret'] = AliasedSecret
-    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
+    from qovery.model.secret_alias import SecretAlias
+    from qovery.model.secret_override import SecretOverride
+    globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
     globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
-    globals()['OverriddenSecret'] = OverriddenSecret
+    globals()['SecretAlias'] = SecretAlias
+    globals()['SecretOverride'] = SecretOverride
 
 
 class SecretAllOf(ModelNormal):
@@ -94,10 +94,10 @@ class SecretAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
             'key': (str,),  # noqa: E501
-            'overridden_secret': (OverriddenSecret,),  # noqa: E501
-            'aliased_secret': (AliasedSecret,),  # noqa: E501
+            'scope': (APIVariableScopeEnum,),  # noqa: E501
+            'overridden_secret': (SecretOverride,),  # noqa: E501
+            'aliased_secret': (SecretAlias,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
             'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
@@ -109,8 +109,8 @@ class SecretAllOf(ModelNormal):
 
 
     attribute_map = {
-        'scope': 'scope',  # noqa: E501
         'key': 'key',  # noqa: E501
+        'scope': 'scope',  # noqa: E501
         'overridden_secret': 'overridden_secret',  # noqa: E501
         'aliased_secret': 'aliased_secret',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
@@ -125,11 +125,12 @@ class SecretAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, scope, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, key, scope, *args, **kwargs):  # noqa: E501
         """SecretAllOf - a model defined in OpenAPI
 
         Args:
-            scope (EnvironmentVariableScopeEnum):
+            key (str): key is case sensitive
+            scope (APIVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -162,9 +163,8 @@ class SecretAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): key is case sensitive. [optional]  # noqa: E501
-            overridden_secret (OverriddenSecret): [optional]  # noqa: E501
-            aliased_secret (AliasedSecret): [optional]  # noqa: E501
+            overridden_secret (SecretOverride): [optional]  # noqa: E501
+            aliased_secret (SecretAlias): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
@@ -199,6 +199,7 @@ class SecretAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.key = key
         self.scope = scope
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -220,11 +221,12 @@ class SecretAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, scope, *args, **kwargs):  # noqa: E501
+    def __init__(self, key, scope, *args, **kwargs):  # noqa: E501
         """SecretAllOf - a model defined in OpenAPI
 
         Args:
-            scope (EnvironmentVariableScopeEnum):
+            key (str): key is case sensitive
+            scope (APIVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -257,9 +259,8 @@ class SecretAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            key (str): key is case sensitive. [optional]  # noqa: E501
-            overridden_secret (OverriddenSecret): [optional]  # noqa: E501
-            aliased_secret (AliasedSecret): [optional]  # noqa: E501
+            overridden_secret (SecretOverride): [optional]  # noqa: E501
+            aliased_secret (SecretAlias): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
@@ -292,6 +293,7 @@ class SecretAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.key = key
         self.scope = scope
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

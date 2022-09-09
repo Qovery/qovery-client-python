@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
-globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
-from qovery.model.aliased_secret import AliasedSecret
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+from qovery.model.secret_alias import SecretAlias
 
 
-class TestAliasedSecret(unittest.TestCase):
-    """AliasedSecret unit test stubs"""
+class TestSecretAlias(unittest.TestCase):
+    """SecretAlias unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestAliasedSecret(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAliasedSecret(self):
-        """Test AliasedSecret"""
+    def testSecretAlias(self):
+        """Test SecretAlias"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = AliasedSecret()  # noqa: E501
+        # model = SecretAlias()  # noqa: E501
         pass
 
 

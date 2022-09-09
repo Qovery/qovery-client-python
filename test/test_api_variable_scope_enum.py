@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
 
 
-class TestEnvironmentVariableScopeEnum(unittest.TestCase):
-    """EnvironmentVariableScopeEnum unit test stubs"""
+class TestAPIVariableScopeEnum(unittest.TestCase):
+    """APIVariableScopeEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestEnvironmentVariableScopeEnum(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEnvironmentVariableScopeEnum(self):
-        """Test EnvironmentVariableScopeEnum"""
+    def testAPIVariableScopeEnum(self):
+        """Test APIVariableScopeEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EnvironmentVariableScopeEnum()  # noqa: E501
+        # model = APIVariableScopeEnum()  # noqa: E501
         pass
 
 

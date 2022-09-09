@@ -31,18 +31,18 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.aliased_secret import AliasedSecret
+    from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
     from qovery.model.base import Base
-    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
-    from qovery.model.overridden_secret import OverriddenSecret
+    from qovery.model.secret_alias import SecretAlias
     from qovery.model.secret_all_of import SecretAllOf
-    globals()['AliasedSecret'] = AliasedSecret
+    from qovery.model.secret_override import SecretOverride
+    globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
     globals()['Base'] = Base
-    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
     globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
-    globals()['OverriddenSecret'] = OverriddenSecret
+    globals()['SecretAlias'] = SecretAlias
     globals()['SecretAllOf'] = SecretAllOf
+    globals()['SecretOverride'] = SecretOverride
 
 
 class Secret(ModelComposed):
@@ -100,11 +100,11 @@ class Secret(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
             'key': (str,),  # noqa: E501
-            'overridden_secret': (OverriddenSecret,),  # noqa: E501
-            'aliased_secret': (AliasedSecret,),  # noqa: E501
+            'scope': (APIVariableScopeEnum,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
+            'overridden_secret': (SecretOverride,),  # noqa: E501
+            'aliased_secret': (SecretAlias,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
             'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
@@ -118,9 +118,9 @@ class Secret(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'key': 'key',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
-        'key': 'key',  # noqa: E501
         'overridden_secret': 'overridden_secret',  # noqa: E501
         'aliased_secret': 'aliased_secret',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
@@ -142,7 +142,8 @@ class Secret(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
-            scope (EnvironmentVariableScopeEnum):
+            key (str): key is case sensitive
+            scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -174,9 +175,8 @@ class Secret(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            key (str): key is case sensitive. [optional]  # noqa: E501
-            overridden_secret (OverriddenSecret): [optional]  # noqa: E501
-            aliased_secret (AliasedSecret): [optional]  # noqa: E501
+            overridden_secret (SecretOverride): [optional]  # noqa: E501
+            aliased_secret (SecretAlias): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
@@ -253,7 +253,8 @@ class Secret(ModelComposed):
         """Secret - a model defined in OpenAPI
 
         Keyword Args:
-            scope (EnvironmentVariableScopeEnum):
+            key (str): key is case sensitive
+            scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -285,9 +286,8 @@ class Secret(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            key (str): key is case sensitive. [optional]  # noqa: E501
-            overridden_secret (OverriddenSecret): [optional]  # noqa: E501
-            aliased_secret (AliasedSecret): [optional]  # noqa: E501
+            overridden_secret (SecretOverride): [optional]  # noqa: E501
+            aliased_secret (SecretAlias): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501

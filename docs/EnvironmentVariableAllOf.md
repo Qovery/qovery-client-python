@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scope** | [**EnvironmentVariableScopeEnum**](EnvironmentVariableScopeEnum.md) |  | 
+**scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **overridden_variable** | [**EnvironmentVariableAllOfOverriddenVariable**](EnvironmentVariableAllOfOverriddenVariable.md) |  | [optional] 
 **aliased_variable** | [**EnvironmentVariableAllOfAliasedVariable**](EnvironmentVariableAllOfAliasedVariable.md) |  | [optional] 
 **service_id** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 

@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
-    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
+    from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+    globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
 
 
 class EnvironmentVariableAllOfOverriddenVariable(ModelNormal):
@@ -91,7 +91,7 @@ class EnvironmentVariableAllOfOverriddenVariable(ModelNormal):
             'id': (str,),  # noqa: E501
             'key': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
-            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
+            'scope': (APIVariableScopeEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -150,7 +150,7 @@ class EnvironmentVariableAllOfOverriddenVariable(ModelNormal):
             id (str): [optional]  # noqa: E501
             key (str): [optional]  # noqa: E501
             value (str): [optional]  # noqa: E501
-            scope (EnvironmentVariableScopeEnum): [optional]  # noqa: E501
+            scope (APIVariableScopeEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,7 +239,7 @@ class EnvironmentVariableAllOfOverriddenVariable(ModelNormal):
             id (str): [optional]  # noqa: E501
             key (str): [optional]  # noqa: E501
             value (str): [optional]  # noqa: E501
-            scope (EnvironmentVariableScopeEnum): [optional]  # noqa: E501
+            scope (APIVariableScopeEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

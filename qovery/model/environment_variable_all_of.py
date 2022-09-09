@@ -31,13 +31,13 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
     from qovery.model.environment_variable_all_of_aliased_variable import EnvironmentVariableAllOfAliasedVariable
     from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
-    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
+    globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
     globals()['EnvironmentVariableAllOfAliasedVariable'] = EnvironmentVariableAllOfAliasedVariable
     globals()['EnvironmentVariableAllOfOverriddenVariable'] = EnvironmentVariableAllOfOverriddenVariable
-    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
     globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 
 
@@ -94,7 +94,7 @@ class EnvironmentVariableAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
+            'scope': (APIVariableScopeEnum,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableAllOfOverriddenVariable,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableAllOfAliasedVariable,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
@@ -127,7 +127,7 @@ class EnvironmentVariableAllOf(ModelNormal):
         """EnvironmentVariableAllOf - a model defined in OpenAPI
 
         Args:
-            scope (EnvironmentVariableScopeEnum):
+            scope (APIVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -221,7 +221,7 @@ class EnvironmentVariableAllOf(ModelNormal):
         """EnvironmentVariableAllOf - a model defined in OpenAPI
 
         Args:
-            scope (EnvironmentVariableScopeEnum):
+            scope (APIVariableScopeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

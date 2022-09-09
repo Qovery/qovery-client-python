@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [readonly] 
 **key** | **str** | key is case sensitive | 
 **value** | **str** | value of the env variable. | 
-**scope** | [**EnvironmentVariableScopeEnum**](EnvironmentVariableScopeEnum.md) |  | 
+**scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **overridden_variable** | [**EnvironmentVariableAllOfOverriddenVariable**](EnvironmentVariableAllOfOverriddenVariable.md) |  | [optional] 
 **aliased_variable** | [**EnvironmentVariableAllOfAliasedVariable**](EnvironmentVariableAllOfAliasedVariable.md) |  | [optional] 

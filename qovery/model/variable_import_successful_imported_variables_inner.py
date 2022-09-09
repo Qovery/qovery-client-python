@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
-    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
+    from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+    globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
 
 
 class VariableImportSuccessfulImportedVariablesInner(ModelNormal):
@@ -89,7 +89,7 @@ class VariableImportSuccessfulImportedVariablesInner(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
+            'scope': (APIVariableScopeEnum,),  # noqa: E501
             'is_secret': (bool,),  # noqa: E501
             'value': (str,),  # noqa: E501
         }
@@ -118,7 +118,7 @@ class VariableImportSuccessfulImportedVariablesInner(ModelNormal):
 
         Args:
             name (str):
-            scope (EnvironmentVariableScopeEnum):
+            scope (APIVariableScopeEnum):
             is_secret (bool):
 
         Keyword Args:
@@ -212,7 +212,7 @@ class VariableImportSuccessfulImportedVariablesInner(ModelNormal):
 
         Args:
             name (str):
-            scope (EnvironmentVariableScopeEnum):
+            scope (APIVariableScopeEnum):
             is_secret (bool):
 
         Keyword Args:

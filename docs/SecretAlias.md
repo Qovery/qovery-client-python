@@ -1,12 +1,12 @@
-# AliasedSecret
+# SecretAlias
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
-**key** | **str** |  | [optional] 
-**scope** | [**EnvironmentVariableScopeEnum**](EnvironmentVariableScopeEnum.md) |  | [optional] 
+**id** | **str** |  | 
+**key** | **str** |  | 
+**scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

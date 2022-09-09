@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
-globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
-from qovery.model.overridden_secret import OverriddenSecret
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+from qovery.model.secret_override import SecretOverride
 
 
-class TestOverriddenSecret(unittest.TestCase):
-    """OverriddenSecret unit test stubs"""
+class TestSecretOverride(unittest.TestCase):
+    """SecretOverride unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestOverriddenSecret(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testOverriddenSecret(self):
-        """Test OverriddenSecret"""
+    def testSecretOverride(self):
+        """Test SecretOverride"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = OverriddenSecret()  # noqa: E501
+        # model = SecretOverride()  # noqa: E501
         pass
 
 

@@ -9,9 +9,9 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
 from qovery.model.account_info import AccountInfo
 from qovery.model.account_info_edit_request import AccountInfoEditRequest
-from qovery.model.aliased_secret import AliasedSecret
 from qovery.model.application import Application
 from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
 from qovery.model.application_all_of import ApplicationAllOf
@@ -211,7 +211,6 @@ from qovery.model.environment_variable_all_of_overridden_variable import Environ
 from qovery.model.environment_variable_edit_request import EnvironmentVariableEditRequest
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from qovery.model.environment_variable_response_list import EnvironmentVariableResponseList
-from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
 from qovery.model.event import Event
 from qovery.model.event_all_of import EventAllOf
 from qovery.model.event_paginated_response_list import EventPaginatedResponseList
@@ -304,7 +303,6 @@ from qovery.model.organization_webhook_event_enum import OrganizationWebhookEven
 from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindEnum
 from qovery.model.organization_webhook_response import OrganizationWebhookResponse
 from qovery.model.organization_webhook_response_list import OrganizationWebhookResponseList
-from qovery.model.overridden_secret import OverriddenSecret
 from qovery.model.pagination_data import PaginationData
 from qovery.model.paid_usage import PaidUsage
 from qovery.model.plan_enum import PlanEnum
@@ -332,8 +330,10 @@ from qovery.model.remaining_credits import RemainingCredits
 from qovery.model.reward_claim import RewardClaim
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
 from qovery.model.secret import Secret
+from qovery.model.secret_alias import SecretAlias
 from qovery.model.secret_all_of import SecretAllOf
 from qovery.model.secret_edit_request import SecretEditRequest
+from qovery.model.secret_override import SecretOverride
 from qovery.model.secret_request import SecretRequest
 from qovery.model.secret_response_list import SecretResponseList
 from qovery.model.service import Service

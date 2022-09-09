@@ -94,6 +94,7 @@ class ServicePortPortsInner(ModelNormal):
             'protocol': (PortProtocolEnum,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'external_port': (int,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +109,7 @@ class ServicePortPortsInner(ModelNormal):
         'protocol': 'protocol',  # noqa: E501
         'name': 'name',  # noqa: E501
         'external_port': 'external_port',  # noqa: E501
+        'is_default': 'is_default',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,6 +161,7 @@ class ServicePortPortsInner(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
+            is_default (bool): is the default port to use for domain & probes check. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,6 +259,7 @@ class ServicePortPortsInner(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
+            is_default (bool): is the default port to use for domain & probes check. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

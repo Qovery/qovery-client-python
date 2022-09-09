@@ -31,19 +31,19 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
     from qovery.model.base import Base
     from qovery.model.environment_variable_all_of import EnvironmentVariableAllOf
     from qovery.model.environment_variable_all_of_aliased_variable import EnvironmentVariableAllOfAliasedVariable
     from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
     from qovery.model.environment_variable_request import EnvironmentVariableRequest
-    from qovery.model.environment_variable_scope_enum import EnvironmentVariableScopeEnum
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
+    globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
     globals()['Base'] = Base
     globals()['EnvironmentVariableAllOf'] = EnvironmentVariableAllOf
     globals()['EnvironmentVariableAllOfAliasedVariable'] = EnvironmentVariableAllOfAliasedVariable
     globals()['EnvironmentVariableAllOfOverriddenVariable'] = EnvironmentVariableAllOfOverriddenVariable
     globals()['EnvironmentVariableRequest'] = EnvironmentVariableRequest
-    globals()['EnvironmentVariableScopeEnum'] = EnvironmentVariableScopeEnum
     globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 
 
@@ -104,7 +104,7 @@ class EnvironmentVariable(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'key': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
-            'scope': (EnvironmentVariableScopeEnum,),  # noqa: E501
+            'scope': (APIVariableScopeEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableAllOfOverriddenVariable,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableAllOfAliasedVariable,),  # noqa: E501
@@ -148,7 +148,7 @@ class EnvironmentVariable(ModelComposed):
             created_at (datetime):
             key (str): key is case sensitive
             value (str): value of the env variable.
-            scope (EnvironmentVariableScopeEnum):
+            scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -260,7 +260,7 @@ class EnvironmentVariable(ModelComposed):
         Keyword Args:
             key (str): key is case sensitive
             value (str): value of the env variable.
-            scope (EnvironmentVariableScopeEnum):
+            scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
