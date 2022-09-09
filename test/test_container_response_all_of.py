@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.reference_object import ReferenceObject
+from qovery.model.service_port_response_list import ServicePortResponseList
 globals()['ReferenceObject'] = ReferenceObject
+globals()['ServicePortResponseList'] = ServicePortResponseList
 from qovery.model.container_response_all_of import ContainerResponseAllOf
 
 

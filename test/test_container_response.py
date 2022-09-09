@@ -16,14 +16,12 @@ import qovery
 from qovery.model.base import Base
 from qovery.model.container_response_all_of import ContainerResponseAllOf
 from qovery.model.reference_object import ReferenceObject
-from qovery.model.service_port import ServicePort
 from qovery.model.service_port_response_list import ServicePortResponseList
 from qovery.model.service_storage import ServiceStorage
 from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
 globals()['Base'] = Base
 globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
 globals()['ReferenceObject'] = ReferenceObject
-globals()['ServicePort'] = ServicePort
 globals()['ServicePortResponseList'] = ServicePortResponseList
 globals()['ServiceStorage'] = ServiceStorage
 globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner

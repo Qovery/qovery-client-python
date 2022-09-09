@@ -36,7 +36,6 @@ def lazy_import():
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
-    from qovery.model.service_port import ServicePort
     from qovery.model.service_port_response_list import ServicePortResponseList
     from qovery.model.service_storage_request import ServiceStorageRequest
     from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
@@ -45,7 +44,6 @@ def lazy_import():
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
-    globals()['ServicePort'] = ServicePort
     globals()['ServicePortResponseList'] = ServicePortResponseList
     globals()['ServiceStorageRequest'] = ServiceStorageRequest
     globals()['ServiceStorageRequestStorageInner'] = ServiceStorageRequestStorageInner
@@ -108,7 +106,6 @@ class ApplicationEditRequest(ModelComposed):
         lazy_import()
         return {
             'storage': ([ServiceStorageRequestStorageInner],),  # noqa: E501
-            'results': ([ServicePort],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
@@ -122,6 +119,7 @@ class ApplicationEditRequest(ModelComposed):
             'healthcheck': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'sticky_session': (bool,),  # noqa: E501
+            'ports': (ServicePortResponseList,),  # noqa: E501
         }
 
     @cached_property
@@ -131,7 +129,6 @@ class ApplicationEditRequest(ModelComposed):
 
     attribute_map = {
         'storage': 'storage',  # noqa: E501
-        'results': 'results',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
@@ -145,6 +142,7 @@ class ApplicationEditRequest(ModelComposed):
         'healthcheck': 'healthcheck',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'sticky_session': 'sticky_session',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
     }
 
     read_only_vars = {
@@ -187,7 +185,6 @@ class ApplicationEditRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
-            results ([ServicePort]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
@@ -201,6 +198,7 @@ class ApplicationEditRequest(ModelComposed):
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
             sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -305,7 +303,6 @@ class ApplicationEditRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
-            results ([ServicePort]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
@@ -319,6 +316,7 @@ class ApplicationEditRequest(ModelComposed):
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
             sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -389,7 +387,6 @@ class ApplicationEditRequest(ModelComposed):
           ],
           'allOf': [
               ApplicationEditRequestAllOf,
-              ServicePortResponseList,
               ServiceStorageRequest,
           ],
           'oneOf': [

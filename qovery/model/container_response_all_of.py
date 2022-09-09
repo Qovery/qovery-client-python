@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.reference_object import ReferenceObject
+    from qovery.model.service_port_response_list import ServicePortResponseList
     globals()['ReferenceObject'] = ReferenceObject
+    globals()['ServicePortResponseList'] = ServicePortResponseList
 
 
 class ContainerResponseAllOf(ModelNormal):
@@ -105,6 +107,7 @@ class ContainerResponseAllOf(ModelNormal):
             'auto_preview': (bool,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
+            'ports': (ServicePortResponseList,),  # noqa: E501
         }
 
     @cached_property
@@ -127,6 +130,7 @@ class ContainerResponseAllOf(ModelNormal):
         'auto_preview': 'auto_preview',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
     }
 
     read_only_vars = {
@@ -186,6 +190,7 @@ class ContainerResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         min_running_instances = kwargs.get('min_running_instances', 1)
@@ -301,6 +306,7 @@ class ContainerResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         min_running_instances = kwargs.get('min_running_instances', 1)
