@@ -35,14 +35,14 @@ def lazy_import():
     from qovery.model.container_response_all_of import ContainerResponseAllOf
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port import ServicePort
-    from qovery.model.service_port_ports_inner import ServicePortPortsInner
+    from qovery.model.service_port_response_list import ServicePortResponseList
     from qovery.model.service_storage import ServiceStorage
     from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
     globals()['Base'] = Base
     globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePort'] = ServicePort
-    globals()['ServicePortPortsInner'] = ServicePortPortsInner
+    globals()['ServicePortResponseList'] = ServicePortResponseList
     globals()['ServiceStorage'] = ServiceStorage
     globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 
@@ -119,7 +119,7 @@ class ContainerResponse(ModelComposed):
             'auto_preview': (bool,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ServiceStorageStorageInner],),  # noqa: E501
-            'ports': ([ServicePortPortsInner],),  # noqa: E501
+            'results': ([ServicePort],),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
         }
@@ -146,7 +146,7 @@ class ContainerResponse(ModelComposed):
         'auto_preview': 'auto_preview',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'storage': 'storage',  # noqa: E501
-        'ports': 'ports',  # noqa: E501
+        'results': 'results',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
     }
@@ -209,7 +209,7 @@ class ContainerResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            results ([ServicePort]): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
         """
@@ -331,7 +331,7 @@ class ContainerResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            results ([ServicePort]): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
         """
@@ -407,7 +407,7 @@ class ContainerResponse(ModelComposed):
           'allOf': [
               Base,
               ContainerResponseAllOf,
-              ServicePort,
+              ServicePortResponseList,
               ServiceStorage,
           ],
           'oneOf': [

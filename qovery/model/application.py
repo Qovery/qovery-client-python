@@ -39,7 +39,7 @@ def lazy_import():
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port import ServicePort
-    from qovery.model.service_port_ports_inner import ServicePortPortsInner
+    from qovery.model.service_port_response_list import ServicePortResponseList
     from qovery.model.service_storage import ServiceStorage
     from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
     globals()['ApplicationAllOf'] = ApplicationAllOf
@@ -50,7 +50,7 @@ def lazy_import():
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePort'] = ServicePort
-    globals()['ServicePortPortsInner'] = ServicePortPortsInner
+    globals()['ServicePortResponseList'] = ServicePortResponseList
     globals()['ServiceStorage'] = ServiceStorage
     globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 
@@ -115,7 +115,7 @@ class Application(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ServiceStorageStorageInner],),  # noqa: E501
-            'ports': ([ServicePortPortsInner],),  # noqa: E501
+            'results': ([ServicePort],),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
@@ -143,7 +143,7 @@ class Application(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'storage': 'storage',  # noqa: E501
-        'ports': 'ports',  # noqa: E501
+        'results': 'results',  # noqa: E501
         'environment': 'environment',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
@@ -207,7 +207,7 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            results ([ServicePort]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
@@ -328,7 +328,7 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            results ([ServicePort]): [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
@@ -415,7 +415,7 @@ class Application(ModelComposed):
           'allOf': [
               ApplicationAllOf,
               Base,
-              ServicePort,
+              ServicePortResponseList,
               ServiceStorage,
           ],
           'oneOf': [

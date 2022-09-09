@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **storage** | [**[ServiceStorageRequestStorageInner]**](ServiceStorageRequestStorageInner.md) |  | [optional] 
-**ports** | [**[ServicePortPortsInner]**](ServicePortPortsInner.md) |  | [optional] 
+**results** | [**[ServicePort]**](ServicePort.md) |  | [optional] 
 **name** | **str** | name is case insensitive | [optional] 
 **description** | **str** | give a description to this application | [optional] 
 **git_repository** | [**ApplicationGitRepositoryRequest**](ApplicationGitRepositoryRequest.md) |  | [optional] 

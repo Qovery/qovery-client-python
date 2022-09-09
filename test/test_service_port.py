@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.service_port_ports_inner import ServicePortPortsInner
-globals()['ServicePortPortsInner'] = ServicePortPortsInner
+from qovery.model.port_protocol_enum import PortProtocolEnum
+globals()['PortProtocolEnum'] = PortProtocolEnum
 from qovery.model.service_port import ServicePort
 
 

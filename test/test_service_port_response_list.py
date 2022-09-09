@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
-globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
-from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
+from qovery.model.service_port import ServicePort
+globals()['ServicePort'] = ServicePort
+from qovery.model.service_port_response_list import ServicePortResponseList
 
 
-class TestEnvironmentVariableAllOfOverriddenVariable(unittest.TestCase):
-    """EnvironmentVariableAllOfOverriddenVariable unit test stubs"""
+class TestServicePortResponseList(unittest.TestCase):
+    """ServicePortResponseList unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestEnvironmentVariableAllOfOverriddenVariable(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEnvironmentVariableAllOfOverriddenVariable(self):
-        """Test EnvironmentVariableAllOfOverriddenVariable"""
+    def testServicePortResponseList(self):
+        """Test ServicePortResponseList"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EnvironmentVariableAllOfOverriddenVariable()  # noqa: E501
+        # model = ServicePortResponseList()  # noqa: E501
         pass
 
 

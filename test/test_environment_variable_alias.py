@@ -13,15 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.service_storage import ServiceStorage
-from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
-globals()['ServiceStorage'] = ServiceStorage
-globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
-from qovery.model.container_storage import ContainerStorage
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+from qovery.model.environment_variable_alias import EnvironmentVariableAlias
 
 
-class TestContainerStorage(unittest.TestCase):
-    """ContainerStorage unit test stubs"""
+class TestEnvironmentVariableAlias(unittest.TestCase):
+    """EnvironmentVariableAlias unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +27,10 @@ class TestContainerStorage(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testContainerStorage(self):
-        """Test ContainerStorage"""
+    def testEnvironmentVariableAlias(self):
+        """Test EnvironmentVariableAlias"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ContainerStorage()  # noqa: E501
+        # model = EnvironmentVariableAlias()  # noqa: E501
         pass
 
 

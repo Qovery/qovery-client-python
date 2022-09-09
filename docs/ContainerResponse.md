@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **max_running_instances** | **int** | Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit.  | defaults to 1
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **storage** | [**[ServiceStorageStorageInner]**](ServiceStorageStorageInner.md) |  | [optional] 
-**ports** | [**[ServicePortPortsInner]**](ServicePortPortsInner.md) |  | [optional] 
+**results** | [**[ServicePort]**](ServicePort.md) |  | [optional] 
 **arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

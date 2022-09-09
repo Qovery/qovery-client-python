@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
-**overridden_variable** | [**EnvironmentVariableAllOfOverriddenVariable**](EnvironmentVariableAllOfOverriddenVariable.md) |  | [optional] 
-**aliased_variable** | [**EnvironmentVariableAllOfAliasedVariable**](EnvironmentVariableAllOfAliasedVariable.md) |  | [optional] 
+**overridden_variable** | [**EnvironmentVariableOverride**](EnvironmentVariableOverride.md) |  | [optional] 
+**aliased_variable** | [**EnvironmentVariableAlias**](EnvironmentVariableAlias.md) |  | [optional] 
 **service_id** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_name** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_type** | [**LinkedServiceTypeEnum**](LinkedServiceTypeEnum.md) |  | [optional] 

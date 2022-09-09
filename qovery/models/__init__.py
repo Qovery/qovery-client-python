@@ -53,7 +53,6 @@ from qovery.model.clone_request import CloneRequest
 from qovery.model.cloud_provider import CloudProvider
 from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cloud_provider_response_list import CloudProviderResponseList
-from qovery.model.cluser_credentials import CluserCredentials
 from qovery.model.cluster import Cluster
 from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from qovery.model.cluster_all_of import ClusterAllOf
@@ -61,7 +60,6 @@ from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
 from qovery.model.cluster_credentials import ClusterCredentials
-from qovery.model.cluster_credentials_request import ClusterCredentialsRequest
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 from qovery.model.cluster_feature import ClusterFeature
 from qovery.model.cluster_feature_accepted_values_inner import ClusterFeatureAcceptedValuesInner
@@ -114,7 +112,6 @@ from qovery.model.container_request_all_of import ContainerRequestAllOf
 from qovery.model.container_response import ContainerResponse
 from qovery.model.container_response_all_of import ContainerResponseAllOf
 from qovery.model.container_response_list import ContainerResponseList
-from qovery.model.container_storage import ContainerStorage
 from qovery.model.cost import Cost
 from qovery.model.cost_range import CostRange
 from qovery.model.create_environment_mode_enum import CreateEnvironmentModeEnum
@@ -205,10 +202,10 @@ from qovery.model.environment_stats_response_list import EnvironmentStatsRespons
 from qovery.model.environment_status_list import EnvironmentStatusList
 from qovery.model.environment_total_number import EnvironmentTotalNumber
 from qovery.model.environment_variable import EnvironmentVariable
+from qovery.model.environment_variable_alias import EnvironmentVariableAlias
 from qovery.model.environment_variable_all_of import EnvironmentVariableAllOf
-from qovery.model.environment_variable_all_of_aliased_variable import EnvironmentVariableAllOfAliasedVariable
-from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
 from qovery.model.environment_variable_edit_request import EnvironmentVariableEditRequest
+from qovery.model.environment_variable_override import EnvironmentVariableOverride
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from qovery.model.environment_variable_response_list import EnvironmentVariableResponseList
 from qovery.model.event import Event
@@ -340,9 +337,9 @@ from qovery.model.service import Service
 from qovery.model.service_all_of import ServiceAllOf
 from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
 from qovery.model.service_port import ServicePort
-from qovery.model.service_port_ports_inner import ServicePortPortsInner
 from qovery.model.service_port_request import ServicePortRequest
 from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
+from qovery.model.service_port_response_list import ServicePortResponseList
 from qovery.model.service_response_list import ServiceResponseList
 from qovery.model.service_storage import ServiceStorage
 from qovery.model.service_storage_request import ServiceStorageRequest

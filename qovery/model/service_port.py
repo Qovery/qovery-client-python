@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.service_port_ports_inner import ServicePortPortsInner
-    globals()['ServicePortPortsInner'] = ServicePortPortsInner
+    from qovery.model.port_protocol_enum import PortProtocolEnum
+    globals()['PortProtocolEnum'] = PortProtocolEnum
 
 
 class ServicePort(ModelNormal):
@@ -88,7 +88,13 @@ class ServicePort(ModelNormal):
         """
         lazy_import()
         return {
-            'ports': ([ServicePortPortsInner],),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'internal_port': (int,),  # noqa: E501
+            'publicly_accessible': (bool,),  # noqa: E501
+            'protocol': (PortProtocolEnum,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'external_port': (int,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +103,13 @@ class ServicePort(ModelNormal):
 
 
     attribute_map = {
-        'ports': 'ports',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'internal_port': 'internal_port',  # noqa: E501
+        'publicly_accessible': 'publicly_accessible',  # noqa: E501
+        'protocol': 'protocol',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'external_port': 'external_port',  # noqa: E501
+        'is_default': 'is_default',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,8 +119,14 @@ class ServicePort(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
         """ServicePort - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            internal_port (int): The listening port of your service.
+            publicly_accessible (bool): Expose the port to the world
+            protocol (PortProtocolEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,7 +159,9 @@ class ServicePort(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
+            is_default (bool): is the default port to use for domain & probes check. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,6 +193,10 @@ class ServicePort(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.internal_port = internal_port
+        self.publicly_accessible = publicly_accessible
+        self.protocol = protocol
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,8 +217,14 @@ class ServicePort(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, internal_port, publicly_accessible, protocol, *args, **kwargs):  # noqa: E501
         """ServicePort - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            internal_port (int): The listening port of your service.
+            publicly_accessible (bool): Expose the port to the world
+            protocol (PortProtocolEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,7 +257,9 @@ class ServicePort(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
+            external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
+            is_default (bool): is the default port to use for domain & probes check. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,6 +289,10 @@ class ServicePort(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.internal_port = internal_port
+        self.publicly_accessible = publicly_accessible
+        self.protocol = protocol
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

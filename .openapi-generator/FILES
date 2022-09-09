@@ -64,7 +64,6 @@ docs/CloudProviderApi.md
 docs/CloudProviderCredentialsApi.md
 docs/CloudProviderEnum.md
 docs/CloudProviderResponseList.md
-docs/CluserCredentials.md
 docs/Cluster.md
 docs/ClusterAdvancedSettings.md
 docs/ClusterAllOf.md
@@ -72,7 +71,6 @@ docs/ClusterCloudProviderInfo.md
 docs/ClusterCloudProviderInfoCredentials.md
 docs/ClusterCloudProviderInfoRequest.md
 docs/ClusterCredentials.md
-docs/ClusterCredentialsRequest.md
 docs/ClusterCredentialsResponseList.md
 docs/ClusterFeature.md
 docs/ClusterFeatureAcceptedValuesInner.md
@@ -138,7 +136,6 @@ docs/ContainerResponse.md
 docs/ContainerResponseAllOf.md
 docs/ContainerResponseList.md
 docs/ContainerSecretApi.md
-docs/ContainerStorage.md
 docs/ContainersApi.md
 docs/Cost.md
 docs/CostRange.md
@@ -245,11 +242,11 @@ docs/EnvironmentStatsResponseList.md
 docs/EnvironmentStatusList.md
 docs/EnvironmentTotalNumber.md
 docs/EnvironmentVariable.md
+docs/EnvironmentVariableAlias.md
 docs/EnvironmentVariableAllOf.md
-docs/EnvironmentVariableAllOfAliasedVariable.md
-docs/EnvironmentVariableAllOfOverriddenVariable.md
 docs/EnvironmentVariableApi.md
 docs/EnvironmentVariableEditRequest.md
+docs/EnvironmentVariableOverride.md
 docs/EnvironmentVariableRequest.md
 docs/EnvironmentVariableResponseList.md
 docs/EnvironmentsApi.md
@@ -396,9 +393,9 @@ docs/Service.md
 docs/ServiceAllOf.md
 docs/ServiceDeploymentStatusEnum.md
 docs/ServicePort.md
-docs/ServicePortPortsInner.md
 docs/ServicePortRequest.md
 docs/ServicePortRequestPortsInner.md
+docs/ServicePortResponseList.md
 docs/ServiceResponseList.md
 docs/ServiceStorage.md
 docs/ServiceStorageRequest.md
@@ -547,7 +544,6 @@ qovery/model/clone_request.py
 qovery/model/cloud_provider.py
 qovery/model/cloud_provider_enum.py
 qovery/model/cloud_provider_response_list.py
-qovery/model/cluser_credentials.py
 qovery/model/cluster.py
 qovery/model/cluster_advanced_settings.py
 qovery/model/cluster_all_of.py
@@ -555,7 +551,6 @@ qovery/model/cluster_cloud_provider_info.py
 qovery/model/cluster_cloud_provider_info_credentials.py
 qovery/model/cluster_cloud_provider_info_request.py
 qovery/model/cluster_credentials.py
-qovery/model/cluster_credentials_request.py
 qovery/model/cluster_credentials_response_list.py
 qovery/model/cluster_feature.py
 qovery/model/cluster_feature_accepted_values_inner.py
@@ -608,7 +603,6 @@ qovery/model/container_request_all_of.py
 qovery/model/container_response.py
 qovery/model/container_response_all_of.py
 qovery/model/container_response_list.py
-qovery/model/container_storage.py
 qovery/model/cost.py
 qovery/model/cost_range.py
 qovery/model/create_environment_mode_enum.py
@@ -699,10 +693,10 @@ qovery/model/environment_stats_response_list.py
 qovery/model/environment_status_list.py
 qovery/model/environment_total_number.py
 qovery/model/environment_variable.py
+qovery/model/environment_variable_alias.py
 qovery/model/environment_variable_all_of.py
-qovery/model/environment_variable_all_of_aliased_variable.py
-qovery/model/environment_variable_all_of_overridden_variable.py
 qovery/model/environment_variable_edit_request.py
+qovery/model/environment_variable_override.py
 qovery/model/environment_variable_request.py
 qovery/model/environment_variable_response_list.py
 qovery/model/event.py
@@ -834,9 +828,9 @@ qovery/model/service.py
 qovery/model/service_all_of.py
 qovery/model/service_deployment_status_enum.py
 qovery/model/service_port.py
-qovery/model/service_port_ports_inner.py
 qovery/model/service_port_request.py
 qovery/model/service_port_request_ports_inner.py
+qovery/model/service_port_response_list.py
 qovery/model/service_response_list.py
 qovery/model/service_storage.py
 qovery/model/service_storage_request.py
@@ -938,7 +932,6 @@ test/test_cloud_provider_api.py
 test/test_cloud_provider_credentials_api.py
 test/test_cloud_provider_enum.py
 test/test_cloud_provider_response_list.py
-test/test_cluser_credentials.py
 test/test_cluster.py
 test/test_cluster_advanced_settings.py
 test/test_cluster_all_of.py
@@ -946,7 +939,6 @@ test/test_cluster_cloud_provider_info.py
 test/test_cluster_cloud_provider_info_credentials.py
 test/test_cluster_cloud_provider_info_request.py
 test/test_cluster_credentials.py
-test/test_cluster_credentials_request.py
 test/test_cluster_credentials_response_list.py
 test/test_cluster_feature.py
 test/test_cluster_feature_accepted_values_inner.py
@@ -1012,7 +1004,6 @@ test/test_container_response.py
 test/test_container_response_all_of.py
 test/test_container_response_list.py
 test/test_container_secret_api.py
-test/test_container_storage.py
 test/test_containers_api.py
 test/test_cost.py
 test/test_cost_range.py
@@ -1119,11 +1110,11 @@ test/test_environment_stats_response_list.py
 test/test_environment_status_list.py
 test/test_environment_total_number.py
 test/test_environment_variable.py
+test/test_environment_variable_alias.py
 test/test_environment_variable_all_of.py
-test/test_environment_variable_all_of_aliased_variable.py
-test/test_environment_variable_all_of_overridden_variable.py
 test/test_environment_variable_api.py
 test/test_environment_variable_edit_request.py
+test/test_environment_variable_override.py
 test/test_environment_variable_request.py
 test/test_environment_variable_response_list.py
 test/test_environments_api.py
@@ -1270,9 +1261,9 @@ test/test_service.py
 test/test_service_all_of.py
 test/test_service_deployment_status_enum.py
 test/test_service_port.py
-test/test_service_port_ports_inner.py
 test/test_service_port_request.py
 test/test_service_port_request_ports_inner.py
+test/test_service_port_response_list.py
 test/test_service_response_list.py
 test/test_service_storage.py
 test/test_service_storage_request.py

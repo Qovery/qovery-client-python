@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_credentials_request import ClusterCredentialsRequest
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+from qovery.model.environment_variable_override import EnvironmentVariableOverride
 
 
-class TestClusterCredentialsRequest(unittest.TestCase):
-    """ClusterCredentialsRequest unit test stubs"""
+class TestEnvironmentVariableOverride(unittest.TestCase):
+    """EnvironmentVariableOverride unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestClusterCredentialsRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterCredentialsRequest(self):
-        """Test ClusterCredentialsRequest"""
+    def testEnvironmentVariableOverride(self):
+        """Test EnvironmentVariableOverride"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterCredentialsRequest()  # noqa: E501
+        # model = EnvironmentVariableOverride()  # noqa: E501
         pass
 
 

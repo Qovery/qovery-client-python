@@ -21,7 +21,7 @@ from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
 from qovery.model.service_port import ServicePort
-from qovery.model.service_port_ports_inner import ServicePortPortsInner
+from qovery.model.service_port_response_list import ServicePortResponseList
 from qovery.model.service_storage import ServiceStorage
 from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
 globals()['ApplicationAllOf'] = ApplicationAllOf
@@ -32,7 +32,7 @@ globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject
 globals()['ServicePort'] = ServicePort
-globals()['ServicePortPortsInner'] = ServicePortPortsInner
+globals()['ServicePortResponseList'] = ServicePortResponseList
 globals()['ServiceStorage'] = ServiceStorage
 globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 from qovery.model.application import Application

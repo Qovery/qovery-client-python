@@ -32,12 +32,12 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
-    from qovery.model.environment_variable_all_of_aliased_variable import EnvironmentVariableAllOfAliasedVariable
-    from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
+    from qovery.model.environment_variable_alias import EnvironmentVariableAlias
+    from qovery.model.environment_variable_override import EnvironmentVariableOverride
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
     globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
-    globals()['EnvironmentVariableAllOfAliasedVariable'] = EnvironmentVariableAllOfAliasedVariable
-    globals()['EnvironmentVariableAllOfOverriddenVariable'] = EnvironmentVariableAllOfOverriddenVariable
+    globals()['EnvironmentVariableAlias'] = EnvironmentVariableAlias
+    globals()['EnvironmentVariableOverride'] = EnvironmentVariableOverride
     globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 
 
@@ -95,8 +95,8 @@ class EnvironmentVariableAllOf(ModelNormal):
         lazy_import()
         return {
             'scope': (APIVariableScopeEnum,),  # noqa: E501
-            'overridden_variable': (EnvironmentVariableAllOfOverriddenVariable,),  # noqa: E501
-            'aliased_variable': (EnvironmentVariableAllOfAliasedVariable,),  # noqa: E501
+            'overridden_variable': (EnvironmentVariableOverride,),  # noqa: E501
+            'aliased_variable': (EnvironmentVariableAlias,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
             'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
@@ -160,8 +160,8 @@ class EnvironmentVariableAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            overridden_variable (EnvironmentVariableAllOfOverriddenVariable): [optional]  # noqa: E501
-            aliased_variable (EnvironmentVariableAllOfAliasedVariable): [optional]  # noqa: E501
+            overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
+            aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
@@ -254,8 +254,8 @@ class EnvironmentVariableAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            overridden_variable (EnvironmentVariableAllOfOverriddenVariable): [optional]  # noqa: E501
-            aliased_variable (EnvironmentVariableAllOfAliasedVariable): [optional]  # noqa: E501
+            overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
+            aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501

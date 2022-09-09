@@ -37,7 +37,7 @@ def lazy_import():
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.service_port import ServicePort
-    from qovery.model.service_port_ports_inner import ServicePortPortsInner
+    from qovery.model.service_port_response_list import ServicePortResponseList
     from qovery.model.service_storage_request import ServiceStorageRequest
     from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
     globals()['ApplicationEditRequestAllOf'] = ApplicationEditRequestAllOf
@@ -46,7 +46,7 @@ def lazy_import():
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
     globals()['ServicePort'] = ServicePort
-    globals()['ServicePortPortsInner'] = ServicePortPortsInner
+    globals()['ServicePortResponseList'] = ServicePortResponseList
     globals()['ServiceStorageRequest'] = ServiceStorageRequest
     globals()['ServiceStorageRequestStorageInner'] = ServiceStorageRequestStorageInner
 
@@ -108,7 +108,7 @@ class ApplicationEditRequest(ModelComposed):
         lazy_import()
         return {
             'storage': ([ServiceStorageRequestStorageInner],),  # noqa: E501
-            'ports': ([ServicePortPortsInner],),  # noqa: E501
+            'results': ([ServicePort],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
@@ -131,7 +131,7 @@ class ApplicationEditRequest(ModelComposed):
 
     attribute_map = {
         'storage': 'storage',  # noqa: E501
-        'ports': 'ports',  # noqa: E501
+        'results': 'results',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
@@ -187,7 +187,7 @@ class ApplicationEditRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            results ([ServicePort]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
@@ -305,7 +305,7 @@ class ApplicationEditRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortPortsInner]): [optional]  # noqa: E501
+            results ([ServicePort]): [optional]  # noqa: E501
             name (str): name is case insensitive. [optional]  # noqa: E501
             description (str): give a description to this application. [optional]  # noqa: E501
             git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
@@ -389,7 +389,7 @@ class ApplicationEditRequest(ModelComposed):
           ],
           'allOf': [
               ApplicationEditRequestAllOf,
-              ServicePort,
+              ServicePortResponseList,
               ServiceStorageRequest,
           ],
           'oneOf': [

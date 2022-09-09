@@ -15,16 +15,16 @@ import unittest
 import qovery
 from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
 from qovery.model.base import Base
+from qovery.model.environment_variable_alias import EnvironmentVariableAlias
 from qovery.model.environment_variable_all_of import EnvironmentVariableAllOf
-from qovery.model.environment_variable_all_of_aliased_variable import EnvironmentVariableAllOfAliasedVariable
-from qovery.model.environment_variable_all_of_overridden_variable import EnvironmentVariableAllOfOverriddenVariable
+from qovery.model.environment_variable_override import EnvironmentVariableOverride
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
 globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
 globals()['Base'] = Base
+globals()['EnvironmentVariableAlias'] = EnvironmentVariableAlias
 globals()['EnvironmentVariableAllOf'] = EnvironmentVariableAllOf
-globals()['EnvironmentVariableAllOfAliasedVariable'] = EnvironmentVariableAllOfAliasedVariable
-globals()['EnvironmentVariableAllOfOverriddenVariable'] = EnvironmentVariableAllOfOverriddenVariable
+globals()['EnvironmentVariableOverride'] = EnvironmentVariableOverride
 globals()['EnvironmentVariableRequest'] = EnvironmentVariableRequest
 globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 from qovery.model.environment_variable import EnvironmentVariable
