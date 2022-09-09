@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.list_container_deployment_history200_response_all_of_results_inner import ListContainerDeploymentHistory200ResponseAllOfResultsInner
-    globals()['ListContainerDeploymentHistory200ResponseAllOfResultsInner'] = ListContainerDeploymentHistory200ResponseAllOfResultsInner
+    from qovery.model.deployment_history_container import DeploymentHistoryContainer
+    globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
 
 
 class ListContainerDeploymentHistory200ResponseAllOf(ModelNormal):
@@ -88,7 +88,7 @@ class ListContainerDeploymentHistory200ResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([ListContainerDeploymentHistory200ResponseAllOfResultsInner],),  # noqa: E501
+            'results': ([DeploymentHistoryContainer],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class ListContainerDeploymentHistory200ResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListContainerDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryContainer]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class ListContainerDeploymentHistory200ResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListContainerDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryContainer]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

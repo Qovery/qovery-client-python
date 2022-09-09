@@ -184,6 +184,8 @@ docs/DeploymentHistory.md
 docs/DeploymentHistoryAllOf.md
 docs/DeploymentHistoryApplication.md
 docs/DeploymentHistoryApplicationAllOf.md
+docs/DeploymentHistoryContainer.md
+docs/DeploymentHistoryContainerAllOf.md
 docs/DeploymentHistoryDatabase.md
 docs/DeploymentHistoryDatabaseAllOf.md
 docs/DeploymentHistoryEnvironment.md
@@ -287,8 +289,6 @@ docs/LinkedServiceTypeEnum.md
 docs/ListClusterLogs200Response.md
 docs/ListContainerDeploymentHistory200Response.md
 docs/ListContainerDeploymentHistory200ResponseAllOf.md
-docs/ListContainerDeploymentHistory200ResponseAllOfResultsInner.md
-docs/ListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf.md
 docs/ListContainerRegistry200Response.md
 docs/ListDatabaseDeploymentHistory200Response.md
 docs/ListDatabaseDeploymentHistory200ResponseAllOf.md
@@ -641,6 +641,8 @@ qovery/model/deployment_history.py
 qovery/model/deployment_history_all_of.py
 qovery/model/deployment_history_application.py
 qovery/model/deployment_history_application_all_of.py
+qovery/model/deployment_history_container.py
+qovery/model/deployment_history_container_all_of.py
 qovery/model/deployment_history_database.py
 qovery/model/deployment_history_database_all_of.py
 qovery/model/deployment_history_environment.py
@@ -734,8 +736,6 @@ qovery/model/linked_service_type_enum.py
 qovery/model/list_cluster_logs200_response.py
 qovery/model/list_container_deployment_history200_response.py
 qovery/model/list_container_deployment_history200_response_all_of.py
-qovery/model/list_container_deployment_history200_response_all_of_results_inner.py
-qovery/model/list_container_deployment_history200_response_all_of_results_inner_all_of.py
 qovery/model/list_container_registry200_response.py
 qovery/model/list_database_deployment_history200_response.py
 qovery/model/list_database_deployment_history200_response_all_of.py
@@ -1052,6 +1052,8 @@ test/test_deployment_history.py
 test/test_deployment_history_all_of.py
 test/test_deployment_history_application.py
 test/test_deployment_history_application_all_of.py
+test/test_deployment_history_container.py
+test/test_deployment_history_container_all_of.py
 test/test_deployment_history_database.py
 test/test_deployment_history_database_all_of.py
 test/test_deployment_history_environment.py
@@ -1155,8 +1157,6 @@ test/test_linked_service_type_enum.py
 test/test_list_cluster_logs200_response.py
 test/test_list_container_deployment_history200_response.py
 test/test_list_container_deployment_history200_response_all_of.py
-test/test_list_container_deployment_history200_response_all_of_results_inner.py
-test/test_list_container_deployment_history200_response_all_of_results_inner_all_of.py
 test/test_list_container_registry200_response.py
 test/test_list_database_deployment_history200_response.py
 test/test_list_database_deployment_history200_response_all_of.py

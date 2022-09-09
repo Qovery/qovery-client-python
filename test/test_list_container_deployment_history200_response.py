@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.deployment_history_container import DeploymentHistoryContainer
 from qovery.model.list_container_deployment_history200_response_all_of import ListContainerDeploymentHistory200ResponseAllOf
-from qovery.model.list_container_deployment_history200_response_all_of_results_inner import ListContainerDeploymentHistory200ResponseAllOfResultsInner
 from qovery.model.pagination_data import PaginationData
+globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
 globals()['ListContainerDeploymentHistory200ResponseAllOf'] = ListContainerDeploymentHistory200ResponseAllOf
-globals()['ListContainerDeploymentHistory200ResponseAllOfResultsInner'] = ListContainerDeploymentHistory200ResponseAllOfResultsInner
 globals()['PaginationData'] = PaginationData
 from qovery.model.list_container_deployment_history200_response import ListContainerDeploymentHistory200Response
 

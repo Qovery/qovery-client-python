@@ -31,11 +31,11 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.deployment_history_container import DeploymentHistoryContainer
     from qovery.model.list_container_deployment_history200_response_all_of import ListContainerDeploymentHistory200ResponseAllOf
-    from qovery.model.list_container_deployment_history200_response_all_of_results_inner import ListContainerDeploymentHistory200ResponseAllOfResultsInner
     from qovery.model.pagination_data import PaginationData
+    globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
     globals()['ListContainerDeploymentHistory200ResponseAllOf'] = ListContainerDeploymentHistory200ResponseAllOf
-    globals()['ListContainerDeploymentHistory200ResponseAllOfResultsInner'] = ListContainerDeploymentHistory200ResponseAllOfResultsInner
     globals()['PaginationData'] = PaginationData
 
 
@@ -94,7 +94,7 @@ class ListContainerDeploymentHistory200Response(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([ListContainerDeploymentHistory200ResponseAllOfResultsInner],),  # noqa: E501
+            'results': ([DeploymentHistoryContainer],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class ListContainerDeploymentHistory200Response(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListContainerDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryContainer]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,7 +255,7 @@ class ListContainerDeploymentHistory200Response(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListContainerDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryContainer]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

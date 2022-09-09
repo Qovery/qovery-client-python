@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
 globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
-from qovery.model.list_container_deployment_history200_response_all_of_results_inner_all_of import ListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf
+from qovery.model.deployment_history_container_all_of import DeploymentHistoryContainerAllOf
 
 
-class TestListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf(unittest.TestCase):
-    """ListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf unit test stubs"""
+class TestDeploymentHistoryContainerAllOf(unittest.TestCase):
+    """DeploymentHistoryContainerAllOf unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf(unitte
     def tearDown(self):
         pass
 
-    def testListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf(self):
-        """Test ListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf"""
+    def testDeploymentHistoryContainerAllOf(self):
+        """Test DeploymentHistoryContainerAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListContainerDeploymentHistory200ResponseAllOfResultsInnerAllOf()  # noqa: E501
+        # model = DeploymentHistoryContainerAllOf()  # noqa: E501
         pass
 
 
