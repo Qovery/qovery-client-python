@@ -32,9 +32,11 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.deployment_history_application import DeploymentHistoryApplication
+    from qovery.model.deployment_history_container import DeploymentHistoryContainer
     from qovery.model.deployment_history_database import DeploymentHistoryDatabase
     from qovery.model.state_enum import StateEnum
     globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
+    globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
     globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
     globals()['StateEnum'] = StateEnum
 
@@ -94,6 +96,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
         return {
             'status': (StateEnum,),  # noqa: E501
             'applications': ([DeploymentHistoryApplication],),  # noqa: E501
+            'containers': ([DeploymentHistoryContainer],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabase],),  # noqa: E501
         }
 
@@ -105,6 +108,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
     attribute_map = {
         'status': 'status',  # noqa: E501
         'applications': 'applications',  # noqa: E501
+        'containers': 'containers',  # noqa: E501
         'databases': 'databases',  # noqa: E501
     }
 
@@ -151,6 +155,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
+            containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """
 
@@ -239,6 +244,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
+            containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """
 

@@ -33,11 +33,13 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.deployment_history_application import DeploymentHistoryApplication
+    from qovery.model.deployment_history_container import DeploymentHistoryContainer
     from qovery.model.deployment_history_database import DeploymentHistoryDatabase
     from qovery.model.deployment_history_environment_all_of import DeploymentHistoryEnvironmentAllOf
     from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
+    globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
     globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
     globals()['DeploymentHistoryEnvironmentAllOf'] = DeploymentHistoryEnvironmentAllOf
     globals()['StateEnum'] = StateEnum
@@ -101,6 +103,7 @@ class DeploymentHistoryEnvironment(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'status': (StateEnum,),  # noqa: E501
             'applications': ([DeploymentHistoryApplication],),  # noqa: E501
+            'containers': ([DeploymentHistoryContainer],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabase],),  # noqa: E501
         }
 
@@ -115,6 +118,7 @@ class DeploymentHistoryEnvironment(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'status': 'status',  # noqa: E501
         'applications': 'applications',  # noqa: E501
+        'containers': 'containers',  # noqa: E501
         'databases': 'databases',  # noqa: E501
     }
 
@@ -165,6 +169,7 @@ class DeploymentHistoryEnvironment(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
+            containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """
 
@@ -272,6 +277,7 @@ class DeploymentHistoryEnvironment(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
+            containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
         """
 
