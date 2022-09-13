@@ -36,8 +36,7 @@ def lazy_import():
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
-    from qovery.model.service_port_request import ServicePortRequest
-    from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
+    from qovery.model.service_port_response_list import ServicePortResponseList
     from qovery.model.service_storage_request import ServiceStorageRequest
     from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
     globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
@@ -45,8 +44,7 @@ def lazy_import():
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
-    globals()['ServicePortRequest'] = ServicePortRequest
-    globals()['ServicePortRequestPortsInner'] = ServicePortRequestPortsInner
+    globals()['ServicePortResponseList'] = ServicePortResponseList
     globals()['ServiceStorageRequest'] = ServiceStorageRequest
     globals()['ServiceStorageRequestStorageInner'] = ServiceStorageRequestStorageInner
 
@@ -110,7 +108,6 @@ class ApplicationRequest(ModelComposed):
             'name': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
             'storage': ([ServiceStorageRequestStorageInner],),  # noqa: E501
-            'ports': ([ServicePortRequestPortsInner],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
@@ -121,6 +118,7 @@ class ApplicationRequest(ModelComposed):
             'max_running_instances': (int,),  # noqa: E501
             'healthcheck': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
+            'ports': (ServicePortResponseList,),  # noqa: E501
         }
 
     @cached_property
@@ -132,7 +130,6 @@ class ApplicationRequest(ModelComposed):
         'name': 'name',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
         'storage': 'storage',  # noqa: E501
-        'ports': 'ports',  # noqa: E501
         'description': 'description',  # noqa: E501
         'build_mode': 'build_mode',  # noqa: E501
         'dockerfile_path': 'dockerfile_path',  # noqa: E501
@@ -143,6 +140,7 @@ class ApplicationRequest(ModelComposed):
         'max_running_instances': 'max_running_instances',  # noqa: E501
         'healthcheck': 'healthcheck',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
     }
 
     read_only_vars = {
@@ -187,7 +185,6 @@ class ApplicationRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -198,6 +195,7 @@ class ApplicationRequest(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -304,7 +302,6 @@ class ApplicationRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
-            ports ([ServicePortRequestPortsInner]): [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -315,6 +312,7 @@ class ApplicationRequest(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -385,7 +383,6 @@ class ApplicationRequest(ModelComposed):
           ],
           'allOf': [
               ApplicationRequestAllOf,
-              ServicePortRequest,
               ServiceStorageRequest,
           ],
           'oneOf': [
