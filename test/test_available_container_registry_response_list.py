@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.available_container_registry_response import AvailableContainerRegistryResponse
 globals()['AvailableContainerRegistryResponse'] = AvailableContainerRegistryResponse
-from qovery.model.list_available_container_registry200_response import ListAvailableContainerRegistry200Response
+from qovery.model.available_container_registry_response_list import AvailableContainerRegistryResponseList
 
 
-class TestListAvailableContainerRegistry200Response(unittest.TestCase):
-    """ListAvailableContainerRegistry200Response unit test stubs"""
+class TestAvailableContainerRegistryResponseList(unittest.TestCase):
+    """AvailableContainerRegistryResponseList unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestListAvailableContainerRegistry200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListAvailableContainerRegistry200Response(self):
-        """Test ListAvailableContainerRegistry200Response"""
+    def testAvailableContainerRegistryResponseList(self):
+        """Test AvailableContainerRegistryResponseList"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListAvailableContainerRegistry200Response()  # noqa: E501
+        # model = AvailableContainerRegistryResponseList()  # noqa: E501
         pass
 
 

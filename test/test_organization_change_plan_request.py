@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.change_plan_request import ChangePlanRequest
+from qovery.model.organization_change_plan_request import OrganizationChangePlanRequest
 
 
-class TestChangePlanRequest(unittest.TestCase):
-    """ChangePlanRequest unit test stubs"""
+class TestOrganizationChangePlanRequest(unittest.TestCase):
+    """OrganizationChangePlanRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestChangePlanRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testChangePlanRequest(self):
-        """Test ChangePlanRequest"""
+    def testOrganizationChangePlanRequest(self):
+        """Test OrganizationChangePlanRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ChangePlanRequest()  # noqa: E501
+        # model = OrganizationChangePlanRequest()  # noqa: E501
         pass
 
 

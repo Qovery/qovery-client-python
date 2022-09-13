@@ -1095,7 +1095,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_cluster_logs**
-> ListClusterLogs200Response list_cluster_logs(organization_id, cluster_id)
+> ClusterLogsResponseList list_cluster_logs(organization_id, cluster_id)
 
 List Cluster Logs
 
@@ -1109,7 +1109,7 @@ List Cluster Logs
 import time
 import qovery
 from qovery.api import clusters_api
-from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
+from qovery.model.cluster_logs_response_list import ClusterLogsResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -1153,7 +1153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListClusterLogs200Response**](ListClusterLogs200Response.md)
+[**ClusterLogsResponseList**](ClusterLogsResponseList.md)
 
 ### Authorization
 

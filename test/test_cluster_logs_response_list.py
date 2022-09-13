@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.cluster_logs import ClusterLogs
+globals()['ClusterLogs'] = ClusterLogs
 from qovery.model.cluster_logs_response_list import ClusterLogsResponseList
 
 

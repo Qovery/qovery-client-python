@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_available_container_registry**
-> ListAvailableContainerRegistry200Response list_available_container_registry()
+> AvailableContainerRegistryResponseList list_available_container_registry()
 
 List supported container registries
 
@@ -397,7 +397,7 @@ List supported container registries by Qovery and get the mandatory authentifica
 import time
 import qovery
 from qovery.api import container_registries_api
-from qovery.model.list_available_container_registry200_response import ListAvailableContainerRegistry200Response
+from qovery.model.available_container_registry_response_list import AvailableContainerRegistryResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -435,7 +435,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ListAvailableContainerRegistry200Response**](ListAvailableContainerRegistry200Response.md)
+[**AvailableContainerRegistryResponseList**](AvailableContainerRegistryResponseList.md)
 
 ### Authorization
 
@@ -459,7 +459,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_container_registry**
-> ListContainerRegistry200Response list_container_registry(organization_id)
+> ContainerRegistryResponseList list_container_registry(organization_id)
 
 List organization container registries
 
@@ -471,7 +471,7 @@ List organization container registries
 import time
 import qovery
 from qovery.api import container_registries_api
-from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
+from qovery.model.container_registry_response_list import ContainerRegistryResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListContainerRegistry200Response**](ListContainerRegistry200Response.md)
+[**ContainerRegistryResponseList**](ContainerRegistryResponseList.md)
 
 ### Authorization
 

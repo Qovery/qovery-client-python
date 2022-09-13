@@ -26,6 +26,7 @@ from qovery.model.cluster import Cluster
 from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
+from qovery.model.cluster_logs_response_list import ClusterLogsResponseList
 from qovery.model.cluster_readiness_status import ClusterReadinessStatus
 from qovery.model.cluster_request import ClusterRequest
 from qovery.model.cluster_response_list import ClusterResponseList
@@ -34,7 +35,6 @@ from qovery.model.cluster_routing_table_request import ClusterRoutingTableReques
 from qovery.model.cluster_status import ClusterStatus
 from qovery.model.cluster_status_get import ClusterStatusGet
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList
-from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
 
 
 class ClustersApi(object):
@@ -744,7 +744,7 @@ class ClustersApi(object):
         )
         self.list_cluster_logs_endpoint = _Endpoint(
             settings={
-                'response_type': (ListClusterLogs200Response,),
+                'response_type': (ClusterLogsResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -2114,7 +2114,7 @@ class ClustersApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ListClusterLogs200Response
+            ClusterLogsResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """

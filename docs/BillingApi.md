@@ -220,7 +220,7 @@ import time
 import qovery
 from qovery.api import billing_api
 from qovery.model.organization import Organization
-from qovery.model.change_plan_request import ChangePlanRequest
+from qovery.model.organization_change_plan_request import OrganizationChangePlanRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -243,9 +243,9 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = billing_api.BillingApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    change_plan_request = ChangePlanRequest(
+    organization_change_plan_request = OrganizationChangePlanRequest(
         plan="plan_example",
-    ) # ChangePlanRequest |  (optional)
+    ) # OrganizationChangePlanRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -259,7 +259,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Change organization plan
-        api_response = api_instance.change_plan(organization_id, change_plan_request=change_plan_request)
+        api_response = api_instance.change_plan(organization_id, organization_change_plan_request=organization_change_plan_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling BillingApi->change_plan: %s\n" % e)
@@ -271,7 +271,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
- **change_plan_request** | [**ChangePlanRequest**](ChangePlanRequest.md)|  | [optional]
+ **organization_change_plan_request** | [**OrganizationChangePlanRequest**](OrganizationChangePlanRequest.md)|  | [optional]
 
 ### Return type
 

@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
+from qovery.model.container_registry_response import ContainerRegistryResponse
+globals()['ContainerRegistryResponse'] = ContainerRegistryResponse
+from qovery.model.container_registry_response_list import ContainerRegistryResponseList
 
 
-class TestAutoDeployContainerEnvironmentsRequest(unittest.TestCase):
-    """AutoDeployContainerEnvironmentsRequest unit test stubs"""
+class TestContainerRegistryResponseList(unittest.TestCase):
+    """ContainerRegistryResponseList unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestAutoDeployContainerEnvironmentsRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAutoDeployContainerEnvironmentsRequest(self):
-        """Test AutoDeployContainerEnvironmentsRequest"""
+    def testContainerRegistryResponseList(self):
+        """Test ContainerRegistryResponseList"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = AutoDeployContainerEnvironmentsRequest()  # noqa: E501
+        # model = ContainerRegistryResponseList()  # noqa: E501
         pass
 
 

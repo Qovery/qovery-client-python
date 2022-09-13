@@ -30,7 +30,7 @@ import time
 import qovery
 from qovery.api import containers_api
 from qovery.model.status import Status
-from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
+from qovery.model.organization_container_auto_deploy_request import OrganizationContainerAutoDeployRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -53,10 +53,10 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = containers_api.ContainersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    auto_deploy_container_environments_request = AutoDeployContainerEnvironmentsRequest(
+    organization_container_auto_deploy_request = OrganizationContainerAutoDeployRequest(
         image_name="image_name_example",
         tag="tag_example",
-    ) # AutoDeployContainerEnvironmentsRequest |  (optional)
+    ) # OrganizationContainerAutoDeployRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -70,7 +70,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Auto deploy containers
-        api_response = api_instance.auto_deploy_container_environments(organization_id, auto_deploy_container_environments_request=auto_deploy_container_environments_request)
+        api_response = api_instance.auto_deploy_container_environments(organization_id, organization_container_auto_deploy_request=organization_container_auto_deploy_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainersApi->auto_deploy_container_environments: %s\n" % e)
@@ -82,7 +82,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
- **auto_deploy_container_environments_request** | [**AutoDeployContainerEnvironmentsRequest**](AutoDeployContainerEnvironmentsRequest.md)|  | [optional]
+ **organization_container_auto_deploy_request** | [**OrganizationContainerAutoDeployRequest**](OrganizationContainerAutoDeployRequest.md)|  | [optional]
 
 ### Return type
 
@@ -653,7 +653,7 @@ import time
 import qovery
 from qovery.api import containers_api
 from qovery.model.status import Status
-from qovery.model.preview_container_environments_request import PreviewContainerEnvironmentsRequest
+from qovery.model.organization_container_preview_request import OrganizationContainerPreviewRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -676,10 +676,10 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = containers_api.ContainersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    preview_container_environments_request = PreviewContainerEnvironmentsRequest(
+    organization_container_preview_request = OrganizationContainerPreviewRequest(
         image_name="image_name_example",
         tag="tag_example",
-    ) # PreviewContainerEnvironmentsRequest |  (optional)
+    ) # OrganizationContainerPreviewRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -693,7 +693,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Preview container environments
-        api_response = api_instance.preview_container_environments(organization_id, preview_container_environments_request=preview_container_environments_request)
+        api_response = api_instance.preview_container_environments(organization_id, organization_container_preview_request=organization_container_preview_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainersApi->preview_container_environments: %s\n" % e)
@@ -705,7 +705,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
- **preview_container_environments_request** | [**PreviewContainerEnvironmentsRequest**](PreviewContainerEnvironmentsRequest.md)|  | [optional]
+ **organization_container_preview_request** | [**OrganizationContainerPreviewRequest**](OrganizationContainerPreviewRequest.md)|  | [optional]
 
 ### Return type
 

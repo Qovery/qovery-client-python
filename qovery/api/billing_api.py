@@ -25,7 +25,6 @@ from qovery.model_utils import (  # noqa: F401
 from qovery.model.billing_info import BillingInfo
 from qovery.model.billing_info_request import BillingInfoRequest
 from qovery.model.billing_status import BillingStatus
-from qovery.model.change_plan_request import ChangePlanRequest
 from qovery.model.cost_range import CostRange
 from qovery.model.credit_card import CreditCard
 from qovery.model.credit_card_request import CreditCardRequest
@@ -34,6 +33,7 @@ from qovery.model.invoice import Invoice
 from qovery.model.invoice_response_list import InvoiceResponseList
 from qovery.model.link import Link
 from qovery.model.organization import Organization
+from qovery.model.organization_change_plan_request import OrganizationChangePlanRequest
 from qovery.model.organization_credit_code_request import OrganizationCreditCodeRequest
 from qovery.model.organization_current_cost import OrganizationCurrentCost
 
@@ -175,7 +175,7 @@ class BillingApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'change_plan_request',
+                    'organization_change_plan_request',
                 ],
                 'required': [
                     'organization_id',
@@ -195,15 +195,15 @@ class BillingApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'change_plan_request':
-                        (ChangePlanRequest,),
+                    'organization_change_plan_request':
+                        (OrganizationChangePlanRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'change_plan_request': 'body',
+                    'organization_change_plan_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -989,7 +989,7 @@ class BillingApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            change_plan_request (ChangePlanRequest): [optional]
+            organization_change_plan_request (OrganizationChangePlanRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

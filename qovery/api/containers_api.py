@@ -22,14 +22,14 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
 from qovery.model.container_request import ContainerRequest
 from qovery.model.container_response import ContainerResponse
 from qovery.model.container_response_list import ContainerResponseList
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.environment_containers_current_scale_response_list import EnvironmentContainersCurrentScaleResponseList
 from qovery.model.environment_containers_storage_response_list import EnvironmentContainersStorageResponseList
-from qovery.model.preview_container_environments_request import PreviewContainerEnvironmentsRequest
+from qovery.model.organization_container_auto_deploy_request import OrganizationContainerAutoDeployRequest
+from qovery.model.organization_container_preview_request import OrganizationContainerPreviewRequest
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from qovery.model.status import Status
 
@@ -59,7 +59,7 @@ class ContainersApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'auto_deploy_container_environments_request',
+                    'organization_container_auto_deploy_request',
                 ],
                 'required': [
                     'organization_id',
@@ -79,15 +79,15 @@ class ContainersApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'auto_deploy_container_environments_request':
-                        (AutoDeployContainerEnvironmentsRequest,),
+                    'organization_container_auto_deploy_request':
+                        (OrganizationContainerAutoDeployRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'auto_deploy_container_environments_request': 'body',
+                    'organization_container_auto_deploy_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -439,7 +439,7 @@ class ContainersApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'preview_container_environments_request',
+                    'organization_container_preview_request',
                 ],
                 'required': [
                     'organization_id',
@@ -459,15 +459,15 @@ class ContainersApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'preview_container_environments_request':
-                        (PreviewContainerEnvironmentsRequest,),
+                    'organization_container_preview_request':
+                        (OrganizationContainerPreviewRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'preview_container_environments_request': 'body',
+                    'organization_container_preview_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -501,7 +501,7 @@ class ContainersApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            auto_deploy_container_environments_request (AutoDeployContainerEnvironmentsRequest): [optional]
+            organization_container_auto_deploy_request (OrganizationContainerAutoDeployRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1083,7 +1083,7 @@ class ContainersApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            preview_container_environments_request (PreviewContainerEnvironmentsRequest): [optional]
+            organization_container_preview_request (OrganizationContainerPreviewRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

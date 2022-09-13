@@ -1,4 +1,4 @@
-# ChangePlanRequest
+# OrganizationChangePlanRequest
 
 
 ## Properties

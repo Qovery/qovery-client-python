@@ -36,8 +36,8 @@ docs/ApplicationRequestAllOf.md
 docs/ApplicationResponseList.md
 docs/ApplicationSecretApi.md
 docs/ApplicationsApi.md
-docs/AutoDeployContainerEnvironmentsRequest.md
 docs/AvailableContainerRegistryResponse.md
+docs/AvailableContainerRegistryResponseList.md
 docs/AwsCredentialsRequest.md
 docs/Backup.md
 docs/BackupAllOf.md
@@ -57,7 +57,6 @@ docs/Budget.md
 docs/BudgetThreshold.md
 docs/BuildModeEnum.md
 docs/BuildPackLanguageEnum.md
-docs/ChangePlanRequest.md
 docs/CloneRequest.md
 docs/CloudProvider.md
 docs/CloudProviderApi.md
@@ -130,6 +129,7 @@ docs/ContainerRegistryRequest.md
 docs/ContainerRegistryRequestConfig.md
 docs/ContainerRegistryResponse.md
 docs/ContainerRegistryResponseAllOf.md
+docs/ContainerRegistryResponseList.md
 docs/ContainerRequest.md
 docs/ContainerRequestAllOf.md
 docs/ContainerResponse.md
@@ -286,11 +286,8 @@ docs/KubernetesEnum.md
 docs/Link.md
 docs/LinkResponseList.md
 docs/LinkedServiceTypeEnum.md
-docs/ListAvailableContainerRegistry200Response.md
-docs/ListClusterLogs200Response.md
 docs/ListContainerDeploymentHistory200Response.md
 docs/ListContainerDeploymentHistory200ResponseAllOf.md
-docs/ListContainerRegistry200Response.md
 docs/ListDatabaseDeploymentHistory200Response.md
 docs/ListDatabaseDeploymentHistory200ResponseAllOf.md
 docs/Log.md
@@ -335,6 +332,9 @@ docs/OrganizationApiTokenCreateAllOf.md
 docs/OrganizationApiTokenCreateRequest.md
 docs/OrganizationApiTokenResponseList.md
 docs/OrganizationApiTokenScope.md
+docs/OrganizationChangePlanRequest.md
+docs/OrganizationContainerAutoDeployRequest.md
+docs/OrganizationContainerPreviewRequest.md
 docs/OrganizationCreditCodeRequest.md
 docs/OrganizationCurrentCost.md
 docs/OrganizationCurrentCostAllOf.md
@@ -355,7 +355,6 @@ docs/PaginationData.md
 docs/PaidUsage.md
 docs/PlanEnum.md
 docs/PortProtocolEnum.md
-docs/PreviewContainerEnvironmentsRequest.md
 docs/Project.md
 docs/ProjectAllOf.md
 docs/ProjectCurrentCost.md
@@ -521,8 +520,8 @@ qovery/model/application_network_request.py
 qovery/model/application_request.py
 qovery/model/application_request_all_of.py
 qovery/model/application_response_list.py
-qovery/model/auto_deploy_container_environments_request.py
 qovery/model/available_container_registry_response.py
+qovery/model/available_container_registry_response_list.py
 qovery/model/aws_credentials_request.py
 qovery/model/backup.py
 qovery/model/backup_all_of.py
@@ -540,7 +539,6 @@ qovery/model/budget.py
 qovery/model/budget_threshold.py
 qovery/model/build_mode_enum.py
 qovery/model/build_pack_language_enum.py
-qovery/model/change_plan_request.py
 qovery/model/clone_request.py
 qovery/model/cloud_provider.py
 qovery/model/cloud_provider_enum.py
@@ -599,6 +597,7 @@ qovery/model/container_registry_request.py
 qovery/model/container_registry_request_config.py
 qovery/model/container_registry_response.py
 qovery/model/container_registry_response_all_of.py
+qovery/model/container_registry_response_list.py
 qovery/model/container_request.py
 qovery/model/container_request_all_of.py
 qovery/model/container_response.py
@@ -734,11 +733,8 @@ qovery/model/kubernetes_enum.py
 qovery/model/link.py
 qovery/model/link_response_list.py
 qovery/model/linked_service_type_enum.py
-qovery/model/list_available_container_registry200_response.py
-qovery/model/list_cluster_logs200_response.py
 qovery/model/list_container_deployment_history200_response.py
 qovery/model/list_container_deployment_history200_response_all_of.py
-qovery/model/list_container_registry200_response.py
 qovery/model/list_database_deployment_history200_response.py
 qovery/model/list_database_deployment_history200_response_all_of.py
 qovery/model/log.py
@@ -779,6 +775,9 @@ qovery/model/organization_api_token_create_all_of.py
 qovery/model/organization_api_token_create_request.py
 qovery/model/organization_api_token_response_list.py
 qovery/model/organization_api_token_scope.py
+qovery/model/organization_change_plan_request.py
+qovery/model/organization_container_auto_deploy_request.py
+qovery/model/organization_container_preview_request.py
 qovery/model/organization_credit_code_request.py
 qovery/model/organization_current_cost.py
 qovery/model/organization_current_cost_all_of.py
@@ -797,7 +796,6 @@ qovery/model/pagination_data.py
 qovery/model/paid_usage.py
 qovery/model/plan_enum.py
 qovery/model/port_protocol_enum.py
-qovery/model/preview_container_environments_request.py
 qovery/model/project.py
 qovery/model/project_all_of.py
 qovery/model/project_current_cost.py
@@ -906,8 +904,8 @@ test/test_application_request_all_of.py
 test/test_application_response_list.py
 test/test_application_secret_api.py
 test/test_applications_api.py
-test/test_auto_deploy_container_environments_request.py
 test/test_available_container_registry_response.py
+test/test_available_container_registry_response_list.py
 test/test_aws_credentials_request.py
 test/test_backup.py
 test/test_backup_all_of.py
@@ -927,7 +925,6 @@ test/test_budget.py
 test/test_budget_threshold.py
 test/test_build_mode_enum.py
 test/test_build_pack_language_enum.py
-test/test_change_plan_request.py
 test/test_clone_request.py
 test/test_cloud_provider.py
 test/test_cloud_provider_api.py
@@ -1000,6 +997,7 @@ test/test_container_registry_request.py
 test/test_container_registry_request_config.py
 test/test_container_registry_response.py
 test/test_container_registry_response_all_of.py
+test/test_container_registry_response_list.py
 test/test_container_request.py
 test/test_container_request_all_of.py
 test/test_container_response.py
@@ -1156,11 +1154,8 @@ test/test_kubernetes_enum.py
 test/test_link.py
 test/test_link_response_list.py
 test/test_linked_service_type_enum.py
-test/test_list_available_container_registry200_response.py
-test/test_list_cluster_logs200_response.py
 test/test_list_container_deployment_history200_response.py
 test/test_list_container_deployment_history200_response_all_of.py
-test/test_list_container_registry200_response.py
 test/test_list_database_deployment_history200_response.py
 test/test_list_database_deployment_history200_response_all_of.py
 test/test_log.py
@@ -1205,6 +1200,9 @@ test/test_organization_api_token_create_all_of.py
 test/test_organization_api_token_create_request.py
 test/test_organization_api_token_response_list.py
 test/test_organization_api_token_scope.py
+test/test_organization_change_plan_request.py
+test/test_organization_container_auto_deploy_request.py
+test/test_organization_container_preview_request.py
 test/test_organization_credit_code_request.py
 test/test_organization_current_cost.py
 test/test_organization_current_cost_all_of.py
@@ -1225,7 +1223,6 @@ test/test_pagination_data.py
 test/test_paid_usage.py
 test/test_plan_enum.py
 test/test_port_protocol_enum.py
-test/test_preview_container_environments_request.py
 test/test_project.py
 test/test_project_all_of.py
 test/test_project_current_cost.py

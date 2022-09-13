@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_logs import ClusterLogs
-globals()['ClusterLogs'] = ClusterLogs
-from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
+from qovery.model.organization_container_auto_deploy_request import OrganizationContainerAutoDeployRequest
 
 
-class TestListClusterLogs200Response(unittest.TestCase):
-    """ListClusterLogs200Response unit test stubs"""
+class TestOrganizationContainerAutoDeployRequest(unittest.TestCase):
+    """OrganizationContainerAutoDeployRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestListClusterLogs200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListClusterLogs200Response(self):
-        """Test ListClusterLogs200Response"""
+    def testOrganizationContainerAutoDeployRequest(self):
+        """Test OrganizationContainerAutoDeployRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListClusterLogs200Response()  # noqa: E501
+        # model = OrganizationContainerAutoDeployRequest()  # noqa: E501
         pass
 
 

@@ -29,8 +29,8 @@ from qovery.model.application_network_request import ApplicationNetworkRequest
 from qovery.model.application_request import ApplicationRequest
 from qovery.model.application_request_all_of import ApplicationRequestAllOf
 from qovery.model.application_response_list import ApplicationResponseList
-from qovery.model.auto_deploy_container_environments_request import AutoDeployContainerEnvironmentsRequest
 from qovery.model.available_container_registry_response import AvailableContainerRegistryResponse
+from qovery.model.available_container_registry_response_list import AvailableContainerRegistryResponseList
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from qovery.model.backup import Backup
 from qovery.model.backup_all_of import BackupAllOf
@@ -48,7 +48,6 @@ from qovery.model.budget import Budget
 from qovery.model.budget_threshold import BudgetThreshold
 from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
-from qovery.model.change_plan_request import ChangePlanRequest
 from qovery.model.clone_request import CloneRequest
 from qovery.model.cloud_provider import CloudProvider
 from qovery.model.cloud_provider_enum import CloudProviderEnum
@@ -107,6 +106,7 @@ from qovery.model.container_registry_request import ContainerRegistryRequest
 from qovery.model.container_registry_request_config import ContainerRegistryRequestConfig
 from qovery.model.container_registry_response import ContainerRegistryResponse
 from qovery.model.container_registry_response_all_of import ContainerRegistryResponseAllOf
+from qovery.model.container_registry_response_list import ContainerRegistryResponseList
 from qovery.model.container_request import ContainerRequest
 from qovery.model.container_request_all_of import ContainerRequestAllOf
 from qovery.model.container_response import ContainerResponse
@@ -242,11 +242,8 @@ from qovery.model.kubernetes_enum import KubernetesEnum
 from qovery.model.link import Link
 from qovery.model.link_response_list import LinkResponseList
 from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
-from qovery.model.list_available_container_registry200_response import ListAvailableContainerRegistry200Response
-from qovery.model.list_cluster_logs200_response import ListClusterLogs200Response
 from qovery.model.list_container_deployment_history200_response import ListContainerDeploymentHistory200Response
 from qovery.model.list_container_deployment_history200_response_all_of import ListContainerDeploymentHistory200ResponseAllOf
-from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
 from qovery.model.list_database_deployment_history200_response import ListDatabaseDeploymentHistory200Response
 from qovery.model.list_database_deployment_history200_response_all_of import ListDatabaseDeploymentHistory200ResponseAllOf
 from qovery.model.log import Log
@@ -287,6 +284,9 @@ from qovery.model.organization_api_token_create_all_of import OrganizationApiTok
 from qovery.model.organization_api_token_create_request import OrganizationApiTokenCreateRequest
 from qovery.model.organization_api_token_response_list import OrganizationApiTokenResponseList
 from qovery.model.organization_api_token_scope import OrganizationApiTokenScope
+from qovery.model.organization_change_plan_request import OrganizationChangePlanRequest
+from qovery.model.organization_container_auto_deploy_request import OrganizationContainerAutoDeployRequest
+from qovery.model.organization_container_preview_request import OrganizationContainerPreviewRequest
 from qovery.model.organization_credit_code_request import OrganizationCreditCodeRequest
 from qovery.model.organization_current_cost import OrganizationCurrentCost
 from qovery.model.organization_current_cost_all_of import OrganizationCurrentCostAllOf
@@ -305,7 +305,6 @@ from qovery.model.pagination_data import PaginationData
 from qovery.model.paid_usage import PaidUsage
 from qovery.model.plan_enum import PlanEnum
 from qovery.model.port_protocol_enum import PortProtocolEnum
-from qovery.model.preview_container_environments_request import PreviewContainerEnvironmentsRequest
 from qovery.model.project import Project
 from qovery.model.project_all_of import ProjectAllOf
 from qovery.model.project_current_cost import ProjectCurrentCost

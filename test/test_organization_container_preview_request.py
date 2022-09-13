@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.container_registry_response import ContainerRegistryResponse
-globals()['ContainerRegistryResponse'] = ContainerRegistryResponse
-from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
+from qovery.model.organization_container_preview_request import OrganizationContainerPreviewRequest
 
 
-class TestListContainerRegistry200Response(unittest.TestCase):
-    """ListContainerRegistry200Response unit test stubs"""
+class TestOrganizationContainerPreviewRequest(unittest.TestCase):
+    """OrganizationContainerPreviewRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestListContainerRegistry200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListContainerRegistry200Response(self):
-        """Test ListContainerRegistry200Response"""
+    def testOrganizationContainerPreviewRequest(self):
+        """Test OrganizationContainerPreviewRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListContainerRegistry200Response()  # noqa: E501
+        # model = OrganizationContainerPreviewRequest()  # noqa: E501
         pass
 
 
