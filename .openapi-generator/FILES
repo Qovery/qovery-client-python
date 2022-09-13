@@ -286,6 +286,7 @@ docs/KubernetesEnum.md
 docs/Link.md
 docs/LinkResponseList.md
 docs/LinkedServiceTypeEnum.md
+docs/ListAvailableContainerRegistry200Response.md
 docs/ListClusterLogs200Response.md
 docs/ListContainerDeploymentHistory200Response.md
 docs/ListContainerDeploymentHistory200ResponseAllOf.md
@@ -733,6 +734,7 @@ qovery/model/kubernetes_enum.py
 qovery/model/link.py
 qovery/model/link_response_list.py
 qovery/model/linked_service_type_enum.py
+qovery/model/list_available_container_registry200_response.py
 qovery/model/list_cluster_logs200_response.py
 qovery/model/list_container_deployment_history200_response.py
 qovery/model/list_container_deployment_history200_response_all_of.py
@@ -1154,6 +1156,7 @@ test/test_kubernetes_enum.py
 test/test_link.py
 test/test_link_response_list.py
 test/test_linked_service_type_enum.py
+test/test_list_available_container_registry200_response.py
 test/test_list_cluster_logs200_response.py
 test/test_list_container_deployment_history200_response.py
 test/test_list_container_deployment_history200_response_all_of.py

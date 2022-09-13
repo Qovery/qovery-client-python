@@ -22,9 +22,9 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.available_container_registry_response import AvailableContainerRegistryResponse
 from qovery.model.container_registry_request import ContainerRegistryRequest
 from qovery.model.container_registry_response import ContainerRegistryResponse
+from qovery.model.list_available_container_registry200_response import ListAvailableContainerRegistry200Response
 from qovery.model.list_container_registry200_response import ListContainerRegistry200Response
 
 
@@ -273,7 +273,7 @@ class ContainerRegistriesApi(object):
         )
         self.list_available_container_registry_endpoint = _Endpoint(
             settings={
-                'response_type': (AvailableContainerRegistryResponse,),
+                'response_type': (ListAvailableContainerRegistry200Response,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -756,7 +756,7 @@ class ContainerRegistriesApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            AvailableContainerRegistryResponse
+            ListAvailableContainerRegistry200Response
                 If the method is called asynchronously, returns the request
                 thread.
         """
