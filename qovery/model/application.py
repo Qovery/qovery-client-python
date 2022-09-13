@@ -37,9 +37,8 @@ def lazy_import():
     from qovery.model.build_mode_enum import BuildModeEnum
     from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
     from qovery.model.healthcheck import Healthcheck
-    from qovery.model.port_protocol_enum import PortProtocolEnum
     from qovery.model.reference_object import ReferenceObject
-    from qovery.model.service_port import ServicePort
+    from qovery.model.service_port_response_list import ServicePortResponseList
     from qovery.model.service_storage import ServiceStorage
     from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
     globals()['ApplicationAllOf'] = ApplicationAllOf
@@ -48,9 +47,8 @@ def lazy_import():
     globals()['BuildModeEnum'] = BuildModeEnum
     globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
     globals()['Healthcheck'] = Healthcheck
-    globals()['PortProtocolEnum'] = PortProtocolEnum
     globals()['ReferenceObject'] = ReferenceObject
-    globals()['ServicePort'] = ServicePort
+    globals()['ServicePortResponseList'] = ServicePortResponseList
     globals()['ServiceStorage'] = ServiceStorage
     globals()['ServiceStorageStorageInner'] = ServiceStorageStorageInner
 
@@ -113,18 +111,13 @@ class Application(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'internal_port': (int,),  # noqa: E501
-            'publicly_accessible': (bool,),  # noqa: E501
-            'protocol': (PortProtocolEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ServiceStorageStorageInner],),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'external_port': (int,),  # noqa: E501
-            'is_default': (bool,),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
@@ -135,6 +128,7 @@ class Application(ModelComposed):
             'max_running_instances': (int,),  # noqa: E501
             'healthcheck': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
+            'ports': (ServicePortResponseList,),  # noqa: E501
         }
 
     @cached_property
@@ -145,18 +139,13 @@ class Application(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
-        'internal_port': 'internal_port',  # noqa: E501
-        'publicly_accessible': 'publicly_accessible',  # noqa: E501
-        'protocol': 'protocol',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'storage': 'storage',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'external_port': 'external_port',  # noqa: E501
-        'is_default': 'is_default',  # noqa: E501
         'environment': 'environment',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'build_mode': 'build_mode',  # noqa: E501
         'dockerfile_path': 'dockerfile_path',  # noqa: E501
@@ -167,9 +156,11 @@ class Application(ModelComposed):
         'max_running_instances': 'max_running_instances',  # noqa: E501
         'healthcheck': 'healthcheck',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
     }
 
     read_only_vars = {
+        'id',  # noqa: E501
         'created_at',  # noqa: E501
         'updated_at',  # noqa: E501
     }
@@ -182,9 +173,6 @@ class Application(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
-            internal_port (int): The listening port of your service.
-            publicly_accessible (bool): Expose the port to the world
-            protocol (PortProtocolEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -217,13 +205,11 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
-            external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
-            is_default (bool): is the default port to use for domain & probes check. [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
+            name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -234,6 +220,7 @@ class Application(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -307,10 +294,6 @@ class Application(ModelComposed):
         """Application - a model defined in OpenAPI
 
         Keyword Args:
-            id (str):
-            internal_port (int): The listening port of your service.
-            publicly_accessible (bool): Expose the port to the world
-            protocol (PortProtocolEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -343,13 +326,11 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
-            external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
-            is_default (bool): is the default port to use for domain & probes check. [optional]  # noqa: E501
             environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
+            name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -360,6 +341,7 @@ class Application(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application. If activated, a preview environment will be automatically cloned at each pull request. . [optional] if omitted the server will use the default value of True  # noqa: E501
+            ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -431,7 +413,6 @@ class Application(ModelComposed):
           'allOf': [
               ApplicationAllOf,
               Base,
-              ServicePort,
               ServiceStorage,
           ],
           'oneOf': [
