@@ -52,13 +52,6 @@ class TestEnvironmentMainCallsApi(unittest.TestCase):
         """
         pass
 
-    def test_list_environment_links(self):
-        """Test case for list_environment_links
-
-        List all URLs of the environment  # noqa: E501
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()
