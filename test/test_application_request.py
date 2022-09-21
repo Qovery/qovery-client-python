@@ -18,7 +18,7 @@ from qovery.model.application_request_all_of import ApplicationRequestAllOf
 from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
 from qovery.model.healthcheck import Healthcheck
-from qovery.model.service_port_response_list import ServicePortResponseList
+from qovery.model.service_port_request_list import ServicePortRequestList
 from qovery.model.service_storage_request import ServiceStorageRequest
 from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
 globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
@@ -26,7 +26,7 @@ globals()['ApplicationRequestAllOf'] = ApplicationRequestAllOf
 globals()['BuildModeEnum'] = BuildModeEnum
 globals()['BuildPackLanguageEnum'] = BuildPackLanguageEnum
 globals()['Healthcheck'] = Healthcheck
-globals()['ServicePortResponseList'] = ServicePortResponseList
+globals()['ServicePortRequestList'] = ServicePortRequestList
 globals()['ServiceStorageRequest'] = ServiceStorageRequest
 globals()['ServiceStorageRequestStorageInner'] = ServiceStorageRequestStorageInner
 from qovery.model.application_request import ApplicationRequest
