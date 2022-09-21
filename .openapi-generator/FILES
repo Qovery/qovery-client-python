@@ -394,7 +394,6 @@ docs/ServiceAllOf.md
 docs/ServiceDeploymentStatusEnum.md
 docs/ServicePort.md
 docs/ServicePortRequest.md
-docs/ServicePortRequestList.md
 docs/ServicePortRequestPortsInner.md
 docs/ServicePortResponseList.md
 docs/ServiceResponseList.md
@@ -830,7 +829,6 @@ qovery/model/service_all_of.py
 qovery/model/service_deployment_status_enum.py
 qovery/model/service_port.py
 qovery/model/service_port_request.py
-qovery/model/service_port_request_list.py
 qovery/model/service_port_request_ports_inner.py
 qovery/model/service_port_response_list.py
 qovery/model/service_response_list.py
@@ -1264,7 +1262,6 @@ test/test_service_all_of.py
 test/test_service_deployment_status_enum.py
 test/test_service_port.py
 test/test_service_port_request.py
-test/test_service_port_request_list.py
 test/test_service_port_request_ports_inner.py
 test/test_service_port_response_list.py
 test/test_service_response_list.py

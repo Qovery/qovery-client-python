@@ -338,7 +338,6 @@ from qovery.model.service_all_of import ServiceAllOf
 from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
 from qovery.model.service_port import ServicePort
 from qovery.model.service_port_request import ServicePortRequest
-from qovery.model.service_port_request_list import ServicePortRequestList
 from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
 from qovery.model.service_port_response_list import ServicePortResponseList
 from qovery.model.service_response_list import ServiceResponseList

@@ -732,7 +732,6 @@ Class | Method | HTTP request | Description
  - [ServiceDeploymentStatusEnum](docs/ServiceDeploymentStatusEnum.md)
  - [ServicePort](docs/ServicePort.md)
  - [ServicePortRequest](docs/ServicePortRequest.md)
- - [ServicePortRequestList](docs/ServicePortRequestList.md)
  - [ServicePortRequestPortsInner](docs/ServicePortRequestPortsInner.md)
  - [ServicePortResponseList](docs/ServicePortResponseList.md)
  - [ServiceResponseList](docs/ServiceResponseList.md)
