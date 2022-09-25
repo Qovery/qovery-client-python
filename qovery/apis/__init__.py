@@ -54,6 +54,7 @@ from qovery.api.database_main_calls_api import DatabaseMainCallsApi
 from qovery.api.database_metrics_api import DatabaseMetricsApi
 from qovery.api.databases_api import DatabasesApi
 from qovery.api.dependency_api import DependencyApi
+from qovery.api.environment_api import EnvironmentApi
 from qovery.api.environment_actions_api import EnvironmentActionsApi
 from qovery.api.environment_deployment_history_api import EnvironmentDeploymentHistoryApi
 from qovery.api.environment_deployment_rule_api import EnvironmentDeploymentRuleApi

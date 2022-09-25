@@ -204,6 +204,7 @@ docs/Environment.md
 docs/EnvironmentActionsApi.md
 docs/EnvironmentAllOf.md
 docs/EnvironmentAllOfCloudProvider.md
+docs/EnvironmentApi.md
 docs/EnvironmentApplicationsCurrentScale.md
 docs/EnvironmentApplicationsCurrentScaleResponseList.md
 docs/EnvironmentApplicationsInstanceResponseList.md
@@ -473,6 +474,7 @@ qovery/api/database_metrics_api.py
 qovery/api/databases_api.py
 qovery/api/dependency_api.py
 qovery/api/environment_actions_api.py
+qovery/api/environment_api.py
 qovery/api/environment_deployment_history_api.py
 qovery/api/environment_deployment_rule_api.py
 qovery/api/environment_logs_api.py
@@ -1072,6 +1074,7 @@ test/test_environment.py
 test/test_environment_actions_api.py
 test/test_environment_all_of.py
 test/test_environment_all_of_cloud_provider.py
+test/test_environment_api.py
 test/test_environment_applications_current_scale.py
 test/test_environment_applications_current_scale_response_list.py
 test/test_environment_applications_instance_response_list.py
