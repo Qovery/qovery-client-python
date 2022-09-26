@@ -346,6 +346,7 @@ Class | Method | HTTP request | Description
 *LogicalDatabaseApi* | [**list_logical_database_database**](docs/LogicalDatabaseApi.md#list_logical_database_database) | **GET** /database/{databaseId}/logicalDatabase | List logical databases of a database
 *MembersApi* | [**delete_invite_member**](docs/MembersApi.md#delete_invite_member) | **DELETE** /organization/{organizationId}/inviteMember/{inviteId} | Remove an invited member
 *MembersApi* | [**delete_member**](docs/MembersApi.md#delete_member) | **DELETE** /organization/{organizationId}/member/{userId} | Remove a member
+*MembersApi* | [**edit_organization_member_role**](docs/MembersApi.md#edit_organization_member_role) | **PUT** /organization/{organizationId}/member | Edit an organization member role
 *MembersApi* | [**get_organization_invited_members**](docs/MembersApi.md#get_organization_invited_members) | **GET** /organization/{organizationId}/inviteMember | Get invited members
 *MembersApi* | [**get_organization_members**](docs/MembersApi.md#get_organization_members) | **GET** /organization/{organizationId}/member | Get organization members
 *MembersApi* | [**post_accept_invite_member**](docs/MembersApi.md#post_accept_invite_member) | **POST** /organization/{organizationId}/inviteMember/{inviteId} | Accept Invite in the organization
@@ -361,11 +362,17 @@ Class | Method | HTTP request | Description
 *OrganizationApiTokenApi* | [**create_organization_api_token**](docs/OrganizationApiTokenApi.md#create_organization_api_token) | **POST** /organization/{organizationId}/apiToken | Create an organization api token
 *OrganizationApiTokenApi* | [**delete_organization_api_token**](docs/OrganizationApiTokenApi.md#delete_organization_api_token) | **DELETE** /organization/{organizationId}/apiToken/{apiTokenId} | Delete organization api token
 *OrganizationApiTokenApi* | [**list_organization_api_tokens**](docs/OrganizationApiTokenApi.md#list_organization_api_tokens) | **GET** /organization/{organizationId}/apiToken | List organization api tokens
+*OrganizationCustomRoleApi* | [**create_organization_custom_role**](docs/OrganizationCustomRoleApi.md#create_organization_custom_role) | **POST** /organization/{organizationId}/customRole | Create an organization custom role
+*OrganizationCustomRoleApi* | [**delete_organization_custom_role**](docs/OrganizationCustomRoleApi.md#delete_organization_custom_role) | **DELETE** /organization/{organizationId}/customRole/{customRoleId} | Delete organization custom role
+*OrganizationCustomRoleApi* | [**edit_organization_custom_role**](docs/OrganizationCustomRoleApi.md#edit_organization_custom_role) | **PUT** /organization/{organizationId}/customRole/{customRoleId} | Edit an organization custom role
+*OrganizationCustomRoleApi* | [**get_organization_custom_role**](docs/OrganizationCustomRoleApi.md#get_organization_custom_role) | **GET** /organization/{organizationId}/customRole/{customRoleId} | Get an organization custom role 
+*OrganizationCustomRoleApi* | [**list_organization_custom_roles**](docs/OrganizationCustomRoleApi.md#list_organization_custom_roles) | **GET** /organization/{organizationId}/customRole | List organization custom roles
 *OrganizationMainCallsApi* | [**create_organization**](docs/OrganizationMainCallsApi.md#create_organization) | **POST** /organization | Create an organization
 *OrganizationMainCallsApi* | [**delete_organization**](docs/OrganizationMainCallsApi.md#delete_organization) | **DELETE** /organization/{organizationId} | Delete an organization
 *OrganizationMainCallsApi* | [**edit_organization**](docs/OrganizationMainCallsApi.md#edit_organization) | **PUT** /organization/{organizationId} | Edit an organization
 *OrganizationMainCallsApi* | [**get_organization**](docs/OrganizationMainCallsApi.md#get_organization) | **GET** /organization/{organizationId} | Get organization by ID
 *OrganizationMainCallsApi* | [**list_organization**](docs/OrganizationMainCallsApi.md#list_organization) | **GET** /organization | List user organizations
+*OrganizationMainCallsApi* | [**list_organization_available_roles**](docs/OrganizationMainCallsApi.md#list_organization_available_roles) | **GET** /organization/{organizationId}/availableRole | List organization available roles
 *OrganizationWebhookApi* | [**create_organization_webhook**](docs/OrganizationWebhookApi.md#create_organization_webhook) | **POST** /organization/{organizationId}/webhook | Create an organization webhook
 *OrganizationWebhookApi* | [**delete_organization_webhook**](docs/OrganizationWebhookApi.md#delete_organization_webhook) | **DELETE** /organization/{organizationId}/webhook/{webhookId} | Delete organization webhook
 *OrganizationWebhookApi* | [**edit_organization_webhook**](docs/OrganizationWebhookApi.md#edit_organization_webhook) | **PUT** /organization/{organizationId}/webhook/{webhookId} | Edit an organization webhook
@@ -536,6 +543,7 @@ Class | Method | HTTP request | Description
  - [DatabaseResponseList](docs/DatabaseResponseList.md)
  - [DatabaseTypeEnum](docs/DatabaseTypeEnum.md)
  - [DatabaseVersionMode](docs/DatabaseVersionMode.md)
+ - [DefaultMemberRole](docs/DefaultMemberRole.md)
  - [DeployAllRequest](docs/DeployAllRequest.md)
  - [DeployAllRequestApplicationsInner](docs/DeployAllRequestApplicationsInner.md)
  - [DeployAllRequestContainersInner](docs/DeployAllRequestContainersInner.md)
@@ -651,6 +659,7 @@ Class | Method | HTTP request | Description
  - [Member](docs/Member.md)
  - [MemberAllOf](docs/MemberAllOf.md)
  - [MemberResponseList](docs/MemberResponseList.md)
+ - [MemberRoleUpdateRequest](docs/MemberRoleUpdateRequest.md)
  - [MetricCPU](docs/MetricCPU.md)
  - [MetricCPUDatapoint](docs/MetricCPUDatapoint.md)
  - [MetricCPUDatapointResponseList](docs/MetricCPUDatapointResponseList.md)
@@ -678,12 +687,24 @@ Class | Method | HTTP request | Description
  - [OrganizationApiTokenCreateRequest](docs/OrganizationApiTokenCreateRequest.md)
  - [OrganizationApiTokenResponseList](docs/OrganizationApiTokenResponseList.md)
  - [OrganizationApiTokenScope](docs/OrganizationApiTokenScope.md)
+ - [OrganizationAvailableRole](docs/OrganizationAvailableRole.md)
+ - [OrganizationAvailableRoleList](docs/OrganizationAvailableRoleList.md)
  - [OrganizationChangePlanRequest](docs/OrganizationChangePlanRequest.md)
  - [OrganizationContainerAutoDeployRequest](docs/OrganizationContainerAutoDeployRequest.md)
  - [OrganizationContainerPreviewRequest](docs/OrganizationContainerPreviewRequest.md)
  - [OrganizationCreditCodeRequest](docs/OrganizationCreditCodeRequest.md)
  - [OrganizationCurrentCost](docs/OrganizationCurrentCost.md)
  - [OrganizationCurrentCostAllOf](docs/OrganizationCurrentCostAllOf.md)
+ - [OrganizationCustomRole](docs/OrganizationCustomRole.md)
+ - [OrganizationCustomRoleClusterPermission](docs/OrganizationCustomRoleClusterPermission.md)
+ - [OrganizationCustomRoleClusterPermissionsInner](docs/OrganizationCustomRoleClusterPermissionsInner.md)
+ - [OrganizationCustomRoleList](docs/OrganizationCustomRoleList.md)
+ - [OrganizationCustomRoleProjectPermission](docs/OrganizationCustomRoleProjectPermission.md)
+ - [OrganizationCustomRoleProjectPermissionsInner](docs/OrganizationCustomRoleProjectPermissionsInner.md)
+ - [OrganizationCustomRoleRequest](docs/OrganizationCustomRoleRequest.md)
+ - [OrganizationCustomRoleRequestClusterPermissionsInner](docs/OrganizationCustomRoleRequestClusterPermissionsInner.md)
+ - [OrganizationCustomRoleRequestProjectPermissionsInner](docs/OrganizationCustomRoleRequestProjectPermissionsInner.md)
+ - [OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner](docs/OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner.md)
  - [OrganizationEditRequest](docs/OrganizationEditRequest.md)
  - [OrganizationGithubAppConnectRequest](docs/OrganizationGithubAppConnectRequest.md)
  - [OrganizationRequest](docs/OrganizationRequest.md)

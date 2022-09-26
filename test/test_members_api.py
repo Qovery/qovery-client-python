@@ -38,6 +38,13 @@ class TestMembersApi(unittest.TestCase):
         """
         pass
 
+    def test_edit_organization_member_role(self):
+        """Test case for edit_organization_member_role
+
+        Edit an organization member role  # noqa: E501
+        """
+        pass
+
     def test_get_organization_invited_members(self):
         """Test case for get_organization_invited_members
 

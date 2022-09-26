@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_invite_member**](MembersApi.md#delete_invite_member) | **DELETE** /organization/{organizationId}/inviteMember/{inviteId} | Remove an invited member
 [**delete_member**](MembersApi.md#delete_member) | **DELETE** /organization/{organizationId}/member/{userId} | Remove a member
+[**edit_organization_member_role**](MembersApi.md#edit_organization_member_role) | **PUT** /organization/{organizationId}/member | Edit an organization member role
 [**get_organization_invited_members**](MembersApi.md#get_organization_invited_members) | **GET** /organization/{organizationId}/inviteMember | Get invited members
 [**get_organization_members**](MembersApi.md#get_organization_members) | **GET** /organization/{organizationId}/member | Get organization members
 [**post_accept_invite_member**](MembersApi.md#post_accept_invite_member) | **POST** /organization/{organizationId}/inviteMember/{inviteId} | Accept Invite in the organization
@@ -161,6 +162,100 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **edit_organization_member_role**
+> edit_organization_member_role(organization_id)
+
+Edit an organization member role
+
+Edit an organization member role
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import members_api
+from qovery.model.member_role_update_request import MemberRoleUpdateRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = members_api.MembersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    member_role_update_request = MemberRoleUpdateRequest(
+        user_id="user_id_example",
+        custom_role_id="custom_role_id_example",
+        default_role_name=DefaultMemberRole("VIEWER"),
+    ) # MemberRoleUpdateRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit an organization member role
+        api_instance.edit_organization_member_role(organization_id)
+    except qovery.ApiException as e:
+        print("Exception when calling MembersApi->edit_organization_member_role: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Edit an organization member role
+        api_instance.edit_organization_member_role(organization_id, member_role_update_request=member_role_update_request)
+    except qovery.ApiException as e:
+        print("Exception when calling MembersApi->edit_organization_member_role: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **member_role_update_request** | [**MemberRoleUpdateRequest**](MemberRoleUpdateRequest.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Edit an organization member role |  -  |
+**400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

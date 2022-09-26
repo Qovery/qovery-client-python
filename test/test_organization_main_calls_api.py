@@ -59,6 +59,13 @@ class TestOrganizationMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_list_organization_available_roles(self):
+        """Test case for list_organization_available_roles
+
+        List organization available roles  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
