@@ -26,8 +26,8 @@ Create an organization custom role
 import time
 import qovery
 from qovery.api import organization_custom_role_api
+from qovery.model.organization_custom_role_create_request import OrganizationCustomRoleCreateRequest
 from qovery.model.organization_custom_role import OrganizationCustomRole
-from qovery.model.organization_custom_role_request import OrganizationCustomRoleRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -50,28 +50,10 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    organization_custom_role_request = OrganizationCustomRoleRequest(
+    organization_custom_role_create_request = OrganizationCustomRoleCreateRequest(
         name="name_example",
         description="description_example",
-        cluster_permissions=[
-            OrganizationCustomRoleRequestClusterPermissionsInner(
-                cluster_id="cluster_id_example",
-                permission=OrganizationCustomRoleClusterPermission("VIEWER"),
-            ),
-        ],
-        project_permissions=[
-            OrganizationCustomRoleRequestProjectPermissionsInner(
-                project_id="project_id_example",
-                is_admin=False,
-                permissions=[
-                    OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner(
-                        environment_type=EnvironmentModeEnum("PRODUCTION"),
-                        permission=OrganizationCustomRoleProjectPermission("NO_ACCESS"),
-                    ),
-                ],
-            ),
-        ],
-    ) # OrganizationCustomRoleRequest |  (optional)
+    ) # OrganizationCustomRoleCreateRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -85,7 +67,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an organization custom role
-        api_response = api_instance.create_organization_custom_role(organization_id, organization_custom_role_request=organization_custom_role_request)
+        api_response = api_instance.create_organization_custom_role(organization_id, organization_custom_role_create_request=organization_custom_role_create_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationCustomRoleApi->create_organization_custom_role: %s\n" % e)
@@ -97,7 +79,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
- **organization_custom_role_request** | [**OrganizationCustomRoleRequest**](OrganizationCustomRoleRequest.md)|  | [optional]
+ **organization_custom_role_create_request** | [**OrganizationCustomRoleCreateRequest**](OrganizationCustomRoleCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -218,7 +200,7 @@ import time
 import qovery
 from qovery.api import organization_custom_role_api
 from qovery.model.organization_custom_role import OrganizationCustomRole
-from qovery.model.organization_custom_role_request import OrganizationCustomRoleRequest
+from qovery.model.organization_custom_role_update_request import OrganizationCustomRoleUpdateRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -241,28 +223,28 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    organization_custom_role_request = OrganizationCustomRoleRequest(
+    organization_custom_role_update_request = OrganizationCustomRoleUpdateRequest(
         name="name_example",
         description="description_example",
         cluster_permissions=[
-            OrganizationCustomRoleRequestClusterPermissionsInner(
+            OrganizationCustomRoleUpdateRequestClusterPermissionsInner(
                 cluster_id="cluster_id_example",
                 permission=OrganizationCustomRoleClusterPermission("VIEWER"),
             ),
         ],
         project_permissions=[
-            OrganizationCustomRoleRequestProjectPermissionsInner(
+            OrganizationCustomRoleUpdateRequestProjectPermissionsInner(
                 project_id="project_id_example",
                 is_admin=False,
                 permissions=[
-                    OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner(
+                    OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner(
                         environment_type=EnvironmentModeEnum("PRODUCTION"),
                         permission=OrganizationCustomRoleProjectPermission("NO_ACCESS"),
                     ),
                 ],
             ),
         ],
-    ) # OrganizationCustomRoleRequest |  (optional)
+    ) # OrganizationCustomRoleUpdateRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -276,7 +258,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit an organization custom role
-        api_response = api_instance.edit_organization_custom_role(organization_id, organization_custom_role_request=organization_custom_role_request)
+        api_response = api_instance.edit_organization_custom_role(organization_id, organization_custom_role_update_request=organization_custom_role_update_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationCustomRoleApi->edit_organization_custom_role: %s\n" % e)
@@ -288,7 +270,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
- **organization_custom_role_request** | [**OrganizationCustomRoleRequest**](OrganizationCustomRoleRequest.md)|  | [optional]
+ **organization_custom_role_update_request** | [**OrganizationCustomRoleUpdateRequest**](OrganizationCustomRoleUpdateRequest.md)|  | [optional]
 
 ### Return type
 

@@ -17,11 +17,11 @@ from qovery.model.environment_mode_enum import EnvironmentModeEnum
 from qovery.model.organization_custom_role_project_permission import OrganizationCustomRoleProjectPermission
 globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
 globals()['OrganizationCustomRoleProjectPermission'] = OrganizationCustomRoleProjectPermission
-from qovery.model.organization_custom_role_request_project_permissions_inner_permissions_inner import OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner
+from qovery.model.organization_custom_role_update_request_project_permissions_inner_permissions_inner import OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner
 
 
-class TestOrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner(unittest.TestCase):
-    """OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner unit test stubs"""
+class TestOrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner(unittest.TestCase):
+    """OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestOrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner(u
     def tearDown(self):
         pass
 
-    def testOrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner(self):
-        """Test OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner"""
+    def testOrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner(self):
+        """Test OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = OrganizationCustomRoleRequestProjectPermissionsInnerPermissionsInner()  # noqa: E501
+        # model = OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner()  # noqa: E501
         pass
 
 

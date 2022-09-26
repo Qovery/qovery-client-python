@@ -1,4 +1,4 @@
-# OrganizationCustomRoleRequestClusterPermissionsInner
+# OrganizationCustomRoleUpdateRequestClusterPermissionsInner
 
 
 ## Properties

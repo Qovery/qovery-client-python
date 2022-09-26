@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.organization_custom_role_cluster_permission import OrganizationCustomRoleClusterPermission
 globals()['OrganizationCustomRoleClusterPermission'] = OrganizationCustomRoleClusterPermission
-from qovery.model.organization_custom_role_request_cluster_permissions_inner import OrganizationCustomRoleRequestClusterPermissionsInner
+from qovery.model.organization_custom_role_update_request_cluster_permissions_inner import OrganizationCustomRoleUpdateRequestClusterPermissionsInner
 
 
-class TestOrganizationCustomRoleRequestClusterPermissionsInner(unittest.TestCase):
-    """OrganizationCustomRoleRequestClusterPermissionsInner unit test stubs"""
+class TestOrganizationCustomRoleUpdateRequestClusterPermissionsInner(unittest.TestCase):
+    """OrganizationCustomRoleUpdateRequestClusterPermissionsInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestOrganizationCustomRoleRequestClusterPermissionsInner(unittest.TestCase
     def tearDown(self):
         pass
 
-    def testOrganizationCustomRoleRequestClusterPermissionsInner(self):
-        """Test OrganizationCustomRoleRequestClusterPermissionsInner"""
+    def testOrganizationCustomRoleUpdateRequestClusterPermissionsInner(self):
+        """Test OrganizationCustomRoleUpdateRequestClusterPermissionsInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = OrganizationCustomRoleRequestClusterPermissionsInner()  # noqa: E501
+        # model = OrganizationCustomRoleUpdateRequestClusterPermissionsInner()  # noqa: E501
         pass
 
 

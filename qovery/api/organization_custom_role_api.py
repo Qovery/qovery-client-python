@@ -23,8 +23,9 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.organization_custom_role import OrganizationCustomRole
+from qovery.model.organization_custom_role_create_request import OrganizationCustomRoleCreateRequest
 from qovery.model.organization_custom_role_list import OrganizationCustomRoleList
-from qovery.model.organization_custom_role_request import OrganizationCustomRoleRequest
+from qovery.model.organization_custom_role_update_request import OrganizationCustomRoleUpdateRequest
 
 
 class OrganizationCustomRoleApi(object):
@@ -52,7 +53,7 @@ class OrganizationCustomRoleApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'organization_custom_role_request',
+                    'organization_custom_role_create_request',
                 ],
                 'required': [
                     'organization_id',
@@ -72,15 +73,15 @@ class OrganizationCustomRoleApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'organization_custom_role_request':
-                        (OrganizationCustomRoleRequest,),
+                    'organization_custom_role_create_request':
+                        (OrganizationCustomRoleCreateRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'organization_custom_role_request': 'body',
+                    'organization_custom_role_create_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -158,7 +159,7 @@ class OrganizationCustomRoleApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'organization_custom_role_request',
+                    'organization_custom_role_update_request',
                 ],
                 'required': [
                     'organization_id',
@@ -178,15 +179,15 @@ class OrganizationCustomRoleApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'organization_custom_role_request':
-                        (OrganizationCustomRoleRequest,),
+                    'organization_custom_role_update_request':
+                        (OrganizationCustomRoleUpdateRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'organization_custom_role_request': 'body',
+                    'organization_custom_role_update_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -328,7 +329,7 @@ class OrganizationCustomRoleApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            organization_custom_role_request (OrganizationCustomRoleRequest): [optional]
+            organization_custom_role_create_request (OrganizationCustomRoleCreateRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -495,7 +496,7 @@ class OrganizationCustomRoleApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            organization_custom_role_request (OrganizationCustomRoleRequest): [optional]
+            organization_custom_role_update_request (OrganizationCustomRoleUpdateRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
