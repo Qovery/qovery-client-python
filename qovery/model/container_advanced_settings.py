@@ -99,6 +99,12 @@ class ContainerAdvancedSettings(ModelNormal):
             'network_ingress_cors_allow_methods': (str,),  # noqa: E501
             'network_ingress_cors_allow_headers': (str,),  # noqa: E501
             'network_ingress_proxy_buffer_size_kb': (int,),  # noqa: E501
+            'network_ingress_keepalive_time_seconds': (int,),  # noqa: E501
+            'network_ingress_keepalive_timeout_seconds': (int,),  # noqa: E501
+            'network_ingress_send_timeout_seconds': (int,),  # noqa: E501
+            'network_ingress_proxy_connect_timeout_seconds': (int,),  # noqa: E501
+            'network_ingress_proxy_send_timeout_seconds': (int,),  # noqa: E501
+            'network_ingress_proxy_read_timeout_seconds': (int,),  # noqa: E501
             'network_ingress_whitelist_source_range': (str,),  # noqa: E501
             'readiness_probe_type': (str,),  # noqa: E501
             'readiness_probe_http_get_path': (str,),  # noqa: E501
@@ -129,6 +135,12 @@ class ContainerAdvancedSettings(ModelNormal):
         'network_ingress_cors_allow_methods': 'network.ingress.cors_allow_methods',  # noqa: E501
         'network_ingress_cors_allow_headers': 'network.ingress.cors_allow_headers',  # noqa: E501
         'network_ingress_proxy_buffer_size_kb': 'network.ingress.proxy_buffer_size_kb',  # noqa: E501
+        'network_ingress_keepalive_time_seconds': 'network.ingress.keepalive_time_seconds',  # noqa: E501
+        'network_ingress_keepalive_timeout_seconds': 'network.ingress.keepalive_timeout_seconds',  # noqa: E501
+        'network_ingress_send_timeout_seconds': 'network.ingress.send_timeout_seconds',  # noqa: E501
+        'network_ingress_proxy_connect_timeout_seconds': 'network.ingress.proxy_connect_timeout_seconds',  # noqa: E501
+        'network_ingress_proxy_send_timeout_seconds': 'network.ingress.proxy_send_timeout_seconds',  # noqa: E501
+        'network_ingress_proxy_read_timeout_seconds': 'network.ingress.proxy_read_timeout_seconds',  # noqa: E501
         'network_ingress_whitelist_source_range': 'network.ingress.whitelist_source_range',  # noqa: E501
         'readiness_probe_type': 'readiness_probe.type',  # noqa: E501
         'readiness_probe_http_get_path': 'readiness_probe.http_get.path',  # noqa: E501
@@ -194,6 +206,12 @@ class ContainerAdvancedSettings(ModelNormal):
             network_ingress_cors_allow_methods (str): [optional] if omitted the server will use the default value of "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # noqa: E501
             network_ingress_cors_allow_headers (str): [optional] if omitted the server will use the default value of "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"  # noqa: E501
             network_ingress_proxy_buffer_size_kb (int): header buffer size used while reading response header from upstream. [optional] if omitted the server will use the default value of 4  # noqa: E501
+            network_ingress_keepalive_time_seconds (int): Limits the maximum time (in seconds) during which requests can be processed through one keepalive connection. [optional] if omitted the server will use the default value of 3600  # noqa: E501
+            network_ingress_keepalive_timeout_seconds (int): Sets a timeout (in seconds) during which an idle keepalive connection to an upstream server will stay open.. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a response to the client. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
             readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
@@ -301,6 +319,12 @@ class ContainerAdvancedSettings(ModelNormal):
             network_ingress_cors_allow_methods (str): [optional] if omitted the server will use the default value of "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # noqa: E501
             network_ingress_cors_allow_headers (str): [optional] if omitted the server will use the default value of "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"  # noqa: E501
             network_ingress_proxy_buffer_size_kb (int): header buffer size used while reading response header from upstream. [optional] if omitted the server will use the default value of 4  # noqa: E501
+            network_ingress_keepalive_time_seconds (int): Limits the maximum time (in seconds) during which requests can be processed through one keepalive connection. [optional] if omitted the server will use the default value of 3600  # noqa: E501
+            network_ingress_keepalive_timeout_seconds (int): Sets a timeout (in seconds) during which an idle keepalive connection to an upstream server will stay open.. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a response to the client. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
             readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
