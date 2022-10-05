@@ -90,6 +90,7 @@ class AvailableContainerRegistryResponse(ModelNormal):
         return {
             'kind': (ContainerRegistryKindEnum,),  # noqa: E501
             'required_config': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'is_mandatory': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +101,7 @@ class AvailableContainerRegistryResponse(ModelNormal):
     attribute_map = {
         'kind': 'kind',  # noqa: E501
         'required_config': 'required_config',  # noqa: E501
+        'is_mandatory': 'is_mandatory',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +147,7 @@ class AvailableContainerRegistryResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            is_mandatory (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +235,7 @@ class AvailableContainerRegistryResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
+            is_mandatory (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -84,7 +84,6 @@ class OrganizationAvailableRole(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -95,7 +94,6 @@ class OrganizationAvailableRole(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'is_default': 'is_default',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,9 +137,8 @@ class OrganizationAvailableRole(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Filled only for an organization custom role. [optional]  # noqa: E501
-            name (str): It can be either a custom role name or a default role name. [optional]  # noqa: E501
-            is_default (bool): - `true` if it is a Qovery role - `false` if it is a custom role . [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,9 +224,8 @@ class OrganizationAvailableRole(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Filled only for an organization custom role. [optional]  # noqa: E501
-            name (str): It can be either a custom role name or a default role name. [optional]  # noqa: E501
-            is_default (bool): - `true` if it is a Qovery role - `false` if it is a custom role . [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

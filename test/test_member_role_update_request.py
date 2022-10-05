@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.default_member_role import DefaultMemberRole
-globals()['DefaultMemberRole'] = DefaultMemberRole
 from qovery.model.member_role_update_request import MemberRoleUpdateRequest
 
 

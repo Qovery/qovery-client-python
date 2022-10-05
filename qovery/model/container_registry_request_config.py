@@ -152,8 +152,8 @@ class ContainerRegistryRequestConfig(ModelNormal):
             region (str): Required if kind is `ECR` or `SCALEWAY_CR`. [optional]  # noqa: E501
             scaleway_access_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
             scaleway_secret_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
-            username (str): Required if kind is `DOCKER_HUB`. [optional]  # noqa: E501
-            password (str): Required if kind is `DOCKER_HUB`. [optional]  # noqa: E501
+            username (str): optional, for kind `DOCKER_HUB`   We encourage you to set credentials for Docker Hub due to the limits on the pull rate . [optional]  # noqa: E501
+            password (str): optional, for kind `DOCKER_HUB`   We encourage you to set credentials for Docker Hub due to the limits on the pull rate . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -244,8 +244,8 @@ class ContainerRegistryRequestConfig(ModelNormal):
             region (str): Required if kind is `ECR` or `SCALEWAY_CR`. [optional]  # noqa: E501
             scaleway_access_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
             scaleway_secret_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
-            username (str): Required if kind is `DOCKER_HUB`. [optional]  # noqa: E501
-            password (str): Required if kind is `DOCKER_HUB`. [optional]  # noqa: E501
+            username (str): optional, for kind `DOCKER_HUB`   We encourage you to set credentials for Docker Hub due to the limits on the pull rate . [optional]  # noqa: E501
+            password (str): optional, for kind `DOCKER_HUB`   We encourage you to set credentials for Docker Hub due to the limits on the pull rate . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

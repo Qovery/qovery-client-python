@@ -208,8 +208,7 @@ with qovery.ApiClient(configuration) as api_client:
     organization_id = "organizationId_example" # str | Organization ID
     member_role_update_request = MemberRoleUpdateRequest(
         user_id="user_id_example",
-        custom_role_id="custom_role_id_example",
-        default_role_name=DefaultMemberRole("VIEWER"),
+        role_id="role_id_example",
     ) # MemberRoleUpdateRequest |  (optional)
 
     # example passing only required values which don't have defaults set

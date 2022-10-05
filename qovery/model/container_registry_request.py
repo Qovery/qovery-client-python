@@ -92,9 +92,9 @@ class ContainerRegistryRequest(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'kind': (ContainerRegistryKindEnum,),  # noqa: E501
-            'url': (str,),  # noqa: E501
             'config': (ContainerRegistryRequestConfig,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'url': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -105,9 +105,9 @@ class ContainerRegistryRequest(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'kind': 'kind',  # noqa: E501
-        'url': 'url',  # noqa: E501
         'config': 'config',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'url': 'url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -117,13 +117,12 @@ class ContainerRegistryRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, kind, url, config, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, kind, config, *args, **kwargs):  # noqa: E501
         """ContainerRegistryRequest - a model defined in OpenAPI
 
         Args:
             name (str):
             kind (ContainerRegistryKindEnum):
-            url (str): URL of the container registry: * For `DOCKER_HUB`: should be `https://docker.io` * For others: must start by `https://` 
             config (ContainerRegistryRequestConfig):
 
         Keyword Args:
@@ -158,6 +157,7 @@ class ContainerRegistryRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            url (str): URL of the container registry: * For `DOCKER_HUB`: it must be `https://docker.io` (default with 'https://docker.io' if no url provided for DOCKER_HUB) * For others: it's required and must start by `https://` . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -191,7 +191,6 @@ class ContainerRegistryRequest(ModelNormal):
 
         self.name = name
         self.kind = kind
-        self.url = url
         self.config = config
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -213,13 +212,12 @@ class ContainerRegistryRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, kind, url, config, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, kind, config, *args, **kwargs):  # noqa: E501
         """ContainerRegistryRequest - a model defined in OpenAPI
 
         Args:
             name (str):
             kind (ContainerRegistryKindEnum):
-            url (str): URL of the container registry: * For `DOCKER_HUB`: should be `https://docker.io` * For others: must start by `https://` 
             config (ContainerRegistryRequestConfig):
 
         Keyword Args:
@@ -254,6 +252,7 @@ class ContainerRegistryRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            url (str): URL of the container registry: * For `DOCKER_HUB`: it must be `https://docker.io` (default with 'https://docker.io' if no url provided for DOCKER_HUB) * For others: it's required and must start by `https://` . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,7 +284,6 @@ class ContainerRegistryRequest(ModelNormal):
 
         self.name = name
         self.kind = kind
-        self.url = url
         self.config = config
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
