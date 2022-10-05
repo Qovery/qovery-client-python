@@ -153,7 +153,7 @@ class ContainerResponseAllOf(ModelNormal):
             tag (str): tag of the image container
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
-            auto_preview (bool): Specify if the environment preview option is activated or not for this container. If activated, a preview environment will be automatically cloned at each pull request. 
+            auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
 
         Keyword Args:
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . defaults to 1  # noqa: E501
@@ -269,7 +269,7 @@ class ContainerResponseAllOf(ModelNormal):
             tag (str): tag of the image container
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
-            auto_preview (bool): Specify if the environment preview option is activated or not for this container. If activated, a preview environment will be automatically cloned at each pull request. 
+            auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
 
         Keyword Args:
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . defaults to 1  # noqa: E501

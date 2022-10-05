@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **tag** | **str** | tag of the image container | 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | 
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | 
-**auto_preview** | **bool** | Specify if the environment preview option is activated or not for this container. If activated, a preview environment will be automatically cloned at each pull request.  | 
+**auto_preview** | **bool** | Indicates if the &#39;environment preview option&#39; is enabled for this container.   If enabled, a preview environment will be automatically cloned when &#x60;/preview&#x60; endpoint is called.   If not specified, it takes the value of the &#x60;auto_preview&#x60; property from the associated environment.  | 
 **min_running_instances** | **int** | Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running.  | defaults to 1
 **max_running_instances** | **int** | Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit.  | defaults to 1
 **arguments** | **[str]** |  | [optional] 
