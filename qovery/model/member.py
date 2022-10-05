@@ -102,6 +102,7 @@ class Member(ModelComposed):
             'last_activity_at': (datetime,),  # noqa: E501
             'role': (InviteMemberRoleEnum,),  # noqa: E501
             'role_name': (str,),  # noqa: E501
+            'role_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -120,6 +121,7 @@ class Member(ModelComposed):
         'last_activity_at': 'last_activity_at',  # noqa: E501
         'role': 'role',  # noqa: E501
         'role_name': 'role_name',  # noqa: E501
+        'role_id': 'role_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -174,6 +176,7 @@ class Member(ModelComposed):
             last_activity_at (datetime): last time the user was connected. [optional]  # noqa: E501
             role (InviteMemberRoleEnum): [optional]  # noqa: E501
             role_name (str): the role linked to the user. [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -285,6 +288,7 @@ class Member(ModelComposed):
             last_activity_at (datetime): last time the user was connected. [optional]  # noqa: E501
             role (InviteMemberRoleEnum): [optional]  # noqa: E501
             role_name (str): the role linked to the user. [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

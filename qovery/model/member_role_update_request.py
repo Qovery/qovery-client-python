@@ -103,8 +103,12 @@ class MemberRoleUpdateRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, user_id, role_id, *args, **kwargs):  # noqa: E501
         """MemberRoleUpdateRequest - a model defined in OpenAPI
+
+        Args:
+            user_id (str): specify the git provider user id
+            role_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,8 +141,6 @@ class MemberRoleUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_id (str): specify the git provider user id. [optional]  # noqa: E501
-            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +172,8 @@ class MemberRoleUpdateRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.user_id = user_id
+        self.role_id = role_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +194,12 @@ class MemberRoleUpdateRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, user_id, role_id, *args, **kwargs):  # noqa: E501
         """MemberRoleUpdateRequest - a model defined in OpenAPI
+
+        Args:
+            user_id (str): specify the git provider user id
+            role_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +232,6 @@ class MemberRoleUpdateRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_id (str): specify the git provider user id. [optional]  # noqa: E501
-            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +261,8 @@ class MemberRoleUpdateRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.user_id = user_id
+        self.role_id = role_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

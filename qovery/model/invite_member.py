@@ -103,6 +103,8 @@ class InviteMember(ModelComposed):
             'inviter': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'logo_url': (str,),  # noqa: E501
+            'role_id': (str,),  # noqa: E501
+            'role_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -120,6 +122,8 @@ class InviteMember(ModelComposed):
         'inviter': 'inviter',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'logo_url': 'logo_url',  # noqa: E501
+        'role_id': 'role_id',  # noqa: E501
+        'role_name': 'role_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -173,6 +177,8 @@ class InviteMember(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             logo_url (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,6 +289,8 @@ class InviteMember(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             logo_url (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -96,6 +96,8 @@ class InviteMemberAllOf(ModelNormal):
             'invitation_status': (InviteStatusEnum,),  # noqa: E501
             'inviter': (str,),  # noqa: E501
             'logo_url': (str,),  # noqa: E501
+            'role_id': (str,),  # noqa: E501
+            'role_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +112,8 @@ class InviteMemberAllOf(ModelNormal):
         'invitation_status': 'invitation_status',  # noqa: E501
         'inviter': 'inviter',  # noqa: E501
         'logo_url': 'logo_url',  # noqa: E501
+        'role_id': 'role_id',  # noqa: E501
+        'role_name': 'role_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,6 +165,8 @@ class InviteMemberAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             logo_url (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +265,8 @@ class InviteMemberAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             logo_url (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
