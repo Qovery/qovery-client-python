@@ -149,7 +149,7 @@ class OrganizationCustomRoleProjectPermissionsInner(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project_id (str): [optional]  # noqa: E501
             project_name (str): [optional]  # noqa: E501
-            is_admin (bool): If `is_admin` is `true`, the user is: - automatically `MANAGER` for each environment type - allowed to manage project deployment rules - able to delete the project Note that `permissions` can then be ignored for this project . [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_admin (bool): If `is_admin` is `true`, the user is: - automatically `MANAGER` for each environment type - allowed to manage project deployment rules - able to delete the project    Note that `permissions` can then be ignored for this project . [optional] if omitted the server will use the default value of False  # noqa: E501
             permissions ([OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner]): [optional]  # noqa: E501
         """
 
@@ -238,7 +238,7 @@ class OrganizationCustomRoleProjectPermissionsInner(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             project_id (str): [optional]  # noqa: E501
             project_name (str): [optional]  # noqa: E501
-            is_admin (bool): If `is_admin` is `true`, the user is: - automatically `MANAGER` for each environment type - allowed to manage project deployment rules - able to delete the project Note that `permissions` can then be ignored for this project . [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_admin (bool): If `is_admin` is `true`, the user is: - automatically `MANAGER` for each environment type - allowed to manage project deployment rules - able to delete the project    Note that `permissions` can then be ignored for this project . [optional] if omitted the server will use the default value of False  # noqa: E501
             permissions ([OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner]): [optional]  # noqa: E501
         """
 
