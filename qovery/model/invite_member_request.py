@@ -90,6 +90,7 @@ class InviteMemberRequest(ModelNormal):
         return {
             'email': (str,),  # noqa: E501
             'role': (InviteMemberRoleEnum,),  # noqa: E501
+            'role_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +101,7 @@ class InviteMemberRequest(ModelNormal):
     attribute_map = {
         'email': 'email',  # noqa: E501
         'role': 'role',  # noqa: E501
+        'role_id': 'role_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,12 +111,11 @@ class InviteMemberRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, email, role, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, email, *args, **kwargs):  # noqa: E501
         """InviteMemberRequest - a model defined in OpenAPI
 
         Args:
             email (str):
-            role (InviteMemberRoleEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,6 +148,8 @@ class InviteMemberRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            role (InviteMemberRoleEnum): [optional]  # noqa: E501
+            role_id (str): the target role to attribute to the new member. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,7 +182,6 @@ class InviteMemberRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.email = email
-        self.role = role
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,12 +202,11 @@ class InviteMemberRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, email, role, *args, **kwargs):  # noqa: E501
+    def __init__(self, email, *args, **kwargs):  # noqa: E501
         """InviteMemberRequest - a model defined in OpenAPI
 
         Args:
             email (str):
-            role (InviteMemberRoleEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,6 +239,8 @@ class InviteMemberRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            role (InviteMemberRoleEnum): [optional]  # noqa: E501
+            role_id (str): the target role to attribute to the new member. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,7 +271,6 @@ class InviteMemberRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.email = email
-        self.role = role
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

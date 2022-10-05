@@ -539,6 +539,7 @@ with qovery.ApiClient(configuration) as api_client:
     invite_member_request = InviteMemberRequest(
         email="email_example",
         role=InviteMemberRoleEnum("ADMIN"),
+        role_id="role_id_example",
     ) # InviteMemberRequest |  (optional)
 
     # example passing only required values which don't have defaults set
