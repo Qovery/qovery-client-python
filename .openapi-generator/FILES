@@ -175,7 +175,6 @@ docs/DatabaseResponseList.md
 docs/DatabaseTypeEnum.md
 docs/DatabaseVersionMode.md
 docs/DatabasesApi.md
-docs/DefaultMemberRole.md
 docs/DependencyApi.md
 docs/DeployAllRequest.md
 docs/DeployAllRequestApplicationsInner.md
@@ -652,7 +651,6 @@ qovery/model/database_request.py
 qovery/model/database_response_list.py
 qovery/model/database_type_enum.py
 qovery/model/database_version_mode.py
-qovery/model/default_member_role.py
 qovery/model/deploy_all_request.py
 qovery/model/deploy_all_request_applications_inner.py
 qovery/model/deploy_all_request_containers_inner.py
@@ -1077,7 +1075,6 @@ test/test_database_response_list.py
 test/test_database_type_enum.py
 test/test_database_version_mode.py
 test/test_databases_api.py
-test/test_default_member_role.py
 test/test_dependency_api.py
 test/test_deploy_all_request.py
 test/test_deploy_all_request_applications_inner.py

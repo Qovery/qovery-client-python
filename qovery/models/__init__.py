@@ -142,7 +142,6 @@ from qovery.model.database_request import DatabaseRequest
 from qovery.model.database_response_list import DatabaseResponseList
 from qovery.model.database_type_enum import DatabaseTypeEnum
 from qovery.model.database_version_mode import DatabaseVersionMode
-from qovery.model.default_member_role import DefaultMemberRole
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.deploy_all_request_applications_inner import DeployAllRequestApplicationsInner
 from qovery.model.deploy_all_request_containers_inner import DeployAllRequestContainersInner
