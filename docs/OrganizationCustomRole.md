@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **cluster_permissions** | [**[OrganizationCustomRoleClusterPermissionsInner]**](OrganizationCustomRoleClusterPermissionsInner.md) |  | [optional] 

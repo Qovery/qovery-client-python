@@ -90,6 +90,7 @@ class OrganizationCustomRole(ModelNormal):
         """
         lazy_import()
         return {
+            'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'cluster_permissions': ([OrganizationCustomRoleClusterPermissionsInner],),  # noqa: E501
@@ -102,6 +103,7 @@ class OrganizationCustomRole(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'cluster_permissions': 'cluster_permissions',  # noqa: E501
@@ -149,6 +151,7 @@ class OrganizationCustomRole(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             cluster_permissions ([OrganizationCustomRoleClusterPermissionsInner]): [optional]  # noqa: E501
@@ -238,6 +241,7 @@ class OrganizationCustomRole(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             cluster_permissions ([OrganizationCustomRoleClusterPermissionsInner]): [optional]  # noqa: E501
