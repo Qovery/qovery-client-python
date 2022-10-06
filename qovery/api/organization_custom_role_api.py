@@ -110,9 +110,11 @@ class OrganizationCustomRoleApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'custom_role_id',
                 ],
                 'required': [
                     'organization_id',
+                    'custom_role_id',
                 ],
                 'nullable': [
                 ],
@@ -129,12 +131,16 @@ class OrganizationCustomRoleApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'custom_role_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'custom_role_id': 'customRoleId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'custom_role_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -159,10 +165,12 @@ class OrganizationCustomRoleApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'custom_role_id',
                     'organization_custom_role_update_request',
                 ],
                 'required': [
                     'organization_id',
+                    'custom_role_id',
                 ],
                 'nullable': [
                 ],
@@ -179,14 +187,18 @@ class OrganizationCustomRoleApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'custom_role_id':
+                        (str,),
                     'organization_custom_role_update_request':
                         (OrganizationCustomRoleUpdateRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'custom_role_id': 'customRoleId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'custom_role_id': 'path',
                     'organization_custom_role_update_request': 'body',
                 },
                 'collection_format_map': {
@@ -398,6 +410,7 @@ class OrganizationCustomRoleApi(object):
     def delete_organization_custom_role(
         self,
         organization_id,
+        custom_role_id,
         **kwargs
     ):
         """Delete organization custom role  # noqa: E501
@@ -406,11 +419,12 @@ class OrganizationCustomRoleApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_organization_custom_role(organization_id, async_req=True)
+        >>> thread = api.delete_organization_custom_role(organization_id, custom_role_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            custom_role_id (str): Custom Role ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -476,11 +490,14 @@ class OrganizationCustomRoleApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['custom_role_id'] = \
+            custom_role_id
         return self.delete_organization_custom_role_endpoint.call_with_http_info(**kwargs)
 
     def edit_organization_custom_role(
         self,
         organization_id,
+        custom_role_id,
         **kwargs
     ):
         """Edit an organization custom role  # noqa: E501
@@ -489,11 +506,12 @@ class OrganizationCustomRoleApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_organization_custom_role(organization_id, async_req=True)
+        >>> thread = api.edit_organization_custom_role(organization_id, custom_role_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            custom_role_id (str): Custom Role ID
 
         Keyword Args:
             organization_custom_role_update_request (OrganizationCustomRoleUpdateRequest): [optional]
@@ -560,6 +578,8 @@ class OrganizationCustomRoleApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['custom_role_id'] = \
+            custom_role_id
         return self.edit_organization_custom_role_endpoint.call_with_http_info(**kwargs)
 
     def get_organization_custom_role(

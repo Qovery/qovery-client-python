@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_organization_custom_role**
-> delete_organization_custom_role(organization_id)
+> delete_organization_custom_role(organization_id, custom_role_id)
 
 Delete organization custom role
 
@@ -143,11 +143,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    custom_role_id = "customRoleId_example" # str | Custom Role ID
 
     # example passing only required values which don't have defaults set
     try:
         # Delete organization custom role
-        api_instance.delete_organization_custom_role(organization_id)
+        api_instance.delete_organization_custom_role(organization_id, custom_role_id)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationCustomRoleApi->delete_organization_custom_role: %s\n" % e)
 ```
@@ -158,6 +159,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **custom_role_id** | **str**| Custom Role ID |
 
 ### Return type
 
@@ -185,7 +187,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization_custom_role**
-> OrganizationCustomRole edit_organization_custom_role(organization_id)
+> OrganizationCustomRole edit_organization_custom_role(organization_id, custom_role_id)
 
 Edit an organization custom role
 
@@ -223,6 +225,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    custom_role_id = "customRoleId_example" # str | Custom Role ID
     organization_custom_role_update_request = OrganizationCustomRoleUpdateRequest(
         name="name_example",
         description="description_example",
@@ -249,7 +252,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Edit an organization custom role
-        api_response = api_instance.edit_organization_custom_role(organization_id)
+        api_response = api_instance.edit_organization_custom_role(organization_id, custom_role_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationCustomRoleApi->edit_organization_custom_role: %s\n" % e)
@@ -258,7 +261,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit an organization custom role
-        api_response = api_instance.edit_organization_custom_role(organization_id, organization_custom_role_update_request=organization_custom_role_update_request)
+        api_response = api_instance.edit_organization_custom_role(organization_id, custom_role_id, organization_custom_role_update_request=organization_custom_role_update_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationCustomRoleApi->edit_organization_custom_role: %s\n" % e)
@@ -270,6 +273,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **custom_role_id** | **str**| Custom Role ID |
  **organization_custom_role_update_request** | [**OrganizationCustomRoleUpdateRequest**](OrganizationCustomRoleUpdateRequest.md)|  | [optional]
 
 ### Return type
