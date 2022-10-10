@@ -31,7 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.base import Base
     from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
+    globals()['Base'] = Base
     globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
 
 
@@ -92,7 +94,7 @@ class ContainerRegistryResponseAllOf(ModelNormal):
             'kind': (ContainerRegistryKindEnum,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
-            'belongs_to_cluster': (bool,),  # noqa: E501
+            'cluster': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +107,7 @@ class ContainerRegistryResponseAllOf(ModelNormal):
         'kind': 'kind',  # noqa: E501
         'description': 'description',  # noqa: E501
         'url': 'url',  # noqa: E501
-        'belongs_to_cluster': 'belongs_to_cluster',  # noqa: E501
+        'cluster': 'cluster',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,7 +155,7 @@ class ContainerRegistryResponseAllOf(ModelNormal):
             kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the container registry. [optional]  # noqa: E501
-            belongs_to_cluster (bool): If this registry is used by a cluster. [optional]  # noqa: E501
+            cluster (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -243,7 +245,7 @@ class ContainerRegistryResponseAllOf(ModelNormal):
             kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the container registry. [optional]  # noqa: E501
-            belongs_to_cluster (bool): If this registry is used by a cluster. [optional]  # noqa: E501
+            cluster (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
