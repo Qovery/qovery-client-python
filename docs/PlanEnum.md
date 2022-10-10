@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **str** |  |  must be one of ["FREE", "PROFESSIONAL", "BUSINESS", "ENTERPRISE", ]
+**value** | **str** |  |  must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", ]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
