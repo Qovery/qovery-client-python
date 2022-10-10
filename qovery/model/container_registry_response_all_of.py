@@ -31,9 +31,7 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.base import Base
     from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
-    globals()['Base'] = Base
     globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
 
 

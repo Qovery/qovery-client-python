@@ -13,9 +13,7 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.base import Base
 from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
-globals()['Base'] = Base
 globals()['ContainerRegistryKindEnum'] = ContainerRegistryKindEnum
 from qovery.model.container_registry_response_all_of import ContainerRegistryResponseAllOf
 
