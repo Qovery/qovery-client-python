@@ -169,12 +169,15 @@ Class | Method | HTTP request | Description
 *CloudProviderApi* | [**list_aws_features**](docs/CloudProviderApi.md#list_aws_features) | **GET** /aws/clusterFeature | List AWS features available
 *CloudProviderApi* | [**list_aws_instance_type**](docs/CloudProviderApi.md#list_aws_instance_type) | **GET** /aws/instanceType | List AWS available instance types
 *CloudProviderApi* | [**list_aws_regions**](docs/CloudProviderApi.md#list_aws_regions) | **GET** /aws/region | List AWS regions
+*CloudProviderApi* | [**list_awsec2_instance_type**](docs/CloudProviderApi.md#list_awsec2_instance_type) | **GET** /aws/ec2/instanceType/{region} | List AWS EC2 available instance types
+*CloudProviderApi* | [**list_awseks_instance_type**](docs/CloudProviderApi.md#list_awseks_instance_type) | **GET** /aws/eks/instanceType/{region} | List AWS EKS available instance types
 *CloudProviderApi* | [**list_cloud_provider**](docs/CloudProviderApi.md#list_cloud_provider) | **GET** /cloudProvider | List Cloud providers available
 *CloudProviderApi* | [**list_do_features**](docs/CloudProviderApi.md#list_do_features) | **GET** /digitalOcean/clusterFeature | List DO features available
 *CloudProviderApi* | [**list_do_instance_type**](docs/CloudProviderApi.md#list_do_instance_type) | **GET** /digitalOcean/instanceType | List DO available instance types
 *CloudProviderApi* | [**list_do_regions**](docs/CloudProviderApi.md#list_do_regions) | **GET** /digitalOcean/region | List DO regions
 *CloudProviderApi* | [**list_scaleway_features**](docs/CloudProviderApi.md#list_scaleway_features) | **GET** /scaleway/clusterFeature | List Scaleway features available
 *CloudProviderApi* | [**list_scaleway_instance_type**](docs/CloudProviderApi.md#list_scaleway_instance_type) | **GET** /scaleway/instanceType | List Scaleway available instance types
+*CloudProviderApi* | [**list_scaleway_kapsule_instance_type**](docs/CloudProviderApi.md#list_scaleway_kapsule_instance_type) | **GET** /scaleway/instanceType/{zone} | List Scaleway Kapsule available instance types
 *CloudProviderApi* | [**list_scaleway_regions**](docs/CloudProviderApi.md#list_scaleway_regions) | **GET** /scaleway/region | List Scaleway regions
 *CloudProviderCredentialsApi* | [**create_aws_credentials**](docs/CloudProviderCredentialsApi.md#create_aws_credentials) | **POST** /organization/{organizationId}/aws/credentials | Create AWS credentials set
 *CloudProviderCredentialsApi* | [**create_do_credentials**](docs/CloudProviderCredentialsApi.md#create_do_credentials) | **POST** /organization/{organizationId}/digitalOcean/credentials | Create Digital Ocean credentials set

@@ -86,6 +86,8 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
             'name': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'ram_in_gb': (int,),  # noqa: E501
+            'bandwidth_in_gbps': (str,),  # noqa: E501
+            'bandwidth_guarantee': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +100,8 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
         'name': 'name',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
         'ram_in_gb': 'ram_in_gb',  # noqa: E501
+        'bandwidth_in_gbps': 'bandwidth_in_gbps',  # noqa: E501
+        'bandwidth_guarantee': 'bandwidth_guarantee',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,7 +111,7 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, name, cpu, ram_in_gb, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, name, cpu, ram_in_gb, bandwidth_in_gbps, bandwidth_guarantee, *args, **kwargs):  # noqa: E501
         """ClusterInstanceTypeResponseListResultsInner - a model defined in OpenAPI
 
         Args:
@@ -115,6 +119,8 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
             name (str):
             cpu (int):
             ram_in_gb (int):
+            bandwidth_in_gbps (str):
+            bandwidth_guarantee (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -182,6 +188,8 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
         self.name = name
         self.cpu = cpu
         self.ram_in_gb = ram_in_gb
+        self.bandwidth_in_gbps = bandwidth_in_gbps
+        self.bandwidth_guarantee = bandwidth_guarantee
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,7 +210,7 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, name, cpu, ram_in_gb, *args, **kwargs):  # noqa: E501
+    def __init__(self, type, name, cpu, ram_in_gb, bandwidth_in_gbps, bandwidth_guarantee, *args, **kwargs):  # noqa: E501
         """ClusterInstanceTypeResponseListResultsInner - a model defined in OpenAPI
 
         Args:
@@ -210,6 +218,8 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
             name (str):
             cpu (int):
             ram_in_gb (int):
+            bandwidth_in_gbps (str):
+            bandwidth_guarantee (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -275,6 +285,8 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
         self.name = name
         self.cpu = cpu
         self.ram_in_gb = ram_in_gb
+        self.bandwidth_in_gbps = bandwidth_in_gbps
+        self.bandwidth_guarantee = bandwidth_guarantee
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

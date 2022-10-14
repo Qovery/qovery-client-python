@@ -45,6 +45,20 @@ class TestCloudProviderApi(unittest.TestCase):
         """
         pass
 
+    def test_list_awsec2_instance_type(self):
+        """Test case for list_awsec2_instance_type
+
+        List AWS EC2 available instance types  # noqa: E501
+        """
+        pass
+
+    def test_list_awseks_instance_type(self):
+        """Test case for list_awseks_instance_type
+
+        List AWS EKS available instance types  # noqa: E501
+        """
+        pass
+
     def test_list_cloud_provider(self):
         """Test case for list_cloud_provider
 
@@ -84,6 +98,13 @@ class TestCloudProviderApi(unittest.TestCase):
         """Test case for list_scaleway_instance_type
 
         List Scaleway available instance types  # noqa: E501
+        """
+        pass
+
+    def test_list_scaleway_kapsule_instance_type(self):
+        """Test case for list_scaleway_kapsule_instance_type
+
+        List Scaleway Kapsule available instance types  # noqa: E501
         """
         pass
 
