@@ -5,7 +5,7 @@ All URIs are relative to *https://api.qovery.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_invite_member**](MembersApi.md#delete_invite_member) | **DELETE** /organization/{organizationId}/inviteMember/{inviteId} | Remove an invited member
-[**delete_member**](MembersApi.md#delete_member) | **DELETE** /organization/{organizationId}/member/{userId} | Remove a member
+[**delete_member**](MembersApi.md#delete_member) | **DELETE** /organization/{organizationId}/member | Remove a member
 [**edit_organization_member_role**](MembersApi.md#edit_organization_member_role) | **PUT** /organization/{organizationId}/member | Edit an organization member role
 [**get_organization_invited_members**](MembersApi.md#get_organization_invited_members) | **GET** /organization/{organizationId}/inviteMember | Get invited members
 [**get_organization_members**](MembersApi.md#get_organization_members) | **GET** /organization/{organizationId}/member | Get organization members
@@ -91,7 +91,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_member**
-> delete_member(organization_id, user_id)
+> delete_member(organization_id)
 
 Remove a member
 
@@ -103,6 +103,7 @@ Remove a member
 import time
 import qovery
 from qovery.api import members_api
+from qovery.model.delete_member_request import DeleteMemberRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -125,12 +126,22 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = members_api.MembersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
-    user_id = "userId_example" # str | User ID
+    delete_member_request = DeleteMemberRequest(
+        user_id="user_id_example",
+    ) # DeleteMemberRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Remove a member
-        api_instance.delete_member(organization_id, user_id)
+        api_instance.delete_member(organization_id)
+    except qovery.ApiException as e:
+        print("Exception when calling MembersApi->delete_member: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Remove a member
+        api_instance.delete_member(organization_id, delete_member_request=delete_member_request)
     except qovery.ApiException as e:
         print("Exception when calling MembersApi->delete_member: %s\n" % e)
 ```
@@ -141,7 +152,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
- **user_id** | **str**| User ID |
+ **delete_member_request** | [**DeleteMemberRequest**](DeleteMemberRequest.md)|  | [optional]
 
 ### Return type
 
@@ -153,7 +164,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 

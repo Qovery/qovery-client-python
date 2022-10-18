@@ -22,6 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.delete_member_request import DeleteMemberRequest
 from qovery.model.invite_member import InviteMember
 from qovery.model.invite_member_request import InviteMemberRequest
 from qovery.model.invite_member_response_list import InviteMemberResponseList
@@ -96,7 +97,7 @@ class MembersApi(object):
                 'auth': [
                     'bearerAuth'
                 ],
-                'endpoint_path': '/organization/{organizationId}/member/{userId}',
+                'endpoint_path': '/organization/{organizationId}/member',
                 'operation_id': 'delete_member',
                 'http_method': 'DELETE',
                 'servers': None,
@@ -104,11 +105,10 @@ class MembersApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'user_id',
+                    'delete_member_request',
                 ],
                 'required': [
                     'organization_id',
-                    'user_id',
                 ],
                 'nullable': [
                 ],
@@ -125,23 +125,24 @@ class MembersApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'user_id':
-                        (str,),
+                    'delete_member_request':
+                        (DeleteMemberRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
-                    'user_id': 'userId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'user_id': 'path',
+                    'delete_member_request': 'body',
                 },
                 'collection_format_map': {
                 }
             },
             headers_map={
                 'accept': [],
-                'content_type': [],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -557,7 +558,6 @@ class MembersApi(object):
     def delete_member(
         self,
         organization_id,
-        user_id,
         **kwargs
     ):
         """Remove a member  # noqa: E501
@@ -565,14 +565,14 @@ class MembersApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_member(organization_id, user_id, async_req=True)
+        >>> thread = api.delete_member(organization_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
-            user_id (str): User ID
 
         Keyword Args:
+            delete_member_request (DeleteMemberRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -636,8 +636,6 @@ class MembersApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
-        kwargs['user_id'] = \
-            user_id
         return self.delete_member_endpoint.call_with_http_info(**kwargs)
 
     def edit_organization_member_role(
