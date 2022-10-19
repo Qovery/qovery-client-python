@@ -54,8 +54,8 @@ class CloudProviderEnum(ModelSimple):
     allowed_values = {
         ('value',): {
             'AWS': "AWS",
-            'DIGITAL_OCEAN': "DIGITAL_OCEAN",
-            'SCALEWAY': "SCALEWAY",
+            'DO': "DO",
+            'SCW': "SCW",
         },
     }
 
@@ -107,10 +107,10 @@ class CloudProviderEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            args[0] (str):, must be one of ["AWS", "DO", "SCW", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            value (str):, must be one of ["AWS", "DO", "SCW", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -201,10 +201,10 @@ class CloudProviderEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            args[0] (str):, must be one of ["AWS", "DO", "SCW", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["AWS", "DIGITAL_OCEAN", "SCALEWAY", ]  # noqa: E501
+            value (str):, must be one of ["AWS", "DO", "SCW", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
