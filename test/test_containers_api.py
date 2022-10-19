@@ -45,6 +45,13 @@ class TestContainersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_container_registry_container_status(self):
+        """Test case for get_container_registry_container_status
+
+        List all container registry container statuses  # noqa: E501
+        """
+        pass
+
     def test_get_environment_container_current_scale(self):
         """Test case for get_environment_container_current_scale
 

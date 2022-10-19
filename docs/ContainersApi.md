@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**auto_deploy_container_environments**](ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | Auto deploy containers
 [**create_container**](ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
 [**deploy_all_services**](ContainersApi.md#deploy_all_services) | **POST** /environment/{environmentId}/container/deploy | Deploy services
+[**get_container_registry_container_status**](ContainersApi.md#get_container_registry_container_status) | **GET** /organization/{organizationId}/containerRegistry/{containerRegistryId}/container/status | List all container registry container statuses
 [**get_environment_container_current_scale**](ContainersApi.md#get_environment_container_current_scale) | **GET** /environment/{environmentId}/container/currentScale | List current scaling information for each container
 [**get_environment_container_current_storage**](ContainersApi.md#get_environment_container_current_storage) | **GET** /environment/{environmentId}/container/currentStorage | List current storage disk usage for each containers
 [**get_environment_container_status**](ContainersApi.md#get_environment_container_status) | **GET** /environment/{environmentId}/container/status | List all environment container statuses
@@ -307,6 +308,88 @@ Name | Type | Description  | Notes
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
 **409** | Operation is in progress |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_container_registry_container_status**
+> ReferenceObjectStatusResponseList get_container_registry_container_status(organization_id, container_registry_id)
+
+List all container registry container statuses
+
+Returns a list of containers with only their id and status.
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import containers_api
+from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = containers_api.ContainersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # List all container registry container statuses
+        api_response = api_instance.get_container_registry_container_status(organization_id, container_registry_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->get_container_registry_container_status: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **container_registry_id** | **str**| Container Registry ID |
+
+### Return type
+
+[**ReferenceObjectStatusResponseList**](ReferenceObjectStatusResponseList.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Get status |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
