@@ -58,6 +58,8 @@ class PlanEnum(ModelSimple):
             'TEAM_YEARLY': "TEAM_YEARLY",
             'ENTERPRISE': "ENTERPRISE",
             'ENTERPRISE_YEARLY': "ENTERPRISE_YEARLY",
+            'PROFESSIONAL': "PROFESSIONAL",
+            'BUSINESS': "BUSINESS",
         },
     }
 
@@ -109,10 +111,10 @@ class PlanEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", ]  # noqa: E501
+            args[0] (str): BUSINESS & PROFESSIONAL are deprecated., must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", "PROFESSIONAL", "BUSINESS", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", ]  # noqa: E501
+            value (str): BUSINESS & PROFESSIONAL are deprecated., must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", "PROFESSIONAL", "BUSINESS", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -203,10 +205,10 @@ class PlanEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str):, must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", ]  # noqa: E501
+            args[0] (str): BUSINESS & PROFESSIONAL are deprecated., must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", "PROFESSIONAL", "BUSINESS", ]  # noqa: E501
 
         Keyword Args:
-            value (str):, must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", ]  # noqa: E501
+            value (str): BUSINESS & PROFESSIONAL are deprecated., must be one of ["FREE", "TEAM", "TEAM_YEARLY", "ENTERPRISE", "ENTERPRISE_YEARLY", "PROFESSIONAL", "BUSINESS", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
