@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **delete_invite_member**
-> delete_invite_member(organization_id)
+> delete_invite_member(organization_id, invite_id)
 
 Remove an invited member
 
@@ -49,11 +49,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = members_api.MembersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    invite_id = "inviteId_example" # str | Invite ID
 
     # example passing only required values which don't have defaults set
     try:
         # Remove an invited member
-        api_instance.delete_invite_member(organization_id)
+        api_instance.delete_invite_member(organization_id, invite_id)
     except qovery.ApiException as e:
         print("Exception when calling MembersApi->delete_invite_member: %s\n" % e)
 ```
@@ -64,6 +65,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **invite_id** | **str**| Invite ID |
 
 ### Return type
 
