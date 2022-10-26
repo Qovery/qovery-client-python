@@ -17,7 +17,6 @@
 from qovery.api.account_info_api import AccountInfoApi
 from qovery.api.application_actions_api import ApplicationActionsApi
 from qovery.api.application_configuration_api import ApplicationConfigurationApi
-from qovery.api.application_database_api import ApplicationDatabaseApi
 from qovery.api.application_deployment_history_api import ApplicationDeploymentHistoryApi
 from qovery.api.application_deployment_restriction_api import ApplicationDeploymentRestrictionApi
 from qovery.api.application_environment_variable_api import ApplicationEnvironmentVariableApi
@@ -35,7 +34,6 @@ from qovery.api.clusters_api import ClustersApi
 from qovery.api.container_actions_api import ContainerActionsApi
 from qovery.api.container_configuration_api import ContainerConfigurationApi
 from qovery.api.container_custom_domain_api import ContainerCustomDomainApi
-from qovery.api.container_database_api import ContainerDatabaseApi
 from qovery.api.container_dependency_api import ContainerDependencyApi
 from qovery.api.container_deployment_history_api import ContainerDeploymentHistoryApi
 from qovery.api.container_environment_variable_api import ContainerEnvironmentVariableApi

@@ -13,7 +13,6 @@ docs/ApplicationAdvancedSettings.md
 docs/ApplicationAllOf.md
 docs/ApplicationConfigurationApi.md
 docs/ApplicationCurrentScale.md
-docs/ApplicationDatabaseApi.md
 docs/ApplicationDependencyRequest.md
 docs/ApplicationDeploymentHistoryApi.md
 docs/ApplicationDeploymentRestriction.md
@@ -112,7 +111,6 @@ docs/ContainerAdvancedSettingsResponse.md
 docs/ContainerConfigurationApi.md
 docs/ContainerCurrentScale.md
 docs/ContainerCustomDomainApi.md
-docs/ContainerDatabaseApi.md
 docs/ContainerDependencyApi.md
 docs/ContainerDependencyRequest.md
 docs/ContainerDeployRequest.md
@@ -452,7 +450,6 @@ qovery/api/__init__.py
 qovery/api/account_info_api.py
 qovery/api/application_actions_api.py
 qovery/api/application_configuration_api.py
-qovery/api/application_database_api.py
 qovery/api/application_deployment_history_api.py
 qovery/api/application_deployment_restriction_api.py
 qovery/api/application_environment_variable_api.py
@@ -470,7 +467,6 @@ qovery/api/clusters_api.py
 qovery/api/container_actions_api.py
 qovery/api/container_configuration_api.py
 qovery/api/container_custom_domain_api.py
-qovery/api/container_database_api.py
 qovery/api/container_dependency_api.py
 qovery/api/container_deployment_history_api.py
 qovery/api/container_environment_variable_api.py
@@ -915,7 +911,6 @@ test/test_application_advanced_settings.py
 test/test_application_all_of.py
 test/test_application_configuration_api.py
 test/test_application_current_scale.py
-test/test_application_database_api.py
 test/test_application_dependency_request.py
 test/test_application_deployment_history_api.py
 test/test_application_deployment_restriction.py
@@ -1014,7 +1009,6 @@ test/test_container_advanced_settings_response.py
 test/test_container_configuration_api.py
 test/test_container_current_scale.py
 test/test_container_custom_domain_api.py
-test/test_container_database_api.py
 test/test_container_dependency_api.py
 test/test_container_dependency_request.py
 test/test_container_deploy_request.py
