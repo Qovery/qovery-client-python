@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_environment_logs**
-> [ListEnvironmentLogs200ResponseInner] list_environment_logs(environment_id)
+> EnvironmentLogsResponseList list_environment_logs(environment_id)
 
 List environment deployment logs v2
 
@@ -103,7 +103,7 @@ This returns the last 1000 environment deployment logs v2
 import time
 import qovery
 from qovery.api import environment_logs_api
-from qovery.model.list_environment_logs200_response_inner import ListEnvironmentLogs200ResponseInner
+from qovery.model.environment_logs_response_list import EnvironmentLogsResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[ListEnvironmentLogs200ResponseInner]**](ListEnvironmentLogs200ResponseInner.md)
+[**EnvironmentLogsResponseList**](EnvironmentLogsResponseList.md)
 
 ### Authorization
 

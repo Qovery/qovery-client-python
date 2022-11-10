@@ -23,7 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.environment_log_response_list import EnvironmentLogResponseList
-from qovery.model.list_environment_logs200_response_inner import ListEnvironmentLogs200ResponseInner
+from qovery.model.environment_logs_response_list import EnvironmentLogsResponseList
 
 
 class EnvironmentLogsApi(object):
@@ -90,7 +90,7 @@ class EnvironmentLogsApi(object):
         )
         self.list_environment_logs_endpoint = _Endpoint(
             settings={
-                'response_type': ([ListEnvironmentLogs200ResponseInner],),
+                'response_type': (EnvironmentLogsResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -273,7 +273,7 @@ class EnvironmentLogsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            [ListEnvironmentLogs200ResponseInner]
+            EnvironmentLogsResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """

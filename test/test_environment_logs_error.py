@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.list_environment_logs200_response_inner_details_transmitter import ListEnvironmentLogs200ResponseInnerDetailsTransmitter
+from qovery.model.environment_logs_error_underlying_error import EnvironmentLogsErrorUnderlyingError
+globals()['EnvironmentLogsErrorUnderlyingError'] = EnvironmentLogsErrorUnderlyingError
+from qovery.model.environment_logs_error import EnvironmentLogsError
 
 
-class TestListEnvironmentLogs200ResponseInnerDetailsTransmitter(unittest.TestCase):
-    """ListEnvironmentLogs200ResponseInnerDetailsTransmitter unit test stubs"""
+class TestEnvironmentLogsError(unittest.TestCase):
+    """EnvironmentLogsError unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestListEnvironmentLogs200ResponseInnerDetailsTransmitter(unittest.TestCas
     def tearDown(self):
         pass
 
-    def testListEnvironmentLogs200ResponseInnerDetailsTransmitter(self):
-        """Test ListEnvironmentLogs200ResponseInnerDetailsTransmitter"""
+    def testEnvironmentLogsError(self):
+        """Test EnvironmentLogsError"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListEnvironmentLogs200ResponseInnerDetailsTransmitter()  # noqa: E501
+        # model = EnvironmentLogsError()  # noqa: E501
         pass
 
 
