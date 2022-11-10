@@ -63,6 +63,14 @@ from qovery.api.environment_variable_api import EnvironmentVariableApi
 from qovery.api.environments_api import EnvironmentsApi
 from qovery.api.git_repositories_api import GitRepositoriesApi
 from qovery.api.github_app_api import GithubAppApi
+from qovery.api.job_actions_api import JobActionsApi
+from qovery.api.job_configuration_api import JobConfigurationApi
+from qovery.api.job_deployment_history_api import JobDeploymentHistoryApi
+from qovery.api.job_environment_variable_api import JobEnvironmentVariableApi
+from qovery.api.job_main_calls_api import JobMainCallsApi
+from qovery.api.job_metrics_api import JobMetricsApi
+from qovery.api.job_secret_api import JobSecretApi
+from qovery.api.jobs_api import JobsApi
 from qovery.api.logical_database_api import LogicalDatabaseApi
 from qovery.api.members_api import MembersApi
 from qovery.api.organization_account_git_repositories_api import OrganizationAccountGitRepositoriesApi

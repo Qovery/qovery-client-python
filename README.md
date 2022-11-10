@@ -331,6 +331,33 @@ Class | Method | HTTP request | Description
 *GitRepositoriesApi* | [**get_gitlab_repository_branches**](docs/GitRepositoriesApi.md#get_gitlab_repository_branches) | **GET** /account/gitlab/repository/branch | Get gitlab branches of the specified repository
 *GithubAppApi* | [**organization_github_app_connect**](docs/GithubAppApi.md#organization_github_app_connect) | **POST** /organization/{organizationId}/github/connect | Connect a github account to an organization
 *GithubAppApi* | [**organization_github_app_disconnect**](docs/GithubAppApi.md#organization_github_app_disconnect) | **DELETE** /organization/{organizationId}/github/disconnect | Disconnect a github account from an organization
+*JobActionsApi* | [**deploy_job**](docs/JobActionsApi.md#deploy_job) | **POST** /job/{jobId}/deploy | Deploy job
+*JobActionsApi* | [**restart_job**](docs/JobActionsApi.md#restart_job) | **POST** /job/{jobId}/restart | Restart job
+*JobActionsApi* | [**stop_job**](docs/JobActionsApi.md#stop_job) | **POST** /job/{jobId}/stop | Stop job
+*JobConfigurationApi* | [**edit_job_advanced_settings**](docs/JobConfigurationApi.md#edit_job_advanced_settings) | **PUT** /job/{jobId}/advancedSettings | Edit advanced settings
+*JobConfigurationApi* | [**get_job_advanced_settings**](docs/JobConfigurationApi.md#get_job_advanced_settings) | **GET** /job/{jobId}/advancedSettings | Get advanced settings
+*JobDeploymentHistoryApi* | [**list_job_deployment_history**](docs/JobDeploymentHistoryApi.md#list_job_deployment_history) | **GET** /job/{jobId}/deploymentHistory | List job deployments
+*JobEnvironmentVariableApi* | [**create_job_environment_variable**](docs/JobEnvironmentVariableApi.md#create_job_environment_variable) | **POST** /job/{jobId}/environmentVariable | Add an environment variable to the job
+*JobEnvironmentVariableApi* | [**create_job_environment_variable_alias**](docs/JobEnvironmentVariableApi.md#create_job_environment_variable_alias) | **POST** /job/{jobId}/environmentVariable/{environmentVariableId}/alias | Create an environment variable alias at the job level
+*JobEnvironmentVariableApi* | [**create_job_environment_variable_override**](docs/JobEnvironmentVariableApi.md#create_job_environment_variable_override) | **POST** /job/{jobId}/environmentVariable/{environmentVariableId}/override | Create an environment variable override at the job level
+*JobEnvironmentVariableApi* | [**delete_job_environment_variable**](docs/JobEnvironmentVariableApi.md#delete_job_environment_variable) | **DELETE** /job/{jobId}/environmentVariable/{environmentVariableId} | Delete an environment variable from a job
+*JobEnvironmentVariableApi* | [**edit_job_environment_variable**](docs/JobEnvironmentVariableApi.md#edit_job_environment_variable) | **PUT** /job/{jobId}/environmentVariable/{environmentVariableId} | Edit an environment variable belonging to the job
+*JobEnvironmentVariableApi* | [**import_job_environment_variable**](docs/JobEnvironmentVariableApi.md#import_job_environment_variable) | **POST** /job/{jobId}/environmentVariable/import | Import variables
+*JobEnvironmentVariableApi* | [**list_job_environment_variable**](docs/JobEnvironmentVariableApi.md#list_job_environment_variable) | **GET** /job/{jobId}/environmentVariable | List environment variables
+*JobMainCallsApi* | [**delete_job**](docs/JobMainCallsApi.md#delete_job) | **DELETE** /job/{jobId} | Delete job
+*JobMainCallsApi* | [**edit_job**](docs/JobMainCallsApi.md#edit_job) | **PUT** /job/{jobId} | Edit job
+*JobMainCallsApi* | [**get_job**](docs/JobMainCallsApi.md#get_job) | **GET** /job/{jobId} | Get job by ID
+*JobMainCallsApi* | [**get_job_status**](docs/JobMainCallsApi.md#get_job_status) | **GET** /job/{jobId}/status | Get job status
+*JobMetricsApi* | [**get_job_current_instance**](docs/JobMetricsApi.md#get_job_current_instance) | **GET** /job/{jobId}/instance | List currently running instances of the job with their CPU and RAM metrics
+*JobSecretApi* | [**create_job_secret**](docs/JobSecretApi.md#create_job_secret) | **POST** /job/{jobId}/secret | Add a secret to the job
+*JobSecretApi* | [**create_job_secret_alias**](docs/JobSecretApi.md#create_job_secret_alias) | **POST** /job/{jobId}/secret/{secretId}/alias | Create a secret alias at the job level
+*JobSecretApi* | [**create_job_secret_override**](docs/JobSecretApi.md#create_job_secret_override) | **POST** /job/{jobId}/secret/{secretId}/override | Create a secret override at the job level
+*JobSecretApi* | [**delete_job_secret**](docs/JobSecretApi.md#delete_job_secret) | **DELETE** /job/{jobId}/secret/{secretId} | Delete a secret from an job
+*JobSecretApi* | [**edit_job_secret**](docs/JobSecretApi.md#edit_job_secret) | **PUT** /job/{jobId}/secret/{secretId} | Edit a secret belonging to the job
+*JobSecretApi* | [**list_job_secrets**](docs/JobSecretApi.md#list_job_secrets) | **GET** /job/{jobId}/secret | List job secrets
+*JobsApi* | [**create_job**](docs/JobsApi.md#create_job) | **POST** /environment/{environmentId}/job | Create a job
+*JobsApi* | [**get_environment_job_status**](docs/JobsApi.md#get_environment_job_status) | **GET** /environment/{environmentId}/job/status | List all environment job statuses
+*JobsApi* | [**list_jobs**](docs/JobsApi.md#list_jobs) | **GET** /environment/{environmentId}/job | List jobs
 *LogicalDatabaseApi* | [**create_logical_database_on_database**](docs/LogicalDatabaseApi.md#create_logical_database_on_database) | **POST** /database/{databaseId}/logicalDatabase | Create a logical database on the database
 *LogicalDatabaseApi* | [**delete_logical_database**](docs/LogicalDatabaseApi.md#delete_logical_database) | **DELETE** /logicalDatabase/{logicalDatabaseId} | Delete a Logical database
 *LogicalDatabaseApi* | [**edit_logical_database**](docs/LogicalDatabaseApi.md#edit_logical_database) | **PUT** /logicalDatabase/{logicalDatabaseId} | Edit a logical database
@@ -556,6 +583,8 @@ Class | Method | HTTP request | Description
  - [DeploymentHistoryEnvironmentAllOf](docs/DeploymentHistoryEnvironmentAllOf.md)
  - [DeploymentHistoryEnvironmentPaginatedResponseList](docs/DeploymentHistoryEnvironmentPaginatedResponseList.md)
  - [DeploymentHistoryEnvironmentPaginatedResponseListAllOf](docs/DeploymentHistoryEnvironmentPaginatedResponseListAllOf.md)
+ - [DeploymentHistoryJobResponse](docs/DeploymentHistoryJobResponse.md)
+ - [DeploymentHistoryJobResponseAllOf](docs/DeploymentHistoryJobResponseAllOf.md)
  - [DeploymentHistoryPaginatedResponseList](docs/DeploymentHistoryPaginatedResponseList.md)
  - [DeploymentHistoryPaginatedResponseListAllOf](docs/DeploymentHistoryPaginatedResponseListAllOf.md)
  - [DeploymentHistoryResponseList](docs/DeploymentHistoryResponseList.md)
@@ -643,6 +672,20 @@ Class | Method | HTTP request | Description
  - [InvoiceAllOf](docs/InvoiceAllOf.md)
  - [InvoiceResponseList](docs/InvoiceResponseList.md)
  - [InvoiceStatusEnum](docs/InvoiceStatusEnum.md)
+ - [JobAdvancedSettings](docs/JobAdvancedSettings.md)
+ - [JobDeployRequest](docs/JobDeployRequest.md)
+ - [JobRequest](docs/JobRequest.md)
+ - [JobRequestAllOf](docs/JobRequestAllOf.md)
+ - [JobRequestAllOfSchedule](docs/JobRequestAllOfSchedule.md)
+ - [JobRequestAllOfSource](docs/JobRequestAllOfSource.md)
+ - [JobRequestAllOfSourceDocker](docs/JobRequestAllOfSourceDocker.md)
+ - [JobRequestAllOfSourceImage](docs/JobRequestAllOfSourceImage.md)
+ - [JobResponse](docs/JobResponse.md)
+ - [JobResponseAllOf](docs/JobResponseAllOf.md)
+ - [JobResponseAllOfSource](docs/JobResponseAllOfSource.md)
+ - [JobResponseAllOfSourceDocker](docs/JobResponseAllOfSourceDocker.md)
+ - [JobResponseList](docs/JobResponseList.md)
+ - [JobScheduleEvent](docs/JobScheduleEvent.md)
  - [Key](docs/Key.md)
  - [KubernetesEnum](docs/KubernetesEnum.md)
  - [Link](docs/Link.md)
@@ -652,6 +695,8 @@ Class | Method | HTTP request | Description
  - [ListContainerDeploymentHistory200ResponseAllOf](docs/ListContainerDeploymentHistory200ResponseAllOf.md)
  - [ListDatabaseDeploymentHistory200Response](docs/ListDatabaseDeploymentHistory200Response.md)
  - [ListDatabaseDeploymentHistory200ResponseAllOf](docs/ListDatabaseDeploymentHistory200ResponseAllOf.md)
+ - [ListJobDeploymentHistory200Response](docs/ListJobDeploymentHistory200Response.md)
+ - [ListJobDeploymentHistory200ResponseAllOf](docs/ListJobDeploymentHistory200ResponseAllOf.md)
  - [Log](docs/Log.md)
  - [LogPaginatedResponseList](docs/LogPaginatedResponseList.md)
  - [LogPaginatedResponseListAllOf](docs/LogPaginatedResponseListAllOf.md)

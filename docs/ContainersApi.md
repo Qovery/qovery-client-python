@@ -667,21 +667,11 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = containers_api.ContainersApi(api_client)
     environment_id = "environmentId_example" # str | Environment ID
-    to_update = False # bool | return (or not) results that must be updated (optional) if omitted the server will use the default value of False
 
     # example passing only required values which don't have defaults set
     try:
         # List containers
         api_response = api_instance.list_container(environment_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ContainersApi->list_container: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # List containers
-        api_response = api_instance.list_container(environment_id, to_update=to_update)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainersApi->list_container: %s\n" % e)
@@ -693,7 +683,6 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **environment_id** | **str**| Environment ID |
- **to_update** | **bool**| return (or not) results that must be updated | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
