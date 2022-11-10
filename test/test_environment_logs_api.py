@@ -31,6 +31,13 @@ class TestEnvironmentLogsApi(unittest.TestCase):
         """
         pass
 
+    def test_list_environment_logs(self):
+        """Test case for list_environment_logs
+
+        List environment deployment logs v2  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
