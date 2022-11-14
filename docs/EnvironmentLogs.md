@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
+**type** | **str** |  | 
 **timestamp** | **datetime** |  | 
 **details** | [**EnvironmentLogsDetails**](EnvironmentLogsDetails.md) |  | 
 **error** | [**EnvironmentLogsError**](EnvironmentLogsError.md) |  | [optional] 

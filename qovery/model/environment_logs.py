@@ -92,7 +92,7 @@ class EnvironmentLogs(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
+            'type': (str,),  # noqa: E501
             'timestamp': (datetime,),  # noqa: E501
             'details': (EnvironmentLogsDetails,),  # noqa: E501
             'error': (EnvironmentLogsError,),  # noqa: E501
@@ -105,7 +105,7 @@ class EnvironmentLogs(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'timestamp': 'timestamp',  # noqa: E501
         'details': 'details',  # noqa: E501
         'error': 'error',  # noqa: E501
@@ -119,11 +119,11 @@ class EnvironmentLogs(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, timestamp, details, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, timestamp, details, *args, **kwargs):  # noqa: E501
         """EnvironmentLogs - a model defined in OpenAPI
 
         Args:
-            id (str):
+            type (str):
             timestamp (datetime):
             details (EnvironmentLogsDetails):
 
@@ -191,7 +191,7 @@ class EnvironmentLogs(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.id = id
+        self.type = type
         self.timestamp = timestamp
         self.details = details
         for var_name, var_value in kwargs.items():
@@ -214,11 +214,11 @@ class EnvironmentLogs(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, timestamp, details, *args, **kwargs):  # noqa: E501
+    def __init__(self, type, timestamp, details, *args, **kwargs):  # noqa: E501
         """EnvironmentLogs - a model defined in OpenAPI
 
         Args:
-            id (str):
+            type (str):
             timestamp (datetime):
             details (EnvironmentLogsDetails):
 
@@ -284,7 +284,7 @@ class EnvironmentLogs(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.id = id
+        self.type = type
         self.timestamp = timestamp
         self.details = details
         for var_name, var_value in kwargs.items():
