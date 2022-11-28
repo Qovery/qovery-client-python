@@ -34,10 +34,12 @@ def lazy_import():
     from qovery.model.deployment_history_application import DeploymentHistoryApplication
     from qovery.model.deployment_history_container import DeploymentHistoryContainer
     from qovery.model.deployment_history_database import DeploymentHistoryDatabase
+    from qovery.model.deployment_history_job_response import DeploymentHistoryJobResponse
     from qovery.model.state_enum import StateEnum
     globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
     globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
     globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
+    globals()['DeploymentHistoryJobResponse'] = DeploymentHistoryJobResponse
     globals()['StateEnum'] = StateEnum
 
 
@@ -98,6 +100,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
             'applications': ([DeploymentHistoryApplication],),  # noqa: E501
             'containers': ([DeploymentHistoryContainer],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabase],),  # noqa: E501
+            'jobs': ([DeploymentHistoryJobResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +113,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
         'applications': 'applications',  # noqa: E501
         'containers': 'containers',  # noqa: E501
         'databases': 'databases',  # noqa: E501
+        'jobs': 'jobs',  # noqa: E501
     }
 
     read_only_vars = {
@@ -157,6 +161,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
+            jobs ([DeploymentHistoryJobResponse]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,6 +251,7 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
+            jobs ([DeploymentHistoryJobResponse]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
