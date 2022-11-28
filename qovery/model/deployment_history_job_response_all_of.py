@@ -31,8 +31,12 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.commit import Commit
     from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
+    from qovery.model.job_request_all_of_schedule import JobRequestAllOfSchedule
+    globals()['Commit'] = Commit
     globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
+    globals()['JobRequestAllOfSchedule'] = JobRequestAllOfSchedule
 
 
 class DeploymentHistoryJobResponseAllOf(ModelNormal):
@@ -92,6 +96,8 @@ class DeploymentHistoryJobResponseAllOf(ModelNormal):
             'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
             'tag': (str,),  # noqa: E501
+            'commit': (Commit,),  # noqa: E501
+            'schedule': (JobRequestAllOfSchedule,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
         }
@@ -106,6 +112,8 @@ class DeploymentHistoryJobResponseAllOf(ModelNormal):
         'status': 'status',  # noqa: E501
         'image_name': 'image_name',  # noqa: E501
         'tag': 'tag',  # noqa: E501
+        'commit': 'commit',  # noqa: E501
+        'schedule': 'schedule',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
     }
@@ -155,6 +163,8 @@ class DeploymentHistoryJobResponseAllOf(ModelNormal):
             status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
+            commit (Commit): [optional]  # noqa: E501
+            schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): [optional]  # noqa: E501
         """
@@ -246,6 +256,8 @@ class DeploymentHistoryJobResponseAllOf(ModelNormal):
             status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
+            commit (Commit): [optional]  # noqa: E501
+            schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): [optional]  # noqa: E501
         """
