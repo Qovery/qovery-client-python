@@ -54,9 +54,12 @@ class JobSecretApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'secret_request',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -70,12 +73,16 @@ class JobSecretApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'secret_request':
                         (SecretRequest,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'secret_request': 'body',
                 },
                 'collection_format_map': {
@@ -104,10 +111,12 @@ class JobSecretApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'secret_id',
                     'key',
                 ],
                 'required': [
+                    'job_id',
                     'secret_id',
                 ],
                 'nullable': [
@@ -123,15 +132,19 @@ class JobSecretApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'secret_id':
                         (str,),
                     'key':
                         (Key,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'secret_id': 'secretId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'secret_id': 'path',
                     'key': 'body',
                 },
@@ -161,10 +174,12 @@ class JobSecretApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'secret_id',
                     'value',
                 ],
                 'required': [
+                    'job_id',
                     'secret_id',
                 ],
                 'nullable': [
@@ -180,15 +195,19 @@ class JobSecretApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'secret_id':
                         (str,),
                     'value':
                         (Value,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'secret_id': 'secretId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'secret_id': 'path',
                     'value': 'body',
                 },
@@ -218,9 +237,11 @@ class JobSecretApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'secret_id',
                 ],
                 'required': [
+                    'job_id',
                     'secret_id',
                 ],
                 'nullable': [
@@ -236,13 +257,17 @@ class JobSecretApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'secret_id':
                         (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'secret_id': 'secretId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'secret_id': 'path',
                 },
                 'collection_format_map': {
@@ -267,10 +292,12 @@ class JobSecretApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'secret_id',
                     'secret_edit_request',
                 ],
                 'required': [
+                    'job_id',
                     'secret_id',
                     'secret_edit_request',
                 ],
@@ -287,15 +314,19 @@ class JobSecretApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'secret_id':
                         (str,),
                     'secret_edit_request':
                         (SecretEditRequest,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'secret_id': 'secretId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'secret_id': 'path',
                     'secret_edit_request': 'body',
                 },
@@ -325,8 +356,11 @@ class JobSecretApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -340,10 +374,14 @@ class JobSecretApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -359,6 +397,7 @@ class JobSecretApi(object):
 
     def create_job_secret(
         self,
+        job_id,
         **kwargs
     ):
         """Add a secret to the job  # noqa: E501
@@ -367,9 +406,11 @@ class JobSecretApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_job_secret(async_req=True)
+        >>> thread = api.create_job_secret(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             secret_request (SecretRequest): [optional]
@@ -434,10 +475,13 @@ class JobSecretApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.create_job_secret_endpoint.call_with_http_info(**kwargs)
 
     def create_job_secret_alias(
         self,
+        job_id,
         secret_id,
         **kwargs
     ):
@@ -447,10 +491,11 @@ class JobSecretApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_job_secret_alias(secret_id, async_req=True)
+        >>> thread = api.create_job_secret_alias(job_id, secret_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             secret_id (str): Secret ID
 
         Keyword Args:
@@ -516,12 +561,15 @@ class JobSecretApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['secret_id'] = \
             secret_id
         return self.create_job_secret_alias_endpoint.call_with_http_info(**kwargs)
 
     def create_job_secret_override(
         self,
+        job_id,
         secret_id,
         **kwargs
     ):
@@ -531,10 +579,11 @@ class JobSecretApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_job_secret_override(secret_id, async_req=True)
+        >>> thread = api.create_job_secret_override(job_id, secret_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             secret_id (str): Secret ID
 
         Keyword Args:
@@ -600,12 +649,15 @@ class JobSecretApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['secret_id'] = \
             secret_id
         return self.create_job_secret_override_endpoint.call_with_http_info(**kwargs)
 
     def delete_job_secret(
         self,
+        job_id,
         secret_id,
         **kwargs
     ):
@@ -615,10 +667,11 @@ class JobSecretApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_job_secret(secret_id, async_req=True)
+        >>> thread = api.delete_job_secret(job_id, secret_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             secret_id (str): Secret ID
 
         Keyword Args:
@@ -683,12 +736,15 @@ class JobSecretApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['secret_id'] = \
             secret_id
         return self.delete_job_secret_endpoint.call_with_http_info(**kwargs)
 
     def edit_job_secret(
         self,
+        job_id,
         secret_id,
         secret_edit_request,
         **kwargs
@@ -699,10 +755,11 @@ class JobSecretApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_job_secret(secret_id, secret_edit_request, async_req=True)
+        >>> thread = api.edit_job_secret(job_id, secret_id, secret_edit_request, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             secret_id (str): Secret ID
             secret_edit_request (SecretEditRequest):
 
@@ -768,6 +825,8 @@ class JobSecretApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['secret_id'] = \
             secret_id
         kwargs['secret_edit_request'] = \
@@ -776,6 +835,7 @@ class JobSecretApi(object):
 
     def list_job_secrets(
         self,
+        job_id,
         **kwargs
     ):
         """List job secrets  # noqa: E501
@@ -784,9 +844,11 @@ class JobSecretApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_job_secrets(async_req=True)
+        >>> thread = api.list_job_secrets(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -850,5 +912,7 @@ class JobSecretApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.list_job_secrets_endpoint.call_with_http_info(**kwargs)
 

@@ -51,8 +51,11 @@ class JobMainCallsApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -66,10 +69,14 @@ class JobMainCallsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -93,9 +100,12 @@ class JobMainCallsApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'job_request',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -109,12 +119,16 @@ class JobMainCallsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'job_request':
                         (JobRequest,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'job_request': 'body',
                 },
                 'collection_format_map': {
@@ -194,8 +208,11 @@ class JobMainCallsApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -209,10 +226,14 @@ class JobMainCallsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -228,6 +249,7 @@ class JobMainCallsApi(object):
 
     def delete_job(
         self,
+        job_id,
         **kwargs
     ):
         """Delete job  # noqa: E501
@@ -236,9 +258,11 @@ class JobMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_job(async_req=True)
+        >>> thread = api.delete_job(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -302,10 +326,13 @@ class JobMainCallsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.delete_job_endpoint.call_with_http_info(**kwargs)
 
     def edit_job(
         self,
+        job_id,
         **kwargs
     ):
         """Edit job  # noqa: E501
@@ -314,9 +341,11 @@ class JobMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_job(async_req=True)
+        >>> thread = api.edit_job(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             job_request (JobRequest): [optional]
@@ -381,6 +410,8 @@ class JobMainCallsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.edit_job_endpoint.call_with_http_info(**kwargs)
 
     def get_job(
@@ -467,6 +498,7 @@ class JobMainCallsApi(object):
 
     def get_job_status(
         self,
+        job_id,
         **kwargs
     ):
         """Get job status  # noqa: E501
@@ -474,9 +506,11 @@ class JobMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_job_status(async_req=True)
+        >>> thread = api.get_job_status(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -540,5 +574,7 @@ class JobMainCallsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.get_job_status_endpoint.call_with_http_info(**kwargs)
 

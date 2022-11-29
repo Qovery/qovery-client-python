@@ -49,8 +49,11 @@ class JobDeploymentHistoryApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -64,10 +67,14 @@ class JobDeploymentHistoryApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -83,6 +90,7 @@ class JobDeploymentHistoryApi(object):
 
     def list_job_deployment_history(
         self,
+        job_id,
         **kwargs
     ):
         """List job deployments  # noqa: E501
@@ -91,9 +99,11 @@ class JobDeploymentHistoryApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_job_deployment_history(async_req=True)
+        >>> thread = api.list_job_deployment_history(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -157,5 +167,7 @@ class JobDeploymentHistoryApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.list_job_deployment_history_endpoint.call_with_http_info(**kwargs)
 

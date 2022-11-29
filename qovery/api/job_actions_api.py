@@ -50,10 +50,13 @@ class JobActionsApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'force',
                     'job_deploy_request',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -67,15 +70,19 @@ class JobActionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'force':
                         (bool,),
                     'job_deploy_request':
                         (JobDeployRequest,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'force': 'force',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'force': 'query',
                     'job_deploy_request': 'body',
                 },
@@ -105,9 +112,12 @@ class JobActionsApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'force',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -121,13 +131,17 @@ class JobActionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'force':
                         (bool,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'force': 'force',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'force': 'query',
                 },
                 'collection_format_map': {
@@ -154,8 +168,11 @@ class JobActionsApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -169,10 +186,14 @@ class JobActionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -188,6 +209,7 @@ class JobActionsApi(object):
 
     def deploy_job(
         self,
+        job_id,
         **kwargs
     ):
         """Deploy job  # noqa: E501
@@ -196,9 +218,11 @@ class JobActionsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.deploy_job(async_req=True)
+        >>> thread = api.deploy_job(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             force (bool): Enable or Disable the force trigger of the job. [optional] if omitted the server will use the default value of False
@@ -264,10 +288,13 @@ class JobActionsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.deploy_job_endpoint.call_with_http_info(**kwargs)
 
     def restart_job(
         self,
+        job_id,
         **kwargs
     ):
         """Restart job  # noqa: E501
@@ -275,9 +302,11 @@ class JobActionsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.restart_job(async_req=True)
+        >>> thread = api.restart_job(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             force (bool): Enable or Disable the force trigger of the job. [optional] if omitted the server will use the default value of False
@@ -342,10 +371,13 @@ class JobActionsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.restart_job_endpoint.call_with_http_info(**kwargs)
 
     def stop_job(
         self,
+        job_id,
         **kwargs
     ):
         """Stop job  # noqa: E501
@@ -353,9 +385,11 @@ class JobActionsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.stop_job(async_req=True)
+        >>> thread = api.stop_job(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -419,5 +453,7 @@ class JobActionsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.stop_job_endpoint.call_with_http_info(**kwargs)
 

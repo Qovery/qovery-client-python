@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_job_current_instance**
-> InstanceResponseList get_job_current_instance()
+> InstanceResponseList get_job_current_instance(job_id)
 
 List currently running instances of the job with their CPU and RAM metrics
 
@@ -42,11 +42,12 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_metrics_api.JobMetricsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
         # List currently running instances of the job with their CPU and RAM metrics
-        api_response = api_instance.get_job_current_instance()
+        api_response = api_instance.get_job_current_instance(job_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobMetricsApi->get_job_current_instance: %s\n" % e)
@@ -54,7 +55,10 @@ with qovery.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
 
 ### Return type
 

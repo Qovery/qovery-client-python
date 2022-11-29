@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **deploy_job**
-> Status deploy_job()
+> Status deploy_job(job_id)
 
 Deploy job
 
@@ -47,16 +47,25 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_actions_api.JobActionsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     force = False # bool | Enable or Disable the force trigger of the job (optional) if omitted the server will use the default value of False
     job_deploy_request = JobDeployRequest(
         image_tag="image_tag_example",
     ) # JobDeployRequest |  (optional)
 
     # example passing only required values which don't have defaults set
+    try:
+        # Deploy job
+        api_response = api_instance.deploy_job(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobActionsApi->deploy_job: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Deploy job
-        api_response = api_instance.deploy_job(force=force, job_deploy_request=job_deploy_request)
+        api_response = api_instance.deploy_job(job_id, force=force, job_deploy_request=job_deploy_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->deploy_job: %s\n" % e)
@@ -67,6 +76,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **force** | **bool**| Enable or Disable the force trigger of the job | [optional] if omitted the server will use the default value of False
  **job_deploy_request** | [**JobDeployRequest**](JobDeployRequest.md)|  | [optional]
 
@@ -98,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **restart_job**
-> Status restart_job()
+> Status restart_job(job_id)
 
 Restart job
 
@@ -132,13 +142,22 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_actions_api.JobActionsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     force = False # bool | Enable or Disable the force trigger of the job (optional) if omitted the server will use the default value of False
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Restart job
+        api_response = api_instance.restart_job(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobActionsApi->restart_job: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Restart job
-        api_response = api_instance.restart_job(force=force)
+        api_response = api_instance.restart_job(job_id, force=force)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->restart_job: %s\n" % e)
@@ -149,6 +168,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **force** | **bool**| Enable or Disable the force trigger of the job | [optional] if omitted the server will use the default value of False
 
 ### Return type
@@ -178,7 +198,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_job**
-> Status stop_job()
+> Status stop_job(job_id)
 
 Stop job
 
@@ -212,11 +232,12 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_actions_api.JobActionsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
         # Stop job
-        api_response = api_instance.stop_job()
+        api_response = api_instance.stop_job(job_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->stop_job: %s\n" % e)
@@ -224,7 +245,10 @@ with qovery.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
 
 ### Return type
 

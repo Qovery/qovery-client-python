@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **delete_job**
-> delete_job()
+> delete_job(job_id)
 
 Delete job
 
@@ -46,18 +46,22 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
         # Delete job
-        api_instance.delete_job()
+        api_instance.delete_job(job_id)
     except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->delete_job: %s\n" % e)
 ```
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
 
 ### Return type
 
@@ -85,7 +89,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_job**
-> JobResponse edit_job()
+> JobResponse edit_job(job_id)
 
 Edit job
 
@@ -122,13 +126,22 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     job_request = JobRequest(None) # JobRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit job
+        api_response = api_instance.edit_job(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobMainCallsApi->edit_job: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Edit job
-        api_response = api_instance.edit_job(job_request=job_request)
+        api_response = api_instance.edit_job(job_id, job_request=job_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->edit_job: %s\n" % e)
@@ -139,6 +152,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **job_request** | [**JobRequest**](JobRequest.md)|  | [optional]
 
 ### Return type
@@ -247,7 +261,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_job_status**
-> Status get_job_status()
+> Status get_job_status(job_id)
 
 Get job status
 
@@ -281,11 +295,12 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
         # Get job status
-        api_response = api_instance.get_job_status()
+        api_response = api_instance.get_job_status(job_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->get_job_status: %s\n" % e)
@@ -293,7 +308,10 @@ with qovery.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
 
 ### Return type
 

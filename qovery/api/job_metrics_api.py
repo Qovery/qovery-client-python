@@ -49,8 +49,11 @@ class JobMetricsApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -64,10 +67,14 @@ class JobMetricsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -83,6 +90,7 @@ class JobMetricsApi(object):
 
     def get_job_current_instance(
         self,
+        job_id,
         **kwargs
     ):
         """List currently running instances of the job with their CPU and RAM metrics  # noqa: E501
@@ -90,9 +98,11 @@ class JobMetricsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_job_current_instance(async_req=True)
+        >>> thread = api.get_job_current_instance(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -156,5 +166,7 @@ class JobMetricsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.get_job_current_instance_endpoint.call_with_http_info(**kwargs)
 

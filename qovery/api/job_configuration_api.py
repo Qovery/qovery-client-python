@@ -49,9 +49,12 @@ class JobConfigurationApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'job_advanced_settings',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -65,12 +68,16 @@ class JobConfigurationApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'job_advanced_settings':
                         (JobAdvancedSettings,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'job_advanced_settings': 'body',
                 },
                 'collection_format_map': {
@@ -99,8 +106,11 @@ class JobConfigurationApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -114,10 +124,14 @@ class JobConfigurationApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -133,6 +147,7 @@ class JobConfigurationApi(object):
 
     def edit_job_advanced_settings(
         self,
+        job_id,
         **kwargs
     ):
         """Edit advanced settings  # noqa: E501
@@ -141,9 +156,11 @@ class JobConfigurationApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_job_advanced_settings(async_req=True)
+        >>> thread = api.edit_job_advanced_settings(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             job_advanced_settings (JobAdvancedSettings): [optional]
@@ -208,10 +225,13 @@ class JobConfigurationApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.edit_job_advanced_settings_endpoint.call_with_http_info(**kwargs)
 
     def get_job_advanced_settings(
         self,
+        job_id,
         **kwargs
     ):
         """Get advanced settings  # noqa: E501
@@ -220,9 +240,11 @@ class JobConfigurationApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_job_advanced_settings(async_req=True)
+        >>> thread = api.get_job_advanced_settings(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -286,5 +308,7 @@ class JobConfigurationApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.get_job_advanced_settings_endpoint.call_with_http_info(**kwargs)
 

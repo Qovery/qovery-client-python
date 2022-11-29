@@ -56,9 +56,12 @@ class JobEnvironmentVariableApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'environment_variable_request',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -72,12 +75,16 @@ class JobEnvironmentVariableApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'environment_variable_request':
                         (EnvironmentVariableRequest,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'environment_variable_request': 'body',
                 },
                 'collection_format_map': {
@@ -106,10 +113,12 @@ class JobEnvironmentVariableApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'environment_variable_id',
                     'key',
                 ],
                 'required': [
+                    'job_id',
                     'environment_variable_id',
                 ],
                 'nullable': [
@@ -125,15 +134,19 @@ class JobEnvironmentVariableApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'environment_variable_id':
                         (str,),
                     'key':
                         (Key,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'environment_variable_id': 'environmentVariableId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'environment_variable_id': 'path',
                     'key': 'body',
                 },
@@ -163,10 +176,12 @@ class JobEnvironmentVariableApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'environment_variable_id',
                     'value',
                 ],
                 'required': [
+                    'job_id',
                     'environment_variable_id',
                 ],
                 'nullable': [
@@ -182,15 +197,19 @@ class JobEnvironmentVariableApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'environment_variable_id':
                         (str,),
                     'value':
                         (Value,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'environment_variable_id': 'environmentVariableId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'environment_variable_id': 'path',
                     'value': 'body',
                 },
@@ -220,9 +239,11 @@ class JobEnvironmentVariableApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'environment_variable_id',
                 ],
                 'required': [
+                    'job_id',
                     'environment_variable_id',
                 ],
                 'nullable': [
@@ -238,13 +259,17 @@ class JobEnvironmentVariableApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'environment_variable_id':
                         (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'environment_variable_id': 'environmentVariableId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'environment_variable_id': 'path',
                 },
                 'collection_format_map': {
@@ -269,10 +294,12 @@ class JobEnvironmentVariableApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'environment_variable_id',
                     'environment_variable_edit_request',
                 ],
                 'required': [
+                    'job_id',
                     'environment_variable_id',
                     'environment_variable_edit_request',
                 ],
@@ -289,15 +316,19 @@ class JobEnvironmentVariableApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'environment_variable_id':
                         (str,),
                     'environment_variable_edit_request':
                         (EnvironmentVariableEditRequest,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                     'environment_variable_id': 'environmentVariableId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'environment_variable_id': 'path',
                     'environment_variable_edit_request': 'body',
                 },
@@ -327,9 +358,12 @@ class JobEnvironmentVariableApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                     'variable_import_request',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -343,12 +377,16 @@ class JobEnvironmentVariableApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                     'variable_import_request':
                         (VariableImportRequest,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                     'variable_import_request': 'body',
                 },
                 'collection_format_map': {
@@ -377,8 +415,11 @@ class JobEnvironmentVariableApi(object):
             },
             params_map={
                 'all': [
+                    'job_id',
                 ],
-                'required': [],
+                'required': [
+                    'job_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -392,10 +433,14 @@ class JobEnvironmentVariableApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'job_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'job_id': 'jobId',
                 },
                 'location_map': {
+                    'job_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -411,6 +456,7 @@ class JobEnvironmentVariableApi(object):
 
     def create_job_environment_variable(
         self,
+        job_id,
         **kwargs
     ):
         """Add an environment variable to the job  # noqa: E501
@@ -419,9 +465,11 @@ class JobEnvironmentVariableApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_job_environment_variable(async_req=True)
+        >>> thread = api.create_job_environment_variable(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             environment_variable_request (EnvironmentVariableRequest): [optional]
@@ -486,10 +534,13 @@ class JobEnvironmentVariableApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.create_job_environment_variable_endpoint.call_with_http_info(**kwargs)
 
     def create_job_environment_variable_alias(
         self,
+        job_id,
         environment_variable_id,
         **kwargs
     ):
@@ -499,10 +550,11 @@ class JobEnvironmentVariableApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_job_environment_variable_alias(environment_variable_id, async_req=True)
+        >>> thread = api.create_job_environment_variable_alias(job_id, environment_variable_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             environment_variable_id (str): Environment Variable ID
 
         Keyword Args:
@@ -568,12 +620,15 @@ class JobEnvironmentVariableApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['environment_variable_id'] = \
             environment_variable_id
         return self.create_job_environment_variable_alias_endpoint.call_with_http_info(**kwargs)
 
     def create_job_environment_variable_override(
         self,
+        job_id,
         environment_variable_id,
         **kwargs
     ):
@@ -583,10 +638,11 @@ class JobEnvironmentVariableApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_job_environment_variable_override(environment_variable_id, async_req=True)
+        >>> thread = api.create_job_environment_variable_override(job_id, environment_variable_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             environment_variable_id (str): Environment Variable ID
 
         Keyword Args:
@@ -652,12 +708,15 @@ class JobEnvironmentVariableApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['environment_variable_id'] = \
             environment_variable_id
         return self.create_job_environment_variable_override_endpoint.call_with_http_info(**kwargs)
 
     def delete_job_environment_variable(
         self,
+        job_id,
         environment_variable_id,
         **kwargs
     ):
@@ -667,10 +726,11 @@ class JobEnvironmentVariableApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_job_environment_variable(environment_variable_id, async_req=True)
+        >>> thread = api.delete_job_environment_variable(job_id, environment_variable_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             environment_variable_id (str): Environment Variable ID
 
         Keyword Args:
@@ -735,12 +795,15 @@ class JobEnvironmentVariableApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['environment_variable_id'] = \
             environment_variable_id
         return self.delete_job_environment_variable_endpoint.call_with_http_info(**kwargs)
 
     def edit_job_environment_variable(
         self,
+        job_id,
         environment_variable_id,
         environment_variable_edit_request,
         **kwargs
@@ -751,10 +814,11 @@ class JobEnvironmentVariableApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_job_environment_variable(environment_variable_id, environment_variable_edit_request, async_req=True)
+        >>> thread = api.edit_job_environment_variable(job_id, environment_variable_id, environment_variable_edit_request, async_req=True)
         >>> result = thread.get()
 
         Args:
+            job_id (str): Job ID
             environment_variable_id (str): Environment Variable ID
             environment_variable_edit_request (EnvironmentVariableEditRequest):
 
@@ -820,6 +884,8 @@ class JobEnvironmentVariableApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         kwargs['environment_variable_id'] = \
             environment_variable_id
         kwargs['environment_variable_edit_request'] = \
@@ -828,6 +894,7 @@ class JobEnvironmentVariableApi(object):
 
     def import_job_environment_variable(
         self,
+        job_id,
         **kwargs
     ):
         """Import variables  # noqa: E501
@@ -836,9 +903,11 @@ class JobEnvironmentVariableApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.import_job_environment_variable(async_req=True)
+        >>> thread = api.import_job_environment_variable(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             variable_import_request (VariableImportRequest): [optional]
@@ -903,10 +972,13 @@ class JobEnvironmentVariableApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.import_job_environment_variable_endpoint.call_with_http_info(**kwargs)
 
     def list_job_environment_variable(
         self,
+        job_id,
         **kwargs
     ):
         """List environment variables  # noqa: E501
@@ -914,9 +986,11 @@ class JobEnvironmentVariableApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_job_environment_variable(async_req=True)
+        >>> thread = api.list_job_environment_variable(job_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            job_id (str): Job ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -980,5 +1054,7 @@ class JobEnvironmentVariableApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['job_id'] = \
+            job_id
         return self.list_job_environment_variable_endpoint.call_with_http_info(**kwargs)
 

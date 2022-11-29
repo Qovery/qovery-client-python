@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **create_job_environment_variable**
-> EnvironmentVariable create_job_environment_variable()
+> EnvironmentVariable create_job_environment_variable(job_id)
 
 Add an environment variable to the job
 
@@ -51,16 +51,25 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_environment_variable_api.JobEnvironmentVariableApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     environment_variable_request = EnvironmentVariableRequest(
         key="key_example",
         value="value_example",
     ) # EnvironmentVariableRequest |  (optional)
 
     # example passing only required values which don't have defaults set
+    try:
+        # Add an environment variable to the job
+        api_response = api_instance.create_job_environment_variable(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobEnvironmentVariableApi->create_job_environment_variable: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Add an environment variable to the job
-        api_response = api_instance.create_job_environment_variable(environment_variable_request=environment_variable_request)
+        api_response = api_instance.create_job_environment_variable(job_id, environment_variable_request=environment_variable_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->create_job_environment_variable: %s\n" % e)
@@ -71,6 +80,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **environment_variable_request** | [**EnvironmentVariableRequest**](EnvironmentVariableRequest.md)|  | [optional]
 
 ### Return type
@@ -100,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_job_environment_variable_alias**
-> EnvironmentVariable create_job_environment_variable_alias(environment_variable_id)
+> EnvironmentVariable create_job_environment_variable_alias(job_id, environment_variable_id)
 
 Create an environment variable alias at the job level
 
@@ -137,6 +147,7 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_environment_variable_api.JobEnvironmentVariableApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     environment_variable_id = "environmentVariableId_example" # str | Environment Variable ID
     key = Key(
         key="key_example",
@@ -145,7 +156,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create an environment variable alias at the job level
-        api_response = api_instance.create_job_environment_variable_alias(environment_variable_id)
+        api_response = api_instance.create_job_environment_variable_alias(job_id, environment_variable_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->create_job_environment_variable_alias: %s\n" % e)
@@ -154,7 +165,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an environment variable alias at the job level
-        api_response = api_instance.create_job_environment_variable_alias(environment_variable_id, key=key)
+        api_response = api_instance.create_job_environment_variable_alias(job_id, environment_variable_id, key=key)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->create_job_environment_variable_alias: %s\n" % e)
@@ -165,6 +176,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **environment_variable_id** | **str**| Environment Variable ID |
  **key** | [**Key**](Key.md)|  | [optional]
 
@@ -195,7 +207,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_job_environment_variable_override**
-> EnvironmentVariable create_job_environment_variable_override(environment_variable_id)
+> EnvironmentVariable create_job_environment_variable_override(job_id, environment_variable_id)
 
 Create an environment variable override at the job level
 
@@ -232,6 +244,7 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_environment_variable_api.JobEnvironmentVariableApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     environment_variable_id = "environmentVariableId_example" # str | Environment Variable ID
     value = Value(
         value="value_example",
@@ -240,7 +253,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create an environment variable override at the job level
-        api_response = api_instance.create_job_environment_variable_override(environment_variable_id)
+        api_response = api_instance.create_job_environment_variable_override(job_id, environment_variable_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->create_job_environment_variable_override: %s\n" % e)
@@ -249,7 +262,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an environment variable override at the job level
-        api_response = api_instance.create_job_environment_variable_override(environment_variable_id, value=value)
+        api_response = api_instance.create_job_environment_variable_override(job_id, environment_variable_id, value=value)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->create_job_environment_variable_override: %s\n" % e)
@@ -260,6 +273,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **environment_variable_id** | **str**| Environment Variable ID |
  **value** | [**Value**](Value.md)|  | [optional]
 
@@ -290,7 +304,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_job_environment_variable**
-> delete_job_environment_variable(environment_variable_id)
+> delete_job_environment_variable(job_id, environment_variable_id)
 
 Delete an environment variable from a job
 
@@ -325,12 +339,13 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_environment_variable_api.JobEnvironmentVariableApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     environment_variable_id = "environmentVariableId_example" # str | Environment Variable ID
 
     # example passing only required values which don't have defaults set
     try:
         # Delete an environment variable from a job
-        api_instance.delete_job_environment_variable(environment_variable_id)
+        api_instance.delete_job_environment_variable(job_id, environment_variable_id)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->delete_job_environment_variable: %s\n" % e)
 ```
@@ -340,6 +355,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **environment_variable_id** | **str**| Environment Variable ID |
 
 ### Return type
@@ -368,7 +384,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_job_environment_variable**
-> EnvironmentVariable edit_job_environment_variable(environment_variable_id, environment_variable_edit_request)
+> EnvironmentVariable edit_job_environment_variable(job_id, environment_variable_id, environment_variable_edit_request)
 
 Edit an environment variable belonging to the job
 
@@ -405,6 +421,7 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_environment_variable_api.JobEnvironmentVariableApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     environment_variable_id = "environmentVariableId_example" # str | Environment Variable ID
     environment_variable_edit_request = EnvironmentVariableEditRequest(
         key="key_example",
@@ -414,7 +431,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Edit an environment variable belonging to the job
-        api_response = api_instance.edit_job_environment_variable(environment_variable_id, environment_variable_edit_request)
+        api_response = api_instance.edit_job_environment_variable(job_id, environment_variable_id, environment_variable_edit_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->edit_job_environment_variable: %s\n" % e)
@@ -425,6 +442,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **environment_variable_id** | **str**| Environment Variable ID |
  **environment_variable_edit_request** | [**EnvironmentVariableEditRequest**](EnvironmentVariableEditRequest.md)|  |
 
@@ -455,7 +473,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_job_environment_variable**
-> VariableImport import_job_environment_variable()
+> VariableImport import_job_environment_variable(job_id)
 
 Import variables
 
@@ -492,6 +510,7 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_environment_variable_api.JobEnvironmentVariableApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     variable_import_request = VariableImportRequest(
         overwrite=False,
         vars=[
@@ -505,10 +524,18 @@ with qovery.ApiClient(configuration) as api_client:
     ) # VariableImportRequest |  (optional)
 
     # example passing only required values which don't have defaults set
+    try:
+        # Import variables
+        api_response = api_instance.import_job_environment_variable(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobEnvironmentVariableApi->import_job_environment_variable: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Import variables
-        api_response = api_instance.import_job_environment_variable(variable_import_request=variable_import_request)
+        api_response = api_instance.import_job_environment_variable(job_id, variable_import_request=variable_import_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->import_job_environment_variable: %s\n" % e)
@@ -519,6 +546,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **variable_import_request** | [**VariableImportRequest**](VariableImportRequest.md)|  | [optional]
 
 ### Return type
@@ -548,7 +576,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_job_environment_variable**
-> EnvironmentVariableResponseList list_job_environment_variable()
+> EnvironmentVariableResponseList list_job_environment_variable(job_id)
 
 List environment variables
 
@@ -582,11 +610,12 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_environment_variable_api.JobEnvironmentVariableApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
         # List environment variables
-        api_response = api_instance.list_job_environment_variable()
+        api_response = api_instance.list_job_environment_variable(job_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobEnvironmentVariableApi->list_job_environment_variable: %s\n" % e)
@@ -594,7 +623,10 @@ with qovery.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
 
 ### Return type
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **edit_job_advanced_settings**
-> JobAdvancedSettings edit_job_advanced_settings()
+> JobAdvancedSettings edit_job_advanced_settings(job_id)
 
 Edit advanced settings
 
@@ -45,6 +45,7 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_configuration_api.JobConfigurationApi(api_client)
+    job_id = "jobId_example" # str | Job ID
     job_advanced_settings = JobAdvancedSettings(
         job_delete_ttl_seconds_after_finished=1,
         cronjob_concurrency_policy="Forbid",
@@ -67,10 +68,18 @@ with qovery.ApiClient(configuration) as api_client:
     ) # JobAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
+    try:
+        # Edit advanced settings
+        api_response = api_instance.edit_job_advanced_settings(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobConfigurationApi->edit_job_advanced_settings: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Edit advanced settings
-        api_response = api_instance.edit_job_advanced_settings(job_advanced_settings=job_advanced_settings)
+        api_response = api_instance.edit_job_advanced_settings(job_id, job_advanced_settings=job_advanced_settings)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobConfigurationApi->edit_job_advanced_settings: %s\n" % e)
@@ -81,6 +90,7 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
  **job_advanced_settings** | [**JobAdvancedSettings**](JobAdvancedSettings.md)|  | [optional]
 
 ### Return type
@@ -110,7 +120,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_job_advanced_settings**
-> JobAdvancedSettings get_job_advanced_settings()
+> JobAdvancedSettings get_job_advanced_settings(job_id)
 
 Get advanced settings
 
@@ -146,11 +156,12 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_configuration_api.JobConfigurationApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
         # Get advanced settings
-        api_response = api_instance.get_job_advanced_settings()
+        api_response = api_instance.get_job_advanced_settings(job_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobConfigurationApi->get_job_advanced_settings: %s\n" % e)
@@ -158,7 +169,10 @@ with qovery.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**| Job ID |
 
 ### Return type
 
