@@ -183,20 +183,20 @@ class JobAdvancedSettings(ModelNormal):
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
-            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
+            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
+            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
+            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
+            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -286,20 +286,20 @@ class JobAdvancedSettings(ModelNormal):
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
-            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
+            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
+            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
+            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
+            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

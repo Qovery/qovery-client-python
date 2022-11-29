@@ -179,7 +179,7 @@ class JobRequestAllOf(ModelNormal):
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
-            max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
+            max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional] if omitted the server will use the default value of 0  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
@@ -278,7 +278,7 @@ class JobRequestAllOf(ModelNormal):
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
-            max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
+            max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional] if omitted the server will use the default value of 0  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
