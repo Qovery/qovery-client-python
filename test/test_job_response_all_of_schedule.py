@@ -13,17 +13,13 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.job_schedule_event import JobScheduleEvent
+globals()['JobScheduleEvent'] = JobScheduleEvent
 from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
-from qovery.model.job_response_all_of_source import JobResponseAllOfSource
-from qovery.model.reference_object import ReferenceObject
-globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
-globals()['JobResponseAllOfSource'] = JobResponseAllOfSource
-globals()['ReferenceObject'] = ReferenceObject
-from qovery.model.job_response_all_of import JobResponseAllOf
 
 
-class TestJobResponseAllOf(unittest.TestCase):
-    """JobResponseAllOf unit test stubs"""
+class TestJobResponseAllOfSchedule(unittest.TestCase):
+    """JobResponseAllOfSchedule unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +27,10 @@ class TestJobResponseAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobResponseAllOf(self):
-        """Test JobResponseAllOf"""
+    def testJobResponseAllOfSchedule(self):
+        """Test JobResponseAllOfSchedule"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobResponseAllOf()  # noqa: E501
+        # model = JobResponseAllOfSchedule()  # noqa: E501
         pass
 
 

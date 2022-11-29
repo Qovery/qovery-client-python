@@ -307,6 +307,7 @@ docs/JobRequestAllOfSourceDocker.md
 docs/JobRequestAllOfSourceImage.md
 docs/JobResponse.md
 docs/JobResponseAllOf.md
+docs/JobResponseAllOfSchedule.md
 docs/JobResponseAllOfSource.md
 docs/JobResponseAllOfSourceDocker.md
 docs/JobResponseList.md
@@ -806,6 +807,7 @@ qovery/model/job_request_all_of_source_docker.py
 qovery/model/job_request_all_of_source_image.py
 qovery/model/job_response.py
 qovery/model/job_response_all_of.py
+qovery/model/job_response_all_of_schedule.py
 qovery/model/job_response_all_of_source.py
 qovery/model/job_response_all_of_source_docker.py
 qovery/model/job_response_list.py
@@ -1273,6 +1275,7 @@ test/test_job_request_all_of_source_docker.py
 test/test_job_request_all_of_source_image.py
 test/test_job_response.py
 test/test_job_response_all_of.py
+test/test_job_response_all_of_schedule.py
 test/test_job_response_all_of_source.py
 test/test_job_response_all_of_source_docker.py
 test/test_job_response_list.py

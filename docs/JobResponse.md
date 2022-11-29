@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **max_duration_seconds** | **int** | Maximum number of seconds allowed for the job to run before killing it and mark it as failed  | [optional] 
 **port** | **int, none_type** | Port where to run readiness and liveliness probes checks. The port will not be exposed externally | [optional] 
 **source** | [**JobResponseAllOfSource**](JobResponseAllOfSource.md) |  | [optional] 
-**schedule** | [**JobRequestAllOfSchedule**](JobRequestAllOfSchedule.md) |  | [optional] 
+**schedule** | [**JobResponseAllOfSchedule**](JobResponseAllOfSchedule.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

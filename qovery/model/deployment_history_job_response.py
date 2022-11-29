@@ -35,12 +35,12 @@ def lazy_import():
     from qovery.model.commit import Commit
     from qovery.model.deployment_history_job_response_all_of import DeploymentHistoryJobResponseAllOf
     from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
-    from qovery.model.job_request_all_of_schedule import JobRequestAllOfSchedule
+    from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
     globals()['Base'] = Base
     globals()['Commit'] = Commit
     globals()['DeploymentHistoryJobResponseAllOf'] = DeploymentHistoryJobResponseAllOf
     globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
-    globals()['JobRequestAllOfSchedule'] = JobRequestAllOfSchedule
+    globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
 
 
 class DeploymentHistoryJobResponse(ModelComposed):
@@ -104,7 +104,7 @@ class DeploymentHistoryJobResponse(ModelComposed):
             'image_name': (str,),  # noqa: E501
             'tag': (str,),  # noqa: E501
             'commit': (Commit,),  # noqa: E501
-            'schedule': (JobRequestAllOfSchedule,),  # noqa: E501
+            'schedule': (JobResponseAllOfSchedule,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
         }
@@ -178,7 +178,7 @@ class DeploymentHistoryJobResponse(ModelComposed):
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
-            schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
+            schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): [optional]  # noqa: E501
         """
@@ -290,7 +290,7 @@ class DeploymentHistoryJobResponse(ModelComposed):
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
-            schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
+            schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): [optional]  # noqa: E501
         """

@@ -258,6 +258,7 @@ from qovery.model.job_request_all_of_source_docker import JobRequestAllOfSourceD
 from qovery.model.job_request_all_of_source_image import JobRequestAllOfSourceImage
 from qovery.model.job_response import JobResponse
 from qovery.model.job_response_all_of import JobResponseAllOf
+from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
 from qovery.model.job_response_all_of_source import JobResponseAllOfSource
 from qovery.model.job_response_all_of_source_docker import JobResponseAllOfSourceDocker
 from qovery.model.job_response_list import JobResponseList

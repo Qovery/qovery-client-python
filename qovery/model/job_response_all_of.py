@@ -31,10 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.job_request_all_of_schedule import JobRequestAllOfSchedule
+    from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
     from qovery.model.job_response_all_of_source import JobResponseAllOfSource
     from qovery.model.reference_object import ReferenceObject
-    globals()['JobRequestAllOfSchedule'] = JobRequestAllOfSchedule
+    globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
     globals()['JobResponseAllOfSource'] = JobResponseAllOfSource
     globals()['ReferenceObject'] = ReferenceObject
 
@@ -115,7 +115,7 @@ class JobResponseAllOf(ModelNormal):
             'max_duration_seconds': (int,),  # noqa: E501
             'port': (int, none_type,),  # noqa: E501
             'source': (JobResponseAllOfSource,),  # noqa: E501
-            'schedule': (JobRequestAllOfSchedule,),  # noqa: E501
+            'schedule': (JobResponseAllOfSchedule,),  # noqa: E501
         }
 
     @cached_property
@@ -198,7 +198,7 @@ class JobResponseAllOf(ModelNormal):
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobResponseAllOfSource): [optional]  # noqa: E501
-            schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
+            schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -308,7 +308,7 @@ class JobResponseAllOf(ModelNormal):
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobResponseAllOfSource): [optional]  # noqa: E501
-            schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
+            schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
