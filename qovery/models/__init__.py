@@ -227,6 +227,7 @@ from qovery.model.event_paginated_response_list import EventPaginatedResponseLis
 from qovery.model.event_paginated_response_list_all_of import EventPaginatedResponseListAllOf
 from qovery.model.event_response_list import EventResponseList
 from qovery.model.generic_object_current_cost import GenericObjectCurrentCost
+from qovery.model.get_environment_statuses200_response import GetEnvironmentStatuses200Response
 from qovery.model.git_auth_provider import GitAuthProvider
 from qovery.model.git_auth_provider_response_list import GitAuthProviderResponseList
 from qovery.model.git_provider_enum import GitProviderEnum
