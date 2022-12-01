@@ -144,7 +144,7 @@ class JobRequestAllOfSchedule(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             event (JobScheduleEvent): [optional]  # noqa: E501
-            scheduled_at (str, none_type): Can only be set if the event is CRON. Represent the cron format for the job schedule without seconds. For example: `* * * * *` represent the cron to launch the job every minute. See https://crontab.guru/ to WISIWIG interface. Timezone is UTC . [optional]  # noqa: E501
+            scheduled_at (str, none_type): Can only be set if the event is CRON.   Represent the cron format for the job schedule without seconds.   For example: `* * * * *` represent the cron to launch the job every minute.   See https://crontab.guru/ to WISIWIG interface.   Timezone is UTC   . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,7 +231,7 @@ class JobRequestAllOfSchedule(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             event (JobScheduleEvent): [optional]  # noqa: E501
-            scheduled_at (str, none_type): Can only be set if the event is CRON. Represent the cron format for the job schedule without seconds. For example: `* * * * *` represent the cron to launch the job every minute. See https://crontab.guru/ to WISIWIG interface. Timezone is UTC . [optional]  # noqa: E501
+            scheduled_at (str, none_type): Can only be set if the event is CRON.   Represent the cron format for the job schedule without seconds.   For example: `* * * * *` represent the cron to launch the job every minute.   See https://crontab.guru/ to WISIWIG interface.   Timezone is UTC   . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
