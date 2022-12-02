@@ -14,11 +14,11 @@ import unittest
 
 import qovery
 from qovery.model.commit import Commit
+from qovery.model.deployment_history_job_response_all_of_schedule import DeploymentHistoryJobResponseAllOfSchedule
 from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
-from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
 globals()['Commit'] = Commit
+globals()['DeploymentHistoryJobResponseAllOfSchedule'] = DeploymentHistoryJobResponseAllOfSchedule
 globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
-globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
 from qovery.model.deployment_history_job_response_all_of import DeploymentHistoryJobResponseAllOf
 
 

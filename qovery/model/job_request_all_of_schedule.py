@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.job_schedule_event import JobScheduleEvent
-    globals()['JobScheduleEvent'] = JobScheduleEvent
+    from qovery.model.job_request_all_of_schedule_cronjob import JobRequestAllOfScheduleCronjob
+    from qovery.model.job_request_all_of_schedule_on_start import JobRequestAllOfScheduleOnStart
+    globals()['JobRequestAllOfScheduleCronjob'] = JobRequestAllOfScheduleCronjob
+    globals()['JobRequestAllOfScheduleOnStart'] = JobRequestAllOfScheduleOnStart
 
 
 class JobRequestAllOfSchedule(ModelNormal):
@@ -88,8 +90,10 @@ class JobRequestAllOfSchedule(ModelNormal):
         """
         lazy_import()
         return {
-            'event': (JobScheduleEvent,),  # noqa: E501
-            'scheduled_at': (str, none_type,),  # noqa: E501
+            'on_start': (JobRequestAllOfScheduleOnStart,),  # noqa: E501
+            'on_stop': (JobRequestAllOfScheduleOnStart,),  # noqa: E501
+            'on_delete': (JobRequestAllOfScheduleOnStart,),  # noqa: E501
+            'cronjob': (JobRequestAllOfScheduleCronjob,),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +102,10 @@ class JobRequestAllOfSchedule(ModelNormal):
 
 
     attribute_map = {
-        'event': 'event',  # noqa: E501
-        'scheduled_at': 'scheduled_at',  # noqa: E501
+        'on_start': 'on_start',  # noqa: E501
+        'on_stop': 'on_stop',  # noqa: E501
+        'on_delete': 'on_delete',  # noqa: E501
+        'cronjob': 'cronjob',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,8 +149,10 @@ class JobRequestAllOfSchedule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            event (JobScheduleEvent): [optional]  # noqa: E501
-            scheduled_at (str, none_type): Can only be set if the event is CRON.   Represent the cron format for the job schedule without seconds.   For example: `* * * * *` represent the cron to launch the job every minute.   See https://crontab.guru/ to WISIWIG interface.   Timezone is UTC   . [optional]  # noqa: E501
+            on_start (JobRequestAllOfScheduleOnStart): [optional]  # noqa: E501
+            on_stop (JobRequestAllOfScheduleOnStart): [optional]  # noqa: E501
+            on_delete (JobRequestAllOfScheduleOnStart): [optional]  # noqa: E501
+            cronjob (JobRequestAllOfScheduleCronjob): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,8 +238,10 @@ class JobRequestAllOfSchedule(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            event (JobScheduleEvent): [optional]  # noqa: E501
-            scheduled_at (str, none_type): Can only be set if the event is CRON.   Represent the cron format for the job schedule without seconds.   For example: `* * * * *` represent the cron to launch the job every minute.   See https://crontab.guru/ to WISIWIG interface.   Timezone is UTC   . [optional]  # noqa: E501
+            on_start (JobRequestAllOfScheduleOnStart): [optional]  # noqa: E501
+            on_stop (JobRequestAllOfScheduleOnStart): [optional]  # noqa: E501
+            on_delete (JobRequestAllOfScheduleOnStart): [optional]  # noqa: E501
+            cronjob (JobRequestAllOfScheduleCronjob): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

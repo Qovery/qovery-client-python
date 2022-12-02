@@ -14,14 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.job_request_all_of_schedule_cronjob import JobRequestAllOfScheduleCronjob
-from qovery.model.job_request_all_of_schedule_on_start import JobRequestAllOfScheduleOnStart
-globals()['JobRequestAllOfScheduleCronjob'] = JobRequestAllOfScheduleCronjob
-globals()['JobRequestAllOfScheduleOnStart'] = JobRequestAllOfScheduleOnStart
-from qovery.model.job_request_all_of_schedule import JobRequestAllOfSchedule
 
 
-class TestJobRequestAllOfSchedule(unittest.TestCase):
-    """JobRequestAllOfSchedule unit test stubs"""
+class TestJobRequestAllOfScheduleCronjob(unittest.TestCase):
+    """JobRequestAllOfScheduleCronjob unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +25,10 @@ class TestJobRequestAllOfSchedule(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobRequestAllOfSchedule(self):
-        """Test JobRequestAllOfSchedule"""
+    def testJobRequestAllOfScheduleCronjob(self):
+        """Test JobRequestAllOfScheduleCronjob"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobRequestAllOfSchedule()  # noqa: E501
+        # model = JobRequestAllOfScheduleCronjob()  # noqa: E501
         pass
 
 

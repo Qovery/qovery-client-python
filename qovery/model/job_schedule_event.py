@@ -108,10 +108,10 @@ class JobScheduleEvent(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
+            args[0] (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested   CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
 
         Keyword Args:
-            value (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
+            value (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested   CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -202,10 +202,10 @@ class JobScheduleEvent(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
+            args[0] (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested   CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
 
         Keyword Args:
-            value (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
+            value (str): On which event the job is going to run.   ON_START means when a deployment is requested for the environment   ON_STOP means when a stop of the environment is requested   ON_DELETE means when an environment delete is requested   CRON means at a scheduled interval   ., must be one of ["ON_START", "ON_STOP", "ON_DELETE", "CRON", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
