@@ -103,8 +103,6 @@ class JobRequest(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
-            'arguments': ([str],),  # noqa: E501
-            'entrypoint': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'max_nb_restart': (int,),  # noqa: E501
@@ -123,8 +121,6 @@ class JobRequest(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'arguments': 'arguments',  # noqa: E501
-        'entrypoint': 'entrypoint',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'max_nb_restart': 'max_nb_restart',  # noqa: E501
@@ -176,8 +172,6 @@ class JobRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            arguments ([str]): [optional]  # noqa: E501
-            entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional] if omitted the server will use the default value of 0  # noqa: E501
@@ -291,8 +285,6 @@ class JobRequest(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            arguments ([str]): [optional]  # noqa: E501
-            entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional] if omitted the server will use the default value of 0  # noqa: E501
