@@ -146,6 +146,7 @@ from qovery.model.delete_member_request import DeleteMemberRequest
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.deploy_all_request_applications_inner import DeployAllRequestApplicationsInner
 from qovery.model.deploy_all_request_containers_inner import DeployAllRequestContainersInner
+from qovery.model.deploy_all_request_jobs_inner import DeployAllRequestJobsInner
 from qovery.model.deploy_request import DeployRequest
 from qovery.model.deployment_history import DeploymentHistory
 from qovery.model.deployment_history_all_of import DeploymentHistoryAllOf

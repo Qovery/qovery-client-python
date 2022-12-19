@@ -15,8 +15,10 @@ import unittest
 import qovery
 from qovery.model.deploy_all_request_applications_inner import DeployAllRequestApplicationsInner
 from qovery.model.deploy_all_request_containers_inner import DeployAllRequestContainersInner
+from qovery.model.deploy_all_request_jobs_inner import DeployAllRequestJobsInner
 globals()['DeployAllRequestApplicationsInner'] = DeployAllRequestApplicationsInner
 globals()['DeployAllRequestContainersInner'] = DeployAllRequestContainersInner
+globals()['DeployAllRequestJobsInner'] = DeployAllRequestJobsInner
 from qovery.model.deploy_all_request import DeployAllRequest
 
 

@@ -38,6 +38,13 @@ class TestEnvironmentActionsApi(unittest.TestCase):
         """
         pass
 
+    def test_deploy_all_services(self):
+        """Test case for deploy_all_services
+
+        Deploy services  # noqa: E501
+        """
+        pass
+
     def test_deploy_environment(self):
         """Test case for deploy_environment
 

@@ -178,6 +178,7 @@ docs/DependencyApi.md
 docs/DeployAllRequest.md
 docs/DeployAllRequestApplicationsInner.md
 docs/DeployAllRequestContainersInner.md
+docs/DeployAllRequestJobsInner.md
 docs/DeployRequest.md
 docs/DeploymentHistory.md
 docs/DeploymentHistoryAllOf.md
@@ -700,6 +701,7 @@ qovery/model/delete_member_request.py
 qovery/model/deploy_all_request.py
 qovery/model/deploy_all_request_applications_inner.py
 qovery/model/deploy_all_request_containers_inner.py
+qovery/model/deploy_all_request_jobs_inner.py
 qovery/model/deploy_request.py
 qovery/model/deployment_history.py
 qovery/model/deployment_history_all_of.py
@@ -1156,6 +1158,7 @@ test/test_dependency_api.py
 test/test_deploy_all_request.py
 test/test_deploy_all_request_applications_inner.py
 test/test_deploy_all_request_containers_inner.py
+test/test_deploy_all_request_jobs_inner.py
 test/test_deploy_request.py
 test/test_deployment_history.py
 test/test_deployment_history_all_of.py

@@ -53,10 +53,20 @@ with qovery.ApiClient(configuration) as api_client:
                 git_commit_id="git_commit_id_example",
             ),
         ],
+        databases=[
+            "databases_example",
+        ],
         containers=[
             DeployAllRequestContainersInner(
                 id="id_example",
                 image_tag="image_tag_example",
+            ),
+        ],
+        jobs=[
+            DeployAllRequestJobsInner(
+                id="id_example",
+                image_tag="image_tag_example",
+                git_commit_id="git_commit_id_example",
             ),
         ],
     ) # DeployAllRequest |  (optional)
