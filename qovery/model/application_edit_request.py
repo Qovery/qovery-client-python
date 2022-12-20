@@ -118,7 +118,6 @@ class ApplicationEditRequest(ModelComposed):
             'max_running_instances': (int,),  # noqa: E501
             'healthcheck': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
-            'sticky_session': (bool,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
         }
 
@@ -141,7 +140,6 @@ class ApplicationEditRequest(ModelComposed):
         'max_running_instances': 'max_running_instances',  # noqa: E501
         'healthcheck': 'healthcheck',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
-        'sticky_session': 'sticky_session',  # noqa: E501
         'ports': 'ports',  # noqa: E501
     }
 
@@ -197,7 +195,6 @@ class ApplicationEditRequest(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
-            sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
@@ -315,7 +312,6 @@ class ApplicationEditRequest(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthcheck (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
-            sticky_session (bool): Specify if the sticky session option (also called persistant session) is activated or not for this application. If activated, user will be redirected by the load balancer to the same instance each time he access to the application. . [optional] if omitted the server will use the default value of False  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
