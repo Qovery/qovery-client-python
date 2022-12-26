@@ -105,6 +105,7 @@ class ContainerResponseAllOf(ModelNormal):
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
@@ -128,6 +129,7 @@ class ContainerResponseAllOf(ModelNormal):
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
         'ports': 'ports',  # noqa: E501
@@ -188,6 +190,7 @@ class ContainerResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
@@ -304,6 +307,7 @@ class ContainerResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
