@@ -132,6 +132,7 @@ with qovery.ApiClient(configuration) as api_client:
     database_id = "databaseId_example" # str | Database ID
     database_edit_request = DatabaseEditRequest(
         name="name_example",
+        description="description_example",
         version="10.1",
         accessibility=DatabaseAccessibilityEnum("PRIVATE"),
         cpu=1250,

@@ -89,6 +89,7 @@ class DatabaseEditRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'accessibility': (DatabaseAccessibilityEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
@@ -103,6 +104,7 @@ class DatabaseEditRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'version': 'version',  # noqa: E501
         'accessibility': 'accessibility',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
@@ -152,6 +154,7 @@ class DatabaseEditRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name is case-insensitive. [optional]  # noqa: E501
+            description (str): give a description to this database. [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
@@ -243,6 +246,7 @@ class DatabaseEditRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name is case-insensitive. [optional]  # noqa: E501
+            description (str): give a description to this database. [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501

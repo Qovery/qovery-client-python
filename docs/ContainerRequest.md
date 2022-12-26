@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **tag** | **str** | tag of the image container | 
 **storage** | [**[ServiceStorageRequestStorageInner]**](ServiceStorageRequestStorageInner.md) |  | [optional] 
 **ports** | [**[ServicePortRequestPortsInner]**](ServicePortRequestPortsInner.md) |  | [optional] 
+**description** | **str** | give a description to this container | [optional] 
 **arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | [optional]  if omitted the server will use the default value of 500

@@ -96,6 +96,7 @@ class DatabaseRequest(ModelNormal):
             'type': (DatabaseTypeEnum,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'mode': (DatabaseModeEnum,),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'accessibility': (DatabaseAccessibilityEnum,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
@@ -112,6 +113,7 @@ class DatabaseRequest(ModelNormal):
         'type': 'type',  # noqa: E501
         'version': 'version',  # noqa: E501
         'mode': 'mode',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'accessibility': 'accessibility',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
@@ -165,6 +167,7 @@ class DatabaseRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): give a description to this database. [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: `100` - CONTAINER   - POSTGRES: `100`   - REDIS: `100`   - MYSQL: `512`   - MONGODB: `256` . [optional]  # noqa: E501
@@ -264,6 +267,7 @@ class DatabaseRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            description (str): give a description to this database. [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: `100` - CONTAINER   - POSTGRES: `100`   - REDIS: `100`   - MYSQL: `512`   - MONGODB: `256` . [optional]  # noqa: E501

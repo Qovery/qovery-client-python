@@ -50,6 +50,7 @@ with qovery.ApiClient(configuration) as api_client:
     environment_id = "environmentId_example" # str | Environment ID
     database_request = DatabaseRequest(
         name="name_example",
+        description="description_example",
         type=DatabaseTypeEnum("MONGODB"),
         version="10.1",
         mode=DatabaseModeEnum("CONTAINER"),

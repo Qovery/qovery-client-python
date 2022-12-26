@@ -105,6 +105,7 @@ class ContainerRequest(ModelComposed):
             'tag': (str,),  # noqa: E501
             'storage': ([ServiceStorageRequestStorageInner],),  # noqa: E501
             'ports': ([ServicePortRequestPortsInner],),  # noqa: E501
+            'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
@@ -126,6 +127,7 @@ class ContainerRequest(ModelComposed):
         'tag': 'tag',  # noqa: E501
         'storage': 'storage',  # noqa: E501
         'ports': 'ports',  # noqa: E501
+        'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
@@ -180,6 +182,7 @@ class ContainerRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortRequestPortsInner]): [optional]  # noqa: E501
+            description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
@@ -296,6 +299,7 @@ class ContainerRequest(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             storage ([ServiceStorageRequestStorageInner]): [optional]  # noqa: E501
             ports ([ServicePortRequestPortsInner]): [optional]  # noqa: E501
+            description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 500  # noqa: E501
