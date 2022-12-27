@@ -52,6 +52,13 @@ class TestJobMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_list_job_commit(self):
+        """Test case for list_job_commit
+
+        List last job commits  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

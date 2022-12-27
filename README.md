@@ -350,6 +350,7 @@ Class | Method | HTTP request | Description
 *JobMainCallsApi* | [**edit_job**](docs/JobMainCallsApi.md#edit_job) | **PUT** /job/{jobId} | Edit job
 *JobMainCallsApi* | [**get_job**](docs/JobMainCallsApi.md#get_job) | **GET** /job/{jobId} | Get job by ID
 *JobMainCallsApi* | [**get_job_status**](docs/JobMainCallsApi.md#get_job_status) | **GET** /job/{jobId}/status | Get job status
+*JobMainCallsApi* | [**list_job_commit**](docs/JobMainCallsApi.md#list_job_commit) | **GET** /job/{jobId}/commit | List last job commits
 *JobMetricsApi* | [**get_job_current_instance**](docs/JobMetricsApi.md#get_job_current_instance) | **GET** /job/{jobId}/instance | List currently running instances of the job with their CPU and RAM metrics
 *JobSecretApi* | [**create_job_secret**](docs/JobSecretApi.md#create_job_secret) | **POST** /job/{jobId}/secret | Add a secret to the job
 *JobSecretApi* | [**create_job_secret_alias**](docs/JobSecretApi.md#create_job_secret_alias) | **POST** /job/{jobId}/secret/{secretId}/alias | Create a secret alias at the job level
@@ -358,6 +359,7 @@ Class | Method | HTTP request | Description
 *JobSecretApi* | [**edit_job_secret**](docs/JobSecretApi.md#edit_job_secret) | **PUT** /job/{jobId}/secret/{secretId} | Edit a secret belonging to the job
 *JobSecretApi* | [**list_job_secrets**](docs/JobSecretApi.md#list_job_secrets) | **GET** /job/{jobId}/secret | List job secrets
 *JobsApi* | [**create_job**](docs/JobsApi.md#create_job) | **POST** /environment/{environmentId}/job | Create a job
+*JobsApi* | [**get_default_job_advanced_settings**](docs/JobsApi.md#get_default_job_advanced_settings) | **GET** /defaultJobAdvancedSettings | List default job advanced settings
 *JobsApi* | [**get_environment_job_status**](docs/JobsApi.md#get_environment_job_status) | **GET** /environment/{environmentId}/job/status | List all environment job statuses
 *JobsApi* | [**list_jobs**](docs/JobsApi.md#list_jobs) | **GET** /environment/{environmentId}/job | List jobs
 *LogicalDatabaseApi* | [**create_logical_database_on_database**](docs/LogicalDatabaseApi.md#create_logical_database_on_database) | **POST** /database/{databaseId}/logicalDatabase | Create a logical database on the database
