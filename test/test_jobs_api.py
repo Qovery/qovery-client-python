@@ -31,13 +31,6 @@ class TestJobsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_default_job_advanced_settings(self):
-        """Test case for get_default_job_advanced_settings
-
-        List default job advanced settings  # noqa: E501
-        """
-        pass
-
     def test_get_environment_job_status(self):
         """Test case for get_environment_job_status
 

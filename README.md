@@ -359,7 +359,6 @@ Class | Method | HTTP request | Description
 *JobSecretApi* | [**edit_job_secret**](docs/JobSecretApi.md#edit_job_secret) | **PUT** /job/{jobId}/secret/{secretId} | Edit a secret belonging to the job
 *JobSecretApi* | [**list_job_secrets**](docs/JobSecretApi.md#list_job_secrets) | **GET** /job/{jobId}/secret | List job secrets
 *JobsApi* | [**create_job**](docs/JobsApi.md#create_job) | **POST** /environment/{environmentId}/job | Create a job
-*JobsApi* | [**get_default_job_advanced_settings**](docs/JobsApi.md#get_default_job_advanced_settings) | **GET** /defaultJobAdvancedSettings | List default job advanced settings
 *JobsApi* | [**get_environment_job_status**](docs/JobsApi.md#get_environment_job_status) | **GET** /environment/{environmentId}/job/status | List all environment job statuses
 *JobsApi* | [**list_jobs**](docs/JobsApi.md#list_jobs) | **GET** /environment/{environmentId}/job | List jobs
 *LogicalDatabaseApi* | [**create_logical_database_on_database**](docs/LogicalDatabaseApi.md#create_logical_database_on_database) | **POST** /database/{databaseId}/logicalDatabase | Create a logical database on the database
