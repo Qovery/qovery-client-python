@@ -5,6 +5,7 @@ All URIs are relative to *https://api.qovery.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_job**](JobsApi.md#create_job) | **POST** /environment/{environmentId}/job | Create a job
+[**get_default_job_advanced_settings**](JobsApi.md#get_default_job_advanced_settings) | **GET** /defaultJobAdvancedSettings | List default job advanced settings
 [**get_environment_job_status**](JobsApi.md#get_environment_job_status) | **GET** /environment/{environmentId}/job/status | List all environment job statuses
 [**list_jobs**](JobsApi.md#list_jobs) | **GET** /environment/{environmentId}/job | List jobs
 
@@ -98,6 +99,79 @@ Name | Type | Description  | Notes
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
 **409** | Job name within the environment is already taken |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_default_job_advanced_settings**
+> JobAdvancedSettings get_default_job_advanced_settings()
+
+List default job advanced settings
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import jobs_api
+from qovery.model.job_advanced_settings import JobAdvancedSettings
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = jobs_api.JobsApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # List default job advanced settings
+        api_response = api_instance.get_default_job_advanced_settings()
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobsApi->get_default_job_advanced_settings: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**JobAdvancedSettings**](JobAdvancedSettings.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Default job advanced settings |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
