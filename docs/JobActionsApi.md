@@ -51,6 +51,7 @@ with qovery.ApiClient(configuration) as api_client:
     force = False # bool | Enable or Disable the force trigger of the job (optional) if omitted the server will use the default value of False
     job_deploy_request = JobDeployRequest(
         image_tag="image_tag_example",
+        git_commit_id="git_commit_id_example",
     ) # JobDeployRequest |  (optional)
 
     # example passing only required values which don't have defaults set

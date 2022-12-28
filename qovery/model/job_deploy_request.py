@@ -83,6 +83,7 @@ class JobDeployRequest(ModelNormal):
         """
         return {
             'image_tag': (str,),  # noqa: E501
+            'git_commit_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class JobDeployRequest(ModelNormal):
 
     attribute_map = {
         'image_tag': 'image_tag',  # noqa: E501
+        'git_commit_id': 'git_commit_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -101,11 +103,8 @@ class JobDeployRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, image_tag, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """JobDeployRequest - a model defined in OpenAPI
-
-        Args:
-            image_tag (str): Image tag to deploy
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,6 +137,8 @@ class JobDeployRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            image_tag (str): Image tag to deploy.   Cannot be set if `git_commit_id` is defined . [optional]  # noqa: E501
+            git_commit_id (str): Commit to deploy Cannot be set if `image_tag` is defined . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -169,7 +170,6 @@ class JobDeployRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.image_tag = image_tag
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,11 +190,8 @@ class JobDeployRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, image_tag, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """JobDeployRequest - a model defined in OpenAPI
-
-        Args:
-            image_tag (str): Image tag to deploy
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,6 +224,8 @@ class JobDeployRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            image_tag (str): Image tag to deploy.   Cannot be set if `git_commit_id` is defined . [optional]  # noqa: E501
+            git_commit_id (str): Commit to deploy Cannot be set if `image_tag` is defined . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -256,7 +255,6 @@ class JobDeployRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.image_tag = image_tag
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
