@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Deploy job
 
-You must provide a git commit id
+You must provide a git commit id or an image tag depending on the source location of your code (git vs image repository).
 
 ### Example
 

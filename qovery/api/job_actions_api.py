@@ -214,7 +214,7 @@ class JobActionsApi(object):
     ):
         """Deploy job  # noqa: E501
 
-        You must provide a git commit id  # noqa: E501
+        You must provide a git commit id or an image tag depending on the source location of your code (git vs image repository).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
