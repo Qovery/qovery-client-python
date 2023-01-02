@@ -45,6 +45,13 @@ class TestMembersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_member_invitation(self):
+        """Test case for get_member_invitation
+
+        Get member invitation  # noqa: E501
+        """
+        pass
+
     def test_get_organization_invited_members(self):
         """Test case for get_organization_invited_members
 
