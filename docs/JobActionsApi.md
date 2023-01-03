@@ -49,7 +49,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_actions_api.JobActionsApi(api_client)
     job_id = "jobId_example" # str | Job ID
-    force = JobForceEvent("START") # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
+    force_event = JobForceEvent("START") # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
     job_deploy_request = JobDeployRequest(
         image_tag="image_tag_example",
         git_commit_id="git_commit_id_example",
@@ -67,7 +67,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Deploy job
-        api_response = api_instance.deploy_job(job_id, force=force, job_deploy_request=job_deploy_request)
+        api_response = api_instance.deploy_job(job_id, force_event=force_event, job_deploy_request=job_deploy_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->deploy_job: %s\n" % e)
@@ -79,7 +79,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_id** | **str**| Job ID |
- **force** | **JobForceEvent**| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional]
+ **force_event** | **JobForceEvent**| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional]
  **job_deploy_request** | [**JobDeployRequest**](JobDeployRequest.md)|  | [optional]
 
 ### Return type
@@ -122,6 +122,7 @@ Restart job
 import time
 import qovery
 from qovery.api import job_actions_api
+from qovery.model.job_force_event import JobForceEvent
 from qovery.model.status import Status
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -145,7 +146,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_actions_api.JobActionsApi(api_client)
     job_id = "jobId_example" # str | Job ID
-    force = False # bool | Enable or Disable the force trigger of the job (optional) if omitted the server will use the default value of False
+    force_event = JobForceEvent("START") # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -159,7 +160,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Restart job
-        api_response = api_instance.restart_job(job_id, force=force)
+        api_response = api_instance.restart_job(job_id, force_event=force_event)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->restart_job: %s\n" % e)
@@ -171,7 +172,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_id** | **str**| Job ID |
- **force** | **bool**| Enable or Disable the force trigger of the job | [optional] if omitted the server will use the default value of False
+ **force_event** | **JobForceEvent**| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional]
 
 ### Return type
 

@@ -52,7 +52,7 @@ class JobActionsApi(object):
             params_map={
                 'all': [
                     'job_id',
-                    'force',
+                    'force_event',
                     'job_deploy_request',
                 ],
                 'required': [
@@ -73,18 +73,18 @@ class JobActionsApi(object):
                 'openapi_types': {
                     'job_id':
                         (str,),
-                    'force':
+                    'force_event':
                         (JobForceEvent,),
                     'job_deploy_request':
                         (JobDeployRequest,),
                 },
                 'attribute_map': {
                     'job_id': 'jobId',
-                    'force': 'force',
+                    'force_event': 'forceEvent',
                 },
                 'location_map': {
                     'job_id': 'path',
-                    'force': 'query',
+                    'force_event': 'query',
                     'job_deploy_request': 'body',
                 },
                 'collection_format_map': {
@@ -114,7 +114,7 @@ class JobActionsApi(object):
             params_map={
                 'all': [
                     'job_id',
-                    'force',
+                    'force_event',
                 ],
                 'required': [
                     'job_id',
@@ -134,16 +134,16 @@ class JobActionsApi(object):
                 'openapi_types': {
                     'job_id':
                         (str,),
-                    'force':
-                        (bool,),
+                    'force_event':
+                        (JobForceEvent,),
                 },
                 'attribute_map': {
                     'job_id': 'jobId',
-                    'force': 'force',
+                    'force_event': 'forceEvent',
                 },
                 'location_map': {
                     'job_id': 'path',
-                    'force': 'query',
+                    'force_event': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -226,7 +226,7 @@ class JobActionsApi(object):
             job_id (str): Job ID
 
         Keyword Args:
-            force (JobForceEvent): When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed. . [optional]
+            force_event (JobForceEvent): When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed. . [optional]
             job_deploy_request (JobDeployRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -310,7 +310,7 @@ class JobActionsApi(object):
             job_id (str): Job ID
 
         Keyword Args:
-            force (bool): Enable or Disable the force trigger of the job. [optional] if omitted the server will use the default value of False
+            force_event (JobForceEvent): When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed. . [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
