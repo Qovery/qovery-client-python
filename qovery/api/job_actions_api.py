@@ -23,6 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.job_deploy_request import JobDeployRequest
+from qovery.model.job_force_event import JobForceEvent
 from qovery.model.status import Status
 
 
@@ -73,7 +74,7 @@ class JobActionsApi(object):
                     'job_id':
                         (str,),
                     'force':
-                        (bool,),
+                        (JobForceEvent,),
                     'job_deploy_request':
                         (JobDeployRequest,),
                 },
@@ -225,7 +226,7 @@ class JobActionsApi(object):
             job_id (str): Job ID
 
         Keyword Args:
-            force (bool): Enable or Disable the force trigger of the job. [optional] if omitted the server will use the default value of False
+            force (JobForceEvent): When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed. . [optional]
             job_deploy_request (JobDeployRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

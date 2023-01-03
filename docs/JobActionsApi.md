@@ -24,6 +24,7 @@ You must provide a git commit id or an image tag depending on the source locatio
 import time
 import qovery
 from qovery.api import job_actions_api
+from qovery.model.job_force_event import JobForceEvent
 from qovery.model.job_deploy_request import JobDeployRequest
 from qovery.model.status import Status
 from pprint import pprint
@@ -48,7 +49,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = job_actions_api.JobActionsApi(api_client)
     job_id = "jobId_example" # str | Job ID
-    force = False # bool | Enable or Disable the force trigger of the job (optional) if omitted the server will use the default value of False
+    force = JobForceEvent("START") # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
     job_deploy_request = JobDeployRequest(
         image_tag="image_tag_example",
         git_commit_id="git_commit_id_example",
@@ -78,7 +79,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_id** | **str**| Job ID |
- **force** | **bool**| Enable or Disable the force trigger of the job | [optional] if omitted the server will use the default value of False
+ **force** | **JobForceEvent**| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional]
  **job_deploy_request** | [**JobDeployRequest**](JobDeployRequest.md)|  | [optional]
 
 ### Return type

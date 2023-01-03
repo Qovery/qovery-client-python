@@ -300,6 +300,7 @@ docs/JobConfigurationApi.md
 docs/JobDeployRequest.md
 docs/JobDeploymentHistoryApi.md
 docs/JobEnvironmentVariableApi.md
+docs/JobForceEvent.md
 docs/JobMainCallsApi.md
 docs/JobMetricsApi.md
 docs/JobRequest.md
@@ -808,6 +809,7 @@ qovery/model/invoice_response_list.py
 qovery/model/invoice_status_enum.py
 qovery/model/job_advanced_settings.py
 qovery/model/job_deploy_request.py
+qovery/model/job_force_event.py
 qovery/model/job_request.py
 qovery/model/job_request_all_of.py
 qovery/model/job_request_all_of_schedule.py
@@ -1280,6 +1282,7 @@ test/test_job_configuration_api.py
 test/test_job_deploy_request.py
 test/test_job_deployment_history_api.py
 test/test_job_environment_variable_api.py
+test/test_job_force_event.py
 test/test_job_main_calls_api.py
 test/test_job_metrics_api.py
 test/test_job_request.py
