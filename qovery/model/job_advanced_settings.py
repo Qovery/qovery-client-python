@@ -92,6 +92,7 @@ class JobAdvancedSettings(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'deployment_termination_grace_period_seconds': (int,),  # noqa: E501
             'job_delete_ttl_seconds_after_finished': (int, none_type,),  # noqa: E501
             'cronjob_concurrency_policy': (str,),  # noqa: E501
             'cronjob_failed_jobs_history_limit': (int,),  # noqa: E501
@@ -118,6 +119,7 @@ class JobAdvancedSettings(ModelNormal):
 
 
     attribute_map = {
+        'deployment_termination_grace_period_seconds': 'deployment.termination_grace_period_seconds',  # noqa: E501
         'job_delete_ttl_seconds_after_finished': 'job.delete_ttl_seconds_after_finished',  # noqa: E501
         'cronjob_concurrency_policy': 'cronjob.concurrency_policy',  # noqa: E501
         'cronjob_failed_jobs_history_limit': 'cronjob.failed_jobs_history_limit',  # noqa: E501
@@ -179,6 +181,7 @@ class JobAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -282,6 +285,7 @@ class JobAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501

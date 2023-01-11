@@ -47,6 +47,7 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = job_configuration_api.JobConfigurationApi(api_client)
     job_id = "jobId_example" # str | Job ID
     job_advanced_settings = JobAdvancedSettings(
+        deployment_termination_grace_period_seconds=60,
         job_delete_ttl_seconds_after_finished=1,
         cronjob_concurrency_policy="Forbid",
         cronjob_failed_jobs_history_limit=1,

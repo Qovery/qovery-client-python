@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deployment_delay_start_time_sec** | **int** | please use &#x60;readiness_probe.initial_delay_seconds&#x60; and &#x60;liveness_probe.initial_delay_seconds&#x60; instead | [optional]  if omitted the server will use the default value of 30
 **deployment_custom_domain_check_enabled** | **bool** | disable custom domain check when deploying an application | [optional]  if omitted the server will use the default value of True
+**deployment_termination_grace_period_seconds** | **int** | define how long in seconds an application is supposed to be stopped gracefully | [optional]  if omitted the server will use the default value of 60
 **build_timeout_max_sec** | **int** |  | [optional]  if omitted the server will use the default value of 1800
 **network_ingress_proxy_body_size_mb** | **int** |  | [optional]  if omitted the server will use the default value of 100
 **network_ingress_enable_cors** | **bool** |  | [optional]  if omitted the server will use the default value of False

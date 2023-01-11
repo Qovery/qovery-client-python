@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deployment_termination_grace_period_seconds** | **int** | define how long in seconds an application is supposed to be stopped gracefully | [optional]  if omitted the server will use the default value of 60
 **job_delete_ttl_seconds_after_finished** | **int, none_type** |  | [optional] 
 **cronjob_concurrency_policy** | **str** |  | [optional]  if omitted the server will use the default value of "Forbid"
 **cronjob_failed_jobs_history_limit** | **int** |  | [optional]  if omitted the server will use the default value of 1

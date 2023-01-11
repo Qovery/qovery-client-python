@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deployment_custom_domain_check_enabled** | **bool** | disable custom domain check when deploying an application | [optional]  if omitted the server will use the default value of True
+**deployment_termination_grace_period_seconds** | **int** | define how long in seconds an application is supposed to be stopped gracefully | [optional]  if omitted the server will use the default value of 60
 **network_ingress_proxy_body_size_mb** | **int** |  | [optional]  if omitted the server will use the default value of 100
 **network_ingress_enable_cors** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **network_ingress_cors_allow_origin** | **str** |  | [optional]  if omitted the server will use the default value of "*"

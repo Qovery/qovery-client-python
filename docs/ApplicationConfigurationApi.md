@@ -51,6 +51,7 @@ with qovery.ApiClient(configuration) as api_client:
     application_advanced_settings = ApplicationAdvancedSettings(
         deployment_delay_start_time_sec=30,
         deployment_custom_domain_check_enabled=True,
+        deployment_termination_grace_period_seconds=60,
         build_timeout_max_sec=1800,
         network_ingress_proxy_body_size_mb=100,
         network_ingress_enable_cors=False,

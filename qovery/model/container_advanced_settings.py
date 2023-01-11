@@ -93,6 +93,7 @@ class ContainerAdvancedSettings(ModelNormal):
         """
         return {
             'deployment_custom_domain_check_enabled': (bool,),  # noqa: E501
+            'deployment_termination_grace_period_seconds': (int,),  # noqa: E501
             'network_ingress_proxy_body_size_mb': (int,),  # noqa: E501
             'network_ingress_enable_cors': (bool,),  # noqa: E501
             'network_ingress_cors_allow_origin': (str,),  # noqa: E501
@@ -129,6 +130,7 @@ class ContainerAdvancedSettings(ModelNormal):
 
     attribute_map = {
         'deployment_custom_domain_check_enabled': 'deployment.custom_domain_check_enabled',  # noqa: E501
+        'deployment_termination_grace_period_seconds': 'deployment.termination_grace_period_seconds',  # noqa: E501
         'network_ingress_proxy_body_size_mb': 'network.ingress.proxy_body_size_mb',  # noqa: E501
         'network_ingress_enable_cors': 'network.ingress.enable_cors',  # noqa: E501
         'network_ingress_cors_allow_origin': 'network.ingress.cors_allow_origin',  # noqa: E501
@@ -200,6 +202,7 @@ class ContainerAdvancedSettings(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
             network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
@@ -313,6 +316,7 @@ class ContainerAdvancedSettings(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
             network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
