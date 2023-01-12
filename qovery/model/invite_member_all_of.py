@@ -95,6 +95,7 @@ class InviteMemberAllOf(ModelNormal):
             'invitation_link': (str,),  # noqa: E501
             'invitation_status': (InviteStatusEnum,),  # noqa: E501
             'inviter': (str,),  # noqa: E501
+            'organization_name': (str,),  # noqa: E501
             'logo_url': (str,),  # noqa: E501
             'role_id': (str,),  # noqa: E501
             'role_name': (str,),  # noqa: E501
@@ -111,6 +112,7 @@ class InviteMemberAllOf(ModelNormal):
         'invitation_link': 'invitation_link',  # noqa: E501
         'invitation_status': 'invitation_status',  # noqa: E501
         'inviter': 'inviter',  # noqa: E501
+        'organization_name': 'organization_name',  # noqa: E501
         'logo_url': 'logo_url',  # noqa: E501
         'role_id': 'role_id',  # noqa: E501
         'role_name': 'role_name',  # noqa: E501
@@ -164,6 +166,7 @@ class InviteMemberAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            organization_name (str): [optional]  # noqa: E501
             logo_url (str): [optional]  # noqa: E501
             role_id (str): [optional]  # noqa: E501
             role_name (str): [optional]  # noqa: E501
@@ -264,6 +267,7 @@ class InviteMemberAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            organization_name (str): [optional]  # noqa: E501
             logo_url (str): [optional]  # noqa: E501
             role_id (str): [optional]  # noqa: E501
             role_name (str): [optional]  # noqa: E501

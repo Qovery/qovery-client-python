@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **invitation_status** | [**InviteStatusEnum**](InviteStatusEnum.md) |  | 
 **inviter** | **str** |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
+**organization_name** | **str** |  | [optional] 
 **logo_url** | **str** |  | [optional] 
 **role_id** | **str** |  | [optional] 
 **role_name** | **str** |  | [optional] 
