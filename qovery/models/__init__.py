@@ -54,6 +54,7 @@ from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.cloud_provider_response_list import CloudProviderResponseList
 from qovery.model.cluster import Cluster
 from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
+from qovery.model.cluster_advanced_settings_cloud_provider_container_registry_tags import ClusterAdvancedSettingsCloudProviderContainerRegistryTags
 from qovery.model.cluster_all_of import ClusterAllOf
 from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials

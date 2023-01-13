@@ -448,10 +448,15 @@ with qovery.ApiClient(configuration) as api_client:
     organization_id = "organizationId_example" # str | Organization ID
     cluster_id = "clusterId_example" # str | Cluster ID
     cluster_advanced_settings = ClusterAdvancedSettings(
+        loki_log_retention_in_week=12,
+        aws_vpc_enable_s3_flow_logs=False,
         registry_image_retention_time=31536000,
+        cloud_provider_container_registry_tags=ClusterAdvancedSettingsCloudProviderContainerRegistryTags(
+            key="key_example",
+            value="value_example",
+        ),
         load_balancer_size="lb-s",
         pleco_resources_ttl=-1,
-        loki_log_retention_in_week=12,
     ) # ClusterAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set

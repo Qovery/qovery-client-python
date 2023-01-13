@@ -14,12 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.cluster_advanced_settings_cloud_provider_container_registry_tags import ClusterAdvancedSettingsCloudProviderContainerRegistryTags
-globals()['ClusterAdvancedSettingsCloudProviderContainerRegistryTags'] = ClusterAdvancedSettingsCloudProviderContainerRegistryTags
-from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 
 
-class TestClusterAdvancedSettings(unittest.TestCase):
-    """ClusterAdvancedSettings unit test stubs"""
+class TestClusterAdvancedSettingsCloudProviderContainerRegistryTags(unittest.TestCase):
+    """ClusterAdvancedSettingsCloudProviderContainerRegistryTags unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestClusterAdvancedSettings(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterAdvancedSettings(self):
-        """Test ClusterAdvancedSettings"""
+    def testClusterAdvancedSettingsCloudProviderContainerRegistryTags(self):
+        """Test ClusterAdvancedSettingsCloudProviderContainerRegistryTags"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterAdvancedSettings()  # noqa: E501
+        # model = ClusterAdvancedSettingsCloudProviderContainerRegistryTags()  # noqa: E501
         pass
 
 
