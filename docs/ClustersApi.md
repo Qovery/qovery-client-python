@@ -450,6 +450,7 @@ with qovery.ApiClient(configuration) as api_client:
     cluster_advanced_settings = ClusterAdvancedSettings(
         loki_log_retention_in_week=12,
         aws_vpc_enable_s3_flow_logs=False,
+        aws_vpc_flow_logs_retention_days=365,
         registry_image_retention_time=31536000,
         cloud_provider_container_registry_tags=ClusterAdvancedSettingsCloudProviderContainerRegistryTags(
             key="key_example",
