@@ -6,12 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
-**key** | **str** | key is case sensitive | 
+**key** | **str** | key is case sensitive. | 
 **value** | **str** | value of the env variable. | 
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
+**mount_path** | **str, none_type** | should be set for file only. variable mount path makes variable a file (where file should be mounted). | [optional] 
 **overridden_variable** | [**EnvironmentVariableOverride**](EnvironmentVariableOverride.md) |  | [optional] 
 **aliased_variable** | [**EnvironmentVariableAlias**](EnvironmentVariableAlias.md) |  | [optional] 
+**type** | [**APIVariableTypeEnum**](APIVariableTypeEnum.md) |  | [optional] 
 **service_id** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_name** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_type** | [**LinkedServiceTypeEnum**](LinkedServiceTypeEnum.md) |  | [optional] 

@@ -54,6 +54,7 @@ with qovery.ApiClient(configuration) as api_client:
     environment_variable_request = EnvironmentVariableRequest(
         key="key_example",
         value="value_example",
+        mount_path="mount_path_example",
     ) # EnvironmentVariableRequest |  (optional)
 
     # example passing only required values which don't have defaults set

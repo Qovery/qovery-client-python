@@ -14,12 +14,14 @@ import unittest
 
 import qovery
 from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.api_variable_type_enum import APIVariableTypeEnum
 from qovery.model.base import Base
 from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
 from qovery.model.secret_alias import SecretAlias
 from qovery.model.secret_all_of import SecretAllOf
 from qovery.model.secret_override import SecretOverride
 globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
 globals()['Base'] = Base
 globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
 globals()['SecretAlias'] = SecretAlias

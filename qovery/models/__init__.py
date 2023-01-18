@@ -10,6 +10,7 @@
 # sys.setrecursionlimit(n)
 
 from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.api_variable_type_enum import APIVariableTypeEnum
 from qovery.model.account_info import AccountInfo
 from qovery.model.account_info_edit_request import AccountInfoEditRequest
 from qovery.model.application import Application

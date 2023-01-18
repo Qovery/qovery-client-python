@@ -32,12 +32,14 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+    from qovery.model.api_variable_type_enum import APIVariableTypeEnum
     from qovery.model.base import Base
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
     from qovery.model.secret_alias import SecretAlias
     from qovery.model.secret_all_of import SecretAllOf
     from qovery.model.secret_override import SecretOverride
     globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+    globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
     globals()['Base'] = Base
     globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
     globals()['SecretAlias'] = SecretAlias
@@ -105,6 +107,7 @@ class Secret(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'overridden_secret': (SecretOverride,),  # noqa: E501
             'aliased_secret': (SecretAlias,),  # noqa: E501
+            'type': (APIVariableTypeEnum,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
             'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
@@ -123,6 +126,7 @@ class Secret(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'overridden_secret': 'overridden_secret',  # noqa: E501
         'aliased_secret': 'aliased_secret',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'service_name': 'service_name',  # noqa: E501
         'service_type': 'service_type',  # noqa: E501
@@ -177,6 +181,7 @@ class Secret(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             overridden_secret (SecretOverride): [optional]  # noqa: E501
             aliased_secret (SecretAlias): [optional]  # noqa: E501
+            type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
@@ -288,6 +293,7 @@ class Secret(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             overridden_secret (SecretOverride): [optional]  # noqa: E501
             aliased_secret (SecretAlias): [optional]  # noqa: E501
+            type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501

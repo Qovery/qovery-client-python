@@ -32,6 +32,7 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+    from qovery.model.api_variable_type_enum import APIVariableTypeEnum
     from qovery.model.base import Base
     from qovery.model.environment_variable_alias import EnvironmentVariableAlias
     from qovery.model.environment_variable_all_of import EnvironmentVariableAllOf
@@ -39,6 +40,7 @@ def lazy_import():
     from qovery.model.environment_variable_request import EnvironmentVariableRequest
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
     globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+    globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
     globals()['Base'] = Base
     globals()['EnvironmentVariableAlias'] = EnvironmentVariableAlias
     globals()['EnvironmentVariableAllOf'] = EnvironmentVariableAllOf
@@ -106,8 +108,10 @@ class EnvironmentVariable(ModelComposed):
             'value': (str,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
+            'mount_path': (str, none_type,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableOverride,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableAlias,),  # noqa: E501
+            'type': (APIVariableTypeEnum,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
             'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
@@ -125,8 +129,10 @@ class EnvironmentVariable(ModelComposed):
         'value': 'value',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'mount_path': 'mount_path',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'service_name': 'service_name',  # noqa: E501
         'service_type': 'service_type',  # noqa: E501
@@ -146,7 +152,7 @@ class EnvironmentVariable(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
-            key (str): key is case sensitive
+            key (str): key is case sensitive.
             value (str): value of the env variable.
             scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -180,8 +186,10 @@ class EnvironmentVariable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            mount_path (str, none_type): should be set for file only. variable mount path makes variable a file (where file should be mounted).. [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
+            type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
@@ -258,7 +266,7 @@ class EnvironmentVariable(ModelComposed):
         """EnvironmentVariable - a model defined in OpenAPI
 
         Keyword Args:
-            key (str): key is case sensitive
+            key (str): key is case sensitive.
             value (str): value of the env variable.
             scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -292,8 +300,10 @@ class EnvironmentVariable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            mount_path (str, none_type): should be set for file only. variable mount path makes variable a file (where file should be mounted).. [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
+            type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501

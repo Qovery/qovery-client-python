@@ -84,6 +84,7 @@ class SecretRequest(ModelNormal):
         return {
             'key': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
+            'mount_path': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class SecretRequest(ModelNormal):
     attribute_map = {
         'key': 'key',  # noqa: E501
         'value': 'value',  # noqa: E501
+        'mount_path': 'mount_path',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,6 +143,7 @@ class SecretRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            mount_path (str, none_type): should be set for file only. variable mount path make secret a file (where file should be mounted).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +235,7 @@ class SecretRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            mount_path (str, none_type): should be set for file only. variable mount path make secret a file (where file should be mounted).. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

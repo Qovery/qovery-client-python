@@ -14,10 +14,12 @@ import unittest
 
 import qovery
 from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.api_variable_type_enum import APIVariableTypeEnum
 from qovery.model.environment_variable_alias import EnvironmentVariableAlias
 from qovery.model.environment_variable_override import EnvironmentVariableOverride
 from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
 globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
 globals()['EnvironmentVariableAlias'] = EnvironmentVariableAlias
 globals()['EnvironmentVariableOverride'] = EnvironmentVariableOverride
 globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum

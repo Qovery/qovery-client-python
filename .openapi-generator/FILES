@@ -4,6 +4,7 @@
 .travis.yml
 README.md
 docs/APIVariableScopeEnum.md
+docs/APIVariableTypeEnum.md
 docs/AccountInfo.md
 docs/AccountInfoApi.md
 docs/AccountInfoEditRequest.md
@@ -569,6 +570,7 @@ qovery/model/__init__.py
 qovery/model/account_info.py
 qovery/model/account_info_edit_request.py
 qovery/model/api_variable_scope_enum.py
+qovery/model/api_variable_type_enum.py
 qovery/model/application.py
 qovery/model/application_advanced_settings.py
 qovery/model/application_all_of.py
@@ -991,6 +993,7 @@ test/test_account_info.py
 test/test_account_info_api.py
 test/test_account_info_edit_request.py
 test/test_api_variable_scope_enum.py
+test/test_api_variable_type_enum.py
 test/test_application.py
 test/test_application_actions_api.py
 test/test_application_advanced_settings.py

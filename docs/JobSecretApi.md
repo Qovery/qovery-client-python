@@ -54,6 +54,7 @@ with qovery.ApiClient(configuration) as api_client:
     secret_request = SecretRequest(
         key="key_example",
         value="value_example",
+        mount_path="mount_path_example",
     ) # SecretRequest |  (optional)
 
     # example passing only required values which don't have defaults set
