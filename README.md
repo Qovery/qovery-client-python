@@ -140,6 +140,7 @@ Class | Method | HTTP request | Description
 *ApplicationSecretApi* | [**list_application_secrets**](docs/ApplicationSecretApi.md#list_application_secrets) | **GET** /application/{applicationId}/secret | List application secrets
 *ApplicationsApi* | [**create_application**](docs/ApplicationsApi.md#create_application) | **POST** /environment/{environmentId}/application | Create an application
 *ApplicationsApi* | [**get_default_application_advanced_settings**](docs/ApplicationsApi.md#get_default_application_advanced_settings) | **GET** /defaultApplicationAdvancedSettings | List default application advanced settings
+*ApplicationsApi* | [**get_default_cluster_advanced_settings**](docs/ApplicationsApi.md#get_default_cluster_advanced_settings) | **GET** /defaultClusterAdvancedSettings | List default cluster advanced settings
 *ApplicationsApi* | [**get_environment_application_current_scale**](docs/ApplicationsApi.md#get_environment_application_current_scale) | **GET** /environment/{environmentId}/application/currentScale | List current scaling information for each application
 *ApplicationsApi* | [**get_environment_application_current_storage**](docs/ApplicationsApi.md#get_environment_application_current_storage) | **GET** /environment/{environmentId}/application/currentStorage | List current storage disk usage for each application
 *ApplicationsApi* | [**get_environment_application_status**](docs/ApplicationsApi.md#get_environment_application_status) | **GET** /environment/{environmentId}/application/status | List all environment applications statuses
