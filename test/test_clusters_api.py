@@ -87,6 +87,13 @@ class TestClustersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_default_cluster_advanced_settings(self):
+        """Test case for get_default_cluster_advanced_settings
+
+        List default cluster advanced settings  # noqa: E501
+        """
+        pass
+
     def test_get_organization_cloud_provider_info(self):
         """Test case for get_organization_cloud_provider_info
 

@@ -38,13 +38,6 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_default_cluster_advanced_settings(self):
-        """Test case for get_default_cluster_advanced_settings
-
-        List default cluster advanced settings  # noqa: E501
-        """
-        pass
-
     def test_get_environment_application_current_scale(self):
         """Test case for get_environment_application_current_scale
 
