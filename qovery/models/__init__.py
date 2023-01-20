@@ -213,7 +213,6 @@ from qovery.model.environment_logs_message import EnvironmentLogsMessage
 from qovery.model.environment_logs_response_list import EnvironmentLogsResponseList
 from qovery.model.environment_mode_enum import EnvironmentModeEnum
 from qovery.model.environment_response_list import EnvironmentResponseList
-from qovery.model.environment_restart_request import EnvironmentRestartRequest
 from qovery.model.environment_stats import EnvironmentStats
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 from qovery.model.environment_status_list import EnvironmentStatusList
@@ -370,6 +369,7 @@ from qovery.model.project_request import ProjectRequest
 from qovery.model.project_response_list import ProjectResponseList
 from qovery.model.project_stats import ProjectStats
 from qovery.model.project_stats_response_list import ProjectStatsResponseList
+from qovery.model.reboot_services_request import RebootServicesRequest
 from qovery.model.reference_object import ReferenceObject
 from qovery.model.reference_object_status import ReferenceObjectStatus
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList

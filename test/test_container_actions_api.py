@@ -31,10 +31,24 @@ class TestContainerActionsApi(unittest.TestCase):
         """
         pass
 
+    def test_reboot_container(self):
+        """Test case for reboot_container
+
+        Reboot container  # noqa: E501
+        """
+        pass
+
+    def test_redeploy_container(self):
+        """Test case for redeploy_container
+
+        Redeploy container  # noqa: E501
+        """
+        pass
+
     def test_restart_container(self):
         """Test case for restart_container
 
-        Restart container  # noqa: E501
+        Deprecated - Restart container  # noqa: E501
         """
         pass
 

@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_restart_request import EnvironmentRestartRequest
+from qovery.model.reboot_services_request import RebootServicesRequest
 
 
-class TestEnvironmentRestartRequest(unittest.TestCase):
-    """EnvironmentRestartRequest unit test stubs"""
+class TestRebootServicesRequest(unittest.TestCase):
+    """RebootServicesRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestEnvironmentRestartRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEnvironmentRestartRequest(self):
-        """Test EnvironmentRestartRequest"""
+    def testRebootServicesRequest(self):
+        """Test RebootServicesRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EnvironmentRestartRequest()  # noqa: E501
+        # model = RebootServicesRequest()  # noqa: E501
         pass
 
 

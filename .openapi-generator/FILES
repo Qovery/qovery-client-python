@@ -251,7 +251,6 @@ docs/EnvironmentLogsResponseList.md
 docs/EnvironmentMainCallsApi.md
 docs/EnvironmentModeEnum.md
 docs/EnvironmentResponseList.md
-docs/EnvironmentRestartRequest.md
 docs/EnvironmentSecretApi.md
 docs/EnvironmentStats.md
 docs/EnvironmentStatsResponseList.md
@@ -433,6 +432,7 @@ docs/ProjectSecretApi.md
 docs/ProjectStats.md
 docs/ProjectStatsResponseList.md
 docs/ProjectsApi.md
+docs/RebootServicesRequest.md
 docs/ReferenceObject.md
 docs/ReferenceObjectStatus.md
 docs/ReferenceObjectStatusResponseList.md
@@ -771,7 +771,6 @@ qovery/model/environment_logs_message.py
 qovery/model/environment_logs_response_list.py
 qovery/model/environment_mode_enum.py
 qovery/model/environment_response_list.py
-qovery/model/environment_restart_request.py
 qovery/model/environment_stats.py
 qovery/model/environment_stats_response_list.py
 qovery/model/environment_status_list.py
@@ -928,6 +927,7 @@ qovery/model/project_request.py
 qovery/model/project_response_list.py
 qovery/model/project_stats.py
 qovery/model/project_stats_response_list.py
+qovery/model/reboot_services_request.py
 qovery/model/reference_object.py
 qovery/model/reference_object_status.py
 qovery/model/reference_object_status_response_list.py
@@ -1237,7 +1237,6 @@ test/test_environment_logs_response_list.py
 test/test_environment_main_calls_api.py
 test/test_environment_mode_enum.py
 test/test_environment_response_list.py
-test/test_environment_restart_request.py
 test/test_environment_secret_api.py
 test/test_environment_stats.py
 test/test_environment_stats_response_list.py
@@ -1419,6 +1418,7 @@ test/test_project_secret_api.py
 test/test_project_stats.py
 test/test_project_stats_response_list.py
 test/test_projects_api.py
+test/test_reboot_services_request.py
 test/test_reference_object.py
 test/test_reference_object_status.py
 test/test_reference_object_status_response_list.py

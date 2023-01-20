@@ -31,10 +31,24 @@ class TestApplicationActionsApi(unittest.TestCase):
         """
         pass
 
+    def test_reboot_application(self):
+        """Test case for reboot_application
+
+        Reboot application  # noqa: E501
+        """
+        pass
+
+    def test_redeploy_application(self):
+        """Test case for redeploy_application
+
+        Redeploy application  # noqa: E501
+        """
+        pass
+
     def test_restart_application(self):
         """Test case for restart_application
 
-        Restart application  # noqa: E501
+        Deprecated - Restart application  # noqa: E501
         """
         pass
 
