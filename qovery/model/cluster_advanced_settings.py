@@ -88,10 +88,11 @@ class ClusterAdvancedSettings(ModelNormal):
         """
         lazy_import()
         return {
-            'loki_log_retention_in_week': (int,),  # noqa: E501
+            'aws_cloudwatch_eks_logs_retention_days': (int,),  # noqa: E501
             'aws_vpc_enable_s3_flow_logs': (bool,),  # noqa: E501
             'aws_vpc_flow_logs_retention_days': (int,),  # noqa: E501
             'registry_image_retention_time': (int,),  # noqa: E501
+            'loki_log_retention_in_week': (int,),  # noqa: E501
             'cloud_provider_container_registry_tags': (ClusterAdvancedSettingsCloudProviderContainerRegistryTags,),  # noqa: E501
             'load_balancer_size': (str,),  # noqa: E501
             'pleco_resources_ttl': (int,),  # noqa: E501
@@ -103,10 +104,11 @@ class ClusterAdvancedSettings(ModelNormal):
 
 
     attribute_map = {
-        'loki_log_retention_in_week': 'loki.log_retention_in_week',  # noqa: E501
+        'aws_cloudwatch_eks_logs_retention_days': 'aws.cloudwatch.eks_logs_retention_days',  # noqa: E501
         'aws_vpc_enable_s3_flow_logs': 'aws.vpc.enable_s3_flow_logs',  # noqa: E501
         'aws_vpc_flow_logs_retention_days': 'aws.vpc.flow_logs_retention_days',  # noqa: E501
         'registry_image_retention_time': 'registry.image_retention_time',  # noqa: E501
+        'loki_log_retention_in_week': 'loki.log_retention_in_week',  # noqa: E501
         'cloud_provider_container_registry_tags': 'cloud_provider_container_registry_tags',  # noqa: E501
         'load_balancer_size': 'load_balancer.size',  # noqa: E501
         'pleco_resources_ttl': 'pleco.resources_ttl',  # noqa: E501
@@ -153,10 +155,11 @@ class ClusterAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            loki_log_retention_in_week (int): For how long in week loki is going to keep logs of your applications. [optional] if omitted the server will use the default value of 12  # noqa: E501
+            aws_cloudwatch_eks_logs_retention_days (int): Set the number of retention days for EKS Cloudwatch logs. [optional] if omitted the server will use the default value of 90  # noqa: E501
             aws_vpc_enable_s3_flow_logs (bool): Enable flow logs for on the VPC and store them in an S3 bucket. [optional] if omitted the server will use the default value of False  # noqa: E501
             aws_vpc_flow_logs_retention_days (int): Set the number of retention days for flow logs. Disable with value \"0\". [optional] if omitted the server will use the default value of 365  # noqa: E501
             registry_image_retention_time (int): Configure the number of seconds before cleaning images in the registry. [optional] if omitted the server will use the default value of 31536000  # noqa: E501
+            loki_log_retention_in_week (int): For how long in week loki is going to keep logs of your applications. [optional] if omitted the server will use the default value of 12  # noqa: E501
             cloud_provider_container_registry_tags (ClusterAdvancedSettingsCloudProviderContainerRegistryTags): [optional]  # noqa: E501
             load_balancer_size (str): Select the size of the main load_balancer (only effective for Scaleway). [optional] if omitted the server will use the default value of "lb-s"  # noqa: E501
             pleco_resources_ttl (int): [optional] if omitted the server will use the default value of -1  # noqa: E501
@@ -245,10 +248,11 @@ class ClusterAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            loki_log_retention_in_week (int): For how long in week loki is going to keep logs of your applications. [optional] if omitted the server will use the default value of 12  # noqa: E501
+            aws_cloudwatch_eks_logs_retention_days (int): Set the number of retention days for EKS Cloudwatch logs. [optional] if omitted the server will use the default value of 90  # noqa: E501
             aws_vpc_enable_s3_flow_logs (bool): Enable flow logs for on the VPC and store them in an S3 bucket. [optional] if omitted the server will use the default value of False  # noqa: E501
             aws_vpc_flow_logs_retention_days (int): Set the number of retention days for flow logs. Disable with value \"0\". [optional] if omitted the server will use the default value of 365  # noqa: E501
             registry_image_retention_time (int): Configure the number of seconds before cleaning images in the registry. [optional] if omitted the server will use the default value of 31536000  # noqa: E501
+            loki_log_retention_in_week (int): For how long in week loki is going to keep logs of your applications. [optional] if omitted the server will use the default value of 12  # noqa: E501
             cloud_provider_container_registry_tags (ClusterAdvancedSettingsCloudProviderContainerRegistryTags): [optional]  # noqa: E501
             load_balancer_size (str): Select the size of the main load_balancer (only effective for Scaleway). [optional] if omitted the server will use the default value of "lb-s"  # noqa: E501
             pleco_resources_ttl (int): [optional] if omitted the server will use the default value of -1  # noqa: E501
