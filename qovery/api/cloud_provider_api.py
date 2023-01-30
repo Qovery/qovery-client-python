@@ -235,8 +235,11 @@ class CloudProviderApi(object):
             },
             params_map={
                 'all': [
+                    'region',
                 ],
-                'required': [],
+                'required': [
+                    'region',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -250,10 +253,14 @@ class CloudProviderApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'region':
+                        (str,),
                 },
                 'attribute_map': {
+                    'region': 'region',
                 },
                 'location_map': {
+                    'region': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -941,6 +948,7 @@ class CloudProviderApi(object):
 
     def list_awseks_instance_type(
         self,
+        region,
         **kwargs
     ):
         """List AWS EKS available instance types  # noqa: E501
@@ -948,9 +956,11 @@ class CloudProviderApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_awseks_instance_type(async_req=True)
+        >>> thread = api.list_awseks_instance_type(region, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            region (str): region name
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1014,6 +1024,8 @@ class CloudProviderApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['region'] = \
+            region
         return self.list_awseks_instance_type_endpoint.call_with_http_info(**kwargs)
 
     def list_cloud_provider(

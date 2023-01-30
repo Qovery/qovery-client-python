@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_awseks_instance_type**
-> ClusterInstanceTypeResponseList list_awseks_instance_type()
+> ClusterInstanceTypeResponseList list_awseks_instance_type(region)
 
 List AWS EKS available instance types
 
@@ -354,11 +354,12 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cloud_provider_api.CloudProviderApi(api_client)
+    region = "us-east-2" # str | region name
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
     try:
         # List AWS EKS available instance types
-        api_response = api_instance.list_awseks_instance_type()
+        api_response = api_instance.list_awseks_instance_type(region)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling CloudProviderApi->list_awseks_instance_type: %s\n" % e)
@@ -366,7 +367,10 @@ with qovery.ApiClient(configuration) as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **region** | **str**| region name |
 
 ### Return type
 
