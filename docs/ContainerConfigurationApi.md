@@ -66,6 +66,8 @@ with qovery.ApiClient(configuration) as api_client:
             network_ingress_proxy_send_timeout_seconds=60,
             network_ingress_proxy_read_timeout_seconds=60,
             network_ingress_whitelist_source_range="0.0.0.0/0",
+            network_ingress_denylist_source_range="",
+            network_ingress_basic_auth_env_var="",
             readiness_probe_type="TCP",
             readiness_probe_http_get_path="/",
             readiness_probe_initial_delay_seconds=30,
