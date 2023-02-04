@@ -99,7 +99,7 @@ class Organization(ModelComposed):
             'name': (str,),  # noqa: E501
             'plan': (PlanEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'description': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'website_url': (str, none_type,),  # noqa: E501
             'repository': (str, none_type,),  # noqa: E501
             'logo_url': (str, none_type,),  # noqa: E501
@@ -175,7 +175,7 @@ class Organization(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             website_url (str, none_type): [optional]  # noqa: E501
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
@@ -288,7 +288,7 @@ class Organization(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             website_url (str, none_type): [optional]  # noqa: E501
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501

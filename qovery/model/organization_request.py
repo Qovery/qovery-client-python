@@ -90,7 +90,7 @@ class OrganizationRequest(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'plan': (PlanEnum,),  # noqa: E501
-            'description': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
             'website_url': (str, none_type,),  # noqa: E501
             'repository': (str, none_type,),  # noqa: E501
             'logo_url': (str, none_type,),  # noqa: E501
@@ -159,7 +159,7 @@ class OrganizationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             website_url (str, none_type): [optional]  # noqa: E501
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501
@@ -256,7 +256,7 @@ class OrganizationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str): [optional]  # noqa: E501
+            description (str, none_type): [optional]  # noqa: E501
             website_url (str, none_type): [optional]  # noqa: E501
             repository (str, none_type): [optional]  # noqa: E501
             logo_url (str, none_type): [optional]  # noqa: E501

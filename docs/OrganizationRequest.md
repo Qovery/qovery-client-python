@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case insensitive | 
 **plan** | [**PlanEnum**](PlanEnum.md) |  | 
-**description** | **str** |  | [optional] 
+**description** | **str, none_type** |  | [optional] 
 **website_url** | **str, none_type** |  | [optional] 
 **repository** | **str, none_type** |  | [optional] 
 **logo_url** | **str, none_type** |  | [optional] 
