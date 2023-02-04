@@ -88,7 +88,7 @@ class PaidUsage(ModelNormal):
             'monthly_plan_cost_in_cents': (int,),  # noqa: E501
             'remaining_deployments': (int,),  # noqa: E501
             'deployments_exceeded': (bool,),  # noqa: E501
-            'renewal_at': (datetime,),  # noqa: E501
+            'renewal_at': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -154,7 +154,7 @@ class PaidUsage(ModelNormal):
             monthly_plan_cost_in_cents (int): [optional]  # noqa: E501
             remaining_deployments (int): [optional]  # noqa: E501
             deployments_exceeded (bool): [optional]  # noqa: E501
-            renewal_at (datetime): [optional]  # noqa: E501
+            renewal_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,7 +246,7 @@ class PaidUsage(ModelNormal):
             monthly_plan_cost_in_cents (int): [optional]  # noqa: E501
             remaining_deployments (int): [optional]  # noqa: E501
             deployments_exceeded (bool): [optional]  # noqa: E501
-            renewal_at (datetime): [optional]  # noqa: E501
+            renewal_at (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
