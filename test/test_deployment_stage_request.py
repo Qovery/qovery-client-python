@@ -9,26 +9,26 @@
 """
 
 
+import sys
 import unittest
 
 import qovery
-from qovery.api.environment_deployment_rule_api import EnvironmentDeploymentRuleApi  # noqa: E501
+from qovery.model.deployment_stage_request import DeploymentStageRequest
 
 
-class TestEnvironmentDeploymentRuleApi(unittest.TestCase):
-    """EnvironmentDeploymentRuleApi unit test stubs"""
+class TestDeploymentStageRequest(unittest.TestCase):
+    """DeploymentStageRequest unit test stubs"""
 
     def setUp(self):
-        self.api = EnvironmentDeploymentRuleApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_edit_environment_deployment_rule(self):
-        """Test case for edit_environment_deployment_rule
-
-        Edit an environment deployment rule  # noqa: E501
-        """
+    def testDeploymentStageRequest(self):
+        """Test DeploymentStageRequest"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = DeploymentStageRequest()  # noqa: E501
         pass
 
 

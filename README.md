@@ -298,6 +298,12 @@ Class | Method | HTTP request | Description
 *DependencyApi* | [**create_application_dependency**](docs/DependencyApi.md#create_application_dependency) | **POST** /application/{applicationId}/dependency/{targetApplicationId} | Add application dependency to this application.
 *DependencyApi* | [**list_application_dependency**](docs/DependencyApi.md#list_application_dependency) | **GET** /application/{applicationId}/dependency | List application dependencies
 *DependencyApi* | [**remove_application_dependency**](docs/DependencyApi.md#remove_application_dependency) | **DELETE** /application/{applicationId}/dependency/{targetApplicationId} | Remove application dependency to this application.
+*DeploymentStageMainCallsApi* | [**attach_service_to_deployment_stage**](docs/DeploymentStageMainCallsApi.md#attach_service_to_deployment_stage) | **PUT** /deploymentStage/{deploymentStageId}/service/{serviceId} | Attach service to deployment stage
+*DeploymentStageMainCallsApi* | [**create_environment_deployment_stage**](docs/DeploymentStageMainCallsApi.md#create_environment_deployment_stage) | **POST** /environment/{environmentId}/deploymentStage | Create environment deployment stage
+*DeploymentStageMainCallsApi* | [**delete_deployment_stage**](docs/DeploymentStageMainCallsApi.md#delete_deployment_stage) | **DELETE** /deploymentStage/{deploymentStageId} | Delete deployment stage
+*DeploymentStageMainCallsApi* | [**edit_deployment_stage**](docs/DeploymentStageMainCallsApi.md#edit_deployment_stage) | **PUT** /deploymentStage/{deploymentStageId} | Edit deployment stage
+*DeploymentStageMainCallsApi* | [**list_environment_deployment_stage**](docs/DeploymentStageMainCallsApi.md#list_environment_deployment_stage) | **GET** /environment/{environmentId}/deploymentStage | List environment deployment stage
+*DeploymentStageMainCallsApi* | [**move_deployment_stage**](docs/DeploymentStageMainCallsApi.md#move_deployment_stage) | **PUT** /deploymentStage/{deploymentStageId}/moveBefore/{stageId} | Move deployment stage before requested stage
 *EnvironmentApi* | [**deploy_all_applications**](docs/EnvironmentApi.md#deploy_all_applications) | **POST** /environment/{environmentId}/application/deploy | Deploy applications
 *EnvironmentActionsApi* | [**cancel_environment_deployment**](docs/EnvironmentActionsApi.md#cancel_environment_deployment) | **POST** /environment/{environmentId}/cancelDeployment | Cancel environment deployment
 *EnvironmentActionsApi* | [**clone_environment**](docs/EnvironmentActionsApi.md#clone_environment) | **POST** /environment/{environmentId}/clone | Clone environment
@@ -309,7 +315,6 @@ Class | Method | HTTP request | Description
 *EnvironmentActionsApi* | [**stop_environment**](docs/EnvironmentActionsApi.md#stop_environment) | **POST** /environment/{environmentId}/stop | Stop environment
 *EnvironmentDeploymentHistoryApi* | [**list_environment_deployment_history**](docs/EnvironmentDeploymentHistoryApi.md#list_environment_deployment_history) | **GET** /environment/{environmentId}/deploymentHistory | List environment deployments
 *EnvironmentDeploymentRuleApi* | [**edit_environment_deployment_rule**](docs/EnvironmentDeploymentRuleApi.md#edit_environment_deployment_rule) | **PUT** /environment/{environmentId}/deploymentRule/{deploymentRuleId} | Edit an environment deployment rule
-*EnvironmentDeploymentRuleApi* | [**get_environment_deployment_rule**](docs/EnvironmentDeploymentRuleApi.md#get_environment_deployment_rule) | **GET** /environment/{environmentId}/deploymentRule | Get environment deployment rule
 *EnvironmentLogsApi* | [**list_environment_log**](docs/EnvironmentLogsApi.md#list_environment_log) | **GET** /environment/{environmentId}/log | List environment deployment logs
 *EnvironmentLogsApi* | [**list_environment_logs**](docs/EnvironmentLogsApi.md#list_environment_logs) | **GET** /environment/{environmentId}/logs | List environment deployment logs v2
 *EnvironmentMainCallsApi* | [**delete_environment**](docs/EnvironmentMainCallsApi.md#delete_environment) | **DELETE** /environment/{environmentId} | Delete an environment
@@ -611,6 +616,13 @@ Class | Method | HTTP request | Description
  - [DeploymentRestrictionModeEnum](docs/DeploymentRestrictionModeEnum.md)
  - [DeploymentRestrictionTypeEnum](docs/DeploymentRestrictionTypeEnum.md)
  - [DeploymentRuleRequest](docs/DeploymentRuleRequest.md)
+ - [DeploymentStageRequest](docs/DeploymentStageRequest.md)
+ - [DeploymentStageResponse](docs/DeploymentStageResponse.md)
+ - [DeploymentStageResponseAllOf](docs/DeploymentStageResponseAllOf.md)
+ - [DeploymentStageResponseList](docs/DeploymentStageResponseList.md)
+ - [DeploymentStageServiceResponse](docs/DeploymentStageServiceResponse.md)
+ - [DeploymentStageServiceResponseAllOf](docs/DeploymentStageServiceResponseAllOf.md)
+ - [DeploymentStageServiceResponseList](docs/DeploymentStageServiceResponseList.md)
  - [DoCredentialsRequest](docs/DoCredentialsRequest.md)
  - [Environment](docs/Environment.md)
  - [EnvironmentAllOf](docs/EnvironmentAllOf.md)
