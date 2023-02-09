@@ -21,7 +21,6 @@ Method | HTTP request | Description
 [**list_organization_cluster**](ClustersApi.md#list_organization_cluster) | **GET** /organization/{organizationId}/cluster | List organization clusters
 [**specify_cluster_cloud_provider_info**](ClustersApi.md#specify_cluster_cloud_provider_info) | **POST** /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo | Specify cluster cloud provider info and credentials
 [**stop_cluster**](ClustersApi.md#stop_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/stop | Stop cluster
-[**update_cluster**](ClustersApi.md#update_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/update | Update a cluster Version
 
 
 # **create_cluster**
@@ -1515,89 +1514,6 @@ Name | Type | Description  | Notes
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
 **409** | Cluster is already stopped or an operation is in progress |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_cluster**
-> ClusterStatus update_cluster(organization_id, cluster_id)
-
-Update a cluster Version
-
-allows to update cluster version
-
-### Example
-
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import time
-import qovery
-from qovery.api import clusters_api
-from qovery.model.cluster_status import ClusterStatus
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.qovery.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = qovery.Configuration(
-    host = "https://api.qovery.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with qovery.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = clusters_api.ClustersApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    cluster_id = "clusterId_example" # str | Cluster ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Update a cluster Version
-        api_response = api_instance.update_cluster(organization_id, cluster_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ClustersApi->update_cluster: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **cluster_id** | **str**| Cluster ID |
-
-### Return type
-
-[**ClusterStatus**](ClusterStatus.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Update cluster |  -  |
-**400** | Bad request |  -  |
-**401** | Access token is missing or invalid |  -  |
-**403** | Access forbidden |  -  |
-**404** | Resource not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -207,7 +207,6 @@ Class | Method | HTTP request | Description
 *ClustersApi* | [**list_organization_cluster**](docs/ClustersApi.md#list_organization_cluster) | **GET** /organization/{organizationId}/cluster | List organization clusters
 *ClustersApi* | [**specify_cluster_cloud_provider_info**](docs/ClustersApi.md#specify_cluster_cloud_provider_info) | **POST** /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo | Specify cluster cloud provider info and credentials
 *ClustersApi* | [**stop_cluster**](docs/ClustersApi.md#stop_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/stop | Stop cluster
-*ClustersApi* | [**update_cluster**](docs/ClustersApi.md#update_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/update | Update a cluster Version
 *ContainerActionsApi* | [**deploy_container**](docs/ContainerActionsApi.md#deploy_container) | **POST** /container/{containerId}/deploy | Deploy container
 *ContainerActionsApi* | [**reboot_container**](docs/ContainerActionsApi.md#reboot_container) | **POST** /container/{containerId}/restart-service | Reboot container
 *ContainerActionsApi* | [**redeploy_container**](docs/ContainerActionsApi.md#redeploy_container) | **POST** /container/{containerId}/redeploy | Redeploy container

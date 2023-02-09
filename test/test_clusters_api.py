@@ -143,13 +143,6 @@ class TestClustersApi(unittest.TestCase):
         """
         pass
 
-    def test_update_cluster(self):
-        """Test case for update_cluster
-
-        Update a cluster Version  # noqa: E501
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()
