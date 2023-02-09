@@ -94,6 +94,7 @@ class DeploymentStageServiceResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
+            'service_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +107,7 @@ class DeploymentStageServiceResponse(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
+        'service_type': 'service_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,6 +156,7 @@ class DeploymentStageServiceResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             service_id (str): id of the service attached to the stage. [optional]  # noqa: E501
+            service_type (str): type of the service (i.e APPLICATION, JOB, DATABASE, ...). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +262,7 @@ class DeploymentStageServiceResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             service_id (str): id of the service attached to the stage. [optional]  # noqa: E501
+            service_type (str): type of the service (i.e APPLICATION, JOB, DATABASE, ...). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

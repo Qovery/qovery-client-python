@@ -83,6 +83,7 @@ class DeploymentStageServiceResponseAllOf(ModelNormal):
         """
         return {
             'service_id': (str,),  # noqa: E501
+            'service_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class DeploymentStageServiceResponseAllOf(ModelNormal):
 
     attribute_map = {
         'service_id': 'service_id',  # noqa: E501
+        'service_type': 'service_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +138,7 @@ class DeploymentStageServiceResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service_id (str): id of the service attached to the stage. [optional]  # noqa: E501
+            service_type (str): type of the service (i.e APPLICATION, JOB, DATABASE, ...). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,6 +225,7 @@ class DeploymentStageServiceResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service_id (str): id of the service attached to the stage. [optional]  # noqa: E501
+            service_type (str): type of the service (i.e APPLICATION, JOB, DATABASE, ...). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
