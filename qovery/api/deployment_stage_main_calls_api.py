@@ -51,9 +51,11 @@ class DeploymentStageMainCallsApi(object):
             },
             params_map={
                 'all': [
+                    'deployment_stage_id',
                     'service_id',
                 ],
                 'required': [
+                    'deployment_stage_id',
                     'service_id',
                 ],
                 'nullable': [
@@ -69,13 +71,17 @@ class DeploymentStageMainCallsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'deployment_stage_id':
+                        (str,),
                     'service_id':
                         (str,),
                 },
                 'attribute_map': {
+                    'deployment_stage_id': 'deploymentStageId',
                     'service_id': 'serviceId',
                 },
                 'location_map': {
+                    'deployment_stage_id': 'path',
                     'service_id': 'path',
                 },
                 'collection_format_map': {
@@ -157,8 +163,11 @@ class DeploymentStageMainCallsApi(object):
             },
             params_map={
                 'all': [
+                    'deployment_stage_id',
                 ],
-                'required': [],
+                'required': [
+                    'deployment_stage_id',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -172,10 +181,14 @@ class DeploymentStageMainCallsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'deployment_stage_id':
+                        (str,),
                 },
                 'attribute_map': {
+                    'deployment_stage_id': 'deploymentStageId',
                 },
                 'location_map': {
+                    'deployment_stage_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -307,9 +320,11 @@ class DeploymentStageMainCallsApi(object):
             },
             params_map={
                 'all': [
+                    'deployment_stage_id',
                     'stage_id',
                 ],
                 'required': [
+                    'deployment_stage_id',
                     'stage_id',
                 ],
                 'nullable': [
@@ -325,13 +340,17 @@ class DeploymentStageMainCallsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
+                    'deployment_stage_id':
+                        (str,),
                     'stage_id':
                         (str,),
                 },
                 'attribute_map': {
+                    'deployment_stage_id': 'deploymentStageId',
                     'stage_id': 'stageId',
                 },
                 'location_map': {
+                    'deployment_stage_id': 'path',
                     'stage_id': 'path',
                 },
                 'collection_format_map': {
@@ -348,6 +367,7 @@ class DeploymentStageMainCallsApi(object):
 
     def attach_service_to_deployment_stage(
         self,
+        deployment_stage_id,
         service_id,
         **kwargs
     ):
@@ -356,10 +376,11 @@ class DeploymentStageMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.attach_service_to_deployment_stage(service_id, async_req=True)
+        >>> thread = api.attach_service_to_deployment_stage(deployment_stage_id, service_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            deployment_stage_id (str): Deployment Stage ID
             service_id (str): Service ID of an application/job/container/database
 
         Keyword Args:
@@ -424,6 +445,8 @@ class DeploymentStageMainCallsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['deployment_stage_id'] = \
+            deployment_stage_id
         kwargs['service_id'] = \
             service_id
         return self.attach_service_to_deployment_stage_endpoint.call_with_http_info(**kwargs)
@@ -513,6 +536,7 @@ class DeploymentStageMainCallsApi(object):
 
     def delete_deployment_stage(
         self,
+        deployment_stage_id,
         **kwargs
     ):
         """Delete deployment stage  # noqa: E501
@@ -520,9 +544,11 @@ class DeploymentStageMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_deployment_stage(async_req=True)
+        >>> thread = api.delete_deployment_stage(deployment_stage_id, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            deployment_stage_id (str): Deployment Stage ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -586,6 +612,8 @@ class DeploymentStageMainCallsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['deployment_stage_id'] = \
+            deployment_stage_id
         return self.delete_deployment_stage_endpoint.call_with_http_info(**kwargs)
 
     def edit_deployment_stage(
@@ -755,6 +783,7 @@ class DeploymentStageMainCallsApi(object):
 
     def move_deployment_stage(
         self,
+        deployment_stage_id,
         stage_id,
         **kwargs
     ):
@@ -763,10 +792,11 @@ class DeploymentStageMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.move_deployment_stage(stage_id, async_req=True)
+        >>> thread = api.move_deployment_stage(deployment_stage_id, stage_id, async_req=True)
         >>> result = thread.get()
 
         Args:
+            deployment_stage_id (str): Deployment Stage ID
             stage_id (str): Deployment Stage ID
 
         Keyword Args:
@@ -831,6 +861,8 @@ class DeploymentStageMainCallsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['deployment_stage_id'] = \
+            deployment_stage_id
         kwargs['stage_id'] = \
             stage_id
         return self.move_deployment_stage_endpoint.call_with_http_info(**kwargs)
