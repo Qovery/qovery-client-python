@@ -31,6 +31,13 @@ class TestEnvironmentDeploymentRuleApi(unittest.TestCase):
         """
         pass
 
+    def test_get_environment_deployment_rule(self):
+        """Test case for get_environment_deployment_rule
+
+        Get environment deployment rule  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
