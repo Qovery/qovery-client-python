@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+    from qovery.model.api_variable_type_enum import APIVariableTypeEnum
     globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+    globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
 
 
 class SecretOverride(ModelNormal):
@@ -90,7 +92,9 @@ class SecretOverride(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'key': (str,),  # noqa: E501
+            'mount_path': (str,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
+            'variable_type': (APIVariableTypeEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -101,7 +105,9 @@ class SecretOverride(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'key': 'key',  # noqa: E501
+        'mount_path': 'mount_path',  # noqa: E501
         'scope': 'scope',  # noqa: E501
+        'variable_type': 'variable_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,13 +117,15 @@ class SecretOverride(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, key, scope, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, key, mount_path, scope, variable_type, *args, **kwargs):  # noqa: E501
         """SecretOverride - a model defined in OpenAPI
 
         Args:
             id (str):
             key (str):
+            mount_path (str):
             scope (APIVariableScopeEnum):
+            variable_type (APIVariableTypeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -183,7 +191,9 @@ class SecretOverride(ModelNormal):
 
         self.id = id
         self.key = key
+        self.mount_path = mount_path
         self.scope = scope
+        self.variable_type = variable_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,13 +214,15 @@ class SecretOverride(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, key, scope, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, key, mount_path, scope, variable_type, *args, **kwargs):  # noqa: E501
         """SecretOverride - a model defined in OpenAPI
 
         Args:
             id (str):
             key (str):
+            mount_path (str):
             scope (APIVariableScopeEnum):
+            variable_type (APIVariableTypeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -274,7 +286,9 @@ class SecretOverride(ModelNormal):
 
         self.id = id
         self.key = key
+        self.mount_path = mount_path
         self.scope = scope
+        self.variable_type = variable_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

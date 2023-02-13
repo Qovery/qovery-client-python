@@ -14,7 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.api_variable_type_enum import APIVariableTypeEnum
 globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
 from qovery.model.secret_override import SecretOverride
 
 

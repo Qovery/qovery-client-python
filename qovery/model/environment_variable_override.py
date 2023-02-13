@@ -32,7 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+    from qovery.model.api_variable_type_enum import APIVariableTypeEnum
     globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
+    globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
 
 
 class EnvironmentVariableOverride(ModelNormal):
@@ -91,7 +93,9 @@ class EnvironmentVariableOverride(ModelNormal):
             'id': (str,),  # noqa: E501
             'key': (str,),  # noqa: E501
             'value': (str,),  # noqa: E501
+            'mount_path': (str,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
+            'variable_type': (APIVariableTypeEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -103,7 +107,9 @@ class EnvironmentVariableOverride(ModelNormal):
         'id': 'id',  # noqa: E501
         'key': 'key',  # noqa: E501
         'value': 'value',  # noqa: E501
+        'mount_path': 'mount_path',  # noqa: E501
         'scope': 'scope',  # noqa: E501
+        'variable_type': 'variable_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,14 +119,16 @@ class EnvironmentVariableOverride(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, key, value, scope, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, key, value, mount_path, scope, variable_type, *args, **kwargs):  # noqa: E501
         """EnvironmentVariableOverride - a model defined in OpenAPI
 
         Args:
             id (str):
             key (str):
             value (str):
+            mount_path (str):
             scope (APIVariableScopeEnum):
+            variable_type (APIVariableTypeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -187,7 +195,9 @@ class EnvironmentVariableOverride(ModelNormal):
         self.id = id
         self.key = key
         self.value = value
+        self.mount_path = mount_path
         self.scope = scope
+        self.variable_type = variable_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,14 +218,16 @@ class EnvironmentVariableOverride(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, key, value, scope, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, key, value, mount_path, scope, variable_type, *args, **kwargs):  # noqa: E501
         """EnvironmentVariableOverride - a model defined in OpenAPI
 
         Args:
             id (str):
             key (str):
             value (str):
+            mount_path (str):
             scope (APIVariableScopeEnum):
+            variable_type (APIVariableTypeEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -280,7 +292,9 @@ class EnvironmentVariableOverride(ModelNormal):
         self.id = id
         self.key = key
         self.value = value
+        self.mount_path = mount_path
         self.scope = scope
+        self.variable_type = variable_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
