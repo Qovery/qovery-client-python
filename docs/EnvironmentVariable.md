@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **mount_path** | **str, none_type** | should be set for file only. variable mount path makes variable a file (where file should be mounted). | [optional] 
 **overridden_variable** | [**EnvironmentVariableOverride**](EnvironmentVariableOverride.md) |  | [optional] 
 **aliased_variable** | [**EnvironmentVariableAlias**](EnvironmentVariableAlias.md) |  | [optional] 
-**type** | [**APIVariableTypeEnum**](APIVariableTypeEnum.md) |  | [optional] 
+**variable_type** | [**APIVariableTypeEnum**](APIVariableTypeEnum.md) |  | [optional] 
 **service_id** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_name** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_type** | [**LinkedServiceTypeEnum**](LinkedServiceTypeEnum.md) |  | [optional] 

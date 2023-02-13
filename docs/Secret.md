@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **overridden_secret** | [**SecretOverride**](SecretOverride.md) |  | [optional] 
 **aliased_secret** | [**SecretAlias**](SecretAlias.md) |  | [optional] 
-**type** | [**APIVariableTypeEnum**](APIVariableTypeEnum.md) |  | [optional] 
+**variable_type** | [**APIVariableTypeEnum**](APIVariableTypeEnum.md) |  | [optional] 
 **service_id** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_name** | **str** | present only for &#x60;BUILT_IN&#x60; variable | [optional] 
 **service_type** | [**LinkedServiceTypeEnum**](LinkedServiceTypeEnum.md) |  | [optional] 

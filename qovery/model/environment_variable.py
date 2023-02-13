@@ -111,7 +111,7 @@ class EnvironmentVariable(ModelComposed):
             'mount_path': (str, none_type,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableOverride,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableAlias,),  # noqa: E501
-            'type': (APIVariableTypeEnum,),  # noqa: E501
+            'variable_type': (APIVariableTypeEnum,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
             'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
@@ -132,7 +132,7 @@ class EnvironmentVariable(ModelComposed):
         'mount_path': 'mount_path',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
-        'type': 'type',  # noqa: E501
+        'variable_type': 'variable_type',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'service_name': 'service_name',  # noqa: E501
         'service_type': 'service_type',  # noqa: E501
@@ -189,7 +189,7 @@ class EnvironmentVariable(ModelComposed):
             mount_path (str, none_type): should be set for file only. variable mount path makes variable a file (where file should be mounted).. [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
-            type (APIVariableTypeEnum): [optional]  # noqa: E501
+            variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
@@ -303,7 +303,7 @@ class EnvironmentVariable(ModelComposed):
             mount_path (str, none_type): should be set for file only. variable mount path makes variable a file (where file should be mounted).. [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
-            type (APIVariableTypeEnum): [optional]  # noqa: E501
+            variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
