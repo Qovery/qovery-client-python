@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **attach_service_to_deployment_stage**
-> attach_service_to_deployment_stage(deployment_stage_id, service_id)
+> DeploymentStageResponseList attach_service_to_deployment_stage(deployment_stage_id, service_id)
 
 Attach service to deployment stage
 
@@ -25,6 +25,7 @@ Attach service to deployment stage
 import time
 import qovery
 from qovery.api import deployment_stage_main_calls_api
+from qovery.model.deployment_stage_response_list import DeploymentStageResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -52,7 +53,8 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Attach service to deployment stage
-        api_instance.attach_service_to_deployment_stage(deployment_stage_id, service_id)
+        api_response = api_instance.attach_service_to_deployment_stage(deployment_stage_id, service_id)
+        pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling DeploymentStageMainCallsApi->attach_service_to_deployment_stage: %s\n" % e)
 ```
@@ -67,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**DeploymentStageResponseList**](DeploymentStageResponseList.md)
 
 ### Authorization
 
@@ -76,14 +78,14 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | no content |  -  |
+**200** | List of deployment stages for the env |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

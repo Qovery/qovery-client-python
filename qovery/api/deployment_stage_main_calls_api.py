@@ -40,7 +40,7 @@ class DeploymentStageMainCallsApi(object):
         self.api_client = api_client
         self.attach_service_to_deployment_stage_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (DeploymentStageResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -88,7 +88,9 @@ class DeploymentStageMainCallsApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -416,7 +418,7 @@ class DeploymentStageMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            DeploymentStageResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """
