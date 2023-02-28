@@ -52,6 +52,20 @@ class TestDeploymentStageMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_deployment_stage(self):
+        """Test case for get_deployment_stage
+
+        Get Deployment Stage  # noqa: E501
+        """
+        pass
+
+    def test_get_service_deployment_stage(self):
+        """Test case for get_service_deployment_stage
+
+        Get Service Deployment Stage  # noqa: E501
+        """
+        pass
+
     def test_list_environment_deployment_stage(self):
         """Test case for list_environment_deployment_stage
 
