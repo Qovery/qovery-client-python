@@ -52,9 +52,11 @@ class DeploymentStageMainCallsApi(object):
             params_map={
                 'all': [
                     'deployment_stage_id',
+                    'service_id',
                 ],
                 'required': [
                     'deployment_stage_id',
+                    'service_id',
                 ],
                 'nullable': [
                 ],
@@ -71,12 +73,16 @@ class DeploymentStageMainCallsApi(object):
                 'openapi_types': {
                     'deployment_stage_id':
                         (str,),
+                    'service_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'deployment_stage_id': 'deploymentStageId',
+                    'service_id': 'serviceId',
                 },
                 'location_map': {
                     'deployment_stage_id': 'path',
+                    'service_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -466,6 +472,7 @@ class DeploymentStageMainCallsApi(object):
     def attach_service_to_deployment_stage(
         self,
         deployment_stage_id,
+        service_id,
         **kwargs
     ):
         """Attach service to deployment stage  # noqa: E501
@@ -473,11 +480,12 @@ class DeploymentStageMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.attach_service_to_deployment_stage(deployment_stage_id, async_req=True)
+        >>> thread = api.attach_service_to_deployment_stage(deployment_stage_id, service_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             deployment_stage_id (str): Deployment Stage ID
+            service_id (str): Service ID of an application/job/container/database
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -543,6 +551,8 @@ class DeploymentStageMainCallsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['deployment_stage_id'] = \
             deployment_stage_id
+        kwargs['service_id'] = \
+            service_id
         return self.attach_service_to_deployment_stage_endpoint.call_with_http_info(**kwargs)
 
     def create_environment_deployment_stage(

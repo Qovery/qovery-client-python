@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **attach_service_to_deployment_stage**
-> DeploymentStageResponseList attach_service_to_deployment_stage(deployment_stage_id)
+> DeploymentStageResponseList attach_service_to_deployment_stage(deployment_stage_id, service_id)
 
 Attach service to deployment stage
 
@@ -50,11 +50,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
     deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
+    service_id = "serviceId_example" # str | Service ID of an application/job/container/database
 
     # example passing only required values which don't have defaults set
     try:
         # Attach service to deployment stage
-        api_response = api_instance.attach_service_to_deployment_stage(deployment_stage_id)
+        api_response = api_instance.attach_service_to_deployment_stage(deployment_stage_id, service_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling DeploymentStageMainCallsApi->attach_service_to_deployment_stage: %s\n" % e)
@@ -66,6 +67,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deployment_stage_id** | **str**| Deployment Stage ID |
+ **service_id** | **str**| Service ID of an application/job/container/database |
 
 ### Return type
 
