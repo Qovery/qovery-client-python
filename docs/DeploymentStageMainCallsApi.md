@@ -11,7 +11,8 @@ Method | HTTP request | Description
 [**get_deployment_stage**](DeploymentStageMainCallsApi.md#get_deployment_stage) | **GET** /deploymentStage/{deploymentStageId} | Get Deployment Stage
 [**get_service_deployment_stage**](DeploymentStageMainCallsApi.md#get_service_deployment_stage) | **GET** /service/{serviceId}/deploymentStage | Get Service Deployment Stage
 [**list_environment_deployment_stage**](DeploymentStageMainCallsApi.md#list_environment_deployment_stage) | **GET** /environment/{environmentId}/deploymentStage | List environment deployment stage
-[**move_deployment_stage**](DeploymentStageMainCallsApi.md#move_deployment_stage) | **PUT** /deploymentStage/{deploymentStageId}/moveBefore/{stageId} | Move deployment stage before requested stage
+[**move_after_deployment_stage**](DeploymentStageMainCallsApi.md#move_after_deployment_stage) | **PUT** /deploymentStage/{deploymentStageId}/moveAfter/{stageId} | Move deployment stage after requested stage
+[**move_before_deployment_stage**](DeploymentStageMainCallsApi.md#move_before_deployment_stage) | **PUT** /deploymentStage/{deploymentStageId}/moveBefore/{stageId} | Move deployment stage before requested stage
 
 
 # **attach_service_to_deployment_stage**
@@ -590,10 +591,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **move_deployment_stage**
-> DeploymentStageResponseList move_deployment_stage(deployment_stage_id, stage_id)
+# **move_after_deployment_stage**
+> DeploymentStageResponseList move_after_deployment_stage(deployment_stage_id, stage_id)
 
-Move deployment stage before requested stage
+Move deployment stage after requested stage
 
 ### Example
 
@@ -630,11 +631,11 @@ with qovery.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Move deployment stage before requested stage
-        api_response = api_instance.move_deployment_stage(deployment_stage_id, stage_id)
+        # Move deployment stage after requested stage
+        api_response = api_instance.move_after_deployment_stage(deployment_stage_id, stage_id)
         pprint(api_response)
     except qovery.ApiException as e:
-        print("Exception when calling DeploymentStageMainCallsApi->move_deployment_stage: %s\n" % e)
+        print("Exception when calling DeploymentStageMainCallsApi->move_after_deployment_stage: %s\n" % e)
 ```
 
 
@@ -644,6 +645,84 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deployment_stage_id** | **str**| Deployment Stage ID |
  **stage_id** | **str**| Deployment Stage ID |
+
+### Return type
+
+[**DeploymentStageResponseList**](DeploymentStageResponseList.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List deployment stage |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **move_before_deployment_stage**
+> DeploymentStageResponseList move_before_deployment_stage(deployment_stage_id)
+
+Move deployment stage before requested stage
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import deployment_stage_main_calls_api
+from qovery.model.deployment_stage_response_list import DeploymentStageResponseList
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
+    deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Move deployment stage before requested stage
+        api_response = api_instance.move_before_deployment_stage(deployment_stage_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling DeploymentStageMainCallsApi->move_before_deployment_stage: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deployment_stage_id** | **str**| Deployment Stage ID |
 
 ### Return type
 

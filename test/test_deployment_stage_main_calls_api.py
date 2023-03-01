@@ -73,8 +73,15 @@ class TestDeploymentStageMainCallsApi(unittest.TestCase):
         """
         pass
 
-    def test_move_deployment_stage(self):
-        """Test case for move_deployment_stage
+    def test_move_after_deployment_stage(self):
+        """Test case for move_after_deployment_stage
+
+        Move deployment stage after requested stage  # noqa: E501
+        """
+        pass
+
+    def test_move_before_deployment_stage(self):
+        """Test case for move_before_deployment_stage
 
         Move deployment stage before requested stage  # noqa: E501
         """
