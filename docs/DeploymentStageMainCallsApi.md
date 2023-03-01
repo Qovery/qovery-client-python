@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **move_before_deployment_stage**
-> DeploymentStageResponseList move_before_deployment_stage(deployment_stage_id)
+> DeploymentStageResponseList move_before_deployment_stage(deployment_stage_id, stage_id)
 
 Move deployment stage before requested stage
 
@@ -707,11 +707,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
     deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
+    stage_id = "stageId_example" # str | Deployment Stage ID
 
     # example passing only required values which don't have defaults set
     try:
         # Move deployment stage before requested stage
-        api_response = api_instance.move_before_deployment_stage(deployment_stage_id)
+        api_response = api_instance.move_before_deployment_stage(deployment_stage_id, stage_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling DeploymentStageMainCallsApi->move_before_deployment_stage: %s\n" % e)
@@ -723,6 +724,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deployment_stage_id** | **str**| Deployment Stage ID |
+ **stage_id** | **str**| Deployment Stage ID |
 
 ### Return type
 

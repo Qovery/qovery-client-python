@@ -482,9 +482,11 @@ class DeploymentStageMainCallsApi(object):
             params_map={
                 'all': [
                     'deployment_stage_id',
+                    'stage_id',
                 ],
                 'required': [
                     'deployment_stage_id',
+                    'stage_id',
                 ],
                 'nullable': [
                 ],
@@ -501,12 +503,16 @@ class DeploymentStageMainCallsApi(object):
                 'openapi_types': {
                     'deployment_stage_id':
                         (str,),
+                    'stage_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'deployment_stage_id': 'deploymentStageId',
+                    'stage_id': 'stageId',
                 },
                 'location_map': {
                     'deployment_stage_id': 'path',
+                    'stage_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -1189,6 +1195,7 @@ class DeploymentStageMainCallsApi(object):
     def move_before_deployment_stage(
         self,
         deployment_stage_id,
+        stage_id,
         **kwargs
     ):
         """Move deployment stage before requested stage  # noqa: E501
@@ -1196,11 +1203,12 @@ class DeploymentStageMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.move_before_deployment_stage(deployment_stage_id, async_req=True)
+        >>> thread = api.move_before_deployment_stage(deployment_stage_id, stage_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             deployment_stage_id (str): Deployment Stage ID
+            stage_id (str): Deployment Stage ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1266,5 +1274,7 @@ class DeploymentStageMainCallsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['deployment_stage_id'] = \
             deployment_stage_id
+        kwargs['stage_id'] = \
+            stage_id
         return self.move_before_deployment_stage_endpoint.call_with_http_info(**kwargs)
 
