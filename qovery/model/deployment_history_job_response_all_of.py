@@ -33,10 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.commit import Commit
     from qovery.model.deployment_history_job_response_all_of_schedule import DeploymentHistoryJobResponseAllOfSchedule
-    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
+    from qovery.model.state_enum import StateEnum
     globals()['Commit'] = Commit
     globals()['DeploymentHistoryJobResponseAllOfSchedule'] = DeploymentHistoryJobResponseAllOfSchedule
-    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryJobResponseAllOf(ModelNormal):
@@ -93,7 +93,7 @@ class DeploymentHistoryJobResponseAllOf(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
             'tag': (str,),  # noqa: E501
             'commit': (Commit,),  # noqa: E501
@@ -160,7 +160,7 @@ class DeploymentHistoryJobResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name of the job. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
@@ -253,7 +253,7 @@ class DeploymentHistoryJobResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name of the job. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501

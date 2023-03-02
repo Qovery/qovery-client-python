@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name of the container | [optional] 
-**status** | [**DeploymentHistoryStatusEnum**](DeploymentHistoryStatusEnum.md) |  | [optional] 
+**status** | [**StateEnum**](StateEnum.md) |  | [optional] 
 **image_name** | **str** |  | [optional] 
 **tag** | **str** |  | [optional] 
 **arguments** | **[str]** |  | [optional] 

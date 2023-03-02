@@ -35,12 +35,12 @@ def lazy_import():
     from qovery.model.commit import Commit
     from qovery.model.deployment_history_job_response_all_of import DeploymentHistoryJobResponseAllOf
     from qovery.model.deployment_history_job_response_all_of_schedule import DeploymentHistoryJobResponseAllOfSchedule
-    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
+    from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['Commit'] = Commit
     globals()['DeploymentHistoryJobResponseAllOf'] = DeploymentHistoryJobResponseAllOf
     globals()['DeploymentHistoryJobResponseAllOfSchedule'] = DeploymentHistoryJobResponseAllOfSchedule
-    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryJobResponse(ModelComposed):
@@ -100,7 +100,7 @@ class DeploymentHistoryJobResponse(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
             'tag': (str,),  # noqa: E501
             'commit': (Commit,),  # noqa: E501
@@ -174,7 +174,7 @@ class DeploymentHistoryJobResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             name (str): name of the job. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501
@@ -286,7 +286,7 @@ class DeploymentHistoryJobResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             name (str): name of the job. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             commit (Commit): [optional]  # noqa: E501

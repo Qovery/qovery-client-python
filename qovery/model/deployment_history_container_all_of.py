@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
-    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
+    from qovery.model.state_enum import StateEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryContainerAllOf(ModelNormal):
@@ -89,7 +89,7 @@ class DeploymentHistoryContainerAllOf(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
             'tag': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
@@ -152,7 +152,7 @@ class DeploymentHistoryContainerAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name of the container. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
@@ -243,7 +243,7 @@ class DeploymentHistoryContainerAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             name (str): name of the container. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501

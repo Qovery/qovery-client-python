@@ -17,12 +17,12 @@ from qovery.model.base import Base
 from qovery.model.commit import Commit
 from qovery.model.deployment_history_job_response_all_of import DeploymentHistoryJobResponseAllOf
 from qovery.model.deployment_history_job_response_all_of_schedule import DeploymentHistoryJobResponseAllOfSchedule
-from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
+from qovery.model.state_enum import StateEnum
 globals()['Base'] = Base
 globals()['Commit'] = Commit
 globals()['DeploymentHistoryJobResponseAllOf'] = DeploymentHistoryJobResponseAllOf
 globals()['DeploymentHistoryJobResponseAllOfSchedule'] = DeploymentHistoryJobResponseAllOfSchedule
-globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
+globals()['StateEnum'] = StateEnum
 from qovery.model.deployment_history_job_response import DeploymentHistoryJobResponse
 
 

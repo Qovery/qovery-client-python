@@ -33,10 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.deployment_history_container_all_of import DeploymentHistoryContainerAllOf
-    from qovery.model.deployment_history_status_enum import DeploymentHistoryStatusEnum
+    from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['DeploymentHistoryContainerAllOf'] = DeploymentHistoryContainerAllOf
-    globals()['DeploymentHistoryStatusEnum'] = DeploymentHistoryStatusEnum
+    globals()['StateEnum'] = StateEnum
 
 
 class DeploymentHistoryContainer(ModelComposed):
@@ -96,7 +96,7 @@ class DeploymentHistoryContainer(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'status': (DeploymentHistoryStatusEnum,),  # noqa: E501
+            'status': (StateEnum,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
             'tag': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
@@ -166,7 +166,7 @@ class DeploymentHistoryContainer(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             name (str): name of the container. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
@@ -276,7 +276,7 @@ class DeploymentHistoryContainer(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             name (str): name of the container. [optional]  # noqa: E501
-            status (DeploymentHistoryStatusEnum): [optional]  # noqa: E501
+            status (StateEnum): [optional]  # noqa: E501
             image_name (str): [optional]  # noqa: E501
             tag (str): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **name** | **str** | name of the job | [optional] 
-**status** | [**DeploymentHistoryStatusEnum**](DeploymentHistoryStatusEnum.md) |  | [optional] 
+**status** | [**StateEnum**](StateEnum.md) |  | [optional] 
 **image_name** | **str** |  | [optional] 
 **tag** | **str** |  | [optional] 
 **commit** | [**Commit**](Commit.md) |  | [optional] 
