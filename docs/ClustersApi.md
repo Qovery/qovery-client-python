@@ -467,6 +467,7 @@ with qovery.ApiClient(configuration) as api_client:
         ),
         load_balancer_size="lb-s",
         pleco_resources_ttl=-1,
+        aws_iam_admin_group="Admins",
     ) # ClusterAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set

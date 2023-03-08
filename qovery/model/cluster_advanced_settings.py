@@ -104,6 +104,7 @@ class ClusterAdvancedSettings(ModelNormal):
             'cloud_provider_container_registry_tags': (ClusterAdvancedSettingsCloudProviderContainerRegistryTags,),  # noqa: E501
             'load_balancer_size': (str,),  # noqa: E501
             'pleco_resources_ttl': (int,),  # noqa: E501
+            'aws_iam_admin_group': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -128,6 +129,7 @@ class ClusterAdvancedSettings(ModelNormal):
         'cloud_provider_container_registry_tags': 'cloud_provider_container_registry_tags',  # noqa: E501
         'load_balancer_size': 'load_balancer.size',  # noqa: E501
         'pleco_resources_ttl': 'pleco.resources_ttl',  # noqa: E501
+        'aws_iam_admin_group': 'aws.iam.admin_group',  # noqa: E501
     }
 
     read_only_vars = {
@@ -187,6 +189,7 @@ class ClusterAdvancedSettings(ModelNormal):
             cloud_provider_container_registry_tags (ClusterAdvancedSettingsCloudProviderContainerRegistryTags): [optional]  # noqa: E501
             load_balancer_size (str): Select the size of the main load_balancer (only effective for Scaleway). [optional] if omitted the server will use the default value of "lb-s"  # noqa: E501
             pleco_resources_ttl (int): [optional] if omitted the server will use the default value of -1  # noqa: E501
+            aws_iam_admin_group (str): AWS IAM group name with cluster access. [optional] if omitted the server will use the default value of "Admins"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -288,6 +291,7 @@ class ClusterAdvancedSettings(ModelNormal):
             cloud_provider_container_registry_tags (ClusterAdvancedSettingsCloudProviderContainerRegistryTags): [optional]  # noqa: E501
             load_balancer_size (str): Select the size of the main load_balancer (only effective for Scaleway). [optional] if omitted the server will use the default value of "lb-s"  # noqa: E501
             pleco_resources_ttl (int): [optional] if omitted the server will use the default value of -1  # noqa: E501
+            aws_iam_admin_group (str): AWS IAM group name with cluster access. [optional] if omitted the server will use the default value of "Admins"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **cloud_provider_container_registry_tags** | [**ClusterAdvancedSettingsCloudProviderContainerRegistryTags**](ClusterAdvancedSettingsCloudProviderContainerRegistryTags.md) |  | [optional] 
 **load_balancer_size** | **str** | Select the size of the main load_balancer (only effective for Scaleway) | [optional]  if omitted the server will use the default value of "lb-s"
 **pleco_resources_ttl** | **int** |  | [optional]  if omitted the server will use the default value of -1
+**aws_iam_admin_group** | **str** | AWS IAM group name with cluster access | [optional]  if omitted the server will use the default value of "Admins"
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
