@@ -120,7 +120,7 @@ class ClusterAdvancedSettings(ModelNormal):
         'database_redis_allowed_cidrs': 'database.redis.allowed_cidrs',  # noqa: E501
         'registry_image_retention_time': 'registry.image_retention_time',  # noqa: E501
         'loki_log_retention_in_week': 'loki.log_retention_in_week',  # noqa: E501
-        'cloud_provider_container_registry_tags': 'cloud_provider_container_registry_tags',  # noqa: E501
+        'cloud_provider_container_registry_tags': 'cloud_provider.container_registry.tags',  # noqa: E501
         'load_balancer_size': 'load_balancer.size',  # noqa: E501
         'pleco_resources_ttl': 'pleco.resources_ttl',  # noqa: E501
         'aws_iam_admin_group': 'aws.iam.admin_group',  # noqa: E501
