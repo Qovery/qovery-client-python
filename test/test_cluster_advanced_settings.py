@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_advanced_settings_cloud_provider_container_registry_tags import ClusterAdvancedSettingsCloudProviderContainerRegistryTags
-globals()['ClusterAdvancedSettingsCloudProviderContainerRegistryTags'] = ClusterAdvancedSettingsCloudProviderContainerRegistryTags
 from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 
 

@@ -461,10 +461,9 @@ with qovery.ApiClient(configuration) as api_client:
         database_redis_allowed_cidrs=["0.0.0.0/0"],
         registry_image_retention_time=31536000,
         loki_log_retention_in_week=12,
-        cloud_provider_container_registry_tags=ClusterAdvancedSettingsCloudProviderContainerRegistryTags(
-            key="key_example",
-            value="value_example",
-        ),
+        cloud_provider_container_registry_tags={
+            "key": "key_example",
+        },
         load_balancer_size="lb-s",
         pleco_resources_ttl=-1,
         aws_iam_admin_group="Admins",
