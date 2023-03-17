@@ -451,6 +451,12 @@ with qovery.ApiClient(configuration) as api_client:
         aws_cloudwatch_eks_logs_retention_days=90,
         aws_vpc_enable_s3_flow_logs=False,
         aws_vpc_flow_logs_retention_days=365,
+        loki_log_retention_in_week=12,
+        registry_image_retention_time=31536000,
+        cloud_provider_container_registry_tags={
+            "key": "key_example",
+        },
+        load_balancer_size="lb-s",
         database_postgresql_deny_public_access=False,
         database_postgresql_allowed_cidrs=["0.0.0.0/0"],
         database_mysql_deny_public_access=False,
@@ -459,14 +465,9 @@ with qovery.ApiClient(configuration) as api_client:
         database_mongodb_allowed_cidrs=["0.0.0.0/0"],
         database_redis_deny_public_access=False,
         database_redis_allowed_cidrs=["0.0.0.0/0"],
-        registry_image_retention_time=31536000,
-        loki_log_retention_in_week=12,
-        cloud_provider_container_registry_tags={
-            "key": "key_example",
-        },
-        load_balancer_size="lb-s",
-        pleco_resources_ttl=-1,
         aws_iam_admin_group="Admins",
+        aws_eks_ec2_metadata_imds="optional",
+        pleco_resources_ttl=-1,
     ) # ClusterAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
