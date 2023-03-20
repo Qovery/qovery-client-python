@@ -88,6 +88,7 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
             'ram_in_gb': (int,),  # noqa: E501
             'bandwidth_in_gbps': (str,),  # noqa: E501
             'bandwidth_guarantee': (str,),  # noqa: E501
+            'architecture': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
         'ram_in_gb': 'ram_in_gb',  # noqa: E501
         'bandwidth_in_gbps': 'bandwidth_in_gbps',  # noqa: E501
         'bandwidth_guarantee': 'bandwidth_guarantee',  # noqa: E501
+        'architecture': 'architecture',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,6 +155,7 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            architecture (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +255,7 @@ class ClusterInstanceTypeResponseListResultsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            architecture (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
