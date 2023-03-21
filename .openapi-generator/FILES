@@ -106,8 +106,6 @@ docs/CommunityUsage.md
 docs/CompanySizeEnum.md
 docs/ContainerActionsApi.md
 docs/ContainerAdvancedSettings.md
-docs/ContainerAdvancedSettingsRequest.md
-docs/ContainerAdvancedSettingsResponse.md
 docs/ContainerConfigurationApi.md
 docs/ContainerCurrentScale.md
 docs/ContainerCustomDomainApi.md
@@ -654,8 +652,6 @@ qovery/model/commit_response_list.py
 qovery/model/community_usage.py
 qovery/model/company_size_enum.py
 qovery/model/container_advanced_settings.py
-qovery/model/container_advanced_settings_request.py
-qovery/model/container_advanced_settings_response.py
 qovery/model/container_current_scale.py
 qovery/model/container_deploy_request.py
 qovery/model/container_network.py
@@ -1098,8 +1094,6 @@ test/test_community_usage.py
 test/test_company_size_enum.py
 test/test_container_actions_api.py
 test/test_container_advanced_settings.py
-test/test_container_advanced_settings_request.py
-test/test_container_advanced_settings_response.py
 test/test_container_configuration_api.py
 test/test_container_current_scale.py
 test/test_container_custom_domain_api.py

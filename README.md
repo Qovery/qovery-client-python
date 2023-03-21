@@ -535,8 +535,6 @@ Class | Method | HTTP request | Description
  - [CommunityUsage](docs/CommunityUsage.md)
  - [CompanySizeEnum](docs/CompanySizeEnum.md)
  - [ContainerAdvancedSettings](docs/ContainerAdvancedSettings.md)
- - [ContainerAdvancedSettingsRequest](docs/ContainerAdvancedSettingsRequest.md)
- - [ContainerAdvancedSettingsResponse](docs/ContainerAdvancedSettingsResponse.md)
  - [ContainerCurrentScale](docs/ContainerCurrentScale.md)
  - [ContainerDeployRequest](docs/ContainerDeployRequest.md)
  - [ContainerNetwork](docs/ContainerNetwork.md)

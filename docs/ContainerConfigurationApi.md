@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **edit_container_advanced_settings**
-> ContainerAdvancedSettingsResponse edit_container_advanced_settings(container_id)
+> ContainerAdvancedSettings edit_container_advanced_settings(container_id)
 
 Edit advanced settings
 
@@ -25,8 +25,7 @@ Edit advanced settings by returning table of advanced settings.
 import time
 import qovery
 from qovery.api import container_configuration_api
-from qovery.model.container_advanced_settings_response import ContainerAdvancedSettingsResponse
-from qovery.model.container_advanced_settings_request import ContainerAdvancedSettingsRequest
+from qovery.model.container_advanced_settings import ContainerAdvancedSettings
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -49,41 +48,39 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = container_configuration_api.ContainerConfigurationApi(api_client)
     container_id = "containerId_example" # str | Container ID
-    container_advanced_settings_request = ContainerAdvancedSettingsRequest([
-        ContainerAdvancedSettings(
-            deployment_custom_domain_check_enabled=True,
-            deployment_termination_grace_period_seconds=60,
-            network_ingress_proxy_body_size_mb=100,
-            network_ingress_enable_cors=False,
-            network_ingress_cors_allow_origin="*",
-            network_ingress_cors_allow_methods="GET, PUT, POST, DELETE, PATCH, OPTIONS",
-            network_ingress_cors_allow_headers="DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
-            network_ingress_proxy_buffer_size_kb=4,
-            network_ingress_keepalive_time_seconds=3600,
-            network_ingress_keepalive_timeout_seconds=60,
-            network_ingress_send_timeout_seconds=60,
-            network_ingress_proxy_connect_timeout_seconds=60,
-            network_ingress_proxy_send_timeout_seconds=60,
-            network_ingress_proxy_read_timeout_seconds=60,
-            network_ingress_whitelist_source_range="0.0.0.0/0",
-            network_ingress_denylist_source_range="",
-            network_ingress_basic_auth_env_var="",
-            readiness_probe_type="TCP",
-            readiness_probe_http_get_path="/",
-            readiness_probe_initial_delay_seconds=30,
-            readiness_probe_period_seconds=10,
-            readiness_probe_timeout_seconds=1,
-            readiness_probe_success_threshold=1,
-            readiness_probe_failure_threshold=3,
-            liveness_probe_type="TCP",
-            liveness_probe_http_get_path="/",
-            liveness_probe_initial_delay_seconds=30,
-            liveness_probe_period_seconds=10,
-            liveness_probe_timeout_seconds=5,
-            liveness_probe_success_threshold=1,
-            liveness_probe_failure_threshold=3,
-        ),
-    ]) # ContainerAdvancedSettingsRequest |  (optional)
+    container_advanced_settings = ContainerAdvancedSettings(
+        deployment_custom_domain_check_enabled=True,
+        deployment_termination_grace_period_seconds=60,
+        network_ingress_proxy_body_size_mb=100,
+        network_ingress_enable_cors=False,
+        network_ingress_cors_allow_origin="*",
+        network_ingress_cors_allow_methods="GET, PUT, POST, DELETE, PATCH, OPTIONS",
+        network_ingress_cors_allow_headers="DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
+        network_ingress_proxy_buffer_size_kb=4,
+        network_ingress_keepalive_time_seconds=3600,
+        network_ingress_keepalive_timeout_seconds=60,
+        network_ingress_send_timeout_seconds=60,
+        network_ingress_proxy_connect_timeout_seconds=60,
+        network_ingress_proxy_send_timeout_seconds=60,
+        network_ingress_proxy_read_timeout_seconds=60,
+        network_ingress_whitelist_source_range="0.0.0.0/0",
+        network_ingress_denylist_source_range="",
+        network_ingress_basic_auth_env_var="",
+        readiness_probe_type="TCP",
+        readiness_probe_http_get_path="/",
+        readiness_probe_initial_delay_seconds=30,
+        readiness_probe_period_seconds=10,
+        readiness_probe_timeout_seconds=1,
+        readiness_probe_success_threshold=1,
+        readiness_probe_failure_threshold=3,
+        liveness_probe_type="TCP",
+        liveness_probe_http_get_path="/",
+        liveness_probe_initial_delay_seconds=30,
+        liveness_probe_period_seconds=10,
+        liveness_probe_timeout_seconds=5,
+        liveness_probe_success_threshold=1,
+        liveness_probe_failure_threshold=3,
+    ) # ContainerAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -97,7 +94,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit advanced settings
-        api_response = api_instance.edit_container_advanced_settings(container_id, container_advanced_settings_request=container_advanced_settings_request)
+        api_response = api_instance.edit_container_advanced_settings(container_id, container_advanced_settings=container_advanced_settings)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainerConfigurationApi->edit_container_advanced_settings: %s\n" % e)
@@ -109,11 +106,11 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**| Container ID |
- **container_advanced_settings_request** | [**ContainerAdvancedSettingsRequest**](ContainerAdvancedSettingsRequest.md)|  | [optional]
+ **container_advanced_settings** | [**ContainerAdvancedSettings**](ContainerAdvancedSettings.md)|  | [optional]
 
 ### Return type
 
-[**ContainerAdvancedSettingsResponse**](ContainerAdvancedSettingsResponse.md)
+[**ContainerAdvancedSettings**](ContainerAdvancedSettings.md)
 
 ### Authorization
 
@@ -233,7 +230,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_container_advanced_settings**
-> ContainerAdvancedSettingsResponse get_container_advanced_settings(container_id)
+> ContainerAdvancedSettings get_container_advanced_settings(container_id)
 
 Get advanced settings
 
@@ -247,7 +244,7 @@ Get list and values of the advanced settings of the container.
 import time
 import qovery
 from qovery.api import container_configuration_api
-from qovery.model.container_advanced_settings_response import ContainerAdvancedSettingsResponse
+from qovery.model.container_advanced_settings import ContainerAdvancedSettings
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -289,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ContainerAdvancedSettingsResponse**](ContainerAdvancedSettingsResponse.md)
+[**ContainerAdvancedSettings**](ContainerAdvancedSettings.md)
 
 ### Authorization
 

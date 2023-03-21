@@ -94,8 +94,6 @@ from qovery.model.commit_response_list import CommitResponseList
 from qovery.model.community_usage import CommunityUsage
 from qovery.model.company_size_enum import CompanySizeEnum
 from qovery.model.container_advanced_settings import ContainerAdvancedSettings
-from qovery.model.container_advanced_settings_request import ContainerAdvancedSettingsRequest
-from qovery.model.container_advanced_settings_response import ContainerAdvancedSettingsResponse
 from qovery.model.container_current_scale import ContainerCurrentScale
 from qovery.model.container_deploy_request import ContainerDeployRequest
 from qovery.model.container_network import ContainerNetwork

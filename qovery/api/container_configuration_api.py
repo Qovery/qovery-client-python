@@ -22,8 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.container_advanced_settings_request import ContainerAdvancedSettingsRequest
-from qovery.model.container_advanced_settings_response import ContainerAdvancedSettingsResponse
+from qovery.model.container_advanced_settings import ContainerAdvancedSettings
 from qovery.model.container_network import ContainerNetwork
 from qovery.model.container_network_request import ContainerNetworkRequest
 
@@ -41,7 +40,7 @@ class ContainerConfigurationApi(object):
         self.api_client = api_client
         self.edit_container_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': (ContainerAdvancedSettingsResponse,),
+                'response_type': (ContainerAdvancedSettings,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -53,7 +52,7 @@ class ContainerConfigurationApi(object):
             params_map={
                 'all': [
                     'container_id',
-                    'container_advanced_settings_request',
+                    'container_advanced_settings',
                 ],
                 'required': [
                     'container_id',
@@ -73,15 +72,15 @@ class ContainerConfigurationApi(object):
                 'openapi_types': {
                     'container_id':
                         (str,),
-                    'container_advanced_settings_request':
-                        (ContainerAdvancedSettingsRequest,),
+                    'container_advanced_settings':
+                        (ContainerAdvancedSettings,),
                 },
                 'attribute_map': {
                     'container_id': 'containerId',
                 },
                 'location_map': {
                     'container_id': 'path',
-                    'container_advanced_settings_request': 'body',
+                    'container_advanced_settings': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -155,7 +154,7 @@ class ContainerConfigurationApi(object):
         )
         self.get_container_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': (ContainerAdvancedSettingsResponse,),
+                'response_type': (ContainerAdvancedSettings,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -274,7 +273,7 @@ class ContainerConfigurationApi(object):
             container_id (str): Container ID
 
         Keyword Args:
-            container_advanced_settings_request (ContainerAdvancedSettingsRequest): [optional]
+            container_advanced_settings (ContainerAdvancedSettings): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -307,7 +306,7 @@ class ContainerConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ContainerAdvancedSettingsResponse
+            ContainerAdvancedSettings
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -474,7 +473,7 @@ class ContainerConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ContainerAdvancedSettingsResponse
+            ContainerAdvancedSettings
                 If the method is called asynchronously, returns the request
                 thread.
         """
