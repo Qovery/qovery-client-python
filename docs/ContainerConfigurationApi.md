@@ -81,6 +81,7 @@ with qovery.ApiClient(configuration) as api_client:
         liveness_probe_timeout_seconds=5,
         liveness_probe_success_threshold=1,
         liveness_probe_failure_threshold=3,
+        security_service_account_name="",
     ) # ContainerAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set

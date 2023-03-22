@@ -84,6 +84,7 @@ with qovery.ApiClient(configuration) as api_client:
         liveness_probe_success_threshold=1,
         liveness_probe_failure_threshold=3,
         hpa_cpu_average_utilization_percent=60,
+        security_service_account_name="",
     ) # ApplicationAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set

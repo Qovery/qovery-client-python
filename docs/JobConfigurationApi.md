@@ -66,6 +66,7 @@ with qovery.ApiClient(configuration) as api_client:
         liveness_probe_timeout_seconds=0,
         liveness_probe_success_threshold=0,
         liveness_probe_failure_threshold=0,
+        security_service_account_name="",
     ) # JobAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
