@@ -68,6 +68,7 @@ with qovery.ApiClient(configuration) as api_client:
         network_ingress_whitelist_source_range="0.0.0.0/0",
         network_ingress_denylist_source_range="",
         network_ingress_basic_auth_env_var="",
+        network_ingress_enable_sticky_session=False,
         readiness_probe_type="TCP",
         readiness_probe_http_get_path="/",
         readiness_probe_initial_delay_seconds=30,

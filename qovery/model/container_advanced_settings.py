@@ -109,6 +109,7 @@ class ContainerAdvancedSettings(ModelNormal):
             'network_ingress_whitelist_source_range': (str,),  # noqa: E501
             'network_ingress_denylist_source_range': (str,),  # noqa: E501
             'network_ingress_basic_auth_env_var': (str,),  # noqa: E501
+            'network_ingress_enable_sticky_session': (bool,),  # noqa: E501
             'readiness_probe_type': (str,),  # noqa: E501
             'readiness_probe_http_get_path': (str,),  # noqa: E501
             'readiness_probe_initial_delay_seconds': (int,),  # noqa: E501
@@ -148,6 +149,7 @@ class ContainerAdvancedSettings(ModelNormal):
         'network_ingress_whitelist_source_range': 'network.ingress.whitelist_source_range',  # noqa: E501
         'network_ingress_denylist_source_range': 'network.ingress.denylist_source_range',  # noqa: E501
         'network_ingress_basic_auth_env_var': 'network.ingress.basic_auth_env_var',  # noqa: E501
+        'network_ingress_enable_sticky_session': 'network.ingress.enable_sticky_session',  # noqa: E501
         'readiness_probe_type': 'readiness_probe.type',  # noqa: E501
         'readiness_probe_http_get_path': 'readiness_probe.http_get.path',  # noqa: E501
         'readiness_probe_initial_delay_seconds': 'readiness_probe.initial_delay_seconds',  # noqa: E501
@@ -222,6 +224,7 @@ class ContainerAdvancedSettings(ModelNormal):
             network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
             network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
             readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
             readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
@@ -338,6 +341,7 @@ class ContainerAdvancedSettings(ModelNormal):
             network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
             network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
             readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
             readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
             readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
