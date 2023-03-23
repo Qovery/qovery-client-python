@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **liveness_probe_success_threshold** | **int** | Minimum consecutive successes for the probe to be considered successful after having failed. | [optional]  if omitted the server will use the default value of 1
 **liveness_probe_failure_threshold** | **int** | Minimum consecutive failures for the probe to be considered failed after having succeeded. | [optional]  if omitted the server will use the default value of 3
 **security_service_account_name** | **str** | Allows you to set an existing Kubernetes service account name  | [optional]  if omitted the server will use the default value of ""
+**hpa_cpu_average_utilization_percent** | **int** | Percentage value of cpu usage at which point pods should scale up. | [optional]  if omitted the server will use the default value of 60
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
