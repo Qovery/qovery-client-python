@@ -66,13 +66,6 @@ class TestApplicationMetricsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_application_metric_restart(self):
-        """Test case for get_application_metric_restart
-
-        List application restarts  # noqa: E501
-        """
-        pass
-
     def test_get_application_metric_storage(self):
         """Test case for get_application_metric_storage
 

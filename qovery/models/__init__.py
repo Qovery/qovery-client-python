@@ -307,8 +307,6 @@ from qovery.model.metric_memory import MetricMemory
 from qovery.model.metric_memory_datapoint import MetricMemoryDatapoint
 from qovery.model.metric_memory_datapoint_response_list import MetricMemoryDatapointResponseList
 from qovery.model.metric_memory_response_list import MetricMemoryResponseList
-from qovery.model.metric_restart import MetricRestart
-from qovery.model.metric_restart_results_inner import MetricRestartResultsInner
 from qovery.model.metric_storage import MetricStorage
 from qovery.model.metric_storage_datapoint import MetricStorageDatapoint
 from qovery.model.metric_storage_datapoint_response_list import MetricStorageDatapointResponseList

@@ -359,8 +359,6 @@ docs/MetricMemory.md
 docs/MetricMemoryDatapoint.md
 docs/MetricMemoryDatapointResponseList.md
 docs/MetricMemoryResponseList.md
-docs/MetricRestart.md
-docs/MetricRestartResultsInner.md
 docs/MetricStorage.md
 docs/MetricStorageDatapoint.md
 docs/MetricStorageDatapointResponseList.md
@@ -865,8 +863,6 @@ qovery/model/metric_memory.py
 qovery/model/metric_memory_datapoint.py
 qovery/model/metric_memory_datapoint_response_list.py
 qovery/model/metric_memory_response_list.py
-qovery/model/metric_restart.py
-qovery/model/metric_restart_results_inner.py
 qovery/model/metric_storage.py
 qovery/model/metric_storage_datapoint.py
 qovery/model/metric_storage_datapoint_response_list.py
@@ -1347,8 +1343,6 @@ test/test_metric_memory.py
 test/test_metric_memory_datapoint.py
 test/test_metric_memory_datapoint_response_list.py
 test/test_metric_memory_response_list.py
-test/test_metric_restart.py
-test/test_metric_restart_results_inner.py
 test/test_metric_storage.py
 test/test_metric_storage_datapoint.py
 test/test_metric_storage_datapoint_response_list.py

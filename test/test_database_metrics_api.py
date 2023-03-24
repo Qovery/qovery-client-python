@@ -52,13 +52,6 @@ class TestDatabaseMetricsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_database_metric_restart(self):
-        """Test case for get_database_metric_restart
-
-        List database restarts  # noqa: E501
-        """
-        pass
-
     def test_get_database_metric_storage(self):
         """Test case for get_database_metric_storage
 

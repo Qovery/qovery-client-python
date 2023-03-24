@@ -26,7 +26,6 @@ from qovery.model.database_current_metric import DatabaseCurrentMetric
 from qovery.model.metric_cpu_datapoint_response_list import MetricCPUDatapointResponseList
 from qovery.model.metric_generic_response_list import MetricGenericResponseList
 from qovery.model.metric_memory_datapoint_response_list import MetricMemoryDatapointResponseList
-from qovery.model.metric_restart import MetricRestart
 from qovery.model.metric_storage_datapoint_response_list import MetricStorageDatapointResponseList
 
 
@@ -214,63 +213,6 @@ class DatabaseMetricsApi(object):
                 ],
                 'endpoint_path': '/database/{databaseId}/metric/memory',
                 'operation_id': 'get_database_metric_memory',
-                'http_method': 'GET',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'database_id',
-                    'last_seconds',
-                ],
-                'required': [
-                    'database_id',
-                    'last_seconds',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'database_id':
-                        (str,),
-                    'last_seconds':
-                        (float,),
-                },
-                'attribute_map': {
-                    'database_id': 'databaseId',
-                    'last_seconds': 'lastSeconds',
-                },
-                'location_map': {
-                    'database_id': 'path',
-                    'last_seconds': 'query',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
-            },
-            api_client=api_client
-        )
-        self.get_database_metric_restart_endpoint = _Endpoint(
-            settings={
-                'response_type': (MetricRestart,),
-                'auth': [
-                    'bearerAuth'
-                ],
-                'endpoint_path': '/database/{databaseId}/metric/restart',
-                'operation_id': 'get_database_metric_restart',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -718,93 +660,6 @@ class DatabaseMetricsApi(object):
         kwargs['last_seconds'] = \
             last_seconds
         return self.get_database_metric_memory_endpoint.call_with_http_info(**kwargs)
-
-    def get_database_metric_restart(
-        self,
-        database_id,
-        last_seconds,
-        **kwargs
-    ):
-        """List database restarts  # noqa: E501
-
-        Get database restart message and timestamp.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.get_database_metric_restart(database_id, last_seconds, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            database_id (str): Database ID
-            last_seconds (float): Up to how many seconds in the past to ask analytics results
-
-        Keyword Args:
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            MetricRestart
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['database_id'] = \
-            database_id
-        kwargs['last_seconds'] = \
-            last_seconds
-        return self.get_database_metric_restart_endpoint.call_with_http_info(**kwargs)
 
     def get_database_metric_storage(
         self,
