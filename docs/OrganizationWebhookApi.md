@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_organization_webhook**
-> delete_organization_webhook(organization_id)
+> delete_organization_webhook(organization_id, webhook_id)
 
 Delete organization webhook
 
@@ -155,11 +155,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    webhook_id = "webhookId_example" # str | Webhook ID
 
     # example passing only required values which don't have defaults set
     try:
         # Delete organization webhook
-        api_instance.delete_organization_webhook(organization_id)
+        api_instance.delete_organization_webhook(organization_id, webhook_id)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->delete_organization_webhook: %s\n" % e)
 ```
@@ -170,6 +171,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **webhook_id** | **str**| Webhook ID |
 
 ### Return type
 
@@ -197,7 +199,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization_webhook**
-> OrganizationWebhookCreateResponse edit_organization_webhook(organization_id)
+> OrganizationWebhookCreateResponse edit_organization_webhook(organization_id, webhook_id)
 
 Edit an organization webhook
 
@@ -235,6 +237,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    webhook_id = "webhookId_example" # str | Webhook ID
     organization_webhook_create_request = OrganizationWebhookCreateRequest(
         kind=OrganizationWebhookKindEnum("STANDARD"),
         target_url="target_url_example",
@@ -255,7 +258,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Edit an organization webhook
-        api_response = api_instance.edit_organization_webhook(organization_id)
+        api_response = api_instance.edit_organization_webhook(organization_id, webhook_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->edit_organization_webhook: %s\n" % e)
@@ -264,7 +267,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit an organization webhook
-        api_response = api_instance.edit_organization_webhook(organization_id, organization_webhook_create_request=organization_webhook_create_request)
+        api_response = api_instance.edit_organization_webhook(organization_id, webhook_id, organization_webhook_create_request=organization_webhook_create_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->edit_organization_webhook: %s\n" % e)
@@ -276,6 +279,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **webhook_id** | **str**| Webhook ID |
  **organization_webhook_create_request** | [**OrganizationWebhookCreateRequest**](OrganizationWebhookCreateRequest.md)|  | [optional]
 
 ### Return type

@@ -110,9 +110,11 @@ class OrganizationWebhookApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'webhook_id',
                 ],
                 'required': [
                     'organization_id',
+                    'webhook_id',
                 ],
                 'nullable': [
                 ],
@@ -129,12 +131,16 @@ class OrganizationWebhookApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'webhook_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'webhook_id': 'webhookId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'webhook_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -159,10 +165,12 @@ class OrganizationWebhookApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'webhook_id',
                     'organization_webhook_create_request',
                 ],
                 'required': [
                     'organization_id',
+                    'webhook_id',
                 ],
                 'nullable': [
                 ],
@@ -179,14 +187,18 @@ class OrganizationWebhookApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'webhook_id':
+                        (str,),
                     'organization_webhook_create_request':
                         (OrganizationWebhookCreateRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'webhook_id': 'webhookId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'webhook_id': 'path',
                     'organization_webhook_create_request': 'body',
                 },
                 'collection_format_map': {
@@ -398,6 +410,7 @@ class OrganizationWebhookApi(object):
     def delete_organization_webhook(
         self,
         organization_id,
+        webhook_id,
         **kwargs
     ):
         """Delete organization webhook  # noqa: E501
@@ -406,11 +419,12 @@ class OrganizationWebhookApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_organization_webhook(organization_id, async_req=True)
+        >>> thread = api.delete_organization_webhook(organization_id, webhook_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            webhook_id (str): Webhook ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -476,11 +490,14 @@ class OrganizationWebhookApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['webhook_id'] = \
+            webhook_id
         return self.delete_organization_webhook_endpoint.call_with_http_info(**kwargs)
 
     def edit_organization_webhook(
         self,
         organization_id,
+        webhook_id,
         **kwargs
     ):
         """Edit an organization webhook  # noqa: E501
@@ -489,11 +506,12 @@ class OrganizationWebhookApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_organization_webhook(organization_id, async_req=True)
+        >>> thread = api.edit_organization_webhook(organization_id, webhook_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            webhook_id (str): Webhook ID
 
         Keyword Args:
             organization_webhook_create_request (OrganizationWebhookCreateRequest): [optional]
@@ -560,6 +578,8 @@ class OrganizationWebhookApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['webhook_id'] = \
+            webhook_id
         return self.edit_organization_webhook_endpoint.call_with_http_info(**kwargs)
 
     def get_organization_webhook(
