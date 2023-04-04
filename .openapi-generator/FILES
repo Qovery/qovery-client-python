@@ -273,6 +273,9 @@ docs/EventPaginatedResponseListAllOf.md
 docs/EventResponseList.md
 docs/GenericObjectCurrentCost.md
 docs/GetEnvironmentStatuses200Response.md
+docs/GetEnvironmentStatusesWithStages200Response.md
+docs/GetEnvironmentStatusesWithStages200ResponseStages.md
+docs/GetEnvironmentStatusesWithStages200ResponseStagesResultsInner.md
 docs/GitAuthProvider.md
 docs/GitAuthProviderResponseList.md
 docs/GitProviderEnum.md
@@ -463,6 +466,7 @@ docs/ServiceTotalNumber.md
 docs/ServiceTypeEnum.md
 docs/SignUp.md
 docs/SignUpRequest.md
+docs/Stage.md
 docs/StateEnum.md
 docs/Status.md
 docs/StatusKindEnum.md
@@ -789,6 +793,9 @@ qovery/model/event_paginated_response_list_all_of.py
 qovery/model/event_response_list.py
 qovery/model/generic_object_current_cost.py
 qovery/model/get_environment_statuses200_response.py
+qovery/model/get_environment_statuses_with_stages200_response.py
+qovery/model/get_environment_statuses_with_stages200_response_stages.py
+qovery/model/get_environment_statuses_with_stages200_response_stages_results_inner.py
 qovery/model/git_auth_provider.py
 qovery/model/git_auth_provider_response_list.py
 qovery/model/git_provider_enum.py
@@ -956,6 +963,7 @@ qovery/model/service_total_number.py
 qovery/model/service_type_enum.py
 qovery/model/sign_up.py
 qovery/model/sign_up_request.py
+qovery/model/stage.py
 qovery/model/state_enum.py
 qovery/model/status.py
 qovery/model/status_kind_enum.py
@@ -1257,6 +1265,9 @@ test/test_event_paginated_response_list_all_of.py
 test/test_event_response_list.py
 test/test_generic_object_current_cost.py
 test/test_get_environment_statuses200_response.py
+test/test_get_environment_statuses_with_stages200_response.py
+test/test_get_environment_statuses_with_stages200_response_stages.py
+test/test_get_environment_statuses_with_stages200_response_stages_results_inner.py
 test/test_git_auth_provider.py
 test/test_git_auth_provider_response_list.py
 test/test_git_provider_enum.py
@@ -1447,6 +1458,7 @@ test/test_service_total_number.py
 test/test_service_type_enum.py
 test/test_sign_up.py
 test/test_sign_up_request.py
+test/test_stage.py
 test/test_state_enum.py
 test/test_status.py
 test/test_status_kind_enum.py

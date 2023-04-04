@@ -59,6 +59,13 @@ class TestEnvironmentMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_environment_statuses_with_stages(self):
+        """Test case for get_environment_statuses_with_stages
+
+        Get environment statuses with stages  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

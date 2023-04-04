@@ -233,6 +233,9 @@ from qovery.model.event_paginated_response_list_all_of import EventPaginatedResp
 from qovery.model.event_response_list import EventResponseList
 from qovery.model.generic_object_current_cost import GenericObjectCurrentCost
 from qovery.model.get_environment_statuses200_response import GetEnvironmentStatuses200Response
+from qovery.model.get_environment_statuses_with_stages200_response import GetEnvironmentStatusesWithStages200Response
+from qovery.model.get_environment_statuses_with_stages200_response_stages import GetEnvironmentStatusesWithStages200ResponseStages
+from qovery.model.get_environment_statuses_with_stages200_response_stages_results_inner import GetEnvironmentStatusesWithStages200ResponseStagesResultsInner
 from qovery.model.git_auth_provider import GitAuthProvider
 from qovery.model.git_auth_provider_response_list import GitAuthProviderResponseList
 from qovery.model.git_provider_enum import GitProviderEnum
@@ -400,6 +403,7 @@ from qovery.model.service_total_number import ServiceTotalNumber
 from qovery.model.service_type_enum import ServiceTypeEnum
 from qovery.model.sign_up import SignUp
 from qovery.model.sign_up_request import SignUpRequest
+from qovery.model.stage import Stage
 from qovery.model.state_enum import StateEnum
 from qovery.model.status import Status
 from qovery.model.status_kind_enum import StatusKindEnum
