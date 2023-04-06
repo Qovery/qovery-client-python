@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **environment** | [**Status**](Status.md) |  | [optional] 
-**stages** | [**GetEnvironmentStatusesWithStages200ResponseStages**](GetEnvironmentStatusesWithStages200ResponseStages.md) |  | [optional] 
+**stages** | [**DeploymentStageWithServiceStatusesList**](DeploymentStageWithServiceStatusesList.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

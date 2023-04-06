@@ -17,11 +17,11 @@ from qovery.model.stage import Stage
 from qovery.model.status import Status
 globals()['Stage'] = Stage
 globals()['Status'] = Status
-from qovery.model.get_environment_statuses_with_stages200_response_stages_results_inner import GetEnvironmentStatusesWithStages200ResponseStagesResultsInner
+from qovery.model.deployment_stage_with_services_statuses import DeploymentStageWithServicesStatuses
 
 
-class TestGetEnvironmentStatusesWithStages200ResponseStagesResultsInner(unittest.TestCase):
-    """GetEnvironmentStatusesWithStages200ResponseStagesResultsInner unit test stubs"""
+class TestDeploymentStageWithServicesStatuses(unittest.TestCase):
+    """DeploymentStageWithServicesStatuses unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestGetEnvironmentStatusesWithStages200ResponseStagesResultsInner(unittest
     def tearDown(self):
         pass
 
-    def testGetEnvironmentStatusesWithStages200ResponseStagesResultsInner(self):
-        """Test GetEnvironmentStatusesWithStages200ResponseStagesResultsInner"""
+    def testDeploymentStageWithServicesStatuses(self):
+        """Test DeploymentStageWithServicesStatuses"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GetEnvironmentStatusesWithStages200ResponseStagesResultsInner()  # noqa: E501
+        # model = DeploymentStageWithServicesStatuses()  # noqa: E501
         pass
 
 

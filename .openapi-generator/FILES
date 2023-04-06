@@ -205,6 +205,8 @@ docs/DeploymentStageResponseList.md
 docs/DeploymentStageServiceResponse.md
 docs/DeploymentStageServiceResponseAllOf.md
 docs/DeploymentStageServiceResponseList.md
+docs/DeploymentStageWithServiceStatusesList.md
+docs/DeploymentStageWithServicesStatuses.md
 docs/DoCredentialsRequest.md
 docs/Environment.md
 docs/EnvironmentActionsApi.md
@@ -274,8 +276,6 @@ docs/EventResponseList.md
 docs/GenericObjectCurrentCost.md
 docs/GetEnvironmentStatuses200Response.md
 docs/GetEnvironmentStatusesWithStages200Response.md
-docs/GetEnvironmentStatusesWithStages200ResponseStages.md
-docs/GetEnvironmentStatusesWithStages200ResponseStagesResultsInner.md
 docs/GitAuthProvider.md
 docs/GitAuthProviderResponseList.md
 docs/GitProviderEnum.md
@@ -734,6 +734,8 @@ qovery/model/deployment_stage_response_list.py
 qovery/model/deployment_stage_service_response.py
 qovery/model/deployment_stage_service_response_all_of.py
 qovery/model/deployment_stage_service_response_list.py
+qovery/model/deployment_stage_with_service_statuses_list.py
+qovery/model/deployment_stage_with_services_statuses.py
 qovery/model/do_credentials_request.py
 qovery/model/environment.py
 qovery/model/environment_all_of.py
@@ -794,8 +796,6 @@ qovery/model/event_response_list.py
 qovery/model/generic_object_current_cost.py
 qovery/model/get_environment_statuses200_response.py
 qovery/model/get_environment_statuses_with_stages200_response.py
-qovery/model/get_environment_statuses_with_stages200_response_stages.py
-qovery/model/get_environment_statuses_with_stages200_response_stages_results_inner.py
 qovery/model/git_auth_provider.py
 qovery/model/git_auth_provider_response_list.py
 qovery/model/git_provider_enum.py
@@ -1197,6 +1197,8 @@ test/test_deployment_stage_response_list.py
 test/test_deployment_stage_service_response.py
 test/test_deployment_stage_service_response_all_of.py
 test/test_deployment_stage_service_response_list.py
+test/test_deployment_stage_with_service_statuses_list.py
+test/test_deployment_stage_with_services_statuses.py
 test/test_do_credentials_request.py
 test/test_environment.py
 test/test_environment_actions_api.py
@@ -1266,8 +1268,6 @@ test/test_event_response_list.py
 test/test_generic_object_current_cost.py
 test/test_get_environment_statuses200_response.py
 test/test_get_environment_statuses_with_stages200_response.py
-test/test_get_environment_statuses_with_stages200_response_stages.py
-test/test_get_environment_statuses_with_stages200_response_stages_results_inner.py
 test/test_git_auth_provider.py
 test/test_git_auth_provider_response_list.py
 test/test_git_provider_enum.py

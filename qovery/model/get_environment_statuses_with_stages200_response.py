@@ -31,9 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.get_environment_statuses_with_stages200_response_stages import GetEnvironmentStatusesWithStages200ResponseStages
+    from qovery.model.deployment_stage_with_service_statuses_list import DeploymentStageWithServiceStatusesList
     from qovery.model.status import Status
-    globals()['GetEnvironmentStatusesWithStages200ResponseStages'] = GetEnvironmentStatusesWithStages200ResponseStages
+    globals()['DeploymentStageWithServiceStatusesList'] = DeploymentStageWithServiceStatusesList
     globals()['Status'] = Status
 
 
@@ -91,7 +91,7 @@ class GetEnvironmentStatusesWithStages200Response(ModelNormal):
         lazy_import()
         return {
             'environment': (Status,),  # noqa: E501
-            'stages': (GetEnvironmentStatusesWithStages200ResponseStages,),  # noqa: E501
+            'stages': (DeploymentStageWithServiceStatusesList,),  # noqa: E501
         }
 
     @cached_property
@@ -146,7 +146,7 @@ class GetEnvironmentStatusesWithStages200Response(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             environment (Status): [optional]  # noqa: E501
-            stages (GetEnvironmentStatusesWithStages200ResponseStages): [optional]  # noqa: E501
+            stages (DeploymentStageWithServiceStatusesList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,7 +233,7 @@ class GetEnvironmentStatusesWithStages200Response(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             environment (Status): [optional]  # noqa: E501
-            stages (GetEnvironmentStatusesWithStages200ResponseStages): [optional]  # noqa: E501
+            stages (DeploymentStageWithServiceStatusesList): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
