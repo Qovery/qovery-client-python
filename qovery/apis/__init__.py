@@ -70,7 +70,6 @@ from qovery.api.job_main_calls_api import JobMainCallsApi
 from qovery.api.job_metrics_api import JobMetricsApi
 from qovery.api.job_secret_api import JobSecretApi
 from qovery.api.jobs_api import JobsApi
-from qovery.api.logical_database_api import LogicalDatabaseApi
 from qovery.api.members_api import MembersApi
 from qovery.api.organization_account_git_repositories_api import OrganizationAccountGitRepositoriesApi
 from qovery.api.organization_api_token_api import OrganizationApiTokenApi

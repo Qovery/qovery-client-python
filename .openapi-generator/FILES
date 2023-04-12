@@ -341,11 +341,6 @@ docs/Log.md
 docs/LogPaginatedResponseList.md
 docs/LogPaginatedResponseListAllOf.md
 docs/LogResponseList.md
-docs/LogicalDatabase.md
-docs/LogicalDatabaseAllOf.md
-docs/LogicalDatabaseApi.md
-docs/LogicalDatabaseRequest.md
-docs/LogicalDatabaseResponseList.md
 docs/Member.md
 docs/MemberAllOf.md
 docs/MemberResponseList.md
@@ -550,7 +545,6 @@ qovery/api/job_main_calls_api.py
 qovery/api/job_metrics_api.py
 qovery/api/job_secret_api.py
 qovery/api/jobs_api.py
-qovery/api/logical_database_api.py
 qovery/api/members_api.py
 qovery/api/organization_account_git_repositories_api.py
 qovery/api/organization_api_token_api.py
@@ -851,10 +845,6 @@ qovery/model/log.py
 qovery/model/log_paginated_response_list.py
 qovery/model/log_paginated_response_list_all_of.py
 qovery/model/log_response_list.py
-qovery/model/logical_database.py
-qovery/model/logical_database_all_of.py
-qovery/model/logical_database_request.py
-qovery/model/logical_database_response_list.py
 qovery/model/member.py
 qovery/model/member_all_of.py
 qovery/model/member_response_list.py
@@ -1333,11 +1323,6 @@ test/test_log.py
 test/test_log_paginated_response_list.py
 test/test_log_paginated_response_list_all_of.py
 test/test_log_response_list.py
-test/test_logical_database.py
-test/test_logical_database_all_of.py
-test/test_logical_database_api.py
-test/test_logical_database_request.py
-test/test_logical_database_response_list.py
 test/test_member.py
 test/test_member_all_of.py
 test/test_member_response_list.py
