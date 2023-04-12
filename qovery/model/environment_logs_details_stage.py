@@ -83,6 +83,8 @@ class EnvironmentLogsDetailsStage(ModelNormal):
         """
         return {
             'step': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +94,8 @@ class EnvironmentLogsDetailsStage(ModelNormal):
 
     attribute_map = {
         'step': 'step',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +140,8 @@ class EnvironmentLogsDetailsStage(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             step (str): [optional]  # noqa: E501
+            id (str, none_type): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,6 +228,8 @@ class EnvironmentLogsDetailsStage(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             step (str): [optional]  # noqa: E501
+            id (str, none_type): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
