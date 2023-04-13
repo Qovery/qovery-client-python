@@ -13,15 +13,13 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.state_enum import StateEnum
+globals()['StateEnum'] = StateEnum
 from qovery.model.environment_status import EnvironmentStatus
-from qovery.model.status import Status
-globals()['EnvironmentStatus'] = EnvironmentStatus
-globals()['Status'] = Status
-from qovery.model.get_environment_statuses200_response import GetEnvironmentStatuses200Response
 
 
-class TestGetEnvironmentStatuses200Response(unittest.TestCase):
-    """GetEnvironmentStatuses200Response unit test stubs"""
+class TestEnvironmentStatus(unittest.TestCase):
+    """EnvironmentStatus unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +27,10 @@ class TestGetEnvironmentStatuses200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGetEnvironmentStatuses200Response(self):
-        """Test GetEnvironmentStatuses200Response"""
+    def testEnvironmentStatus(self):
+        """Test EnvironmentStatus"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GetEnvironmentStatuses200Response()  # noqa: E501
+        # model = EnvironmentStatus()  # noqa: E501
         pass
 
 

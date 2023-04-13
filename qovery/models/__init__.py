@@ -219,6 +219,7 @@ from qovery.model.environment_mode_enum import EnvironmentModeEnum
 from qovery.model.environment_response_list import EnvironmentResponseList
 from qovery.model.environment_stats import EnvironmentStats
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
+from qovery.model.environment_status import EnvironmentStatus
 from qovery.model.environment_status_list import EnvironmentStatusList
 from qovery.model.environment_total_number import EnvironmentTotalNumber
 from qovery.model.environment_variable import EnvironmentVariable

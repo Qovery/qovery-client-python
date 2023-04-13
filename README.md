@@ -650,6 +650,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentResponseList](docs/EnvironmentResponseList.md)
  - [EnvironmentStats](docs/EnvironmentStats.md)
  - [EnvironmentStatsResponseList](docs/EnvironmentStatsResponseList.md)
+ - [EnvironmentStatus](docs/EnvironmentStatus.md)
  - [EnvironmentStatusList](docs/EnvironmentStatusList.md)
  - [EnvironmentTotalNumber](docs/EnvironmentTotalNumber.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)

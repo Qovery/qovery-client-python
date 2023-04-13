@@ -257,6 +257,7 @@ docs/EnvironmentResponseList.md
 docs/EnvironmentSecretApi.md
 docs/EnvironmentStats.md
 docs/EnvironmentStatsResponseList.md
+docs/EnvironmentStatus.md
 docs/EnvironmentStatusList.md
 docs/EnvironmentTotalNumber.md
 docs/EnvironmentVariable.md
@@ -773,6 +774,7 @@ qovery/model/environment_mode_enum.py
 qovery/model/environment_response_list.py
 qovery/model/environment_stats.py
 qovery/model/environment_stats_response_list.py
+qovery/model/environment_status.py
 qovery/model/environment_status_list.py
 qovery/model/environment_total_number.py
 qovery/model/environment_variable.py
@@ -1239,6 +1241,7 @@ test/test_environment_response_list.py
 test/test_environment_secret_api.py
 test/test_environment_stats.py
 test/test_environment_stats_response_list.py
+test/test_environment_status.py
 test/test_environment_status_list.py
 test/test_environment_total_number.py
 test/test_environment_variable.py

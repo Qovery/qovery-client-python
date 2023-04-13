@@ -32,9 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.deployment_stage_with_service_statuses_list import DeploymentStageWithServiceStatusesList
-    from qovery.model.status import Status
+    from qovery.model.environment_status import EnvironmentStatus
     globals()['DeploymentStageWithServiceStatusesList'] = DeploymentStageWithServiceStatusesList
-    globals()['Status'] = Status
+    globals()['EnvironmentStatus'] = EnvironmentStatus
 
 
 class GetEnvironmentStatusesWithStages200Response(ModelNormal):
@@ -90,7 +90,7 @@ class GetEnvironmentStatusesWithStages200Response(ModelNormal):
         """
         lazy_import()
         return {
-            'environment': (Status,),  # noqa: E501
+            'environment': (EnvironmentStatus,),  # noqa: E501
             'stages': (DeploymentStageWithServiceStatusesList,),  # noqa: E501
         }
 
@@ -145,7 +145,7 @@ class GetEnvironmentStatusesWithStages200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (Status): [optional]  # noqa: E501
+            environment (EnvironmentStatus): [optional]  # noqa: E501
             stages (DeploymentStageWithServiceStatusesList): [optional]  # noqa: E501
         """
 
@@ -232,7 +232,7 @@ class GetEnvironmentStatusesWithStages200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (Status): [optional]  # noqa: E501
+            environment (EnvironmentStatus): [optional]  # noqa: E501
             stages (DeploymentStageWithServiceStatusesList): [optional]  # noqa: E501
         """
 

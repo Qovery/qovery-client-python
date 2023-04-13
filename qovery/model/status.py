@@ -93,7 +93,6 @@ class Status(ModelNormal):
             'id': (str,),  # noqa: E501
             'state': (StateEnum,),  # noqa: E501
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
-            'message': (str,),  # noqa: E501
             'last_deployment_date': (datetime,),  # noqa: E501
         }
 
@@ -106,7 +105,6 @@ class Status(ModelNormal):
         'id': 'id',  # noqa: E501
         'state': 'state',  # noqa: E501
         'service_deployment_status': 'service_deployment_status',  # noqa: E501
-        'message': 'message',  # noqa: E501
         'last_deployment_date': 'last_deployment_date',  # noqa: E501
     }
 
@@ -156,7 +154,6 @@ class Status(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message (str): message related to the state. [optional]  # noqa: E501
             last_deployment_date (datetime): [optional]  # noqa: E501
         """
 
@@ -251,7 +248,6 @@ class Status(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            message (str): message related to the state. [optional]  # noqa: E501
             last_deployment_date (datetime): [optional]  # noqa: E501
         """
 

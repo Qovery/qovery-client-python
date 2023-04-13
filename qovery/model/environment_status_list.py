@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.status import Status
-    globals()['Status'] = Status
+    from qovery.model.environment_status import EnvironmentStatus
+    globals()['EnvironmentStatus'] = EnvironmentStatus
 
 
 class EnvironmentStatusList(ModelNormal):
@@ -88,7 +88,7 @@ class EnvironmentStatusList(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([Status],),  # noqa: E501
+            'results': ([EnvironmentStatus],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class EnvironmentStatusList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([Status]): [optional]  # noqa: E501
+            results ([EnvironmentStatus]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class EnvironmentStatusList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([Status]): [optional]  # noqa: E501
+            results ([EnvironmentStatus]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

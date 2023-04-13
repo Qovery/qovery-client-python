@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **cancel_environment_deployment**
-> Status cancel_environment_deployment(environment_id)
+> EnvironmentStatus cancel_environment_deployment(environment_id)
 
 Cancel environment deployment
 
@@ -29,7 +29,7 @@ Cancel the current deployment of your environment.
 import time
 import qovery
 from qovery.api import environment_actions_api
-from qovery.model.status import Status
+from qovery.model.environment_status import EnvironmentStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Status**](Status.md)
+[**EnvironmentStatus**](EnvironmentStatus.md)
 
 ### Authorization
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **redeploy_environment**
-> Status redeploy_environment(environment_id)
+> EnvironmentStatus redeploy_environment(environment_id)
 
 Redeploy environment
 
@@ -507,7 +507,7 @@ Redeploy environment
 import time
 import qovery
 from qovery.api import environment_actions_api
-from qovery.model.status import Status
+from qovery.model.environment_status import EnvironmentStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Status**](Status.md)
+[**EnvironmentStatus**](EnvironmentStatus.md)
 
 ### Authorization
 
@@ -574,7 +574,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **restart_environment**
-> Status restart_environment(environment_id)
+> EnvironmentStatus restart_environment(environment_id)
 
 Deprecated - Restart environment
 
@@ -588,7 +588,7 @@ Deprecated - Restart environment
 import time
 import qovery
 from qovery.api import environment_actions_api
-from qovery.model.status import Status
+from qovery.model.environment_status import EnvironmentStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -630,7 +630,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Status**](Status.md)
+[**EnvironmentStatus**](EnvironmentStatus.md)
 
 ### Authorization
 
@@ -655,7 +655,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_environment**
-> Status stop_environment(environment_id)
+> EnvironmentStatus stop_environment(environment_id)
 
 Stop environment
 
@@ -667,7 +667,7 @@ Stop environment
 import time
 import qovery
 from qovery.api import environment_actions_api
-from qovery.model.status import Status
+from qovery.model.environment_status import EnvironmentStatus
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Status**](Status.md)
+[**EnvironmentStatus**](EnvironmentStatus.md)
 
 ### Authorization
 

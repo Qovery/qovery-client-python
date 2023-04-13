@@ -31,7 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.environment_status import EnvironmentStatus
     from qovery.model.status import Status
+    globals()['EnvironmentStatus'] = EnvironmentStatus
     globals()['Status'] = Status
 
 
@@ -88,7 +90,7 @@ class GetEnvironmentStatuses200Response(ModelNormal):
         """
         lazy_import()
         return {
-            'environment': (Status,),  # noqa: E501
+            'environment': (EnvironmentStatus,),  # noqa: E501
             'applications': ([Status],),  # noqa: E501
             'containers': ([Status],),  # noqa: E501
             'jobs': ([Status],),  # noqa: E501
@@ -149,7 +151,7 @@ class GetEnvironmentStatuses200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (Status): [optional]  # noqa: E501
+            environment (EnvironmentStatus): [optional]  # noqa: E501
             applications ([Status]): [optional]  # noqa: E501
             containers ([Status]): [optional]  # noqa: E501
             jobs ([Status]): [optional]  # noqa: E501
@@ -239,7 +241,7 @@ class GetEnvironmentStatuses200Response(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (Status): [optional]  # noqa: E501
+            environment (EnvironmentStatus): [optional]  # noqa: E501
             applications ([Status]): [optional]  # noqa: E501
             containers ([Status]): [optional]  # noqa: E501
             jobs ([Status]): [optional]  # noqa: E501

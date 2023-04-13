@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.status import Status
-globals()['Status'] = Status
+from qovery.model.environment_status import EnvironmentStatus
+globals()['EnvironmentStatus'] = EnvironmentStatus
 from qovery.model.environment_status_list import EnvironmentStatusList
 
 

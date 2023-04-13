@@ -25,6 +25,7 @@ from qovery.model_utils import (  # noqa: F401
 from qovery.model.clone_request import CloneRequest
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.environment import Environment
+from qovery.model.environment_status import EnvironmentStatus
 from qovery.model.reboot_services_request import RebootServicesRequest
 from qovery.model.status import Status
 
@@ -42,7 +43,7 @@ class EnvironmentActionsApi(object):
         self.api_client = api_client
         self.cancel_environment_deployment_endpoint = _Endpoint(
             settings={
-                'response_type': (Status,),
+                'response_type': (EnvironmentStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -315,7 +316,7 @@ class EnvironmentActionsApi(object):
         )
         self.redeploy_environment_endpoint = _Endpoint(
             settings={
-                'response_type': (Status,),
+                'response_type': (EnvironmentStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -366,7 +367,7 @@ class EnvironmentActionsApi(object):
         )
         self.restart_environment_endpoint = _Endpoint(
             settings={
-                'response_type': (Status,),
+                'response_type': (EnvironmentStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -417,7 +418,7 @@ class EnvironmentActionsApi(object):
         )
         self.stop_environment_endpoint = _Endpoint(
             settings={
-                'response_type': (Status,),
+                'response_type': (EnvironmentStatus,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -517,7 +518,7 @@ class EnvironmentActionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Status
+            EnvironmentStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -934,7 +935,7 @@ class EnvironmentActionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Status
+            EnvironmentStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1017,7 +1018,7 @@ class EnvironmentActionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Status
+            EnvironmentStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -1099,7 +1100,7 @@ class EnvironmentActionsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            Status
+            EnvironmentStatus
                 If the method is called asynchronously, returns the request
                 thread.
         """
