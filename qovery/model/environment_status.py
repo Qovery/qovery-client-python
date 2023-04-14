@@ -92,6 +92,7 @@ class EnvironmentStatus(ModelNormal):
             'state': (StateEnum,),  # noqa: E501
             'last_deployment_state': (StateEnum,),  # noqa: E501
             'last_deployment_date': (datetime,),  # noqa: E501
+            'last_deployment_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class EnvironmentStatus(ModelNormal):
         'state': 'state',  # noqa: E501
         'last_deployment_state': 'last_deployment_state',  # noqa: E501
         'last_deployment_date': 'last_deployment_date',  # noqa: E501
+        'last_deployment_id': 'last_deployment_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,6 +155,7 @@ class EnvironmentStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             last_deployment_date (datetime): [optional]  # noqa: E501
+            last_deployment_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -247,6 +250,7 @@ class EnvironmentStatus(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             last_deployment_date (datetime): [optional]  # noqa: E501
+            last_deployment_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
