@@ -54,19 +54,24 @@ class OrganizationEventApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'page_size',
                     'from_timestamp',
                     'to_timestamp',
                     'event_type',
                     'target_type',
                     'target_id',
-                    'sub_target',
-                    'user',
+                    'sub_target_type',
+                    'triggered_by',
                     'origin',
                 ],
                 'required': [
                     'organization_id',
                 ],
                 'nullable': [
+                    'page_size',
+                    'from_timestamp',
+                    'to_timestamp',
+                    'target_id',
                 ],
                 'enum': [
                 ],
@@ -81,43 +86,47 @@ class OrganizationEventApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'page_size':
+                        (float, none_type,),
                     'from_timestamp':
-                        (datetime,),
+                        (datetime, none_type,),
                     'to_timestamp':
-                        (datetime,),
+                        (datetime, none_type,),
                     'event_type':
                         (OrganizationEventType,),
                     'target_type':
                         (OrganizationEventTargetType,),
                     'target_id':
-                        (str,),
-                    'sub_target':
+                        (str, none_type,),
+                    'sub_target_type':
                         (OrganizationEventSubTargetType,),
-                    'user':
+                    'triggered_by':
                         (str,),
                     'origin':
                         (OrganizationEventOrigin,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'page_size': 'page-size',
                     'from_timestamp': 'from-timestamp',
                     'to_timestamp': 'to-timestamp',
                     'event_type': 'event_type',
                     'target_type': 'target_type',
                     'target_id': 'target_id',
-                    'sub_target': 'sub_target',
-                    'user': 'user',
+                    'sub_target_type': 'sub_target_type',
+                    'triggered_by': 'triggered_by',
                     'origin': 'origin',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'page_size': 'query',
                     'from_timestamp': 'query',
                     'to_timestamp': 'query',
                     'event_type': 'query',
                     'target_type': 'query',
                     'target_id': 'query',
-                    'sub_target': 'query',
-                    'user': 'query',
+                    'sub_target_type': 'query',
+                    'triggered_by': 'query',
                     'origin': 'query',
                 },
                 'collection_format_map': {
@@ -150,13 +159,14 @@ class OrganizationEventApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            from_timestamp (datetime): Display events triggered since this timestamp.   A range of date can be specified by using `from-timestamp` with `to-timestamp` . [optional]
-            to_timestamp (datetime): Display events triggered before this timestamp.   A range of date can be specified by using `to-timestamp` with `from-timestamp` . [optional]
+            page_size (float, none_type): The number of events to display in the current page. [optional] if omitted the server will use the default value of 10
+            from_timestamp (datetime, none_type): Display events triggered since this timestamp.   A range of date can be specified by using `from-timestamp` with `to-timestamp` . [optional]
+            to_timestamp (datetime, none_type): Display events triggered before this timestamp.   A range of date can be specified by using `to-timestamp` with `from-timestamp` . [optional]
             event_type (OrganizationEventType): [optional]
             target_type (OrganizationEventTargetType): [optional]
-            target_id (str): [optional]
-            sub_target (OrganizationEventSubTargetType): [optional]
-            user (str): The username who has triggered the action. [optional]
+            target_id (str, none_type): The target resource id to search.   Must be specified with the corresponding `target_type` . [optional]
+            sub_target_type (OrganizationEventSubTargetType): [optional]
+            triggered_by (str): Information about the owner of the event (user name / apitoken / automatic action). [optional]
             origin (OrganizationEventOrigin): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

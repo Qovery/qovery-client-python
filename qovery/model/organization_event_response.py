@@ -94,7 +94,6 @@ class OrganizationEventResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
             'timestamp': (datetime,),  # noqa: E501
             'event_type': (OrganizationEventType,),  # noqa: E501
             'target_id': (str, none_type,),  # noqa: E501
@@ -114,7 +113,6 @@ class OrganizationEventResponse(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
         'timestamp': 'timestamp',  # noqa: E501
         'event_type': 'event_type',  # noqa: E501
         'target_id': 'target_id',  # noqa: E501
@@ -169,7 +167,6 @@ class OrganizationEventResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             timestamp (datetime): [optional]  # noqa: E501
             event_type (OrganizationEventType): [optional]  # noqa: E501
             target_id (str, none_type): [optional]  # noqa: E501
@@ -266,7 +263,6 @@ class OrganizationEventResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             timestamp (datetime): [optional]  # noqa: E501
             event_type (OrganizationEventType): [optional]  # noqa: E501
             target_id (str, none_type): [optional]  # noqa: E501

@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
 **timestamp** | **datetime** |  | [optional] 
 **event_type** | [**OrganizationEventType**](OrganizationEventType.md) |  | [optional] 
 **target_id** | **str, none_type** |  | [optional] 
