@@ -103,6 +103,7 @@ class EnvironmentVariableAllOf(ModelNormal):
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
             'service_type': (LinkedServiceTypeEnum,),  # noqa: E501
+            'owned_by': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +119,7 @@ class EnvironmentVariableAllOf(ModelNormal):
         'service_id': 'service_id',  # noqa: E501
         'service_name': 'service_name',  # noqa: E501
         'service_type': 'service_type',  # noqa: E501
+        'owned_by': 'owned_by',  # noqa: E501
     }
 
     read_only_vars = {
@@ -170,6 +172,7 @@ class EnvironmentVariableAllOf(ModelNormal):
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
+            owned_by (str): Entity that created/own the variable (i.e: Qovery, Doppler). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,6 +268,7 @@ class EnvironmentVariableAllOf(ModelNormal):
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
+            owned_by (str): Entity that created/own the variable (i.e: Qovery, Doppler). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
