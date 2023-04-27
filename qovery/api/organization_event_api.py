@@ -57,6 +57,8 @@ class OrganizationEventApi(object):
                     'page_size',
                     'from_timestamp',
                     'to_timestamp',
+                    'continue_token',
+                    'step_back_token',
                     'event_type',
                     'target_type',
                     'target_id',
@@ -89,9 +91,13 @@ class OrganizationEventApi(object):
                     'page_size':
                         (float, none_type,),
                     'from_timestamp':
-                        (datetime, none_type,),
+                        (str, none_type,),
                     'to_timestamp':
-                        (datetime, none_type,),
+                        (str, none_type,),
+                    'continue_token':
+                        (str,),
+                    'step_back_token':
+                        (str,),
                     'event_type':
                         (OrganizationEventType,),
                     'target_type':
@@ -110,6 +116,8 @@ class OrganizationEventApi(object):
                     'page_size': 'page-size',
                     'from_timestamp': 'from-timestamp',
                     'to_timestamp': 'to-timestamp',
+                    'continue_token': 'continue-token',
+                    'step_back_token': 'step-back-token',
                     'event_type': 'event_type',
                     'target_type': 'target_type',
                     'target_id': 'target_id',
@@ -122,6 +130,8 @@ class OrganizationEventApi(object):
                     'page_size': 'query',
                     'from_timestamp': 'query',
                     'to_timestamp': 'query',
+                    'continue_token': 'query',
+                    'step_back_token': 'query',
                     'event_type': 'query',
                     'target_type': 'query',
                     'target_id': 'query',
@@ -160,8 +170,10 @@ class OrganizationEventApi(object):
 
         Keyword Args:
             page_size (float, none_type): The number of events to display in the current page. [optional] if omitted the server will use the default value of 10
-            from_timestamp (datetime, none_type): Display events triggered since this timestamp.   A range of date can be specified by using `from-timestamp` with `to-timestamp` . [optional]
-            to_timestamp (datetime, none_type): Display events triggered before this timestamp.   A range of date can be specified by using `to-timestamp` with `from-timestamp` . [optional]
+            from_timestamp (str, none_type): Display events triggered since this timestamp.   A range of date can be specified by using `from-timestamp` with `to-timestamp` The format is a timestamp with nano precision . [optional]
+            to_timestamp (str, none_type): Display events triggered before this timestamp.   A range of date can be specified by using `to-timestamp` with `from-timestamp` The format is a timestamp with nano precision . [optional]
+            continue_token (str): Token used to fetch the next page results The format is a timestamp with nano precision . [optional]
+            step_back_token (str): Token used to fetch the previous page results The format is a timestamp with nano precision . [optional]
             event_type (OrganizationEventType): [optional]
             target_type (OrganizationEventTargetType): [optional]
             target_id (str, none_type): The target resource id to search.   Must be specified with the corresponding `target_type` . [optional]

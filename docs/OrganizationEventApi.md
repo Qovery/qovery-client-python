@@ -50,8 +50,10 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = organization_event_api.OrganizationEventApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     page_size = 10 # float, none_type | The number of events to display in the current page (optional) if omitted the server will use the default value of 10
-    from_timestamp = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | Display events triggered since this timestamp.   A range of date can be specified by using `from-timestamp` with `to-timestamp`  (optional)
-    to_timestamp = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime, none_type | Display events triggered before this timestamp.   A range of date can be specified by using `to-timestamp` with `from-timestamp`  (optional)
+    from_timestamp = "from-timestamp_example" # str, none_type | Display events triggered since this timestamp.   A range of date can be specified by using `from-timestamp` with `to-timestamp` The format is a timestamp with nano precision  (optional)
+    to_timestamp = "to-timestamp_example" # str, none_type | Display events triggered before this timestamp.   A range of date can be specified by using `to-timestamp` with `from-timestamp` The format is a timestamp with nano precision  (optional)
+    continue_token = "continue-token_example" # str | Token used to fetch the next page results The format is a timestamp with nano precision  (optional)
+    step_back_token = "step-back-token_example" # str | Token used to fetch the previous page results The format is a timestamp with nano precision  (optional)
     event_type = OrganizationEventType("CREATE") # OrganizationEventType |  (optional)
     target_type = OrganizationEventTargetType("APPLICATION") # OrganizationEventTargetType |  (optional)
     target_id = "target_id_example" # str, none_type | The target resource id to search.   Must be specified with the corresponding `target_type`  (optional)
@@ -71,7 +73,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get all events inside the organization
-        api_response = api_instance.get_organization_events(organization_id, page_size=page_size, from_timestamp=from_timestamp, to_timestamp=to_timestamp, event_type=event_type, target_type=target_type, target_id=target_id, sub_target_type=sub_target_type, triggered_by=triggered_by, origin=origin)
+        api_response = api_instance.get_organization_events(organization_id, page_size=page_size, from_timestamp=from_timestamp, to_timestamp=to_timestamp, continue_token=continue_token, step_back_token=step_back_token, event_type=event_type, target_type=target_type, target_id=target_id, sub_target_type=sub_target_type, triggered_by=triggered_by, origin=origin)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationEventApi->get_organization_events: %s\n" % e)
@@ -84,8 +86,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
  **page_size** | **float, none_type**| The number of events to display in the current page | [optional] if omitted the server will use the default value of 10
- **from_timestamp** | **datetime, none_type**| Display events triggered since this timestamp.   A range of date can be specified by using &#x60;from-timestamp&#x60; with &#x60;to-timestamp&#x60;  | [optional]
- **to_timestamp** | **datetime, none_type**| Display events triggered before this timestamp.   A range of date can be specified by using &#x60;to-timestamp&#x60; with &#x60;from-timestamp&#x60;  | [optional]
+ **from_timestamp** | **str, none_type**| Display events triggered since this timestamp.   A range of date can be specified by using &#x60;from-timestamp&#x60; with &#x60;to-timestamp&#x60; The format is a timestamp with nano precision  | [optional]
+ **to_timestamp** | **str, none_type**| Display events triggered before this timestamp.   A range of date can be specified by using &#x60;to-timestamp&#x60; with &#x60;from-timestamp&#x60; The format is a timestamp with nano precision  | [optional]
+ **continue_token** | **str**| Token used to fetch the next page results The format is a timestamp with nano precision  | [optional]
+ **step_back_token** | **str**| Token used to fetch the previous page results The format is a timestamp with nano precision  | [optional]
  **event_type** | **OrganizationEventType**|  | [optional]
  **target_type** | **OrganizationEventTargetType**|  | [optional]
  **target_id** | **str, none_type**| The target resource id to search.   Must be specified with the corresponding &#x60;target_type&#x60;  | [optional]
