@@ -91,6 +91,7 @@ class CloneRequest(ModelNormal):
             'name': (str,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'mode': (EnvironmentModeEnum,),  # noqa: E501
+            'apply_deployment_rule': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class CloneRequest(ModelNormal):
         'name': 'name',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
         'mode': 'mode',  # noqa: E501
+        'apply_deployment_rule': 'apply_deployment_rule',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +152,7 @@ class CloneRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             cluster_id (str): [optional]  # noqa: E501
             mode (EnvironmentModeEnum): [optional]  # noqa: E501
+            apply_deployment_rule (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,6 +244,7 @@ class CloneRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             cluster_id (str): [optional]  # noqa: E501
             mode (EnvironmentModeEnum): [optional]  # noqa: E501
+            apply_deployment_rule (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
