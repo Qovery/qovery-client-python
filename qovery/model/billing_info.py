@@ -82,16 +82,16 @@ class BillingInfo(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'first_name': (str,),  # noqa: E501
-            'last_name': (str,),  # noqa: E501
-            'email': (str,),  # noqa: E501
-            'address': (str,),  # noqa: E501
-            'city': (str,),  # noqa: E501
-            'zip': (str,),  # noqa: E501
-            'state': (str,),  # noqa: E501
-            'country_code': (str,),  # noqa: E501
+            'first_name': (str, none_type,),  # noqa: E501
+            'last_name': (str, none_type,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
+            'address': (str, none_type,),  # noqa: E501
+            'city': (str, none_type,),  # noqa: E501
+            'zip': (str, none_type,),  # noqa: E501
+            'state': (str, none_type,),  # noqa: E501
+            'country_code': (str, none_type,),  # noqa: E501
             'company': (str,),  # noqa: E501
-            'vat_number': (str,),  # noqa: E501
+            'vat_number': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -153,16 +153,16 @@ class BillingInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            first_name (str): [optional]  # noqa: E501
-            last_name (str): [optional]  # noqa: E501
-            email (str): email used for billing, and to receive all invoices by email. [optional]  # noqa: E501
-            address (str): [optional]  # noqa: E501
-            city (str): [optional]  # noqa: E501
-            zip (str): [optional]  # noqa: E501
-            state (str): only for US. [optional]  # noqa: E501
-            country_code (str): ISO code of the country. [optional]  # noqa: E501
+            first_name (str, none_type): [optional]  # noqa: E501
+            last_name (str, none_type): [optional]  # noqa: E501
+            email (str, none_type): email used for billing, and to receive all invoices by email. [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
+            city (str, none_type): [optional]  # noqa: E501
+            zip (str, none_type): [optional]  # noqa: E501
+            state (str, none_type): only for US. [optional]  # noqa: E501
+            country_code (str, none_type): ISO code of the country. [optional]  # noqa: E501
             company (str): name of the company to bill. [optional]  # noqa: E501
-            vat_number (str): [optional]  # noqa: E501
+            vat_number (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,16 +248,16 @@ class BillingInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            first_name (str): [optional]  # noqa: E501
-            last_name (str): [optional]  # noqa: E501
-            email (str): email used for billing, and to receive all invoices by email. [optional]  # noqa: E501
-            address (str): [optional]  # noqa: E501
-            city (str): [optional]  # noqa: E501
-            zip (str): [optional]  # noqa: E501
-            state (str): only for US. [optional]  # noqa: E501
-            country_code (str): ISO code of the country. [optional]  # noqa: E501
+            first_name (str, none_type): [optional]  # noqa: E501
+            last_name (str, none_type): [optional]  # noqa: E501
+            email (str, none_type): email used for billing, and to receive all invoices by email. [optional]  # noqa: E501
+            address (str, none_type): [optional]  # noqa: E501
+            city (str, none_type): [optional]  # noqa: E501
+            zip (str, none_type): [optional]  # noqa: E501
+            state (str, none_type): only for US. [optional]  # noqa: E501
+            country_code (str, none_type): ISO code of the country. [optional]  # noqa: E501
             company (str): name of the company to bill. [optional]  # noqa: E501
-            vat_number (str): [optional]  # noqa: E501
+            vat_number (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
