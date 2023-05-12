@@ -88,8 +88,8 @@ class BillingInfo(ModelNormal):
             'address': (str,),  # noqa: E501
             'city': (str,),  # noqa: E501
             'zip': (str,),  # noqa: E501
-            'country_code': (str,),  # noqa: E501
             'state': (str,),  # noqa: E501
+            'country_code': (str,),  # noqa: E501
             'company': (str,),  # noqa: E501
             'vat_number': (str,),  # noqa: E501
         }
@@ -106,8 +106,8 @@ class BillingInfo(ModelNormal):
         'address': 'address',  # noqa: E501
         'city': 'city',  # noqa: E501
         'zip': 'zip',  # noqa: E501
-        'country_code': 'country_code',  # noqa: E501
         'state': 'state',  # noqa: E501
+        'country_code': 'country_code',  # noqa: E501
         'company': 'company',  # noqa: E501
         'vat_number': 'vat_number',  # noqa: E501
     }
@@ -119,17 +119,8 @@ class BillingInfo(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, first_name, last_name, email, address, city, zip, country_code, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """BillingInfo - a model defined in OpenAPI
-
-        Args:
-            first_name (str):
-            last_name (str):
-            email (str): email used for billing, and to receive all invoices by email
-            address (str):
-            city (str):
-            zip (str):
-            country_code (str): ISO code of the country
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -162,7 +153,14 @@ class BillingInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            first_name (str): [optional]  # noqa: E501
+            last_name (str): [optional]  # noqa: E501
+            email (str): email used for billing, and to receive all invoices by email. [optional]  # noqa: E501
+            address (str): [optional]  # noqa: E501
+            city (str): [optional]  # noqa: E501
+            zip (str): [optional]  # noqa: E501
             state (str): only for US. [optional]  # noqa: E501
+            country_code (str): ISO code of the country. [optional]  # noqa: E501
             company (str): name of the company to bill. [optional]  # noqa: E501
             vat_number (str): [optional]  # noqa: E501
         """
@@ -196,13 +194,6 @@ class BillingInfo(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.address = address
-        self.city = city
-        self.zip = zip
-        self.country_code = country_code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -223,17 +214,8 @@ class BillingInfo(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, first_name, last_name, email, address, city, zip, country_code, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """BillingInfo - a model defined in OpenAPI
-
-        Args:
-            first_name (str):
-            last_name (str):
-            email (str): email used for billing, and to receive all invoices by email
-            address (str):
-            city (str):
-            zip (str):
-            country_code (str): ISO code of the country
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -266,7 +248,14 @@ class BillingInfo(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            first_name (str): [optional]  # noqa: E501
+            last_name (str): [optional]  # noqa: E501
+            email (str): email used for billing, and to receive all invoices by email. [optional]  # noqa: E501
+            address (str): [optional]  # noqa: E501
+            city (str): [optional]  # noqa: E501
+            zip (str): [optional]  # noqa: E501
             state (str): only for US. [optional]  # noqa: E501
+            country_code (str): ISO code of the country. [optional]  # noqa: E501
             company (str): name of the company to bill. [optional]  # noqa: E501
             vat_number (str): [optional]  # noqa: E501
         """
@@ -298,13 +287,6 @@ class BillingInfo(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.address = address
-        self.city = city
-        self.zip = zip
-        self.country_code = country_code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
