@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **zip** | **str, none_type** |  | [optional] 
 **state** | **str, none_type** | only for US | [optional] 
 **country_code** | **str, none_type** | ISO code of the country | [optional] 
-**company** | **str** | name of the company to bill | [optional] 
+**company** | **str, none_type** | name of the company to bill | [optional] 
 **vat_number** | **str, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

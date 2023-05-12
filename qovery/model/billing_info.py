@@ -90,7 +90,7 @@ class BillingInfo(ModelNormal):
             'zip': (str, none_type,),  # noqa: E501
             'state': (str, none_type,),  # noqa: E501
             'country_code': (str, none_type,),  # noqa: E501
-            'company': (str,),  # noqa: E501
+            'company': (str, none_type,),  # noqa: E501
             'vat_number': (str, none_type,),  # noqa: E501
         }
 
@@ -161,7 +161,7 @@ class BillingInfo(ModelNormal):
             zip (str, none_type): [optional]  # noqa: E501
             state (str, none_type): only for US. [optional]  # noqa: E501
             country_code (str, none_type): ISO code of the country. [optional]  # noqa: E501
-            company (str): name of the company to bill. [optional]  # noqa: E501
+            company (str, none_type): name of the company to bill. [optional]  # noqa: E501
             vat_number (str, none_type): [optional]  # noqa: E501
         """
 
@@ -256,7 +256,7 @@ class BillingInfo(ModelNormal):
             zip (str, none_type): [optional]  # noqa: E501
             state (str, none_type): only for US. [optional]  # noqa: E501
             country_code (str, none_type): ISO code of the country. [optional]  # noqa: E501
-            company (str): name of the company to bill. [optional]  # noqa: E501
+            company (str, none_type): name of the company to bill. [optional]  # noqa: E501
             vat_number (str, none_type): [optional]  # noqa: E501
         """
 
