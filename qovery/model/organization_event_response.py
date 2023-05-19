@@ -105,7 +105,9 @@ class OrganizationEventResponse(ModelNormal):
             'origin': (OrganizationEventOrigin,),  # noqa: E501
             'triggered_by': (str,),  # noqa: E501
             'project_id': (str, none_type,),  # noqa: E501
+            'project_name': (str,),  # noqa: E501
             'environment_id': (str, none_type,),  # noqa: E501
+            'environment_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -125,7 +127,9 @@ class OrganizationEventResponse(ModelNormal):
         'origin': 'origin',  # noqa: E501
         'triggered_by': 'triggered_by',  # noqa: E501
         'project_id': 'project_id',  # noqa: E501
+        'project_name': 'project_name',  # noqa: E501
         'environment_id': 'environment_id',  # noqa: E501
+        'environment_name': 'environment_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -180,7 +184,9 @@ class OrganizationEventResponse(ModelNormal):
             origin (OrganizationEventOrigin): [optional]  # noqa: E501
             triggered_by (str): [optional]  # noqa: E501
             project_id (str, none_type): [optional]  # noqa: E501
+            project_name (str): [optional]  # noqa: E501
             environment_id (str, none_type): [optional]  # noqa: E501
+            environment_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,7 +283,9 @@ class OrganizationEventResponse(ModelNormal):
             origin (OrganizationEventOrigin): [optional]  # noqa: E501
             triggered_by (str): [optional]  # noqa: E501
             project_id (str, none_type): [optional]  # noqa: E501
+            project_name (str): [optional]  # noqa: E501
             environment_id (str, none_type): [optional]  # noqa: E501
+            environment_name (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
