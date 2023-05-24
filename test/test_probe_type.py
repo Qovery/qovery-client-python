@@ -13,13 +13,19 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.probe_type_exec import ProbeTypeExec
+from qovery.model.probe_type_grpc import ProbeTypeGrpc
+from qovery.model.probe_type_http import ProbeTypeHttp
+from qovery.model.probe_type_tcp import ProbeTypeTcp
+globals()['ProbeTypeExec'] = ProbeTypeExec
+globals()['ProbeTypeGrpc'] = ProbeTypeGrpc
+globals()['ProbeTypeHttp'] = ProbeTypeHttp
+globals()['ProbeTypeTcp'] = ProbeTypeTcp
 from qovery.model.probe_type import ProbeType
-globals()['ProbeType'] = ProbeType
-from qovery.model.probe import Probe
 
 
-class TestProbe(unittest.TestCase):
-    """Probe unit test stubs"""
+class TestProbeType(unittest.TestCase):
+    """ProbeType unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +33,10 @@ class TestProbe(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testProbe(self):
-        """Test Probe"""
+    def testProbeType(self):
+        """Test ProbeType"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = Probe()  # noqa: E501
+        # model = ProbeType()  # noqa: E501
         pass
 
 

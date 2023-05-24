@@ -363,11 +363,11 @@ from qovery.model.paid_usage import PaidUsage
 from qovery.model.plan_enum import PlanEnum
 from qovery.model.port_protocol_enum import PortProtocolEnum
 from qovery.model.probe import Probe
-from qovery.model.probe_probe import ProbeProbe
-from qovery.model.probe_probe_exec import ProbeProbeExec
-from qovery.model.probe_probe_grpc import ProbeProbeGrpc
-from qovery.model.probe_probe_http import ProbeProbeHttp
-from qovery.model.probe_probe_tcp import ProbeProbeTcp
+from qovery.model.probe_type import ProbeType
+from qovery.model.probe_type_exec import ProbeTypeExec
+from qovery.model.probe_type_grpc import ProbeTypeGrpc
+from qovery.model.probe_type_http import ProbeTypeHttp
+from qovery.model.probe_type_tcp import ProbeTypeTcp
 from qovery.model.project import Project
 from qovery.model.project_all_of import ProjectAllOf
 from qovery.model.project_current_cost import ProjectCurrentCost

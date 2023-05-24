@@ -1,4 +1,4 @@
-# ProbeProbeGrpc
+# ProbeTypeGrpc
 
 
 ## Properties

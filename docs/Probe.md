@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**probe** | [**ProbeProbe**](ProbeProbe.md) |  | [optional] 
+**type** | [**ProbeType**](ProbeType.md) |  | [optional] 
 **initial_delay_seconds** | **int** |  | [optional]  if omitted the server will use the default value of 30
 **period_seconds** | **int** |  | [optional]  if omitted the server will use the default value of 10
 **timeout_seconds** | **int** |  | [optional]  if omitted the server will use the default value of 5

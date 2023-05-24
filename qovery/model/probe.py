@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.probe_probe import ProbeProbe
-    globals()['ProbeProbe'] = ProbeProbe
+    from qovery.model.probe_type import ProbeType
+    globals()['ProbeType'] = ProbeType
 
 
 class Probe(ModelNormal):
@@ -88,7 +88,7 @@ class Probe(ModelNormal):
         """
         lazy_import()
         return {
-            'probe': (ProbeProbe,),  # noqa: E501
+            'type': (ProbeType,),  # noqa: E501
             'initial_delay_seconds': (int,),  # noqa: E501
             'period_seconds': (int,),  # noqa: E501
             'timeout_seconds': (int,),  # noqa: E501
@@ -102,7 +102,7 @@ class Probe(ModelNormal):
 
 
     attribute_map = {
-        'probe': 'probe',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'initial_delay_seconds': 'initial_delay_seconds',  # noqa: E501
         'period_seconds': 'period_seconds',  # noqa: E501
         'timeout_seconds': 'timeout_seconds',  # noqa: E501
@@ -151,7 +151,7 @@ class Probe(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            probe (ProbeProbe): [optional]  # noqa: E501
+            type (ProbeType): [optional]  # noqa: E501
             initial_delay_seconds (int): [optional] if omitted the server will use the default value of 30  # noqa: E501
             period_seconds (int): [optional] if omitted the server will use the default value of 10  # noqa: E501
             timeout_seconds (int): [optional] if omitted the server will use the default value of 5  # noqa: E501
@@ -242,7 +242,7 @@ class Probe(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            probe (ProbeProbe): [optional]  # noqa: E501
+            type (ProbeType): [optional]  # noqa: E501
             initial_delay_seconds (int): [optional] if omitted the server will use the default value of 30  # noqa: E501
             period_seconds (int): [optional] if omitted the server will use the default value of 10  # noqa: E501
             timeout_seconds (int): [optional] if omitted the server will use the default value of 5  # noqa: E501

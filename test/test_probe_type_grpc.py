@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.probe_probe_tcp import ProbeProbeTcp
+from qovery.model.probe_type_grpc import ProbeTypeGrpc
 
 
-class TestProbeProbeTcp(unittest.TestCase):
-    """ProbeProbeTcp unit test stubs"""
+class TestProbeTypeGrpc(unittest.TestCase):
+    """ProbeTypeGrpc unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestProbeProbeTcp(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testProbeProbeTcp(self):
-        """Test ProbeProbeTcp"""
+    def testProbeTypeGrpc(self):
+        """Test ProbeTypeGrpc"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ProbeProbeTcp()  # noqa: E501
+        # model = ProbeTypeGrpc()  # noqa: E501
         pass
 
 

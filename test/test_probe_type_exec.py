@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.probe_probe_exec import ProbeProbeExec
+from qovery.model.probe_type_exec import ProbeTypeExec
 
 
-class TestProbeProbeExec(unittest.TestCase):
-    """ProbeProbeExec unit test stubs"""
+class TestProbeTypeExec(unittest.TestCase):
+    """ProbeTypeExec unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestProbeProbeExec(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testProbeProbeExec(self):
-        """Test ProbeProbeExec"""
+    def testProbeTypeExec(self):
+        """Test ProbeTypeExec"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ProbeProbeExec()  # noqa: E501
+        # model = ProbeTypeExec()  # noqa: E501
         pass
 
 

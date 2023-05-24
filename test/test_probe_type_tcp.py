@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.probe_probe_http import ProbeProbeHttp
+from qovery.model.probe_type_tcp import ProbeTypeTcp
 
 
-class TestProbeProbeHttp(unittest.TestCase):
-    """ProbeProbeHttp unit test stubs"""
+class TestProbeTypeTcp(unittest.TestCase):
+    """ProbeTypeTcp unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestProbeProbeHttp(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testProbeProbeHttp(self):
-        """Test ProbeProbeHttp"""
+    def testProbeTypeTcp(self):
+        """Test ProbeTypeTcp"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ProbeProbeHttp()  # noqa: E501
+        # model = ProbeTypeTcp()  # noqa: E501
         pass
 
 
