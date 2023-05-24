@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.healthcheck import Healthcheck
-globals()['Healthcheck'] = Healthcheck
-from qovery.model.container_request_all_of import ContainerRequestAllOf
+from qovery.model.probe_probe_tcp import ProbeProbeTcp
 
 
-class TestContainerRequestAllOf(unittest.TestCase):
-    """ContainerRequestAllOf unit test stubs"""
+class TestProbeProbeTcp(unittest.TestCase):
+    """ProbeProbeTcp unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestContainerRequestAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testContainerRequestAllOf(self):
-        """Test ContainerRequestAllOf"""
+    def testProbeProbeTcp(self):
+        """Test ProbeProbeTcp"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ContainerRequestAllOf()  # noqa: E501
+        # model = ProbeProbeTcp()  # noqa: E501
         pass
 
 

@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.healthcheck import Healthcheck
     from qovery.model.job_request_all_of_schedule import JobRequestAllOfSchedule
     from qovery.model.job_request_all_of_source import JobRequestAllOfSource
+    globals()['Healthcheck'] = Healthcheck
     globals()['JobRequestAllOfSchedule'] = JobRequestAllOfSchedule
     globals()['JobRequestAllOfSource'] = JobRequestAllOfSource
 
@@ -108,6 +110,7 @@ class JobRequestAllOf(ModelNormal):
             'auto_preview': (bool,),  # noqa: E501
             'port': (int, none_type,),  # noqa: E501
             'source': (JobRequestAllOfSource,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'schedule': (JobRequestAllOfSchedule,),  # noqa: E501
         }
 
@@ -126,6 +129,7 @@ class JobRequestAllOf(ModelNormal):
         'auto_preview': 'auto_preview',  # noqa: E501
         'port': 'port',  # noqa: E501
         'source': 'source',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
     }
 
@@ -181,6 +185,7 @@ class JobRequestAllOf(ModelNormal):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobRequestAllOfSource): [optional]  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
         """
 
@@ -279,6 +284,7 @@ class JobRequestAllOf(ModelNormal):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobRequestAllOfSource): [optional]  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
         """
 

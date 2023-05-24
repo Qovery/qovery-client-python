@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.probe import Probe
+globals()['Probe'] = Probe
 from qovery.model.healthcheck import Healthcheck
 
 

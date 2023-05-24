@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **description** | **str** | give a description to this container | [optional] 
 **arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 
+**healthchecks** | [**Healthcheck**](Healthcheck.md) |  | [optional] 
 **ports** | [**ServicePortResponseList**](ServicePortResponseList.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -14,11 +14,13 @@ import unittest
 
 import qovery
 from qovery.model.base import Base
+from qovery.model.healthcheck import Healthcheck
 from qovery.model.job_response_all_of import JobResponseAllOf
 from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
 from qovery.model.job_response_all_of_source import JobResponseAllOfSource
 from qovery.model.reference_object import ReferenceObject
 globals()['Base'] = Base
+globals()['Healthcheck'] = Healthcheck
 globals()['JobResponseAllOf'] = JobResponseAllOf
 globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
 globals()['JobResponseAllOfSource'] = JobResponseAllOfSource

@@ -13,9 +13,11 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.healthcheck import Healthcheck
 from qovery.model.job_request_all_of import JobRequestAllOf
 from qovery.model.job_request_all_of_schedule import JobRequestAllOfSchedule
 from qovery.model.job_request_all_of_source import JobRequestAllOfSource
+globals()['Healthcheck'] = Healthcheck
 globals()['JobRequestAllOf'] = JobRequestAllOf
 globals()['JobRequestAllOfSchedule'] = JobRequestAllOfSchedule
 globals()['JobRequestAllOfSource'] = JobRequestAllOfSource

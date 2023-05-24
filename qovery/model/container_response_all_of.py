@@ -31,8 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port_response_list import ServicePortResponseList
+    globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePortResponseList'] = ServicePortResponseList
 
@@ -108,6 +110,7 @@ class ContainerResponseAllOf(ModelNormal):
             'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
         }
 
@@ -132,6 +135,7 @@ class ContainerResponseAllOf(ModelNormal):
         'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'ports': 'ports',  # noqa: E501
     }
 
@@ -193,6 +197,7 @@ class ContainerResponseAllOf(ModelNormal):
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
@@ -310,6 +315,7 @@ class ContainerResponseAllOf(ModelNormal):
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 

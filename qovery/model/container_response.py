@@ -33,12 +33,14 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.container_response_all_of import ContainerResponseAllOf
+    from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port_response_list import ServicePortResponseList
     from qovery.model.service_storage import ServiceStorage
     from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
     globals()['Base'] = Base
     globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
+    globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePortResponseList'] = ServicePortResponseList
     globals()['ServiceStorage'] = ServiceStorage
@@ -120,6 +122,7 @@ class ContainerResponse(ModelComposed):
             'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
         }
 
@@ -148,6 +151,7 @@ class ContainerResponse(ModelComposed):
         'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'ports': 'ports',  # noqa: E501
     }
 
@@ -212,6 +216,7 @@ class ContainerResponse(ModelComposed):
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 
@@ -335,6 +340,7 @@ class ContainerResponse(ModelComposed):
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
         """
 

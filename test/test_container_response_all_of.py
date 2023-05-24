@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
 from qovery.model.service_port_response_list import ServicePortResponseList
+globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject
 globals()['ServicePortResponseList'] = ServicePortResponseList
 from qovery.model.container_response_all_of import ContainerResponseAllOf

@@ -14,11 +14,13 @@ import unittest
 
 import qovery
 from qovery.model.container_request_all_of import ContainerRequestAllOf
+from qovery.model.healthcheck import Healthcheck
 from qovery.model.service_port_request import ServicePortRequest
 from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
 from qovery.model.service_storage_request import ServiceStorageRequest
 from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
 globals()['ContainerRequestAllOf'] = ContainerRequestAllOf
+globals()['Healthcheck'] = Healthcheck
 globals()['ServicePortRequest'] = ServicePortRequest
 globals()['ServicePortRequestPortsInner'] = ServicePortRequestPortsInner
 globals()['ServiceStorageRequest'] = ServiceStorageRequest

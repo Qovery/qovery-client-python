@@ -32,11 +32,13 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.container_request_all_of import ContainerRequestAllOf
+    from qovery.model.healthcheck import Healthcheck
     from qovery.model.service_port_request import ServicePortRequest
     from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
     from qovery.model.service_storage_request import ServiceStorageRequest
     from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
     globals()['ContainerRequestAllOf'] = ContainerRequestAllOf
+    globals()['Healthcheck'] = Healthcheck
     globals()['ServicePortRequest'] = ServicePortRequest
     globals()['ServicePortRequestPortsInner'] = ServicePortRequestPortsInner
     globals()['ServiceStorageRequest'] = ServiceStorageRequest
@@ -112,6 +114,7 @@ class ContainerRequest(ModelComposed):
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
         }
 
@@ -134,6 +137,7 @@ class ContainerRequest(ModelComposed):
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
     }
 
@@ -189,6 +193,7 @@ class ContainerRequest(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
         """
 
@@ -306,6 +311,7 @@ class ContainerRequest(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
+            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
         """
 
