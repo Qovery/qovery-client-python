@@ -94,7 +94,6 @@ class ProbeType(ModelNormal):
         """
         lazy_import()
         return {
-            '_none': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'tcp': (ProbeTypeTcp,),  # noqa: E501
             'http': (ProbeTypeHttp,),  # noqa: E501
             '_exec': (ProbeTypeExec,),  # noqa: E501
@@ -107,7 +106,6 @@ class ProbeType(ModelNormal):
 
 
     attribute_map = {
-        '_none': 'none',  # noqa: E501
         'tcp': 'tcp',  # noqa: E501
         'http': 'http',  # noqa: E501
         '_exec': 'exec',  # noqa: E501
@@ -155,7 +153,6 @@ class ProbeType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _none ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tcp (ProbeTypeTcp): [optional]  # noqa: E501
             http (ProbeTypeHttp): [optional]  # noqa: E501
             _exec (ProbeTypeExec): [optional]  # noqa: E501
@@ -245,7 +242,6 @@ class ProbeType(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _none ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tcp (ProbeTypeTcp): [optional]  # noqa: E501
             http (ProbeTypeHttp): [optional]  # noqa: E501
             _exec (ProbeTypeExec): [optional]  # noqa: E501

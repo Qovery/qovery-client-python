@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_none** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type** |  | [optional] 
 **tcp** | [**ProbeTypeTcp**](ProbeTypeTcp.md) |  | [optional] 
 **http** | [**ProbeTypeHttp**](ProbeTypeHttp.md) |  | [optional] 
 **_exec** | [**ProbeTypeExec**](ProbeTypeExec.md) |  | [optional] 
