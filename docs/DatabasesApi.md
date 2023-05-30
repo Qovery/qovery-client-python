@@ -56,6 +56,7 @@ with qovery.ApiClient(configuration) as api_client:
         mode=DatabaseModeEnum("CONTAINER"),
         accessibility=DatabaseAccessibilityEnum("PRIVATE"),
         cpu=1250,
+        instance_type="db.t3.medium",
         memory=1024,
         storage=10,
     ) # DatabaseRequest |  (optional)

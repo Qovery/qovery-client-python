@@ -292,6 +292,10 @@ from qovery.model.log import Log
 from qovery.model.log_paginated_response_list import LogPaginatedResponseList
 from qovery.model.log_paginated_response_list_all_of import LogPaginatedResponseListAllOf
 from qovery.model.log_response_list import LogResponseList
+from qovery.model.managed_database_instance_type_response import ManagedDatabaseInstanceTypeResponse
+from qovery.model.managed_database_instance_type_response_list import ManagedDatabaseInstanceTypeResponseList
+from qovery.model.managed_database_type_response import ManagedDatabaseTypeResponse
+from qovery.model.managed_database_type_response_list import ManagedDatabaseTypeResponseList
 from qovery.model.member import Member
 from qovery.model.member_all_of import MemberAllOf
 from qovery.model.member_response_list import MemberResponseList

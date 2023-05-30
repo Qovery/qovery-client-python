@@ -163,17 +163,23 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**organization_download_all_invoices**](docs/BillingApi.md#organization_download_all_invoices) | **POST** /organization/{organizationId}/downloadInvoices | Download all invoices
 *CloudProviderApi* | [**list_aws_features**](docs/CloudProviderApi.md#list_aws_features) | **GET** /aws/clusterFeature | List AWS features available
 *CloudProviderApi* | [**list_aws_instance_type**](docs/CloudProviderApi.md#list_aws_instance_type) | **GET** /aws/instanceType | List AWS available instance types
+*CloudProviderApi* | [**list_aws_managed_database_instance_type**](docs/CloudProviderApi.md#list_aws_managed_database_instance_type) | **GET** /aws/managedDatabase/instanceType/{region}/{databaseType} | List AWS available managed database instance types
+*CloudProviderApi* | [**list_aws_managed_database_type**](docs/CloudProviderApi.md#list_aws_managed_database_type) | **GET** /aws/managedDatabase/type | List AWS available managed database types
 *CloudProviderApi* | [**list_aws_regions**](docs/CloudProviderApi.md#list_aws_regions) | **GET** /aws/region | List AWS regions
 *CloudProviderApi* | [**list_awsec2_instance_type**](docs/CloudProviderApi.md#list_awsec2_instance_type) | **GET** /aws/ec2/instanceType/{region} | List AWS EC2 available instance types
 *CloudProviderApi* | [**list_awseks_instance_type**](docs/CloudProviderApi.md#list_awseks_instance_type) | **GET** /aws/eks/instanceType/{region} | List AWS EKS available instance types
 *CloudProviderApi* | [**list_cloud_provider**](docs/CloudProviderApi.md#list_cloud_provider) | **GET** /cloudProvider | List Cloud providers available
 *CloudProviderApi* | [**list_do_features**](docs/CloudProviderApi.md#list_do_features) | **GET** /digitalOcean/clusterFeature | List DO features available
 *CloudProviderApi* | [**list_do_instance_type**](docs/CloudProviderApi.md#list_do_instance_type) | **GET** /digitalOcean/instanceType | List DO available instance types
+*CloudProviderApi* | [**list_do_managed_database_instance_type**](docs/CloudProviderApi.md#list_do_managed_database_instance_type) | **GET** /digitalOcean/managedDatabase/instanceType/{region}/{databaseType} | List Digital Ocean available managed database instance types
+*CloudProviderApi* | [**list_do_managed_database_type**](docs/CloudProviderApi.md#list_do_managed_database_type) | **GET** /digitalOcean/managedDatabase/type | List Digital Ocean available managed database types
 *CloudProviderApi* | [**list_do_regions**](docs/CloudProviderApi.md#list_do_regions) | **GET** /digitalOcean/region | List DO regions
 *CloudProviderApi* | [**list_scaleway_features**](docs/CloudProviderApi.md#list_scaleway_features) | **GET** /scaleway/clusterFeature | List Scaleway features available
 *CloudProviderApi* | [**list_scaleway_instance_type**](docs/CloudProviderApi.md#list_scaleway_instance_type) | **GET** /scaleway/instanceType | List Scaleway available instance types
 *CloudProviderApi* | [**list_scaleway_kapsule_instance_type**](docs/CloudProviderApi.md#list_scaleway_kapsule_instance_type) | **GET** /scaleway/instanceType/{zone} | List Scaleway Kapsule available instance types
 *CloudProviderApi* | [**list_scaleway_regions**](docs/CloudProviderApi.md#list_scaleway_regions) | **GET** /scaleway/region | List Scaleway regions
+*CloudProviderApi* | [**list_scw_managed_database_instance_type**](docs/CloudProviderApi.md#list_scw_managed_database_instance_type) | **GET** /scaleway/managedDatabase/instanceType/{zone}/{databaseType} | List Scaleway available managed database instance types
+*CloudProviderApi* | [**list_scw_managed_database_type**](docs/CloudProviderApi.md#list_scw_managed_database_type) | **GET** /scaleway/managedDatabase/type | List Scaleway available managed database types
 *CloudProviderCredentialsApi* | [**create_aws_credentials**](docs/CloudProviderCredentialsApi.md#create_aws_credentials) | **POST** /organization/{organizationId}/aws/credentials | Create AWS credentials set
 *CloudProviderCredentialsApi* | [**create_do_credentials**](docs/CloudProviderCredentialsApi.md#create_do_credentials) | **POST** /organization/{organizationId}/digitalOcean/credentials | Create Digital Ocean credentials set
 *CloudProviderCredentialsApi* | [**create_scaleway_credentials**](docs/CloudProviderCredentialsApi.md#create_scaleway_credentials) | **POST** /organization/{organizationId}/scaleway/credentials | Create Scaleway credentials set
@@ -724,6 +730,10 @@ Class | Method | HTTP request | Description
  - [LogPaginatedResponseList](docs/LogPaginatedResponseList.md)
  - [LogPaginatedResponseListAllOf](docs/LogPaginatedResponseListAllOf.md)
  - [LogResponseList](docs/LogResponseList.md)
+ - [ManagedDatabaseInstanceTypeResponse](docs/ManagedDatabaseInstanceTypeResponse.md)
+ - [ManagedDatabaseInstanceTypeResponseList](docs/ManagedDatabaseInstanceTypeResponseList.md)
+ - [ManagedDatabaseTypeResponse](docs/ManagedDatabaseTypeResponse.md)
+ - [ManagedDatabaseTypeResponseList](docs/ManagedDatabaseTypeResponseList.md)
  - [Member](docs/Member.md)
  - [MemberAllOf](docs/MemberAllOf.md)
  - [MemberResponseList](docs/MemberResponseList.md)

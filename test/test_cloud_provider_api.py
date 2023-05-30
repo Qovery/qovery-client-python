@@ -38,6 +38,20 @@ class TestCloudProviderApi(unittest.TestCase):
         """
         pass
 
+    def test_list_aws_managed_database_instance_type(self):
+        """Test case for list_aws_managed_database_instance_type
+
+        List AWS available managed database instance types  # noqa: E501
+        """
+        pass
+
+    def test_list_aws_managed_database_type(self):
+        """Test case for list_aws_managed_database_type
+
+        List AWS available managed database types  # noqa: E501
+        """
+        pass
+
     def test_list_aws_regions(self):
         """Test case for list_aws_regions
 
@@ -80,6 +94,20 @@ class TestCloudProviderApi(unittest.TestCase):
         """
         pass
 
+    def test_list_do_managed_database_instance_type(self):
+        """Test case for list_do_managed_database_instance_type
+
+        List Digital Ocean available managed database instance types  # noqa: E501
+        """
+        pass
+
+    def test_list_do_managed_database_type(self):
+        """Test case for list_do_managed_database_type
+
+        List Digital Ocean available managed database types  # noqa: E501
+        """
+        pass
+
     def test_list_do_regions(self):
         """Test case for list_do_regions
 
@@ -112,6 +140,20 @@ class TestCloudProviderApi(unittest.TestCase):
         """Test case for list_scaleway_regions
 
         List Scaleway regions  # noqa: E501
+        """
+        pass
+
+    def test_list_scw_managed_database_instance_type(self):
+        """Test case for list_scw_managed_database_instance_type
+
+        List Scaleway available managed database instance types  # noqa: E501
+        """
+        pass
+
+    def test_list_scw_managed_database_type(self):
+        """Test case for list_scw_managed_database_type
+
+        List Scaleway available managed database types  # noqa: E501
         """
         pass
 
