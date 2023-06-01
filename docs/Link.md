@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **url** | **str** |  | [optional] 
-**port** | **int** |  | [optional] 
+**internal_port** | **int** |  | [optional] 
+**external_port** | **int** |  | [optional] 
 **is_qovery_domain** | **bool** |  | [optional] 
 **is_default** | **bool** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

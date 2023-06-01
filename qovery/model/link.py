@@ -83,7 +83,8 @@ class Link(ModelNormal):
         """
         return {
             'url': (str,),  # noqa: E501
-            'port': (int,),  # noqa: E501
+            'internal_port': (int,),  # noqa: E501
+            'external_port': (int,),  # noqa: E501
             'is_qovery_domain': (bool,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
         }
@@ -95,7 +96,8 @@ class Link(ModelNormal):
 
     attribute_map = {
         'url': 'url',  # noqa: E501
-        'port': 'port',  # noqa: E501
+        'internal_port': 'internal_port',  # noqa: E501
+        'external_port': 'external_port',  # noqa: E501
         'is_qovery_domain': 'is_qovery_domain',  # noqa: E501
         'is_default': 'is_default',  # noqa: E501
     }
@@ -142,7 +144,8 @@ class Link(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             url (str): [optional]  # noqa: E501
-            port (int): [optional]  # noqa: E501
+            internal_port (int): [optional]  # noqa: E501
+            external_port (int): [optional]  # noqa: E501
             is_qovery_domain (bool): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
         """
@@ -231,7 +234,8 @@ class Link(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             url (str): [optional]  # noqa: E501
-            port (int): [optional]  # noqa: E501
+            internal_port (int): [optional]  # noqa: E501
+            external_port (int): [optional]  # noqa: E501
             is_qovery_domain (bool): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
         """
