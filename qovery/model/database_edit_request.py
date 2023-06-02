@@ -159,8 +159,8 @@ class DatabaseEditRequest(ModelNormal):
             description (str): give a description to this database. [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. This field will be ignored for managed DB (instance type will be used instead). . [optional] if omitted the server will use the default value of 250  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB This field will be ignored for managed DB (instance type will be used instead). Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
             storage (int): unit is GB. [optional]  # noqa: E501
             instance_type (str): Database instance type to be used for this database. The list of values can be retrieved via the endpoint /{CloudProvider}/managedDatabase/instanceType/{region}/{dbType}. This field SHOULD NOT be set for container DB.. [optional]  # noqa: E501
         """
@@ -252,8 +252,8 @@ class DatabaseEditRequest(ModelNormal):
             description (str): give a description to this database. [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             accessibility (DatabaseAccessibilityEnum): [optional]  # noqa: E501
-            cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
-            memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
+            cpu (int): unit is millicores (m). 1000m = 1 cpu. This field will be ignored for managed DB (instance type will be used instead). . [optional] if omitted the server will use the default value of 250  # noqa: E501
+            memory (int): unit is MB. 1024 MB = 1GB This field will be ignored for managed DB (instance type will be used instead). Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
             storage (int): unit is GB. [optional]  # noqa: E501
             instance_type (str): Database instance type to be used for this database. The list of values can be retrieved via the endpoint /{CloudProvider}/managedDatabase/instanceType/{region}/{dbType}. This field SHOULD NOT be set for container DB.. [optional]  # noqa: E501
         """
