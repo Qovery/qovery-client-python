@@ -138,6 +138,7 @@ with qovery.ApiClient(configuration) as api_client:
         cpu=1250,
         memory=1024,
         storage=4,
+        instance_type="db.t3.medium",
     ) # DatabaseEditRequest |  (optional)
 
     # example passing only required values which don't have defaults set

@@ -95,6 +95,7 @@ class DatabaseEditRequest(ModelNormal):
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'storage': (int,),  # noqa: E501
+            'instance_type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class DatabaseEditRequest(ModelNormal):
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'storage': 'storage',  # noqa: E501
+        'instance_type': 'instance_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -160,6 +162,7 @@ class DatabaseEditRequest(ModelNormal):
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
             storage (int): unit is GB. [optional]  # noqa: E501
+            instance_type (str): Database instance type to be used for this database. The list of values can be retrieved via the endpoint /{CloudProvider}/managedDatabase/instanceType/{region}/{dbType}. This field SHOULD NOT be set for container DB.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,6 +255,7 @@ class DatabaseEditRequest(ModelNormal):
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional] if omitted the server will use the default value of 250  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB   Default value is linked to the database type: - MANAGED: 100 - CONTAINER   - POSTGRES: 100   - REDIS: 100   - MYSQL: 512   - MONGODB: 256 . [optional]  # noqa: E501
             storage (int): unit is GB. [optional]  # noqa: E501
+            instance_type (str): Database instance type to be used for this database. The list of values can be retrieved via the endpoint /{CloudProvider}/managedDatabase/instanceType/{region}/{dbType}. This field SHOULD NOT be set for container DB.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
