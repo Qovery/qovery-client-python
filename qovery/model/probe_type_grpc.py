@@ -83,6 +83,7 @@ class ProbeTypeGrpc(ModelNormal):
         """
         return {
             'service': (str, none_type,),  # noqa: E501
+            'port': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class ProbeTypeGrpc(ModelNormal):
 
     attribute_map = {
         'service': 'service',  # noqa: E501
+        'port': 'port',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +138,7 @@ class ProbeTypeGrpc(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service (str, none_type): [optional]  # noqa: E501
+            port (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,6 +225,7 @@ class ProbeTypeGrpc(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             service (str, none_type): [optional]  # noqa: E501
+            port (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

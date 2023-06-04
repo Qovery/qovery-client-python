@@ -82,6 +82,7 @@ class ProbeTypeTcp(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'port': (int,),  # noqa: E501
             'host': (str, none_type,),  # noqa: E501
         }
 
@@ -91,6 +92,7 @@ class ProbeTypeTcp(ModelNormal):
 
 
     attribute_map = {
+        'port': 'port',  # noqa: E501
         'host': 'host',  # noqa: E501
     }
 
@@ -135,6 +137,7 @@ class ProbeTypeTcp(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            port (int): [optional]  # noqa: E501
             host (str, none_type): [optional]  # noqa: E501
         """
 
@@ -221,6 +224,7 @@ class ProbeTypeTcp(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            port (int): [optional]  # noqa: E501
             host (str, none_type): [optional]  # noqa: E501
         """
 

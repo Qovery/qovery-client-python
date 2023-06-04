@@ -84,6 +84,7 @@ class ProbeTypeHttp(ModelNormal):
         return {
             'path': (str,),  # noqa: E501
             'scheme': (str,),  # noqa: E501
+            'port': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class ProbeTypeHttp(ModelNormal):
     attribute_map = {
         'path': 'path',  # noqa: E501
         'scheme': 'scheme',  # noqa: E501
+        'port': 'port',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +141,7 @@ class ProbeTypeHttp(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
             scheme (str): [optional] if omitted the server will use the default value of "HTTP"  # noqa: E501
+            port (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,6 +229,7 @@ class ProbeTypeHttp(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             path (str): [optional] if omitted the server will use the default value of "/"  # noqa: E501
             scheme (str): [optional] if omitted the server will use the default value of "HTTP"  # noqa: E501
+            port (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

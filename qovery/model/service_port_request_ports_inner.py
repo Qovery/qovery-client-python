@@ -93,8 +93,6 @@ class ServicePortRequestPortsInner(ModelNormal):
             'name': (str,),  # noqa: E501
             'external_port': (int,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
-            'has_readiness_probe': (bool,),  # noqa: E501
-            'has_liveness_probe': (bool,),  # noqa: E501
             'protocol': (PortProtocolEnum,),  # noqa: E501
         }
 
@@ -109,8 +107,6 @@ class ServicePortRequestPortsInner(ModelNormal):
         'name': 'name',  # noqa: E501
         'external_port': 'external_port',  # noqa: E501
         'is_default': 'is_default',  # noqa: E501
-        'has_readiness_probe': 'has_readiness_probe',  # noqa: E501
-        'has_liveness_probe': 'has_liveness_probe',  # noqa: E501
         'protocol': 'protocol',  # noqa: E501
     }
 
@@ -162,8 +158,6 @@ class ServicePortRequestPortsInner(ModelNormal):
             name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
             is_default (bool): is the default port to use for domain. [optional]  # noqa: E501
-            has_readiness_probe (bool): is port to use for probe readiness check. [optional]  # noqa: E501
-            has_liveness_probe (bool): is port to use for probe liveness check. [optional]  # noqa: E501
             protocol (PortProtocolEnum): [optional]  # noqa: E501
         """
 
@@ -259,8 +253,6 @@ class ServicePortRequestPortsInner(ModelNormal):
             name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
             is_default (bool): is the default port to use for domain. [optional]  # noqa: E501
-            has_readiness_probe (bool): is port to use for probe readiness check. [optional]  # noqa: E501
-            has_liveness_probe (bool): is port to use for probe liveness check. [optional]  # noqa: E501
             protocol (PortProtocolEnum): [optional]  # noqa: E501
         """
 
