@@ -102,6 +102,7 @@ class EnvironmentLogsApi(object):
             params_map={
                 'all': [
                     'environment_id',
+                    'version',
                 ],
                 'required': [
                     'environment_id',
@@ -121,12 +122,16 @@ class EnvironmentLogsApi(object):
                 'openapi_types': {
                     'environment_id':
                         (str,),
+                    'version':
+                        (str,),
                 },
                 'attribute_map': {
                     'environment_id': 'environmentId',
+                    'version': 'version',
                 },
                 'location_map': {
                     'environment_id': 'path',
+                    'version': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -241,6 +246,7 @@ class EnvironmentLogsApi(object):
             environment_id (str): Environment ID
 
         Keyword Args:
+            version (str): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

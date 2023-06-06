@@ -126,11 +126,21 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environment_logs_api.EnvironmentLogsApi(api_client)
     environment_id = "environmentId_example" # str | Environment ID
+    version = "version_example" # str |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # List environment deployment logs v2
         api_response = api_instance.list_environment_logs(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentLogsApi->list_environment_logs: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List environment deployment logs v2
+        api_response = api_instance.list_environment_logs(environment_id, version=version)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling EnvironmentLogsApi->list_environment_logs: %s\n" % e)
@@ -142,6 +152,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **environment_id** | **str**| Environment ID |
+ **version** | **str**|  | [optional]
 
 ### Return type
 
