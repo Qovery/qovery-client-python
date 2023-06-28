@@ -236,6 +236,7 @@ docs/EnvironmentDeploymentRuleAllOf.md
 docs/EnvironmentDeploymentRuleApi.md
 docs/EnvironmentDeploymentRuleEditRequest.md
 docs/EnvironmentEditRequest.md
+docs/EnvironmentExportApi.md
 docs/EnvironmentLog.md
 docs/EnvironmentLogPaginatedResponseList.md
 docs/EnvironmentLogPaginatedResponseListAllOf.md
@@ -549,6 +550,7 @@ qovery/api/environment_actions_api.py
 qovery/api/environment_api.py
 qovery/api/environment_deployment_history_api.py
 qovery/api/environment_deployment_rule_api.py
+qovery/api/environment_export_api.py
 qovery/api/environment_logs_api.py
 qovery/api/environment_main_calls_api.py
 qovery/api/environment_secret_api.py
@@ -1256,6 +1258,7 @@ test/test_environment_deployment_rule_all_of.py
 test/test_environment_deployment_rule_api.py
 test/test_environment_deployment_rule_edit_request.py
 test/test_environment_edit_request.py
+test/test_environment_export_api.py
 test/test_environment_log.py
 test/test_environment_log_paginated_response_list.py
 test/test_environment_log_paginated_response_list_all_of.py

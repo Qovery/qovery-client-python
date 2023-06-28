@@ -55,6 +55,7 @@ from qovery.api.environment_api import EnvironmentApi
 from qovery.api.environment_actions_api import EnvironmentActionsApi
 from qovery.api.environment_deployment_history_api import EnvironmentDeploymentHistoryApi
 from qovery.api.environment_deployment_rule_api import EnvironmentDeploymentRuleApi
+from qovery.api.environment_export_api import EnvironmentExportApi
 from qovery.api.environment_logs_api import EnvironmentLogsApi
 from qovery.api.environment_main_calls_api import EnvironmentMainCallsApi
 from qovery.api.environment_secret_api import EnvironmentSecretApi

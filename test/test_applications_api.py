@@ -31,13 +31,6 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
-    def test_export_environment_configuration_into_terraform(self):
-        """Test case for export_environment_configuration_into_terraform
-
-        Export full environment and its resources into Terraform manifests  # noqa: E501
-        """
-        pass
-
     def test_get_default_application_advanced_settings(self):
         """Test case for get_default_application_advanced_settings
 
