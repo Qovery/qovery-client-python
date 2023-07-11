@@ -105,9 +105,9 @@ class EnvironmentVariable(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'key': (str,),  # noqa: E501
-            'value': (str,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
+            'value': (str,),  # noqa: E501
             'mount_path': (str, none_type,),  # noqa: E501
             'overridden_variable': (EnvironmentVariableOverride,),  # noqa: E501
             'aliased_variable': (EnvironmentVariableAlias,),  # noqa: E501
@@ -127,9 +127,9 @@ class EnvironmentVariable(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'key': 'key',  # noqa: E501
-        'value': 'value',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'value': 'value',  # noqa: E501
         'mount_path': 'mount_path',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
@@ -155,7 +155,6 @@ class EnvironmentVariable(ModelComposed):
             id (str):
             created_at (datetime):
             key (str): key is case sensitive.
-            value (str): value of the env variable.
             scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -188,6 +187,7 @@ class EnvironmentVariable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            value (str): value of the env variable.. [optional]  # noqa: E501
             mount_path (str, none_type): should be set for file only. variable mount path makes variable a file (where file should be mounted).. [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
@@ -270,7 +270,6 @@ class EnvironmentVariable(ModelComposed):
 
         Keyword Args:
             key (str): key is case sensitive.
-            value (str): value of the env variable.
             scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -303,6 +302,7 @@ class EnvironmentVariable(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            value (str): value of the env variable.. [optional]  # noqa: E501
             mount_path (str, none_type): should be set for file only. variable mount path makes variable a file (where file should be mounted).. [optional]  # noqa: E501
             overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
             aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
