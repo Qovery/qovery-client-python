@@ -14,9 +14,9 @@ import unittest
 
 import qovery
 from qovery.model.cloud_provider_enum import CloudProviderEnum
-from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
+from qovery.model.get_organization_event_targets200_response_targets_inner import GetOrganizationEventTargets200ResponseTargetsInner
 globals()['CloudProviderEnum'] = CloudProviderEnum
-globals()['ClusterCloudProviderInfoCredentials'] = ClusterCloudProviderInfoCredentials
+globals()['GetOrganizationEventTargets200ResponseTargetsInner'] = GetOrganizationEventTargets200ResponseTargetsInner
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
 
 

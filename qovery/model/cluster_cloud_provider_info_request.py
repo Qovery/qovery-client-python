@@ -32,9 +32,9 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cloud_provider_enum import CloudProviderEnum
-    from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
+    from qovery.model.get_organization_event_targets200_response_targets_inner import GetOrganizationEventTargets200ResponseTargetsInner
     globals()['CloudProviderEnum'] = CloudProviderEnum
-    globals()['ClusterCloudProviderInfoCredentials'] = ClusterCloudProviderInfoCredentials
+    globals()['GetOrganizationEventTargets200ResponseTargetsInner'] = GetOrganizationEventTargets200ResponseTargetsInner
 
 
 class ClusterCloudProviderInfoRequest(ModelNormal):
@@ -91,7 +91,7 @@ class ClusterCloudProviderInfoRequest(ModelNormal):
         lazy_import()
         return {
             'cloud_provider': (CloudProviderEnum,),  # noqa: E501
-            'credentials': (ClusterCloudProviderInfoCredentials,),  # noqa: E501
+            'credentials': (GetOrganizationEventTargets200ResponseTargetsInner,),  # noqa: E501
             'region': (str,),  # noqa: E501
         }
 
@@ -148,7 +148,7 @@ class ClusterCloudProviderInfoRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cloud_provider (CloudProviderEnum): [optional]  # noqa: E501
-            credentials (ClusterCloudProviderInfoCredentials): [optional]  # noqa: E501
+            credentials (GetOrganizationEventTargets200ResponseTargetsInner): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
         """
 
@@ -236,7 +236,7 @@ class ClusterCloudProviderInfoRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             cloud_provider (CloudProviderEnum): [optional]  # noqa: E501
-            credentials (ClusterCloudProviderInfoCredentials): [optional]  # noqa: E501
+            credentials (GetOrganizationEventTargets200ResponseTargetsInner): [optional]  # noqa: E501
             region (str): [optional]  # noqa: E501
         """
 

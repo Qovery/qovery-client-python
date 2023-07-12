@@ -22,6 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.get_organization_event_targets200_response import GetOrganizationEventTargets200Response
 from qovery.model.organization_event_origin import OrganizationEventOrigin
 from qovery.model.organization_event_response_list import OrganizationEventResponseList
 from qovery.model.organization_event_sub_target_type import OrganizationEventSubTargetType
@@ -40,6 +41,99 @@ class OrganizationEventApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.get_organization_event_targets_endpoint = _Endpoint(
+            settings={
+                'response_type': (GetOrganizationEventTargets200Response,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/targets',
+                'operation_id': 'get_organization_event_targets',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'from_timestamp',
+                    'to_timestamp',
+                    'event_type',
+                    'target_type',
+                    'triggered_by',
+                    'origin',
+                    'project_id',
+                    'environment_id',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                    'from_timestamp',
+                    'to_timestamp',
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'from_timestamp':
+                        (str, none_type,),
+                    'to_timestamp':
+                        (str, none_type,),
+                    'event_type':
+                        (OrganizationEventType,),
+                    'target_type':
+                        (OrganizationEventTargetType,),
+                    'triggered_by':
+                        (str,),
+                    'origin':
+                        (OrganizationEventOrigin,),
+                    'project_id':
+                        (str,),
+                    'environment_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                    'from_timestamp': 'fromTimestamp',
+                    'to_timestamp': 'toTimestamp',
+                    'event_type': 'eventType',
+                    'target_type': 'targetType',
+                    'triggered_by': 'triggeredBy',
+                    'origin': 'origin',
+                    'project_id': 'projectId',
+                    'environment_id': 'environmentId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'from_timestamp': 'query',
+                    'to_timestamp': 'query',
+                    'event_type': 'query',
+                    'target_type': 'query',
+                    'triggered_by': 'query',
+                    'origin': 'query',
+                    'project_id': 'query',
+                    'environment_id': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_organization_events_endpoint = _Endpoint(
             settings={
                 'response_type': (OrganizationEventResponseList,),
@@ -150,6 +244,97 @@ class OrganizationEventApi(object):
             },
             api_client=api_client
         )
+
+    def get_organization_event_targets(
+        self,
+        organization_id,
+        **kwargs
+    ):
+        """Get available event targets to filter events  # noqa: E501
+
+        Get available event targets to filter events  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_organization_event_targets(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+
+        Keyword Args:
+            from_timestamp (str, none_type): Display targets available since this timestamp.   A range of date can be specified by using `from-timestamp` with `to-timestamp` The format is a timestamp with nano precision . [optional]
+            to_timestamp (str, none_type): Display targets triggered before this timestamp.   A range of date can be specified by using `to-timestamp` with `from-timestamp` The format is a timestamp with nano precision . [optional]
+            event_type (OrganizationEventType): [optional]
+            target_type (OrganizationEventTargetType): [optional]
+            triggered_by (str): Information about the owner of the event (user name / apitoken / automatic action). [optional]
+            origin (OrganizationEventOrigin): [optional]
+            project_id (str): Mandatory when requesting an environment or a service. [optional]
+            environment_id (str): Mandatory when requesting a service. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GetOrganizationEventTargets200Response
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.get_organization_event_targets_endpoint.call_with_http_info(**kwargs)
 
     def get_organization_events(
         self,

@@ -24,6 +24,13 @@ class TestOrganizationEventApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_organization_event_targets(self):
+        """Test case for get_organization_event_targets
+
+        Get available event targets to filter events  # noqa: E501
+        """
+        pass
+
     def test_get_organization_events(self):
         """Test case for get_organization_events
 

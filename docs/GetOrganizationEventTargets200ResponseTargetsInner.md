@@ -1,4 +1,4 @@
-# ClusterCloudProviderInfoCredentials
+# GetOrganizationEventTargets200ResponseTargetsInner
 
 
 ## Properties

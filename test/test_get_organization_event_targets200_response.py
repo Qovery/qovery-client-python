@@ -13,15 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cloud_provider_enum import CloudProviderEnum
 from qovery.model.get_organization_event_targets200_response_targets_inner import GetOrganizationEventTargets200ResponseTargetsInner
-globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['GetOrganizationEventTargets200ResponseTargetsInner'] = GetOrganizationEventTargets200ResponseTargetsInner
-from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
+from qovery.model.get_organization_event_targets200_response import GetOrganizationEventTargets200Response
 
 
-class TestClusterCloudProviderInfo(unittest.TestCase):
-    """ClusterCloudProviderInfo unit test stubs"""
+class TestGetOrganizationEventTargets200Response(unittest.TestCase):
+    """GetOrganizationEventTargets200Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +27,10 @@ class TestClusterCloudProviderInfo(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterCloudProviderInfo(self):
-        """Test ClusterCloudProviderInfo"""
+    def testGetOrganizationEventTargets200Response(self):
+        """Test GetOrganizationEventTargets200Response"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterCloudProviderInfo()  # noqa: E501
+        # model = GetOrganizationEventTargets200Response()  # noqa: E501
         pass
 
 

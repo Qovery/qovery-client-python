@@ -404,6 +404,7 @@ Class | Method | HTTP request | Description
 *OrganizationCustomRoleApi* | [**edit_organization_custom_role**](docs/OrganizationCustomRoleApi.md#edit_organization_custom_role) | **PUT** /organization/{organizationId}/customRole/{customRoleId} | Edit an organization custom role
 *OrganizationCustomRoleApi* | [**get_organization_custom_role**](docs/OrganizationCustomRoleApi.md#get_organization_custom_role) | **GET** /organization/{organizationId}/customRole/{customRoleId} | Get an organization custom role 
 *OrganizationCustomRoleApi* | [**list_organization_custom_roles**](docs/OrganizationCustomRoleApi.md#list_organization_custom_roles) | **GET** /organization/{organizationId}/customRole | List organization custom roles
+*OrganizationEventApi* | [**get_organization_event_targets**](docs/OrganizationEventApi.md#get_organization_event_targets) | **GET** /organization/{organizationId}/targets | Get available event targets to filter events
 *OrganizationEventApi* | [**get_organization_events**](docs/OrganizationEventApi.md#get_organization_events) | **GET** /organization/{organizationId}/events | Get all events inside the organization
 *OrganizationMainCallsApi* | [**create_organization**](docs/OrganizationMainCallsApi.md#create_organization) | **POST** /organization | Create an organization
 *OrganizationMainCallsApi* | [**delete_organization**](docs/OrganizationMainCallsApi.md#delete_organization) | **DELETE** /organization/{organizationId} | Delete an organization
@@ -495,7 +496,6 @@ Class | Method | HTTP request | Description
  - [ClusterAdvancedSettings](docs/ClusterAdvancedSettings.md)
  - [ClusterAllOf](docs/ClusterAllOf.md)
  - [ClusterCloudProviderInfo](docs/ClusterCloudProviderInfo.md)
- - [ClusterCloudProviderInfoCredentials](docs/ClusterCloudProviderInfoCredentials.md)
  - [ClusterCloudProviderInfoRequest](docs/ClusterCloudProviderInfoRequest.md)
  - [ClusterCredentials](docs/ClusterCredentials.md)
  - [ClusterCredentialsResponseList](docs/ClusterCredentialsResponseList.md)
@@ -676,6 +676,8 @@ Class | Method | HTTP request | Description
  - [GenericObjectCurrentCost](docs/GenericObjectCurrentCost.md)
  - [GetEnvironmentStatuses200Response](docs/GetEnvironmentStatuses200Response.md)
  - [GetEnvironmentStatusesWithStages200Response](docs/GetEnvironmentStatusesWithStages200Response.md)
+ - [GetOrganizationEventTargets200Response](docs/GetOrganizationEventTargets200Response.md)
+ - [GetOrganizationEventTargets200ResponseTargetsInner](docs/GetOrganizationEventTargets200ResponseTargetsInner.md)
  - [GitAuthProvider](docs/GitAuthProvider.md)
  - [GitAuthProviderResponseList](docs/GitAuthProviderResponseList.md)
  - [GitProviderEnum](docs/GitProviderEnum.md)
