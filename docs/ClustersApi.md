@@ -1383,7 +1383,7 @@ with qovery.ApiClient(configuration) as api_client:
     cluster_id = "clusterId_example" # str | Cluster ID
     cluster_cloud_provider_info_request = ClusterCloudProviderInfoRequest(
         cloud_provider=CloudProviderEnum("AWS"),
-        credentials=GetOrganizationEventTargets200ResponseTargetsInner(
+        credentials=ClusterCloudProviderInfoCredentials(
             id="id_example",
             name="name_example",
         ),

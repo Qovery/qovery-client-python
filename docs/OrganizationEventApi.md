@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_organization_event_targets**
-> GetOrganizationEventTargets200Response get_organization_event_targets(organization_id)
+> OrganizationEventTargetResponseList get_organization_event_targets(organization_id)
 
 Get available event targets to filter events
 
@@ -25,7 +25,7 @@ import qovery
 from qovery.api import organization_event_api
 from qovery.model.organization_event_target_type import OrganizationEventTargetType
 from qovery.model.organization_event_type import OrganizationEventType
-from qovery.model.get_organization_event_targets200_response import GetOrganizationEventTargets200Response
+from qovery.model.organization_event_target_response_list import OrganizationEventTargetResponseList
 from qovery.model.organization_event_origin import OrganizationEventOrigin
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetOrganizationEventTargets200Response**](GetOrganizationEventTargets200Response.md)
+[**OrganizationEventTargetResponseList**](OrganizationEventTargetResponseList.md)
 
 ### Authorization
 

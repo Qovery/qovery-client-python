@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.get_organization_event_targets200_response_targets_inner import GetOrganizationEventTargets200ResponseTargetsInner
+from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
 
 
-class TestGetOrganizationEventTargets200ResponseTargetsInner(unittest.TestCase):
-    """GetOrganizationEventTargets200ResponseTargetsInner unit test stubs"""
+class TestClusterCloudProviderInfoCredentials(unittest.TestCase):
+    """ClusterCloudProviderInfoCredentials unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestGetOrganizationEventTargets200ResponseTargetsInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGetOrganizationEventTargets200ResponseTargetsInner(self):
-        """Test GetOrganizationEventTargets200ResponseTargetsInner"""
+    def testClusterCloudProviderInfoCredentials(self):
+        """Test ClusterCloudProviderInfoCredentials"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GetOrganizationEventTargets200ResponseTargetsInner()  # noqa: E501
+        # model = ClusterCloudProviderInfoCredentials()  # noqa: E501
         pass
 
 

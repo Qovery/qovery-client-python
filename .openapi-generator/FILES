@@ -70,6 +70,7 @@ docs/Cluster.md
 docs/ClusterAdvancedSettings.md
 docs/ClusterAllOf.md
 docs/ClusterCloudProviderInfo.md
+docs/ClusterCloudProviderInfoCredentials.md
 docs/ClusterCloudProviderInfoRequest.md
 docs/ClusterCredentials.md
 docs/ClusterCredentialsResponseList.md
@@ -281,8 +282,6 @@ docs/EventResponseList.md
 docs/GenericObjectCurrentCost.md
 docs/GetEnvironmentStatuses200Response.md
 docs/GetEnvironmentStatusesWithStages200Response.md
-docs/GetOrganizationEventTargets200Response.md
-docs/GetOrganizationEventTargets200ResponseTargetsInner.md
 docs/GitAuthProvider.md
 docs/GitAuthProviderResponseList.md
 docs/GitProviderEnum.md
@@ -411,6 +410,7 @@ docs/OrganizationEventResponse.md
 docs/OrganizationEventResponseList.md
 docs/OrganizationEventResponseListLinks.md
 docs/OrganizationEventSubTargetType.md
+docs/OrganizationEventTargetResponseList.md
 docs/OrganizationEventTargetType.md
 docs/OrganizationEventType.md
 docs/OrganizationGithubAppConnectRequest.md
@@ -641,6 +641,7 @@ qovery/model/cluster.py
 qovery/model/cluster_advanced_settings.py
 qovery/model/cluster_all_of.py
 qovery/model/cluster_cloud_provider_info.py
+qovery/model/cluster_cloud_provider_info_credentials.py
 qovery/model/cluster_cloud_provider_info_request.py
 qovery/model/cluster_credentials.py
 qovery/model/cluster_credentials_response_list.py
@@ -821,8 +822,6 @@ qovery/model/event_response_list.py
 qovery/model/generic_object_current_cost.py
 qovery/model/get_environment_statuses200_response.py
 qovery/model/get_environment_statuses_with_stages200_response.py
-qovery/model/get_organization_event_targets200_response.py
-qovery/model/get_organization_event_targets200_response_targets_inner.py
 qovery/model/git_auth_provider.py
 qovery/model/git_auth_provider_response_list.py
 qovery/model/git_provider_enum.py
@@ -936,6 +935,7 @@ qovery/model/organization_event_response.py
 qovery/model/organization_event_response_list.py
 qovery/model/organization_event_response_list_links.py
 qovery/model/organization_event_sub_target_type.py
+qovery/model/organization_event_target_response_list.py
 qovery/model/organization_event_target_type.py
 qovery/model/organization_event_type.py
 qovery/model/organization_github_app_connect_request.py
@@ -1102,6 +1102,7 @@ test/test_cluster.py
 test/test_cluster_advanced_settings.py
 test/test_cluster_all_of.py
 test/test_cluster_cloud_provider_info.py
+test/test_cluster_cloud_provider_info_credentials.py
 test/test_cluster_cloud_provider_info_request.py
 test/test_cluster_credentials.py
 test/test_cluster_credentials_response_list.py
@@ -1313,8 +1314,6 @@ test/test_event_response_list.py
 test/test_generic_object_current_cost.py
 test/test_get_environment_statuses200_response.py
 test/test_get_environment_statuses_with_stages200_response.py
-test/test_get_organization_event_targets200_response.py
-test/test_get_organization_event_targets200_response_targets_inner.py
 test/test_git_auth_provider.py
 test/test_git_auth_provider_response_list.py
 test/test_git_provider_enum.py
@@ -1443,6 +1442,7 @@ test/test_organization_event_response.py
 test/test_organization_event_response_list.py
 test/test_organization_event_response_list_links.py
 test/test_organization_event_sub_target_type.py
+test/test_organization_event_target_response_list.py
 test/test_organization_event_target_type.py
 test/test_organization_event_type.py
 test/test_organization_github_app_connect_request.py

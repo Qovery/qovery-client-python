@@ -22,10 +22,10 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.get_organization_event_targets200_response import GetOrganizationEventTargets200Response
 from qovery.model.organization_event_origin import OrganizationEventOrigin
 from qovery.model.organization_event_response_list import OrganizationEventResponseList
 from qovery.model.organization_event_sub_target_type import OrganizationEventSubTargetType
+from qovery.model.organization_event_target_response_list import OrganizationEventTargetResponseList
 from qovery.model.organization_event_target_type import OrganizationEventTargetType
 from qovery.model.organization_event_type import OrganizationEventType
 
@@ -43,7 +43,7 @@ class OrganizationEventApi(object):
         self.api_client = api_client
         self.get_organization_event_targets_endpoint = _Endpoint(
             settings={
-                'response_type': (GetOrganizationEventTargets200Response,),
+                'response_type': (OrganizationEventTargetResponseList,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -303,7 +303,7 @@ class OrganizationEventApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            GetOrganizationEventTargets200Response
+            OrganizationEventTargetResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """
