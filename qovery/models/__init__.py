@@ -48,6 +48,10 @@ from qovery.model.budget import Budget
 from qovery.model.budget_threshold import BudgetThreshold
 from qovery.model.build_mode_enum import BuildModeEnum
 from qovery.model.build_pack_language_enum import BuildPackLanguageEnum
+from qovery.model.clone_application_request import CloneApplicationRequest
+from qovery.model.clone_container_request import CloneContainerRequest
+from qovery.model.clone_database_request import CloneDatabaseRequest
+from qovery.model.clone_job_request import CloneJobRequest
 from qovery.model.clone_request import CloneRequest
 from qovery.model.cloud_provider import CloudProvider
 from qovery.model.cloud_provider_enum import CloudProviderEnum

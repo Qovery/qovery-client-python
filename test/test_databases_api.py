@@ -24,6 +24,13 @@ class TestDatabasesApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_clone_database(self):
+        """Test case for clone_database
+
+        Clone database  # noqa: E501
+        """
+        pass
+
     def test_create_database(self):
         """Test case for create_database
 

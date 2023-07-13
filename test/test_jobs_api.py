@@ -24,6 +24,13 @@ class TestJobsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_clone_job(self):
+        """Test case for clone_job
+
+        Clone job  # noqa: E501
+        """
+        pass
+
     def test_create_job(self):
         """Test case for create_job
 

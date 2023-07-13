@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
 *ApplicationSecretApi* | [**delete_application_secret**](docs/ApplicationSecretApi.md#delete_application_secret) | **DELETE** /application/{applicationId}/secret/{secretId} | Delete a secret from an application
 *ApplicationSecretApi* | [**edit_application_secret**](docs/ApplicationSecretApi.md#edit_application_secret) | **PUT** /application/{applicationId}/secret/{secretId} | Edit a secret belonging to the application
 *ApplicationSecretApi* | [**list_application_secrets**](docs/ApplicationSecretApi.md#list_application_secrets) | **GET** /application/{applicationId}/secret | List application secrets
+*ApplicationsApi* | [**clone_application**](docs/ApplicationsApi.md#clone_application) | **POST** /application/{applicationId}/clone | Clone application
 *ApplicationsApi* | [**create_application**](docs/ApplicationsApi.md#create_application) | **POST** /environment/{environmentId}/application | Create an application
 *ApplicationsApi* | [**get_default_application_advanced_settings**](docs/ApplicationsApi.md#get_default_application_advanced_settings) | **GET** /defaultApplicationAdvancedSettings | List default application advanced settings
 *ApplicationsApi* | [**get_environment_application_current_scale**](docs/ApplicationsApi.md#get_environment_application_current_scale) | **GET** /environment/{environmentId}/application/currentScale | List current scaling information for each application
@@ -256,6 +257,7 @@ Class | Method | HTTP request | Description
 *ContainerSecretApi* | [**edit_container_secret**](docs/ContainerSecretApi.md#edit_container_secret) | **PUT** /container/{containerId}/secret/{secretId} | Edit a secret belonging to the container
 *ContainerSecretApi* | [**list_container_secrets**](docs/ContainerSecretApi.md#list_container_secrets) | **GET** /container/{containerId}/secret | List container secrets
 *ContainersApi* | [**auto_deploy_container_environments**](docs/ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | Auto deploy containers
+*ContainersApi* | [**clone_container**](docs/ContainersApi.md#clone_container) | **POST** /container/{containerId}/clone | Clone container
 *ContainersApi* | [**create_container**](docs/ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
 *ContainersApi* | [**get_container_registry_container_status**](docs/ContainersApi.md#get_container_registry_container_status) | **GET** /organization/{organizationId}/containerRegistry/{containerRegistryId}/container/status | List all container registry container statuses
 *ContainersApi* | [**get_default_container_advanced_settings**](docs/ContainersApi.md#get_default_container_advanced_settings) | **GET** /defaultContainerAdvancedSettings | List default container advanced settings
@@ -290,6 +292,7 @@ Class | Method | HTTP request | Description
 *DatabaseMetricsApi* | [**get_database_metric_health_check**](docs/DatabaseMetricsApi.md#get_database_metric_health_check) | **GET** /database/{databaseId}/metric/healthCheck | Get Health Check latency  metric over time for the database
 *DatabaseMetricsApi* | [**get_database_metric_memory**](docs/DatabaseMetricsApi.md#get_database_metric_memory) | **GET** /database/{databaseId}/metric/memory | Get Memory consumption metric over time for the database
 *DatabaseMetricsApi* | [**get_database_metric_storage**](docs/DatabaseMetricsApi.md#get_database_metric_storage) | **GET** /database/{databaseId}/metric/storage | Get Storage consumption metric over time for the database
+*DatabasesApi* | [**clone_database**](docs/DatabasesApi.md#clone_database) | **POST** /database/{databaseId}/clone | Clone database
 *DatabasesApi* | [**create_database**](docs/DatabasesApi.md#create_database) | **POST** /environment/{environmentId}/database | Create a database
 *DatabasesApi* | [**get_environment_database_status**](docs/DatabasesApi.md#get_environment_database_status) | **GET** /environment/{environmentId}/database/status | List all environment databases statuses
 *DatabasesApi* | [**list_database**](docs/DatabasesApi.md#list_database) | **GET** /environment/{environmentId}/database | List environment databases
@@ -376,6 +379,7 @@ Class | Method | HTTP request | Description
 *JobSecretApi* | [**delete_job_secret**](docs/JobSecretApi.md#delete_job_secret) | **DELETE** /job/{jobId}/secret/{secretId} | Delete a secret from an job
 *JobSecretApi* | [**edit_job_secret**](docs/JobSecretApi.md#edit_job_secret) | **PUT** /job/{jobId}/secret/{secretId} | Edit a secret belonging to the job
 *JobSecretApi* | [**list_job_secrets**](docs/JobSecretApi.md#list_job_secrets) | **GET** /job/{jobId}/secret | List job secrets
+*JobsApi* | [**clone_job**](docs/JobsApi.md#clone_job) | **POST** /job/{jobId}/clone | Clone job
 *JobsApi* | [**create_job**](docs/JobsApi.md#create_job) | **POST** /environment/{environmentId}/job | Create a job
 *JobsApi* | [**get_default_job_advanced_settings**](docs/JobsApi.md#get_default_job_advanced_settings) | **GET** /defaultJobAdvancedSettings | List default job advanced settings
 *JobsApi* | [**get_environment_job_status**](docs/JobsApi.md#get_environment_job_status) | **GET** /environment/{environmentId}/job/status | List all environment job statuses
@@ -488,6 +492,10 @@ Class | Method | HTTP request | Description
  - [BudgetThreshold](docs/BudgetThreshold.md)
  - [BuildModeEnum](docs/BuildModeEnum.md)
  - [BuildPackLanguageEnum](docs/BuildPackLanguageEnum.md)
+ - [CloneApplicationRequest](docs/CloneApplicationRequest.md)
+ - [CloneContainerRequest](docs/CloneContainerRequest.md)
+ - [CloneDatabaseRequest](docs/CloneDatabaseRequest.md)
+ - [CloneJobRequest](docs/CloneJobRequest.md)
  - [CloneRequest](docs/CloneRequest.md)
  - [CloudProvider](docs/CloudProvider.md)
  - [CloudProviderEnum](docs/CloudProviderEnum.md)

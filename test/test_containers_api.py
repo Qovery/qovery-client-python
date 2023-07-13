@@ -31,6 +31,13 @@ class TestContainersApi(unittest.TestCase):
         """
         pass
 
+    def test_clone_container(self):
+        """Test case for clone_container
+
+        Clone container  # noqa: E501
+        """
+        pass
+
     def test_create_container(self):
         """Test case for create_container
 

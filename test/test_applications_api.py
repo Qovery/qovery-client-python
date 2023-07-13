@@ -24,6 +24,13 @@ class TestApplicationsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_clone_application(self):
+        """Test case for clone_application
+
+        Clone application  # noqa: E501
+        """
+        pass
+
     def test_create_application(self):
         """Test case for create_application
 
