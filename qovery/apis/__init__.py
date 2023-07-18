@@ -85,3 +85,4 @@ from qovery.api.project_secret_api import ProjectSecretApi
 from qovery.api.projects_api import ProjectsApi
 from qovery.api.referral_rewards_api import ReferralRewardsApi
 from qovery.api.user_sign_up_api import UserSignUpApi
+from qovery.api.variable_main_calls_api import VariableMainCallsApi

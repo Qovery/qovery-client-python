@@ -439,10 +439,13 @@ from qovery.model.unexpected_error import UnexpectedError
 from qovery.model.user import User
 from qovery.model.user_response_list import UserResponseList
 from qovery.model.value import Value
+from qovery.model.variable_alias_request import VariableAliasRequest
 from qovery.model.variable_import import VariableImport
 from qovery.model.variable_import_request import VariableImportRequest
 from qovery.model.variable_import_request_vars_inner import VariableImportRequestVarsInner
 from qovery.model.variable_import_successful_imported_variables_inner import VariableImportSuccessfulImportedVariablesInner
+from qovery.model.variable_response import VariableResponse
+from qovery.model.variable_response_all_of import VariableResponseAllOf
 from qovery.model.version import Version
 from qovery.model.version_response_list import VersionResponseList
 from qovery.model.weekday_enum import WeekdayEnum
