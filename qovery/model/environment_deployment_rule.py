@@ -102,7 +102,6 @@ class EnvironmentDeploymentRule(ModelComposed):
             'auto_deploy': (bool,),  # noqa: E501
             'on_demand_preview': (bool,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
-            'auto_delete': (bool,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
         }
 
@@ -122,7 +121,6 @@ class EnvironmentDeploymentRule(ModelComposed):
         'auto_deploy': 'auto_deploy',  # noqa: E501
         'on_demand_preview': 'on_demand_preview',  # noqa: E501
         'auto_stop': 'auto_stop',  # noqa: E501
-        'auto_delete': 'auto_delete',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
     }
 
@@ -178,7 +176,6 @@ class EnvironmentDeploymentRule(ModelComposed):
             auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             on_demand_preview (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_preview (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
@@ -291,7 +288,6 @@ class EnvironmentDeploymentRule(ModelComposed):
             auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             on_demand_preview (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_preview (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 

@@ -101,7 +101,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
-            'auto_delete': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -121,7 +120,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
         'description': 'description',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
         'auto_stop': 'auto_stop',  # noqa: E501
-        'auto_delete': 'auto_delete',  # noqa: E501
     }
 
     read_only_vars = {
@@ -178,7 +176,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
             description (str, none_type): [optional]  # noqa: E501
             auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         wildcard = kwargs.get('wildcard', "")
@@ -286,7 +283,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
             description (str, none_type): [optional]  # noqa: E501
             auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            auto_delete (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         wildcard = kwargs.get('wildcard', "")
