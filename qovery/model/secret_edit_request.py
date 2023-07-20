@@ -82,8 +82,8 @@ class SecretEditRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'value': (str,),  # noqa: E501
             'key': (str,),  # noqa: E501
+            'value': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +92,8 @@ class SecretEditRequest(ModelNormal):
 
 
     attribute_map = {
-        'value': 'value',  # noqa: E501
         'key': 'key',  # noqa: E501
+        'value': 'value',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,11 +103,10 @@ class SecretEditRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, value, key, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, key, *args, **kwargs):  # noqa: E501
         """SecretEditRequest - a model defined in OpenAPI
 
         Args:
-            value (str):
             key (str):
 
         Keyword Args:
@@ -141,6 +140,7 @@ class SecretEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            value (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -172,7 +172,6 @@ class SecretEditRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.value = value
         self.key = key
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -194,11 +193,10 @@ class SecretEditRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, value, key, *args, **kwargs):  # noqa: E501
+    def __init__(self, key, *args, **kwargs):  # noqa: E501
         """SecretEditRequest - a model defined in OpenAPI
 
         Args:
-            value (str):
             key (str):
 
         Keyword Args:
@@ -232,6 +230,7 @@ class SecretEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            value (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,7 +260,6 @@ class SecretEditRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.value = value
         self.key = key
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
