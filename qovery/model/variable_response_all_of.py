@@ -33,18 +33,14 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
     from qovery.model.api_variable_type_enum import APIVariableTypeEnum
-    from qovery.model.environment_variable_alias import EnvironmentVariableAlias
-    from qovery.model.environment_variable_override import EnvironmentVariableOverride
     from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
-    from qovery.model.secret_alias import SecretAlias
-    from qovery.model.secret_override import SecretOverride
+    from qovery.model.variable_alias import VariableAlias
+    from qovery.model.variable_override import VariableOverride
     globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
     globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
-    globals()['EnvironmentVariableAlias'] = EnvironmentVariableAlias
-    globals()['EnvironmentVariableOverride'] = EnvironmentVariableOverride
     globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
-    globals()['SecretAlias'] = SecretAlias
-    globals()['SecretOverride'] = SecretOverride
+    globals()['VariableAlias'] = VariableAlias
+    globals()['VariableOverride'] = VariableOverride
 
 
 class VariableResponseAllOf(ModelNormal):
@@ -101,10 +97,8 @@ class VariableResponseAllOf(ModelNormal):
         lazy_import()
         return {
             'scope': (APIVariableScopeEnum,),  # noqa: E501
-            'overridden_variable': (EnvironmentVariableOverride,),  # noqa: E501
-            'aliased_variable': (EnvironmentVariableAlias,),  # noqa: E501
-            'overridden_secret': (SecretOverride,),  # noqa: E501
-            'aliased_secret': (SecretAlias,),  # noqa: E501
+            'overridden_variable': (VariableOverride,),  # noqa: E501
+            'aliased_variable': (VariableAlias,),  # noqa: E501
             'variable_type': (APIVariableTypeEnum,),  # noqa: E501
             'service_id': (str,),  # noqa: E501
             'service_name': (str,),  # noqa: E501
@@ -121,8 +115,6 @@ class VariableResponseAllOf(ModelNormal):
         'scope': 'scope',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
-        'overridden_secret': 'overridden_secret',  # noqa: E501
-        'aliased_secret': 'aliased_secret',  # noqa: E501
         'variable_type': 'variable_type',  # noqa: E501
         'service_id': 'service_id',  # noqa: E501
         'service_name': 'service_name',  # noqa: E501
@@ -174,10 +166,8 @@ class VariableResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
-            aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
-            overridden_secret (SecretOverride): [optional]  # noqa: E501
-            aliased_secret (SecretAlias): [optional]  # noqa: E501
+            overridden_variable (VariableOverride): [optional]  # noqa: E501
+            aliased_variable (VariableAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
@@ -272,10 +262,8 @@ class VariableResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            overridden_variable (EnvironmentVariableOverride): [optional]  # noqa: E501
-            aliased_variable (EnvironmentVariableAlias): [optional]  # noqa: E501
-            overridden_secret (SecretOverride): [optional]  # noqa: E501
-            aliased_secret (SecretAlias): [optional]  # noqa: E501
+            overridden_variable (VariableOverride): [optional]  # noqa: E501
+            aliased_variable (VariableAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
             service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501

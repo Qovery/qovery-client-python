@@ -15,19 +15,13 @@ import unittest
 import qovery
 from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
 from qovery.model.api_variable_type_enum import APIVariableTypeEnum
-from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
-from qovery.model.variable_alias import VariableAlias
-from qovery.model.variable_override import VariableOverride
 globals()['APIVariableScopeEnum'] = APIVariableScopeEnum
 globals()['APIVariableTypeEnum'] = APIVariableTypeEnum
-globals()['LinkedServiceTypeEnum'] = LinkedServiceTypeEnum
-globals()['VariableAlias'] = VariableAlias
-globals()['VariableOverride'] = VariableOverride
-from qovery.model.variable_response_all_of import VariableResponseAllOf
+from qovery.model.variable_override import VariableOverride
 
 
-class TestVariableResponseAllOf(unittest.TestCase):
-    """VariableResponseAllOf unit test stubs"""
+class TestVariableOverride(unittest.TestCase):
+    """VariableOverride unit test stubs"""
 
     def setUp(self):
         pass
@@ -35,10 +29,10 @@ class TestVariableResponseAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testVariableResponseAllOf(self):
-        """Test VariableResponseAllOf"""
+    def testVariableOverride(self):
+        """Test VariableOverride"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = VariableResponseAllOf()  # noqa: E501
+        # model = VariableOverride()  # noqa: E501
         pass
 
 
