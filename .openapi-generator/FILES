@@ -512,6 +512,7 @@ docs/VariableImportRequestVarsInner.md
 docs/VariableImportSuccessfulImportedVariablesInner.md
 docs/VariableMainCallsApi.md
 docs/VariableOverride.md
+docs/VariableOverrideRequest.md
 docs/VariableResponse.md
 docs/VariableResponseAllOf.md
 docs/Version.md
@@ -1034,6 +1035,7 @@ qovery/model/variable_import_request.py
 qovery/model/variable_import_request_vars_inner.py
 qovery/model/variable_import_successful_imported_variables_inner.py
 qovery/model/variable_override.py
+qovery/model/variable_override_request.py
 qovery/model/variable_response.py
 qovery/model/variable_response_all_of.py
 qovery/model/version.py
@@ -1556,6 +1558,7 @@ test/test_variable_import_request_vars_inner.py
 test/test_variable_import_successful_imported_variables_inner.py
 test/test_variable_main_calls_api.py
 test/test_variable_override.py
+test/test_variable_override_request.py
 test/test_variable_response.py
 test/test_variable_response_all_of.py
 test/test_version.py

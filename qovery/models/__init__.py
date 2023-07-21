@@ -446,6 +446,7 @@ from qovery.model.variable_import_request import VariableImportRequest
 from qovery.model.variable_import_request_vars_inner import VariableImportRequestVarsInner
 from qovery.model.variable_import_successful_imported_variables_inner import VariableImportSuccessfulImportedVariablesInner
 from qovery.model.variable_override import VariableOverride
+from qovery.model.variable_override_request import VariableOverrideRequest
 from qovery.model.variable_response import VariableResponse
 from qovery.model.variable_response_all_of import VariableResponseAllOf
 from qovery.model.version import Version

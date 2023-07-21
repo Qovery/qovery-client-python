@@ -449,7 +449,8 @@ Class | Method | HTTP request | Description
 *ReferralRewardsApi* | [**post_account_reward_claim**](docs/ReferralRewardsApi.md#post_account_reward_claim) | **POST** /account/rewardClaim | Claim a reward
 *UserSignUpApi* | [**create_user_sign_up**](docs/UserSignUpApi.md#create_user_sign_up) | **POST** /admin/userSignUp | Send Sign Up request
 *UserSignUpApi* | [**get_user_sign_up**](docs/UserSignUpApi.md#get_user_sign_up) | **GET** /admin/userSignUp | Get Sign up information
-*VariableMainCallsApi* | [**create_variable_alias**](docs/VariableMainCallsApi.md#create_variable_alias) | **POST** /variable/{variableId}/alias | WIP: Create a variable alias
+*VariableMainCallsApi* | [**create_variable_alias**](docs/VariableMainCallsApi.md#create_variable_alias) | **POST** /variable/{variableId}/alias | Create a variable alias
+*VariableMainCallsApi* | [**create_variable_override**](docs/VariableMainCallsApi.md#create_variable_override) | **POST** /variable/{variableId}/override | Create a variable override
 
 
 ## Documentation For Models
@@ -891,6 +892,7 @@ Class | Method | HTTP request | Description
  - [VariableImportRequestVarsInner](docs/VariableImportRequestVarsInner.md)
  - [VariableImportSuccessfulImportedVariablesInner](docs/VariableImportSuccessfulImportedVariablesInner.md)
  - [VariableOverride](docs/VariableOverride.md)
+ - [VariableOverrideRequest](docs/VariableOverrideRequest.md)
  - [VariableResponse](docs/VariableResponse.md)
  - [VariableResponseAllOf](docs/VariableResponseAllOf.md)
  - [Version](docs/Version.md)

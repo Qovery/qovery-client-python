@@ -27,7 +27,14 @@ class TestVariableMainCallsApi(unittest.TestCase):
     def test_create_variable_alias(self):
         """Test case for create_variable_alias
 
-        WIP: Create a variable alias  # noqa: E501
+        Create a variable alias  # noqa: E501
+        """
+        pass
+
+    def test_create_variable_override(self):
+        """Test case for create_variable_override
+
+        Create a variable override  # noqa: E501
         """
         pass
 
