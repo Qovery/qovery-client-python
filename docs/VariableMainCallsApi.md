@@ -4,9 +4,103 @@ All URIs are relative to *https://api.qovery.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_variable**](VariableMainCallsApi.md#create_variable) | **POST** /variable | Create a variable
 [**create_variable_alias**](VariableMainCallsApi.md#create_variable_alias) | **POST** /variable/{variableId}/alias | Create a variable alias
 [**create_variable_override**](VariableMainCallsApi.md#create_variable_override) | **POST** /variable/{variableId}/override | Create a variable override
+[**delete_variable**](VariableMainCallsApi.md#delete_variable) | **DELETE** /variable/{variableId} | Delete a variable
+[**edit_variable**](VariableMainCallsApi.md#edit_variable) | **PUT** /variable/{variableId} | Edit a variable
+[**list_variables**](VariableMainCallsApi.md#list_variables) | **GET** /variable | List variables
 
+
+# **create_variable**
+> VariableResponse create_variable()
+
+Create a variable
+
+- Create a variable at the level defined in the request body. 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import variable_main_calls_api
+from qovery.model.variable_response import VariableResponse
+from qovery.model.variable_request import VariableRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
+    variable_request = VariableRequest(
+        key="key_example",
+        value="value_example",
+        mount_path="mount_path_example",
+        is_secret=True,
+        variable_scope=APIVariableScopeEnum("APPLICATION"),
+        variable_parent_id="variable_parent_id_example",
+    ) # VariableRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create a variable
+        api_response = api_instance.create_variable(variable_request=variable_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling VariableMainCallsApi->create_variable: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variable_request** | [**VariableRequest**](VariableRequest.md)|  | [optional]
+
+### Return type
+
+[**VariableResponse**](VariableResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Create a variable |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_variable_alias**
 > VariableResponse create_variable_alias(variable_id)
@@ -196,6 +290,257 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **201** | Create variable override |  -  |
 **400** | Can&#39;t create an override on a higher scope. Overrides can only be created from one scope to a lower scope. Scope hierarchy is ORGANIZATION &gt; PROJECT &gt; ENVIRONMENT &gt; APPLICATION |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_variable**
+> delete_variable(variable_id)
+
+Delete a variable
+
+- To delete a variable - You can't delete a BUILT_IN variable - If you delete a variable having override or alias, the associated override/alias will be deleted as well 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import variable_main_calls_api
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
+    variable_id = "variableId_example" # str | Variable ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a variable
+        api_instance.delete_variable(variable_id)
+    except qovery.ApiException as e:
+        print("Exception when calling VariableMainCallsApi->delete_variable: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variable_id** | **str**| Variable ID |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The resource was deleted successfully |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **edit_variable**
+> VariableResponse edit_variable(variable_id, variable_edit_request)
+
+Edit a variable
+
+- You can't edit a BUILT_IN variable - For an override, you can't edit the key - For an alias, you can't edit the value 
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import variable_main_calls_api
+from qovery.model.variable_edit_request import VariableEditRequest
+from qovery.model.variable_response import VariableResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
+    variable_id = "variableId_example" # str | Variable ID
+    variable_edit_request = VariableEditRequest(
+        key="key_example",
+        value="value_example",
+    ) # VariableEditRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit a variable
+        api_response = api_instance.edit_variable(variable_id, variable_edit_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling VariableMainCallsApi->edit_variable: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **variable_id** | **str**| Variable ID |
+ **variable_edit_request** | [**VariableEditRequest**](VariableEditRequest.md)|  |
+
+### Return type
+
+[**VariableResponse**](VariableResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Edited variable value |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_variables**
+> VariableResponseList list_variables()
+
+List variables
+
+Returns a list of variables
+
+### Example
+
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import variable_main_calls_api
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.variable_response_list import VariableResponseList
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
+    parent_id = "parent_id_example" # str | the id where the variable will be added (optional)
+    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | the scope of the parent where the variable will be added (optional)
+    is_secret = True # bool, none_type |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # List variables
+        api_response = api_instance.list_variables(parent_id=parent_id, scope=scope, is_secret=is_secret)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling VariableMainCallsApi->list_variables: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **parent_id** | **str**| the id where the variable will be added | [optional]
+ **scope** | **APIVariableScopeEnum**| the scope of the parent where the variable will be added | [optional]
+ **is_secret** | **bool, none_type**|  | [optional]
+
+### Return type
+
+[**VariableResponseList**](VariableResponseList.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List variables |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |

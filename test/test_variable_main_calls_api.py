@@ -24,6 +24,13 @@ class TestVariableMainCallsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_variable(self):
+        """Test case for create_variable
+
+        Create a variable  # noqa: E501
+        """
+        pass
+
     def test_create_variable_alias(self):
         """Test case for create_variable_alias
 
@@ -35,6 +42,27 @@ class TestVariableMainCallsApi(unittest.TestCase):
         """Test case for create_variable_override
 
         Create a variable override  # noqa: E501
+        """
+        pass
+
+    def test_delete_variable(self):
+        """Test case for delete_variable
+
+        Delete a variable  # noqa: E501
+        """
+        pass
+
+    def test_edit_variable(self):
+        """Test case for edit_variable
+
+        Edit a variable  # noqa: E501
+        """
+        pass
+
+    def test_list_variables(self):
+        """Test case for list_variables
+
+        List variables  # noqa: E501
         """
         pass
 

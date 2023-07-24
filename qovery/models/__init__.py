@@ -441,14 +441,17 @@ from qovery.model.user_response_list import UserResponseList
 from qovery.model.value import Value
 from qovery.model.variable_alias import VariableAlias
 from qovery.model.variable_alias_request import VariableAliasRequest
+from qovery.model.variable_edit_request import VariableEditRequest
 from qovery.model.variable_import import VariableImport
 from qovery.model.variable_import_request import VariableImportRequest
 from qovery.model.variable_import_request_vars_inner import VariableImportRequestVarsInner
 from qovery.model.variable_import_successful_imported_variables_inner import VariableImportSuccessfulImportedVariablesInner
 from qovery.model.variable_override import VariableOverride
 from qovery.model.variable_override_request import VariableOverrideRequest
+from qovery.model.variable_request import VariableRequest
 from qovery.model.variable_response import VariableResponse
 from qovery.model.variable_response_all_of import VariableResponseAllOf
+from qovery.model.variable_response_list import VariableResponseList
 from qovery.model.version import Version
 from qovery.model.version_response_list import VersionResponseList
 from qovery.model.weekday_enum import WeekdayEnum

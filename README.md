@@ -449,8 +449,12 @@ Class | Method | HTTP request | Description
 *ReferralRewardsApi* | [**post_account_reward_claim**](docs/ReferralRewardsApi.md#post_account_reward_claim) | **POST** /account/rewardClaim | Claim a reward
 *UserSignUpApi* | [**create_user_sign_up**](docs/UserSignUpApi.md#create_user_sign_up) | **POST** /admin/userSignUp | Send Sign Up request
 *UserSignUpApi* | [**get_user_sign_up**](docs/UserSignUpApi.md#get_user_sign_up) | **GET** /admin/userSignUp | Get Sign up information
+*VariableMainCallsApi* | [**create_variable**](docs/VariableMainCallsApi.md#create_variable) | **POST** /variable | Create a variable
 *VariableMainCallsApi* | [**create_variable_alias**](docs/VariableMainCallsApi.md#create_variable_alias) | **POST** /variable/{variableId}/alias | Create a variable alias
 *VariableMainCallsApi* | [**create_variable_override**](docs/VariableMainCallsApi.md#create_variable_override) | **POST** /variable/{variableId}/override | Create a variable override
+*VariableMainCallsApi* | [**delete_variable**](docs/VariableMainCallsApi.md#delete_variable) | **DELETE** /variable/{variableId} | Delete a variable
+*VariableMainCallsApi* | [**edit_variable**](docs/VariableMainCallsApi.md#edit_variable) | **PUT** /variable/{variableId} | Edit a variable
+*VariableMainCallsApi* | [**list_variables**](docs/VariableMainCallsApi.md#list_variables) | **GET** /variable | List variables
 
 
 ## Documentation For Models
@@ -887,14 +891,17 @@ Class | Method | HTTP request | Description
  - [Value](docs/Value.md)
  - [VariableAlias](docs/VariableAlias.md)
  - [VariableAliasRequest](docs/VariableAliasRequest.md)
+ - [VariableEditRequest](docs/VariableEditRequest.md)
  - [VariableImport](docs/VariableImport.md)
  - [VariableImportRequest](docs/VariableImportRequest.md)
  - [VariableImportRequestVarsInner](docs/VariableImportRequestVarsInner.md)
  - [VariableImportSuccessfulImportedVariablesInner](docs/VariableImportSuccessfulImportedVariablesInner.md)
  - [VariableOverride](docs/VariableOverride.md)
  - [VariableOverrideRequest](docs/VariableOverrideRequest.md)
+ - [VariableRequest](docs/VariableRequest.md)
  - [VariableResponse](docs/VariableResponse.md)
  - [VariableResponseAllOf](docs/VariableResponseAllOf.md)
+ - [VariableResponseList](docs/VariableResponseList.md)
  - [Version](docs/Version.md)
  - [VersionResponseList](docs/VersionResponseList.md)
  - [WeekdayEnum](docs/WeekdayEnum.md)

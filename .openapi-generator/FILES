@@ -506,6 +506,7 @@ docs/UserSignUpApi.md
 docs/Value.md
 docs/VariableAlias.md
 docs/VariableAliasRequest.md
+docs/VariableEditRequest.md
 docs/VariableImport.md
 docs/VariableImportRequest.md
 docs/VariableImportRequestVarsInner.md
@@ -513,8 +514,10 @@ docs/VariableImportSuccessfulImportedVariablesInner.md
 docs/VariableMainCallsApi.md
 docs/VariableOverride.md
 docs/VariableOverrideRequest.md
+docs/VariableRequest.md
 docs/VariableResponse.md
 docs/VariableResponseAllOf.md
+docs/VariableResponseList.md
 docs/Version.md
 docs/VersionResponseList.md
 docs/WeekdayEnum.md
@@ -1030,14 +1033,17 @@ qovery/model/user_response_list.py
 qovery/model/value.py
 qovery/model/variable_alias.py
 qovery/model/variable_alias_request.py
+qovery/model/variable_edit_request.py
 qovery/model/variable_import.py
 qovery/model/variable_import_request.py
 qovery/model/variable_import_request_vars_inner.py
 qovery/model/variable_import_successful_imported_variables_inner.py
 qovery/model/variable_override.py
 qovery/model/variable_override_request.py
+qovery/model/variable_request.py
 qovery/model/variable_response.py
 qovery/model/variable_response_all_of.py
+qovery/model/variable_response_list.py
 qovery/model/version.py
 qovery/model/version_response_list.py
 qovery/model/weekday_enum.py
@@ -1552,6 +1558,7 @@ test/test_user_sign_up_api.py
 test/test_value.py
 test/test_variable_alias.py
 test/test_variable_alias_request.py
+test/test_variable_edit_request.py
 test/test_variable_import.py
 test/test_variable_import_request.py
 test/test_variable_import_request_vars_inner.py
@@ -1559,8 +1566,10 @@ test/test_variable_import_successful_imported_variables_inner.py
 test/test_variable_main_calls_api.py
 test/test_variable_override.py
 test/test_variable_override_request.py
+test/test_variable_request.py
 test/test_variable_response.py
 test/test_variable_response_all_of.py
+test/test_variable_response_list.py
 test/test_version.py
 test/test_version_response_list.py
 test/test_weekday_enum.py

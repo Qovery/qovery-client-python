@@ -22,9 +22,13 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
 from qovery.model.variable_alias_request import VariableAliasRequest
+from qovery.model.variable_edit_request import VariableEditRequest
 from qovery.model.variable_override_request import VariableOverrideRequest
+from qovery.model.variable_request import VariableRequest
 from qovery.model.variable_response import VariableResponse
+from qovery.model.variable_response_list import VariableResponseList
 
 
 class VariableMainCallsApi(object):
@@ -38,6 +42,56 @@ class VariableMainCallsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.create_variable_endpoint = _Endpoint(
+            settings={
+                'response_type': (VariableResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/variable',
+                'operation_id': 'create_variable',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'variable_request',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'variable_request':
+                        (VariableRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'variable_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.create_variable_alias_endpoint = _Endpoint(
             settings={
                 'response_type': (VariableResponse,),
@@ -152,6 +206,252 @@ class VariableMainCallsApi(object):
             },
             api_client=api_client
         )
+        self.delete_variable_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/variable/{variableId}',
+                'operation_id': 'delete_variable',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'variable_id',
+                ],
+                'required': [
+                    'variable_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'variable_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'variable_id': 'variableId',
+                },
+                'location_map': {
+                    'variable_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.edit_variable_endpoint = _Endpoint(
+            settings={
+                'response_type': (VariableResponse,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/variable/{variableId}',
+                'operation_id': 'edit_variable',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'variable_id',
+                    'variable_edit_request',
+                ],
+                'required': [
+                    'variable_id',
+                    'variable_edit_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'variable_id':
+                        (str,),
+                    'variable_edit_request':
+                        (VariableEditRequest,),
+                },
+                'attribute_map': {
+                    'variable_id': 'variableId',
+                },
+                'location_map': {
+                    'variable_id': 'path',
+                    'variable_edit_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.list_variables_endpoint = _Endpoint(
+            settings={
+                'response_type': (VariableResponseList,),
+                'auth': [
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/variable',
+                'operation_id': 'list_variables',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'parent_id',
+                    'scope',
+                    'is_secret',
+                ],
+                'required': [],
+                'nullable': [
+                    'is_secret',
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'parent_id':
+                        (str,),
+                    'scope':
+                        (APIVariableScopeEnum,),
+                    'is_secret':
+                        (bool, none_type,),
+                },
+                'attribute_map': {
+                    'parent_id': 'parent_id',
+                    'scope': 'scope',
+                    'is_secret': 'is_secret',
+                },
+                'location_map': {
+                    'parent_id': 'query',
+                    'scope': 'query',
+                    'is_secret': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
+    def create_variable(
+        self,
+        **kwargs
+    ):
+        """Create a variable  # noqa: E501
+
+        - Create a variable at the level defined in the request body.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_variable(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            variable_request (VariableRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            VariableResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.create_variable_endpoint.call_with_http_info(**kwargs)
 
     def create_variable_alias(
         self,
@@ -320,4 +620,255 @@ class VariableMainCallsApi(object):
         kwargs['variable_id'] = \
             variable_id
         return self.create_variable_override_endpoint.call_with_http_info(**kwargs)
+
+    def delete_variable(
+        self,
+        variable_id,
+        **kwargs
+    ):
+        """Delete a variable  # noqa: E501
+
+        - To delete a variable - You can't delete a BUILT_IN variable - If you delete a variable having override or alias, the associated override/alias will be deleted as well   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_variable(variable_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            variable_id (str): Variable ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['variable_id'] = \
+            variable_id
+        return self.delete_variable_endpoint.call_with_http_info(**kwargs)
+
+    def edit_variable(
+        self,
+        variable_id,
+        variable_edit_request,
+        **kwargs
+    ):
+        """Edit a variable  # noqa: E501
+
+        - You can't edit a BUILT_IN variable - For an override, you can't edit the key - For an alias, you can't edit the value   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.edit_variable(variable_id, variable_edit_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            variable_id (str): Variable ID
+            variable_edit_request (VariableEditRequest):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            VariableResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['variable_id'] = \
+            variable_id
+        kwargs['variable_edit_request'] = \
+            variable_edit_request
+        return self.edit_variable_endpoint.call_with_http_info(**kwargs)
+
+    def list_variables(
+        self,
+        **kwargs
+    ):
+        """List variables  # noqa: E501
+
+        Returns a list of variables  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_variables(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            parent_id (str): the id where the variable will be added. [optional]
+            scope (APIVariableScopeEnum): the scope of the parent where the variable will be added. [optional]
+            is_secret (bool, none_type): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            VariableResponseList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.list_variables_endpoint.call_with_http_info(**kwargs)
 
