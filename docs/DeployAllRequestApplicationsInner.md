@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **application_id** | **str** | id of the application to be deployed. | 
-**git_commit_id** | **str** | Commit ID to deploy. | 
+**git_commit_id** | **str** | Commit ID to deploy. Can be empty only if the service has been already deployed (in this case the service version won&#39;t be changed) | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

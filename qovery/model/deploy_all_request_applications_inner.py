@@ -103,12 +103,11 @@ class DeployAllRequestApplicationsInner(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, application_id, git_commit_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, application_id, *args, **kwargs):  # noqa: E501
         """DeployAllRequestApplicationsInner - a model defined in OpenAPI
 
         Args:
             application_id (str): id of the application to be deployed.
-            git_commit_id (str): Commit ID to deploy.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,6 +140,7 @@ class DeployAllRequestApplicationsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            git_commit_id (str): Commit ID to deploy. Can be empty only if the service has been already deployed (in this case the service version won't be changed). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,7 +173,6 @@ class DeployAllRequestApplicationsInner(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.application_id = application_id
-        self.git_commit_id = git_commit_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,12 +193,11 @@ class DeployAllRequestApplicationsInner(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, application_id, git_commit_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, application_id, *args, **kwargs):  # noqa: E501
         """DeployAllRequestApplicationsInner - a model defined in OpenAPI
 
         Args:
             application_id (str): id of the application to be deployed.
-            git_commit_id (str): Commit ID to deploy.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -232,6 +230,7 @@ class DeployAllRequestApplicationsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            git_commit_id (str): Commit ID to deploy. Can be empty only if the service has been already deployed (in this case the service version won't be changed). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -262,7 +261,6 @@ class DeployAllRequestApplicationsInner(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.application_id = application_id
-        self.git_commit_id = git_commit_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

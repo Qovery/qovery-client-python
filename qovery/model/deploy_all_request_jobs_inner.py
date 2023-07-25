@@ -140,8 +140,8 @@ class DeployAllRequestJobsInner(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): id of the job to be updated.. [optional]  # noqa: E501
-            image_tag (str): new tag for the job image. Use only if job is an image source. [optional]  # noqa: E501
-            git_commit_id (str): Commit ID to deploy. Use only if job is a repository source. [optional]  # noqa: E501
+            image_tag (str): new tag for the job image. Use only if job is an image source. Can be empty only if the service has been already deployed (in this case the service version won't be changed). [optional]  # noqa: E501
+            git_commit_id (str): Commit ID to deploy. Use only if job is a repository source. Can be empty only if the service has been already deployed (in this case the service version won't be changed). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +228,8 @@ class DeployAllRequestJobsInner(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): id of the job to be updated.. [optional]  # noqa: E501
-            image_tag (str): new tag for the job image. Use only if job is an image source. [optional]  # noqa: E501
-            git_commit_id (str): Commit ID to deploy. Use only if job is a repository source. [optional]  # noqa: E501
+            image_tag (str): new tag for the job image. Use only if job is an image source. Can be empty only if the service has been already deployed (in this case the service version won't be changed). [optional]  # noqa: E501
+            git_commit_id (str): Commit ID to deploy. Use only if job is a repository source. Can be empty only if the service has been already deployed (in this case the service version won't be changed). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
