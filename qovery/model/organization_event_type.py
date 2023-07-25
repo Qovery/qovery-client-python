@@ -57,6 +57,7 @@ class OrganizationEventType(ModelSimple):
             'UPDATE': "UPDATE",
             'DELETE': "DELETE",
             'ACCEPT': "ACCEPT",
+            'EXPORT': "EXPORT",
             'TRIGGER_DEPLOY': "TRIGGER_DEPLOY",
             'TRIGGER_REDEPLOY': "TRIGGER_REDEPLOY",
             'TRIGGER_STOP': "TRIGGER_STOP",
@@ -114,10 +115,10 @@ class OrganizationEventType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
+            args[0] (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "EXPORT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
+            value (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "EXPORT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -208,10 +209,10 @@ class OrganizationEventType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
+            args[0] (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "EXPORT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
+            value (str): Type of the organization event., must be one of ["CREATE", "UPDATE", "DELETE", "ACCEPT", "EXPORT", "TRIGGER_DEPLOY", "TRIGGER_REDEPLOY", "TRIGGER_STOP", "TRIGGER_CANCEL", "TRIGGER_RESTART", "TRIGGER_DELETE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
