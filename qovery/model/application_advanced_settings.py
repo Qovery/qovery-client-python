@@ -60,16 +60,6 @@ class ApplicationAdvancedSettings(ModelNormal):
             'ROLLINGUPDATE': "RollingUpdate",
             'RECREATE': "Recreate",
         },
-        ('readiness_probe_type',): {
-            'NONE': "NONE",
-            'TCP': "TCP",
-            'HTTP': "HTTP",
-        },
-        ('liveness_probe_type',): {
-            'NONE': "NONE",
-            'TCP': "TCP",
-            'HTTP': "HTTP",
-        },
     }
 
     validations = {
@@ -103,6 +93,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             'deployment_update_strategy_rolling_update_max_unavailable_percent': (int,),  # noqa: E501
             'deployment_update_strategy_rolling_update_max_surge_percent': (int,),  # noqa: E501
             'build_timeout_max_sec': (int,),  # noqa: E501
+            'build_cpu_max_in_milli': (int,),  # noqa: E501
+            'build_ram_max_in_gib': (int,),  # noqa: E501
             'network_ingress_proxy_body_size_mb': (int,),  # noqa: E501
             'network_ingress_enable_cors': (bool,),  # noqa: E501
             'network_ingress_cors_allow_origin': (str,),  # noqa: E501
@@ -119,20 +111,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             'network_ingress_denylist_source_range': (str,),  # noqa: E501
             'network_ingress_basic_auth_env_var': (str,),  # noqa: E501
             'network_ingress_enable_sticky_session': (bool,),  # noqa: E501
-            'readiness_probe_type': (str,),  # noqa: E501
-            'readiness_probe_http_get_path': (str,),  # noqa: E501
-            'readiness_probe_initial_delay_seconds': (int,),  # noqa: E501
-            'readiness_probe_period_seconds': (int,),  # noqa: E501
-            'readiness_probe_timeout_seconds': (int,),  # noqa: E501
-            'readiness_probe_success_threshold': (int,),  # noqa: E501
-            'readiness_probe_failure_threshold': (int,),  # noqa: E501
-            'liveness_probe_type': (str,),  # noqa: E501
-            'liveness_probe_http_get_path': (str,),  # noqa: E501
-            'liveness_probe_initial_delay_seconds': (int,),  # noqa: E501
-            'liveness_probe_period_seconds': (int,),  # noqa: E501
-            'liveness_probe_timeout_seconds': (int,),  # noqa: E501
-            'liveness_probe_success_threshold': (int,),  # noqa: E501
-            'liveness_probe_failure_threshold': (int,),  # noqa: E501
+            'network_ingress_grpc_send_timeout_seconds': (int,),  # noqa: E501
+            'network_ingress_grpc_read_timeout_seconds': (int,),  # noqa: E501
             'hpa_cpu_average_utilization_percent': (int,),  # noqa: E501
             'security_service_account_name': (str,),  # noqa: E501
         }
@@ -150,6 +130,8 @@ class ApplicationAdvancedSettings(ModelNormal):
         'deployment_update_strategy_rolling_update_max_unavailable_percent': 'deployment.update_strategy.rolling_update.max_unavailable_percent',  # noqa: E501
         'deployment_update_strategy_rolling_update_max_surge_percent': 'deployment.update_strategy.rolling_update.max_surge_percent',  # noqa: E501
         'build_timeout_max_sec': 'build.timeout_max_sec',  # noqa: E501
+        'build_cpu_max_in_milli': 'build.cpu_max_in_milli',  # noqa: E501
+        'build_ram_max_in_gib': 'build.ram_max_in_gib',  # noqa: E501
         'network_ingress_proxy_body_size_mb': 'network.ingress.proxy_body_size_mb',  # noqa: E501
         'network_ingress_enable_cors': 'network.ingress.enable_cors',  # noqa: E501
         'network_ingress_cors_allow_origin': 'network.ingress.cors_allow_origin',  # noqa: E501
@@ -166,20 +148,8 @@ class ApplicationAdvancedSettings(ModelNormal):
         'network_ingress_denylist_source_range': 'network.ingress.denylist_source_range',  # noqa: E501
         'network_ingress_basic_auth_env_var': 'network.ingress.basic_auth_env_var',  # noqa: E501
         'network_ingress_enable_sticky_session': 'network.ingress.enable_sticky_session',  # noqa: E501
-        'readiness_probe_type': 'readiness_probe.type',  # noqa: E501
-        'readiness_probe_http_get_path': 'readiness_probe.http_get.path',  # noqa: E501
-        'readiness_probe_initial_delay_seconds': 'readiness_probe.initial_delay_seconds',  # noqa: E501
-        'readiness_probe_period_seconds': 'readiness_probe.period_seconds',  # noqa: E501
-        'readiness_probe_timeout_seconds': 'readiness_probe.timeout_seconds',  # noqa: E501
-        'readiness_probe_success_threshold': 'readiness_probe.success_threshold',  # noqa: E501
-        'readiness_probe_failure_threshold': 'readiness_probe.failure_threshold',  # noqa: E501
-        'liveness_probe_type': 'liveness_probe.type',  # noqa: E501
-        'liveness_probe_http_get_path': 'liveness_probe.http_get.path',  # noqa: E501
-        'liveness_probe_initial_delay_seconds': 'liveness_probe.initial_delay_seconds',  # noqa: E501
-        'liveness_probe_period_seconds': 'liveness_probe.period_seconds',  # noqa: E501
-        'liveness_probe_timeout_seconds': 'liveness_probe.timeout_seconds',  # noqa: E501
-        'liveness_probe_success_threshold': 'liveness_probe.success_threshold',  # noqa: E501
-        'liveness_probe_failure_threshold': 'liveness_probe.failure_threshold',  # noqa: E501
+        'network_ingress_grpc_send_timeout_seconds': 'network.ingress.grpc_send_timeout_seconds',  # noqa: E501
+        'network_ingress_grpc_read_timeout_seconds': 'network.ingress.grpc_read_timeout_seconds',  # noqa: E501
         'hpa_cpu_average_utilization_percent': 'hpa.cpu.average_utilization_percent',  # noqa: E501
         'security_service_account_name': 'security.service_account_name',  # noqa: E501
     }
@@ -232,6 +202,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional] if omitted the server will use the default value of 25  # noqa: E501
             deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional] if omitted the server will use the default value of 25  # noqa: E501
             build_timeout_max_sec (int): [optional] if omitted the server will use the default value of 1800  # noqa: E501
+            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
+            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
             network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
             network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
@@ -248,20 +220,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
-            readiness_probe_type (str): * `NONE` disable readiness probe * `TCP` enable TCP readiness probe * `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
-            liveness_probe_type (str): * `NONE` disable liveness probe * `TCP` enable TCP liveness probe * `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
         """
@@ -356,6 +316,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional] if omitted the server will use the default value of 25  # noqa: E501
             deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional] if omitted the server will use the default value of 25  # noqa: E501
             build_timeout_max_sec (int): [optional] if omitted the server will use the default value of 1800  # noqa: E501
+            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
+            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
             network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
             network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
@@ -372,20 +334,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
-            readiness_probe_type (str): * `NONE` disable readiness probe * `TCP` enable TCP readiness probe * `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
-            liveness_probe_type (str): * `NONE` disable liveness probe * `TCP` enable TCP liveness probe * `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "TCP"  # noqa: E501
-            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of "/"  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 30  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 5  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 1  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 3  # noqa: E501
+            network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
         """

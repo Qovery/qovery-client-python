@@ -47,25 +47,14 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = job_configuration_api.JobConfigurationApi(api_client)
     job_id = "jobId_example" # str | Job ID
     job_advanced_settings = JobAdvancedSettings(
+        build_timeout_max_sec=1800,
+        build_cpu_max_in_milli=4000,
+        build_ram_max_in_gib=8,
         deployment_termination_grace_period_seconds=60,
         job_delete_ttl_seconds_after_finished=1,
         cronjob_concurrency_policy="Forbid",
         cronjob_failed_jobs_history_limit=1,
         cronjob_success_jobs_history_limit=1,
-        readiness_probe_type="NONE",
-        readiness_probe_http_get_path="",
-        readiness_probe_initial_delay_seconds=0,
-        readiness_probe_period_seconds=0,
-        readiness_probe_timeout_seconds=0,
-        readiness_probe_success_threshold=0,
-        readiness_probe_failure_threshold=0,
-        liveness_probe_type="NONE",
-        liveness_probe_http_get_path="",
-        liveness_probe_initial_delay_seconds=0,
-        liveness_probe_period_seconds=0,
-        liveness_probe_timeout_seconds=0,
-        liveness_probe_success_threshold=0,
-        liveness_probe_failure_threshold=0,
         security_service_account_name="",
     ) # JobAdvancedSettings |  (optional)
 

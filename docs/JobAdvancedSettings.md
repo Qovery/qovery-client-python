@@ -4,25 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**build_timeout_max_sec** | **int** | define the max timeout for the build | [optional]  if omitted the server will use the default value of 1800
+**build_cpu_max_in_milli** | **int** | define the max cpu resources (in milli) | [optional]  if omitted the server will use the default value of 4000
+**build_ram_max_in_gib** | **int** | define the max ram resources (in gib) | [optional]  if omitted the server will use the default value of 8
 **deployment_termination_grace_period_seconds** | **int** | define how long in seconds an application is supposed to be stopped gracefully | [optional]  if omitted the server will use the default value of 60
 **job_delete_ttl_seconds_after_finished** | **int, none_type** |  | [optional] 
 **cronjob_concurrency_policy** | **str** |  | [optional]  if omitted the server will use the default value of "Forbid"
 **cronjob_failed_jobs_history_limit** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **cronjob_success_jobs_history_limit** | **int** |  | [optional]  if omitted the server will use the default value of 1
-**readiness_probe_type** | **str** | &#x60;NONE&#x60; disable readiness probe &#x60;TCP&#x60; enable TCP readiness probe &#x60;HTTP&#x60; enable HTTP readiness probe  | [optional]  if omitted the server will use the default value of "NONE"
-**readiness_probe_http_get_path** | **str** | HTTP GET path to check status (must returns 2xx E.g \&quot;/healtz\&quot;) - only usable with TYPE &#x3D; HTTP | [optional]  if omitted the server will use the default value of ""
-**readiness_probe_initial_delay_seconds** | **int** | Delay before liveness probe is initiated | [optional]  if omitted the server will use the default value of 0
-**readiness_probe_period_seconds** | **int** | How often to perform the probe | [optional]  if omitted the server will use the default value of 0
-**readiness_probe_timeout_seconds** | **int** | When the probe times out | [optional]  if omitted the server will use the default value of 0
-**readiness_probe_success_threshold** | **int** | Minimum consecutive successes for the probe to be considered successful after having failed. | [optional]  if omitted the server will use the default value of 0
-**readiness_probe_failure_threshold** | **int** | Minimum consecutive failures for the probe to be considered failed after having succeeded. | [optional]  if omitted the server will use the default value of 0
-**liveness_probe_type** | **str** | &#x60;NONE&#x60; disable liveness probe &#x60;TCP&#x60; enable TCP liveness probe &#x60;HTTP&#x60; enable HTTP liveness probe  | [optional]  if omitted the server will use the default value of "NONE"
-**liveness_probe_http_get_path** | **str** | HTTP GET path to check status (must returns 2xx E.g \&quot;/healtz\&quot;) - only usable with TYPE &#x3D; HTTP | [optional]  if omitted the server will use the default value of ""
-**liveness_probe_initial_delay_seconds** | **int** | Delay before liveness probe is initiated | [optional]  if omitted the server will use the default value of 0
-**liveness_probe_period_seconds** | **int** | How often to perform the probe | [optional]  if omitted the server will use the default value of 0
-**liveness_probe_timeout_seconds** | **int** | When the probe times out | [optional]  if omitted the server will use the default value of 0
-**liveness_probe_success_threshold** | **int** | Minimum consecutive successes for the probe to be considered successful after having failed. | [optional]  if omitted the server will use the default value of 0
-**liveness_probe_failure_threshold** | **int** | Minimum consecutive failures for the probe to be considered failed after having succeeded. | [optional]  if omitted the server will use the default value of 0
 **security_service_account_name** | **str** | Allows you to set an existing Kubernetes service account name  | [optional]  if omitted the server will use the default value of ""
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -56,16 +56,6 @@ class JobAdvancedSettings(ModelNormal):
     """
 
     allowed_values = {
-        ('readiness_probe_type',): {
-            'NONE': "NONE",
-            'TCP': "TCP",
-            'HTTP': "HTTP",
-        },
-        ('liveness_probe_type',): {
-            'NONE': "NONE",
-            'TCP': "TCP",
-            'HTTP': "HTTP",
-        },
     }
 
     validations = {
@@ -92,25 +82,14 @@ class JobAdvancedSettings(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'build_timeout_max_sec': (int,),  # noqa: E501
+            'build_cpu_max_in_milli': (int,),  # noqa: E501
+            'build_ram_max_in_gib': (int,),  # noqa: E501
             'deployment_termination_grace_period_seconds': (int,),  # noqa: E501
             'job_delete_ttl_seconds_after_finished': (int, none_type,),  # noqa: E501
             'cronjob_concurrency_policy': (str,),  # noqa: E501
             'cronjob_failed_jobs_history_limit': (int,),  # noqa: E501
             'cronjob_success_jobs_history_limit': (int,),  # noqa: E501
-            'readiness_probe_type': (str,),  # noqa: E501
-            'readiness_probe_http_get_path': (str,),  # noqa: E501
-            'readiness_probe_initial_delay_seconds': (int,),  # noqa: E501
-            'readiness_probe_period_seconds': (int,),  # noqa: E501
-            'readiness_probe_timeout_seconds': (int,),  # noqa: E501
-            'readiness_probe_success_threshold': (int,),  # noqa: E501
-            'readiness_probe_failure_threshold': (int,),  # noqa: E501
-            'liveness_probe_type': (str,),  # noqa: E501
-            'liveness_probe_http_get_path': (str,),  # noqa: E501
-            'liveness_probe_initial_delay_seconds': (int,),  # noqa: E501
-            'liveness_probe_period_seconds': (int,),  # noqa: E501
-            'liveness_probe_timeout_seconds': (int,),  # noqa: E501
-            'liveness_probe_success_threshold': (int,),  # noqa: E501
-            'liveness_probe_failure_threshold': (int,),  # noqa: E501
             'security_service_account_name': (str,),  # noqa: E501
         }
 
@@ -120,25 +99,14 @@ class JobAdvancedSettings(ModelNormal):
 
 
     attribute_map = {
+        'build_timeout_max_sec': 'build.timeout_max_sec',  # noqa: E501
+        'build_cpu_max_in_milli': 'build.cpu_max_in_milli',  # noqa: E501
+        'build_ram_max_in_gib': 'build.ram_max_in_gib',  # noqa: E501
         'deployment_termination_grace_period_seconds': 'deployment.termination_grace_period_seconds',  # noqa: E501
         'job_delete_ttl_seconds_after_finished': 'job.delete_ttl_seconds_after_finished',  # noqa: E501
         'cronjob_concurrency_policy': 'cronjob.concurrency_policy',  # noqa: E501
         'cronjob_failed_jobs_history_limit': 'cronjob.failed_jobs_history_limit',  # noqa: E501
         'cronjob_success_jobs_history_limit': 'cronjob.success_jobs_history_limit',  # noqa: E501
-        'readiness_probe_type': 'readiness_probe.type',  # noqa: E501
-        'readiness_probe_http_get_path': 'readiness_probe.http_get.path',  # noqa: E501
-        'readiness_probe_initial_delay_seconds': 'readiness_probe.initial_delay_seconds',  # noqa: E501
-        'readiness_probe_period_seconds': 'readiness_probe.period_seconds',  # noqa: E501
-        'readiness_probe_timeout_seconds': 'readiness_probe.timeout_seconds',  # noqa: E501
-        'readiness_probe_success_threshold': 'readiness_probe.success_threshold',  # noqa: E501
-        'readiness_probe_failure_threshold': 'readiness_probe.failure_threshold',  # noqa: E501
-        'liveness_probe_type': 'liveness_probe.type',  # noqa: E501
-        'liveness_probe_http_get_path': 'liveness_probe.http_get.path',  # noqa: E501
-        'liveness_probe_initial_delay_seconds': 'liveness_probe.initial_delay_seconds',  # noqa: E501
-        'liveness_probe_period_seconds': 'liveness_probe.period_seconds',  # noqa: E501
-        'liveness_probe_timeout_seconds': 'liveness_probe.timeout_seconds',  # noqa: E501
-        'liveness_probe_success_threshold': 'liveness_probe.success_threshold',  # noqa: E501
-        'liveness_probe_failure_threshold': 'liveness_probe.failure_threshold',  # noqa: E501
         'security_service_account_name': 'security.service_account_name',  # noqa: E501
     }
 
@@ -183,25 +151,14 @@ class JobAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            build_timeout_max_sec (int): define the max timeout for the build. [optional] if omitted the server will use the default value of 1800  # noqa: E501
+            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
+            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
-            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
-            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
         """
 
@@ -288,25 +245,14 @@ class JobAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            build_timeout_max_sec (int): define the max timeout for the build. [optional] if omitted the server will use the default value of 1800  # noqa: E501
+            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
+            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            readiness_probe_type (str): `NONE` disable readiness probe `TCP` enable TCP readiness probe `HTTP` enable HTTP readiness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
-            readiness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
-            readiness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            readiness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_type (str): `NONE` disable liveness probe `TCP` enable TCP liveness probe `HTTP` enable HTTP liveness probe . [optional] if omitted the server will use the default value of "NONE"  # noqa: E501
-            liveness_probe_http_get_path (str): HTTP GET path to check status (must returns 2xx E.g \"/healtz\") - only usable with TYPE = HTTP. [optional] if omitted the server will use the default value of ""  # noqa: E501
-            liveness_probe_initial_delay_seconds (int): Delay before liveness probe is initiated. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_period_seconds (int): How often to perform the probe. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_timeout_seconds (int): When the probe times out. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_success_threshold (int): Minimum consecutive successes for the probe to be considered successful after having failed.. [optional] if omitted the server will use the default value of 0  # noqa: E501
-            liveness_probe_failure_threshold (int): Minimum consecutive failures for the probe to be considered failed after having succeeded.. [optional] if omitted the server will use the default value of 0  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
         """
 
