@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **build_cpu_max_in_milli** | **int** | define the max cpu resources (in milli) | [optional]  if omitted the server will use the default value of 4000
 **build_ram_max_in_gib** | **int** | define the max ram resources (in gib) | [optional]  if omitted the server will use the default value of 8
 **deployment_termination_grace_period_seconds** | **int** | define how long in seconds an application is supposed to be stopped gracefully | [optional]  if omitted the server will use the default value of 60
+**deployment_affinity_node_required** | **{str: (str,)}** | Set pod placement on specific Kubernetes nodes labels | [optional] 
 **job_delete_ttl_seconds_after_finished** | **int, none_type** |  | [optional] 
 **cronjob_concurrency_policy** | **str** |  | [optional]  if omitted the server will use the default value of "Forbid"
 **cronjob_failed_jobs_history_limit** | **int** |  | [optional]  if omitted the server will use the default value of 1

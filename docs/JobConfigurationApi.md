@@ -51,6 +51,9 @@ with qovery.ApiClient(configuration) as api_client:
         build_cpu_max_in_milli=4000,
         build_ram_max_in_gib=8,
         deployment_termination_grace_period_seconds=60,
+        deployment_affinity_node_required={
+            "key": "key_example",
+        },
         job_delete_ttl_seconds_after_finished=1,
         cronjob_concurrency_policy="Forbid",
         cronjob_failed_jobs_history_limit=1,

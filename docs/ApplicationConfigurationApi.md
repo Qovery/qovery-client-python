@@ -52,6 +52,10 @@ with qovery.ApiClient(configuration) as api_client:
         deployment_delay_start_time_sec=30,
         deployment_custom_domain_check_enabled=True,
         deployment_termination_grace_period_seconds=60,
+        deployment_affinity_node_required={
+            "key": "key_example",
+        },
+        deployment_antiaffinity_pod="Preferred",
         deployment_update_strategy_type="RollingUpdate",
         deployment_update_strategy_rolling_update_max_unavailable_percent=25,
         deployment_update_strategy_rolling_update_max_surge_percent=25,

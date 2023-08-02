@@ -86,6 +86,7 @@ class JobAdvancedSettings(ModelNormal):
             'build_cpu_max_in_milli': (int,),  # noqa: E501
             'build_ram_max_in_gib': (int,),  # noqa: E501
             'deployment_termination_grace_period_seconds': (int,),  # noqa: E501
+            'deployment_affinity_node_required': ({str: (str,)},),  # noqa: E501
             'job_delete_ttl_seconds_after_finished': (int, none_type,),  # noqa: E501
             'cronjob_concurrency_policy': (str,),  # noqa: E501
             'cronjob_failed_jobs_history_limit': (int,),  # noqa: E501
@@ -103,6 +104,7 @@ class JobAdvancedSettings(ModelNormal):
         'build_cpu_max_in_milli': 'build.cpu_max_in_milli',  # noqa: E501
         'build_ram_max_in_gib': 'build.ram_max_in_gib',  # noqa: E501
         'deployment_termination_grace_period_seconds': 'deployment.termination_grace_period_seconds',  # noqa: E501
+        'deployment_affinity_node_required': 'deployment.affinity.node.required',  # noqa: E501
         'job_delete_ttl_seconds_after_finished': 'job.delete_ttl_seconds_after_finished',  # noqa: E501
         'cronjob_concurrency_policy': 'cronjob.concurrency_policy',  # noqa: E501
         'cronjob_failed_jobs_history_limit': 'cronjob.failed_jobs_history_limit',  # noqa: E501
@@ -155,6 +157,7 @@ class JobAdvancedSettings(ModelNormal):
             build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
             build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -249,6 +252,7 @@ class JobAdvancedSettings(ModelNormal):
             build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
             build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
             cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501

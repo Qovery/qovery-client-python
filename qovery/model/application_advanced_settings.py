@@ -56,6 +56,10 @@ class ApplicationAdvancedSettings(ModelNormal):
     """
 
     allowed_values = {
+        ('deployment_antiaffinity_pod',): {
+            'PREFERRED': "Preferred",
+            'REQUIRRED': "Requirred",
+        },
         ('deployment_update_strategy_type',): {
             'ROLLINGUPDATE': "RollingUpdate",
             'RECREATE': "Recreate",
@@ -89,6 +93,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             'deployment_delay_start_time_sec': (int,),  # noqa: E501
             'deployment_custom_domain_check_enabled': (bool,),  # noqa: E501
             'deployment_termination_grace_period_seconds': (int,),  # noqa: E501
+            'deployment_affinity_node_required': ({str: (str,)},),  # noqa: E501
+            'deployment_antiaffinity_pod': (str,),  # noqa: E501
             'deployment_update_strategy_type': (str,),  # noqa: E501
             'deployment_update_strategy_rolling_update_max_unavailable_percent': (int,),  # noqa: E501
             'deployment_update_strategy_rolling_update_max_surge_percent': (int,),  # noqa: E501
@@ -126,6 +132,8 @@ class ApplicationAdvancedSettings(ModelNormal):
         'deployment_delay_start_time_sec': 'deployment.delay_start_time_sec',  # noqa: E501
         'deployment_custom_domain_check_enabled': 'deployment.custom_domain_check_enabled',  # noqa: E501
         'deployment_termination_grace_period_seconds': 'deployment.termination_grace_period_seconds',  # noqa: E501
+        'deployment_affinity_node_required': 'deployment.affinity.node.required',  # noqa: E501
+        'deployment_antiaffinity_pod': 'deployment.antiaffinity.pod',  # noqa: E501
         'deployment_update_strategy_type': 'deployment.update_strategy.type',  # noqa: E501
         'deployment_update_strategy_rolling_update_max_unavailable_percent': 'deployment.update_strategy.rolling_update.max_unavailable_percent',  # noqa: E501
         'deployment_update_strategy_rolling_update_max_surge_percent': 'deployment.update_strategy.rolling_update.max_surge_percent',  # noqa: E501
@@ -198,6 +206,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             deployment_delay_start_time_sec (int): please use `readiness_probe.initial_delay_seconds` and `liveness_probe.initial_delay_seconds` instead. [optional] if omitted the server will use the default value of 30  # noqa: E501
             deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
+            deployment_antiaffinity_pod (str): Define how you want pods affinity to behave: * `Preferred` allows, but does not require, pods of a given service are not co-located (or co-hosted) on a single node * `Requirred` ensures that the pods of a given service are not co-located (or co-hosted) on a single node (safer in term of availability but can be expensive depending on the number of replicas) . [optional] if omitted the server will use the default value of "Preferred"  # noqa: E501
             deployment_update_strategy_type (str): * `RollingUpdate` gracefully rollout new versions, and automatically rollback if the new version fails to start * `Recreate` stop all current versions and create new ones once all old ones have been shutdown . [optional] if omitted the server will use the default value of "RollingUpdate"  # noqa: E501
             deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional] if omitted the server will use the default value of 25  # noqa: E501
             deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional] if omitted the server will use the default value of 25  # noqa: E501
@@ -312,6 +322,8 @@ class ApplicationAdvancedSettings(ModelNormal):
             deployment_delay_start_time_sec (int): please use `readiness_probe.initial_delay_seconds` and `liveness_probe.initial_delay_seconds` instead. [optional] if omitted the server will use the default value of 30  # noqa: E501
             deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
+            deployment_antiaffinity_pod (str): Define how you want pods affinity to behave: * `Preferred` allows, but does not require, pods of a given service are not co-located (or co-hosted) on a single node * `Requirred` ensures that the pods of a given service are not co-located (or co-hosted) on a single node (safer in term of availability but can be expensive depending on the number of replicas) . [optional] if omitted the server will use the default value of "Preferred"  # noqa: E501
             deployment_update_strategy_type (str): * `RollingUpdate` gracefully rollout new versions, and automatically rollback if the new version fails to start * `Recreate` stop all current versions and create new ones once all old ones have been shutdown . [optional] if omitted the server will use the default value of "RollingUpdate"  # noqa: E501
             deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional] if omitted the server will use the default value of 25  # noqa: E501
             deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional] if omitted the server will use the default value of 25  # noqa: E501
