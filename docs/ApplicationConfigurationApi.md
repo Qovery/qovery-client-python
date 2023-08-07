@@ -49,7 +49,6 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = application_configuration_api.ApplicationConfigurationApi(api_client)
     application_id = "applicationId_example" # str | Application ID
     application_advanced_settings = ApplicationAdvancedSettings(
-        deployment_delay_start_time_sec=30,
         deployment_custom_domain_check_enabled=True,
         deployment_termination_grace_period_seconds=60,
         deployment_affinity_node_required={

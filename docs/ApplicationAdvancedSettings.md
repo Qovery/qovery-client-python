@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**deployment_delay_start_time_sec** | **int** | please use &#x60;readiness_probe.initial_delay_seconds&#x60; and &#x60;liveness_probe.initial_delay_seconds&#x60; instead | [optional]  if omitted the server will use the default value of 30
 **deployment_custom_domain_check_enabled** | **bool** | disable custom domain check when deploying an application | [optional]  if omitted the server will use the default value of True
 **deployment_termination_grace_period_seconds** | **int** | define how long in seconds an application is supposed to be stopped gracefully | [optional]  if omitted the server will use the default value of 60
 **deployment_affinity_node_required** | **{str: (str,)}** | Set pod placement on specific Kubernetes nodes labels | [optional] 

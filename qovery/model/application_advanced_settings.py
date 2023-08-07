@@ -90,7 +90,6 @@ class ApplicationAdvancedSettings(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'deployment_delay_start_time_sec': (int,),  # noqa: E501
             'deployment_custom_domain_check_enabled': (bool,),  # noqa: E501
             'deployment_termination_grace_period_seconds': (int,),  # noqa: E501
             'deployment_affinity_node_required': ({str: (str,)},),  # noqa: E501
@@ -129,7 +128,6 @@ class ApplicationAdvancedSettings(ModelNormal):
 
 
     attribute_map = {
-        'deployment_delay_start_time_sec': 'deployment.delay_start_time_sec',  # noqa: E501
         'deployment_custom_domain_check_enabled': 'deployment.custom_domain_check_enabled',  # noqa: E501
         'deployment_termination_grace_period_seconds': 'deployment.termination_grace_period_seconds',  # noqa: E501
         'deployment_affinity_node_required': 'deployment.affinity.node.required',  # noqa: E501
@@ -203,7 +201,6 @@ class ApplicationAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_delay_start_time_sec (int): please use `readiness_probe.initial_delay_seconds` and `liveness_probe.initial_delay_seconds` instead. [optional] if omitted the server will use the default value of 30  # noqa: E501
             deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
@@ -319,7 +316,6 @@ class ApplicationAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_delay_start_time_sec (int): please use `readiness_probe.initial_delay_seconds` and `liveness_probe.initial_delay_seconds` instead. [optional] if omitted the server will use the default value of 30  # noqa: E501
             deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
             deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
             deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
