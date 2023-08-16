@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_environment_statuses**
-> GetEnvironmentStatuses200Response get_environment_statuses(environment_id)
+> EnvironmentStatuses get_environment_statuses(environment_id)
 
 Get environment statuses with services status
 
@@ -356,7 +356,7 @@ Get environment statuses with services status
 import time
 import qovery
 from qovery.api import environment_main_calls_api
-from qovery.model.get_environment_statuses200_response import GetEnvironmentStatuses200Response
+from qovery.model.environment_statuses import EnvironmentStatuses
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEnvironmentStatuses200Response**](GetEnvironmentStatuses200Response.md)
+[**EnvironmentStatuses**](EnvironmentStatuses.md)
 
 ### Authorization
 

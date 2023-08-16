@@ -1,4 +1,4 @@
-# GetEnvironmentStatuses200Response
+# EnvironmentStatuses
 
 
 ## Properties

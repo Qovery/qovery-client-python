@@ -225,6 +225,7 @@ from qovery.model.environment_stats import EnvironmentStats
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 from qovery.model.environment_status import EnvironmentStatus
 from qovery.model.environment_status_list import EnvironmentStatusList
+from qovery.model.environment_statuses import EnvironmentStatuses
 from qovery.model.environment_total_number import EnvironmentTotalNumber
 from qovery.model.environment_variable import EnvironmentVariable
 from qovery.model.environment_variable_alias import EnvironmentVariableAlias
@@ -239,7 +240,6 @@ from qovery.model.event_paginated_response_list import EventPaginatedResponseLis
 from qovery.model.event_paginated_response_list_all_of import EventPaginatedResponseListAllOf
 from qovery.model.event_response_list import EventResponseList
 from qovery.model.generic_object_current_cost import GenericObjectCurrentCost
-from qovery.model.get_environment_statuses200_response import GetEnvironmentStatuses200Response
 from qovery.model.get_environment_statuses_with_stages200_response import GetEnvironmentStatusesWithStages200Response
 from qovery.model.git_auth_provider import GitAuthProvider
 from qovery.model.git_auth_provider_response_list import GitAuthProviderResponseList

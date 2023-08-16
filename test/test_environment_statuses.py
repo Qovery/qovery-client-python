@@ -17,11 +17,11 @@ from qovery.model.environment_status import EnvironmentStatus
 from qovery.model.status import Status
 globals()['EnvironmentStatus'] = EnvironmentStatus
 globals()['Status'] = Status
-from qovery.model.get_environment_statuses200_response import GetEnvironmentStatuses200Response
+from qovery.model.environment_statuses import EnvironmentStatuses
 
 
-class TestGetEnvironmentStatuses200Response(unittest.TestCase):
-    """GetEnvironmentStatuses200Response unit test stubs"""
+class TestEnvironmentStatuses(unittest.TestCase):
+    """EnvironmentStatuses unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestGetEnvironmentStatuses200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGetEnvironmentStatuses200Response(self):
-        """Test GetEnvironmentStatuses200Response"""
+    def testEnvironmentStatuses(self):
+        """Test EnvironmentStatuses"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = GetEnvironmentStatuses200Response()  # noqa: E501
+        # model = EnvironmentStatuses()  # noqa: E501
         pass
 
 
