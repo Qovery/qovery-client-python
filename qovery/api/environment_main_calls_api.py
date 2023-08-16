@@ -26,7 +26,7 @@ from qovery.model.environment import Environment
 from qovery.model.environment_edit_request import EnvironmentEditRequest
 from qovery.model.environment_status import EnvironmentStatus
 from qovery.model.environment_statuses import EnvironmentStatuses
-from qovery.model.get_environment_statuses_with_stages200_response import GetEnvironmentStatusesWithStages200Response
+from qovery.model.environment_statuses_with_stages import EnvironmentStatusesWithStages
 
 
 class EnvironmentMainCallsApi(object):
@@ -301,7 +301,7 @@ class EnvironmentMainCallsApi(object):
         )
         self.get_environment_statuses_with_stages_endpoint = _Endpoint(
             settings={
-                'response_type': (GetEnvironmentStatusesWithStages200Response,),
+                'response_type': (EnvironmentStatusesWithStages,),
                 'auth': [
                     'bearerAuth'
                 ],
@@ -813,7 +813,7 @@ class EnvironmentMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            GetEnvironmentStatusesWithStages200Response
+            EnvironmentStatusesWithStages
                 If the method is called asynchronously, returns the request
                 thread.
         """

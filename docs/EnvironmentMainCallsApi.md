@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_environment_statuses_with_stages**
-> GetEnvironmentStatusesWithStages200Response get_environment_statuses_with_stages(environment_id)
+> EnvironmentStatusesWithStages get_environment_statuses_with_stages(environment_id)
 
 Get environment statuses with stages
 
@@ -434,7 +434,7 @@ Get environment statuses with stages
 import time
 import qovery
 from qovery.api import environment_main_calls_api
-from qovery.model.get_environment_statuses_with_stages200_response import GetEnvironmentStatusesWithStages200Response
+from qovery.model.environment_statuses_with_stages import EnvironmentStatusesWithStages
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEnvironmentStatusesWithStages200Response**](GetEnvironmentStatusesWithStages200Response.md)
+[**EnvironmentStatusesWithStages**](EnvironmentStatusesWithStages.md)
 
 ### Authorization
 

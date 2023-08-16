@@ -1,4 +1,4 @@
-# GetEnvironmentStatusesWithStages200Response
+# EnvironmentStatusesWithStages
 
 
 ## Properties
