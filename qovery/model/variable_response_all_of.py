@@ -169,8 +169,8 @@ class VariableResponseAllOf(ModelNormal):
             overridden_variable (VariableOverride): [optional]  # noqa: E501
             aliased_variable (VariableAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
-            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_id (str): The id of the service referenced by this variable. present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_name (str): The name of the service referenced by this variable. present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
             owned_by (str): Entity that created/own the variable (i.e: Qovery, Doppler). [optional]  # noqa: E501
         """
@@ -265,8 +265,8 @@ class VariableResponseAllOf(ModelNormal):
             overridden_variable (VariableOverride): [optional]  # noqa: E501
             aliased_variable (VariableAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
-            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_id (str): The id of the service referenced by this variable. present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_name (str): The name of the service referenced by this variable. present only for `BUILT_IN` variable. [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
             owned_by (str): Entity that created/own the variable (i.e: Qovery, Doppler). [optional]  # noqa: E501
         """

@@ -89,8 +89,8 @@ class VariableOverrideRequest(ModelNormal):
         lazy_import()
         return {
             'value': (str,),  # noqa: E501
-            'alias_scope': (APIVariableScopeEnum,),  # noqa: E501
-            'alias_parent_id': (str,),  # noqa: E501
+            'override_scope': (APIVariableScopeEnum,),  # noqa: E501
+            'override_parent_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -100,8 +100,8 @@ class VariableOverrideRequest(ModelNormal):
 
     attribute_map = {
         'value': 'value',  # noqa: E501
-        'alias_scope': 'alias_scope',  # noqa: E501
-        'alias_parent_id': 'alias_parent_id',  # noqa: E501
+        'override_scope': 'override_scope',  # noqa: E501
+        'override_parent_id': 'override_parent_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,13 +111,13 @@ class VariableOverrideRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, value, alias_scope, alias_parent_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, value, override_scope, override_parent_id, *args, **kwargs):  # noqa: E501
         """VariableOverrideRequest - a model defined in OpenAPI
 
         Args:
-            value (str):
-            alias_scope (APIVariableScopeEnum):
-            alias_parent_id (str):
+            value (str): the value to be used as Override of the targeted environment variable.
+            override_scope (APIVariableScopeEnum):
+            override_parent_id (str): the id of the variable that is aliased.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -182,8 +182,8 @@ class VariableOverrideRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.value = value
-        self.alias_scope = alias_scope
-        self.alias_parent_id = alias_parent_id
+        self.override_scope = override_scope
+        self.override_parent_id = override_parent_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,13 +204,13 @@ class VariableOverrideRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, value, alias_scope, alias_parent_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, value, override_scope, override_parent_id, *args, **kwargs):  # noqa: E501
         """VariableOverrideRequest - a model defined in OpenAPI
 
         Args:
-            value (str):
-            alias_scope (APIVariableScopeEnum):
-            alias_parent_id (str):
+            value (str): the value to be used as Override of the targeted environment variable.
+            override_scope (APIVariableScopeEnum):
+            override_parent_id (str): the id of the variable that is aliased.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -273,8 +273,8 @@ class VariableOverrideRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.value = value
-        self.alias_scope = alias_scope
-        self.alias_parent_id = alias_parent_id
+        self.override_scope = override_scope
+        self.override_parent_id = override_parent_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -115,9 +115,9 @@ class VariableAliasRequest(ModelNormal):
         """VariableAliasRequest - a model defined in OpenAPI
 
         Args:
-            key (str):
+            key (str): the value to be used as Alias of the targeted environment variable.
             alias_scope (APIVariableScopeEnum):
-            alias_parent_id (str):
+            alias_parent_id (str): the id of the variable that is aliased.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -208,9 +208,9 @@ class VariableAliasRequest(ModelNormal):
         """VariableAliasRequest - a model defined in OpenAPI
 
         Args:
-            key (str):
+            key (str): the value to be used as Alias of the targeted environment variable.
             alias_scope (APIVariableScopeEnum):
-            alias_parent_id (str):
+            alias_parent_id (str): the id of the variable that is aliased.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -121,11 +121,11 @@ class VariableRequest(ModelNormal):
         """VariableRequest - a model defined in OpenAPI
 
         Args:
-            key (str):
-            value (str):
-            is_secret (bool):
+            key (str): the key of the environment variable
+            value (str): the value of the environment variable
+            is_secret (bool): if true, the variable will be considered as a secret and will not be accessible after its creation. Only your applications will be able to access its value at build and run time.
             variable_scope (APIVariableScopeEnum):
-            variable_parent_id (str):
+            variable_parent_id (str): based on the selected scope, it contains the ID of the service, environment or project where the variable is attached
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -158,7 +158,7 @@ class VariableRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            mount_path (str, none_type): [optional]  # noqa: E501
+            mount_path (str, none_type): the path where the file will be mounted (only if type =file). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,11 +219,11 @@ class VariableRequest(ModelNormal):
         """VariableRequest - a model defined in OpenAPI
 
         Args:
-            key (str):
-            value (str):
-            is_secret (bool):
+            key (str): the key of the environment variable
+            value (str): the value of the environment variable
+            is_secret (bool): if true, the variable will be considered as a secret and will not be accessible after its creation. Only your applications will be able to access its value at build and run time.
             variable_scope (APIVariableScopeEnum):
-            variable_parent_id (str):
+            variable_parent_id (str): based on the selected scope, it contains the ID of the service, environment or project where the variable is attached
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -256,7 +256,7 @@ class VariableRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            mount_path (str, none_type): [optional]  # noqa: E501
+            mount_path (str, none_type): the path where the file will be mounted (only if type =file). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

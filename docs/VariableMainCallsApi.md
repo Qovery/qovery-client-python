@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create a variable
 
-- Create a variable at the level defined in the request body. 
+- Create a variable with the scope defined in the request body. 
 
 ### Example
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 Create a variable alias
 
-- Allows you to add an alias at the level defined in the request body on an existing variable having a higher scope, in order to customize its key. - You have to specify a key in the request body and the scope and the parent id of the alias - The system will create a new variable at the requested level with the same value as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the aliased_variable will be exposed in the \"aliased_variable\" or in the \"aliased_secret\" field of the newly created variable - Only 1 alias level is allowed. You can't create an alias on an alias 
+- Allows you to create an alias of one of the existing variables. - You have to specify an alias (key) in the request body, the scope and the parent id of the alias (project id, environment id or service id) - The system will create a new variable at the requested level with the same value as the one corresponding to the variable id passed as path parameter. - The response body will contain the newly created variable - Information regarding the aliased_variable will be exposed in the \"aliased_variable\" or in the \"aliased_secret\" field of the newly created variable - You can't create an alias on an alias 
 
 ### Example
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 Create a variable override
 
-- Allows you to override a variable that has a higher scope. - You have to specify a value in the request body and the scope and the parent id of the variable to alias - The system will create a new environment variable at project level with the same key as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the overridden_variable will be exposed in the \"overridden_variable\" or in the \"overridden_secret\" field of the newly created variable 
+- Allows you to override a variable that has a higher scope. - You have to specify a value (override) in the request body and the scope and the parent id of the variable to override (project id, environment id or service id) - The system will create a new environment variable at the requested level with the same key as the one corresponding to the variable id passed as path parameter. - The response body will contain the newly created variable - Information regarding the overridden_variable will be exposed in the \"overridden_variable\" or in the \"overridden_secret\" field of the newly created variable 
 
 ### Example
 
@@ -240,8 +240,8 @@ with qovery.ApiClient(configuration) as api_client:
     variable_id = "variableId_example" # str | Variable ID
     variable_override_request = VariableOverrideRequest(
         value="value_example",
-        alias_scope=APIVariableScopeEnum("APPLICATION"),
-        alias_parent_id="alias_parent_id_example",
+        override_scope=APIVariableScopeEnum("APPLICATION"),
+        override_parent_id="override_parent_id_example",
     ) # VariableOverrideRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 List variables
 
-Returns a list of variables
+Returns a list of variables. The result can be filtered by using the query parameters.
 
 ### Example
 
@@ -499,8 +499,8 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    parent_id = "parent_id_example" # str | the id where the variable will be added (optional)
-    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | the scope of the parent where the variable will be added (optional)
+    parent_id = "parent_id_example" # str | it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope. (optional)
+    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | the type of the parent_id (application, project, environment etc..). (optional)
     is_secret = True # bool, none_type |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -518,8 +518,8 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent_id** | **str**| the id where the variable will be added | [optional]
- **scope** | **APIVariableScopeEnum**| the scope of the parent where the variable will be added | [optional]
+ **parent_id** | **str**| it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope &#x3D; APPLICATION and parent_id&#x3D;&lt;application_id&gt;, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope. | [optional]
+ **scope** | **APIVariableScopeEnum**| the type of the parent_id (application, project, environment etc..). | [optional]
  **is_secret** | **bool, none_type**|  | [optional]
 
 ### Return type

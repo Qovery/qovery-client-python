@@ -107,8 +107,8 @@ class VariableEditRequest(ModelNormal):
         """VariableEditRequest - a model defined in OpenAPI
 
         Args:
-            key (str):
-            value (str):
+            key (str): the key of the environment variable
+            value (str): the value of the environment variable
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -198,8 +198,8 @@ class VariableEditRequest(ModelNormal):
         """VariableEditRequest - a model defined in OpenAPI
 
         Args:
-            key (str):
-            value (str):
+            key (str): the key of the environment variable
+            value (str): the value of the environment variable
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -123,9 +123,9 @@ class VariableOverride(ModelNormal):
         """VariableOverride - a model defined in OpenAPI
 
         Args:
-            id (str):
-            key (str):
-            mount_path (str):
+            id (str): The id of the overriden variable
+            key (str): The key of the overriden variable
+            mount_path (str): The mounth path of the overriden variable (only if environment variable type is 'file')
             scope (APIVariableScopeEnum):
             variable_type (APIVariableTypeEnum):
 
@@ -160,7 +160,7 @@ class VariableOverride(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
+            value (str, none_type): The value of the overriden variable. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,9 +221,9 @@ class VariableOverride(ModelNormal):
         """VariableOverride - a model defined in OpenAPI
 
         Args:
-            id (str):
-            key (str):
-            mount_path (str):
+            id (str): The id of the overriden variable
+            key (str): The key of the overriden variable
+            mount_path (str): The mounth path of the overriden variable (only if environment variable type is 'file')
             scope (APIVariableScopeEnum):
             variable_type (APIVariableTypeEnum):
 
@@ -258,7 +258,7 @@ class VariableOverride(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            value (str, none_type): [optional]  # noqa: E501
+            value (str, none_type): The value of the overriden variable. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

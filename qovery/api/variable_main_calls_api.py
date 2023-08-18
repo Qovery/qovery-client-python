@@ -380,7 +380,7 @@ class VariableMainCallsApi(object):
     ):
         """Create a variable  # noqa: E501
 
-        - Create a variable at the level defined in the request body.   # noqa: E501
+        - Create a variable with the scope defined in the request body.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -460,7 +460,7 @@ class VariableMainCallsApi(object):
     ):
         """Create a variable alias  # noqa: E501
 
-        - Allows you to add an alias at the level defined in the request body on an existing variable having a higher scope, in order to customize its key. - You have to specify a key in the request body and the scope and the parent id of the alias - The system will create a new variable at the requested level with the same value as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the aliased_variable will be exposed in the \"aliased_variable\" or in the \"aliased_secret\" field of the newly created variable - Only 1 alias level is allowed. You can't create an alias on an alias   # noqa: E501
+        - Allows you to create an alias of one of the existing variables. - You have to specify an alias (key) in the request body, the scope and the parent id of the alias (project id, environment id or service id) - The system will create a new variable at the requested level with the same value as the one corresponding to the variable id passed as path parameter. - The response body will contain the newly created variable - Information regarding the aliased_variable will be exposed in the \"aliased_variable\" or in the \"aliased_secret\" field of the newly created variable - You can't create an alias on an alias   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -544,7 +544,7 @@ class VariableMainCallsApi(object):
     ):
         """Create a variable override  # noqa: E501
 
-        - Allows you to override a variable that has a higher scope. - You have to specify a value in the request body and the scope and the parent id of the variable to alias - The system will create a new environment variable at project level with the same key as the one corresponding to the variable id in the path - The response body will contain the newly created variable - Information regarding the overridden_variable will be exposed in the \"overridden_variable\" or in the \"overridden_secret\" field of the newly created variable   # noqa: E501
+        - Allows you to override a variable that has a higher scope. - You have to specify a value (override) in the request body and the scope and the parent id of the variable to override (project id, environment id or service id) - The system will create a new environment variable at the requested level with the same key as the one corresponding to the variable id passed as path parameter. - The response body will contain the newly created variable - Information regarding the overridden_variable will be exposed in the \"overridden_variable\" or in the \"overridden_secret\" field of the newly created variable   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -797,7 +797,7 @@ class VariableMainCallsApi(object):
     ):
         """List variables  # noqa: E501
 
-        Returns a list of variables  # noqa: E501
+        Returns a list of variables. The result can be filtered by using the query parameters.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -806,8 +806,8 @@ class VariableMainCallsApi(object):
 
 
         Keyword Args:
-            parent_id (str): the id where the variable will be added. [optional]
-            scope (APIVariableScopeEnum): the scope of the parent where the variable will be added. [optional]
+            parent_id (str): it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope.. [optional]
+            scope (APIVariableScopeEnum): the type of the parent_id (application, project, environment etc..).. [optional]
             is_secret (bool, none_type): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
