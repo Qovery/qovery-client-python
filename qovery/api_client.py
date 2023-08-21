@@ -803,10 +803,10 @@ class Endpoint(object):
         Example:
 
         api_instance = AccountInfoApi()
-        api_instance.get_account_information  # this is an instance of the class Endpoint
-        api_instance.get_account_information()  # this invokes api_instance.get_account_information.__call__()
+        api_instance.edit_account_information  # this is an instance of the class Endpoint
+        api_instance.edit_account_information()  # this invokes api_instance.edit_account_information.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.get_account_information.callable or self.callable in this class
+        api_instance.edit_account_information.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)

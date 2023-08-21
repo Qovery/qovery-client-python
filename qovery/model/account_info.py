@@ -88,6 +88,7 @@ class AccountInfo(ModelNormal):
             'first_name': (str,),  # noqa: E501
             'last_name': (str,),  # noqa: E501
             'profile_picture_url': (str,),  # noqa: E501
+            'communication_email': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class AccountInfo(ModelNormal):
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'profile_picture_url': 'profile_picture_url',  # noqa: E501
+        'communication_email': 'communication_email',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +153,7 @@ class AccountInfo(ModelNormal):
             first_name (str): [optional]  # noqa: E501
             last_name (str): [optional]  # noqa: E501
             profile_picture_url (str): [optional]  # noqa: E501
+            communication_email (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,6 +245,7 @@ class AccountInfo(ModelNormal):
             first_name (str): [optional]  # noqa: E501
             last_name (str): [optional]  # noqa: E501
             profile_picture_url (str): [optional]  # noqa: E501
+            communication_email (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

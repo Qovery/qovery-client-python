@@ -82,9 +82,7 @@ class AccountInfoEditRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'first_name': (str,),  # noqa: E501
-            'last_name': (str,),  # noqa: E501
-            'profile_picture_url': (str,),  # noqa: E501
+            'communication_email': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,9 +91,7 @@ class AccountInfoEditRequest(ModelNormal):
 
 
     attribute_map = {
-        'first_name': 'first_name',  # noqa: E501
-        'last_name': 'last_name',  # noqa: E501
-        'profile_picture_url': 'profile_picture_url',  # noqa: E501
+        'communication_email': 'communication_email',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,9 +135,7 @@ class AccountInfoEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            first_name (str): [optional]  # noqa: E501
-            last_name (str): [optional]  # noqa: E501
-            profile_picture_url (str): [optional]  # noqa: E501
+            communication_email (str, none_type): The email to be used for official Qovery communications. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,9 +221,7 @@ class AccountInfoEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            first_name (str): [optional]  # noqa: E501
-            last_name (str): [optional]  # noqa: E501
-            profile_picture_url (str): [optional]  # noqa: E501
+            communication_email (str, none_type): The email to be used for official Qovery communications. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

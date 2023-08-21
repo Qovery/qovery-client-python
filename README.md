@@ -54,6 +54,7 @@ import qovery
 from pprint import pprint
 from qovery.api import account_info_api
 from qovery.model.account_info import AccountInfo
+from qovery.model.account_info_edit_request import AccountInfoEditRequest
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -75,13 +76,16 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = account_info_api.AccountInfoApi(api_client)
+    account_info_edit_request = AccountInfoEditRequest(
+        communication_email="communication_email_example",
+    ) # AccountInfoEditRequest |  (optional)
 
     try:
-        # Get Account information
-        api_response = api_instance.get_account_information()
+        # Edit account information
+        api_response = api_instance.edit_account_information(account_info_edit_request=account_info_edit_request)
         pprint(api_response)
     except qovery.ApiException as e:
-        print("Exception when calling AccountInfoApi->get_account_information: %s\n" % e)
+        print("Exception when calling AccountInfoApi->edit_account_information: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -90,6 +94,7 @@ All URIs are relative to *https://api.qovery.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountInfoApi* | [**edit_account_information**](docs/AccountInfoApi.md#edit_account_information) | **PUT** /account | Edit account information
 *AccountInfoApi* | [**get_account_information**](docs/AccountInfoApi.md#get_account_information) | **GET** /account | Get Account information
 *ApplicationActionsApi* | [**deploy_application**](docs/ApplicationActionsApi.md#deploy_application) | **POST** /application/{applicationId}/deploy | Deploy application
 *ApplicationActionsApi* | [**reboot_application**](docs/ApplicationActionsApi.md#reboot_application) | **POST** /application/{applicationId}/restart-service | Reboot application

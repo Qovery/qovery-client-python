@@ -24,6 +24,13 @@ class TestAccountInfoApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_edit_account_information(self):
+        """Test case for edit_account_information
+
+        Edit account information  # noqa: E501
+        """
+        pass
+
     def test_get_account_information(self):
         """Test case for get_account_information
 
