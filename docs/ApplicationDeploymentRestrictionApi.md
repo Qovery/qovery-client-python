@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_application_deployment_restriction**
-> delete_application_deployment_restriction(application_id)
+> delete_application_deployment_restriction(application_id, deployment_restriction_id)
 
 Delete an application deployment restriction
 
@@ -144,11 +144,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = application_deployment_restriction_api.ApplicationDeploymentRestrictionApi(api_client)
     application_id = "applicationId_example" # str | Application ID
+    deployment_restriction_id = "deploymentRestrictionId_example" # str | Deployment Restriction ID
 
     # example passing only required values which don't have defaults set
     try:
         # Delete an application deployment restriction
-        api_instance.delete_application_deployment_restriction(application_id)
+        api_instance.delete_application_deployment_restriction(application_id, deployment_restriction_id)
     except qovery.ApiException as e:
         print("Exception when calling ApplicationDeploymentRestrictionApi->delete_application_deployment_restriction: %s\n" % e)
 ```
@@ -159,6 +160,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **str**| Application ID |
+ **deployment_restriction_id** | **str**| Deployment Restriction ID |
 
 ### Return type
 
