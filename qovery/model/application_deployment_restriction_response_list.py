@@ -88,7 +88,7 @@ class ApplicationDeploymentRestrictionResponseList(ModelNormal):
         """
         lazy_import()
         return {
-            'deployment_restrictions': ([ApplicationDeploymentRestriction],),  # noqa: E501
+            'results': ([ApplicationDeploymentRestriction],),  # noqa: E501
         }
 
     @cached_property
@@ -97,7 +97,7 @@ class ApplicationDeploymentRestrictionResponseList(ModelNormal):
 
 
     attribute_map = {
-        'deployment_restrictions': 'deployment_restrictions',  # noqa: E501
+        'results': 'results',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,7 +141,7 @@ class ApplicationDeploymentRestrictionResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_restrictions ([ApplicationDeploymentRestriction]): [optional]  # noqa: E501
+            results ([ApplicationDeploymentRestriction]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class ApplicationDeploymentRestrictionResponseList(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_restrictions ([ApplicationDeploymentRestriction]): [optional]  # noqa: E501
+            results ([ApplicationDeploymentRestriction]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
