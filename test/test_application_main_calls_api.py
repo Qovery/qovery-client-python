@@ -24,24 +24,10 @@ class TestApplicationMainCallsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_application_tag(self):
-        """Test case for create_application_tag
-
-        Add application tag  # noqa: E501
-        """
-        pass
-
     def test_delete_application(self):
         """Test case for delete_application
 
         Delete application  # noqa: E501
-        """
-        pass
-
-    def test_delete_application_tag(self):
-        """Test case for delete_application_tag
-
-        Delete application tag  # noqa: E501
         """
         pass
 
@@ -84,13 +70,6 @@ class TestApplicationMainCallsApi(unittest.TestCase):
         """Test case for list_application_links
 
         List all URLs of the application  # noqa: E501
-        """
-        pass
-
-    def test_list_application_tag(self):
-        """Test case for list_application_tag
-
-        List tags  # noqa: E501
         """
         pass
 

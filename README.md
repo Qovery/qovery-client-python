@@ -119,16 +119,13 @@ Class | Method | HTTP request | Description
 *ApplicationEnvironmentVariableApi* | [**list_application_environment_variable**](docs/ApplicationEnvironmentVariableApi.md#list_application_environment_variable) | **GET** /application/{applicationId}/environmentVariable | List environment variables
 *ApplicationEventApi* | [**list_application_event**](docs/ApplicationEventApi.md#list_application_event) | **GET** /application/{applicationId}/event | List application events
 *ApplicationLogsApi* | [**list_application_log**](docs/ApplicationLogsApi.md#list_application_log) | **GET** /application/{applicationId}/log | List logs
-*ApplicationMainCallsApi* | [**create_application_tag**](docs/ApplicationMainCallsApi.md#create_application_tag) | **POST** /application/{applicationId}/tag | Add application tag
 *ApplicationMainCallsApi* | [**delete_application**](docs/ApplicationMainCallsApi.md#delete_application) | **DELETE** /application/{applicationId} | Delete application
-*ApplicationMainCallsApi* | [**delete_application_tag**](docs/ApplicationMainCallsApi.md#delete_application_tag) | **DELETE** /application/{applicationId}/tag/{tagId} | Delete application tag
 *ApplicationMainCallsApi* | [**edit_application**](docs/ApplicationMainCallsApi.md#edit_application) | **PUT** /application/{applicationId} | Edit application
 *ApplicationMainCallsApi* | [**get_application**](docs/ApplicationMainCallsApi.md#get_application) | **GET** /application/{applicationId} | Get application by ID
 *ApplicationMainCallsApi* | [**get_application_status**](docs/ApplicationMainCallsApi.md#get_application_status) | **GET** /application/{applicationId}/status | Get application status
 *ApplicationMainCallsApi* | [**list_application_commit**](docs/ApplicationMainCallsApi.md#list_application_commit) | **GET** /application/{applicationId}/commit | List last commits
 *ApplicationMainCallsApi* | [**list_application_contributor**](docs/ApplicationMainCallsApi.md#list_application_contributor) | **GET** /application/{applicationId}/contributor | List contributors
 *ApplicationMainCallsApi* | [**list_application_links**](docs/ApplicationMainCallsApi.md#list_application_links) | **GET** /application/{applicationId}/link | List all URLs of the application
-*ApplicationMainCallsApi* | [**list_application_tag**](docs/ApplicationMainCallsApi.md#list_application_tag) | **GET** /application/{applicationId}/tag | List tags
 *ApplicationMetricsApi* | [**get_application_current_instance**](docs/ApplicationMetricsApi.md#get_application_current_instance) | **GET** /application/{applicationId}/instance | List currently running instances of the application with their CPU and RAM metrics
 *ApplicationMetricsApi* | [**get_application_current_scale**](docs/ApplicationMetricsApi.md#get_application_current_scale) | **GET** /application/{applicationId}/currentScale | Get current scaling of the application
 *ApplicationMetricsApi* | [**get_application_current_storage_disk**](docs/ApplicationMetricsApi.md#get_application_current_storage_disk) | **GET** /application/{applicationId}/currentStorage | List current storage disk usage
@@ -884,9 +881,6 @@ Class | Method | HTTP request | Description
  - [StorageDisk](docs/StorageDisk.md)
  - [StorageDiskResponseList](docs/StorageDiskResponseList.md)
  - [StorageTypeEnum](docs/StorageTypeEnum.md)
- - [Tag](docs/Tag.md)
- - [TagRequest](docs/TagRequest.md)
- - [TagResponseList](docs/TagResponseList.md)
  - [ThresholdMetricStatusEnum](docs/ThresholdMetricStatusEnum.md)
  - [TransferOwnershipRequest](docs/TransferOwnershipRequest.md)
  - [TypeOfUseEnum](docs/TypeOfUseEnum.md)

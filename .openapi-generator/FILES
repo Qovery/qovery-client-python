@@ -493,9 +493,6 @@ docs/StatusKindEnum.md
 docs/StorageDisk.md
 docs/StorageDiskResponseList.md
 docs/StorageTypeEnum.md
-docs/Tag.md
-docs/TagRequest.md
-docs/TagResponseList.md
 docs/ThresholdMetricStatusEnum.md
 docs/TransferOwnershipRequest.md
 docs/TypeOfUseEnum.md
@@ -1021,9 +1018,6 @@ qovery/model/status_kind_enum.py
 qovery/model/storage_disk.py
 qovery/model/storage_disk_response_list.py
 qovery/model/storage_type_enum.py
-qovery/model/tag.py
-qovery/model/tag_request.py
-qovery/model/tag_response_list.py
 qovery/model/threshold_metric_status_enum.py
 qovery/model/transfer_ownership_request.py
 qovery/model/type_of_use_enum.py
@@ -1545,9 +1539,6 @@ test/test_status_kind_enum.py
 test/test_storage_disk.py
 test/test_storage_disk_response_list.py
 test/test_storage_type_enum.py
-test/test_tag.py
-test/test_tag_request.py
-test/test_tag_response_list.py
 test/test_threshold_metric_status_enum.py
 test/test_transfer_ownership_request.py
 test/test_type_of_use_enum.py

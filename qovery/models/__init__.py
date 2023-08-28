@@ -429,9 +429,6 @@ from qovery.model.status_kind_enum import StatusKindEnum
 from qovery.model.storage_disk import StorageDisk
 from qovery.model.storage_disk_response_list import StorageDiskResponseList
 from qovery.model.storage_type_enum import StorageTypeEnum
-from qovery.model.tag import Tag
-from qovery.model.tag_request import TagRequest
-from qovery.model.tag_response_list import TagResponseList
 from qovery.model.threshold_metric_status_enum import ThresholdMetricStatusEnum
 from qovery.model.transfer_ownership_request import TransferOwnershipRequest
 from qovery.model.type_of_use_enum import TypeOfUseEnum
