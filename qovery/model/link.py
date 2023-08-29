@@ -144,10 +144,10 @@ class Link(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             url (str): [optional]  # noqa: E501
-            internal_port (int): [optional]  # noqa: E501
-            external_port (int): [optional]  # noqa: E501
-            is_qovery_domain (bool): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
+            internal_port (int): The port from which the service is reachable from within the cluster. [optional]  # noqa: E501
+            external_port (int): The port from which the service is reachable from externally (i.e: 443 for HTTPS). [optional]  # noqa: E501
+            is_qovery_domain (bool): True if the domain is managed by Qovery, false if it belongs to the user. [optional]  # noqa: E501
+            is_default (bool): Indicate if the link is using the root of the domain and not one derivated from port i.e: p8080.zxxxx.jvm.worl      => is_default = false, is_qovery = true zxxxx.jvm.world           => is_default = true, is_qovery = true p8080-my-super-domain.com => is_default = false, is_qovery = false my-super-domain.com       => is_default = true, is_qovery = false . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,10 +234,10 @@ class Link(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             url (str): [optional]  # noqa: E501
-            internal_port (int): [optional]  # noqa: E501
-            external_port (int): [optional]  # noqa: E501
-            is_qovery_domain (bool): [optional]  # noqa: E501
-            is_default (bool): [optional]  # noqa: E501
+            internal_port (int): The port from which the service is reachable from within the cluster. [optional]  # noqa: E501
+            external_port (int): The port from which the service is reachable from externally (i.e: 443 for HTTPS). [optional]  # noqa: E501
+            is_qovery_domain (bool): True if the domain is managed by Qovery, false if it belongs to the user. [optional]  # noqa: E501
+            is_default (bool): Indicate if the link is using the root of the domain and not one derivated from port i.e: p8080.zxxxx.jvm.worl      => is_default = false, is_qovery = true zxxxx.jvm.world           => is_default = true, is_qovery = true p8080-my-super-domain.com => is_default = false, is_qovery = false my-super-domain.com       => is_default = true, is_qovery = false . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
