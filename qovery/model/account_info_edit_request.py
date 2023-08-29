@@ -82,7 +82,7 @@ class AccountInfoEditRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'communication_email': (str, none_type,),  # noqa: E501
+            'communication_email': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -135,7 +135,7 @@ class AccountInfoEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            communication_email (str, none_type): The email to be used for official Qovery communications. [optional]  # noqa: E501
+            communication_email (str): The email to be used for official Qovery communications. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +221,7 @@ class AccountInfoEditRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            communication_email (str, none_type): The email to be used for official Qovery communications. [optional]  # noqa: E501
+            communication_email (str): The email to be used for official Qovery communications. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
