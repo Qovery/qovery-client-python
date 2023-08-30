@@ -45,6 +45,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterFeatureResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/aws/clusterFeature',
@@ -89,6 +90,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/aws/instanceType',
@@ -133,6 +135,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ManagedDatabaseInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/aws/managedDatabase/instanceType/{region}/{databaseType}',
@@ -190,6 +193,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ManagedDatabaseTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/aws/managedDatabase/type',
@@ -234,6 +238,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterRegionResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/aws/region',
@@ -278,6 +283,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/aws/ec2/instanceType/{region}',
@@ -329,6 +335,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/aws/eks/instanceType/{region}',
@@ -380,6 +387,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (CloudProviderResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/cloudProvider',
@@ -424,6 +432,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterFeatureResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/digitalOcean/clusterFeature',
@@ -468,6 +477,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/digitalOcean/instanceType',
@@ -512,6 +522,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ManagedDatabaseInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/digitalOcean/managedDatabase/instanceType/{region}/{databaseType}',
@@ -569,6 +580,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ManagedDatabaseTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/digitalOcean/managedDatabase/type',
@@ -613,6 +625,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterRegionResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/digitalOcean/region',
@@ -657,6 +670,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterFeatureResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/scaleway/clusterFeature',
@@ -701,6 +715,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/scaleway/instanceType',
@@ -745,6 +760,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/scaleway/instanceType/{zone}',
@@ -796,6 +812,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ClusterRegionResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/scaleway/region',
@@ -840,6 +857,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ManagedDatabaseInstanceTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/scaleway/managedDatabase/instanceType/{zone}/{databaseType}',
@@ -891,6 +909,7 @@ class CloudProviderApi(object):
             settings={
                 'response_type': (ManagedDatabaseTypeResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/scaleway/managedDatabase/type',

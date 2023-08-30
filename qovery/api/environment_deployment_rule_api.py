@@ -41,6 +41,7 @@ class EnvironmentDeploymentRuleApi(object):
             settings={
                 'response_type': (EnvironmentDeploymentRule,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/deploymentRule/{deploymentRuleId}',
@@ -104,6 +105,7 @@ class EnvironmentDeploymentRuleApi(object):
             settings={
                 'response_type': (EnvironmentDeploymentRule,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/deploymentRule',

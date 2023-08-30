@@ -43,6 +43,7 @@ class OrganizationCustomRoleApi(object):
             settings={
                 'response_type': (OrganizationCustomRole,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/customRole',
@@ -100,6 +101,7 @@ class OrganizationCustomRoleApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/customRole/{customRoleId}',
@@ -155,6 +157,7 @@ class OrganizationCustomRoleApi(object):
             settings={
                 'response_type': (OrganizationCustomRole,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/customRole/{customRoleId}',
@@ -218,6 +221,7 @@ class OrganizationCustomRoleApi(object):
             settings={
                 'response_type': (OrganizationCustomRole,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/customRole/{customRoleId}',
@@ -275,6 +279,7 @@ class OrganizationCustomRoleApi(object):
             settings={
                 'response_type': (OrganizationCustomRoleList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/customRole',

@@ -39,6 +39,7 @@ class EnvironmentExportApi(object):
             settings={
                 'response_type': (file_type,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/terraformExport',

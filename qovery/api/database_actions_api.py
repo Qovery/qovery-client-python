@@ -40,6 +40,7 @@ class DatabaseActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/deploy',
@@ -91,6 +92,7 @@ class DatabaseActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/restart-service',
@@ -142,6 +144,7 @@ class DatabaseActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/redeploy',
@@ -193,6 +196,7 @@ class DatabaseActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/restart',
@@ -244,6 +248,7 @@ class DatabaseActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/stop',

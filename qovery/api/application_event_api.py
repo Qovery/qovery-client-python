@@ -40,6 +40,7 @@ class ApplicationEventApi(object):
             settings={
                 'response_type': (EventPaginatedResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/event',

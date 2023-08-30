@@ -40,6 +40,7 @@ class DatabaseEventApi(object):
             settings={
                 'response_type': (EventPaginatedResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/event',

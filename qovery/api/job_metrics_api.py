@@ -40,6 +40,7 @@ class JobMetricsApi(object):
             settings={
                 'response_type': (InstanceResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/instance',

@@ -44,6 +44,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/aws/credentials',
@@ -101,6 +102,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/digitalOcean/credentials',
@@ -158,6 +160,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/scaleway/credentials',
@@ -215,6 +218,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/aws/credentials/{credentialsId}',
@@ -270,6 +274,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/digitalOcean/credentials/{credentialsId}',
@@ -325,6 +330,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/scaleway/credentials/{credentialsId}',
@@ -380,6 +386,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/aws/credentials/{credentialsId}',
@@ -443,6 +450,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/digitalOcean/credentials/{credentialsId}',
@@ -506,6 +514,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/scaleway/credentials/{credentialsId}',
@@ -569,6 +578,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/aws/credentials/{credentialsId}',
@@ -626,6 +636,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/digitalOcean/credentials/{credentialsId}',
@@ -683,6 +694,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/scaleway/credentials/{credentialsId}',
@@ -740,6 +752,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentialsResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/aws/credentials',
@@ -791,6 +804,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentialsResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/digitalOcean/credentials',
@@ -842,6 +856,7 @@ class CloudProviderCredentialsApi(object):
             settings={
                 'response_type': (ClusterCredentialsResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/scaleway/credentials',

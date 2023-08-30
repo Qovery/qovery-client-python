@@ -40,6 +40,7 @@ class ContainerDeploymentHistoryApi(object):
             settings={
                 'response_type': (ListContainerDeploymentHistory200Response,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/deploymentHistory',

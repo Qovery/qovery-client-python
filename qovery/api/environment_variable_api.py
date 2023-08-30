@@ -45,6 +45,7 @@ class EnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/environmentVariable',
@@ -102,6 +103,7 @@ class EnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/environmentVariable/{environmentVariableId}/alias',
@@ -165,6 +167,7 @@ class EnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/environmentVariable/{environmentVariableId}/override',
@@ -228,6 +231,7 @@ class EnvironmentVariableApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/environmentVariable/{environmentVariableId}',
@@ -283,6 +287,7 @@ class EnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/environmentVariable/{environmentVariableId}',
@@ -347,6 +352,7 @@ class EnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariableResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/environmentVariable',

@@ -41,6 +41,7 @@ class UserSignUpApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/admin/userSignUp',
@@ -89,6 +90,7 @@ class UserSignUpApi(object):
             settings={
                 'response_type': (SignUp,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/admin/userSignUp',

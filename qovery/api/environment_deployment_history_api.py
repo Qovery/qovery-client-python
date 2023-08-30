@@ -40,6 +40,7 @@ class EnvironmentDeploymentHistoryApi(object):
             settings={
                 'response_type': (DeploymentHistoryEnvironmentPaginatedResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/deploymentHistory',

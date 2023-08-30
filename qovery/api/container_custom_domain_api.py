@@ -42,6 +42,7 @@ class ContainerCustomDomainApi(object):
             settings={
                 'response_type': (CustomDomain,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/customDomain',
@@ -99,6 +100,7 @@ class ContainerCustomDomainApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/customDomain/{customDomainId}',
@@ -154,6 +156,7 @@ class ContainerCustomDomainApi(object):
             settings={
                 'response_type': (CustomDomain,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/customDomain/{customDomainId}',
@@ -217,6 +220,7 @@ class ContainerCustomDomainApi(object):
             settings={
                 'response_type': (CustomDomain,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/customDomain/{customDomainId}/status',
@@ -274,6 +278,7 @@ class ContainerCustomDomainApi(object):
             settings={
                 'response_type': (CustomDomainResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/customDomain',

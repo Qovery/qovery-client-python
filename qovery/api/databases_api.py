@@ -46,6 +46,7 @@ class DatabasesApi(object):
             settings={
                 'response_type': (Database,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/clone',
@@ -103,6 +104,7 @@ class DatabasesApi(object):
             settings={
                 'response_type': (Database,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/database',
@@ -160,6 +162,7 @@ class DatabasesApi(object):
             settings={
                 'response_type': (ReferenceObjectStatusResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/database/status',
@@ -211,6 +214,7 @@ class DatabasesApi(object):
             settings={
                 'response_type': (DatabaseResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/database',
@@ -262,6 +266,7 @@ class DatabasesApi(object):
             settings={
                 'response_type': (DatabaseConfigurationResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/databaseConfiguration',
@@ -313,6 +318,7 @@ class DatabasesApi(object):
             settings={
                 'response_type': (EnvironmentDatabasesCurrentMetricResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/database/currentMetric',

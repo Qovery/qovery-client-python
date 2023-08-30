@@ -40,6 +40,7 @@ class GithubAppApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/github/connect',
@@ -95,6 +96,7 @@ class GithubAppApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/github/disconnect',

@@ -47,6 +47,7 @@ class ApplicationEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/environmentVariable',
@@ -104,6 +105,7 @@ class ApplicationEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/environmentVariable/{environmentVariableId}/alias',
@@ -167,6 +169,7 @@ class ApplicationEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/environmentVariable/{environmentVariableId}/override',
@@ -230,6 +233,7 @@ class ApplicationEnvironmentVariableApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/environmentVariable/{environmentVariableId}',
@@ -285,6 +289,7 @@ class ApplicationEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/environmentVariable/{environmentVariableId}',
@@ -349,6 +354,7 @@ class ApplicationEnvironmentVariableApi(object):
             settings={
                 'response_type': (VariableImport,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/environmentVariable/import',
@@ -406,6 +412,7 @@ class ApplicationEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariableResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/environmentVariable',

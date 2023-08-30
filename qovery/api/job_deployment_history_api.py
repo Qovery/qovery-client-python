@@ -40,6 +40,7 @@ class JobDeploymentHistoryApi(object):
             settings={
                 'response_type': (ListJobDeploymentHistory200Response,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/deploymentHistory',

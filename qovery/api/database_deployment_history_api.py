@@ -40,6 +40,7 @@ class DatabaseDeploymentHistoryApi(object):
             settings={
                 'response_type': (ListDatabaseDeploymentHistory200Response,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/deploymentHistory',

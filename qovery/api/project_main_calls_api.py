@@ -41,6 +41,7 @@ class ProjectMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}',
@@ -90,6 +91,7 @@ class ProjectMainCallsApi(object):
             settings={
                 'response_type': (Project,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}',
@@ -147,6 +149,7 @@ class ProjectMainCallsApi(object):
             settings={
                 'response_type': (Project,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}',

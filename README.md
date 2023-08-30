@@ -66,6 +66,12 @@ configuration = qovery.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
@@ -907,6 +913,13 @@ Class | Method | HTTP request | Description
 
 
 ## Documentation For Authorization
+
+
+## ApiKeyAuth
+
+- **Type**: API key
+- **API key parameter name**: Token
+- **Location**: HTTP header
 
 
 ## bearerAuth

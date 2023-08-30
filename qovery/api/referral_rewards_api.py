@@ -41,6 +41,7 @@ class ReferralRewardsApi(object):
             settings={
                 'response_type': (Referral,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/referral',
@@ -85,6 +86,7 @@ class ReferralRewardsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/rewardClaim',

@@ -41,6 +41,7 @@ class EnvironmentApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/application/deploy',

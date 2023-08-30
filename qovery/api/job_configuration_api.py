@@ -40,6 +40,7 @@ class JobConfigurationApi(object):
             settings={
                 'response_type': (JobAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/advancedSettings',
@@ -97,6 +98,7 @@ class JobConfigurationApi(object):
             settings={
                 'response_type': (JobAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/advancedSettings',

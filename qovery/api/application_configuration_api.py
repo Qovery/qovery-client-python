@@ -42,6 +42,7 @@ class ApplicationConfigurationApi(object):
             settings={
                 'response_type': (ApplicationAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/advancedSettings',
@@ -99,6 +100,7 @@ class ApplicationConfigurationApi(object):
             settings={
                 'response_type': (ApplicationNetwork,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/network',
@@ -156,6 +158,7 @@ class ApplicationConfigurationApi(object):
             settings={
                 'response_type': (ApplicationAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/advancedSettings',
@@ -207,6 +210,7 @@ class ApplicationConfigurationApi(object):
             settings={
                 'response_type': (ApplicationNetwork,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/network',

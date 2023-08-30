@@ -42,6 +42,7 @@ class OrganizationApiTokenApi(object):
             settings={
                 'response_type': (OrganizationApiTokenCreate,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/apiToken',
@@ -99,6 +100,7 @@ class OrganizationApiTokenApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/apiToken/{apiTokenId}',
@@ -154,6 +156,7 @@ class OrganizationApiTokenApi(object):
             settings={
                 'response_type': (OrganizationApiTokenResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/apiToken',

@@ -42,6 +42,7 @@ class ContainerConfigurationApi(object):
             settings={
                 'response_type': (ContainerAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/advancedSettings',
@@ -99,6 +100,7 @@ class ContainerConfigurationApi(object):
             settings={
                 'response_type': (ContainerNetwork,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/network',
@@ -156,6 +158,7 @@ class ContainerConfigurationApi(object):
             settings={
                 'response_type': (ContainerAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/advancedSettings',
@@ -207,6 +210,7 @@ class ContainerConfigurationApi(object):
             settings={
                 'response_type': (ContainerNetwork,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/network',

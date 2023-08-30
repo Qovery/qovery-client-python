@@ -40,6 +40,7 @@ class DatabaseApplicationApi(object):
             settings={
                 'response_type': (ApplicationResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/application',
@@ -91,6 +92,7 @@ class DatabaseApplicationApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/application/{targetApplicationId}',

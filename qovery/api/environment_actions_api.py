@@ -45,6 +45,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (EnvironmentStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/cancelDeployment',
@@ -96,6 +97,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (Environment,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/clone',
@@ -153,6 +155,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/service/deploy',
@@ -210,6 +213,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/deploy',
@@ -261,6 +265,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/service/restart-service',
@@ -318,6 +323,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (EnvironmentStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/redeploy',
@@ -369,6 +375,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (EnvironmentStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/restart',
@@ -420,6 +427,7 @@ class EnvironmentActionsApi(object):
             settings={
                 'response_type': (EnvironmentStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/stop',

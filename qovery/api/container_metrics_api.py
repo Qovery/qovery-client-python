@@ -42,6 +42,7 @@ class ContainerMetricsApi(object):
             settings={
                 'response_type': (InstanceResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/instance',
@@ -93,6 +94,7 @@ class ContainerMetricsApi(object):
             settings={
                 'response_type': (ContainerCurrentScale,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/currentScale',
@@ -144,6 +146,7 @@ class ContainerMetricsApi(object):
             settings={
                 'response_type': (StorageDiskResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/currentStorage',

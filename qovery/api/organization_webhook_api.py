@@ -43,6 +43,7 @@ class OrganizationWebhookApi(object):
             settings={
                 'response_type': (OrganizationWebhookCreateResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/webhook',
@@ -100,6 +101,7 @@ class OrganizationWebhookApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/webhook/{webhookId}',
@@ -155,6 +157,7 @@ class OrganizationWebhookApi(object):
             settings={
                 'response_type': (OrganizationWebhookCreateResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/webhook/{webhookId}',
@@ -218,6 +221,7 @@ class OrganizationWebhookApi(object):
             settings={
                 'response_type': (OrganizationWebhookResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/webhook/{webhookId}',
@@ -275,6 +279,7 @@ class OrganizationWebhookApi(object):
             settings={
                 'response_type': (OrganizationWebhookResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/webhook',

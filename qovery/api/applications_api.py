@@ -48,6 +48,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (Application,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/clone',
@@ -105,6 +106,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (Application,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/application',
@@ -162,6 +164,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (ApplicationAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/defaultApplicationAdvancedSettings',
@@ -206,6 +209,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (EnvironmentApplicationsCurrentScaleResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/application/currentScale',
@@ -257,6 +261,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (EnvironmentApplicationsStorageResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/application/currentStorage',
@@ -308,6 +313,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (ReferenceObjectStatusResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/application/status',
@@ -359,6 +365,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (EnvironmentApplicationsSupportedLanguageList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/application/supportedLanguage',
@@ -410,6 +417,7 @@ class ApplicationsApi(object):
             settings={
                 'response_type': (ApplicationResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/application',

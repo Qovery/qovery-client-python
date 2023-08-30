@@ -45,6 +45,7 @@ class OrganizationEventApi(object):
             settings={
                 'response_type': (OrganizationEventTargetResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/targets',
@@ -138,6 +139,7 @@ class OrganizationEventApi(object):
             settings={
                 'response_type': (OrganizationEventResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/events',

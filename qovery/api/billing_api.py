@@ -53,6 +53,7 @@ class BillingApi(object):
             settings={
                 'response_type': (CreditCard,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/creditCard',
@@ -110,6 +111,7 @@ class BillingApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/creditCode',
@@ -165,6 +167,7 @@ class BillingApi(object):
             settings={
                 'response_type': (Organization,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/changePlan',
@@ -222,6 +225,7 @@ class BillingApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/creditCard/{creditCardId}',
@@ -277,6 +281,7 @@ class BillingApi(object):
             settings={
                 'response_type': (BillingInfo,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/billingInfo',
@@ -334,6 +339,7 @@ class BillingApi(object):
             settings={
                 'response_type': (CostRange,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/currentCost',
@@ -391,6 +397,7 @@ class BillingApi(object):
             settings={
                 'response_type': (BillingInfo,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/billingInfo',
@@ -442,6 +449,7 @@ class BillingApi(object):
             settings={
                 'response_type': (BillingStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/billingStatus',
@@ -493,6 +501,7 @@ class BillingApi(object):
             settings={
                 'response_type': (OrganizationCurrentCost,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/currentCost',
@@ -544,6 +553,7 @@ class BillingApi(object):
             settings={
                 'response_type': (Invoice,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/invoice/{invoiceId}',
@@ -601,6 +611,7 @@ class BillingApi(object):
             settings={
                 'response_type': (Link,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/invoice/{invoiceId}/download',
@@ -658,6 +669,7 @@ class BillingApi(object):
             settings={
                 'response_type': (CreditCardResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/creditCard',
@@ -709,6 +721,7 @@ class BillingApi(object):
             settings={
                 'response_type': (InvoiceResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/invoice',
@@ -760,6 +773,7 @@ class BillingApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/downloadInvoices',

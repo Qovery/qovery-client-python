@@ -41,6 +41,7 @@ class AccountInfoApi(object):
             settings={
                 'response_type': (AccountInfo,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account',
@@ -91,6 +92,7 @@ class AccountInfoApi(object):
             settings={
                 'response_type': (AccountInfo,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account',

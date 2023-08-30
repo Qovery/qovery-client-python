@@ -42,6 +42,7 @@ class BackupsApi(object):
             settings={
                 'response_type': (Backup,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/backup',
@@ -99,6 +100,7 @@ class BackupsApi(object):
             settings={
                 'response_type': (BackupPaginatedResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/backup',
@@ -155,6 +157,7 @@ class BackupsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/backup/{backupId}',

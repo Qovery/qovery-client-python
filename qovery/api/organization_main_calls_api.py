@@ -44,6 +44,7 @@ class OrganizationMainCallsApi(object):
             settings={
                 'response_type': (Organization,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization',
@@ -94,6 +95,7 @@ class OrganizationMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}',
@@ -143,6 +145,7 @@ class OrganizationMainCallsApi(object):
             settings={
                 'response_type': (Organization,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}',
@@ -200,6 +203,7 @@ class OrganizationMainCallsApi(object):
             settings={
                 'response_type': (Organization,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}',
@@ -251,6 +255,7 @@ class OrganizationMainCallsApi(object):
             settings={
                 'response_type': (OrganizationResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization',
@@ -295,6 +300,7 @@ class OrganizationMainCallsApi(object):
             settings={
                 'response_type': (OrganizationAvailableRoleList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/availableRole',

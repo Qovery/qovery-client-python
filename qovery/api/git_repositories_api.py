@@ -42,6 +42,7 @@ class GitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/bitbucket/repository',
@@ -86,6 +87,7 @@ class GitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryBranchResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/bitbucket/repository/branch',
@@ -135,6 +137,7 @@ class GitRepositoriesApi(object):
             settings={
                 'response_type': (GitAuthProviderResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/gitAuthProvider',
@@ -179,6 +182,7 @@ class GitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/github/repository',
@@ -223,6 +227,7 @@ class GitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryBranchResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/github/repository/branch',
@@ -272,6 +277,7 @@ class GitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/gitlab/repository',
@@ -316,6 +322,7 @@ class GitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryBranchResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/account/gitlab/repository/branch',

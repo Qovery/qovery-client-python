@@ -45,6 +45,7 @@ class JobSecretApi(object):
             settings={
                 'response_type': (Secret,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/secret',
@@ -102,6 +103,7 @@ class JobSecretApi(object):
             settings={
                 'response_type': (Secret,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/secret/{secretId}/alias',
@@ -165,6 +167,7 @@ class JobSecretApi(object):
             settings={
                 'response_type': (Secret,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/secret/{secretId}/override',
@@ -228,6 +231,7 @@ class JobSecretApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/secret/{secretId}',
@@ -283,6 +287,7 @@ class JobSecretApi(object):
             settings={
                 'response_type': (Secret,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/secret/{secretId}',
@@ -347,6 +352,7 @@ class JobSecretApi(object):
             settings={
                 'response_type': (SecretResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/secret',

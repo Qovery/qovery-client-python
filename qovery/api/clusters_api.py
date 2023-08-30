@@ -52,6 +52,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (Cluster,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster',
@@ -109,6 +110,7 @@ class ClustersApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}',
@@ -164,6 +166,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/deploy',
@@ -221,6 +224,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (Cluster,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}',
@@ -284,6 +288,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/advancedSettings',
@@ -347,6 +352,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterRoutingTable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/routingTable',
@@ -410,6 +416,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/advancedSettings',
@@ -467,6 +474,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterReadinessStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/isReady',
@@ -524,6 +532,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterStatusGet,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/status',
@@ -581,6 +590,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/defaultClusterAdvancedSettings',
@@ -625,6 +635,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterCloudProviderInfo,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo',
@@ -682,6 +693,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterStatusResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/status',
@@ -733,6 +745,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterRoutingTable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/routingTable',
@@ -790,6 +803,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterLogsResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/logs',
@@ -847,6 +861,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster',
@@ -898,6 +913,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterCloudProviderInfo,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo',
@@ -961,6 +977,7 @@ class ClustersApi(object):
             settings={
                 'response_type': (ClusterStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/cluster/{clusterId}/stop',

@@ -78,6 +78,25 @@ class Configuration(object):
       in PEM format
 
     :Example:
+
+    API Key Authentication Example.
+    Given the following security scheme in the OpenAPI specification:
+      components:
+        securitySchemes:
+          cookieAuth:         # name for the security scheme
+            type: apiKey
+            in: cookie
+            name: JSESSIONID  # cookie name
+
+    You can programmatically set the cookie:
+
+conf = qovery.Configuration(
+    api_key={'cookieAuth': 'abc123'}
+    api_key_prefix={'cookieAuth': 'JSESSIONID'}
+)
+
+    The following cookie will be added to the HTTP request:
+       Cookie: JSESSIONID abc123
     """
 
     _default = None
@@ -371,6 +390,15 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         auth = {}
+        if 'ApiKeyAuth' in self.api_key:
+            auth['ApiKeyAuth'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Token',
+                'value': self.get_api_key_with_prefix(
+                    'ApiKeyAuth',
+                ),
+            }
         if self.access_token is not None:
             auth['bearerAuth'] = {
                 'type': 'bearer',

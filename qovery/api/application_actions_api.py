@@ -41,6 +41,7 @@ class ApplicationActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/deploy',
@@ -98,6 +99,7 @@ class ApplicationActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/restart-service',
@@ -149,6 +151,7 @@ class ApplicationActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/redeploy',
@@ -200,6 +203,7 @@ class ApplicationActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/restart',
@@ -251,6 +255,7 @@ class ApplicationActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/stop',

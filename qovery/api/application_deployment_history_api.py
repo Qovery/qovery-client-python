@@ -40,6 +40,7 @@ class ApplicationDeploymentHistoryApi(object):
             settings={
                 'response_type': (DeploymentHistoryPaginatedResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/deploymentHistory',

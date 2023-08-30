@@ -42,6 +42,7 @@ class ApplicationDeploymentRestrictionApi(object):
             settings={
                 'response_type': (ApplicationDeploymentRestriction,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/deploymentRestriction',
@@ -99,6 +100,7 @@ class ApplicationDeploymentRestrictionApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/deploymentRestriction/{deploymentRestrictionId}',
@@ -154,6 +156,7 @@ class ApplicationDeploymentRestrictionApi(object):
             settings={
                 'response_type': (ApplicationDeploymentRestriction,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/deploymentRestriction/{deploymentRestrictionId}',
@@ -217,6 +220,7 @@ class ApplicationDeploymentRestrictionApi(object):
             settings={
                 'response_type': (ApplicationDeploymentRestrictionResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/deploymentRestriction',

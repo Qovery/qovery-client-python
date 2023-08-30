@@ -45,6 +45,7 @@ class ApplicationMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}',
@@ -94,6 +95,7 @@ class ApplicationMainCallsApi(object):
             settings={
                 'response_type': (Application,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}',
@@ -151,6 +153,7 @@ class ApplicationMainCallsApi(object):
             settings={
                 'response_type': (Application,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}',
@@ -202,6 +205,7 @@ class ApplicationMainCallsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/status',
@@ -253,6 +257,7 @@ class ApplicationMainCallsApi(object):
             settings={
                 'response_type': (CommitResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/commit',
@@ -314,6 +319,7 @@ class ApplicationMainCallsApi(object):
             settings={
                 'response_type': (UserResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/contributor',
@@ -365,6 +371,7 @@ class ApplicationMainCallsApi(object):
             settings={
                 'response_type': (LinkResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/link',

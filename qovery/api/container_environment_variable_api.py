@@ -47,6 +47,7 @@ class ContainerEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/environmentVariable',
@@ -104,6 +105,7 @@ class ContainerEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/environmentVariable/{environmentVariableId}/alias',
@@ -167,6 +169,7 @@ class ContainerEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/environmentVariable/{environmentVariableId}/override',
@@ -230,6 +233,7 @@ class ContainerEnvironmentVariableApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/environmentVariable/{environmentVariableId}',
@@ -285,6 +289,7 @@ class ContainerEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariable,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/environmentVariable/{environmentVariableId}',
@@ -349,6 +354,7 @@ class ContainerEnvironmentVariableApi(object):
             settings={
                 'response_type': (VariableImport,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/environmentVariable/import',
@@ -406,6 +412,7 @@ class ContainerEnvironmentVariableApi(object):
             settings={
                 'response_type': (EnvironmentVariableResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/environmentVariable',

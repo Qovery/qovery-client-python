@@ -42,6 +42,7 @@ class JobActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/deploy',
@@ -104,6 +105,7 @@ class JobActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/redeploy',
@@ -160,6 +162,7 @@ class JobActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/restart',
@@ -216,6 +219,7 @@ class JobActionsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/stop',

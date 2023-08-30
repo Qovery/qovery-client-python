@@ -45,6 +45,7 @@ class JobsApi(object):
             settings={
                 'response_type': (JobResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/clone',
@@ -102,6 +103,7 @@ class JobsApi(object):
             settings={
                 'response_type': (JobResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/job',
@@ -159,6 +161,7 @@ class JobsApi(object):
             settings={
                 'response_type': (JobAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/defaultJobAdvancedSettings',
@@ -203,6 +206,7 @@ class JobsApi(object):
             settings={
                 'response_type': (ReferenceObjectStatusResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/job/status',
@@ -254,6 +258,7 @@ class JobsApi(object):
             settings={
                 'response_type': (JobResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/job',

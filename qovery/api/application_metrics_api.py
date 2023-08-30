@@ -46,6 +46,7 @@ class ApplicationMetricsApi(object):
             settings={
                 'response_type': (InstanceResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/instance',
@@ -97,6 +98,7 @@ class ApplicationMetricsApi(object):
             settings={
                 'response_type': (ApplicationCurrentScale,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/currentScale',
@@ -148,6 +150,7 @@ class ApplicationMetricsApi(object):
             settings={
                 'response_type': (StorageDiskResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/currentStorage',
@@ -199,6 +202,7 @@ class ApplicationMetricsApi(object):
             settings={
                 'response_type': (MetricCPUResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/metric/cpu',
@@ -256,6 +260,7 @@ class ApplicationMetricsApi(object):
             settings={
                 'response_type': (MetricGenericResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/metric/healthCheck',
@@ -313,6 +318,7 @@ class ApplicationMetricsApi(object):
             settings={
                 'response_type': (MetricMemoryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/metric/memory',
@@ -370,6 +376,7 @@ class ApplicationMetricsApi(object):
             settings={
                 'response_type': (MetricStorageResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/metric/storage',

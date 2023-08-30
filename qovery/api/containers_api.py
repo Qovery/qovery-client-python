@@ -50,6 +50,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/container/deploy',
@@ -107,6 +108,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (ContainerResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/clone',
@@ -164,6 +166,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (ContainerResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/container',
@@ -221,6 +224,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (ReferenceObjectStatusResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/containerRegistry/{containerRegistryId}/container/status',
@@ -278,6 +282,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (ContainerAdvancedSettings,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/defaultContainerAdvancedSettings',
@@ -322,6 +327,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (EnvironmentContainersCurrentScaleResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/container/currentScale',
@@ -373,6 +379,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (EnvironmentContainersStorageResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/container/currentStorage',
@@ -424,6 +431,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (ReferenceObjectStatusResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/container/status',
@@ -475,6 +483,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (ContainerResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/container',
@@ -526,6 +535,7 @@ class ContainersApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/container/preview',

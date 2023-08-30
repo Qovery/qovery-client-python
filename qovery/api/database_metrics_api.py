@@ -44,6 +44,7 @@ class DatabaseMetricsApi(object):
             settings={
                 'response_type': (DatabaseCurrentMetric,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/currentMetric',
@@ -95,6 +96,7 @@ class DatabaseMetricsApi(object):
             settings={
                 'response_type': (MetricCPUDatapointResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/metric/cpu',
@@ -152,6 +154,7 @@ class DatabaseMetricsApi(object):
             settings={
                 'response_type': (MetricGenericResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/metric/healthCheck',
@@ -209,6 +212,7 @@ class DatabaseMetricsApi(object):
             settings={
                 'response_type': (MetricMemoryDatapointResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/metric/memory',
@@ -266,6 +270,7 @@ class DatabaseMetricsApi(object):
             settings={
                 'response_type': (MetricStorageDatapointResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/metric/storage',

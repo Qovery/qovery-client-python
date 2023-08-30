@@ -40,6 +40,7 @@ class ApplicationLogsApi(object):
             settings={
                 'response_type': (LogResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/application/{applicationId}/log',

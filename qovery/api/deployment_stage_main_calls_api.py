@@ -42,6 +42,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/deploymentStage/{deploymentStageId}/service/{serviceId}',
@@ -99,6 +100,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/deploymentStage',
@@ -156,6 +158,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/deploymentStage/{deploymentStageId}',
@@ -205,6 +208,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/deploymentStage/{deploymentStageId}',
@@ -262,6 +266,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/deploymentStage/{deploymentStageId}',
@@ -313,6 +318,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/service/{serviceId}/deploymentStage',
@@ -364,6 +370,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/deploymentStage',
@@ -415,6 +422,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/deploymentStage/{deploymentStageId}/moveAfter/{stageId}',
@@ -472,6 +480,7 @@ class DeploymentStageMainCallsApi(object):
             settings={
                 'response_type': (DeploymentStageResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/deploymentStage/{deploymentStageId}/moveBefore/{stageId}',

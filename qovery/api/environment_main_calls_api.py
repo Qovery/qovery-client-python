@@ -44,6 +44,7 @@ class EnvironmentMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}',
@@ -93,6 +94,7 @@ class EnvironmentMainCallsApi(object):
             settings={
                 'response_type': (Environment,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}',
@@ -150,6 +152,7 @@ class EnvironmentMainCallsApi(object):
             settings={
                 'response_type': (Environment,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}',
@@ -201,6 +204,7 @@ class EnvironmentMainCallsApi(object):
             settings={
                 'response_type': (EnvironmentStatus,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/status',
@@ -252,6 +256,7 @@ class EnvironmentMainCallsApi(object):
             settings={
                 'response_type': (EnvironmentStatuses,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/statuses',
@@ -303,6 +308,7 @@ class EnvironmentMainCallsApi(object):
             settings={
                 'response_type': (EnvironmentStatusesWithStages,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/statusesWithStages',

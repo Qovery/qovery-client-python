@@ -43,6 +43,7 @@ class JobMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}',
@@ -92,6 +93,7 @@ class JobMainCallsApi(object):
             settings={
                 'response_type': (JobResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}',
@@ -149,6 +151,7 @@ class JobMainCallsApi(object):
             settings={
                 'response_type': (JobResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}',
@@ -200,6 +203,7 @@ class JobMainCallsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/status',
@@ -251,6 +255,7 @@ class JobMainCallsApi(object):
             settings={
                 'response_type': (CommitResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/job/{jobId}/commit',

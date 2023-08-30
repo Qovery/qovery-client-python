@@ -42,6 +42,7 @@ class OrganizationAccountGitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/account/bitbucket/repository',
@@ -93,6 +94,7 @@ class OrganizationAccountGitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryBranchResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/account/bitbucket/repository/branch',
@@ -149,6 +151,7 @@ class OrganizationAccountGitRepositoriesApi(object):
             settings={
                 'response_type': (GitAuthProviderResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/account/gitAuthProvider',
@@ -200,6 +203,7 @@ class OrganizationAccountGitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/account/github/repository',
@@ -251,6 +255,7 @@ class OrganizationAccountGitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryBranchResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/account/github/repository/branch',
@@ -307,6 +312,7 @@ class OrganizationAccountGitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/account/gitlab/repository',
@@ -358,6 +364,7 @@ class OrganizationAccountGitRepositoriesApi(object):
             settings={
                 'response_type': (GitRepositoryBranchResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/account/gitlab/repository/branch',

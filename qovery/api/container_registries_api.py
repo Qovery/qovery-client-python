@@ -43,6 +43,7 @@ class ContainerRegistriesApi(object):
             settings={
                 'response_type': (ContainerRegistryResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/containerRegistry',
@@ -100,6 +101,7 @@ class ContainerRegistriesApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/containerRegistry/{containerRegistryId}',
@@ -155,6 +157,7 @@ class ContainerRegistriesApi(object):
             settings={
                 'response_type': (ContainerRegistryResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/containerRegistry/{containerRegistryId}',
@@ -218,6 +221,7 @@ class ContainerRegistriesApi(object):
             settings={
                 'response_type': (ContainerRegistryResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/containerRegistry/{containerRegistryId}',
@@ -275,6 +279,7 @@ class ContainerRegistriesApi(object):
             settings={
                 'response_type': (AvailableContainerRegistryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/availableContainerRegistry',
@@ -319,6 +324,7 @@ class ContainerRegistriesApi(object):
             settings={
                 'response_type': (ContainerRegistryResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/containerRegistry',

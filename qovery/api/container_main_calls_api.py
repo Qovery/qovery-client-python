@@ -43,6 +43,7 @@ class ContainerMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}',
@@ -92,6 +93,7 @@ class ContainerMainCallsApi(object):
             settings={
                 'response_type': (ContainerResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}',
@@ -149,6 +151,7 @@ class ContainerMainCallsApi(object):
             settings={
                 'response_type': (ContainerResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}',
@@ -200,6 +203,7 @@ class ContainerMainCallsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/status',
@@ -251,6 +255,7 @@ class ContainerMainCallsApi(object):
             settings={
                 'response_type': (LinkResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/link',

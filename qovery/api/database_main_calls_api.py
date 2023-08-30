@@ -45,6 +45,7 @@ class DatabaseMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}',
@@ -94,6 +95,7 @@ class DatabaseMainCallsApi(object):
             settings={
                 'response_type': (Database,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}',
@@ -151,6 +153,7 @@ class DatabaseMainCallsApi(object):
             settings={
                 'response_type': (Credentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/masterCredentials',
@@ -208,6 +211,7 @@ class DatabaseMainCallsApi(object):
             settings={
                 'response_type': (Database,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}',
@@ -259,6 +263,7 @@ class DatabaseMainCallsApi(object):
             settings={
                 'response_type': (Credentials,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/masterCredentials',
@@ -310,6 +315,7 @@ class DatabaseMainCallsApi(object):
             settings={
                 'response_type': (Status,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/status',
@@ -361,6 +367,7 @@ class DatabaseMainCallsApi(object):
             settings={
                 'response_type': (VersionResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/database/{databaseId}/version',

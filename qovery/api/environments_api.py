@@ -44,6 +44,7 @@ class EnvironmentsApi(object):
             settings={
                 'response_type': (Environment,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/environment',
@@ -101,6 +102,7 @@ class EnvironmentsApi(object):
             settings={
                 'response_type': (EnvironmentStatsResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/environment/stats',
@@ -152,6 +154,7 @@ class EnvironmentsApi(object):
             settings={
                 'response_type': (EnvironmentStatusList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/environment/status',
@@ -203,6 +206,7 @@ class EnvironmentsApi(object):
             settings={
                 'response_type': (EnvironmentResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/environment',

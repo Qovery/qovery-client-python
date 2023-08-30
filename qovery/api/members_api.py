@@ -46,6 +46,7 @@ class MembersApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/inviteMember/{inviteId}',
@@ -101,6 +102,7 @@ class MembersApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/member',
@@ -156,6 +158,7 @@ class MembersApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/member',
@@ -211,6 +214,7 @@ class MembersApi(object):
             settings={
                 'response_type': (InviteMember,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/inviteMember/{inviteId}',
@@ -268,6 +272,7 @@ class MembersApi(object):
             settings={
                 'response_type': (InviteMemberResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/inviteMember',
@@ -319,6 +324,7 @@ class MembersApi(object):
             settings={
                 'response_type': (MemberResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/member',
@@ -370,6 +376,7 @@ class MembersApi(object):
             settings={
                 'response_type': (InviteMember,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/inviteMember/{inviteId}',
@@ -427,6 +434,7 @@ class MembersApi(object):
             settings={
                 'response_type': (InviteMember,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/inviteMember',
@@ -484,6 +492,7 @@ class MembersApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/transferOwnership',

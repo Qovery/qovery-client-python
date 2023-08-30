@@ -41,6 +41,7 @@ class EnvironmentLogsApi(object):
             settings={
                 'response_type': (EnvironmentLogResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/log',
@@ -92,6 +93,7 @@ class EnvironmentLogsApi(object):
             settings={
                 'response_type': (EnvironmentLogsResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/environment/{environmentId}/logs',

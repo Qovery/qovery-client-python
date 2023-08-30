@@ -43,6 +43,7 @@ class ProjectsApi(object):
             settings={
                 'response_type': (Project,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/project',
@@ -100,6 +101,7 @@ class ProjectsApi(object):
             settings={
                 'response_type': (ProjectStatsResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/project/stats',
@@ -151,6 +153,7 @@ class ProjectsApi(object):
             settings={
                 'response_type': (ProjectResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/project',

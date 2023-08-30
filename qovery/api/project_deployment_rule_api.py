@@ -43,6 +43,7 @@ class ProjectDeploymentRuleApi(object):
             settings={
                 'response_type': (ProjectDeploymentRule,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/deploymentRule',
@@ -100,6 +101,7 @@ class ProjectDeploymentRuleApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/deploymentRule/{deploymentRuleId}',
@@ -155,6 +157,7 @@ class ProjectDeploymentRuleApi(object):
             settings={
                 'response_type': (ProjectDeploymentRule,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/deploymentRule/{deploymentRuleId}',
@@ -218,6 +221,7 @@ class ProjectDeploymentRuleApi(object):
             settings={
                 'response_type': (ProjectDeploymentRule,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/deploymentRule/{deploymentRuleId}',
@@ -275,6 +279,7 @@ class ProjectDeploymentRuleApi(object):
             settings={
                 'response_type': (ProjectDeploymentRuleResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/deploymentRule',
@@ -326,6 +331,7 @@ class ProjectDeploymentRuleApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/project/{projectId}/deploymentRule/order',

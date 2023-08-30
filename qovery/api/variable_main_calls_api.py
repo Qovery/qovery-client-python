@@ -46,6 +46,7 @@ class VariableMainCallsApi(object):
             settings={
                 'response_type': (VariableResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/variable',
@@ -96,6 +97,7 @@ class VariableMainCallsApi(object):
             settings={
                 'response_type': (VariableResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/variable/{variableId}/alias',
@@ -153,6 +155,7 @@ class VariableMainCallsApi(object):
             settings={
                 'response_type': (VariableResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/variable/{variableId}/override',
@@ -210,6 +213,7 @@ class VariableMainCallsApi(object):
             settings={
                 'response_type': None,
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/variable/{variableId}',
@@ -259,6 +263,7 @@ class VariableMainCallsApi(object):
             settings={
                 'response_type': (VariableResponse,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/variable/{variableId}',
@@ -317,6 +322,7 @@ class VariableMainCallsApi(object):
             settings={
                 'response_type': (VariableResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/variable',

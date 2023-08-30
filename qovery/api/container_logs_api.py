@@ -40,6 +40,7 @@ class ContainerLogsApi(object):
             settings={
                 'response_type': (LogResponseList,),
                 'auth': [
+                    'ApiKeyAuth',
                     'bearerAuth'
                 ],
                 'endpoint_path': '/container/{containerId}/log',
