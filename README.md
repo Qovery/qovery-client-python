@@ -368,6 +368,10 @@ Class | Method | HTTP request | Description
 *JobConfigurationApi* | [**edit_job_advanced_settings**](docs/JobConfigurationApi.md#edit_job_advanced_settings) | **PUT** /job/{jobId}/advancedSettings | Edit advanced settings
 *JobConfigurationApi* | [**get_job_advanced_settings**](docs/JobConfigurationApi.md#get_job_advanced_settings) | **GET** /job/{jobId}/advancedSettings | Get advanced settings
 *JobDeploymentHistoryApi* | [**list_job_deployment_history**](docs/JobDeploymentHistoryApi.md#list_job_deployment_history) | **GET** /job/{jobId}/deploymentHistory | List job deployments
+*JobDeploymentRestrictionApi* | [**create_job_deployment_restriction**](docs/JobDeploymentRestrictionApi.md#create_job_deployment_restriction) | **POST** /job/{jobId}/deploymentRestriction | Create a job deployment restriction
+*JobDeploymentRestrictionApi* | [**delete_job_deployment_restriction**](docs/JobDeploymentRestrictionApi.md#delete_job_deployment_restriction) | **DELETE** /job/{jobId}/deploymentRestriction/{deploymentRestrictionId} | Delete a job deployment restriction
+*JobDeploymentRestrictionApi* | [**edit_job_deployment_restriction**](docs/JobDeploymentRestrictionApi.md#edit_job_deployment_restriction) | **PUT** /job/{jobId}/deploymentRestriction/{deploymentRestrictionId} | Edit a job deployment restriction
+*JobDeploymentRestrictionApi* | [**get_job_deployment_restrictions**](docs/JobDeploymentRestrictionApi.md#get_job_deployment_restrictions) | **GET** /job/{jobId}/deploymentRestriction | Get job deployment restrictions
 *JobEnvironmentVariableApi* | [**create_job_environment_variable**](docs/JobEnvironmentVariableApi.md#create_job_environment_variable) | **POST** /job/{jobId}/environmentVariable | Add an environment variable to the job
 *JobEnvironmentVariableApi* | [**create_job_environment_variable_alias**](docs/JobEnvironmentVariableApi.md#create_job_environment_variable_alias) | **POST** /job/{jobId}/environmentVariable/{environmentVariableId}/alias | Create an environment variable alias at the job level
 *JobEnvironmentVariableApi* | [**create_job_environment_variable_override**](docs/JobEnvironmentVariableApi.md#create_job_environment_variable_override) | **POST** /job/{jobId}/environmentVariable/{environmentVariableId}/override | Create an environment variable override at the job level
@@ -722,6 +726,9 @@ Class | Method | HTTP request | Description
  - [InvoiceStatusEnum](docs/InvoiceStatusEnum.md)
  - [JobAdvancedSettings](docs/JobAdvancedSettings.md)
  - [JobDeployRequest](docs/JobDeployRequest.md)
+ - [JobDeploymentRestrictionRequest](docs/JobDeploymentRestrictionRequest.md)
+ - [JobDeploymentRestrictionResponse](docs/JobDeploymentRestrictionResponse.md)
+ - [JobDeploymentRestrictionResponseList](docs/JobDeploymentRestrictionResponseList.md)
  - [JobForceEvent](docs/JobForceEvent.md)
  - [JobRequest](docs/JobRequest.md)
  - [JobRequestAllOf](docs/JobRequestAllOf.md)

@@ -66,6 +66,7 @@ from qovery.api.github_app_api import GithubAppApi
 from qovery.api.job_actions_api import JobActionsApi
 from qovery.api.job_configuration_api import JobConfigurationApi
 from qovery.api.job_deployment_history_api import JobDeploymentHistoryApi
+from qovery.api.job_deployment_restriction_api import JobDeploymentRestrictionApi
 from qovery.api.job_environment_variable_api import JobEnvironmentVariableApi
 from qovery.api.job_main_calls_api import JobMainCallsApi
 from qovery.api.job_metrics_api import JobMetricsApi

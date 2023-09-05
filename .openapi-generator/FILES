@@ -310,6 +310,10 @@ docs/JobAdvancedSettings.md
 docs/JobConfigurationApi.md
 docs/JobDeployRequest.md
 docs/JobDeploymentHistoryApi.md
+docs/JobDeploymentRestrictionApi.md
+docs/JobDeploymentRestrictionRequest.md
+docs/JobDeploymentRestrictionResponse.md
+docs/JobDeploymentRestrictionResponseList.md
 docs/JobEnvironmentVariableApi.md
 docs/JobForceEvent.md
 docs/JobMainCallsApi.md
@@ -573,6 +577,7 @@ qovery/api/github_app_api.py
 qovery/api/job_actions_api.py
 qovery/api/job_configuration_api.py
 qovery/api/job_deployment_history_api.py
+qovery/api/job_deployment_restriction_api.py
 qovery/api/job_environment_variable_api.py
 qovery/api/job_main_calls_api.py
 qovery/api/job_metrics_api.py
@@ -853,6 +858,9 @@ qovery/model/invoice_response_list.py
 qovery/model/invoice_status_enum.py
 qovery/model/job_advanced_settings.py
 qovery/model/job_deploy_request.py
+qovery/model/job_deployment_restriction_request.py
+qovery/model/job_deployment_restriction_response.py
+qovery/model/job_deployment_restriction_response_list.py
 qovery/model/job_force_event.py
 qovery/model/job_request.py
 qovery/model/job_request_all_of.py
@@ -1356,6 +1364,10 @@ test/test_job_advanced_settings.py
 test/test_job_configuration_api.py
 test/test_job_deploy_request.py
 test/test_job_deployment_history_api.py
+test/test_job_deployment_restriction_api.py
+test/test_job_deployment_restriction_request.py
+test/test_job_deployment_restriction_response.py
+test/test_job_deployment_restriction_response_list.py
 test/test_job_environment_variable_api.py
 test/test_job_force_event.py
 test/test_job_main_calls_api.py

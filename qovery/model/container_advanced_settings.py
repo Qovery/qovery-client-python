@@ -109,10 +109,13 @@ class ContainerAdvancedSettings(ModelNormal):
             'network_ingress_proxy_connect_timeout_seconds': (int,),  # noqa: E501
             'network_ingress_proxy_send_timeout_seconds': (int,),  # noqa: E501
             'network_ingress_proxy_read_timeout_seconds': (int,),  # noqa: E501
+            'network_ingress_proxy_buffering': (str,),  # noqa: E501
+            'network_ingress_proxy_request_buffering': (str,),  # noqa: E501
             'network_ingress_grpc_send_timeout_seconds': (int,),  # noqa: E501
             'network_ingress_grpc_read_timeout_seconds': (int,),  # noqa: E501
             'network_ingress_whitelist_source_range': (str,),  # noqa: E501
             'network_ingress_denylist_source_range': (str,),  # noqa: E501
+            'network_ingress_extra_headers': (str,),  # noqa: E501
             'network_ingress_basic_auth_env_var': (str,),  # noqa: E501
             'network_ingress_enable_sticky_session': (bool,),  # noqa: E501
             'security_service_account_name': (str,),  # noqa: E501
@@ -144,10 +147,13 @@ class ContainerAdvancedSettings(ModelNormal):
         'network_ingress_proxy_connect_timeout_seconds': 'network.ingress.proxy_connect_timeout_seconds',  # noqa: E501
         'network_ingress_proxy_send_timeout_seconds': 'network.ingress.proxy_send_timeout_seconds',  # noqa: E501
         'network_ingress_proxy_read_timeout_seconds': 'network.ingress.proxy_read_timeout_seconds',  # noqa: E501
+        'network_ingress_proxy_buffering': 'network.ingress.proxy_buffering',  # noqa: E501
+        'network_ingress_proxy_request_buffering': 'network.ingress.proxy_request_buffering',  # noqa: E501
         'network_ingress_grpc_send_timeout_seconds': 'network.ingress.grpc_send_timeout_seconds',  # noqa: E501
         'network_ingress_grpc_read_timeout_seconds': 'network.ingress.grpc_read_timeout_seconds',  # noqa: E501
         'network_ingress_whitelist_source_range': 'network.ingress.whitelist_source_range',  # noqa: E501
         'network_ingress_denylist_source_range': 'network.ingress.denylist_source_range',  # noqa: E501
+        'network_ingress_extra_headers': 'network.ingress.extra_headers',  # noqa: E501
         'network_ingress_basic_auth_env_var': 'network.ingress.basic_auth_env_var',  # noqa: E501
         'network_ingress_enable_sticky_session': 'network.ingress.enable_sticky_session',  # noqa: E501
         'security_service_account_name': 'security.service_account_name',  # noqa: E501
@@ -214,10 +220,13 @@ class ContainerAdvancedSettings(ModelNormal):
             network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_buffering (str): Allows to enable or disable nginx `proxy-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
+            network_ingress_proxy_request_buffering (str): Allows to enable or disable nginx `proxy-request-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
             network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
             network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            network_ingress_extra_headers (str): Allows to define response headers. [optional] if omitted the server will use the default value of "{}"  # noqa: E501
             network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
@@ -326,10 +335,13 @@ class ContainerAdvancedSettings(ModelNormal):
             network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            network_ingress_proxy_buffering (str): Allows to enable or disable nginx `proxy-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
+            network_ingress_proxy_request_buffering (str): Allows to enable or disable nginx `proxy-request-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
             network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
             network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
             network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            network_ingress_extra_headers (str): Allows to define response headers. [optional] if omitted the server will use the default value of "{}"  # noqa: E501
             network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional] if omitted the server will use the default value of ""  # noqa: E501
             network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501

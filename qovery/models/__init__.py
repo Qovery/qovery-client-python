@@ -264,6 +264,9 @@ from qovery.model.invoice_response_list import InvoiceResponseList
 from qovery.model.invoice_status_enum import InvoiceStatusEnum
 from qovery.model.job_advanced_settings import JobAdvancedSettings
 from qovery.model.job_deploy_request import JobDeployRequest
+from qovery.model.job_deployment_restriction_request import JobDeploymentRestrictionRequest
+from qovery.model.job_deployment_restriction_response import JobDeploymentRestrictionResponse
+from qovery.model.job_deployment_restriction_response_list import JobDeploymentRestrictionResponseList
 from qovery.model.job_force_event import JobForceEvent
 from qovery.model.job_request import JobRequest
 from qovery.model.job_request_all_of import JobRequestAllOf
