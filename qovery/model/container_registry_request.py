@@ -157,7 +157,7 @@ class ContainerRegistryRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            url (str): URL of the container registry: * For `DOCKER_HUB`: it must be `https://docker.io` (default with 'https://docker.io' if no url provided for DOCKER_HUB) * For others: it's required and must start by `https://` . [optional]  # noqa: E501
+            url (str): URL of the container registry: * For `DOCKER_HUB`: it must be `https://docker.io` (default with 'https://docker.io' if no url provided for `DOCKER_HUB`) * For `GITHUB_CR`: it must be `https://ghcr.io` (default with 'https://ghcr.io' if no url provided for `GITHUB_CR`) * For `GITLAB_CR`: it must be `https://registry.gitlab.com` (default with 'https://registry.gitlab.com' if no url provided for `GITLAB_CR`) * For others: it's required and must start by `https://` . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,7 +252,7 @@ class ContainerRegistryRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            url (str): URL of the container registry: * For `DOCKER_HUB`: it must be `https://docker.io` (default with 'https://docker.io' if no url provided for DOCKER_HUB) * For others: it's required and must start by `https://` . [optional]  # noqa: E501
+            url (str): URL of the container registry: * For `DOCKER_HUB`: it must be `https://docker.io` (default with 'https://docker.io' if no url provided for `DOCKER_HUB`) * For `GITHUB_CR`: it must be `https://ghcr.io` (default with 'https://ghcr.io' if no url provided for `GITHUB_CR`) * For `GITLAB_CR`: it must be `https://registry.gitlab.com` (default with 'https://registry.gitlab.com' if no url provided for `GITLAB_CR`) * For others: it's required and must start by `https://` . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
