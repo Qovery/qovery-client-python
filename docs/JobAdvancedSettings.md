@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **cronjob_failed_jobs_history_limit** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **cronjob_success_jobs_history_limit** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **security_service_account_name** | **str** | Allows you to set an existing Kubernetes service account name  | [optional]  if omitted the server will use the default value of ""
+**security_read_only_root_filesystem** | **bool** | Mounts the container&#39;s root filesystem as read-only  | [optional]  if omitted the server will use the default value of False
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

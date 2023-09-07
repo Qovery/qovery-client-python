@@ -123,6 +123,7 @@ class ApplicationAdvancedSettings(ModelNormal):
             'network_ingress_extra_headers': (str,),  # noqa: E501
             'hpa_cpu_average_utilization_percent': (int,),  # noqa: E501
             'security_service_account_name': (str,),  # noqa: E501
+            'security_read_only_root_filesystem': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -164,6 +165,7 @@ class ApplicationAdvancedSettings(ModelNormal):
         'network_ingress_extra_headers': 'network.ingress.extra_headers',  # noqa: E501
         'hpa_cpu_average_utilization_percent': 'hpa.cpu.average_utilization_percent',  # noqa: E501
         'security_service_account_name': 'security.service_account_name',  # noqa: E501
+        'security_read_only_root_filesystem': 'security.read_only_root_filesystem',  # noqa: E501
     }
 
     read_only_vars = {
@@ -240,6 +242,7 @@ class ApplicationAdvancedSettings(ModelNormal):
             network_ingress_extra_headers (str): Allows to define response headers. [optional] if omitted the server will use the default value of "{}"  # noqa: E501
             hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -358,6 +361,7 @@ class ApplicationAdvancedSettings(ModelNormal):
             network_ingress_extra_headers (str): Allows to define response headers. [optional] if omitted the server will use the default value of "{}"  # noqa: E501
             hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

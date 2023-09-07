@@ -88,6 +88,7 @@ with qovery.ApiClient(configuration) as api_client:
         network_ingress_enable_sticky_session=False,
         security_service_account_name="",
         hpa_cpu_average_utilization_percent=60,
+        security_read_only_root_filesystem=False,
     ) # ContainerAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set

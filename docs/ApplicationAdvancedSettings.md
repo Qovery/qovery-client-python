@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **network_ingress_extra_headers** | **str** | Allows to define response headers | [optional]  if omitted the server will use the default value of "{}"
 **hpa_cpu_average_utilization_percent** | **int** | Percentage value of cpu usage at which point pods should scale up. | [optional]  if omitted the server will use the default value of 60
 **security_service_account_name** | **str** | Allows you to set an existing Kubernetes service account name  | [optional]  if omitted the server will use the default value of ""
+**security_read_only_root_filesystem** | **bool** | Mounts the container&#39;s root filesystem as read-only  | [optional]  if omitted the server will use the default value of False
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -92,6 +92,7 @@ class JobAdvancedSettings(ModelNormal):
             'cronjob_failed_jobs_history_limit': (int,),  # noqa: E501
             'cronjob_success_jobs_history_limit': (int,),  # noqa: E501
             'security_service_account_name': (str,),  # noqa: E501
+            'security_read_only_root_filesystem': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class JobAdvancedSettings(ModelNormal):
         'cronjob_failed_jobs_history_limit': 'cronjob.failed_jobs_history_limit',  # noqa: E501
         'cronjob_success_jobs_history_limit': 'cronjob.success_jobs_history_limit',  # noqa: E501
         'security_service_account_name': 'security.service_account_name',  # noqa: E501
+        'security_read_only_root_filesystem': 'security.read_only_root_filesystem',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,6 +165,7 @@ class JobAdvancedSettings(ModelNormal):
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,6 +261,7 @@ class JobAdvancedSettings(ModelNormal):
             cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

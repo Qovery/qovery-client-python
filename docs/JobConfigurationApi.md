@@ -66,6 +66,7 @@ with qovery.ApiClient(configuration) as api_client:
         cronjob_failed_jobs_history_limit=1,
         cronjob_success_jobs_history_limit=1,
         security_service_account_name="",
+        security_read_only_root_filesystem=False,
     ) # JobAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set

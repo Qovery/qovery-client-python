@@ -91,6 +91,7 @@ with qovery.ApiClient(configuration) as api_client:
         network_ingress_extra_headers="{"X-Frame-Options":"DENY ","X-Content-Type-Options":"nosniff"}",
         hpa_cpu_average_utilization_percent=60,
         security_service_account_name="",
+        security_read_only_root_filesystem=False,
     ) # ApplicationAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
