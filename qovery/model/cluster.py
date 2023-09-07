@@ -34,12 +34,14 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_all_of import ClusterAllOf
+    from qovery.model.cluster_deployment_status_enum import ClusterDeploymentStatusEnum
     from qovery.model.cluster_feature import ClusterFeature
     from qovery.model.kubernetes_enum import KubernetesEnum
     from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterAllOf'] = ClusterAllOf
+    globals()['ClusterDeploymentStatusEnum'] = ClusterDeploymentStatusEnum
     globals()['ClusterFeature'] = ClusterFeature
     globals()['KubernetesEnum'] = KubernetesEnum
     globals()['StateEnum'] = StateEnum
@@ -120,6 +122,7 @@ class Cluster(ModelComposed):
             'production': (bool,),  # noqa: E501
             'ssh_keys': ([str],),  # noqa: E501
             'features': ([ClusterFeature],),  # noqa: E501
+            'deployment_status': (ClusterDeploymentStatusEnum,),  # noqa: E501
         }
 
     @cached_property
@@ -150,6 +153,7 @@ class Cluster(ModelComposed):
         'production': 'production',  # noqa: E501
         'ssh_keys': 'ssh_keys',  # noqa: E501
         'features': 'features',  # noqa: E501
+        'deployment_status': 'deployment_status',  # noqa: E501
     }
 
     read_only_vars = {
@@ -216,6 +220,7 @@ class Cluster(ModelComposed):
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
             features ([ClusterFeature]): [optional]  # noqa: E501
+            deployment_status (ClusterDeploymentStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -339,6 +344,7 @@ class Cluster(ModelComposed):
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
             features ([ClusterFeature]): [optional]  # noqa: E501
+            deployment_status (ClusterDeploymentStatusEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -74,6 +74,7 @@ docs/ClusterCloudProviderInfoCredentials.md
 docs/ClusterCloudProviderInfoRequest.md
 docs/ClusterCredentials.md
 docs/ClusterCredentialsResponseList.md
+docs/ClusterDeploymentStatusEnum.md
 docs/ClusterFeature.md
 docs/ClusterFeatureAcceptedValuesInner.md
 docs/ClusterFeatureResponseList.md
@@ -658,6 +659,7 @@ qovery/model/cluster_cloud_provider_info_credentials.py
 qovery/model/cluster_cloud_provider_info_request.py
 qovery/model/cluster_credentials.py
 qovery/model/cluster_credentials_response_list.py
+qovery/model/cluster_deployment_status_enum.py
 qovery/model/cluster_feature.py
 qovery/model/cluster_feature_accepted_values_inner.py
 qovery/model/cluster_feature_response_list.py
@@ -1128,6 +1130,7 @@ test/test_cluster_cloud_provider_info_credentials.py
 test/test_cluster_cloud_provider_info_request.py
 test/test_cluster_credentials.py
 test/test_cluster_credentials_response_list.py
+test/test_cluster_deployment_status_enum.py
 test/test_cluster_feature.py
 test/test_cluster_feature_accepted_values_inner.py
 test/test_cluster_feature_response_list.py
