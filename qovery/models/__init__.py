@@ -418,6 +418,9 @@ from qovery.model.service_port_request import ServicePortRequest
 from qovery.model.service_port_request_ports_inner import ServicePortRequestPortsInner
 from qovery.model.service_port_response_list import ServicePortResponseList
 from qovery.model.service_response_list import ServiceResponseList
+from qovery.model.service_step_metric import ServiceStepMetric
+from qovery.model.service_step_metric_name_enum import ServiceStepMetricNameEnum
+from qovery.model.service_step_metrics import ServiceStepMetrics
 from qovery.model.service_storage import ServiceStorage
 from qovery.model.service_storage_request import ServiceStorageRequest
 from qovery.model.service_storage_request_storage_inner import ServiceStorageRequestStorageInner
@@ -427,9 +430,13 @@ from qovery.model.service_type_enum import ServiceTypeEnum
 from qovery.model.sign_up import SignUp
 from qovery.model.sign_up_request import SignUpRequest
 from qovery.model.stage import Stage
+from qovery.model.stage_step_metric import StageStepMetric
+from qovery.model.stage_step_metric_name_enum import StageStepMetricNameEnum
+from qovery.model.stage_step_metrics import StageStepMetrics
 from qovery.model.state_enum import StateEnum
 from qovery.model.status import Status
 from qovery.model.status_kind_enum import StatusKindEnum
+from qovery.model.step_metric_status_enum import StepMetricStatusEnum
 from qovery.model.storage_disk import StorageDisk
 from qovery.model.storage_disk_response_list import StorageDiskResponseList
 from qovery.model.storage_type_enum import StorageTypeEnum

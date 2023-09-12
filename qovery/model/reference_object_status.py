@@ -33,10 +33,12 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
+    from qovery.model.service_step_metrics import ServiceStepMetrics
     from qovery.model.state_enum import StateEnum
     from qovery.model.status import Status
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServiceDeploymentStatusEnum'] = ServiceDeploymentStatusEnum
+    globals()['ServiceStepMetrics'] = ServiceStepMetrics
     globals()['StateEnum'] = StateEnum
     globals()['Status'] = Status
 
@@ -99,6 +101,7 @@ class ReferenceObjectStatus(ModelComposed):
             'service_deployment_status': (ServiceDeploymentStatusEnum,),  # noqa: E501
             'last_deployment_date': (datetime,),  # noqa: E501
             'is_part_last_deployment': (bool,),  # noqa: E501
+            'metrics': (ServiceStepMetrics,),  # noqa: E501
         }
 
     @cached_property
@@ -112,6 +115,7 @@ class ReferenceObjectStatus(ModelComposed):
         'service_deployment_status': 'service_deployment_status',  # noqa: E501
         'last_deployment_date': 'last_deployment_date',  # noqa: E501
         'is_part_last_deployment': 'is_part_last_deployment',  # noqa: E501
+        'metrics': 'metrics',  # noqa: E501
     }
 
     read_only_vars = {
@@ -158,6 +162,7 @@ class ReferenceObjectStatus(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             last_deployment_date (datetime): [optional]  # noqa: E501
             is_part_last_deployment (bool): [optional]  # noqa: E501
+            metrics (ServiceStepMetrics): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,6 +271,7 @@ class ReferenceObjectStatus(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             last_deployment_date (datetime): [optional]  # noqa: E501
             is_part_last_deployment (bool): [optional]  # noqa: E501
+            metrics (ServiceStepMetrics): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

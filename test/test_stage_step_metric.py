@@ -13,13 +13,15 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.stage_step_metrics import StageStepMetrics
-globals()['StageStepMetrics'] = StageStepMetrics
-from qovery.model.stage import Stage
+from qovery.model.stage_step_metric_name_enum import StageStepMetricNameEnum
+from qovery.model.step_metric_status_enum import StepMetricStatusEnum
+globals()['StageStepMetricNameEnum'] = StageStepMetricNameEnum
+globals()['StepMetricStatusEnum'] = StepMetricStatusEnum
+from qovery.model.stage_step_metric import StageStepMetric
 
 
-class TestStage(unittest.TestCase):
-    """Stage unit test stubs"""
+class TestStageStepMetric(unittest.TestCase):
+    """StageStepMetric unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +29,10 @@ class TestStage(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testStage(self):
-        """Test Stage"""
+    def testStageStepMetric(self):
+        """Test StageStepMetric"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = Stage()  # noqa: E501
+        # model = StageStepMetric()  # noqa: E501
         pass
 
 

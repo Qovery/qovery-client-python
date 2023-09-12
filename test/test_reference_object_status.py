@@ -15,10 +15,12 @@ import unittest
 import qovery
 from qovery.model.reference_object import ReferenceObject
 from qovery.model.service_deployment_status_enum import ServiceDeploymentStatusEnum
+from qovery.model.service_step_metrics import ServiceStepMetrics
 from qovery.model.state_enum import StateEnum
 from qovery.model.status import Status
 globals()['ReferenceObject'] = ReferenceObject
 globals()['ServiceDeploymentStatusEnum'] = ServiceDeploymentStatusEnum
+globals()['ServiceStepMetrics'] = ServiceStepMetrics
 globals()['StateEnum'] = StateEnum
 globals()['Status'] = Status
 from qovery.model.reference_object_status import ReferenceObjectStatus
