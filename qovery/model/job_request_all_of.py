@@ -112,6 +112,7 @@ class JobRequestAllOf(ModelNormal):
             'source': (JobRequestAllOfSource,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
             'schedule': (JobRequestAllOfSchedule,),  # noqa: E501
+            'auto_deploy': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -131,6 +132,7 @@ class JobRequestAllOf(ModelNormal):
         'source': 'source',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
     }
 
     read_only_vars = {
@@ -187,6 +189,7 @@ class JobRequestAllOf(ModelNormal):
             source (JobRequestAllOfSource): [optional]  # noqa: E501
             healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
+            auto_deploy (bool, none_type): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -286,6 +289,7 @@ class JobRequestAllOf(ModelNormal):
             source (JobRequestAllOfSource): [optional]  # noqa: E501
             healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
+            auto_deploy (bool, none_type): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

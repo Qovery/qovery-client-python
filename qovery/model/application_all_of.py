@@ -119,6 +119,7 @@ class ApplicationAllOf(ModelNormal):
             'ports': (ServicePortResponseList,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
+            'auto_deploy': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -145,6 +146,7 @@ class ApplicationAllOf(ModelNormal):
         'ports': 'ports',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
     }
 
     read_only_vars = {
@@ -206,6 +208,7 @@ class ApplicationAllOf(ModelNormal):
             ports (ServicePortResponseList): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            auto_deploy (bool): Specify if the application will be automatically updated after receiving a new commit.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -309,6 +312,7 @@ class ApplicationAllOf(ModelNormal):
             ports (ServicePortResponseList): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            auto_deploy (bool): Specify if the application will be automatically updated after receiving a new commit.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

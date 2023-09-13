@@ -116,6 +116,7 @@ class ContainerRequest(ModelComposed):
             'max_running_instances': (int,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
+            'auto_deploy': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -139,6 +140,7 @@ class ContainerRequest(ModelComposed):
         'max_running_instances': 'max_running_instances',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
     }
 
     read_only_vars = {
@@ -195,6 +197,7 @@ class ContainerRequest(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
+            auto_deploy (bool, none_type): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -313,6 +316,7 @@ class ContainerRequest(ModelComposed):
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
+            auto_deploy (bool, none_type): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

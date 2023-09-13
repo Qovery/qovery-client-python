@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ports** | [**ServicePortResponseList**](ServicePortResponseList.md) |  | [optional] 
 **arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 
+**auto_deploy** | **bool, none_type** | Specify if the application will be automatically updated after receiving a new commit. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

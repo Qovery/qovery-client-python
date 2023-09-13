@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 
 **healthchecks** | [**Healthcheck**](Healthcheck.md) |  | [optional] 
 **ports** | [**ServicePortResponseList**](ServicePortResponseList.md) |  | [optional] 
+**auto_deploy** | **bool** | Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \&quot;Auto Deploy container\&quot; endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

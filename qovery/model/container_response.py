@@ -124,6 +124,7 @@ class ContainerResponse(ModelComposed):
             'entrypoint': (str,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
+            'auto_deploy': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -153,6 +154,7 @@ class ContainerResponse(ModelComposed):
         'entrypoint': 'entrypoint',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
         'ports': 'ports',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
     }
 
     read_only_vars = {
@@ -218,6 +220,7 @@ class ContainerResponse(ModelComposed):
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
+            auto_deploy (bool): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """
 
         min_running_instances = kwargs.get('min_running_instances', 1)
@@ -342,6 +345,7 @@ class ContainerResponse(ModelComposed):
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
             healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
+            auto_deploy (bool): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """
 
         min_running_instances = kwargs.get('min_running_instances', 1)

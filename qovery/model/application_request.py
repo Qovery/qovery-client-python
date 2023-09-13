@@ -123,6 +123,7 @@ class ApplicationRequest(ModelComposed):
             'auto_preview': (bool,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
+            'auto_deploy': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -147,6 +148,7 @@ class ApplicationRequest(ModelComposed):
         'auto_preview': 'auto_preview',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
+        'auto_deploy': 'auto_deploy',  # noqa: E501
     }
 
     read_only_vars = {
@@ -204,6 +206,7 @@ class ApplicationRequest(ModelComposed):
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            auto_deploy (bool, none_type): Specify if the application will be automatically updated after receiving a new commit.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -323,6 +326,7 @@ class ApplicationRequest(ModelComposed):
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            auto_deploy (bool, none_type): Specify if the application will be automatically updated after receiving a new commit.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

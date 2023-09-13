@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **auto_preview** | **bool** | Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the &#x60;auto_preview&#x60; property from the associated environment.  | [optional]  if omitted the server will use the default value of True
 **arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 
+**auto_deploy** | **bool, none_type** | Specify if the application will be automatically updated after receiving a new commit. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
