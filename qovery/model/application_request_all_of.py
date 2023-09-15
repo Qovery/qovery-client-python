@@ -99,6 +99,7 @@ class ApplicationRequestAllOf(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
@@ -107,7 +108,6 @@ class ApplicationRequestAllOf(ModelNormal):
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
@@ -122,6 +122,7 @@ class ApplicationRequestAllOf(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'description': 'description',  # noqa: E501
         'build_mode': 'build_mode',  # noqa: E501
         'dockerfile_path': 'dockerfile_path',  # noqa: E501
@@ -130,7 +131,6 @@ class ApplicationRequestAllOf(ModelNormal):
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
@@ -144,12 +144,13 @@ class ApplicationRequestAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, git_repository, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, git_repository, healthchecks, *args, **kwargs):  # noqa: E501
         """ApplicationRequestAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
             git_repository (ApplicationGitRepositoryRequest):
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -190,7 +191,6 @@ class ApplicationRequestAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
@@ -228,6 +228,7 @@ class ApplicationRequestAllOf(ModelNormal):
 
         self.name = name
         self.git_repository = git_repository
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -248,12 +249,13 @@ class ApplicationRequestAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, git_repository, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, git_repository, healthchecks, *args, **kwargs):  # noqa: E501
         """ApplicationRequestAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
             git_repository (ApplicationGitRepositoryRequest):
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -294,7 +296,6 @@ class ApplicationRequestAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
@@ -330,6 +331,7 @@ class ApplicationRequestAllOf(ModelNormal):
 
         self.name = name
         self.git_repository = git_repository
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

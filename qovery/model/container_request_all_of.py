@@ -95,6 +95,7 @@ class ContainerRequestAllOf(ModelNormal):
             'registry_id': (str,),  # noqa: E501
             'image_name': (str,),  # noqa: E501
             'tag': (str,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
@@ -102,7 +103,6 @@ class ContainerRequestAllOf(ModelNormal):
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'auto_deploy': (bool, none_type,),  # noqa: E501
         }
@@ -117,6 +117,7 @@ class ContainerRequestAllOf(ModelNormal):
         'registry_id': 'registry_id',  # noqa: E501
         'image_name': 'image_name',  # noqa: E501
         'tag': 'tag',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
@@ -124,7 +125,6 @@ class ContainerRequestAllOf(ModelNormal):
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
     }
@@ -136,7 +136,7 @@ class ContainerRequestAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, registry_id, image_name, tag, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, registry_id, image_name, tag, healthchecks, *args, **kwargs):  # noqa: E501
         """ContainerRequestAllOf - a model defined in OpenAPI
 
         Args:
@@ -144,6 +144,7 @@ class ContainerRequestAllOf(ModelNormal):
             registry_id (str): id of the linked registry
             image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` 
             tag (str): tag of the image container
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -183,7 +184,6 @@ class ContainerRequestAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             auto_deploy (bool, none_type): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """
@@ -221,6 +221,7 @@ class ContainerRequestAllOf(ModelNormal):
         self.registry_id = registry_id
         self.image_name = image_name
         self.tag = tag
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -241,7 +242,7 @@ class ContainerRequestAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, registry_id, image_name, tag, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, registry_id, image_name, tag, healthchecks, *args, **kwargs):  # noqa: E501
         """ContainerRequestAllOf - a model defined in OpenAPI
 
         Args:
@@ -249,6 +250,7 @@ class ContainerRequestAllOf(ModelNormal):
             registry_id (str): id of the linked registry
             image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` 
             tag (str): tag of the image container
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -288,7 +290,6 @@ class ContainerRequestAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             auto_deploy (bool, none_type): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """
@@ -324,6 +325,7 @@ class ContainerRequestAllOf(ModelNormal):
         self.registry_id = registry_id
         self.image_name = image_name
         self.tag = tag
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

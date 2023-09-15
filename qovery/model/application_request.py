@@ -109,6 +109,7 @@ class ApplicationRequest(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'storage': ([ServiceStorageRequestStorageInner],),  # noqa: E501
             'ports': ([ServicePortRequestPortsInner],),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
@@ -119,7 +120,6 @@ class ApplicationRequest(ModelComposed):
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
@@ -134,6 +134,7 @@ class ApplicationRequest(ModelComposed):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'storage': 'storage',  # noqa: E501
         'ports': 'ports',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -144,7 +145,6 @@ class ApplicationRequest(ModelComposed):
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
@@ -162,6 +162,7 @@ class ApplicationRequest(ModelComposed):
         Keyword Args:
             name (str): name is case insensitive
             git_repository (ApplicationGitRepositoryRequest):
+            healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -202,7 +203,6 @@ class ApplicationRequest(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
@@ -282,6 +282,7 @@ class ApplicationRequest(ModelComposed):
         Keyword Args:
             name (str): name is case insensitive
             git_repository (ApplicationGitRepositoryRequest):
+            healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -322,7 +323,6 @@ class ApplicationRequest(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501

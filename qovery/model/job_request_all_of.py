@@ -102,6 +102,7 @@ class JobRequestAllOf(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
@@ -110,7 +111,6 @@ class JobRequestAllOf(ModelNormal):
             'auto_preview': (bool,),  # noqa: E501
             'port': (int, none_type,),  # noqa: E501
             'source': (JobRequestAllOfSource,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'schedule': (JobRequestAllOfSchedule,),  # noqa: E501
             'auto_deploy': (bool, none_type,),  # noqa: E501
         }
@@ -122,6 +122,7 @@ class JobRequestAllOf(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'description': 'description',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
@@ -130,7 +131,6 @@ class JobRequestAllOf(ModelNormal):
         'auto_preview': 'auto_preview',  # noqa: E501
         'port': 'port',  # noqa: E501
         'source': 'source',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
     }
@@ -142,11 +142,12 @@ class JobRequestAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, healthchecks, *args, **kwargs):  # noqa: E501
         """JobRequestAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -187,7 +188,6 @@ class JobRequestAllOf(ModelNormal):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobRequestAllOfSource): [optional]  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
             auto_deploy (bool, none_type): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """
@@ -222,6 +222,7 @@ class JobRequestAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -242,11 +243,12 @@ class JobRequestAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, healthchecks, *args, **kwargs):  # noqa: E501
         """JobRequestAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -287,7 +289,6 @@ class JobRequestAllOf(ModelNormal):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobRequestAllOfSource): [optional]  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobRequestAllOfSchedule): [optional]  # noqa: E501
             auto_deploy (bool, none_type): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """
@@ -320,6 +321,7 @@ class JobRequestAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

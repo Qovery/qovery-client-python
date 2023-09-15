@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case insensitive | 
+**healthchecks** | [**Healthcheck**](Healthcheck.md) |  | 
 **description** | **str** |  | [optional] 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | [optional]  if omitted the server will use the default value of 500
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | [optional]  if omitted the server will use the default value of 512
@@ -13,7 +14,6 @@ Name | Type | Description | Notes
 **auto_preview** | **bool** | Indicates if the &#39;environment preview option&#39; is enabled for this container.   If enabled, a preview environment will be automatically cloned when &#x60;/preview&#x60; endpoint is called.   If not specified, it takes the value of the &#x60;auto_preview&#x60; property from the associated environment.  | [optional] 
 **port** | **int, none_type** | Port where to run readiness and liveliness probes checks. The port will not be exposed externally | [optional] 
 **source** | [**JobRequestAllOfSource**](JobRequestAllOfSource.md) |  | [optional] 
-**healthchecks** | [**Healthcheck**](Healthcheck.md) |  | [optional] 
 **schedule** | [**JobRequestAllOfSchedule**](JobRequestAllOfSchedule.md) |  | [optional] 
 **auto_deploy** | **bool, none_type** | Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \&quot;Auto Deploy job\&quot; endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
