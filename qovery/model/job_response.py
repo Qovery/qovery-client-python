@@ -117,13 +117,13 @@ class JobResponse(ModelComposed):
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'max_nb_restart': (int,),  # noqa: E501
             'max_duration_seconds': (int,),  # noqa: E501
             'port': (int, none_type,),  # noqa: E501
             'source': (JobResponseAllOfSource,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'schedule': (JobResponseAllOfSchedule,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
         }
@@ -144,13 +144,13 @@ class JobResponse(ModelComposed):
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
         'max_nb_restart': 'max_nb_restart',  # noqa: E501
         'max_duration_seconds': 'max_duration_seconds',  # noqa: E501
         'port': 'port',  # noqa: E501
         'source': 'source',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
     }
@@ -177,6 +177,7 @@ class JobResponse(ModelComposed):
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
+            healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -213,7 +214,6 @@ class JobResponse(ModelComposed):
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobResponseAllOfSource): [optional]  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
             auto_deploy (bool): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """
@@ -297,6 +297,7 @@ class JobResponse(ModelComposed):
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
+            healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -333,7 +334,6 @@ class JobResponse(ModelComposed):
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
             source (JobResponseAllOfSource): [optional]  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
             auto_deploy (bool): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """

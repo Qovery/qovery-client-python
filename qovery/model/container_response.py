@@ -116,13 +116,13 @@ class ContainerResponse(ModelComposed):
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ServiceStorageStorageInner],),  # noqa: E501
             'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
         }
@@ -146,13 +146,13 @@ class ContainerResponse(ModelComposed):
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'storage': 'storage',  # noqa: E501
         'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'ports': 'ports',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
     }
@@ -182,6 +182,7 @@ class ContainerResponse(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . defaults to 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . defaults to 1  # noqa: E501
+            healthchecks (Healthcheck):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -218,7 +219,6 @@ class ContainerResponse(ModelComposed):
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
             auto_deploy (bool): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """
@@ -307,6 +307,7 @@ class ContainerResponse(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . defaults to 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . defaults to 1  # noqa: E501
+            healthchecks (Healthcheck):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -343,7 +344,6 @@ class ContainerResponse(ModelComposed):
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
             auto_deploy (bool): Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments . [optional]  # noqa: E501
         """

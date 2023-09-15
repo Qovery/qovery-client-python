@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **tag** | **str** | tag of the image container | 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | 
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | 
+**healthchecks** | [**Healthcheck**](Healthcheck.md) |  | 
 **auto_preview** | **bool** | Indicates if the &#39;environment preview option&#39; is enabled for this container.   If enabled, a preview environment will be automatically cloned when &#x60;/preview&#x60; endpoint is called.   If not specified, it takes the value of the &#x60;auto_preview&#x60; property from the associated environment.  | 
 **min_running_instances** | **int** | Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running.  | defaults to 1
 **max_running_instances** | **int** | Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit.  | defaults to 1
@@ -23,7 +24,6 @@ Name | Type | Description | Notes
 **description** | **str** | give a description to this container | [optional] 
 **arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** | optional entrypoint when launching container | [optional] 
-**healthchecks** | [**Healthcheck**](Healthcheck.md) |  | [optional] 
 **ports** | [**ServicePortResponseList**](ServicePortResponseList.md) |  | [optional] 
 **auto_deploy** | **bool** | Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \&quot;Auto Deploy container\&quot; endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
