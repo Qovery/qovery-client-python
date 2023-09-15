@@ -935,7 +935,7 @@ Class | Method | HTTP request | Description
 ## ApiKeyAuth
 
 - **Type**: API key
-- **API key parameter name**: Token
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 
 

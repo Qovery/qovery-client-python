@@ -394,7 +394,7 @@ conf = qovery.Configuration(
             auth['ApiKeyAuth'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'Token',
+                'key': 'Authorization',
                 'value': self.get_api_key_with_prefix(
                     'ApiKeyAuth',
                 ),
