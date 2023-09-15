@@ -99,6 +99,7 @@ class ApplicationEditRequestAllOf(ModelNormal):
         """
         lazy_import()
         return {
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
@@ -109,7 +110,6 @@ class ApplicationEditRequestAllOf(ModelNormal):
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
@@ -123,6 +123,7 @@ class ApplicationEditRequestAllOf(ModelNormal):
 
 
     attribute_map = {
+        'healthchecks': 'healthchecks',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
@@ -133,7 +134,6 @@ class ApplicationEditRequestAllOf(ModelNormal):
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'ports': 'ports',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
@@ -148,8 +148,11 @@ class ApplicationEditRequestAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, healthchecks, *args, **kwargs):  # noqa: E501
         """ApplicationEditRequestAllOf - a model defined in OpenAPI
+
+        Args:
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -192,7 +195,6 @@ class ApplicationEditRequestAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
@@ -229,6 +231,7 @@ class ApplicationEditRequestAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -249,8 +252,11 @@ class ApplicationEditRequestAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, healthchecks, *args, **kwargs):  # noqa: E501
         """ApplicationEditRequestAllOf - a model defined in OpenAPI
+
+        Args:
+            healthchecks (Healthcheck):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -293,7 +299,6 @@ class ApplicationEditRequestAllOf(ModelNormal):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
@@ -328,6 +333,7 @@ class ApplicationEditRequestAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

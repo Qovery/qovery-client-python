@@ -105,6 +105,7 @@ class ApplicationEditRequest(ModelComposed):
         """
         lazy_import()
         return {
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'storage': ([ServiceStorageRequestStorageInner],),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -116,7 +117,6 @@ class ApplicationEditRequest(ModelComposed):
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
             'max_running_instances': (int,),  # noqa: E501
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'ports': (ServicePortResponseList,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
@@ -130,6 +130,7 @@ class ApplicationEditRequest(ModelComposed):
 
 
     attribute_map = {
+        'healthchecks': 'healthchecks',  # noqa: E501
         'storage': 'storage',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -141,7 +142,6 @@ class ApplicationEditRequest(ModelComposed):
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
         'max_running_instances': 'max_running_instances',  # noqa: E501
-        'healthchecks': 'healthchecks',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'ports': 'ports',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
@@ -158,6 +158,7 @@ class ApplicationEditRequest(ModelComposed):
         """ApplicationEditRequest - a model defined in OpenAPI
 
         Keyword Args:
+            healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -199,7 +200,6 @@ class ApplicationEditRequest(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
@@ -278,6 +278,7 @@ class ApplicationEditRequest(ModelComposed):
         """ApplicationEditRequest - a model defined in OpenAPI
 
         Keyword Args:
+            healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -319,7 +320,6 @@ class ApplicationEditRequest(ModelComposed):
             memory (int): unit is MB. 1024 MB = 1GB. [optional] if omitted the server will use the default value of 512  # noqa: E501
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no application running. . [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_instances (int): Maximum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: -1 means that there is no limit. . [optional] if omitted the server will use the default value of 1  # noqa: E501
-            healthchecks (Healthcheck): [optional]  # noqa: E501
             auto_preview (bool): Specify if the environment preview option is activated or not for this application.   If activated, a preview environment will be automatically cloned at each pull request.   If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional] if omitted the server will use the default value of True  # noqa: E501
             ports (ServicePortResponseList): [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
