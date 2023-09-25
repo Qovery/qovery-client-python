@@ -93,6 +93,7 @@ class EnvironmentStatus(ModelNormal):
             'last_deployment_state': (StateEnum,),  # noqa: E501
             'last_deployment_date': (datetime, none_type,),  # noqa: E501
             'last_deployment_id': (str, none_type,),  # noqa: E501
+            'total_deployment_duration_in_seconds': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +107,7 @@ class EnvironmentStatus(ModelNormal):
         'last_deployment_state': 'last_deployment_state',  # noqa: E501
         'last_deployment_date': 'last_deployment_date',  # noqa: E501
         'last_deployment_id': 'last_deployment_id',  # noqa: E501
+        'total_deployment_duration_in_seconds': 'total_deployment_duration_in_seconds',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +158,7 @@ class EnvironmentStatus(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             last_deployment_date (datetime, none_type): [optional]  # noqa: E501
             last_deployment_id (str, none_type): [optional]  # noqa: E501
+            total_deployment_duration_in_seconds (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,6 +254,7 @@ class EnvironmentStatus(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             last_deployment_date (datetime, none_type): [optional]  # noqa: E501
             last_deployment_id (str, none_type): [optional]  # noqa: E501
+            total_deployment_duration_in_seconds (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

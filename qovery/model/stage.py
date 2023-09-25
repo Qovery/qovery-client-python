@@ -90,7 +90,7 @@ class Stage(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'metrics': (StageStepMetrics,),  # noqa: E501
+            'steps': (StageStepMetrics,),  # noqa: E501
         }
 
     @cached_property
@@ -101,7 +101,7 @@ class Stage(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'metrics': 'metrics',  # noqa: E501
+        'steps': 'steps',  # noqa: E501
     }
 
     read_only_vars = {
@@ -149,7 +149,7 @@ class Stage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            metrics (StageStepMetrics): [optional]  # noqa: E501
+            steps (StageStepMetrics): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +241,7 @@ class Stage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            metrics (StageStepMetrics): [optional]  # noqa: E501
+            steps (StageStepMetrics): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
