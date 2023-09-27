@@ -53,6 +53,7 @@ class OrganizationApiTokenScope(ModelSimple):
 
     allowed_values = {
         ('value',): {
+            'None': None,
             'ADMIN': "ADMIN",
         },
     }
@@ -62,7 +63,7 @@ class OrganizationApiTokenScope(ModelSimple):
 
     additional_properties_type = None
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
@@ -105,10 +106,10 @@ class OrganizationApiTokenScope(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
+            args[0] (str): deprecated. if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
 
         Keyword Args:
-            value (str): if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
+            value (str): deprecated. if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -195,10 +196,10 @@ class OrganizationApiTokenScope(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
+            args[0] (str): deprecated. if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
 
         Keyword Args:
-            value (str): if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
+            value (str): deprecated. if omitted defaults to "ADMIN", must be one of ["ADMIN", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

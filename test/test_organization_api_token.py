@@ -15,10 +15,8 @@ import unittest
 import qovery
 from qovery.model.base import Base
 from qovery.model.organization_api_token_all_of import OrganizationApiTokenAllOf
-from qovery.model.organization_api_token_scope import OrganizationApiTokenScope
 globals()['Base'] = Base
 globals()['OrganizationApiTokenAllOf'] = OrganizationApiTokenAllOf
-globals()['OrganizationApiTokenScope'] = OrganizationApiTokenScope
 from qovery.model.organization_api_token import OrganizationApiToken
 
 

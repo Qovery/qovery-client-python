@@ -89,8 +89,9 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'scope': (OrganizationApiTokenScope,),  # noqa: E501
+            'role_id': (str, none_type,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'scope': (OrganizationApiTokenScope,),  # noqa: E501
         }
 
     @cached_property
@@ -100,8 +101,9 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'scope': 'scope',  # noqa: E501
+        'role_id': 'roleId',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'scope': 'scope',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,12 +113,12 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, scope, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, role_id, *args, **kwargs):  # noqa: E501
         """OrganizationApiTokenCreateRequest - a model defined in OpenAPI
 
         Args:
             name (str):
-            scope (OrganizationApiTokenScope):
+            role_id (str, none_type): the roleId provided by the \"List organization custom roles\" endpoint.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -150,6 +152,7 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            scope (OrganizationApiTokenScope): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -182,7 +185,7 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.scope = scope
+        self.role_id = role_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,12 +206,12 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, scope, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, role_id, *args, **kwargs):  # noqa: E501
         """OrganizationApiTokenCreateRequest - a model defined in OpenAPI
 
         Args:
             name (str):
-            scope (OrganizationApiTokenScope):
+            role_id (str, none_type): the roleId provided by the \"List organization custom roles\" endpoint.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -242,6 +245,7 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            scope (OrganizationApiTokenScope): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,7 +276,7 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.scope = scope
+        self.role_id = role_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

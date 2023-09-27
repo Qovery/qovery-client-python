@@ -33,10 +33,8 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.organization_api_token_create_all_of import OrganizationApiTokenCreateAllOf
-    from qovery.model.organization_api_token_scope import OrganizationApiTokenScope
     globals()['Base'] = Base
     globals()['OrganizationApiTokenCreateAllOf'] = OrganizationApiTokenCreateAllOf
-    globals()['OrganizationApiTokenScope'] = OrganizationApiTokenScope
 
 
 class OrganizationApiTokenCreate(ModelComposed):
@@ -98,7 +96,8 @@ class OrganizationApiTokenCreate(ModelComposed):
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'token': (str,),  # noqa: E501
-            'scope': (OrganizationApiTokenScope,),  # noqa: E501
+            'role_name': (str,),  # noqa: E501
+            'role_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -113,7 +112,8 @@ class OrganizationApiTokenCreate(ModelComposed):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'token': 'token',  # noqa: E501
-        'scope': 'scope',  # noqa: E501
+        'role_name': 'roleName',  # noqa: E501
+        'role_id': 'roleId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -164,7 +164,8 @@ class OrganizationApiTokenCreate(ModelComposed):
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             token (str): the generated token to send in 'Authorization' header prefixed by 'Token '. [optional]  # noqa: E501
-            scope (OrganizationApiTokenScope): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -272,7 +273,8 @@ class OrganizationApiTokenCreate(ModelComposed):
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             token (str): the generated token to send in 'Authorization' header prefixed by 'Token '. [optional]  # noqa: E501
-            scope (OrganizationApiTokenScope): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

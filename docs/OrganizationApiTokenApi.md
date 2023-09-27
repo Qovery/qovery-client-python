@@ -59,6 +59,7 @@ with qovery.ApiClient(configuration) as api_client:
         name="name_example",
         description="description_example",
         scope=OrganizationApiTokenScope("ADMIN"),
+        role_id="role_id_example",
     ) # OrganizationApiTokenCreateRequest |  (optional)
 
     # example passing only required values which don't have defaults set

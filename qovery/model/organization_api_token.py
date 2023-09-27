@@ -33,10 +33,8 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.base import Base
     from qovery.model.organization_api_token_all_of import OrganizationApiTokenAllOf
-    from qovery.model.organization_api_token_scope import OrganizationApiTokenScope
     globals()['Base'] = Base
     globals()['OrganizationApiTokenAllOf'] = OrganizationApiTokenAllOf
-    globals()['OrganizationApiTokenScope'] = OrganizationApiTokenScope
 
 
 class OrganizationApiToken(ModelComposed):
@@ -97,7 +95,8 @@ class OrganizationApiToken(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
-            'scope': (OrganizationApiTokenScope,),  # noqa: E501
+            'role_name': (str,),  # noqa: E501
+            'role_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +110,8 @@ class OrganizationApiToken(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'scope': 'scope',  # noqa: E501
+        'role_name': 'roleName',  # noqa: E501
+        'role_id': 'roleId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,7 +161,8 @@ class OrganizationApiToken(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            scope (OrganizationApiTokenScope): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,7 +269,8 @@ class OrganizationApiToken(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            scope (OrganizationApiTokenScope): [optional]  # noqa: E501
+            role_name (str): [optional]  # noqa: E501
+            role_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

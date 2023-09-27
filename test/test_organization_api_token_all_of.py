@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.organization_api_token_scope import OrganizationApiTokenScope
-globals()['OrganizationApiTokenScope'] = OrganizationApiTokenScope
 from qovery.model.organization_api_token_all_of import OrganizationApiTokenAllOf
 
 
