@@ -101,7 +101,7 @@ class OrganizationApiTokenCreateRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'role_id': 'roleId',  # noqa: E501
+        'role_id': 'role_id',  # noqa: E501
         'description': 'description',  # noqa: E501
         'scope': 'scope',  # noqa: E501
     }

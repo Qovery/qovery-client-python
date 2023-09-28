@@ -96,8 +96,8 @@ class OrganizationApiTokenAllOf(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'role_name': 'roleName',  # noqa: E501
-        'role_id': 'roleId',  # noqa: E501
+        'role_name': 'role_name',  # noqa: E501
+        'role_id': 'role_id',  # noqa: E501
     }
 
     read_only_vars = {
