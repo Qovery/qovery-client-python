@@ -55,7 +55,9 @@ class ServiceStepMetricNameEnum(ModelSimple):
         ('value',): {
             'REGISTRY_CREATE_REPOSITORY': "REGISTRY_CREATE_REPOSITORY",
             'GIT_CLONE': "GIT_CLONE",
+            'BUILD_QUEUEING': "BUILD_QUEUEING",
             'BUILD': "BUILD",
+            'DEPLOYMENT_QUEUEING': "DEPLOYMENT_QUEUEING",
             'DEPLOYMENT': "DEPLOYMENT",
             'ROUTER_DEPLOYMENT': "ROUTER_DEPLOYMENT",
         },
@@ -109,10 +111,10 @@ class ServiceStepMetricNameEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD: The step to build the source code. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
+            args[0] (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD_QUEUEING: The queuing time preceding the actual building step. - BUILD: The step to build the source code. - DEPLOYMENT_QUEUEING: The queuing time preceding the actual deployment step. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD_QUEUEING", "BUILD", "DEPLOYMENT_QUEUEING", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD: The step to build the source code. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
+            value (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD_QUEUEING: The queuing time preceding the actual building step. - BUILD: The step to build the source code. - DEPLOYMENT_QUEUEING: The queuing time preceding the actual deployment step. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD_QUEUEING", "BUILD", "DEPLOYMENT_QUEUEING", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -203,10 +205,10 @@ class ServiceStepMetricNameEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD: The step to build the source code. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
+            args[0] (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD_QUEUEING: The queuing time preceding the actual building step. - BUILD: The step to build the source code. - DEPLOYMENT_QUEUEING: The queuing time preceding the actual deployment step. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD_QUEUEING", "BUILD", "DEPLOYMENT_QUEUEING", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD: The step to build the source code. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
+            value (str): The name of the deployment step at the service level: - REGISTRY_CREATE_REPOSITORY: The step to create the repository in the registry. - GIT_CLONE: The step to clone the source code repository.  - BUILD_QUEUEING: The queuing time preceding the actual building step. - BUILD: The step to build the source code. - DEPLOYMENT_QUEUEING: The queuing time preceding the actual deployment step. - DEPLOYMENT: The step to deploy the service.  - ROUTER_DEPLOYMENT: The step to deploy the router.  ., must be one of ["REGISTRY_CREATE_REPOSITORY", "GIT_CLONE", "BUILD_QUEUEING", "BUILD", "DEPLOYMENT_QUEUEING", "DEPLOYMENT", "ROUTER_DEPLOYMENT", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
