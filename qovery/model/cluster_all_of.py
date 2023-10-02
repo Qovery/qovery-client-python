@@ -34,13 +34,13 @@ def lazy_import():
     from qovery.model.cloud_provider_enum import CloudProviderEnum
     from qovery.model.cluster_deployment_status_enum import ClusterDeploymentStatusEnum
     from qovery.model.cluster_feature import ClusterFeature
+    from qovery.model.cluster_state_enum import ClusterStateEnum
     from qovery.model.kubernetes_enum import KubernetesEnum
-    from qovery.model.state_enum import StateEnum
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterDeploymentStatusEnum'] = ClusterDeploymentStatusEnum
     globals()['ClusterFeature'] = ClusterFeature
+    globals()['ClusterStateEnum'] = ClusterStateEnum
     globals()['KubernetesEnum'] = KubernetesEnum
-    globals()['StateEnum'] = StateEnum
 
 
 class ClusterAllOf(ModelNormal):
@@ -108,7 +108,7 @@ class ClusterAllOf(ModelNormal):
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'estimated_cloud_provider_cost': (int,),  # noqa: E501
-            'status': (StateEnum,),  # noqa: E501
+            'status': (ClusterStateEnum,),  # noqa: E501
             'has_access': (bool,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
@@ -201,7 +201,7 @@ class ClusterAllOf(ModelNormal):
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (StateEnum): [optional]  # noqa: E501
+            status (ClusterStateEnum): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
@@ -311,7 +311,7 @@ class ClusterAllOf(ModelNormal):
             cpu (int): unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
             estimated_cloud_provider_cost (int): This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration. [optional]  # noqa: E501
-            status (StateEnum): [optional]  # noqa: E501
+            status (ClusterStateEnum): [optional]  # noqa: E501
             has_access (bool): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501

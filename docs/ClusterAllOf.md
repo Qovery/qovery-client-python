@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | [optional] 
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | [optional] 
 **estimated_cloud_provider_cost** | **int** | This is an estimation of the cost this cluster will represent on your cloud proider bill, based on your current configuration | [optional] 
-**status** | [**StateEnum**](StateEnum.md) |  | [optional] 
+**status** | [**ClusterStateEnum**](ClusterStateEnum.md) |  | [optional] 
 **has_access** | **bool** |  | [optional] 
 **version** | **str** |  | [optional] 
 **is_default** | **bool** |  | [optional] 

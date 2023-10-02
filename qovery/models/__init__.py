@@ -89,6 +89,7 @@ from qovery.model.cluster_routing_table import ClusterRoutingTable
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest
 from qovery.model.cluster_routing_table_request_routes_inner import ClusterRoutingTableRequestRoutesInner
 from qovery.model.cluster_routing_table_results_inner import ClusterRoutingTableResultsInner
+from qovery.model.cluster_state_enum import ClusterStateEnum
 from qovery.model.cluster_status import ClusterStatus
 from qovery.model.cluster_status_get import ClusterStatusGet
 from qovery.model.cluster_status_response_list import ClusterStatusResponseList

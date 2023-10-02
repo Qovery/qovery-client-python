@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.state_enum import StateEnum
-globals()['StateEnum'] = StateEnum
+from qovery.model.cluster_state_enum import ClusterStateEnum
+globals()['ClusterStateEnum'] = ClusterStateEnum
 from qovery.model.cluster_status_get import ClusterStatusGet
 
 
