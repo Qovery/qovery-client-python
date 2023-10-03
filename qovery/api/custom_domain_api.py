@@ -506,7 +506,7 @@ class CustomDomainApi(object):
     ):
         """Edit a Custom Domain  # noqa: E501
 
-        To edit a Custom Domain  you must have the project user permission  # noqa: E501
+        To edit a Custom Domain you must have the project user permission  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -59,6 +59,7 @@ with qovery.ApiClient(configuration) as api_client:
     container_id = "containerId_example" # str | Container ID
     custom_domain_request = CustomDomainRequest(
         domain="my.domain.tld",
+        generate_certificate=True,
     ) # CustomDomainRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -249,6 +250,7 @@ with qovery.ApiClient(configuration) as api_client:
     custom_domain_id = "customDomainId_example" # str | Custom Domain ID
     custom_domain_request = CustomDomainRequest(
         domain="my.domain.tld",
+        generate_certificate=True,
     ) # CustomDomainRequest |  (optional)
 
     # example passing only required values which don't have defaults set

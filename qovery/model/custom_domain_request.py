@@ -83,6 +83,7 @@ class CustomDomainRequest(ModelNormal):
         """
         return {
             'domain': (str,),  # noqa: E501
+            'generate_certificate': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class CustomDomainRequest(ModelNormal):
 
     attribute_map = {
         'domain': 'domain',  # noqa: E501
+        'generate_certificate': 'generate_certificate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,6 +140,7 @@ class CustomDomainRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,6 +230,7 @@ class CustomDomainRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

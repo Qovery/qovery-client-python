@@ -59,6 +59,7 @@ with qovery.ApiClient(configuration) as api_client:
     application_id = "applicationId_example" # str | Application ID
     custom_domain_request = CustomDomainRequest(
         domain="my.domain.tld",
+        generate_certificate=True,
     ) # CustomDomainRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -205,7 +206,7 @@ void (empty response body)
 
 Edit a Custom Domain
 
-To edit a Custom Domain  you must have the project user permission
+To edit a Custom Domain you must have the project user permission
 
 ### Example
 
@@ -249,6 +250,7 @@ with qovery.ApiClient(configuration) as api_client:
     custom_domain_id = "customDomainId_example" # str | Custom Domain ID
     custom_domain_request = CustomDomainRequest(
         domain="my.domain.tld",
+        generate_certificate=True,
     ) # CustomDomainRequest |  (optional)
 
     # example passing only required values which don't have defaults set
