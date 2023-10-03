@@ -104,7 +104,6 @@ class JobResponseAllOf(ModelNormal):
         lazy_import()
         return {
             'environment': (ReferenceObject,),  # noqa: E501
-            'registry': (ReferenceObject,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -112,6 +111,7 @@ class JobResponseAllOf(ModelNormal):
             'memory': (int,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
+            'registry': (ReferenceObject,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'max_nb_restart': (int,),  # noqa: E501
             'max_duration_seconds': (int,),  # noqa: E501
@@ -128,7 +128,6 @@ class JobResponseAllOf(ModelNormal):
 
     attribute_map = {
         'environment': 'environment',  # noqa: E501
-        'registry': 'registry',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -136,6 +135,7 @@ class JobResponseAllOf(ModelNormal):
         'memory': 'memory',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
+        'registry': 'registry',  # noqa: E501
         'description': 'description',  # noqa: E501
         'max_nb_restart': 'max_nb_restart',  # noqa: E501
         'max_duration_seconds': 'max_duration_seconds',  # noqa: E501
@@ -152,12 +152,11 @@ class JobResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, environment, registry, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, healthchecks, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, healthchecks, *args, **kwargs):  # noqa: E501
         """JobResponseAllOf - a model defined in OpenAPI
 
         Args:
             environment (ReferenceObject):
-            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the job based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the job based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -197,6 +196,7 @@ class JobResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            registry (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
@@ -236,7 +236,6 @@ class JobResponseAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.environment = environment
-        self.registry = registry
         self.maximum_cpu = maximum_cpu
         self.maximum_memory = maximum_memory
         self.name = name
@@ -264,12 +263,11 @@ class JobResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, environment, registry, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, healthchecks, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, healthchecks, *args, **kwargs):  # noqa: E501
         """JobResponseAllOf - a model defined in OpenAPI
 
         Args:
             environment (ReferenceObject):
-            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the job based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the job based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -309,6 +307,7 @@ class JobResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            registry (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
@@ -346,7 +345,6 @@ class JobResponseAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.environment = environment
-        self.registry = registry
         self.maximum_cpu = maximum_cpu
         self.maximum_memory = maximum_memory
         self.name = name

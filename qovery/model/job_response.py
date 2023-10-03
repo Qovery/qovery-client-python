@@ -110,7 +110,6 @@ class JobResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
-            'registry': (ReferenceObject,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -119,6 +118,7 @@ class JobResponse(ModelComposed):
             'auto_preview': (bool,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
+            'registry': (ReferenceObject,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'max_nb_restart': (int,),  # noqa: E501
             'max_duration_seconds': (int,),  # noqa: E501
@@ -137,7 +137,6 @@ class JobResponse(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'environment': 'environment',  # noqa: E501
-        'registry': 'registry',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
         'name': 'name',  # noqa: E501
@@ -146,6 +145,7 @@ class JobResponse(ModelComposed):
         'auto_preview': 'auto_preview',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'registry': 'registry',  # noqa: E501
         'description': 'description',  # noqa: E501
         'max_nb_restart': 'max_nb_restart',  # noqa: E501
         'max_duration_seconds': 'max_duration_seconds',  # noqa: E501
@@ -170,7 +170,6 @@ class JobResponse(ModelComposed):
             id (str):
             created_at (datetime):
             environment (ReferenceObject):
-            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the job based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the job based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -209,6 +208,7 @@ class JobResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            registry (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
@@ -290,7 +290,6 @@ class JobResponse(ModelComposed):
 
         Keyword Args:
             environment (ReferenceObject):
-            registry (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the job based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the job based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -329,6 +328,7 @@ class JobResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            registry (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
