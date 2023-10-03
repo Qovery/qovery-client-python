@@ -113,8 +113,14 @@ class ContainerRegistryProviderDetailsResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, url, kind, *args, **kwargs):  # noqa: E501
         """ContainerRegistryProviderDetailsResponse - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            name (str):
+            url (str): URL of the container registry
+            kind (ContainerRegistryKindEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,10 +153,6 @@ class ContainerRegistryProviderDetailsResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            url (str): URL of the container registry. [optional]  # noqa: E501
-            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -182,6 +184,10 @@ class ContainerRegistryProviderDetailsResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.name = name
+        self.url = url
+        self.kind = kind
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,8 +208,14 @@ class ContainerRegistryProviderDetailsResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, url, kind, *args, **kwargs):  # noqa: E501
         """ContainerRegistryProviderDetailsResponse - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            name (str):
+            url (str): URL of the container registry
+            kind (ContainerRegistryKindEnum):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -236,10 +248,6 @@ class ContainerRegistryProviderDetailsResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
-            url (str): URL of the container registry. [optional]  # noqa: E501
-            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -269,6 +277,10 @@ class ContainerRegistryProviderDetailsResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.name = name
+        self.url = url
+        self.kind = kind
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
