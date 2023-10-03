@@ -99,7 +99,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
             'weekdays': ([WeekdayEnum],),  # noqa: E501
             'wildcard': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'auto_deploy': (bool,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
         }
 
@@ -118,7 +117,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
         'weekdays': 'weekdays',  # noqa: E501
         'wildcard': 'wildcard',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'auto_deploy': 'auto_deploy',  # noqa: E501
         'auto_stop': 'auto_stop',  # noqa: E501
     }
 
@@ -174,7 +172,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
@@ -281,7 +278,6 @@ class ProjectDeploymentRuleRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
-            auto_deploy (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
             auto_stop (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 

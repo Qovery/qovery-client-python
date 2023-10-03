@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **weekdays** | [**[WeekdayEnum]**](WeekdayEnum.md) |  | 
 **wildcard** | **str** | wildcard pattern composed of &#39;?&#39; and/or &#39;*&#39; used to target new created environments | defaults to ""
 **description** | **str, none_type** |  | [optional] 
-**auto_deploy** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **auto_stop** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

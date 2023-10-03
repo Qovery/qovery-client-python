@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **cluster** | **str** |  | 
 **auto_stop** | **bool** |  | defaults to False
 **description** | **str** |  | [optional] 
-**auto_deploy** | **bool** |  | [optional]  if omitted the server will use the default value of True
 **timezone** | **str** | specify value only if auto_stop &#x3D; false | [optional]  if omitted the server will use the default value of "Europe/London"
 **start_time** | **datetime, none_type** | specify value only if auto_stop &#x3D; false | [optional] 
 **stop_time** | **datetime, none_type** | specify value only if auto_stop &#x3D; false | [optional] 

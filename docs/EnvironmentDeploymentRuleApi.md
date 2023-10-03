@@ -54,7 +54,6 @@ with qovery.ApiClient(configuration) as api_client:
     environment_id = "environmentId_example" # str | Environment ID
     deployment_rule_id = "deploymentRuleId_example" # str | Deployment Rule ID
     environment_deployment_rule_edit_request = EnvironmentDeploymentRuleEditRequest(
-        auto_deploy=True,
         on_demand_preview=False,
         auto_preview=False,
         auto_stop=False,

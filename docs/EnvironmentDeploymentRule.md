@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **stop_time** | **datetime** |  | 
 **weekdays** | [**[WeekdayEnum]**](WeekdayEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
-**auto_deploy** | **bool** |  | [optional]  if omitted the server will use the default value of True
 **on_demand_preview** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **auto_stop** | **bool** |  | [optional]  if omitted the server will use the default value of False
 **auto_preview** | **bool** |  | [optional]  if omitted the server will use the default value of False

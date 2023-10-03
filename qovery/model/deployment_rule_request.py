@@ -95,7 +95,6 @@ class DeploymentRuleRequest(ModelNormal):
             'cluster': (str,),  # noqa: E501
             'auto_stop': (bool,),  # noqa: E501
             'description': (str,),  # noqa: E501
-            'auto_deploy': (bool,),  # noqa: E501
             'timezone': (str,),  # noqa: E501
             'start_time': (datetime, none_type,),  # noqa: E501
             'stop_time': (datetime, none_type,),  # noqa: E501
@@ -113,7 +112,6 @@ class DeploymentRuleRequest(ModelNormal):
         'cluster': 'cluster',  # noqa: E501
         'auto_stop': 'auto_stop',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'auto_deploy': 'auto_deploy',  # noqa: E501
         'timezone': 'timezone',  # noqa: E501
         'start_time': 'start_time',  # noqa: E501
         'stop_time': 'stop_time',  # noqa: E501
@@ -168,7 +166,6 @@ class DeploymentRuleRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             timezone (str): specify value only if auto_stop = false. [optional] if omitted the server will use the default value of "Europe/London"  # noqa: E501
             start_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
             stop_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
@@ -270,7 +267,6 @@ class DeploymentRuleRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            auto_deploy (bool): [optional] if omitted the server will use the default value of True  # noqa: E501
             timezone (str): specify value only if auto_stop = false. [optional] if omitted the server will use the default value of "Europe/London"  # noqa: E501
             start_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
             stop_time (datetime, none_type): specify value only if auto_stop = false. [optional]  # noqa: E501
