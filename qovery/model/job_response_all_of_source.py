@@ -31,10 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.job_request_all_of_source_image import JobRequestAllOfSourceImage
     from qovery.model.job_response_all_of_source_docker import JobResponseAllOfSourceDocker
-    globals()['JobRequestAllOfSourceImage'] = JobRequestAllOfSourceImage
+    from qovery.model.job_response_all_of_source_image import JobResponseAllOfSourceImage
     globals()['JobResponseAllOfSourceDocker'] = JobResponseAllOfSourceDocker
+    globals()['JobResponseAllOfSourceImage'] = JobResponseAllOfSourceImage
 
 
 class JobResponseAllOfSource(ModelNormal):
@@ -90,7 +90,7 @@ class JobResponseAllOfSource(ModelNormal):
         """
         lazy_import()
         return {
-            'image': (JobRequestAllOfSourceImage,),  # noqa: E501
+            'image': (JobResponseAllOfSourceImage,),  # noqa: E501
             'docker': (JobResponseAllOfSourceDocker,),  # noqa: E501
         }
 
@@ -145,7 +145,7 @@ class JobResponseAllOfSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            image (JobRequestAllOfSourceImage): [optional]  # noqa: E501
+            image (JobResponseAllOfSourceImage): [optional]  # noqa: E501
             docker (JobResponseAllOfSourceDocker): [optional]  # noqa: E501
         """
 
@@ -232,7 +232,7 @@ class JobResponseAllOfSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            image (JobRequestAllOfSourceImage): [optional]  # noqa: E501
+            image (JobResponseAllOfSourceImage): [optional]  # noqa: E501
             docker (JobResponseAllOfSourceDocker): [optional]  # noqa: E501
         """
 

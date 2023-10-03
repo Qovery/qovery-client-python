@@ -111,7 +111,6 @@ class JobResponseAllOf(ModelNormal):
             'memory': (int,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
-            'registry': (ReferenceObject,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'max_nb_restart': (int,),  # noqa: E501
             'max_duration_seconds': (int,),  # noqa: E501
@@ -135,7 +134,6 @@ class JobResponseAllOf(ModelNormal):
         'memory': 'memory',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
-        'registry': 'registry',  # noqa: E501
         'description': 'description',  # noqa: E501
         'max_nb_restart': 'max_nb_restart',  # noqa: E501
         'max_duration_seconds': 'max_duration_seconds',  # noqa: E501
@@ -196,7 +194,6 @@ class JobResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            registry (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
@@ -307,7 +304,6 @@ class JobResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            registry (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501

@@ -105,6 +105,7 @@ from qovery.model.container_deploy_request import ContainerDeployRequest
 from qovery.model.container_network import ContainerNetwork
 from qovery.model.container_network_request import ContainerNetworkRequest
 from qovery.model.container_registry_kind_enum import ContainerRegistryKindEnum
+from qovery.model.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
 from qovery.model.container_registry_request import ContainerRegistryRequest
 from qovery.model.container_registry_request_config import ContainerRegistryRequestConfig
 from qovery.model.container_registry_response import ContainerRegistryResponse
@@ -284,6 +285,7 @@ from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
 from qovery.model.job_response_all_of_schedule_cronjob import JobResponseAllOfScheduleCronjob
 from qovery.model.job_response_all_of_source import JobResponseAllOfSource
 from qovery.model.job_response_all_of_source_docker import JobResponseAllOfSourceDocker
+from qovery.model.job_response_all_of_source_image import JobResponseAllOfSourceImage
 from qovery.model.job_response_list import JobResponseList
 from qovery.model.job_schedule_event import JobScheduleEvent
 from qovery.model.key import Key

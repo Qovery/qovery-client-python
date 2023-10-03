@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.job_request_all_of_source_image import JobRequestAllOfSourceImage
 from qovery.model.job_response_all_of_source_docker import JobResponseAllOfSourceDocker
-globals()['JobRequestAllOfSourceImage'] = JobRequestAllOfSourceImage
+from qovery.model.job_response_all_of_source_image import JobResponseAllOfSourceImage
 globals()['JobResponseAllOfSourceDocker'] = JobResponseAllOfSourceDocker
+globals()['JobResponseAllOfSourceImage'] = JobResponseAllOfSourceImage
 from qovery.model.job_response_all_of_source import JobResponseAllOfSource
 
 

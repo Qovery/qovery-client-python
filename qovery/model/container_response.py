@@ -32,6 +32,7 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base import Base
+    from qovery.model.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
     from qovery.model.container_response_all_of import ContainerResponseAllOf
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
@@ -39,6 +40,7 @@ def lazy_import():
     from qovery.model.service_storage import ServiceStorage
     from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
     globals()['Base'] = Base
+    globals()['ContainerRegistryProviderDetailsResponse'] = ContainerRegistryProviderDetailsResponse
     globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
@@ -106,7 +108,7 @@ class ContainerResponse(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
-            'registry': (ReferenceObject,),  # noqa: E501
+            'registry': (ContainerRegistryProviderDetailsResponse,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
@@ -172,7 +174,7 @@ class ContainerResponse(ModelComposed):
             id (str):
             created_at (datetime):
             environment (ReferenceObject):
-            registry (ReferenceObject):
+            registry (ContainerRegistryProviderDetailsResponse):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
@@ -297,7 +299,7 @@ class ContainerResponse(ModelComposed):
 
         Keyword Args:
             environment (ReferenceObject):
-            registry (ReferenceObject):
+            registry (ContainerRegistryProviderDetailsResponse):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
