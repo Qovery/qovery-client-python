@@ -122,6 +122,7 @@ class ClustersApi(object):
                 'all': [
                     'organization_id',
                     'cluster_id',
+                    'delete_mode',
                 ],
                 'required': [
                     'organization_id',
@@ -130,6 +131,7 @@ class ClustersApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'delete_mode',
                 ],
                 'validation': [
                 ]
@@ -138,20 +140,30 @@ class ClustersApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('delete_mode',): {
+
+                        "DEFAULT": "DEFAULT",
+                        "DELETE_CLUSTER_AND_QOVERY_CONFIG": "DELETE_CLUSTER_AND_QOVERY_CONFIG",
+                        "DELETE_QOVERY_CONFIG": "DELETE_QOVERY_CONFIG"
+                    },
                 },
                 'openapi_types': {
                     'organization_id':
                         (str,),
                     'cluster_id':
                         (str,),
+                    'delete_mode':
+                        (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
                     'cluster_id': 'clusterId',
+                    'delete_mode': 'deleteMode',
                 },
                 'location_map': {
                     'organization_id': 'path',
                     'cluster_id': 'path',
+                    'delete_mode': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -1134,6 +1146,7 @@ class ClustersApi(object):
             cluster_id (str): Cluster ID
 
         Keyword Args:
+            delete_mode (str): [optional] if omitted the server will use the default value of "DEFAULT"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

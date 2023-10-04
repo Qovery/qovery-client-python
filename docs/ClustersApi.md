@@ -184,11 +184,20 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = clusters_api.ClustersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     cluster_id = "clusterId_example" # str | Cluster ID
+    delete_mode = "DEFAULT" # str |  (optional) if omitted the server will use the default value of "DEFAULT"
 
     # example passing only required values which don't have defaults set
     try:
         # Delete a cluster
         api_instance.delete_cluster(organization_id, cluster_id)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->delete_cluster: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete a cluster
+        api_instance.delete_cluster(organization_id, cluster_id, delete_mode=delete_mode)
     except qovery.ApiException as e:
         print("Exception when calling ClustersApi->delete_cluster: %s\n" % e)
 ```
@@ -200,6 +209,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
  **cluster_id** | **str**| Cluster ID |
+ **delete_mode** | **str**|  | [optional] if omitted the server will use the default value of "DEFAULT"
 
 ### Return type
 
