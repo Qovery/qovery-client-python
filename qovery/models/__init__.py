@@ -225,6 +225,7 @@ from qovery.model.environment_logs_message import EnvironmentLogsMessage
 from qovery.model.environment_logs_response_list import EnvironmentLogsResponseList
 from qovery.model.environment_mode_enum import EnvironmentModeEnum
 from qovery.model.environment_response_list import EnvironmentResponseList
+from qovery.model.environment_service_ids_all_request import EnvironmentServiceIdsAllRequest
 from qovery.model.environment_stats import EnvironmentStats
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 from qovery.model.environment_status import EnvironmentStatus

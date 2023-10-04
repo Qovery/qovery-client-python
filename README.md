@@ -318,12 +318,14 @@ Class | Method | HTTP request | Description
 *EnvironmentApi* | [**deploy_all_applications**](docs/EnvironmentApi.md#deploy_all_applications) | **POST** /environment/{environmentId}/application/deploy | Deploy applications
 *EnvironmentActionsApi* | [**cancel_environment_deployment**](docs/EnvironmentActionsApi.md#cancel_environment_deployment) | **POST** /environment/{environmentId}/cancelDeployment | Cancel environment deployment
 *EnvironmentActionsApi* | [**clone_environment**](docs/EnvironmentActionsApi.md#clone_environment) | **POST** /environment/{environmentId}/clone | Clone environment
+*EnvironmentActionsApi* | [**delete_selected_services**](docs/EnvironmentActionsApi.md#delete_selected_services) | **POST** /environment/{environmentId}/service/delete | Delete services
 *EnvironmentActionsApi* | [**deploy_all_services**](docs/EnvironmentActionsApi.md#deploy_all_services) | **POST** /environment/{environmentId}/service/deploy | Deploy services
 *EnvironmentActionsApi* | [**deploy_environment**](docs/EnvironmentActionsApi.md#deploy_environment) | **POST** /environment/{environmentId}/deploy | Deploy environment
 *EnvironmentActionsApi* | [**reboot_services**](docs/EnvironmentActionsApi.md#reboot_services) | **POST** /environment/{environmentId}/service/restart-service | Reboot services
 *EnvironmentActionsApi* | [**redeploy_environment**](docs/EnvironmentActionsApi.md#redeploy_environment) | **POST** /environment/{environmentId}/redeploy | Redeploy environment
 *EnvironmentActionsApi* | [**restart_environment**](docs/EnvironmentActionsApi.md#restart_environment) | **POST** /environment/{environmentId}/restart | Deprecated - Restart environment
 *EnvironmentActionsApi* | [**stop_environment**](docs/EnvironmentActionsApi.md#stop_environment) | **POST** /environment/{environmentId}/stop | Stop environment
+*EnvironmentActionsApi* | [**stop_selected_services**](docs/EnvironmentActionsApi.md#stop_selected_services) | **POST** /environment/{environmentId}/service/stop | Stop services
 *EnvironmentDeploymentHistoryApi* | [**list_environment_deployment_history**](docs/EnvironmentDeploymentHistoryApi.md#list_environment_deployment_history) | **GET** /environment/{environmentId}/deploymentHistory | List environment deployments
 *EnvironmentDeploymentRuleApi* | [**edit_environment_deployment_rule**](docs/EnvironmentDeploymentRuleApi.md#edit_environment_deployment_rule) | **PUT** /environment/{environmentId}/deploymentRule/{deploymentRuleId} | Edit an environment deployment rule
 *EnvironmentDeploymentRuleApi* | [**get_environment_deployment_rule**](docs/EnvironmentDeploymentRuleApi.md#get_environment_deployment_rule) | **GET** /environment/{environmentId}/deploymentRule | Get environment deployment rule
@@ -688,6 +690,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentLogsResponseList](docs/EnvironmentLogsResponseList.md)
  - [EnvironmentModeEnum](docs/EnvironmentModeEnum.md)
  - [EnvironmentResponseList](docs/EnvironmentResponseList.md)
+ - [EnvironmentServiceIdsAllRequest](docs/EnvironmentServiceIdsAllRequest.md)
  - [EnvironmentStats](docs/EnvironmentStats.md)
  - [EnvironmentStatsResponseList](docs/EnvironmentStatsResponseList.md)
  - [EnvironmentStatus](docs/EnvironmentStatus.md)

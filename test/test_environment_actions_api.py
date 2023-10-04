@@ -38,6 +38,13 @@ class TestEnvironmentActionsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_selected_services(self):
+        """Test case for delete_selected_services
+
+        Delete services  # noqa: E501
+        """
+        pass
+
     def test_deploy_all_services(self):
         """Test case for deploy_all_services
 
@@ -77,6 +84,13 @@ class TestEnvironmentActionsApi(unittest.TestCase):
         """Test case for stop_environment
 
         Stop environment  # noqa: E501
+        """
+        pass
+
+    def test_stop_selected_services(self):
+        """Test case for stop_selected_services
+
+        Stop services  # noqa: E501
         """
         pass
 
