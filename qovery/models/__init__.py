@@ -64,6 +64,7 @@ from qovery.model.cluster_cloud_provider_info_credentials import ClusterCloudPro
 from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
 from qovery.model.cluster_credentials import ClusterCredentials
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
+from qovery.model.cluster_delete_mode import ClusterDeleteMode
 from qovery.model.cluster_deployment_status_enum import ClusterDeploymentStatusEnum
 from qovery.model.cluster_feature import ClusterFeature
 from qovery.model.cluster_feature_accepted_values_inner import ClusterFeatureAcceptedValuesInner

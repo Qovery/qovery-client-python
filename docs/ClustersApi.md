@@ -155,6 +155,7 @@ Delete a cluster
 import time
 import qovery
 from qovery.api import clusters_api
+from qovery.model.cluster_delete_mode import ClusterDeleteMode
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -184,7 +185,7 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = clusters_api.ClustersApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
     cluster_id = "clusterId_example" # str | Cluster ID
-    delete_mode = "DEFAULT" # str |  (optional) if omitted the server will use the default value of "DEFAULT"
+    delete_mode = ClusterDeleteMode("DEFAULT") # ClusterDeleteMode |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -209,7 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
  **cluster_id** | **str**| Cluster ID |
- **delete_mode** | **str**|  | [optional] if omitted the server will use the default value of "DEFAULT"
+ **delete_mode** | **ClusterDeleteMode**|  | [optional]
 
 ### Return type
 
