@@ -97,8 +97,8 @@ class CustomDomain(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'domain': (str,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
             'generate_certificate': (bool,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'validation_domain': (str,),  # noqa: E501
             'status': (CustomDomainStatusEnum,),  # noqa: E501
         }
@@ -112,8 +112,8 @@ class CustomDomain(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'domain': 'domain',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
         'generate_certificate': 'generate_certificate',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'validation_domain': 'validation_domain',  # noqa: E501
         'status': 'status',  # noqa: E501
     }
@@ -133,6 +133,7 @@ class CustomDomain(ModelComposed):
             id (str):
             created_at (datetime):
             domain (str): your custom domain
+            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -164,7 +165,6 @@ class CustomDomain(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.. [optional]  # noqa: E501
             validation_domain (str): URL provided by Qovery. You must create a CNAME on your DNS provider using that URL. [optional]  # noqa: E501
             status (CustomDomainStatusEnum): [optional]  # noqa: E501
         """
@@ -241,6 +241,7 @@ class CustomDomain(ModelComposed):
 
         Keyword Args:
             domain (str): your custom domain
+            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -272,7 +273,6 @@ class CustomDomain(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.. [optional]  # noqa: E501
             validation_domain (str): URL provided by Qovery. You must create a CNAME on your DNS provider using that URL. [optional]  # noqa: E501
             status (CustomDomainStatusEnum): [optional]  # noqa: E501
         """

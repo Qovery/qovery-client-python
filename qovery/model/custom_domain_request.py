@@ -103,11 +103,12 @@ class CustomDomainRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, domain, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, domain, generate_certificate, *args, **kwargs):  # noqa: E501
         """CustomDomainRequest - a model defined in OpenAPI
 
         Args:
             domain (str): your custom domain
+            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,7 +141,6 @@ class CustomDomainRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,6 +173,7 @@ class CustomDomainRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.domain = domain
+        self.generate_certificate = generate_certificate
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,11 +194,12 @@ class CustomDomainRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, domain, *args, **kwargs):  # noqa: E501
+    def __init__(self, domain, generate_certificate, *args, **kwargs):  # noqa: E501
         """CustomDomainRequest - a model defined in OpenAPI
 
         Args:
             domain (str): your custom domain
+            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,7 +232,6 @@ class CustomDomainRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            generate_certificate (bool): to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +262,7 @@ class CustomDomainRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.domain = domain
+        self.generate_certificate = generate_certificate
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
