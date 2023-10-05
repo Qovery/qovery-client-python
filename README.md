@@ -123,7 +123,6 @@ Class | Method | HTTP request | Description
 *ApplicationEnvironmentVariableApi* | [**edit_application_environment_variable**](docs/ApplicationEnvironmentVariableApi.md#edit_application_environment_variable) | **PUT** /application/{applicationId}/environmentVariable/{environmentVariableId} | Edit an environment variable belonging to the application
 *ApplicationEnvironmentVariableApi* | [**import_environment_variable**](docs/ApplicationEnvironmentVariableApi.md#import_environment_variable) | **POST** /application/{applicationId}/environmentVariable/import | Import variables
 *ApplicationEnvironmentVariableApi* | [**list_application_environment_variable**](docs/ApplicationEnvironmentVariableApi.md#list_application_environment_variable) | **GET** /application/{applicationId}/environmentVariable | List environment variables
-*ApplicationEventApi* | [**list_application_event**](docs/ApplicationEventApi.md#list_application_event) | **GET** /application/{applicationId}/event | List application events
 *ApplicationLogsApi* | [**list_application_log**](docs/ApplicationLogsApi.md#list_application_log) | **GET** /application/{applicationId}/log | List logs
 *ApplicationMainCallsApi* | [**delete_application**](docs/ApplicationMainCallsApi.md#delete_application) | **DELETE** /application/{applicationId} | Delete application
 *ApplicationMainCallsApi* | [**edit_application**](docs/ApplicationMainCallsApi.md#edit_application) | **PUT** /application/{applicationId} | Edit application
@@ -287,7 +286,6 @@ Class | Method | HTTP request | Description
 *DatabaseApplicationApi* | [**list_database_application**](docs/DatabaseApplicationApi.md#list_database_application) | **GET** /database/{databaseId}/application | List applications using the database
 *DatabaseApplicationApi* | [**remove_application_from_database**](docs/DatabaseApplicationApi.md#remove_application_from_database) | **DELETE** /database/{databaseId}/application/{targetApplicationId} | Remove an application from this database 
 *DatabaseDeploymentHistoryApi* | [**list_database_deployment_history**](docs/DatabaseDeploymentHistoryApi.md#list_database_deployment_history) | **GET** /database/{databaseId}/deploymentHistory | List database deploys
-*DatabaseEventApi* | [**list_database_event**](docs/DatabaseEventApi.md#list_database_event) | **GET** /database/{databaseId}/event | List database  events
 *DatabaseMainCallsApi* | [**delete_database**](docs/DatabaseMainCallsApi.md#delete_database) | **DELETE** /database/{databaseId} | Delete a database 
 *DatabaseMainCallsApi* | [**edit_database**](docs/DatabaseMainCallsApi.md#edit_database) | **PUT** /database/{databaseId} | Edit a database 
 *DatabaseMainCallsApi* | [**edit_database_credentials**](docs/DatabaseMainCallsApi.md#edit_database_credentials) | **PUT** /database/{databaseId}/masterCredentials | Edit database  master credentials

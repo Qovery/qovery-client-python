@@ -22,7 +22,6 @@ docs/ApplicationDeploymentRestrictionResponseList.md
 docs/ApplicationEditRequest.md
 docs/ApplicationEditRequestAllOf.md
 docs/ApplicationEnvironmentVariableApi.md
-docs/ApplicationEventApi.md
 docs/ApplicationGitRepository.md
 docs/ApplicationGitRepositoryRequest.md
 docs/ApplicationLogsApi.md
@@ -168,7 +167,6 @@ docs/DatabaseCurrentMetricMemory.md
 docs/DatabaseCurrentMetricStorage.md
 docs/DatabaseDeploymentHistoryApi.md
 docs/DatabaseEditRequest.md
-docs/DatabaseEventApi.md
 docs/DatabaseMainCallsApi.md
 docs/DatabaseMetricsApi.md
 docs/DatabaseModeEnum.md
@@ -545,7 +543,6 @@ qovery/api/application_configuration_api.py
 qovery/api/application_deployment_history_api.py
 qovery/api/application_deployment_restriction_api.py
 qovery/api/application_environment_variable_api.py
-qovery/api/application_event_api.py
 qovery/api/application_logs_api.py
 qovery/api/application_main_calls_api.py
 qovery/api/application_metrics_api.py
@@ -571,7 +568,6 @@ qovery/api/custom_domain_api.py
 qovery/api/database_actions_api.py
 qovery/api/database_application_api.py
 qovery/api/database_deployment_history_api.py
-qovery/api/database_event_api.py
 qovery/api/database_main_calls_api.py
 qovery/api/database_metrics_api.py
 qovery/api/databases_api.py
@@ -1104,7 +1100,6 @@ test/test_application_deployment_restriction_response_list.py
 test/test_application_edit_request.py
 test/test_application_edit_request_all_of.py
 test/test_application_environment_variable_api.py
-test/test_application_event_api.py
 test/test_application_git_repository.py
 test/test_application_git_repository_request.py
 test/test_application_logs_api.py
@@ -1250,7 +1245,6 @@ test/test_database_current_metric_memory.py
 test/test_database_current_metric_storage.py
 test/test_database_deployment_history_api.py
 test/test_database_edit_request.py
-test/test_database_event_api.py
 test/test_database_main_calls_api.py
 test/test_database_metrics_api.py
 test/test_database_mode_enum.py

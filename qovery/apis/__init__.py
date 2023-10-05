@@ -20,7 +20,6 @@ from qovery.api.application_configuration_api import ApplicationConfigurationApi
 from qovery.api.application_deployment_history_api import ApplicationDeploymentHistoryApi
 from qovery.api.application_deployment_restriction_api import ApplicationDeploymentRestrictionApi
 from qovery.api.application_environment_variable_api import ApplicationEnvironmentVariableApi
-from qovery.api.application_event_api import ApplicationEventApi
 from qovery.api.application_logs_api import ApplicationLogsApi
 from qovery.api.application_main_calls_api import ApplicationMainCallsApi
 from qovery.api.application_metrics_api import ApplicationMetricsApi
@@ -46,7 +45,6 @@ from qovery.api.custom_domain_api import CustomDomainApi
 from qovery.api.database_actions_api import DatabaseActionsApi
 from qovery.api.database_application_api import DatabaseApplicationApi
 from qovery.api.database_deployment_history_api import DatabaseDeploymentHistoryApi
-from qovery.api.database_event_api import DatabaseEventApi
 from qovery.api.database_main_calls_api import DatabaseMainCallsApi
 from qovery.api.database_metrics_api import DatabaseMetricsApi
 from qovery.api.databases_api import DatabasesApi
