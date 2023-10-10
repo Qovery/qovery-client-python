@@ -184,8 +184,8 @@ class Secret(ModelComposed):
             overridden_secret (SecretOverride): [optional]  # noqa: E501
             aliased_secret (SecretAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
-            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            service_name (str): [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
             owned_by (str): Entity that created/own the variable (i.e: Qovery, Doppler). [optional]  # noqa: E501
         """
@@ -297,8 +297,8 @@ class Secret(ModelComposed):
             overridden_secret (SecretOverride): [optional]  # noqa: E501
             aliased_secret (SecretAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
-            service_id (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
-            service_name (str): present only for `BUILT_IN` variable. [optional]  # noqa: E501
+            service_id (str): [optional]  # noqa: E501
+            service_name (str): [optional]  # noqa: E501
             service_type (LinkedServiceTypeEnum): [optional]  # noqa: E501
             owned_by (str): Entity that created/own the variable (i.e: Qovery, Doppler). [optional]  # noqa: E501
         """

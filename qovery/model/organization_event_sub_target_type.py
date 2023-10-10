@@ -53,6 +53,7 @@ class OrganizationEventSubTargetType(ModelSimple):
 
     allowed_values = {
         ('value',): {
+            'None': None,
             'ADVANCED_SETTINGS': "ADVANCED_SETTINGS",
             'API_TOKEN': "API_TOKEN",
             'BILLING_INFO': "BILLING_INFO",
@@ -83,7 +84,7 @@ class OrganizationEventSubTargetType(ModelSimple):
 
     additional_properties_type = None
 
-    _nullable = False
+    _nullable = True
 
     @cached_property
     def openapi_types():
