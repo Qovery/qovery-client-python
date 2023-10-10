@@ -113,8 +113,14 @@ class JobResponseAllOfSourceImage(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, image_name, tag, registry_id, registry, *args, **kwargs):  # noqa: E501
         """JobResponseAllOfSourceImage - a model defined in OpenAPI
+
+        Args:
+            image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` 
+            tag (str): tag of the image container
+            registry_id (str): tag of the image container
+            registry (ContainerRegistryProviderDetailsResponse):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,10 +153,6 @@ class JobResponseAllOfSourceImage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` . [optional]  # noqa: E501
-            tag (str): tag of the image container. [optional]  # noqa: E501
-            registry_id (str): tag of the image container. [optional]  # noqa: E501
-            registry (ContainerRegistryProviderDetailsResponse): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -182,6 +184,10 @@ class JobResponseAllOfSourceImage(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.image_name = image_name
+        self.tag = tag
+        self.registry_id = registry_id
+        self.registry = registry
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,8 +208,14 @@ class JobResponseAllOfSourceImage(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, image_name, tag, registry_id, registry, *args, **kwargs):  # noqa: E501
         """JobResponseAllOfSourceImage - a model defined in OpenAPI
+
+        Args:
+            image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` 
+            tag (str): tag of the image container
+            registry_id (str): tag of the image container
+            registry (ContainerRegistryProviderDetailsResponse):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -236,10 +248,6 @@ class JobResponseAllOfSourceImage(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            image_name (str): The image name pattern differs according to chosen container registry provider:   * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` . [optional]  # noqa: E501
-            tag (str): tag of the image container. [optional]  # noqa: E501
-            registry_id (str): tag of the image container. [optional]  # noqa: E501
-            registry (ContainerRegistryProviderDetailsResponse): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -269,6 +277,10 @@ class JobResponseAllOfSourceImage(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.image_name = image_name
+        self.tag = tag
+        self.registry_id = registry_id
+        self.registry = registry
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
