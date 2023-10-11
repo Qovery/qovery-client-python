@@ -5,12 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **environment** | [**ReferenceObject**](ReferenceObject.md) |  | 
-**registry** | [**ContainerRegistryProviderDetailsResponse**](ContainerRegistryProviderDetailsResponse.md) |  | 
 **maximum_cpu** | **int** | Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m &#x3D; 1 cpu | 
 **maximum_memory** | **int** | Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB &#x3D; 1GB | 
 **name** | **str** | name is case insensitive | 
-**image_name** | **str** | name of the image container | 
-**tag** | **str** | tag of the image container | 
 **cpu** | **int** | unit is millicores (m). 1000m &#x3D; 1 cpu | 
 **memory** | **int** | unit is MB. 1024 MB &#x3D; 1GB | 
 **healthchecks** | [**Healthcheck**](Healthcheck.md) |  | 

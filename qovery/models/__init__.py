@@ -117,6 +117,7 @@ from qovery.model.container_request_all_of import ContainerRequestAllOf
 from qovery.model.container_response import ContainerResponse
 from qovery.model.container_response_all_of import ContainerResponseAllOf
 from qovery.model.container_response_list import ContainerResponseList
+from qovery.model.container_source import ContainerSource
 from qovery.model.cost import Cost
 from qovery.model.cost_range import CostRange
 from qovery.model.create_environment_mode_enum import CreateEnvironmentModeEnum
@@ -285,9 +286,6 @@ from qovery.model.job_response import JobResponse
 from qovery.model.job_response_all_of import JobResponseAllOf
 from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
 from qovery.model.job_response_all_of_schedule_cronjob import JobResponseAllOfScheduleCronjob
-from qovery.model.job_response_all_of_source import JobResponseAllOfSource
-from qovery.model.job_response_all_of_source_docker import JobResponseAllOfSourceDocker
-from qovery.model.job_response_all_of_source_image import JobResponseAllOfSourceImage
 from qovery.model.job_response_list import JobResponseList
 from qovery.model.job_schedule_event import JobScheduleEvent
 from qovery.model.key import Key

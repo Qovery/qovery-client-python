@@ -13,17 +13,19 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.application_git_repository import ApplicationGitRepository
 from qovery.model.base import Base
+from qovery.model.container_source import ContainerSource
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.job_response_all_of import JobResponseAllOf
 from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
-from qovery.model.job_response_all_of_source import JobResponseAllOfSource
 from qovery.model.reference_object import ReferenceObject
+globals()['ApplicationGitRepository'] = ApplicationGitRepository
 globals()['Base'] = Base
+globals()['ContainerSource'] = ContainerSource
 globals()['Healthcheck'] = Healthcheck
 globals()['JobResponseAllOf'] = JobResponseAllOf
 globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
-globals()['JobResponseAllOfSource'] = JobResponseAllOfSource
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.job_response import JobResponse
 

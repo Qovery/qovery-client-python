@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
 globals()['ContainerRegistryProviderDetailsResponse'] = ContainerRegistryProviderDetailsResponse
-from qovery.model.job_response_all_of_source_image import JobResponseAllOfSourceImage
+from qovery.model.container_source import ContainerSource
 
 
-class TestJobResponseAllOfSourceImage(unittest.TestCase):
-    """JobResponseAllOfSourceImage unit test stubs"""
+class TestContainerSource(unittest.TestCase):
+    """ContainerSource unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestJobResponseAllOfSourceImage(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobResponseAllOfSourceImage(self):
-        """Test JobResponseAllOfSourceImage"""
+    def testContainerSource(self):
+        """Test ContainerSource"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobResponseAllOfSourceImage()  # noqa: E501
+        # model = ContainerSource()  # noqa: E501
         pass
 
 

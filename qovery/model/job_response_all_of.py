@@ -31,13 +31,15 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.application_git_repository import ApplicationGitRepository
+    from qovery.model.container_source import ContainerSource
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
-    from qovery.model.job_response_all_of_source import JobResponseAllOfSource
     from qovery.model.reference_object import ReferenceObject
+    globals()['ApplicationGitRepository'] = ApplicationGitRepository
+    globals()['ContainerSource'] = ContainerSource
     globals()['Healthcheck'] = Healthcheck
     globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
-    globals()['JobResponseAllOfSource'] = JobResponseAllOfSource
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -110,12 +112,12 @@ class JobResponseAllOf(ModelNormal):
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
+            'source': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'max_nb_restart': (int,),  # noqa: E501
             'max_duration_seconds': (int,),  # noqa: E501
             'port': (int, none_type,),  # noqa: E501
-            'source': (JobResponseAllOfSource,),  # noqa: E501
             'schedule': (JobResponseAllOfSchedule,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
         }
@@ -133,12 +135,12 @@ class JobResponseAllOf(ModelNormal):
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
+        'source': 'source',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
         'description': 'description',  # noqa: E501
         'max_nb_restart': 'max_nb_restart',  # noqa: E501
         'max_duration_seconds': 'max_duration_seconds',  # noqa: E501
         'port': 'port',  # noqa: E501
-        'source': 'source',  # noqa: E501
         'schedule': 'schedule',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
     }
@@ -150,7 +152,7 @@ class JobResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, environment, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, healthchecks, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, source, healthchecks, *args, **kwargs):  # noqa: E501
         """JobResponseAllOf - a model defined in OpenAPI
 
         Args:
@@ -161,6 +163,7 @@ class JobResponseAllOf(ModelNormal):
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             healthchecks (Healthcheck):
 
         Keyword Args:
@@ -198,7 +201,6 @@ class JobResponseAllOf(ModelNormal):
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
-            source (JobResponseAllOfSource): [optional]  # noqa: E501
             schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
             auto_deploy (bool): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """
@@ -239,6 +241,7 @@ class JobResponseAllOf(ModelNormal):
         self.cpu = cpu
         self.memory = memory
         self.auto_preview = auto_preview
+        self.source = source
         self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -260,7 +263,7 @@ class JobResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, environment, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, healthchecks, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment, maximum_cpu, maximum_memory, name, cpu, memory, auto_preview, source, healthchecks, *args, **kwargs):  # noqa: E501
         """JobResponseAllOf - a model defined in OpenAPI
 
         Args:
@@ -271,6 +274,7 @@ class JobResponseAllOf(ModelNormal):
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             auto_preview (bool): Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             healthchecks (Healthcheck):
 
         Keyword Args:
@@ -308,7 +312,6 @@ class JobResponseAllOf(ModelNormal):
             max_nb_restart (int): Maximum number of restart allowed before the job is considered as failed 0 means that no restart/crash of the job is allowed . [optional]  # noqa: E501
             max_duration_seconds (int): Maximum number of seconds allowed for the job to run before killing it and mark it as failed . [optional]  # noqa: E501
             port (int, none_type): Port where to run readiness and liveliness probes checks. The port will not be exposed externally. [optional]  # noqa: E501
-            source (JobResponseAllOfSource): [optional]  # noqa: E501
             schedule (JobResponseAllOfSchedule): [optional]  # noqa: E501
             auto_deploy (bool): Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments . [optional]  # noqa: E501
         """
@@ -347,6 +350,7 @@ class JobResponseAllOf(ModelNormal):
         self.cpu = cpu
         self.memory = memory
         self.auto_preview = auto_preview
+        self.source = source
         self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

@@ -13,11 +13,9 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.reference_object import ReferenceObject
 from qovery.model.service_port_response_list import ServicePortResponseList
-globals()['ContainerRegistryProviderDetailsResponse'] = ContainerRegistryProviderDetailsResponse
 globals()['Healthcheck'] = Healthcheck
 globals()['ReferenceObject'] = ReferenceObject
 globals()['ServicePortResponseList'] = ServicePortResponseList

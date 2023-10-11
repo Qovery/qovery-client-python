@@ -137,6 +137,7 @@ docs/ContainerResponse.md
 docs/ContainerResponseAllOf.md
 docs/ContainerResponseList.md
 docs/ContainerSecretApi.md
+docs/ContainerSource.md
 docs/ContainersApi.md
 docs/Cost.md
 docs/CostRange.md
@@ -333,9 +334,6 @@ docs/JobResponse.md
 docs/JobResponseAllOf.md
 docs/JobResponseAllOfSchedule.md
 docs/JobResponseAllOfScheduleCronjob.md
-docs/JobResponseAllOfSource.md
-docs/JobResponseAllOfSourceDocker.md
-docs/JobResponseAllOfSourceImage.md
 docs/JobResponseList.md
 docs/JobScheduleEvent.md
 docs/JobSecretApi.md
@@ -722,6 +720,7 @@ qovery/model/container_request_all_of.py
 qovery/model/container_response.py
 qovery/model/container_response_all_of.py
 qovery/model/container_response_list.py
+qovery/model/container_source.py
 qovery/model/cost.py
 qovery/model/cost_range.py
 qovery/model/create_environment_mode_enum.py
@@ -890,9 +889,6 @@ qovery/model/job_response.py
 qovery/model/job_response_all_of.py
 qovery/model/job_response_all_of_schedule.py
 qovery/model/job_response_all_of_schedule_cronjob.py
-qovery/model/job_response_all_of_source.py
-qovery/model/job_response_all_of_source_docker.py
-qovery/model/job_response_all_of_source_image.py
 qovery/model/job_response_list.py
 qovery/model/job_schedule_event.py
 qovery/model/key.py
@@ -1217,6 +1213,7 @@ test/test_container_response.py
 test/test_container_response_all_of.py
 test/test_container_response_list.py
 test/test_container_secret_api.py
+test/test_container_source.py
 test/test_containers_api.py
 test/test_cost.py
 test/test_cost_range.py
@@ -1413,9 +1410,6 @@ test/test_job_response.py
 test/test_job_response_all_of.py
 test/test_job_response_all_of_schedule.py
 test/test_job_response_all_of_schedule_cronjob.py
-test/test_job_response_all_of_source.py
-test/test_job_response_all_of_source_docker.py
-test/test_job_response_all_of_source_image.py
 test/test_job_response_list.py
 test/test_job_schedule_event.py
 test/test_job_secret_api.py

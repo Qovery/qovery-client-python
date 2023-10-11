@@ -31,11 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port_response_list import ServicePortResponseList
-    globals()['ContainerRegistryProviderDetailsResponse'] = ContainerRegistryProviderDetailsResponse
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePortResponseList'] = ServicePortResponseList
@@ -98,12 +96,9 @@ class ContainerResponseAllOf(ModelNormal):
         lazy_import()
         return {
             'environment': (ReferenceObject,),  # noqa: E501
-            'registry': (ContainerRegistryProviderDetailsResponse,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'image_name': (str,),  # noqa: E501
-            'tag': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
@@ -124,12 +119,9 @@ class ContainerResponseAllOf(ModelNormal):
 
     attribute_map = {
         'environment': 'environment',  # noqa: E501
-        'registry': 'registry',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'image_name': 'image_name',  # noqa: E501
-        'tag': 'tag',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
@@ -150,17 +142,14 @@ class ContainerResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, environment, registry, maximum_cpu, maximum_memory, name, image_name, tag, cpu, memory, healthchecks, auto_preview, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment, maximum_cpu, maximum_memory, name, cpu, memory, healthchecks, auto_preview, *args, **kwargs):  # noqa: E501
         """ContainerResponseAllOf - a model defined in OpenAPI
 
         Args:
             environment (ReferenceObject):
-            registry (ContainerRegistryProviderDetailsResponse):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
-            image_name (str): name of the image container
-            tag (str): tag of the image container
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             healthchecks (Healthcheck):
@@ -238,12 +227,9 @@ class ContainerResponseAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.environment = environment
-        self.registry = registry
         self.maximum_cpu = maximum_cpu
         self.maximum_memory = maximum_memory
         self.name = name
-        self.image_name = image_name
-        self.tag = tag
         self.cpu = cpu
         self.memory = memory
         self.min_running_instances = min_running_instances
@@ -270,17 +256,14 @@ class ContainerResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, environment, registry, maximum_cpu, maximum_memory, name, image_name, tag, cpu, memory, healthchecks, auto_preview, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment, maximum_cpu, maximum_memory, name, cpu, memory, healthchecks, auto_preview, *args, **kwargs):  # noqa: E501
         """ContainerResponseAllOf - a model defined in OpenAPI
 
         Args:
             environment (ReferenceObject):
-            registry (ContainerRegistryProviderDetailsResponse):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
-            image_name (str): name of the image container
-            tag (str): tag of the image container
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             healthchecks (Healthcheck):
@@ -356,12 +339,9 @@ class ContainerResponseAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.environment = environment
-        self.registry = registry
         self.maximum_cpu = maximum_cpu
         self.maximum_memory = maximum_memory
         self.name = name
-        self.image_name = image_name
-        self.tag = tag
         self.cpu = cpu
         self.memory = memory
         self.min_running_instances = min_running_instances

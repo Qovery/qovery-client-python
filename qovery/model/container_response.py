@@ -34,6 +34,7 @@ def lazy_import():
     from qovery.model.base import Base
     from qovery.model.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
     from qovery.model.container_response_all_of import ContainerResponseAllOf
+    from qovery.model.container_source import ContainerSource
     from qovery.model.healthcheck import Healthcheck
     from qovery.model.reference_object import ReferenceObject
     from qovery.model.service_port_response_list import ServicePortResponseList
@@ -42,6 +43,7 @@ def lazy_import():
     globals()['Base'] = Base
     globals()['ContainerRegistryProviderDetailsResponse'] = ContainerRegistryProviderDetailsResponse
     globals()['ContainerResponseAllOf'] = ContainerResponseAllOf
+    globals()['ContainerSource'] = ContainerSource
     globals()['Healthcheck'] = Healthcheck
     globals()['ReferenceObject'] = ReferenceObject
     globals()['ServicePortResponseList'] = ServicePortResponseList
@@ -107,13 +109,13 @@ class ContainerResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'environment': (ReferenceObject,),  # noqa: E501
+            'image_name': (str,),  # noqa: E501
+            'tag': (str,),  # noqa: E501
             'registry': (ContainerRegistryProviderDetailsResponse,),  # noqa: E501
+            'environment': (ReferenceObject,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'image_name': (str,),  # noqa: E501
-            'tag': (str,),  # noqa: E501
             'cpu': (int,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'min_running_instances': (int,),  # noqa: E501
@@ -122,6 +124,7 @@ class ContainerResponse(ModelComposed):
             'auto_preview': (bool,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ServiceStorageStorageInner],),  # noqa: E501
+            'registry_id': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
@@ -137,13 +140,13 @@ class ContainerResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
+        'image_name': 'image_name',  # noqa: E501
+        'tag': 'tag',  # noqa: E501
         'registry': 'registry',  # noqa: E501
+        'environment': 'environment',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'image_name': 'image_name',  # noqa: E501
-        'tag': 'tag',  # noqa: E501
         'cpu': 'cpu',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'min_running_instances': 'min_running_instances',  # noqa: E501
@@ -152,6 +155,7 @@ class ContainerResponse(ModelComposed):
         'auto_preview': 'auto_preview',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'storage': 'storage',  # noqa: E501
+        'registry_id': 'registry_id',  # noqa: E501
         'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
@@ -173,13 +177,13 @@ class ContainerResponse(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
-            environment (ReferenceObject):
+            image_name (str): The image name pattern differs according to chosen container registry provider: * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` 
+            tag (str): tag of the image container
             registry (ContainerRegistryProviderDetailsResponse):
+            environment (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
-            image_name (str): name of the image container
-            tag (str): tag of the image container
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . defaults to 1  # noqa: E501
@@ -218,6 +222,7 @@ class ContainerResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
+            registry_id (str): tag of the image container. [optional]  # noqa: E501
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
@@ -298,13 +303,13 @@ class ContainerResponse(ModelComposed):
         """ContainerResponse - a model defined in OpenAPI
 
         Keyword Args:
-            environment (ReferenceObject):
+            image_name (str): The image name pattern differs according to chosen container registry provider: * `ECR`: `repository` * `SCALEWAY_CR`: `namespace/image` * `DOCKER_HUB`: `image` or `repository/image` * `PUBLIC_ECR`: `registry_alias/repository` 
+            tag (str): tag of the image container
             registry (ContainerRegistryProviderDetailsResponse):
+            environment (ReferenceObject):
             maximum_cpu (int): Maximum cpu that can be allocated to the container based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu
             maximum_memory (int): Maximum memory that can be allocated to the container based on organization cluster configuration. unit is MB. 1024 MB = 1GB
             name (str): name is case insensitive
-            image_name (str): name of the image container
-            tag (str): tag of the image container
             cpu (int): unit is millicores (m). 1000m = 1 cpu
             memory (int): unit is MB. 1024 MB = 1GB
             min_running_instances (int): Minimum number of instances running. This resource auto-scale based on the CPU and Memory consumption. Note: 0 means that there is no container running. . defaults to 1  # noqa: E501
@@ -343,6 +348,7 @@ class ContainerResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
+            registry_id (str): tag of the image container. [optional]  # noqa: E501
             description (str): give a description to this container. [optional]  # noqa: E501
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
@@ -421,6 +427,7 @@ class ContainerResponse(ModelComposed):
           'allOf': [
               Base,
               ContainerResponseAllOf,
+              ContainerSource,
               ServiceStorage,
           ],
           'oneOf': [
