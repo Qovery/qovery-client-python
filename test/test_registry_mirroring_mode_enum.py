@@ -14,12 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.registry_mirroring_mode_enum import RegistryMirroringModeEnum
-globals()['RegistryMirroringModeEnum'] = RegistryMirroringModeEnum
-from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 
 
-class TestClusterAdvancedSettings(unittest.TestCase):
-    """ClusterAdvancedSettings unit test stubs"""
+class TestRegistryMirroringModeEnum(unittest.TestCase):
+    """RegistryMirroringModeEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestClusterAdvancedSettings(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterAdvancedSettings(self):
-        """Test ClusterAdvancedSettings"""
+    def testRegistryMirroringModeEnum(self):
+        """Test RegistryMirroringModeEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterAdvancedSettings()  # noqa: E501
+        # model = RegistryMirroringModeEnum()  # noqa: E501
         pass
 
 

@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **aws_iam_admin_group** | **str** | AWS IAM group name with cluster access | [optional]  if omitted the server will use the default value of "Admins"
 **aws_eks_ec2_metadata_imds** | **str** | Specify the [IMDS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) version you want to use:   * &#x60;required&#x60;: IMDS V2 only   * &#x60;optional&#x60;: IMDS V1 + V2  | [optional]  if omitted the server will use the default value of "optional"
 **pleco_resources_ttl** | **int** |  | [optional]  if omitted the server will use the default value of -1
+**registry_mirroring_mode** | [**RegistryMirroringModeEnum**](RegistryMirroringModeEnum.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

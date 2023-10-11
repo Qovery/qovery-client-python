@@ -406,6 +406,7 @@ from qovery.model.reference_object import ReferenceObject
 from qovery.model.reference_object_status import ReferenceObjectStatus
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from qovery.model.referral import Referral
+from qovery.model.registry_mirroring_mode_enum import RegistryMirroringModeEnum
 from qovery.model.remaining_credits import RemainingCredits
 from qovery.model.reward_claim import RewardClaim
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest

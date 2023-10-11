@@ -469,6 +469,7 @@ docs/ReferenceObjectStatus.md
 docs/ReferenceObjectStatusResponseList.md
 docs/Referral.md
 docs/ReferralRewardsApi.md
+docs/RegistryMirroringModeEnum.md
 docs/RemainingCredits.md
 docs/RewardClaim.md
 docs/ScalewayCredentialsRequest.md
@@ -1010,6 +1011,7 @@ qovery/model/reference_object.py
 qovery/model/reference_object_status.py
 qovery/model/reference_object_status_response_list.py
 qovery/model/referral.py
+qovery/model/registry_mirroring_mode_enum.py
 qovery/model/remaining_credits.py
 qovery/model/reward_claim.py
 qovery/model/scaleway_credentials_request.py
@@ -1547,6 +1549,7 @@ test/test_reference_object_status.py
 test/test_reference_object_status_response_list.py
 test/test_referral.py
 test/test_referral_rewards_api.py
+test/test_registry_mirroring_mode_enum.py
 test/test_remaining_credits.py
 test/test_reward_claim.py
 test/test_scaleway_credentials_request.py

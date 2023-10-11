@@ -514,6 +514,7 @@ with qovery.ApiClient(configuration) as api_client:
         aws_iam_admin_group="Admins",
         aws_eks_ec2_metadata_imds="optional",
         pleco_resources_ttl=-1,
+        registry_mirroring_mode=RegistryMirroringModeEnum("SERVICE"),
     ) # ClusterAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
