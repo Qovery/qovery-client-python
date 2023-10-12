@@ -646,7 +646,6 @@ Class | Method | HTTP request | Description
  - [DeploymentStageServiceResponse](docs/DeploymentStageServiceResponse.md)
  - [DeploymentStageServiceResponseAllOf](docs/DeploymentStageServiceResponseAllOf.md)
  - [DeploymentStageServiceResponseList](docs/DeploymentStageServiceResponseList.md)
- - [DeploymentStageWithServiceStatusesList](docs/DeploymentStageWithServiceStatusesList.md)
  - [DeploymentStageWithServicesStatuses](docs/DeploymentStageWithServicesStatuses.md)
  - [DoCredentialsRequest](docs/DoCredentialsRequest.md)
  - [Environment](docs/Environment.md)

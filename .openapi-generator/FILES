@@ -212,7 +212,6 @@ docs/DeploymentStageResponseList.md
 docs/DeploymentStageServiceResponse.md
 docs/DeploymentStageServiceResponseAllOf.md
 docs/DeploymentStageServiceResponseList.md
-docs/DeploymentStageWithServiceStatusesList.md
 docs/DeploymentStageWithServicesStatuses.md
 docs/DoCredentialsRequest.md
 docs/Environment.md
@@ -786,7 +785,6 @@ qovery/model/deployment_stage_response_list.py
 qovery/model/deployment_stage_service_response.py
 qovery/model/deployment_stage_service_response_all_of.py
 qovery/model/deployment_stage_service_response_list.py
-qovery/model/deployment_stage_with_service_statuses_list.py
 qovery/model/deployment_stage_with_services_statuses.py
 qovery/model/do_credentials_request.py
 qovery/model/environment.py
@@ -1288,7 +1286,6 @@ test/test_deployment_stage_response_list.py
 test/test_deployment_stage_service_response.py
 test/test_deployment_stage_service_response_all_of.py
 test/test_deployment_stage_service_response_list.py
-test/test_deployment_stage_with_service_statuses_list.py
 test/test_deployment_stage_with_services_statuses.py
 test/test_do_credentials_request.py
 test/test_environment.py

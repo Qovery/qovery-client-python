@@ -13,9 +13,9 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.deployment_stage_with_service_statuses_list import DeploymentStageWithServiceStatusesList
+from qovery.model.deployment_stage_with_services_statuses import DeploymentStageWithServicesStatuses
 from qovery.model.environment_status import EnvironmentStatus
-globals()['DeploymentStageWithServiceStatusesList'] = DeploymentStageWithServiceStatusesList
+globals()['DeploymentStageWithServicesStatuses'] = DeploymentStageWithServicesStatuses
 globals()['EnvironmentStatus'] = EnvironmentStatus
 from qovery.model.environment_statuses_with_stages import EnvironmentStatusesWithStages
 

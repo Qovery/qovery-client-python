@@ -31,9 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.deployment_stage_with_service_statuses_list import DeploymentStageWithServiceStatusesList
+    from qovery.model.deployment_stage_with_services_statuses import DeploymentStageWithServicesStatuses
     from qovery.model.environment_status import EnvironmentStatus
-    globals()['DeploymentStageWithServiceStatusesList'] = DeploymentStageWithServiceStatusesList
+    globals()['DeploymentStageWithServicesStatuses'] = DeploymentStageWithServicesStatuses
     globals()['EnvironmentStatus'] = EnvironmentStatus
 
 
@@ -91,7 +91,7 @@ class EnvironmentStatusesWithStages(ModelNormal):
         lazy_import()
         return {
             'environment': (EnvironmentStatus,),  # noqa: E501
-            'stages': (DeploymentStageWithServiceStatusesList,),  # noqa: E501
+            'stages': ([DeploymentStageWithServicesStatuses],),  # noqa: E501
         }
 
     @cached_property
@@ -146,7 +146,7 @@ class EnvironmentStatusesWithStages(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             environment (EnvironmentStatus): [optional]  # noqa: E501
-            stages (DeploymentStageWithServiceStatusesList): [optional]  # noqa: E501
+            stages ([DeploymentStageWithServicesStatuses]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,7 +233,7 @@ class EnvironmentStatusesWithStages(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             environment (EnvironmentStatus): [optional]  # noqa: E501
-            stages (DeploymentStageWithServiceStatusesList): [optional]  # noqa: E501
+            stages ([DeploymentStageWithServicesStatuses]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
