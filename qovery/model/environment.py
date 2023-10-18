@@ -99,11 +99,11 @@ class Environment(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'project': (ReferenceObject,),  # noqa: E501
             'cloud_provider': (EnvironmentAllOfCloudProvider,),  # noqa: E501
             'mode': (EnvironmentModeEnum,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'project': (ReferenceObject,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
             'cluster_name': (str,),  # noqa: E501
         }
@@ -117,11 +117,11 @@ class Environment(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'project': 'project',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
         'mode': 'mode',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
-        'project': 'project',  # noqa: E501
         'last_updated_by': 'last_updated_by',  # noqa: E501
         'cluster_name': 'cluster_name',  # noqa: E501
     }
@@ -141,6 +141,7 @@ class Environment(ModelComposed):
             id (str):
             created_at (datetime):
             name (str): name is case insensitive
+            project (ReferenceObject):
             cloud_provider (EnvironmentAllOfCloudProvider):
             mode (EnvironmentModeEnum):
             cluster_id (str):
@@ -175,7 +176,6 @@ class Environment(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
             cluster_name (str): [optional]  # noqa: E501
         """
@@ -252,6 +252,7 @@ class Environment(ModelComposed):
 
         Keyword Args:
             name (str): name is case insensitive
+            project (ReferenceObject):
             cloud_provider (EnvironmentAllOfCloudProvider):
             mode (EnvironmentModeEnum):
             cluster_id (str):
@@ -286,7 +287,6 @@ class Environment(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
             cluster_name (str): [optional]  # noqa: E501
         """

@@ -101,12 +101,12 @@ class ApplicationAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'healthchecks': (Healthcheck,),  # noqa: E501
             'environment': (ReferenceObject,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'healthchecks': (Healthcheck,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
@@ -128,12 +128,12 @@ class ApplicationAllOf(ModelNormal):
 
 
     attribute_map = {
-        'healthchecks': 'healthchecks',  # noqa: E501
         'environment': 'environment',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'healthchecks': 'healthchecks',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'build_mode': 'build_mode',  # noqa: E501
         'dockerfile_path': 'dockerfile_path',  # noqa: E501
@@ -156,10 +156,12 @@ class ApplicationAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, healthchecks, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment, name, healthchecks, *args, **kwargs):  # noqa: E501
         """ApplicationAllOf - a model defined in OpenAPI
 
         Args:
+            environment (ReferenceObject):
+            name (str): name is case insensitive
             healthchecks (Healthcheck):
 
         Keyword Args:
@@ -193,11 +195,9 @@ class ApplicationAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -242,6 +242,8 @@ class ApplicationAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.environment = environment
+        self.name = name
         self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -263,10 +265,12 @@ class ApplicationAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, healthchecks, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment, name, healthchecks, *args, **kwargs):  # noqa: E501
         """ApplicationAllOf - a model defined in OpenAPI
 
         Args:
+            environment (ReferenceObject):
+            name (str): name is case insensitive
             healthchecks (Healthcheck):
 
         Keyword Args:
@@ -300,11 +304,9 @@ class ApplicationAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -347,6 +349,8 @@ class ApplicationAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.environment = environment
+        self.name = name
         self.healthchecks = healthchecks
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

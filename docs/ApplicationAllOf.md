@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**environment** | [**ReferenceObject**](ReferenceObject.md) |  | 
+**name** | **str** | name is case insensitive | 
 **healthchecks** | [**Healthcheck**](Healthcheck.md) |  | 
-**environment** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 
 **git_repository** | [**ApplicationGitRepository**](ApplicationGitRepository.md) |  | [optional] 
 **maximum_cpu** | **int** | Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m &#x3D; 1 cpu | [optional] 
 **maximum_memory** | **int** | Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB &#x3D; 1GB | [optional] 
-**name** | **str** | name is case insensitive | [optional] 
 **description** | **str, none_type** | give a description to this application | [optional] 
 **build_mode** | [**BuildModeEnum**](BuildModeEnum.md) |  | [optional] 
 **dockerfile_path** | **str, none_type** | The path of the associated Dockerfile. Only if you are using build_mode &#x3D; DOCKER | [optional] 

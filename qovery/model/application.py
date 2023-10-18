@@ -111,14 +111,14 @@ class Application(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'environment': (ReferenceObject,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'healthchecks': (Healthcheck,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'storage': ([ServiceStorageStorageInner],),  # noqa: E501
-            'environment': (ReferenceObject,),  # noqa: E501
             'git_repository': (ApplicationGitRepository,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
             'maximum_memory': (int,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'build_mode': (BuildModeEnum,),  # noqa: E501
             'dockerfile_path': (str, none_type,),  # noqa: E501
@@ -142,14 +142,14 @@ class Application(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'environment': 'environment',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'healthchecks': 'healthchecks',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'storage': 'storage',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
         'git_repository': 'git_repository',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
         'maximum_memory': 'maximum_memory',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'build_mode': 'build_mode',  # noqa: E501
         'dockerfile_path': 'dockerfile_path',  # noqa: E501
@@ -179,6 +179,8 @@ class Application(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
+            environment (ReferenceObject):
+            name (str): name is case insensitive
             healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -212,11 +214,9 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501
@@ -303,6 +303,8 @@ class Application(ModelComposed):
         """Application - a model defined in OpenAPI
 
         Keyword Args:
+            environment (ReferenceObject):
+            name (str): name is case insensitive
             healthchecks (Healthcheck):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -336,11 +338,9 @@ class Application(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             storage ([ServiceStorageStorageInner]): [optional]  # noqa: E501
-            environment (ReferenceObject): [optional]  # noqa: E501
             git_repository (ApplicationGitRepository): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the application based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
             maximum_memory (int): Maximum memory that can be allocated to the application based on organization cluster configuration. unit is MB. 1024 MB = 1GB. [optional]  # noqa: E501
-            name (str): name is case insensitive. [optional]  # noqa: E501
             description (str, none_type): give a description to this application. [optional]  # noqa: E501
             build_mode (BuildModeEnum): [optional]  # noqa: E501
             dockerfile_path (str, none_type): The path of the associated Dockerfile. Only if you are using build_mode = DOCKER. [optional]  # noqa: E501

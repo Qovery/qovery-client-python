@@ -93,10 +93,10 @@ class EnvironmentAllOf(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
+            'project': (ReferenceObject,),  # noqa: E501
             'cloud_provider': (EnvironmentAllOfCloudProvider,),  # noqa: E501
             'mode': (EnvironmentModeEnum,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
-            'project': (ReferenceObject,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
             'cluster_name': (str,),  # noqa: E501
         }
@@ -108,10 +108,10 @@ class EnvironmentAllOf(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'project': 'project',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
         'mode': 'mode',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
-        'project': 'project',  # noqa: E501
         'last_updated_by': 'last_updated_by',  # noqa: E501
         'cluster_name': 'cluster_name',  # noqa: E501
     }
@@ -123,11 +123,12 @@ class EnvironmentAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, cloud_provider, mode, cluster_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, project, cloud_provider, mode, cluster_id, *args, **kwargs):  # noqa: E501
         """EnvironmentAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
+            project (ReferenceObject):
             cloud_provider (EnvironmentAllOfCloudProvider):
             mode (EnvironmentModeEnum):
             cluster_id (str):
@@ -163,7 +164,6 @@ class EnvironmentAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
             cluster_name (str): [optional]  # noqa: E501
         """
@@ -198,6 +198,7 @@ class EnvironmentAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.project = project
         self.cloud_provider = cloud_provider
         self.mode = mode
         self.cluster_id = cluster_id
@@ -221,11 +222,12 @@ class EnvironmentAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, cloud_provider, mode, cluster_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, project, cloud_provider, mode, cluster_id, *args, **kwargs):  # noqa: E501
         """EnvironmentAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
+            project (ReferenceObject):
             cloud_provider (EnvironmentAllOfCloudProvider):
             mode (EnvironmentModeEnum):
             cluster_id (str):
@@ -261,7 +263,6 @@ class EnvironmentAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
             cluster_name (str): [optional]  # noqa: E501
         """
@@ -294,6 +295,7 @@ class EnvironmentAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.project = project
         self.cloud_provider = cloud_provider
         self.mode = mode
         self.cluster_id = cluster_id
