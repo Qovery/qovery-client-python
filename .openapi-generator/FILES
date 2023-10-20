@@ -295,6 +295,7 @@ docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponseList.md
 docs/GitTokenResponse.md
 docs/GitTokenResponseAllOf.md
+docs/GitTokenResponseList.md
 docs/GithubAppApi.md
 docs/Healthcheck.md
 docs/Instance.md
@@ -350,7 +351,6 @@ docs/ListDatabaseDeploymentHistory200Response.md
 docs/ListDatabaseDeploymentHistory200ResponseAllOf.md
 docs/ListJobDeploymentHistory200Response.md
 docs/ListJobDeploymentHistory200ResponseAllOf.md
-docs/ListOrganizationGitTokens200Response.md
 docs/Log.md
 docs/LogPaginatedResponseList.md
 docs/LogPaginatedResponseListAllOf.md
@@ -860,6 +860,7 @@ qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
 qovery/model/git_token_response.py
 qovery/model/git_token_response_all_of.py
+qovery/model/git_token_response_list.py
 qovery/model/healthcheck.py
 qovery/model/instance.py
 qovery/model/instance_memory.py
@@ -905,7 +906,6 @@ qovery/model/list_database_deployment_history200_response.py
 qovery/model/list_database_deployment_history200_response_all_of.py
 qovery/model/list_job_deployment_history200_response.py
 qovery/model/list_job_deployment_history200_response_all_of.py
-qovery/model/list_organization_git_tokens200_response.py
 qovery/model/log.py
 qovery/model/log_paginated_response_list.py
 qovery/model/log_paginated_response_list_all_of.py
@@ -1375,6 +1375,7 @@ test/test_git_repository_branch_response_list.py
 test/test_git_repository_response_list.py
 test/test_git_token_response.py
 test/test_git_token_response_all_of.py
+test/test_git_token_response_list.py
 test/test_github_app_api.py
 test/test_healthcheck.py
 test/test_instance.py
@@ -1430,7 +1431,6 @@ test/test_list_database_deployment_history200_response.py
 test/test_list_database_deployment_history200_response_all_of.py
 test/test_list_job_deployment_history200_response.py
 test/test_list_job_deployment_history200_response_all_of.py
-test/test_list_organization_git_tokens200_response.py
 test/test_log.py
 test/test_log_paginated_response_list.py
 test/test_log_paginated_response_list_all_of.py

@@ -1,4 +1,4 @@
-# ListOrganizationGitTokens200Response
+# GitTokenResponseList
 
 
 ## Properties

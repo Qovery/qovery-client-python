@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_organization_git_tokens**
-> ListOrganizationGitTokens200Response list_organization_git_tokens(organization_id)
+> GitTokenResponseList list_organization_git_tokens(organization_id)
 
 List organization git tokens
 
@@ -578,7 +578,7 @@ List organization git tokens
 import time
 import qovery
 from qovery.api import organization_main_calls_api
-from qovery.model.list_organization_git_tokens200_response import ListOrganizationGitTokens200Response
+from qovery.model.git_token_response_list import GitTokenResponseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOrganizationGitTokens200Response**](ListOrganizationGitTokens200Response.md)
+[**GitTokenResponseList**](GitTokenResponseList.md)
 
 ### Authorization
 

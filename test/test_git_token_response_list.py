@@ -15,11 +15,11 @@ import unittest
 import qovery
 from qovery.model.git_token_response import GitTokenResponse
 globals()['GitTokenResponse'] = GitTokenResponse
-from qovery.model.list_organization_git_tokens200_response import ListOrganizationGitTokens200Response
+from qovery.model.git_token_response_list import GitTokenResponseList
 
 
-class TestListOrganizationGitTokens200Response(unittest.TestCase):
-    """ListOrganizationGitTokens200Response unit test stubs"""
+class TestGitTokenResponseList(unittest.TestCase):
+    """GitTokenResponseList unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestListOrganizationGitTokens200Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testListOrganizationGitTokens200Response(self):
-        """Test ListOrganizationGitTokens200Response"""
+    def testGitTokenResponseList(self):
+        """Test GitTokenResponseList"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ListOrganizationGitTokens200Response()  # noqa: E501
+        # model = GitTokenResponseList()  # noqa: E501
         pass
 
 

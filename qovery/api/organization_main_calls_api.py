@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.list_organization_git_tokens200_response import ListOrganizationGitTokens200Response
+from qovery.model.git_token_response_list import GitTokenResponseList
 from qovery.model.organization import Organization
 from qovery.model.organization_available_role_list import OrganizationAvailableRoleList
 from qovery.model.organization_edit_request import OrganizationEditRequest
@@ -351,7 +351,7 @@ class OrganizationMainCallsApi(object):
         )
         self.list_organization_git_tokens_endpoint = _Endpoint(
             settings={
-                'response_type': (ListOrganizationGitTokens200Response,),
+                'response_type': (GitTokenResponseList,),
                 'auth': [
                     'ApiKeyAuth',
                     'bearerAuth'
@@ -939,7 +939,7 @@ class OrganizationMainCallsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ListOrganizationGitTokens200Response
+            GitTokenResponseList
                 If the method is called asynchronously, returns the request
                 thread.
         """
