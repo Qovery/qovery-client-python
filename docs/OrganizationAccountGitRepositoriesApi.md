@@ -56,11 +56,21 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_account_git_repositories_api.OrganizationAccountGitRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    git_token_id = "gitTokenId_example" # str | The git token id that must be used for the application (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get bitbucket repositories of the connected user
         api_response = api_instance.get_organization_bitbucket_repositories(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_bitbucket_repositories: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get bitbucket repositories of the connected user
+        api_response = api_instance.get_organization_bitbucket_repositories(organization_id, git_token_id=git_token_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_bitbucket_repositories: %s\n" % e)
@@ -72,6 +82,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **git_token_id** | **str**| The git token id that must be used for the application | [optional]
 
 ### Return type
 
@@ -139,6 +150,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_account_git_repositories_api.OrganizationAccountGitRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    git_token_id = "gitTokenId_example" # str | The git token id that must be used for the application (optional)
     name = "name_example" # str | The name of the repository where to retrieve the branches (optional)
 
     # example passing only required values which don't have defaults set
@@ -153,7 +165,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get bitbucket branches of the specified repository
-        api_response = api_instance.get_organization_bitbucket_repository_branches(organization_id, name=name)
+        api_response = api_instance.get_organization_bitbucket_repository_branches(organization_id, git_token_id=git_token_id, name=name)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_bitbucket_repository_branches: %s\n" % e)
@@ -165,6 +177,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **git_token_id** | **str**| The git token id that must be used for the application | [optional]
  **name** | **str**| The name of the repository where to retrieve the branches | [optional]
 
 ### Return type
@@ -316,11 +329,21 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_account_git_repositories_api.OrganizationAccountGitRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    git_token_id = "gitTokenId_example" # str | The git token id that must be used for the application (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get github repositories of the connected user
         api_response = api_instance.get_organization_github_repositories(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_github_repositories: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get github repositories of the connected user
+        api_response = api_instance.get_organization_github_repositories(organization_id, git_token_id=git_token_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_github_repositories: %s\n" % e)
@@ -332,6 +355,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **git_token_id** | **str**| The git token id that must be used for the application | [optional]
 
 ### Return type
 
@@ -399,6 +423,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_account_git_repositories_api.OrganizationAccountGitRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    git_token_id = "gitTokenId_example" # str | The git token id that must be used for the application (optional)
     name = "name_example" # str | The name of the repository where to retrieve the branches (optional)
 
     # example passing only required values which don't have defaults set
@@ -413,7 +438,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get github branches of the specified repository
-        api_response = api_instance.get_organization_github_repository_branches(organization_id, name=name)
+        api_response = api_instance.get_organization_github_repository_branches(organization_id, git_token_id=git_token_id, name=name)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_github_repository_branches: %s\n" % e)
@@ -425,6 +450,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **git_token_id** | **str**| The git token id that must be used for the application | [optional]
  **name** | **str**| The name of the repository where to retrieve the branches | [optional]
 
 ### Return type
@@ -493,11 +519,21 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_account_git_repositories_api.OrganizationAccountGitRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    git_token_id = "gitTokenId_example" # str | The git token id that must be used for the application (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get gitlab repositories of the connected user
         api_response = api_instance.get_organization_gitlab_repositories(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_gitlab_repositories: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get gitlab repositories of the connected user
+        api_response = api_instance.get_organization_gitlab_repositories(organization_id, git_token_id=git_token_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_gitlab_repositories: %s\n" % e)
@@ -509,6 +545,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **git_token_id** | **str**| The git token id that must be used for the application | [optional]
 
 ### Return type
 
@@ -576,6 +613,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = organization_account_git_repositories_api.OrganizationAccountGitRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    git_token_id = "gitTokenId_example" # str | The git token id that must be used for the application (optional)
     name = "name_example" # str | The name of the repository to retrieve the branches (optional)
 
     # example passing only required values which don't have defaults set
@@ -590,7 +628,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get gitlab branches of the specified repository
-        api_response = api_instance.get_organization_gitlab_repository_branches(organization_id, name=name)
+        api_response = api_instance.get_organization_gitlab_repository_branches(organization_id, git_token_id=git_token_id, name=name)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling OrganizationAccountGitRepositoriesApi->get_organization_gitlab_repository_branches: %s\n" % e)
@@ -602,6 +640,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **git_token_id** | **str**| The git token id that must be used for the application | [optional]
  **name** | **str**| The name of the repository to retrieve the branches | [optional]
 
 ### Return type

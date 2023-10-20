@@ -66,6 +66,13 @@ class TestOrganizationMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_list_organization_git_tokens(self):
+        """Test case for list_organization_git_tokens
+
+        List organization git tokens  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

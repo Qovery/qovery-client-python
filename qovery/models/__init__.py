@@ -253,6 +253,8 @@ from qovery.model.git_repository import GitRepository
 from qovery.model.git_repository_branch import GitRepositoryBranch
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
+from qovery.model.git_token_response import GitTokenResponse
+from qovery.model.git_token_response_all_of import GitTokenResponseAllOf
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.instance import Instance
 from qovery.model.instance_memory import InstanceMemory
@@ -298,6 +300,7 @@ from qovery.model.list_database_deployment_history200_response import ListDataba
 from qovery.model.list_database_deployment_history200_response_all_of import ListDatabaseDeploymentHistory200ResponseAllOf
 from qovery.model.list_job_deployment_history200_response import ListJobDeploymentHistory200Response
 from qovery.model.list_job_deployment_history200_response_all_of import ListJobDeploymentHistory200ResponseAllOf
+from qovery.model.list_organization_git_tokens200_response import ListOrganizationGitTokens200Response
 from qovery.model.log import Log
 from qovery.model.log_paginated_response_list import LogPaginatedResponseList
 from qovery.model.log_paginated_response_list_all_of import LogPaginatedResponseListAllOf

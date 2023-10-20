@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_organization**](OrganizationMainCallsApi.md#get_organization) | **GET** /organization/{organizationId} | Get organization by ID
 [**list_organization**](OrganizationMainCallsApi.md#list_organization) | **GET** /organization | List user organizations
 [**list_organization_available_roles**](OrganizationMainCallsApi.md#list_organization_available_roles) | **GET** /organization/{organizationId}/availableRole | List organization available roles
+[**list_organization_git_tokens**](OrganizationMainCallsApi.md#list_organization_git_tokens) | **GET** /organization/{organizationId}/gitToken | List organization git tokens
 
 
 # **create_organization**
@@ -555,6 +556,93 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List organization available roles |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_organization_git_tokens**
+> ListOrganizationGitTokens200Response list_organization_git_tokens(organization_id)
+
+List organization git tokens
+
+List organization git tokens
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import organization_main_calls_api
+from qovery.model.list_organization_git_tokens200_response import ListOrganizationGitTokens200Response
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # List organization git tokens
+        api_response = api_instance.list_organization_git_tokens(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling OrganizationMainCallsApi->list_organization_git_tokens: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+
+### Return type
+
+[**ListOrganizationGitTokens200Response**](ListOrganizationGitTokens200Response.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List organization git tokens |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
