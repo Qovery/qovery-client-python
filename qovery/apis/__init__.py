@@ -61,6 +61,13 @@ from qovery.api.environment_variable_api import EnvironmentVariableApi
 from qovery.api.environments_api import EnvironmentsApi
 from qovery.api.git_repositories_api import GitRepositoriesApi
 from qovery.api.github_app_api import GithubAppApi
+from qovery.api.helm_api import HelmApi
+from qovery.api.helm_actions_api import HelmActionsApi
+from qovery.api.helm_configuration_api import HelmConfigurationApi
+from qovery.api.helm_deployment_history_api import HelmDeploymentHistoryApi
+from qovery.api.helm_deployment_restriction_api import HelmDeploymentRestrictionApi
+from qovery.api.helm_main_calls_api import HelmMainCallsApi
+from qovery.api.helms_api import HelmsApi
 from qovery.api.job_actions_api import JobActionsApi
 from qovery.api.job_configuration_api import JobConfigurationApi
 from qovery.api.job_deployment_history_api import JobDeploymentHistoryApi

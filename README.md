@@ -361,6 +361,25 @@ Class | Method | HTTP request | Description
 *GitRepositoriesApi* | [**get_gitlab_repository_branches**](docs/GitRepositoriesApi.md#get_gitlab_repository_branches) | **GET** /account/gitlab/repository/branch | Get gitlab branches of the specified repository
 *GithubAppApi* | [**organization_github_app_connect**](docs/GithubAppApi.md#organization_github_app_connect) | **POST** /organization/{organizationId}/github/connect | Connect a github account to an organization
 *GithubAppApi* | [**organization_github_app_disconnect**](docs/GithubAppApi.md#organization_github_app_disconnect) | **DELETE** /organization/{organizationId}/github/disconnect | Disconnect a github account from an organization
+*HelmApi* | [**get_default_helm_advanced_settings**](docs/HelmApi.md#get_default_helm_advanced_settings) | **GET** /defaultHelmAdvancedSettings | List default helm advanced settings
+*HelmActionsApi* | [**deploy_helm**](docs/HelmActionsApi.md#deploy_helm) | **POST** /helm/{helmId}/deploy | Deploy helm
+*HelmActionsApi* | [**redeploy_helm**](docs/HelmActionsApi.md#redeploy_helm) | **POST** /helm/{helmId}/redeploy | Redeploy helm
+*HelmActionsApi* | [**restart_helm**](docs/HelmActionsApi.md#restart_helm) | **POST** /helm/{helmId}/restart | Deprecated - Restart helm
+*HelmActionsApi* | [**stop_helm**](docs/HelmActionsApi.md#stop_helm) | **POST** /helm/{helmId}/stop | Stop helm
+*HelmConfigurationApi* | [**edit_helm_advanced_settings**](docs/HelmConfigurationApi.md#edit_helm_advanced_settings) | **PUT** /helm/{helmId}/advancedSettings | Edit advanced settings
+*HelmConfigurationApi* | [**get_helm_advanced_settings**](docs/HelmConfigurationApi.md#get_helm_advanced_settings) | **GET** /helm/{helmId}/advancedSettings | Get advanced settings
+*HelmDeploymentHistoryApi* | [**list_helm_deployment_history**](docs/HelmDeploymentHistoryApi.md#list_helm_deployment_history) | **GET** /helm/{helmId}/deploymentHistory | List helm deployments
+*HelmDeploymentRestrictionApi* | [**create_helm_deployment_restriction**](docs/HelmDeploymentRestrictionApi.md#create_helm_deployment_restriction) | **POST** /helm/{helmId}/deploymentRestriction | Create a helm deployment restriction
+*HelmDeploymentRestrictionApi* | [**delete_helm_deployment_restriction**](docs/HelmDeploymentRestrictionApi.md#delete_helm_deployment_restriction) | **DELETE** /helm/{helmId}/deploymentRestriction/{deploymentRestrictionId} | Delete a helm deployment restriction
+*HelmDeploymentRestrictionApi* | [**edit_helm_deployment_restriction**](docs/HelmDeploymentRestrictionApi.md#edit_helm_deployment_restriction) | **PUT** /helm/{helmId}/deploymentRestriction/{deploymentRestrictionId} | Edit a helm deployment restriction
+*HelmDeploymentRestrictionApi* | [**get_helm_deployment_restrictions**](docs/HelmDeploymentRestrictionApi.md#get_helm_deployment_restrictions) | **GET** /helm/{helmId}/deploymentRestriction | Get helm deployment restrictions
+*HelmMainCallsApi* | [**delete_helm**](docs/HelmMainCallsApi.md#delete_helm) | **DELETE** /helm/{helmId} | Delete helm
+*HelmMainCallsApi* | [**edit_helm**](docs/HelmMainCallsApi.md#edit_helm) | **PUT** /helm/{helmId} | Edit helm
+*HelmMainCallsApi* | [**get_helm**](docs/HelmMainCallsApi.md#get_helm) | **GET** /helm/{helmId} | Get helm by ID
+*HelmMainCallsApi* | [**get_helm_status**](docs/HelmMainCallsApi.md#get_helm_status) | **GET** /helm/{helmId}/status | Get helm status
+*HelmsApi* | [**create_helm**](docs/HelmsApi.md#create_helm) | **POST** /environment/{environmentId}/helm | Create a helm
+*HelmsApi* | [**get_environment_helm_status**](docs/HelmsApi.md#get_environment_helm_status) | **GET** /environment/{environmentId}/helm/status | List all environment helm statuses
+*HelmsApi* | [**list_helms**](docs/HelmsApi.md#list_helms) | **GET** /environment/{environmentId}/helm | List helms
 *JobActionsApi* | [**deploy_job**](docs/JobActionsApi.md#deploy_job) | **POST** /job/{jobId}/deploy | Deploy job
 *JobActionsApi* | [**redeploy_job**](docs/JobActionsApi.md#redeploy_job) | **POST** /job/{jobId}/redeploy | Redeploy job
 *JobActionsApi* | [**restart_job**](docs/JobActionsApi.md#restart_job) | **POST** /job/{jobId}/restart | Deprecated - Restart job
@@ -617,6 +636,7 @@ Class | Method | HTTP request | Description
  - [DeployAllRequestApplicationsInner](docs/DeployAllRequestApplicationsInner.md)
  - [DeployAllRequestContainersInner](docs/DeployAllRequestContainersInner.md)
  - [DeployAllRequestJobsInner](docs/DeployAllRequestJobsInner.md)
+ - [DeployHelmRequest](docs/DeployHelmRequest.md)
  - [DeployRequest](docs/DeployRequest.md)
  - [DeploymentHistory](docs/DeploymentHistory.md)
  - [DeploymentHistoryAllOf](docs/DeploymentHistoryAllOf.md)
@@ -721,6 +741,23 @@ Class | Method | HTTP request | Description
  - [GitTokenResponseAllOf](docs/GitTokenResponseAllOf.md)
  - [GitTokenResponseList](docs/GitTokenResponseList.md)
  - [Healthcheck](docs/Healthcheck.md)
+ - [HelmDeploymentRestrictionRequest](docs/HelmDeploymentRestrictionRequest.md)
+ - [HelmDeploymentRestrictionResponse](docs/HelmDeploymentRestrictionResponse.md)
+ - [HelmDeploymentRestrictionResponseList](docs/HelmDeploymentRestrictionResponseList.md)
+ - [HelmForceEvent](docs/HelmForceEvent.md)
+ - [HelmRequest](docs/HelmRequest.md)
+ - [HelmRequestAllOf](docs/HelmRequestAllOf.md)
+ - [HelmRequestAllOfSource](docs/HelmRequestAllOfSource.md)
+ - [HelmRequestAllOfSourceGit](docs/HelmRequestAllOfSourceGit.md)
+ - [HelmRequestAllOfSourceRepository](docs/HelmRequestAllOfSourceRepository.md)
+ - [HelmRequestAllOfValuesOverride](docs/HelmRequestAllOfValuesOverride.md)
+ - [HelmRequestAllOfValuesOverrideFile](docs/HelmRequestAllOfValuesOverrideFile.md)
+ - [HelmRequestAllOfValuesOverrideFileGit](docs/HelmRequestAllOfValuesOverrideFileGit.md)
+ - [HelmRequestAllOfValuesOverrideFileRaw](docs/HelmRequestAllOfValuesOverrideFileRaw.md)
+ - [HelmRequestAllOfValuesOverrideFileRawValues](docs/HelmRequestAllOfValuesOverrideFileRawValues.md)
+ - [HelmResponse](docs/HelmResponse.md)
+ - [HelmResponseAllOf](docs/HelmResponseAllOf.md)
+ - [HelmResponseList](docs/HelmResponseList.md)
  - [Instance](docs/Instance.md)
  - [InstanceMemory](docs/InstanceMemory.md)
  - [InstanceResponseList](docs/InstanceResponseList.md)
@@ -763,6 +800,10 @@ Class | Method | HTTP request | Description
  - [ListContainerDeploymentHistory200ResponseAllOf](docs/ListContainerDeploymentHistory200ResponseAllOf.md)
  - [ListDatabaseDeploymentHistory200Response](docs/ListDatabaseDeploymentHistory200Response.md)
  - [ListDatabaseDeploymentHistory200ResponseAllOf](docs/ListDatabaseDeploymentHistory200ResponseAllOf.md)
+ - [ListHelmDeploymentHistory200Response](docs/ListHelmDeploymentHistory200Response.md)
+ - [ListHelmDeploymentHistory200ResponseAllOf](docs/ListHelmDeploymentHistory200ResponseAllOf.md)
+ - [ListHelmDeploymentHistory200ResponseAllOfResultsInner](docs/ListHelmDeploymentHistory200ResponseAllOfResultsInner.md)
+ - [ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOf](docs/ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOf.md)
  - [ListJobDeploymentHistory200Response](docs/ListJobDeploymentHistory200Response.md)
  - [ListJobDeploymentHistory200ResponseAllOf](docs/ListJobDeploymentHistory200ResponseAllOf.md)
  - [Log](docs/Log.md)
