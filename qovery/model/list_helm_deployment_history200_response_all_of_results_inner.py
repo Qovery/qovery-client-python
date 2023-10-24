@@ -32,10 +32,14 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.base import Base
+    from qovery.model.commit import Commit
     from qovery.model.list_helm_deployment_history200_response_all_of_results_inner_all_of import ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOf
+    from qovery.model.list_helm_deployment_history200_response_all_of_results_inner_all_of_repository import ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository
     from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
+    globals()['Commit'] = Commit
     globals()['ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOf'] = ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOf
+    globals()['ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository'] = ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository
     globals()['StateEnum'] = StateEnum
 
 
@@ -97,6 +101,8 @@ class ListHelmDeploymentHistory200ResponseAllOfResultsInner(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'status': (StateEnum,),  # noqa: E501
+            'commit': (Commit,),  # noqa: E501
+            'repository': (ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +116,8 @@ class ListHelmDeploymentHistory200ResponseAllOfResultsInner(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'name': 'name',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'commit': 'commit',  # noqa: E501
+        'repository': 'repository',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,6 +167,8 @@ class ListHelmDeploymentHistory200ResponseAllOfResultsInner(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             name (str): name of the helm. [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
+            commit (Commit): [optional]  # noqa: E501
+            repository (ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,6 +275,8 @@ class ListHelmDeploymentHistory200ResponseAllOfResultsInner(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             name (str): name of the helm. [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
+            commit (Commit): [optional]  # noqa: E501
+            repository (ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

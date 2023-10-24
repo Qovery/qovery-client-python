@@ -804,6 +804,7 @@ Class | Method | HTTP request | Description
  - [ListHelmDeploymentHistory200ResponseAllOf](docs/ListHelmDeploymentHistory200ResponseAllOf.md)
  - [ListHelmDeploymentHistory200ResponseAllOfResultsInner](docs/ListHelmDeploymentHistory200ResponseAllOfResultsInner.md)
  - [ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOf](docs/ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOf.md)
+ - [ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository](docs/ListHelmDeploymentHistory200ResponseAllOfResultsInnerAllOfRepository.md)
  - [ListJobDeploymentHistory200Response](docs/ListJobDeploymentHistory200Response.md)
  - [ListJobDeploymentHistory200ResponseAllOf](docs/ListJobDeploymentHistory200ResponseAllOf.md)
  - [Log](docs/Log.md)
