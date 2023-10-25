@@ -23,6 +23,14 @@ Name | Type | Description | Notes
 **aws_eks_ec2_metadata_imds** | **str** | Specify the [IMDS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) version you want to use:   * &#x60;required&#x60;: IMDS V2 only   * &#x60;optional&#x60;: IMDS V1 + V2  | [optional]  if omitted the server will use the default value of "optional"
 **pleco_resources_ttl** | **int** |  | [optional]  if omitted the server will use the default value of -1
 **registry_mirroring_mode** | [**RegistryMirroringModeEnum**](RegistryMirroringModeEnum.md) |  | [optional] 
+**nginx_vcpu_request_in_milli** | **int** | vcpu request in millicores | [optional]  if omitted the server will use the default value of 100
+**nginx_vcpu_limit_in_milli** | **int** | vcpu limit in millicores | [optional]  if omitted the server will use the default value of 500
+**nginx_memory_request_in_mib** | **int** | memory request in MiB | [optional]  if omitted the server will use the default value of 768
+**nginx_memory_limit_in_mib** | **int** | memory limit in MiB | [optional]  if omitted the server will use the default value of 768
+**nginx_hpa_cpu_utilization_percentage_threshold** | **int** | hpa cpu threshold in percentage | [optional]  if omitted the server will use the default value of 50
+**nginx_hpa_memory_utilization_percentage_threshold** | **int** | hpa memory threshold in percentage | [optional]  if omitted the server will use the default value of 50
+**nginx_hpa_min_number_instances** | **int** | hpa minimum number of instances | [optional]  if omitted the server will use the default value of 2
+**nginx_hpa_max_number_instances** | **int** | hpa maximum number of instances | [optional]  if omitted the server will use the default value of 25
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
