@@ -110,8 +110,8 @@ class OrganizationAccountGitRepositoriesApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'git_token_id',
                     'name',
+                    'git_token_id',
                 ],
                 'required': [
                     'organization_id',
@@ -131,20 +131,20 @@ class OrganizationAccountGitRepositoriesApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'git_token_id':
-                        (str,),
                     'name':
+                        (str,),
+                    'git_token_id':
                         (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
-                    'git_token_id': 'gitTokenId',
                     'name': 'name',
+                    'git_token_id': 'gitTokenId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'git_token_id': 'query',
                     'name': 'query',
+                    'git_token_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -281,8 +281,8 @@ class OrganizationAccountGitRepositoriesApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'git_token_id',
                     'name',
+                    'git_token_id',
                 ],
                 'required': [
                     'organization_id',
@@ -302,20 +302,20 @@ class OrganizationAccountGitRepositoriesApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'git_token_id':
-                        (str,),
                     'name':
+                        (str,),
+                    'git_token_id':
                         (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
-                    'git_token_id': 'gitTokenId',
                     'name': 'name',
+                    'git_token_id': 'gitTokenId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'git_token_id': 'query',
                     'name': 'query',
+                    'git_token_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -400,8 +400,8 @@ class OrganizationAccountGitRepositoriesApi(object):
             params_map={
                 'all': [
                     'organization_id',
-                    'git_token_id',
                     'name',
+                    'git_token_id',
                 ],
                 'required': [
                     'organization_id',
@@ -421,20 +421,20 @@ class OrganizationAccountGitRepositoriesApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
-                    'git_token_id':
-                        (str,),
                     'name':
+                        (str,),
+                    'git_token_id':
                         (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
-                    'git_token_id': 'gitTokenId',
                     'name': 'name',
+                    'git_token_id': 'gitTokenId',
                 },
                 'location_map': {
                     'organization_id': 'path',
-                    'git_token_id': 'query',
                     'name': 'query',
+                    'git_token_id': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -548,8 +548,8 @@ class OrganizationAccountGitRepositoriesApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            git_token_id (str): The git token id that must be used for the application. [optional]
             name (str): The name of the repository where to retrieve the branches. [optional]
+            git_token_id (str): The git token id that must be used for the application. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -797,8 +797,8 @@ class OrganizationAccountGitRepositoriesApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            git_token_id (str): The git token id that must be used for the application. [optional]
             name (str): The name of the repository where to retrieve the branches. [optional]
+            git_token_id (str): The git token id that must be used for the application. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -964,8 +964,8 @@ class OrganizationAccountGitRepositoriesApi(object):
             organization_id (str): Organization ID
 
         Keyword Args:
-            git_token_id (str): The git token id that must be used for the application. [optional]
             name (str): The name of the repository to retrieve the branches. [optional]
+            git_token_id (str): The git token id that must be used for the application. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
