@@ -22,6 +22,8 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.git_token_request import GitTokenRequest
+from qovery.model.git_token_response import GitTokenResponse
 from qovery.model.git_token_response_list import GitTokenResponseList
 from qovery.model.organization import Organization
 from qovery.model.organization_available_role_list import OrganizationAvailableRoleList
@@ -41,6 +43,64 @@ class OrganizationMainCallsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.create_git_token_endpoint = _Endpoint(
+            settings={
+                'response_type': (GitTokenResponse,),
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gitToken',
+                'operation_id': 'create_git_token',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'git_token_request',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'git_token_request':
+                        (GitTokenRequest,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'git_token_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.create_organization_endpoint = _Endpoint(
             settings={
                 'response_type': (Organization,),
@@ -92,6 +152,62 @@ class OrganizationMainCallsApi(object):
             },
             api_client=api_client
         )
+        self.delete_git_token_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gitToken/{gitTokenId}',
+                'operation_id': 'delete_git_token',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'git_token_id',
+                ],
+                'required': [
+                    'organization_id',
+                    'git_token_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'git_token_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                    'git_token_id': 'gitTokenId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'git_token_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.delete_organization_endpoint = _Endpoint(
             settings={
                 'response_type': None,
@@ -139,6 +255,70 @@ class OrganizationMainCallsApi(object):
             headers_map={
                 'accept': [],
                 'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.edit_git_token_endpoint = _Endpoint(
+            settings={
+                'response_type': (GitTokenResponse,),
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gitToken/{gitTokenId}',
+                'operation_id': 'edit_git_token',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'git_token_id',
+                    'git_token_request',
+                ],
+                'required': [
+                    'organization_id',
+                    'git_token_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'git_token_id':
+                        (str,),
+                    'git_token_request':
+                        (GitTokenRequest,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                    'git_token_id': 'gitTokenId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'git_token_id': 'path',
+                    'git_token_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
             },
             api_client=api_client
         )
@@ -402,6 +582,90 @@ class OrganizationMainCallsApi(object):
             api_client=api_client
         )
 
+    def create_git_token(
+        self,
+        organization_id,
+        **kwargs
+    ):
+        """Create a git token  # noqa: E501
+
+        Create a new git token to be used as a git provider by a service  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_git_token(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+
+        Keyword Args:
+            git_token_request (GitTokenRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GitTokenResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.create_git_token_endpoint.call_with_http_info(**kwargs)
+
     def create_organization(
         self,
         **kwargs
@@ -479,6 +743,92 @@ class OrganizationMainCallsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.create_organization_endpoint.call_with_http_info(**kwargs)
+
+    def delete_git_token(
+        self,
+        organization_id,
+        git_token_id,
+        **kwargs
+    ):
+        """Delete a git token  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_git_token(organization_id, git_token_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+            git_token_id (str): Git Token ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        kwargs['git_token_id'] = \
+            git_token_id
+        return self.delete_git_token_endpoint.call_with_http_info(**kwargs)
 
     def delete_organization(
         self,
@@ -562,6 +912,93 @@ class OrganizationMainCallsApi(object):
         kwargs['organization_id'] = \
             organization_id
         return self.delete_organization_endpoint.call_with_http_info(**kwargs)
+
+    def edit_git_token(
+        self,
+        organization_id,
+        git_token_id,
+        **kwargs
+    ):
+        """Edit a git token  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.edit_git_token(organization_id, git_token_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+            git_token_id (str): Git Token ID
+
+        Keyword Args:
+            git_token_request (GitTokenRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            GitTokenResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        kwargs['git_token_id'] = \
+            git_token_id
+        return self.edit_git_token_endpoint.call_with_http_info(**kwargs)
 
     def edit_organization(
         self,

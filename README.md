@@ -442,8 +442,11 @@ Class | Method | HTTP request | Description
 *OrganizationCustomRoleApi* | [**list_organization_custom_roles**](docs/OrganizationCustomRoleApi.md#list_organization_custom_roles) | **GET** /organization/{organizationId}/customRole | List organization custom roles
 *OrganizationEventApi* | [**get_organization_event_targets**](docs/OrganizationEventApi.md#get_organization_event_targets) | **GET** /organization/{organizationId}/targets | Get available event targets to filter events
 *OrganizationEventApi* | [**get_organization_events**](docs/OrganizationEventApi.md#get_organization_events) | **GET** /organization/{organizationId}/events | Get all events inside the organization
+*OrganizationMainCallsApi* | [**create_git_token**](docs/OrganizationMainCallsApi.md#create_git_token) | **POST** /organization/{organizationId}/gitToken | Create a git token
 *OrganizationMainCallsApi* | [**create_organization**](docs/OrganizationMainCallsApi.md#create_organization) | **POST** /organization | Create an organization
+*OrganizationMainCallsApi* | [**delete_git_token**](docs/OrganizationMainCallsApi.md#delete_git_token) | **DELETE** /organization/{organizationId}/gitToken/{gitTokenId} | Delete a git token
 *OrganizationMainCallsApi* | [**delete_organization**](docs/OrganizationMainCallsApi.md#delete_organization) | **DELETE** /organization/{organizationId} | Delete an organization
+*OrganizationMainCallsApi* | [**edit_git_token**](docs/OrganizationMainCallsApi.md#edit_git_token) | **PUT** /organization/{organizationId}/gitToken/{gitTokenId} | Edit a git token
 *OrganizationMainCallsApi* | [**edit_organization**](docs/OrganizationMainCallsApi.md#edit_organization) | **PUT** /organization/{organizationId} | Edit an organization
 *OrganizationMainCallsApi* | [**get_organization**](docs/OrganizationMainCallsApi.md#get_organization) | **GET** /organization/{organizationId} | Get organization by ID
 *OrganizationMainCallsApi* | [**list_organization**](docs/OrganizationMainCallsApi.md#list_organization) | **GET** /organization | List user organizations
@@ -737,6 +740,7 @@ Class | Method | HTTP request | Description
  - [GitRepositoryBranch](docs/GitRepositoryBranch.md)
  - [GitRepositoryBranchResponseList](docs/GitRepositoryBranchResponseList.md)
  - [GitRepositoryResponseList](docs/GitRepositoryResponseList.md)
+ - [GitTokenRequest](docs/GitTokenRequest.md)
  - [GitTokenResponse](docs/GitTokenResponse.md)
  - [GitTokenResponseAllOf](docs/GitTokenResponseAllOf.md)
  - [GitTokenResponseList](docs/GitTokenResponseList.md)

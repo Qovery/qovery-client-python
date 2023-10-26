@@ -24,6 +24,13 @@ class TestOrganizationMainCallsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_git_token(self):
+        """Test case for create_git_token
+
+        Create a git token  # noqa: E501
+        """
+        pass
+
     def test_create_organization(self):
         """Test case for create_organization
 
@@ -31,10 +38,24 @@ class TestOrganizationMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_git_token(self):
+        """Test case for delete_git_token
+
+        Delete a git token  # noqa: E501
+        """
+        pass
+
     def test_delete_organization(self):
         """Test case for delete_organization
 
         Delete an organization  # noqa: E501
+        """
+        pass
+
+    def test_edit_git_token(self):
+        """Test case for edit_git_token
+
+        Edit a git token  # noqa: E501
         """
         pass
 

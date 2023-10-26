@@ -91,6 +91,7 @@ class GitTokenResponseAllOf(ModelNormal):
             'name': (str,),  # noqa: E501
             'type': (GitProviderEnum,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'expired_at': (date,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class GitTokenResponseAllOf(ModelNormal):
         'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'expired_at': 'expired_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +152,7 @@ class GitTokenResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            expired_at (date): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -242,6 +245,7 @@ class GitTokenResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            expired_at (date): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

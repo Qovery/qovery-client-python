@@ -254,6 +254,7 @@ from qovery.model.git_repository import GitRepository
 from qovery.model.git_repository_branch import GitRepositoryBranch
 from qovery.model.git_repository_branch_response_list import GitRepositoryBranchResponseList
 from qovery.model.git_repository_response_list import GitRepositoryResponseList
+from qovery.model.git_token_request import GitTokenRequest
 from qovery.model.git_token_response import GitTokenResponse
 from qovery.model.git_token_response_all_of import GitTokenResponseAllOf
 from qovery.model.git_token_response_list import GitTokenResponseList
