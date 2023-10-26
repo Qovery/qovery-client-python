@@ -100,6 +100,7 @@ class ApplicationGitRepository(ModelNormal):
             'deployed_commit_contributor': (str,),  # noqa: E501
             'deployed_commit_tag': (str,),  # noqa: E501
             'git_token_id': (str, none_type,),  # noqa: E501
+            'git_token_name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -120,6 +121,7 @@ class ApplicationGitRepository(ModelNormal):
         'deployed_commit_contributor': 'deployed_commit_contributor',  # noqa: E501
         'deployed_commit_tag': 'deployed_commit_tag',  # noqa: E501
         'git_token_id': 'git_token_id',  # noqa: E501
+        'git_token_name': 'git_token_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -176,6 +178,7 @@ class ApplicationGitRepository(ModelNormal):
             deployed_commit_contributor (str): Git commit user corresponding to the deployed version of the app. [optional]  # noqa: E501
             deployed_commit_tag (str): [optional]  # noqa: E501
             git_token_id (str, none_type): [optional]  # noqa: E501
+            git_token_name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,6 +276,7 @@ class ApplicationGitRepository(ModelNormal):
             deployed_commit_contributor (str): Git commit user corresponding to the deployed version of the app. [optional]  # noqa: E501
             deployed_commit_tag (str): [optional]  # noqa: E501
             git_token_id (str, none_type): [optional]  # noqa: E501
+            git_token_name (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
