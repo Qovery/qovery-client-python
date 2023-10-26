@@ -111,12 +111,11 @@ class ClusterAdvancedSettings(ModelNormal):
             'aws_eks_ec2_metadata_imds': (str,),  # noqa: E501
             'pleco_resources_ttl': (int,),  # noqa: E501
             'registry_mirroring_mode': (RegistryMirroringModeEnum,),  # noqa: E501
-            'nginx_vcpu_request_in_milli': (int,),  # noqa: E501
-            'nginx_vcpu_limit_in_milli': (int,),  # noqa: E501
+            'nginx_vcpu_request_in_milli_cpu': (int,),  # noqa: E501
+            'nginx_vcpu_limit_in_milli_cpu': (int,),  # noqa: E501
             'nginx_memory_request_in_mib': (int,),  # noqa: E501
             'nginx_memory_limit_in_mib': (int,),  # noqa: E501
             'nginx_hpa_cpu_utilization_percentage_threshold': (int,),  # noqa: E501
-            'nginx_hpa_memory_utilization_percentage_threshold': (int,),  # noqa: E501
             'nginx_hpa_min_number_instances': (int,),  # noqa: E501
             'nginx_hpa_max_number_instances': (int,),  # noqa: E501
         }
@@ -146,12 +145,11 @@ class ClusterAdvancedSettings(ModelNormal):
         'aws_eks_ec2_metadata_imds': 'aws.eks.ec2.metadata_imds',  # noqa: E501
         'pleco_resources_ttl': 'pleco.resources_ttl',  # noqa: E501
         'registry_mirroring_mode': 'registry.mirroring_mode',  # noqa: E501
-        'nginx_vcpu_request_in_milli': 'nginx.vcpu.request_in_milli',  # noqa: E501
-        'nginx_vcpu_limit_in_milli': 'nginx.vcpu.limit_in_milli',  # noqa: E501
+        'nginx_vcpu_request_in_milli_cpu': 'nginx.vcpu.request_in_milli_cpu',  # noqa: E501
+        'nginx_vcpu_limit_in_milli_cpu': 'nginx.vcpu.limit_in_milli_cpu',  # noqa: E501
         'nginx_memory_request_in_mib': 'nginx.memory.request_in_mib',  # noqa: E501
         'nginx_memory_limit_in_mib': 'nginx.memory.limit_in_mib',  # noqa: E501
         'nginx_hpa_cpu_utilization_percentage_threshold': 'nginx.hpa.cpu_utilization_percentage_threshold',  # noqa: E501
-        'nginx_hpa_memory_utilization_percentage_threshold': 'nginx.hpa.memory_utilization_percentage_threshold',  # noqa: E501
         'nginx_hpa_min_number_instances': 'nginx.hpa.min_number_instances',  # noqa: E501
         'nginx_hpa_max_number_instances': 'nginx.hpa.max_number_instances',  # noqa: E501
     }
@@ -216,12 +214,11 @@ class ClusterAdvancedSettings(ModelNormal):
             aws_eks_ec2_metadata_imds (str): Specify the [IMDS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) version you want to use:   * `required`: IMDS V2 only   * `optional`: IMDS V1 + V2 . [optional] if omitted the server will use the default value of "optional"  # noqa: E501
             pleco_resources_ttl (int): [optional] if omitted the server will use the default value of -1  # noqa: E501
             registry_mirroring_mode (RegistryMirroringModeEnum): [optional]  # noqa: E501
-            nginx_vcpu_request_in_milli (int): vcpu request in millicores. [optional] if omitted the server will use the default value of 100  # noqa: E501
-            nginx_vcpu_limit_in_milli (int): vcpu limit in millicores. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            nginx_vcpu_request_in_milli_cpu (int): vcpu request in millicores. [optional] if omitted the server will use the default value of 100  # noqa: E501
+            nginx_vcpu_limit_in_milli_cpu (int): vcpu limit in millicores. [optional] if omitted the server will use the default value of 500  # noqa: E501
             nginx_memory_request_in_mib (int): memory request in MiB. [optional] if omitted the server will use the default value of 768  # noqa: E501
             nginx_memory_limit_in_mib (int): memory limit in MiB. [optional] if omitted the server will use the default value of 768  # noqa: E501
             nginx_hpa_cpu_utilization_percentage_threshold (int): hpa cpu threshold in percentage. [optional] if omitted the server will use the default value of 50  # noqa: E501
-            nginx_hpa_memory_utilization_percentage_threshold (int): hpa memory threshold in percentage. [optional] if omitted the server will use the default value of 50  # noqa: E501
             nginx_hpa_min_number_instances (int): hpa minimum number of instances. [optional] if omitted the server will use the default value of 2  # noqa: E501
             nginx_hpa_max_number_instances (int): hpa maximum number of instances. [optional] if omitted the server will use the default value of 25  # noqa: E501
         """
@@ -328,12 +325,11 @@ class ClusterAdvancedSettings(ModelNormal):
             aws_eks_ec2_metadata_imds (str): Specify the [IMDS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) version you want to use:   * `required`: IMDS V2 only   * `optional`: IMDS V1 + V2 . [optional] if omitted the server will use the default value of "optional"  # noqa: E501
             pleco_resources_ttl (int): [optional] if omitted the server will use the default value of -1  # noqa: E501
             registry_mirroring_mode (RegistryMirroringModeEnum): [optional]  # noqa: E501
-            nginx_vcpu_request_in_milli (int): vcpu request in millicores. [optional] if omitted the server will use the default value of 100  # noqa: E501
-            nginx_vcpu_limit_in_milli (int): vcpu limit in millicores. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            nginx_vcpu_request_in_milli_cpu (int): vcpu request in millicores. [optional] if omitted the server will use the default value of 100  # noqa: E501
+            nginx_vcpu_limit_in_milli_cpu (int): vcpu limit in millicores. [optional] if omitted the server will use the default value of 500  # noqa: E501
             nginx_memory_request_in_mib (int): memory request in MiB. [optional] if omitted the server will use the default value of 768  # noqa: E501
             nginx_memory_limit_in_mib (int): memory limit in MiB. [optional] if omitted the server will use the default value of 768  # noqa: E501
             nginx_hpa_cpu_utilization_percentage_threshold (int): hpa cpu threshold in percentage. [optional] if omitted the server will use the default value of 50  # noqa: E501
-            nginx_hpa_memory_utilization_percentage_threshold (int): hpa memory threshold in percentage. [optional] if omitted the server will use the default value of 50  # noqa: E501
             nginx_hpa_min_number_instances (int): hpa minimum number of instances. [optional] if omitted the server will use the default value of 2  # noqa: E501
             nginx_hpa_max_number_instances (int): hpa maximum number of instances. [optional] if omitted the server will use the default value of 25  # noqa: E501
         """
