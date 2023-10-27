@@ -31,6 +31,13 @@ class TestOrganizationAccountGitRepositoriesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_organization_bitbucket_repositories_temp(self):
+        """Test case for get_organization_bitbucket_repositories_temp
+
+        Get bitbucket repositories of the connected user  # noqa: E501
+        """
+        pass
+
     def test_get_organization_bitbucket_repository_branches(self):
         """Test case for get_organization_bitbucket_repository_branches
 
@@ -45,8 +52,22 @@ class TestOrganizationAccountGitRepositoriesApi(unittest.TestCase):
         """
         pass
 
+    def test_get_organization_git_provider_account_temp(self):
+        """Test case for get_organization_git_provider_account_temp
+
+        Get git provider accounts  # noqa: E501
+        """
+        pass
+
     def test_get_organization_github_repositories(self):
         """Test case for get_organization_github_repositories
+
+        Get github repositories of the connected user  # noqa: E501
+        """
+        pass
+
+    def test_get_organization_github_repositories_temp(self):
+        """Test case for get_organization_github_repositories_temp
 
         Get github repositories of the connected user  # noqa: E501
         """
@@ -61,6 +82,13 @@ class TestOrganizationAccountGitRepositoriesApi(unittest.TestCase):
 
     def test_get_organization_gitlab_repositories(self):
         """Test case for get_organization_gitlab_repositories
+
+        Get gitlab repositories of the connected user  # noqa: E501
+        """
+        pass
+
+    def test_get_organization_gitlab_repositories_temp(self):
+        """Test case for get_organization_gitlab_repositories_temp
 
         Get gitlab repositories of the connected user  # noqa: E501
         """
