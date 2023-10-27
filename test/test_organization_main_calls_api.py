@@ -66,10 +66,24 @@ class TestOrganizationMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_git_token_associated_services(self):
+        """Test case for get_git_token_associated_services
+
+        Get organization git token associated services  # noqa: E501
+        """
+        pass
+
     def test_get_organization(self):
         """Test case for get_organization
 
         Get organization by ID  # noqa: E501
+        """
+        pass
+
+    def test_get_organization_git_tokens(self):
+        """Test case for get_organization_git_tokens
+
+        Get organization git token  # noqa: E501
         """
         pass
 

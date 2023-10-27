@@ -90,6 +90,7 @@ class GitTokenResponseAllOf(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'type': (GitProviderEnum,),  # noqa: E501
+            'associated_services_count': (float,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'expired_at': (date,),  # noqa: E501
         }
@@ -102,6 +103,7 @@ class GitTokenResponseAllOf(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'associated_services_count': 'associated_services_count',  # noqa: E501
         'description': 'description',  # noqa: E501
         'expired_at': 'expired_at',  # noqa: E501
     }
@@ -113,12 +115,13 @@ class GitTokenResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, type, associated_services_count, *args, **kwargs):  # noqa: E501
         """GitTokenResponseAllOf - a model defined in OpenAPI
 
         Args:
             name (str):
             type (GitProviderEnum):
+            associated_services_count (float): The number of services using this git token
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -186,6 +189,7 @@ class GitTokenResponseAllOf(ModelNormal):
 
         self.name = name
         self.type = type
+        self.associated_services_count = associated_services_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -206,12 +210,13 @@ class GitTokenResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, type, associated_services_count, *args, **kwargs):  # noqa: E501
         """GitTokenResponseAllOf - a model defined in OpenAPI
 
         Args:
             name (str):
             type (GitProviderEnum):
+            associated_services_count (float): The number of services using this git token
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,6 +282,7 @@ class GitTokenResponseAllOf(ModelNormal):
 
         self.name = name
         self.type = type
+        self.associated_services_count = associated_services_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

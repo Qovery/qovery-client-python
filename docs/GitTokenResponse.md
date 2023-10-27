@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [readonly] 
 **name** | **str** |  | 
 **type** | [**GitProviderEnum**](GitProviderEnum.md) |  | 
+**associated_services_count** | **float** | The number of services using this git token | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str** |  | [optional] 
 **expired_at** | **date** |  | [optional] 

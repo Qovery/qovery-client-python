@@ -294,6 +294,9 @@ docs/GitRepository.md
 docs/GitRepositoryBranch.md
 docs/GitRepositoryBranchResponseList.md
 docs/GitRepositoryResponseList.md
+docs/GitTokenAssociatedServiceResponse.md
+docs/GitTokenAssociatedServiceType.md
+docs/GitTokenAssociatedServicesResponseList.md
 docs/GitTokenRequest.md
 docs/GitTokenResponse.md
 docs/GitTokenResponseAllOf.md
@@ -897,6 +900,9 @@ qovery/model/git_repository.py
 qovery/model/git_repository_branch.py
 qovery/model/git_repository_branch_response_list.py
 qovery/model/git_repository_response_list.py
+qovery/model/git_token_associated_service_response.py
+qovery/model/git_token_associated_service_type.py
+qovery/model/git_token_associated_services_response_list.py
 qovery/model/git_token_request.py
 qovery/model/git_token_response.py
 qovery/model/git_token_response_all_of.py
@@ -1436,6 +1442,9 @@ test/test_git_repository.py
 test/test_git_repository_branch.py
 test/test_git_repository_branch_response_list.py
 test/test_git_repository_response_list.py
+test/test_git_token_associated_service_response.py
+test/test_git_token_associated_service_type.py
+test/test_git_token_associated_services_response_list.py
 test/test_git_token_request.py
 test/test_git_token_response.py
 test/test_git_token_response_all_of.py
