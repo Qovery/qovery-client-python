@@ -100,6 +100,7 @@ class GitTokenResponse(ModelComposed):
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'expired_at': (date,),  # noqa: E501
+            'workspace': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -116,6 +117,7 @@ class GitTokenResponse(ModelComposed):
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
         'expired_at': 'expired_at',  # noqa: E501
+        'workspace': 'workspace',  # noqa: E501
     }
 
     read_only_vars = {
@@ -168,6 +170,7 @@ class GitTokenResponse(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             expired_at (date): [optional]  # noqa: E501
+            workspace (str): Mandatory only for BITBUCKET git provider. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,6 +280,7 @@ class GitTokenResponse(ModelComposed):
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             expired_at (date): [optional]  # noqa: E501
+            workspace (str): Mandatory only for BITBUCKET git provider. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

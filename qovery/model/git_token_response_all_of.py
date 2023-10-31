@@ -93,6 +93,7 @@ class GitTokenResponseAllOf(ModelNormal):
             'associated_services_count': (float,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'expired_at': (date,),  # noqa: E501
+            'workspace': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +107,7 @@ class GitTokenResponseAllOf(ModelNormal):
         'associated_services_count': 'associated_services_count',  # noqa: E501
         'description': 'description',  # noqa: E501
         'expired_at': 'expired_at',  # noqa: E501
+        'workspace': 'workspace',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +158,7 @@ class GitTokenResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
             expired_at (date): [optional]  # noqa: E501
+            workspace (str): Mandatory only for BITBUCKET git provider. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,6 +254,7 @@ class GitTokenResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
             expired_at (date): [optional]  # noqa: E501
+            workspace (str): Mandatory only for BITBUCKET git provider. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
