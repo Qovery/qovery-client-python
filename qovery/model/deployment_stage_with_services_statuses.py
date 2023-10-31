@@ -94,6 +94,7 @@ class DeploymentStageWithServicesStatuses(ModelNormal):
             'containers': ([Status],),  # noqa: E501
             'jobs': ([Status],),  # noqa: E501
             'databases': ([Status],),  # noqa: E501
+            'helms': ([Status],),  # noqa: E501
             'stage': (Stage,),  # noqa: E501
         }
 
@@ -107,6 +108,7 @@ class DeploymentStageWithServicesStatuses(ModelNormal):
         'containers': 'containers',  # noqa: E501
         'jobs': 'jobs',  # noqa: E501
         'databases': 'databases',  # noqa: E501
+        'helms': 'helms',  # noqa: E501
         'stage': 'stage',  # noqa: E501
     }
 
@@ -155,6 +157,7 @@ class DeploymentStageWithServicesStatuses(ModelNormal):
             containers ([Status]): [optional]  # noqa: E501
             jobs ([Status]): [optional]  # noqa: E501
             databases ([Status]): [optional]  # noqa: E501
+            helms ([Status]): [optional]  # noqa: E501
             stage (Stage): [optional]  # noqa: E501
         """
 
@@ -245,6 +248,7 @@ class DeploymentStageWithServicesStatuses(ModelNormal):
             containers ([Status]): [optional]  # noqa: E501
             jobs ([Status]): [optional]  # noqa: E501
             databases ([Status]): [optional]  # noqa: E501
+            helms ([Status]): [optional]  # noqa: E501
             stage (Stage): [optional]  # noqa: E501
         """
 
