@@ -69,6 +69,7 @@ class OrganizationEventSubTargetType(ModelSimple):
             'DEPLOYMENT_STAGE': "DEPLOYMENT_STAGE",
             'GITHUB_APP': "GITHUB_APP",
             'GIT_REPOSITORY': "GIT_REPOSITORY",
+            'GIT_TOKEN': "GIT_TOKEN",
             'INVITATION': "INVITATION",
             'MEMBER_ROLE': "MEMBER_ROLE",
             'PLAN': "PLAN",
@@ -127,10 +128,10 @@ class OrganizationEventSubTargetType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
+            args[0] (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "GIT_TOKEN", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
+            value (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "GIT_TOKEN", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -221,10 +222,10 @@ class OrganizationEventSubTargetType(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
+            args[0] (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "GIT_TOKEN", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
+            value (str): Type of the organization event., must be one of ["ADVANCED_SETTINGS", "API_TOKEN", "BILLING_INFO", "CLOUD_PROVIDER_CREDENTIALS", "CLUSTER_CREDENTIALS", "CLUSTER_ROUTING_TABLE", "CONFIG", "CREDIT_CARD", "CREDIT_CODE", "CUSTOM_DOMAIN", "CUSTOM_ROLE", "DEPLOYMENT_RULE", "DEPLOYMENT_STAGE", "GITHUB_APP", "GIT_REPOSITORY", "GIT_TOKEN", "INVITATION", "MEMBER_ROLE", "PLAN", "SECRET", "TERRAFORM", "TRANSFER_OWNERSHIP", "VARIABLE", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
