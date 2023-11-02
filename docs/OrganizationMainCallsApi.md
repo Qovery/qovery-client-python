@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**edit_organization**](OrganizationMainCallsApi.md#edit_organization) | **PUT** /organization/{organizationId} | Edit an organization
 [**get_git_token_associated_services**](OrganizationMainCallsApi.md#get_git_token_associated_services) | **GET** /organization/{organizationId}/gitToken/{gitTokenId}/associatedServices | Get organization git token associated services
 [**get_organization**](OrganizationMainCallsApi.md#get_organization) | **GET** /organization/{organizationId} | Get organization by ID
-[**get_organization_git_tokens**](OrganizationMainCallsApi.md#get_organization_git_tokens) | **GET** /organization/{organizationId}/gitToken/{gitTokenId} | Get organization git token
+[**get_organization_git_token**](OrganizationMainCallsApi.md#get_organization_git_token) | **GET** /organization/{organizationId}/gitToken/{gitTokenId} | Get organization git token
 [**list_organization**](OrganizationMainCallsApi.md#list_organization) | **GET** /organization | List user organizations
 [**list_organization_available_roles**](OrganizationMainCallsApi.md#list_organization_available_roles) | **GET** /organization/{organizationId}/availableRole | List organization available roles
 [**list_organization_git_tokens**](OrganizationMainCallsApi.md#list_organization_git_tokens) | **GET** /organization/{organizationId}/gitToken | List organization git tokens
@@ -784,12 +784,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_organization_git_tokens**
-> GitTokenResponse get_organization_git_tokens(organization_id, git_token_id)
+# **get_organization_git_token**
+> GitTokenResponse get_organization_git_token(organization_id, git_token_id)
 
 Get organization git token
 
-Get organization git tokens
+Get organization git token
 
 ### Example
 
@@ -834,10 +834,10 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Get organization git token
-        api_response = api_instance.get_organization_git_tokens(organization_id, git_token_id)
+        api_response = api_instance.get_organization_git_token(organization_id, git_token_id)
         pprint(api_response)
     except qovery.ApiException as e:
-        print("Exception when calling OrganizationMainCallsApi->get_organization_git_tokens: %s\n" % e)
+        print("Exception when calling OrganizationMainCallsApi->get_organization_git_token: %s\n" % e)
 ```
 
 

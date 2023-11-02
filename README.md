@@ -454,7 +454,7 @@ Class | Method | HTTP request | Description
 *OrganizationMainCallsApi* | [**edit_organization**](docs/OrganizationMainCallsApi.md#edit_organization) | **PUT** /organization/{organizationId} | Edit an organization
 *OrganizationMainCallsApi* | [**get_git_token_associated_services**](docs/OrganizationMainCallsApi.md#get_git_token_associated_services) | **GET** /organization/{organizationId}/gitToken/{gitTokenId}/associatedServices | Get organization git token associated services
 *OrganizationMainCallsApi* | [**get_organization**](docs/OrganizationMainCallsApi.md#get_organization) | **GET** /organization/{organizationId} | Get organization by ID
-*OrganizationMainCallsApi* | [**get_organization_git_tokens**](docs/OrganizationMainCallsApi.md#get_organization_git_tokens) | **GET** /organization/{organizationId}/gitToken/{gitTokenId} | Get organization git token
+*OrganizationMainCallsApi* | [**get_organization_git_token**](docs/OrganizationMainCallsApi.md#get_organization_git_token) | **GET** /organization/{organizationId}/gitToken/{gitTokenId} | Get organization git token
 *OrganizationMainCallsApi* | [**list_organization**](docs/OrganizationMainCallsApi.md#list_organization) | **GET** /organization | List user organizations
 *OrganizationMainCallsApi* | [**list_organization_available_roles**](docs/OrganizationMainCallsApi.md#list_organization_available_roles) | **GET** /organization/{organizationId}/availableRole | List organization available roles
 *OrganizationMainCallsApi* | [**list_organization_git_tokens**](docs/OrganizationMainCallsApi.md#list_organization_git_tokens) | **GET** /organization/{organizationId}/gitToken | List organization git tokens

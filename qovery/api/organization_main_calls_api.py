@@ -491,7 +491,7 @@ class OrganizationMainCallsApi(object):
             },
             api_client=api_client
         )
-        self.get_organization_git_tokens_endpoint = _Endpoint(
+        self.get_organization_git_token_endpoint = _Endpoint(
             settings={
                 'response_type': (GitTokenResponse,),
                 'auth': [
@@ -499,7 +499,7 @@ class OrganizationMainCallsApi(object):
                     'bearerAuth'
                 ],
                 'endpoint_path': '/organization/{organizationId}/gitToken/{gitTokenId}',
-                'operation_id': 'get_organization_git_tokens',
+                'operation_id': 'get_organization_git_token',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1370,7 +1370,7 @@ class OrganizationMainCallsApi(object):
             organization_id
         return self.get_organization_endpoint.call_with_http_info(**kwargs)
 
-    def get_organization_git_tokens(
+    def get_organization_git_token(
         self,
         organization_id,
         git_token_id,
@@ -1378,11 +1378,11 @@ class OrganizationMainCallsApi(object):
     ):
         """Get organization git token  # noqa: E501
 
-        Get organization git tokens  # noqa: E501
+        Get organization git token  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_organization_git_tokens(organization_id, git_token_id, async_req=True)
+        >>> thread = api.get_organization_git_token(organization_id, git_token_id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -1455,7 +1455,7 @@ class OrganizationMainCallsApi(object):
             organization_id
         kwargs['git_token_id'] = \
             git_token_id
-        return self.get_organization_git_tokens_endpoint.call_with_http_info(**kwargs)
+        return self.get_organization_git_token_endpoint.call_with_http_info(**kwargs)
 
     def list_organization(
         self,
