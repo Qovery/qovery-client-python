@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | [readonly] 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **status** | [**StateEnum**](StateEnum.md) |  | [optional] 
+**origin** | [**OrganizationEventOrigin**](OrganizationEventOrigin.md) |  | [optional] 
+**triggered_by** | **str** |  | [optional] 
 **applications** | [**[DeploymentHistoryApplication]**](DeploymentHistoryApplication.md) |  | [optional] 
 **containers** | [**[DeploymentHistoryContainer]**](DeploymentHistoryContainer.md) |  | [optional] 
 **databases** | [**[DeploymentHistoryDatabase]**](DeploymentHistoryDatabase.md) |  | [optional] 

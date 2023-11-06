@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.organization_event_origin import OrganizationEventOrigin
 from qovery.model.state_enum import StateEnum
+globals()['OrganizationEventOrigin'] = OrganizationEventOrigin
 globals()['StateEnum'] = StateEnum
 from qovery.model.environment_status import EnvironmentStatus
 

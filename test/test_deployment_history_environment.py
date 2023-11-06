@@ -19,6 +19,7 @@ from qovery.model.deployment_history_container import DeploymentHistoryContainer
 from qovery.model.deployment_history_database import DeploymentHistoryDatabase
 from qovery.model.deployment_history_environment_all_of import DeploymentHistoryEnvironmentAllOf
 from qovery.model.deployment_history_job_response import DeploymentHistoryJobResponse
+from qovery.model.organization_event_origin import OrganizationEventOrigin
 from qovery.model.state_enum import StateEnum
 globals()['Base'] = Base
 globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
@@ -26,6 +27,7 @@ globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
 globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
 globals()['DeploymentHistoryEnvironmentAllOf'] = DeploymentHistoryEnvironmentAllOf
 globals()['DeploymentHistoryJobResponse'] = DeploymentHistoryJobResponse
+globals()['OrganizationEventOrigin'] = OrganizationEventOrigin
 globals()['StateEnum'] = StateEnum
 from qovery.model.deployment_history_environment import DeploymentHistoryEnvironment
 

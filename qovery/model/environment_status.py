@@ -31,7 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.organization_event_origin import OrganizationEventOrigin
     from qovery.model.state_enum import StateEnum
+    globals()['OrganizationEventOrigin'] = OrganizationEventOrigin
     globals()['StateEnum'] = StateEnum
 
 
@@ -94,6 +96,8 @@ class EnvironmentStatus(ModelNormal):
             'last_deployment_date': (datetime, none_type,),  # noqa: E501
             'last_deployment_id': (str, none_type,),  # noqa: E501
             'total_deployment_duration_in_seconds': (int, none_type,),  # noqa: E501
+            'origin': (OrganizationEventOrigin,),  # noqa: E501
+            'triggered_by': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +112,8 @@ class EnvironmentStatus(ModelNormal):
         'last_deployment_date': 'last_deployment_date',  # noqa: E501
         'last_deployment_id': 'last_deployment_id',  # noqa: E501
         'total_deployment_duration_in_seconds': 'total_deployment_duration_in_seconds',  # noqa: E501
+        'origin': 'origin',  # noqa: E501
+        'triggered_by': 'triggered_by',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,6 +165,8 @@ class EnvironmentStatus(ModelNormal):
             last_deployment_date (datetime, none_type): [optional]  # noqa: E501
             last_deployment_id (str, none_type): [optional]  # noqa: E501
             total_deployment_duration_in_seconds (int, none_type): [optional]  # noqa: E501
+            origin (OrganizationEventOrigin): [optional]  # noqa: E501
+            triggered_by (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +263,8 @@ class EnvironmentStatus(ModelNormal):
             last_deployment_date (datetime, none_type): [optional]  # noqa: E501
             last_deployment_id (str, none_type): [optional]  # noqa: E501
             total_deployment_duration_in_seconds (int, none_type): [optional]  # noqa: E501
+            origin (OrganizationEventOrigin): [optional]  # noqa: E501
+            triggered_by (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

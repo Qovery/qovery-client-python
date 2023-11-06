@@ -37,6 +37,7 @@ def lazy_import():
     from qovery.model.deployment_history_database import DeploymentHistoryDatabase
     from qovery.model.deployment_history_environment_all_of import DeploymentHistoryEnvironmentAllOf
     from qovery.model.deployment_history_job_response import DeploymentHistoryJobResponse
+    from qovery.model.organization_event_origin import OrganizationEventOrigin
     from qovery.model.state_enum import StateEnum
     globals()['Base'] = Base
     globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
@@ -44,6 +45,7 @@ def lazy_import():
     globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
     globals()['DeploymentHistoryEnvironmentAllOf'] = DeploymentHistoryEnvironmentAllOf
     globals()['DeploymentHistoryJobResponse'] = DeploymentHistoryJobResponse
+    globals()['OrganizationEventOrigin'] = OrganizationEventOrigin
     globals()['StateEnum'] = StateEnum
 
 
@@ -104,6 +106,8 @@ class DeploymentHistoryEnvironment(ModelComposed):
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'status': (StateEnum,),  # noqa: E501
+            'origin': (OrganizationEventOrigin,),  # noqa: E501
+            'triggered_by': (str,),  # noqa: E501
             'applications': ([DeploymentHistoryApplication],),  # noqa: E501
             'containers': ([DeploymentHistoryContainer],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabase],),  # noqa: E501
@@ -120,6 +124,8 @@ class DeploymentHistoryEnvironment(ModelComposed):
         'created_at': 'created_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'origin': 'origin',  # noqa: E501
+        'triggered_by': 'triggered_by',  # noqa: E501
         'applications': 'applications',  # noqa: E501
         'containers': 'containers',  # noqa: E501
         'databases': 'databases',  # noqa: E501
@@ -172,6 +178,8 @@ class DeploymentHistoryEnvironment(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
+            origin (OrganizationEventOrigin): [optional]  # noqa: E501
+            triggered_by (str): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
@@ -281,6 +289,8 @@ class DeploymentHistoryEnvironment(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             status (StateEnum): [optional]  # noqa: E501
+            origin (OrganizationEventOrigin): [optional]  # noqa: E501
+            triggered_by (str): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501

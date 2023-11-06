@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**StateEnum**](StateEnum.md) |  | [optional] 
+**origin** | [**OrganizationEventOrigin**](OrganizationEventOrigin.md) |  | [optional] 
+**triggered_by** | **str** |  | [optional] 
 **applications** | [**[DeploymentHistoryApplication]**](DeploymentHistoryApplication.md) |  | [optional] 
 **containers** | [**[DeploymentHistoryContainer]**](DeploymentHistoryContainer.md) |  | [optional] 
 **databases** | [**[DeploymentHistoryDatabase]**](DeploymentHistoryDatabase.md) |  | [optional] 

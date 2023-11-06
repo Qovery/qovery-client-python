@@ -35,11 +35,13 @@ def lazy_import():
     from qovery.model.deployment_history_container import DeploymentHistoryContainer
     from qovery.model.deployment_history_database import DeploymentHistoryDatabase
     from qovery.model.deployment_history_job_response import DeploymentHistoryJobResponse
+    from qovery.model.organization_event_origin import OrganizationEventOrigin
     from qovery.model.state_enum import StateEnum
     globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
     globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
     globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
     globals()['DeploymentHistoryJobResponse'] = DeploymentHistoryJobResponse
+    globals()['OrganizationEventOrigin'] = OrganizationEventOrigin
     globals()['StateEnum'] = StateEnum
 
 
@@ -97,6 +99,8 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
         lazy_import()
         return {
             'status': (StateEnum,),  # noqa: E501
+            'origin': (OrganizationEventOrigin,),  # noqa: E501
+            'triggered_by': (str,),  # noqa: E501
             'applications': ([DeploymentHistoryApplication],),  # noqa: E501
             'containers': ([DeploymentHistoryContainer],),  # noqa: E501
             'databases': ([DeploymentHistoryDatabase],),  # noqa: E501
@@ -110,6 +114,8 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
 
     attribute_map = {
         'status': 'status',  # noqa: E501
+        'origin': 'origin',  # noqa: E501
+        'triggered_by': 'triggered_by',  # noqa: E501
         'applications': 'applications',  # noqa: E501
         'containers': 'containers',  # noqa: E501
         'databases': 'databases',  # noqa: E501
@@ -158,6 +164,8 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             status (StateEnum): [optional]  # noqa: E501
+            origin (OrganizationEventOrigin): [optional]  # noqa: E501
+            triggered_by (str): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
@@ -248,6 +256,8 @@ class DeploymentHistoryEnvironmentAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             status (StateEnum): [optional]  # noqa: E501
+            origin (OrganizationEventOrigin): [optional]  # noqa: E501
+            triggered_by (str): [optional]  # noqa: E501
             applications ([DeploymentHistoryApplication]): [optional]  # noqa: E501
             containers ([DeploymentHistoryContainer]): [optional]  # noqa: E501
             databases ([DeploymentHistoryDatabase]): [optional]  # noqa: E501
