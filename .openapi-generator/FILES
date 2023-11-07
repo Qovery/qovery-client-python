@@ -36,6 +36,8 @@ docs/ApplicationSecretApi.md
 docs/ApplicationsApi.md
 docs/AvailableContainerRegistryResponse.md
 docs/AvailableContainerRegistryResponseList.md
+docs/AvailableHelmRepositoryResponse.md
+docs/AvailableHelmRepositoryResponseList.md
 docs/AwsCredentialsRequest.md
 docs/Backup.md
 docs/BackupAllOf.md
@@ -313,6 +315,7 @@ docs/HelmDeploymentRestrictionResponse.md
 docs/HelmDeploymentRestrictionResponseList.md
 docs/HelmForceEvent.md
 docs/HelmMainCallsApi.md
+docs/HelmRepositoryKindEnum.md
 docs/HelmRequest.md
 docs/HelmRequestAllOf.md
 docs/HelmRequestAllOfSource.md
@@ -680,6 +683,8 @@ qovery/model/application_request_all_of.py
 qovery/model/application_response_list.py
 qovery/model/available_container_registry_response.py
 qovery/model/available_container_registry_response_list.py
+qovery/model/available_helm_repository_response.py
+qovery/model/available_helm_repository_response_list.py
 qovery/model/aws_credentials_request.py
 qovery/model/backup.py
 qovery/model/backup_all_of.py
@@ -915,6 +920,7 @@ qovery/model/helm_deployment_restriction_request.py
 qovery/model/helm_deployment_restriction_response.py
 qovery/model/helm_deployment_restriction_response_list.py
 qovery/model/helm_force_event.py
+qovery/model/helm_repository_kind_enum.py
 qovery/model/helm_request.py
 qovery/model/helm_request_all_of.py
 qovery/model/helm_request_all_of_source.py
@@ -1190,6 +1196,8 @@ test/test_application_secret_api.py
 test/test_applications_api.py
 test/test_available_container_registry_response.py
 test/test_available_container_registry_response_list.py
+test/test_available_helm_repository_response.py
+test/test_available_helm_repository_response_list.py
 test/test_aws_credentials_request.py
 test/test_backup.py
 test/test_backup_all_of.py
@@ -1467,6 +1475,7 @@ test/test_helm_deployment_restriction_response.py
 test/test_helm_deployment_restriction_response_list.py
 test/test_helm_force_event.py
 test/test_helm_main_calls_api.py
+test/test_helm_repository_kind_enum.py
 test/test_helm_request.py
 test/test_helm_request_all_of.py
 test/test_helm_request_all_of_source.py

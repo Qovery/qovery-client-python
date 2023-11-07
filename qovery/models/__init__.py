@@ -31,6 +31,8 @@ from qovery.model.application_request_all_of import ApplicationRequestAllOf
 from qovery.model.application_response_list import ApplicationResponseList
 from qovery.model.available_container_registry_response import AvailableContainerRegistryResponse
 from qovery.model.available_container_registry_response_list import AvailableContainerRegistryResponseList
+from qovery.model.available_helm_repository_response import AvailableHelmRepositoryResponse
+from qovery.model.available_helm_repository_response_list import AvailableHelmRepositoryResponseList
 from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from qovery.model.backup import Backup
 from qovery.model.backup_all_of import BackupAllOf
@@ -266,6 +268,7 @@ from qovery.model.helm_deployment_restriction_request import HelmDeploymentRestr
 from qovery.model.helm_deployment_restriction_response import HelmDeploymentRestrictionResponse
 from qovery.model.helm_deployment_restriction_response_list import HelmDeploymentRestrictionResponseList
 from qovery.model.helm_force_event import HelmForceEvent
+from qovery.model.helm_repository_kind_enum import HelmRepositoryKindEnum
 from qovery.model.helm_request import HelmRequest
 from qovery.model.helm_request_all_of import HelmRequestAllOf
 from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
