@@ -13,17 +13,15 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
+from qovery.model.helm_request_all_of_source_git import HelmRequestAllOfSourceGit
+from qovery.model.helm_response_all_of_source_repository import HelmResponseAllOfSourceRepository
+globals()['HelmRequestAllOfSourceGit'] = HelmRequestAllOfSourceGit
+globals()['HelmResponseAllOfSourceRepository'] = HelmResponseAllOfSourceRepository
 from qovery.model.helm_response_all_of_source import HelmResponseAllOfSource
-from qovery.model.reference_object import ReferenceObject
-globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
-globals()['HelmResponseAllOfSource'] = HelmResponseAllOfSource
-globals()['ReferenceObject'] = ReferenceObject
-from qovery.model.helm_response_all_of import HelmResponseAllOf
 
 
-class TestHelmResponseAllOf(unittest.TestCase):
-    """HelmResponseAllOf unit test stubs"""
+class TestHelmResponseAllOfSource(unittest.TestCase):
+    """HelmResponseAllOfSource unit test stubs"""
 
     def setUp(self):
         pass
@@ -31,10 +29,10 @@ class TestHelmResponseAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testHelmResponseAllOf(self):
-        """Test HelmResponseAllOf"""
+    def testHelmResponseAllOfSource(self):
+        """Test HelmResponseAllOfSource"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = HelmResponseAllOf()  # noqa: E501
+        # model = HelmResponseAllOfSource()  # noqa: E501
         pass
 
 

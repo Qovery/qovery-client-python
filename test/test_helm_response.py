@@ -14,14 +14,14 @@ import unittest
 
 import qovery
 from qovery.model.base import Base
-from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
 from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
 from qovery.model.helm_response_all_of import HelmResponseAllOf
+from qovery.model.helm_response_all_of_source import HelmResponseAllOfSource
 from qovery.model.reference_object import ReferenceObject
 globals()['Base'] = Base
-globals()['HelmRequestAllOfSource'] = HelmRequestAllOfSource
 globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
 globals()['HelmResponseAllOf'] = HelmResponseAllOf
+globals()['HelmResponseAllOfSource'] = HelmResponseAllOfSource
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.helm_response import HelmResponse
 

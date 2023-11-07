@@ -31,11 +31,11 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
     from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
+    from qovery.model.helm_response_all_of_source import HelmResponseAllOfSource
     from qovery.model.reference_object import ReferenceObject
-    globals()['HelmRequestAllOfSource'] = HelmRequestAllOfSource
     globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
+    globals()['HelmResponseAllOfSource'] = HelmResponseAllOfSource
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -96,7 +96,7 @@ class HelmResponseAllOf(ModelNormal):
             'name': (str,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
-            'source': (HelmRequestAllOfSource,),  # noqa: E501
+            'source': (HelmResponseAllOfSource,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'allow_cluster_wide_resources': (bool,),  # noqa: E501
@@ -135,7 +135,7 @@ class HelmResponseAllOf(ModelNormal):
             name (str): name is case insensitive
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmRequestAllOfSource):
+            source (HelmResponseAllOfSource):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -236,7 +236,7 @@ class HelmResponseAllOf(ModelNormal):
             name (str): name is case insensitive
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmRequestAllOfSource):
+            source (HelmResponseAllOfSource):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

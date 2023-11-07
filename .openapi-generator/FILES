@@ -325,6 +325,9 @@ docs/HelmRequestAllOfValuesOverrideFileRaw.md
 docs/HelmRequestAllOfValuesOverrideFileRawValues.md
 docs/HelmResponse.md
 docs/HelmResponseAllOf.md
+docs/HelmResponseAllOfSource.md
+docs/HelmResponseAllOfSourceRepository.md
+docs/HelmResponseAllOfSourceRepositoryRepository.md
 docs/HelmResponseList.md
 docs/HelmsApi.md
 docs/Instance.md
@@ -924,6 +927,9 @@ qovery/model/helm_request_all_of_values_override_file_raw.py
 qovery/model/helm_request_all_of_values_override_file_raw_values.py
 qovery/model/helm_response.py
 qovery/model/helm_response_all_of.py
+qovery/model/helm_response_all_of_source.py
+qovery/model/helm_response_all_of_source_repository.py
+qovery/model/helm_response_all_of_source_repository_repository.py
 qovery/model/helm_response_list.py
 qovery/model/instance.py
 qovery/model/instance_memory.py
@@ -1473,6 +1479,9 @@ test/test_helm_request_all_of_values_override_file_raw.py
 test/test_helm_request_all_of_values_override_file_raw_values.py
 test/test_helm_response.py
 test/test_helm_response_all_of.py
+test/test_helm_response_all_of_source.py
+test/test_helm_response_all_of_source_repository.py
+test/test_helm_response_all_of_source_repository_repository.py
 test/test_helm_response_list.py
 test/test_helms_api.py
 test/test_instance.py
