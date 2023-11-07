@@ -221,6 +221,8 @@ Name | Type | Description  | Notes
 
 List default application advanced settings
 
+Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/advanced-settings/)
+
 ### Example
 
 * Api Key Authentication (ApiKeyAuth):

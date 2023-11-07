@@ -54,19 +54,19 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = job_configuration_api.JobConfigurationApi(api_client)
     job_id = "jobId_example" # str | Job ID
     job_advanced_settings = JobAdvancedSettings(
-        build_timeout_max_sec=1800,
-        build_cpu_max_in_milli=4000,
-        build_ram_max_in_gib=8,
-        deployment_termination_grace_period_seconds=60,
+        build_timeout_max_sec=1,
+        build_cpu_max_in_milli=1,
+        build_ram_max_in_gib=1,
+        deployment_termination_grace_period_seconds=1,
         deployment_affinity_node_required={
             "key": "key_example",
         },
         job_delete_ttl_seconds_after_finished=1,
-        cronjob_concurrency_policy="Forbid",
+        cronjob_concurrency_policy="cronjob_concurrency_policy_example",
         cronjob_failed_jobs_history_limit=1,
         cronjob_success_jobs_history_limit=1,
-        security_service_account_name="",
-        security_read_only_root_filesystem=False,
+        security_service_account_name="security_service_account_name_example",
+        security_read_only_root_filesystem=True,
     ) # JobAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 Get advanced settings
 
-Get list and values of the advanced settings of the job.
+Get list and values of the advanced settings of the job. Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/advanced-settings/) 
 
 ### Example
 

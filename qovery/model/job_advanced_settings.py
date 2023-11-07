@@ -155,17 +155,17 @@ class JobAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            build_timeout_max_sec (int): define the max timeout for the build. [optional] if omitted the server will use the default value of 1800  # noqa: E501
-            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
-            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
-            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            build_timeout_max_sec (int): define the max timeout for the build. [optional]  # noqa: E501
+            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional]  # noqa: E501
+            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional]  # noqa: E501
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional]  # noqa: E501
             deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
-            cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
-            cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
+            cronjob_concurrency_policy (str): [optional]  # noqa: E501
+            cronjob_failed_jobs_history_limit (int): [optional]  # noqa: E501
+            cronjob_success_jobs_history_limit (int): [optional]  # noqa: E501
+            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional]  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,17 +251,17 @@ class JobAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            build_timeout_max_sec (int): define the max timeout for the build. [optional] if omitted the server will use the default value of 1800  # noqa: E501
-            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional] if omitted the server will use the default value of 4000  # noqa: E501
-            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional] if omitted the server will use the default value of 8  # noqa: E501
-            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            build_timeout_max_sec (int): define the max timeout for the build. [optional]  # noqa: E501
+            build_cpu_max_in_milli (int): define the max cpu resources (in milli). [optional]  # noqa: E501
+            build_ram_max_in_gib (int): define the max ram resources (in gib). [optional]  # noqa: E501
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional]  # noqa: E501
             deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
             job_delete_ttl_seconds_after_finished (int, none_type): [optional]  # noqa: E501
-            cronjob_concurrency_policy (str): [optional] if omitted the server will use the default value of "Forbid"  # noqa: E501
-            cronjob_failed_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            cronjob_success_jobs_history_limit (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
+            cronjob_concurrency_policy (str): [optional]  # noqa: E501
+            cronjob_failed_jobs_history_limit (int): [optional]  # noqa: E501
+            cronjob_success_jobs_history_limit (int): [optional]  # noqa: E501
+            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional]  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

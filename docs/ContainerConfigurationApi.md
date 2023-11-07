@@ -57,38 +57,38 @@ with qovery.ApiClient(configuration) as api_client:
     container_id = "containerId_example" # str | Container ID
     container_advanced_settings = ContainerAdvancedSettings(
         deployment_custom_domain_check_enabled=True,
-        deployment_termination_grace_period_seconds=60,
+        deployment_termination_grace_period_seconds=1,
         deployment_affinity_node_required={
             "key": "key_example",
         },
         deployment_antiaffinity_pod="Preferred",
         deployment_update_strategy_type="RollingUpdate",
-        deployment_update_strategy_rolling_update_max_unavailable_percent=25,
-        deployment_update_strategy_rolling_update_max_surge_percent=25,
-        network_ingress_proxy_body_size_mb=100,
-        network_ingress_enable_cors=False,
-        network_ingress_cors_allow_origin="*",
-        network_ingress_cors_allow_methods="GET, PUT, POST, DELETE, PATCH, OPTIONS",
-        network_ingress_cors_allow_headers="DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization",
-        network_ingress_proxy_buffer_size_kb=4,
-        network_ingress_keepalive_time_seconds=3600,
-        network_ingress_keepalive_timeout_seconds=60,
-        network_ingress_send_timeout_seconds=60,
-        network_ingress_proxy_connect_timeout_seconds=60,
-        network_ingress_proxy_send_timeout_seconds=60,
-        network_ingress_proxy_read_timeout_seconds=60,
-        network_ingress_proxy_buffering="on",
-        network_ingress_proxy_request_buffering="on",
-        network_ingress_grpc_send_timeout_seconds=60,
-        network_ingress_grpc_read_timeout_seconds=60,
-        network_ingress_whitelist_source_range="0.0.0.0/0",
-        network_ingress_denylist_source_range="",
+        deployment_update_strategy_rolling_update_max_unavailable_percent=1,
+        deployment_update_strategy_rolling_update_max_surge_percent=1,
+        network_ingress_proxy_body_size_mb=1,
+        network_ingress_enable_cors=True,
+        network_ingress_cors_allow_origin="network_ingress_cors_allow_origin_example",
+        network_ingress_cors_allow_methods="network_ingress_cors_allow_methods_example",
+        network_ingress_cors_allow_headers="network_ingress_cors_allow_headers_example",
+        network_ingress_proxy_buffer_size_kb=1,
+        network_ingress_keepalive_time_seconds=1,
+        network_ingress_keepalive_timeout_seconds=1,
+        network_ingress_send_timeout_seconds=1,
+        network_ingress_proxy_connect_timeout_seconds=1,
+        network_ingress_proxy_send_timeout_seconds=1,
+        network_ingress_proxy_read_timeout_seconds=1,
+        network_ingress_proxy_buffering="network_ingress_proxy_buffering_example",
+        network_ingress_proxy_request_buffering="network_ingress_proxy_request_buffering_example",
+        network_ingress_grpc_send_timeout_seconds=1,
+        network_ingress_grpc_read_timeout_seconds=1,
+        network_ingress_whitelist_source_range="network_ingress_whitelist_source_range_example",
+        network_ingress_denylist_source_range="network_ingress_denylist_source_range_example",
         network_ingress_extra_headers="{"X-Frame-Options":"DENY ","X-Content-Type-Options":"nosniff"}",
-        network_ingress_basic_auth_env_var="",
-        network_ingress_enable_sticky_session=False,
-        security_service_account_name="",
-        hpa_cpu_average_utilization_percent=60,
-        security_read_only_root_filesystem=False,
+        network_ingress_basic_auth_env_var="network_ingress_basic_auth_env_var_example",
+        network_ingress_enable_sticky_session=True,
+        security_service_account_name="security_service_account_name_example",
+        hpa_cpu_average_utilization_percent=1,
+        security_read_only_root_filesystem=True,
     ) # ContainerAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 Get advanced settings
 
-Get list and values of the advanced settings of the container.
+Get list and values of the advanced settings of the container. Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/advanced-settings/) 
 
 ### Example
 

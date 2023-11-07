@@ -203,37 +203,37 @@ class ContainerAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
-            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional]  # noqa: E501
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional]  # noqa: E501
             deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
-            deployment_antiaffinity_pod (str): Define how you want pods affinity to behave: * `Preferred` allows, but does not require, pods of a given service are not co-located (or co-hosted) on a single node * `Requirred` ensures that the pods of a given service are not co-located (or co-hosted) on a single node (safer in term of availability but can be expensive depending on the number of replicas) . [optional] if omitted the server will use the default value of "Preferred"  # noqa: E501
-            deployment_update_strategy_type (str): * `RollingUpdate` gracefully rollout new versions, and automatically rollback if the new version fails to start * `Recreate` stop all current versions and create new ones once all old ones have been shutdown . [optional] if omitted the server will use the default value of "RollingUpdate"  # noqa: E501
-            deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional] if omitted the server will use the default value of 25  # noqa: E501
-            deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional] if omitted the server will use the default value of 25  # noqa: E501
-            network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
-            network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
-            network_ingress_cors_allow_methods (str): [optional] if omitted the server will use the default value of "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # noqa: E501
-            network_ingress_cors_allow_headers (str): [optional] if omitted the server will use the default value of "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"  # noqa: E501
-            network_ingress_proxy_buffer_size_kb (int): header buffer size used while reading response header from upstream. [optional] if omitted the server will use the default value of 4  # noqa: E501
-            network_ingress_keepalive_time_seconds (int): Limits the maximum time (in seconds) during which requests can be processed through one keepalive connection. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            network_ingress_keepalive_timeout_seconds (int): Sets a timeout (in seconds) during which an idle keepalive connection to an upstream server will stay open.. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a response to the client. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_buffering (str): Allows to enable or disable nginx `proxy-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
-            network_ingress_proxy_request_buffering (str): Allows to enable or disable nginx `proxy-request-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
-            network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
-            network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            network_ingress_extra_headers (str): Allows to define response headers. [optional] if omitted the server will use the default value of "{}"  # noqa: E501
-            network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
-            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
+            deployment_antiaffinity_pod (str): Define how you want pods affinity to behave: * `Preferred` allows, but does not require, pods of a given service are not co-located (or co-hosted) on a single node * `Requirred` ensures that the pods of a given service are not co-located (or co-hosted) on a single node (safer in term of availability but can be expensive depending on the number of replicas) . [optional]  # noqa: E501
+            deployment_update_strategy_type (str): * `RollingUpdate` gracefully rollout new versions, and automatically rollback if the new version fails to start * `Recreate` stop all current versions and create new ones once all old ones have been shutdown . [optional]  # noqa: E501
+            deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional]  # noqa: E501
+            deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional]  # noqa: E501
+            network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
+            network_ingress_enable_cors (bool): [optional]  # noqa: E501
+            network_ingress_cors_allow_origin (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_methods (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_headers (str): [optional]  # noqa: E501
+            network_ingress_proxy_buffer_size_kb (int): header buffer size used while reading response header from upstream. [optional]  # noqa: E501
+            network_ingress_keepalive_time_seconds (int): Limits the maximum time (in seconds) during which requests can be processed through one keepalive connection. [optional]  # noqa: E501
+            network_ingress_keepalive_timeout_seconds (int): Sets a timeout (in seconds) during which an idle keepalive connection to an upstream server will stay open.. [optional]  # noqa: E501
+            network_ingress_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a response to the client. [optional]  # noqa: E501
+            network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional]  # noqa: E501
+            network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional]  # noqa: E501
+            network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional]  # noqa: E501
+            network_ingress_proxy_buffering (str): Allows to enable or disable nginx `proxy-buffering`. [optional]  # noqa: E501
+            network_ingress_proxy_request_buffering (str): Allows to enable or disable nginx `proxy-request-buffering`. [optional]  # noqa: E501
+            network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional]  # noqa: E501
+            network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional]  # noqa: E501
+            network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional]  # noqa: E501
+            network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional]  # noqa: E501
+            network_ingress_extra_headers (str): Allows to define response headers. [optional]  # noqa: E501
+            network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional]  # noqa: E501
+            network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional]  # noqa: E501
+            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional]  # noqa: E501
+            hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional]  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -319,37 +319,37 @@ class ContainerAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional] if omitted the server will use the default value of True  # noqa: E501
-            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional] if omitted the server will use the default value of 60  # noqa: E501
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying an application. [optional]  # noqa: E501
+            deployment_termination_grace_period_seconds (int): define how long in seconds an application is supposed to be stopped gracefully. [optional]  # noqa: E501
             deployment_affinity_node_required ({str: (str,)}): Set pod placement on specific Kubernetes nodes labels. [optional]  # noqa: E501
-            deployment_antiaffinity_pod (str): Define how you want pods affinity to behave: * `Preferred` allows, but does not require, pods of a given service are not co-located (or co-hosted) on a single node * `Requirred` ensures that the pods of a given service are not co-located (or co-hosted) on a single node (safer in term of availability but can be expensive depending on the number of replicas) . [optional] if omitted the server will use the default value of "Preferred"  # noqa: E501
-            deployment_update_strategy_type (str): * `RollingUpdate` gracefully rollout new versions, and automatically rollback if the new version fails to start * `Recreate` stop all current versions and create new ones once all old ones have been shutdown . [optional] if omitted the server will use the default value of "RollingUpdate"  # noqa: E501
-            deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional] if omitted the server will use the default value of 25  # noqa: E501
-            deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional] if omitted the server will use the default value of 25  # noqa: E501
-            network_ingress_proxy_body_size_mb (int): [optional] if omitted the server will use the default value of 100  # noqa: E501
-            network_ingress_enable_cors (bool): [optional] if omitted the server will use the default value of False  # noqa: E501
-            network_ingress_cors_allow_origin (str): [optional] if omitted the server will use the default value of "*"  # noqa: E501
-            network_ingress_cors_allow_methods (str): [optional] if omitted the server will use the default value of "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # noqa: E501
-            network_ingress_cors_allow_headers (str): [optional] if omitted the server will use the default value of "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization"  # noqa: E501
-            network_ingress_proxy_buffer_size_kb (int): header buffer size used while reading response header from upstream. [optional] if omitted the server will use the default value of 4  # noqa: E501
-            network_ingress_keepalive_time_seconds (int): Limits the maximum time (in seconds) during which requests can be processed through one keepalive connection. [optional] if omitted the server will use the default value of 3600  # noqa: E501
-            network_ingress_keepalive_timeout_seconds (int): Sets a timeout (in seconds) during which an idle keepalive connection to an upstream server will stay open.. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a response to the client. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_proxy_buffering (str): Allows to enable or disable nginx `proxy-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
-            network_ingress_proxy_request_buffering (str): Allows to enable or disable nginx `proxy-request-buffering`. [optional] if omitted the server will use the default value of "on"  # noqa: E501
-            network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional] if omitted the server will use the default value of "0.0.0.0/0"  # noqa: E501
-            network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            network_ingress_extra_headers (str): Allows to define response headers. [optional] if omitted the server will use the default value of "{}"  # noqa: E501
-            network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional] if omitted the server will use the default value of False  # noqa: E501
-            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional] if omitted the server will use the default value of ""  # noqa: E501
-            hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional] if omitted the server will use the default value of 60  # noqa: E501
-            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional] if omitted the server will use the default value of False  # noqa: E501
+            deployment_antiaffinity_pod (str): Define how you want pods affinity to behave: * `Preferred` allows, but does not require, pods of a given service are not co-located (or co-hosted) on a single node * `Requirred` ensures that the pods of a given service are not co-located (or co-hosted) on a single node (safer in term of availability but can be expensive depending on the number of replicas) . [optional]  # noqa: E501
+            deployment_update_strategy_type (str): * `RollingUpdate` gracefully rollout new versions, and automatically rollback if the new version fails to start * `Recreate` stop all current versions and create new ones once all old ones have been shutdown . [optional]  # noqa: E501
+            deployment_update_strategy_rolling_update_max_unavailable_percent (int): Define the percentage of a maximum number of pods that can be unavailable during the update process. [optional]  # noqa: E501
+            deployment_update_strategy_rolling_update_max_surge_percent (int): Define the percentage of the maximum number of pods that can be created over the desired number of pods. [optional]  # noqa: E501
+            network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
+            network_ingress_enable_cors (bool): [optional]  # noqa: E501
+            network_ingress_cors_allow_origin (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_methods (str): [optional]  # noqa: E501
+            network_ingress_cors_allow_headers (str): [optional]  # noqa: E501
+            network_ingress_proxy_buffer_size_kb (int): header buffer size used while reading response header from upstream. [optional]  # noqa: E501
+            network_ingress_keepalive_time_seconds (int): Limits the maximum time (in seconds) during which requests can be processed through one keepalive connection. [optional]  # noqa: E501
+            network_ingress_keepalive_timeout_seconds (int): Sets a timeout (in seconds) during which an idle keepalive connection to an upstream server will stay open.. [optional]  # noqa: E501
+            network_ingress_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a response to the client. [optional]  # noqa: E501
+            network_ingress_proxy_connect_timeout_seconds (int): Sets a timeout (in seconds) for establishing a connection to a proxied server. [optional]  # noqa: E501
+            network_ingress_proxy_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the proxied server. [optional]  # noqa: E501
+            network_ingress_proxy_read_timeout_seconds (int): Sets a timeout (in seconds) for reading a response from the proxied server. [optional]  # noqa: E501
+            network_ingress_proxy_buffering (str): Allows to enable or disable nginx `proxy-buffering`. [optional]  # noqa: E501
+            network_ingress_proxy_request_buffering (str): Allows to enable or disable nginx `proxy-request-buffering`. [optional]  # noqa: E501
+            network_ingress_grpc_send_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional]  # noqa: E501
+            network_ingress_grpc_read_timeout_seconds (int): Sets a timeout (in seconds) for transmitting a request to the grpc server. [optional]  # noqa: E501
+            network_ingress_whitelist_source_range (str): list of source ranges to allow access to ingress proxy.  This property can be used to whitelist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 To allow all source ranges, set 0.0.0.0/0. . [optional]  # noqa: E501
+            network_ingress_denylist_source_range (str): list of source ranges to deny access to ingress proxy.  This property can be used to blacklist source IP ranges for ingress proxy. The value is a comma separated list of CIDRs, e.g. 10.0.0.0/24,172.10.0.1 . [optional]  # noqa: E501
+            network_ingress_extra_headers (str): Allows to define response headers. [optional]  # noqa: E501
+            network_ingress_basic_auth_env_var (str): Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. . [optional]  # noqa: E501
+            network_ingress_enable_sticky_session (bool): Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target . [optional]  # noqa: E501
+            security_service_account_name (str): Allows you to set an existing Kubernetes service account name . [optional]  # noqa: E501
+            hpa_cpu_average_utilization_percent (int): Percentage value of cpu usage at which point pods should scale up.. [optional]  # noqa: E501
+            security_read_only_root_filesystem (bool): Mounts the container's root filesystem as read-only . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

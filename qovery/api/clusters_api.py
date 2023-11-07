@@ -1566,7 +1566,7 @@ class ClustersApi(object):
     ):
         """Get advanced settings  # noqa: E501
 
-        Get list and values of the advanced settings of the cluster.  # noqa: E501
+        Get the list and values of the advanced settings of the cluster. Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/cluster-advanced-settings/)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1823,6 +1823,7 @@ class ClustersApi(object):
     ):
         """List default cluster advanced settings  # noqa: E501
 
+        Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/cluster-advanced-settings/)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

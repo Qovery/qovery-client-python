@@ -494,34 +494,42 @@ with qovery.ApiClient(configuration) as api_client:
     organization_id = "organizationId_example" # str | Organization ID
     cluster_id = "clusterId_example" # str | Cluster ID
     cluster_advanced_settings = ClusterAdvancedSettings(
-        aws_cloudwatch_eks_logs_retention_days=90,
-        aws_vpc_enable_s3_flow_logs=False,
-        aws_vpc_flow_logs_retention_days=365,
-        loki_log_retention_in_week=12,
-        registry_image_retention_time=31536000,
+        aws_cloudwatch_eks_logs_retention_days=1,
+        aws_vpc_enable_s3_flow_logs=True,
+        aws_vpc_flow_logs_retention_days=1,
+        loki_log_retention_in_week=1,
+        registry_image_retention_time=1,
         cloud_provider_container_registry_tags={
             "key": "key_example",
         },
-        load_balancer_size="lb-s",
-        database_postgresql_deny_public_access=False,
-        database_postgresql_allowed_cidrs=["0.0.0.0/0"],
-        database_mysql_deny_public_access=False,
-        database_mysql_allowed_cidrs=["0.0.0.0/0"],
-        database_mongodb_deny_public_access=False,
-        database_mongodb_allowed_cidrs=["0.0.0.0/0"],
-        database_redis_deny_public_access=False,
-        database_redis_allowed_cidrs=["0.0.0.0/0"],
-        aws_iam_admin_group="Admins",
+        load_balancer_size="load_balancer_size_example",
+        database_postgresql_deny_public_access=True,
+        database_postgresql_allowed_cidrs=[
+            "database_postgresql_allowed_cidrs_example",
+        ],
+        database_mysql_deny_public_access=True,
+        database_mysql_allowed_cidrs=[
+            "database_mysql_allowed_cidrs_example",
+        ],
+        database_mongodb_deny_public_access=True,
+        database_mongodb_allowed_cidrs=[
+            "database_mongodb_allowed_cidrs_example",
+        ],
+        database_redis_deny_public_access=True,
+        database_redis_allowed_cidrs=[
+            "database_redis_allowed_cidrs_example",
+        ],
+        aws_iam_admin_group="aws_iam_admin_group_example",
         aws_eks_ec2_metadata_imds="optional",
-        pleco_resources_ttl=-1,
+        pleco_resources_ttl=1,
         registry_mirroring_mode=RegistryMirroringModeEnum("SERVICE"),
-        nginx_vcpu_request_in_milli_cpu=100,
-        nginx_vcpu_limit_in_milli_cpu=500,
-        nginx_memory_request_in_mib=768,
-        nginx_memory_limit_in_mib=768,
-        nginx_hpa_cpu_utilization_percentage_threshold=50,
-        nginx_hpa_min_number_instances=2,
-        nginx_hpa_max_number_instances=25,
+        nginx_vcpu_request_in_milli_cpu=1,
+        nginx_vcpu_limit_in_milli_cpu=1,
+        nginx_memory_request_in_mib=1,
+        nginx_memory_limit_in_mib=1,
+        nginx_hpa_cpu_utilization_percentage_threshold=1,
+        nginx_hpa_min_number_instances=1,
+        nginx_hpa_max_number_instances=1,
     ) # ClusterAdvancedSettings |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -692,7 +700,7 @@ Name | Type | Description  | Notes
 
 Get advanced settings
 
-Get list and values of the advanced settings of the cluster.
+Get the list and values of the advanced settings of the cluster. Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/cluster-advanced-settings/) 
 
 ### Example
 
@@ -954,6 +962,8 @@ Name | Type | Description  | Notes
 > ClusterAdvancedSettings get_default_cluster_advanced_settings()
 
 List default cluster advanced settings
+
+Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/cluster-advanced-settings/)
 
 ### Example
 

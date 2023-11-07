@@ -934,6 +934,7 @@ class ContainersApi(object):
     ):
         """List default container advanced settings  # noqa: E501
 
+        Default values for each setting are available in [our documentation](https://hub.qovery.com/docs/using-qovery/configuration/advanced-settings/)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
