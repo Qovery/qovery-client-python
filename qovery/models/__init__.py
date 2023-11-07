@@ -269,6 +269,11 @@ from qovery.model.helm_deployment_restriction_response import HelmDeploymentRest
 from qovery.model.helm_deployment_restriction_response_list import HelmDeploymentRestrictionResponseList
 from qovery.model.helm_force_event import HelmForceEvent
 from qovery.model.helm_repository_kind_enum import HelmRepositoryKindEnum
+from qovery.model.helm_repository_request import HelmRepositoryRequest
+from qovery.model.helm_repository_request_config import HelmRepositoryRequestConfig
+from qovery.model.helm_repository_response import HelmRepositoryResponse
+from qovery.model.helm_repository_response_all_of import HelmRepositoryResponseAllOf
+from qovery.model.helm_repository_response_list import HelmRepositoryResponseList
 from qovery.model.helm_request import HelmRequest
 from qovery.model.helm_request_all_of import HelmRequestAllOf
 from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource

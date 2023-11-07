@@ -316,6 +316,11 @@ docs/HelmDeploymentRestrictionResponseList.md
 docs/HelmForceEvent.md
 docs/HelmMainCallsApi.md
 docs/HelmRepositoryKindEnum.md
+docs/HelmRepositoryRequest.md
+docs/HelmRepositoryRequestConfig.md
+docs/HelmRepositoryResponse.md
+docs/HelmRepositoryResponseAllOf.md
+docs/HelmRepositoryResponseList.md
 docs/HelmRequest.md
 docs/HelmRequestAllOf.md
 docs/HelmRequestAllOfSource.md
@@ -921,6 +926,11 @@ qovery/model/helm_deployment_restriction_response.py
 qovery/model/helm_deployment_restriction_response_list.py
 qovery/model/helm_force_event.py
 qovery/model/helm_repository_kind_enum.py
+qovery/model/helm_repository_request.py
+qovery/model/helm_repository_request_config.py
+qovery/model/helm_repository_response.py
+qovery/model/helm_repository_response_all_of.py
+qovery/model/helm_repository_response_list.py
 qovery/model/helm_request.py
 qovery/model/helm_request_all_of.py
 qovery/model/helm_request_all_of_source.py
@@ -1476,6 +1486,11 @@ test/test_helm_deployment_restriction_response_list.py
 test/test_helm_force_event.py
 test/test_helm_main_calls_api.py
 test/test_helm_repository_kind_enum.py
+test/test_helm_repository_request.py
+test/test_helm_repository_request_config.py
+test/test_helm_repository_response.py
+test/test_helm_repository_response_all_of.py
+test/test_helm_repository_response_list.py
 test/test_helm_request.py
 test/test_helm_request_all_of.py
 test/test_helm_request_all_of_source.py
