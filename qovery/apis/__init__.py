@@ -67,6 +67,7 @@ from qovery.api.helm_configuration_api import HelmConfigurationApi
 from qovery.api.helm_deployment_history_api import HelmDeploymentHistoryApi
 from qovery.api.helm_deployment_restriction_api import HelmDeploymentRestrictionApi
 from qovery.api.helm_main_calls_api import HelmMainCallsApi
+from qovery.api.helm_repositories_api import HelmRepositoriesApi
 from qovery.api.helms_api import HelmsApi
 from qovery.api.job_actions_api import JobActionsApi
 from qovery.api.job_configuration_api import JobConfigurationApi
