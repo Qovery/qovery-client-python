@@ -88,6 +88,7 @@ class CreditCard(ModelNormal):
             'expiry_year': (int,),  # noqa: E501
             'last_digit': (str,),  # noqa: E501
             'is_expired': (bool,),  # noqa: E501
+            'brand': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class CreditCard(ModelNormal):
         'expiry_year': 'expiry_year',  # noqa: E501
         'last_digit': 'last_digit',  # noqa: E501
         'is_expired': 'is_expired',  # noqa: E501
+        'brand': 'brand',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,7 +113,7 @@ class CreditCard(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, created_at, expiry_month, expiry_year, last_digit, is_expired, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_at, expiry_month, expiry_year, last_digit, is_expired, brand, *args, **kwargs):  # noqa: E501
         """CreditCard - a model defined in OpenAPI
 
         Args:
@@ -121,6 +123,7 @@ class CreditCard(ModelNormal):
             expiry_year (int):
             last_digit (str):
             is_expired (bool):
+            brand (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -190,6 +193,7 @@ class CreditCard(ModelNormal):
         self.expiry_year = expiry_year
         self.last_digit = last_digit
         self.is_expired = is_expired
+        self.brand = brand
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -210,7 +214,7 @@ class CreditCard(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, created_at, expiry_month, expiry_year, last_digit, is_expired, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_at, expiry_month, expiry_year, last_digit, is_expired, brand, *args, **kwargs):  # noqa: E501
         """CreditCard - a model defined in OpenAPI
 
         Args:
@@ -220,6 +224,7 @@ class CreditCard(ModelNormal):
             expiry_year (int):
             last_digit (str):
             is_expired (bool):
+            brand (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -287,6 +292,7 @@ class CreditCard(ModelNormal):
         self.expiry_year = expiry_year
         self.last_digit = last_digit
         self.is_expired = is_expired
+        self.brand = brand
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
