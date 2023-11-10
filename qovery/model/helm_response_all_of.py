@@ -31,11 +31,11 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
     from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
-    from qovery.model.helm_response_all_of_source import HelmResponseAllOfSource
     from qovery.model.reference_object import ReferenceObject
+    globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
     globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
-    globals()['HelmResponseAllOfSource'] = HelmResponseAllOfSource
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -96,7 +96,7 @@ class HelmResponseAllOf(ModelNormal):
             'name': (str,),  # noqa: E501
             'auto_preview': (bool,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
-            'source': (HelmResponseAllOfSource,),  # noqa: E501
+            'source': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'allow_cluster_wide_resources': (bool,),  # noqa: E501
             'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
@@ -135,7 +135,7 @@ class HelmResponseAllOf(ModelNormal):
             name (str): name is case insensitive
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmResponseAllOfSource):
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             values_override (HelmRequestAllOfValuesOverride):
 
@@ -240,7 +240,7 @@ class HelmResponseAllOf(ModelNormal):
             name (str): name is case insensitive
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmResponseAllOfSource):
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             values_override (HelmRequestAllOfValuesOverride):
 

@@ -286,9 +286,6 @@ from qovery.model.helm_request_all_of_values_override_file_raw import HelmReques
 from qovery.model.helm_request_all_of_values_override_file_raw_values import HelmRequestAllOfValuesOverrideFileRawValues
 from qovery.model.helm_response import HelmResponse
 from qovery.model.helm_response_all_of import HelmResponseAllOf
-from qovery.model.helm_response_all_of_source import HelmResponseAllOfSource
-from qovery.model.helm_response_all_of_source_repository import HelmResponseAllOfSourceRepository
-from qovery.model.helm_response_all_of_source_repository_repository import HelmResponseAllOfSourceRepositoryRepository
 from qovery.model.helm_response_list import HelmResponseList
 from qovery.model.instance import Instance
 from qovery.model.instance_memory import InstanceMemory
