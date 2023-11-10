@@ -375,6 +375,7 @@ Class | Method | HTTP request | Description
 *HelmDeploymentRestrictionApi* | [**get_helm_deployment_restrictions**](docs/HelmDeploymentRestrictionApi.md#get_helm_deployment_restrictions) | **GET** /helm/{helmId}/deploymentRestriction | Get helm deployment restrictions
 *HelmMainCallsApi* | [**delete_helm**](docs/HelmMainCallsApi.md#delete_helm) | **DELETE** /helm/{helmId} | Delete helm
 *HelmMainCallsApi* | [**edit_helm**](docs/HelmMainCallsApi.md#edit_helm) | **PUT** /helm/{helmId} | Edit helm
+*HelmMainCallsApi* | [**get_default_values**](docs/HelmMainCallsApi.md#get_default_values) | **GET** /helm/{helmId}/defaultValues | Display the contents of the values.yaml file
 *HelmMainCallsApi* | [**get_helm**](docs/HelmMainCallsApi.md#get_helm) | **GET** /helm/{helmId} | Get helm by ID
 *HelmMainCallsApi* | [**get_helm_status**](docs/HelmMainCallsApi.md#get_helm_status) | **GET** /helm/{helmId}/status | Get helm status
 *HelmRepositoriesApi* | [**create_helm_repository**](docs/HelmRepositoriesApi.md#create_helm_repository) | **POST** /organization/{organizationId}/helmRepository | Create a helm repository

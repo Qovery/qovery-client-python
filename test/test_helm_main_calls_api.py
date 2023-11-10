@@ -38,6 +38,13 @@ class TestHelmMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_default_values(self):
+        """Test case for get_default_values
+
+        Display the contents of the values.yaml file  # noqa: E501
+        """
+        pass
+
     def test_get_helm(self):
         """Test case for get_helm
 
