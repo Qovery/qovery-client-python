@@ -103,11 +103,11 @@ class HelmResponse(ModelComposed):
             'auto_preview': (bool,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'source': (HelmResponseAllOfSource,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
-            'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'allow_cluster_wide_resources': (bool,),  # noqa: E501
             'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
+            'description': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -123,11 +123,11 @@ class HelmResponse(ModelComposed):
         'auto_preview': 'auto_preview',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
         'source': 'source',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'allow_cluster_wide_resources': 'allow_cluster_wide_resources',  # noqa: E501
         'values_override': 'values_override',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
+        'description': 'description',  # noqa: E501
     }
 
     read_only_vars = {
@@ -149,6 +149,9 @@ class HelmResponse(ModelComposed):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
             source (HelmResponseAllOfSource):
+            arguments ([str]): The extra arguments to pass to helm
+            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . defaults to False  # noqa: E501
+            values_override (HelmRequestAllOfValuesOverride):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -181,11 +184,9 @@ class HelmResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            arguments ([str]): The extra arguments to pass to helm. [optional]  # noqa: E501
-            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . [optional] if omitted the server will use the default value of False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride): [optional]  # noqa: E501
         """
 
+        allow_cluster_wide_resources = kwargs.get('allow_cluster_wide_resources', False)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -262,6 +263,9 @@ class HelmResponse(ModelComposed):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
             source (HelmResponseAllOfSource):
+            arguments ([str]): The extra arguments to pass to helm
+            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . defaults to False  # noqa: E501
+            values_override (HelmRequestAllOfValuesOverride):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -294,11 +298,9 @@ class HelmResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            arguments ([str]): The extra arguments to pass to helm. [optional]  # noqa: E501
-            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . [optional] if omitted the server will use the default value of False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride): [optional]  # noqa: E501
         """
 
+        allow_cluster_wide_resources = kwargs.get('allow_cluster_wide_resources', False)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())

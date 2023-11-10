@@ -94,14 +94,14 @@ class HelmRequestAllOf(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'timeout_sec': (int,),  # noqa: E501
-            'auto_preview': (bool, none_type,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'source': (HelmRequestAllOfSource,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
-            'allow_cluster_wide_resources': (bool,),  # noqa: E501
             'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'timeout_sec': (int,),  # noqa: E501
+            'auto_preview': (bool, none_type,),  # noqa: E501
+            'allow_cluster_wide_resources': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -111,14 +111,14 @@ class HelmRequestAllOf(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'timeout_sec': 'timeout_sec',  # noqa: E501
-        'auto_preview': 'auto_preview',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
         'source': 'source',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
-        'allow_cluster_wide_resources': 'allow_cluster_wide_resources',  # noqa: E501
         'values_override': 'values_override',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'timeout_sec': 'timeout_sec',  # noqa: E501
+        'auto_preview': 'auto_preview',  # noqa: E501
+        'allow_cluster_wide_resources': 'allow_cluster_wide_resources',  # noqa: E501
     }
 
     read_only_vars = {
@@ -128,11 +128,15 @@ class HelmRequestAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, auto_deploy, source, arguments, values_override, *args, **kwargs):  # noqa: E501
         """HelmRequestAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
+            auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  
+            source (HelmRequestAllOfSource):
+            arguments ([str]): The extra arguments to pass to helm
+            values_override (HelmRequestAllOfValuesOverride):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -168,11 +172,7 @@ class HelmRequestAllOf(ModelNormal):
             description (str): [optional]  # noqa: E501
             timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             auto_preview (bool, none_type): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called or when a new commit is updated. If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
-            auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  . [optional]  # noqa: E501
-            source (HelmRequestAllOfSource): [optional]  # noqa: E501
-            arguments ([str]): The extra arguments to pass to helm. [optional]  # noqa: E501
             allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . [optional] if omitted the server will use the default value of False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -205,6 +205,10 @@ class HelmRequestAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.auto_deploy = auto_deploy
+        self.source = source
+        self.arguments = arguments
+        self.values_override = values_override
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -225,11 +229,15 @@ class HelmRequestAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, auto_deploy, source, arguments, values_override, *args, **kwargs):  # noqa: E501
         """HelmRequestAllOf - a model defined in OpenAPI
 
         Args:
             name (str): name is case insensitive
+            auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  
+            source (HelmRequestAllOfSource):
+            arguments ([str]): The extra arguments to pass to helm
+            values_override (HelmRequestAllOfValuesOverride):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -265,11 +273,7 @@ class HelmRequestAllOf(ModelNormal):
             description (str): [optional]  # noqa: E501
             timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             auto_preview (bool, none_type): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called or when a new commit is updated. If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
-            auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  . [optional]  # noqa: E501
-            source (HelmRequestAllOfSource): [optional]  # noqa: E501
-            arguments ([str]): The extra arguments to pass to helm. [optional]  # noqa: E501
             allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . [optional] if omitted the server will use the default value of False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -300,6 +304,10 @@ class HelmRequestAllOf(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.auto_deploy = auto_deploy
+        self.source = source
+        self.arguments = arguments
+        self.values_override = values_override
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

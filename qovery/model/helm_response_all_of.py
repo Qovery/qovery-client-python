@@ -97,10 +97,10 @@ class HelmResponseAllOf(ModelNormal):
             'auto_preview': (bool,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
             'source': (HelmResponseAllOfSource,),  # noqa: E501
-            'description': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'allow_cluster_wide_resources': (bool,),  # noqa: E501
             'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
+            'description': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -114,10 +114,10 @@ class HelmResponseAllOf(ModelNormal):
         'auto_preview': 'auto_preview',  # noqa: E501
         'auto_deploy': 'auto_deploy',  # noqa: E501
         'source': 'source',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'allow_cluster_wide_resources': 'allow_cluster_wide_resources',  # noqa: E501
         'values_override': 'values_override',  # noqa: E501
+        'description': 'description',  # noqa: E501
     }
 
     read_only_vars = {
@@ -127,7 +127,7 @@ class HelmResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, environment, name, auto_preview, auto_deploy, source, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment, name, auto_preview, auto_deploy, source, arguments, values_override, *args, **kwargs):  # noqa: E501
         """HelmResponseAllOf - a model defined in OpenAPI
 
         Args:
@@ -136,8 +136,11 @@ class HelmResponseAllOf(ModelNormal):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
             source (HelmResponseAllOfSource):
+            arguments ([str]): The extra arguments to pass to helm
+            values_override (HelmRequestAllOfValuesOverride):
 
         Keyword Args:
+            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . defaults to False  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -169,11 +172,9 @@ class HelmResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            arguments ([str]): The extra arguments to pass to helm. [optional]  # noqa: E501
-            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . [optional] if omitted the server will use the default value of False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride): [optional]  # noqa: E501
         """
 
+        allow_cluster_wide_resources = kwargs.get('allow_cluster_wide_resources', False)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -208,6 +209,9 @@ class HelmResponseAllOf(ModelNormal):
         self.auto_preview = auto_preview
         self.auto_deploy = auto_deploy
         self.source = source
+        self.arguments = arguments
+        self.allow_cluster_wide_resources = allow_cluster_wide_resources
+        self.values_override = values_override
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -228,7 +232,7 @@ class HelmResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, environment, name, auto_preview, auto_deploy, source, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment, name, auto_preview, auto_deploy, source, arguments, values_override, *args, **kwargs):  # noqa: E501
         """HelmResponseAllOf - a model defined in OpenAPI
 
         Args:
@@ -237,8 +241,11 @@ class HelmResponseAllOf(ModelNormal):
             auto_preview (bool): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. 
             auto_deploy (bool): Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  
             source (HelmResponseAllOfSource):
+            arguments ([str]): The extra arguments to pass to helm
+            values_override (HelmRequestAllOfValuesOverride):
 
         Keyword Args:
+            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . defaults to False  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -270,11 +277,9 @@ class HelmResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
-            arguments ([str]): The extra arguments to pass to helm. [optional]  # noqa: E501
-            allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . [optional] if omitted the server will use the default value of False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride): [optional]  # noqa: E501
         """
 
+        allow_cluster_wide_resources = kwargs.get('allow_cluster_wide_resources', False)
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())
@@ -307,6 +312,9 @@ class HelmResponseAllOf(ModelNormal):
         self.auto_preview = auto_preview
         self.auto_deploy = auto_deploy
         self.source = source
+        self.arguments = arguments
+        self.allow_cluster_wide_resources = allow_cluster_wide_resources
+        self.values_override = values_override
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
