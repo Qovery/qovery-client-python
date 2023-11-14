@@ -336,7 +336,10 @@ class VariableMainCallsApi(object):
                     'scope',
                     'is_secret',
                 ],
-                'required': [],
+                'required': [
+                    'parent_id',
+                    'scope',
+                ],
                 'nullable': [
                     'is_secret',
                 ],
@@ -799,6 +802,8 @@ class VariableMainCallsApi(object):
 
     def list_variables(
         self,
+        parent_id,
+        scope,
         **kwargs
     ):
         """List variables  # noqa: E501
@@ -807,13 +812,14 @@ class VariableMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.list_variables(async_req=True)
+        >>> thread = api.list_variables(parent_id, scope, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            parent_id (str): it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope.
+            scope (APIVariableScopeEnum): the type of the parent_id (application, project, environment etc..).
 
         Keyword Args:
-            parent_id (str): it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope.. [optional]
-            scope (APIVariableScopeEnum): the type of the parent_id (application, project, environment etc..).. [optional]
             is_secret (bool, none_type): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -876,5 +882,9 @@ class VariableMainCallsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['parent_id'] = \
+            parent_id
+        kwargs['scope'] = \
+            scope
         return self.list_variables_endpoint.call_with_http_info(**kwargs)
 

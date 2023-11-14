@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_variables**
-> VariableResponseList list_variables()
+> VariableResponseList list_variables(parent_id, scope)
 
 List variables
 
@@ -541,15 +541,23 @@ configuration = qovery.Configuration(
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    parent_id = "parent_id_example" # str | it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope. (optional)
-    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | the type of the parent_id (application, project, environment etc..). (optional)
+    parent_id = "parent_id_example" # str | it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope.
+    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | the type of the parent_id (application, project, environment etc..).
     is_secret = True # bool, none_type |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # List variables
+        api_response = api_instance.list_variables(parent_id, scope)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling VariableMainCallsApi->list_variables: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List variables
-        api_response = api_instance.list_variables(parent_id=parent_id, scope=scope, is_secret=is_secret)
+        api_response = api_instance.list_variables(parent_id, scope, is_secret=is_secret)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling VariableMainCallsApi->list_variables: %s\n" % e)
@@ -560,8 +568,8 @@ with qovery.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent_id** | **str**| it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope &#x3D; APPLICATION and parent_id&#x3D;&lt;application_id&gt;, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope. | [optional]
- **scope** | **APIVariableScopeEnum**| the type of the parent_id (application, project, environment etc..). | [optional]
+ **parent_id** | **str**| it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope &#x3D; APPLICATION and parent_id&#x3D;&lt;application_id&gt;, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope. |
+ **scope** | **APIVariableScopeEnum**| the type of the parent_id (application, project, environment etc..). |
  **is_secret** | **bool, none_type**|  | [optional]
 
 ### Return type
