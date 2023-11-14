@@ -96,6 +96,8 @@ class VariableResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
+            'key': (str,),  # noqa: E501
+            'value': (str, none_type,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
             'overridden_variable': (VariableOverride,),  # noqa: E501
             'aliased_variable': (VariableAlias,),  # noqa: E501
@@ -112,6 +114,8 @@ class VariableResponseAllOf(ModelNormal):
 
 
     attribute_map = {
+        'key': 'key',  # noqa: E501
+        'value': 'value',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
@@ -129,10 +133,12 @@ class VariableResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, scope, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, key, value, scope, *args, **kwargs):  # noqa: E501
         """VariableResponseAllOf - a model defined in OpenAPI
 
         Args:
+            key (str):
+            value (str, none_type):
             scope (APIVariableScopeEnum):
 
         Keyword Args:
@@ -204,6 +210,8 @@ class VariableResponseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.key = key
+        self.value = value
         self.scope = scope
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -225,10 +233,12 @@ class VariableResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, scope, *args, **kwargs):  # noqa: E501
+    def __init__(self, key, value, scope, *args, **kwargs):  # noqa: E501
         """VariableResponseAllOf - a model defined in OpenAPI
 
         Args:
+            key (str):
+            value (str, none_type):
             scope (APIVariableScopeEnum):
 
         Keyword Args:
@@ -298,6 +308,8 @@ class VariableResponseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.key = key
+        self.value = value
         self.scope = scope
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

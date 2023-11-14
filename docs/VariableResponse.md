@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
+**key** | **str** |  | 
+**value** | **str, none_type** |  | 
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **overridden_variable** | [**VariableOverride**](VariableOverride.md) |  | [optional] 

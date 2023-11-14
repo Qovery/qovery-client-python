@@ -102,6 +102,8 @@ class VariableResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'key': (str,),  # noqa: E501
+            'value': (str, none_type,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'overridden_variable': (VariableOverride,),  # noqa: E501
@@ -121,6 +123,8 @@ class VariableResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'key': 'key',  # noqa: E501
+        'value': 'value',  # noqa: E501
         'scope': 'scope',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
@@ -146,6 +150,8 @@ class VariableResponse(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
+            key (str):
+            value (str, none_type):
             scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
@@ -258,6 +264,8 @@ class VariableResponse(ModelComposed):
         """VariableResponse - a model defined in OpenAPI
 
         Keyword Args:
+            key (str):
+            value (str, none_type):
             scope (APIVariableScopeEnum):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be

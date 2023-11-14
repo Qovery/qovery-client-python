@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**key** | **str** |  | 
+**value** | **str, none_type** |  | 
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **overridden_variable** | [**VariableOverride**](VariableOverride.md) |  | [optional] 
 **aliased_variable** | [**VariableAlias**](VariableAlias.md) |  | [optional] 
