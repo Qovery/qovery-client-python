@@ -99,6 +99,7 @@ class VariableResponseAllOf(ModelNormal):
             'key': (str,),  # noqa: E501
             'value': (str, none_type,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
+            'mount_path': (str, none_type,),  # noqa: E501
             'overridden_variable': (VariableOverride,),  # noqa: E501
             'aliased_variable': (VariableAlias,),  # noqa: E501
             'variable_type': (APIVariableTypeEnum,),  # noqa: E501
@@ -117,6 +118,7 @@ class VariableResponseAllOf(ModelNormal):
         'key': 'key',  # noqa: E501
         'value': 'value',  # noqa: E501
         'scope': 'scope',  # noqa: E501
+        'mount_path': 'mount_path',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
         'variable_type': 'variable_type',  # noqa: E501
@@ -172,6 +174,7 @@ class VariableResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            mount_path (str, none_type): [optional]  # noqa: E501
             overridden_variable (VariableOverride): [optional]  # noqa: E501
             aliased_variable (VariableAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501
@@ -272,6 +275,7 @@ class VariableResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            mount_path (str, none_type): [optional]  # noqa: E501
             overridden_variable (VariableOverride): [optional]  # noqa: E501
             aliased_variable (VariableAlias): [optional]  # noqa: E501
             variable_type (APIVariableTypeEnum): [optional]  # noqa: E501

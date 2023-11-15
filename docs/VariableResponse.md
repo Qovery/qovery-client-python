@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **value** | **str, none_type** |  | 
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
+**mount_path** | **str, none_type** |  | [optional] 
 **overridden_variable** | [**VariableOverride**](VariableOverride.md) |  | [optional] 
 **aliased_variable** | [**VariableAlias**](VariableAlias.md) |  | [optional] 
 **variable_type** | [**APIVariableTypeEnum**](APIVariableTypeEnum.md) |  | [optional] 
