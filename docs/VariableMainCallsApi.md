@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**create_variable_override**](VariableMainCallsApi.md#create_variable_override) | **POST** /variable/{variableId}/override | Create a variable override
 [**delete_variable**](VariableMainCallsApi.md#delete_variable) | **DELETE** /variable/{variableId} | Delete a variable
 [**edit_variable**](VariableMainCallsApi.md#edit_variable) | **PUT** /variable/{variableId} | Edit a variable
+[**import_environment_variables**](VariableMainCallsApi.md#import_environment_variables) | **POST** /variable/import | Import variables
 [**list_variables**](VariableMainCallsApi.md#list_variables) | **GET** /variable | List variables
 
 
@@ -489,6 +490,119 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edited variable value |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_environment_variables**
+> VariableImport import_environment_variables(service_id, scope)
+
+Import variables
+
+Import environment variables in a defined scope, with a defined visibility.
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import variable_main_calls_api
+from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.variable_import import VariableImport
+from qovery.model.variable_import_request import VariableImportRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
+    service_id = "service_id_example" # str | service id
+    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | scope
+    variable_import_request = VariableImportRequest(
+        overwrite=False,
+        vars=[
+            VariableImportRequestVarsInner(
+                name="name_example",
+                value="value_example",
+                scope=APIVariableScopeEnum("APPLICATION"),
+                is_secret=True,
+            ),
+        ],
+    ) # VariableImportRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Import variables
+        api_response = api_instance.import_environment_variables(service_id, scope)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling VariableMainCallsApi->import_environment_variables: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Import variables
+        api_response = api_instance.import_environment_variables(service_id, scope, variable_import_request=variable_import_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling VariableMainCallsApi->import_environment_variables: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **service_id** | **str**| service id |
+ **scope** | **APIVariableScopeEnum**| scope |
+ **variable_import_request** | [**VariableImportRequest**](VariableImportRequest.md)|  | [optional]
+
+### Return type
+
+[**VariableImport**](VariableImport.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Import environment variables |  -  |
 **400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |

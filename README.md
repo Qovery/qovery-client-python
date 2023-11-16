@@ -499,6 +499,7 @@ Class | Method | HTTP request | Description
 *VariableMainCallsApi* | [**create_variable_override**](docs/VariableMainCallsApi.md#create_variable_override) | **POST** /variable/{variableId}/override | Create a variable override
 *VariableMainCallsApi* | [**delete_variable**](docs/VariableMainCallsApi.md#delete_variable) | **DELETE** /variable/{variableId} | Delete a variable
 *VariableMainCallsApi* | [**edit_variable**](docs/VariableMainCallsApi.md#edit_variable) | **PUT** /variable/{variableId} | Edit a variable
+*VariableMainCallsApi* | [**import_environment_variables**](docs/VariableMainCallsApi.md#import_environment_variables) | **POST** /variable/import | Import variables
 *VariableMainCallsApi* | [**list_variables**](docs/VariableMainCallsApi.md#list_variables) | **GET** /variable | List variables
 
 

@@ -59,6 +59,13 @@ class TestVariableMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_import_environment_variables(self):
+        """Test case for import_environment_variables
+
+        Import variables  # noqa: E501
+        """
+        pass
+
     def test_list_variables(self):
         """Test case for list_variables
 
