@@ -23,6 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.service_type_for_variable_enum import ServiceTypeForVariableEnum
 from qovery.model.variable_alias_request import VariableAliasRequest
 from qovery.model.variable_edit_request import VariableEditRequest
 from qovery.model.variable_import import VariableImport
@@ -335,12 +336,12 @@ class VariableMainCallsApi(object):
             params_map={
                 'all': [
                     'service_id',
-                    'scope',
+                    'service_type',
                     'variable_import_request',
                 ],
                 'required': [
                     'service_id',
-                    'scope',
+                    'service_type',
                 ],
                 'nullable': [
                 ],
@@ -357,18 +358,18 @@ class VariableMainCallsApi(object):
                 'openapi_types': {
                     'service_id':
                         (str,),
-                    'scope':
-                        (APIVariableScopeEnum,),
+                    'service_type':
+                        (ServiceTypeForVariableEnum,),
                     'variable_import_request':
                         (VariableImportRequest,),
                 },
                 'attribute_map': {
                     'service_id': 'service_id',
-                    'scope': 'scope',
+                    'service_type': 'service_type',
                 },
                 'location_map': {
                     'service_id': 'query',
-                    'scope': 'query',
+                    'service_type': 'query',
                     'variable_import_request': 'body',
                 },
                 'collection_format_map': {
@@ -869,7 +870,7 @@ class VariableMainCallsApi(object):
     def import_environment_variables(
         self,
         service_id,
-        scope,
+        service_type,
         **kwargs
     ):
         """Import variables  # noqa: E501
@@ -878,12 +879,12 @@ class VariableMainCallsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.import_environment_variables(service_id, scope, async_req=True)
+        >>> thread = api.import_environment_variables(service_id, service_type, async_req=True)
         >>> result = thread.get()
 
         Args:
             service_id (str): service id
-            scope (APIVariableScopeEnum): scope
+            service_type (ServiceTypeForVariableEnum): service type
 
         Keyword Args:
             variable_import_request (VariableImportRequest): [optional]
@@ -950,8 +951,8 @@ class VariableMainCallsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['service_id'] = \
             service_id
-        kwargs['scope'] = \
-            scope
+        kwargs['service_type'] = \
+            service_type
         return self.import_environment_variables_endpoint.call_with_http_info(**kwargs)
 
     def list_variables(

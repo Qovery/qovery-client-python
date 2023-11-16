@@ -498,7 +498,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_environment_variables**
-> VariableImport import_environment_variables(service_id, scope)
+> VariableImport import_environment_variables(service_id, service_type)
 
 Import variables
 
@@ -513,7 +513,7 @@ Import environment variables in a defined scope, with a defined visibility.
 import time
 import qovery
 from qovery.api import variable_main_calls_api
-from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.model.service_type_for_variable_enum import ServiceTypeForVariableEnum
 from qovery.model.variable_import import VariableImport
 from qovery.model.variable_import_request import VariableImportRequest
 from pprint import pprint
@@ -544,7 +544,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
     service_id = "service_id_example" # str | service id
-    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | scope
+    service_type = ServiceTypeForVariableEnum("APPLICATION") # ServiceTypeForVariableEnum | service type
     variable_import_request = VariableImportRequest(
         overwrite=False,
         vars=[
@@ -560,7 +560,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Import variables
-        api_response = api_instance.import_environment_variables(service_id, scope)
+        api_response = api_instance.import_environment_variables(service_id, service_type)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling VariableMainCallsApi->import_environment_variables: %s\n" % e)
@@ -569,7 +569,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Import variables
-        api_response = api_instance.import_environment_variables(service_id, scope, variable_import_request=variable_import_request)
+        api_response = api_instance.import_environment_variables(service_id, service_type, variable_import_request=variable_import_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling VariableMainCallsApi->import_environment_variables: %s\n" % e)
@@ -581,7 +581,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_id** | **str**| service id |
- **scope** | **APIVariableScopeEnum**| scope |
+ **service_type** | **ServiceTypeForVariableEnum**| service type |
  **variable_import_request** | [**VariableImportRequest**](VariableImportRequest.md)|  | [optional]
 
 ### Return type

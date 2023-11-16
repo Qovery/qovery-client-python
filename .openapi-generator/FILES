@@ -540,6 +540,7 @@ docs/ServiceStorageRequestStorageInner.md
 docs/ServiceStorageStorageInner.md
 docs/ServiceTotalNumber.md
 docs/ServiceTypeEnum.md
+docs/ServiceTypeForVariableEnum.md
 docs/SignUp.md
 docs/SignUpRequest.md
 docs/Stage.md
@@ -1125,6 +1126,7 @@ qovery/model/service_storage_request_storage_inner.py
 qovery/model/service_storage_storage_inner.py
 qovery/model/service_total_number.py
 qovery/model/service_type_enum.py
+qovery/model/service_type_for_variable_enum.py
 qovery/model/sign_up.py
 qovery/model/sign_up_request.py
 qovery/model/stage.py
@@ -1706,6 +1708,7 @@ test/test_service_storage_request_storage_inner.py
 test/test_service_storage_storage_inner.py
 test/test_service_total_number.py
 test/test_service_type_enum.py
+test/test_service_type_for_variable_enum.py
 test/test_sign_up.py
 test/test_sign_up_request.py
 test/test_stage.py

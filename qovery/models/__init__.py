@@ -469,6 +469,7 @@ from qovery.model.service_storage_request_storage_inner import ServiceStorageReq
 from qovery.model.service_storage_storage_inner import ServiceStorageStorageInner
 from qovery.model.service_total_number import ServiceTotalNumber
 from qovery.model.service_type_enum import ServiceTypeEnum
+from qovery.model.service_type_for_variable_enum import ServiceTypeForVariableEnum
 from qovery.model.sign_up import SignUp
 from qovery.model.sign_up_request import SignUpRequest
 from qovery.model.stage import Stage
