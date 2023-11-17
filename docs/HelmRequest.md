@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **source** | [**HelmRequestAllOfSource**](HelmRequestAllOfSource.md) |  | 
 **arguments** | **[str]** | The extra arguments to pass to helm | 
 **values_override** | [**HelmRequestAllOfValuesOverride**](HelmRequestAllOfValuesOverride.md) |  | 
+**ports** | [**[HelmPortRequestPortsInner]**](HelmPortRequestPortsInner.md) |  | [optional] 
 **description** | **str** |  | [optional] 
 **timeout_sec** | **int** | Maximum number of seconds allowed for helm to run before killing it and mark it as failed  | [optional]  if omitted the server will use the default value of 600
 **auto_preview** | **bool, none_type** | Indicates if the &#39;environment preview option&#39; is enabled.   If enabled, a preview environment will be automatically cloned when &#x60;/preview&#x60; endpoint is called or when a new commit is updated. If not specified, it takes the value of the &#x60;auto_preview&#x60; property from the associated environment.  | [optional] 

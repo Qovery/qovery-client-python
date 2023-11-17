@@ -13,9 +13,13 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.helm_port_request import HelmPortRequest
+from qovery.model.helm_port_request_ports_inner import HelmPortRequestPortsInner
 from qovery.model.helm_request_all_of import HelmRequestAllOf
 from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
 from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
+globals()['HelmPortRequest'] = HelmPortRequest
+globals()['HelmPortRequestPortsInner'] = HelmPortRequestPortsInner
 globals()['HelmRequestAllOf'] = HelmRequestAllOf
 globals()['HelmRequestAllOfSource'] = HelmRequestAllOfSource
 globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride

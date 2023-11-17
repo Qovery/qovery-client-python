@@ -268,6 +268,11 @@ from qovery.model.helm_deployment_restriction_request import HelmDeploymentRestr
 from qovery.model.helm_deployment_restriction_response import HelmDeploymentRestrictionResponse
 from qovery.model.helm_deployment_restriction_response_list import HelmDeploymentRestrictionResponseList
 from qovery.model.helm_force_event import HelmForceEvent
+from qovery.model.helm_port_protocol_enum import HelmPortProtocolEnum
+from qovery.model.helm_port_request import HelmPortRequest
+from qovery.model.helm_port_request_ports_inner import HelmPortRequestPortsInner
+from qovery.model.helm_port_response import HelmPortResponse
+from qovery.model.helm_port_response_list import HelmPortResponseList
 from qovery.model.helm_repository_kind_enum import HelmRepositoryKindEnum
 from qovery.model.helm_repository_request import HelmRepositoryRequest
 from qovery.model.helm_repository_request_config import HelmRepositoryRequestConfig
@@ -286,6 +291,7 @@ from qovery.model.helm_request_all_of_values_override_file_raw import HelmReques
 from qovery.model.helm_request_all_of_values_override_file_raw_values import HelmRequestAllOfValuesOverrideFileRawValues
 from qovery.model.helm_response import HelmResponse
 from qovery.model.helm_response_all_of import HelmResponseAllOf
+from qovery.model.helm_response_all_of_ports import HelmResponseAllOfPorts
 from qovery.model.helm_response_list import HelmResponseList
 from qovery.model.instance import Instance
 from qovery.model.instance_memory import InstanceMemory

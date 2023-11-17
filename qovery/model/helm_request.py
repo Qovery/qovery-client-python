@@ -31,9 +31,13 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.helm_port_request import HelmPortRequest
+    from qovery.model.helm_port_request_ports_inner import HelmPortRequestPortsInner
     from qovery.model.helm_request_all_of import HelmRequestAllOf
     from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
     from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
+    globals()['HelmPortRequest'] = HelmPortRequest
+    globals()['HelmPortRequestPortsInner'] = HelmPortRequestPortsInner
     globals()['HelmRequestAllOf'] = HelmRequestAllOf
     globals()['HelmRequestAllOfSource'] = HelmRequestAllOfSource
     globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
@@ -100,6 +104,7 @@ class HelmRequest(ModelComposed):
             'source': (HelmRequestAllOfSource,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
+            'ports': ([HelmPortRequestPortsInner],),  # noqa: E501
             'description': (str,),  # noqa: E501
             'timeout_sec': (int,),  # noqa: E501
             'auto_preview': (bool, none_type,),  # noqa: E501
@@ -117,6 +122,7 @@ class HelmRequest(ModelComposed):
         'source': 'source',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'values_override': 'values_override',  # noqa: E501
+        'ports': 'ports',  # noqa: E501
         'description': 'description',  # noqa: E501
         'timeout_sec': 'timeout_sec',  # noqa: E501
         'auto_preview': 'auto_preview',  # noqa: E501
@@ -167,6 +173,7 @@ class HelmRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ports ([HelmPortRequestPortsInner]): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             auto_preview (bool, none_type): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called or when a new commit is updated. If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
@@ -279,6 +286,7 @@ class HelmRequest(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            ports ([HelmPortRequestPortsInner]): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             auto_preview (bool, none_type): Indicates if the 'environment preview option' is enabled.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called or when a new commit is updated. If not specified, it takes the value of the `auto_preview` property from the associated environment. . [optional]  # noqa: E501
@@ -352,6 +360,7 @@ class HelmRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
+              HelmPortRequest,
               HelmRequestAllOf,
           ],
           'oneOf': [
