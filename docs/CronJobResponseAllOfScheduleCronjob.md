@@ -1,4 +1,4 @@
-# JobResponseAllOfScheduleCronjob
+# CronJobResponseAllOfScheduleCronjob
 
 
 ## Properties

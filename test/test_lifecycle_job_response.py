@@ -14,20 +14,24 @@ import unittest
 
 import qovery
 from qovery.model.application_git_repository import ApplicationGitRepository
+from qovery.model.base_job_response import BaseJobResponse
 from qovery.model.container_source import ContainerSource
 from qovery.model.healthcheck import Healthcheck
-from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
+from qovery.model.lifecycle_job_response_all_of import LifecycleJobResponseAllOf
+from qovery.model.lifecycle_job_response_all_of_schedule import LifecycleJobResponseAllOfSchedule
 from qovery.model.reference_object import ReferenceObject
 globals()['ApplicationGitRepository'] = ApplicationGitRepository
+globals()['BaseJobResponse'] = BaseJobResponse
 globals()['ContainerSource'] = ContainerSource
 globals()['Healthcheck'] = Healthcheck
-globals()['JobResponseAllOfSchedule'] = JobResponseAllOfSchedule
+globals()['LifecycleJobResponseAllOf'] = LifecycleJobResponseAllOf
+globals()['LifecycleJobResponseAllOfSchedule'] = LifecycleJobResponseAllOfSchedule
 globals()['ReferenceObject'] = ReferenceObject
-from qovery.model.job_response_all_of import JobResponseAllOf
+from qovery.model.lifecycle_job_response import LifecycleJobResponse
 
 
-class TestJobResponseAllOf(unittest.TestCase):
-    """JobResponseAllOf unit test stubs"""
+class TestLifecycleJobResponse(unittest.TestCase):
+    """LifecycleJobResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -35,10 +39,10 @@ class TestJobResponseAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testJobResponseAllOf(self):
-        """Test JobResponseAllOf"""
+    def testLifecycleJobResponse(self):
+        """Test LifecycleJobResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = JobResponseAllOf()  # noqa: E501
+        # model = LifecycleJobResponse()  # noqa: E501
         pass
 
 

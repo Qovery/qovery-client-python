@@ -40,6 +40,8 @@ from qovery.model.backup_paginated_response_list import BackupPaginatedResponseL
 from qovery.model.backup_request import BackupRequest
 from qovery.model.backup_response_list import BackupResponseList
 from qovery.model.base import Base
+from qovery.model.base_job_response import BaseJobResponse
+from qovery.model.base_job_response_all_of import BaseJobResponseAllOf
 from qovery.model.billing_end import BillingEnd
 from qovery.model.billing_info import BillingInfo
 from qovery.model.billing_info_request import BillingInfoRequest
@@ -129,6 +131,10 @@ from qovery.model.credentials_request import CredentialsRequest
 from qovery.model.credit_card import CreditCard
 from qovery.model.credit_card_request import CreditCardRequest
 from qovery.model.credit_card_response_list import CreditCardResponseList
+from qovery.model.cron_job_response import CronJobResponse
+from qovery.model.cron_job_response_all_of import CronJobResponseAllOf
+from qovery.model.cron_job_response_all_of_schedule import CronJobResponseAllOfSchedule
+from qovery.model.cron_job_response_all_of_schedule_cronjob import CronJobResponseAllOfScheduleCronjob
 from qovery.model.current_cost import CurrentCost
 from qovery.model.custom_domain import CustomDomain
 from qovery.model.custom_domain_all_of import CustomDomainAllOf
@@ -321,13 +327,13 @@ from qovery.model.job_request_all_of_source import JobRequestAllOfSource
 from qovery.model.job_request_all_of_source_docker import JobRequestAllOfSourceDocker
 from qovery.model.job_request_all_of_source_image import JobRequestAllOfSourceImage
 from qovery.model.job_response import JobResponse
-from qovery.model.job_response_all_of import JobResponseAllOf
-from qovery.model.job_response_all_of_schedule import JobResponseAllOfSchedule
-from qovery.model.job_response_all_of_schedule_cronjob import JobResponseAllOfScheduleCronjob
 from qovery.model.job_response_list import JobResponseList
 from qovery.model.job_schedule_event import JobScheduleEvent
 from qovery.model.key import Key
 from qovery.model.kubernetes_enum import KubernetesEnum
+from qovery.model.lifecycle_job_response import LifecycleJobResponse
+from qovery.model.lifecycle_job_response_all_of import LifecycleJobResponseAllOf
+from qovery.model.lifecycle_job_response_all_of_schedule import LifecycleJobResponseAllOfSchedule
 from qovery.model.link import Link
 from qovery.model.link_response_list import LinkResponseList
 from qovery.model.linked_service_type_enum import LinkedServiceTypeEnum
