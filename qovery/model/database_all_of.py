@@ -119,8 +119,11 @@ class DatabaseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, environment, *args, **kwargs):  # noqa: E501
         """DatabaseAllOf - a model defined in OpenAPI
+
+        Args:
+            environment (ReferenceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,7 +156,6 @@ class DatabaseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (ReferenceObject): [optional]  # noqa: E501
             host (str): [optional]  # noqa: E501
             port (int): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the database based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
@@ -191,6 +193,7 @@ class DatabaseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.environment = environment
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -211,8 +214,11 @@ class DatabaseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, environment, *args, **kwargs):  # noqa: E501
         """DatabaseAllOf - a model defined in OpenAPI
+
+        Args:
+            environment (ReferenceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -245,7 +251,6 @@ class DatabaseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            environment (ReferenceObject): [optional]  # noqa: E501
             host (str): [optional]  # noqa: E501
             port (int): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the database based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
@@ -281,6 +286,7 @@ class DatabaseAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.environment = environment
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

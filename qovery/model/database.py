@@ -106,6 +106,7 @@ class Database(ModelComposed):
             'type': (DatabaseTypeEnum,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'mode': (DatabaseModeEnum,),  # noqa: E501
+            'environment': (ReferenceObject,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'accessibility': (DatabaseAccessibilityEnum,),  # noqa: E501
@@ -113,7 +114,6 @@ class Database(ModelComposed):
             'instance_type': (str,),  # noqa: E501
             'memory': (int,),  # noqa: E501
             'storage': (int,),  # noqa: E501
-            'environment': (ReferenceObject,),  # noqa: E501
             'host': (str,),  # noqa: E501
             'port': (int,),  # noqa: E501
             'maximum_cpu': (int,),  # noqa: E501
@@ -133,6 +133,7 @@ class Database(ModelComposed):
         'type': 'type',  # noqa: E501
         'version': 'version',  # noqa: E501
         'mode': 'mode',  # noqa: E501
+        'environment': 'environment',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
         'accessibility': 'accessibility',  # noqa: E501
@@ -140,7 +141,6 @@ class Database(ModelComposed):
         'instance_type': 'instance_type',  # noqa: E501
         'memory': 'memory',  # noqa: E501
         'storage': 'storage',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
         'host': 'host',  # noqa: E501
         'port': 'port',  # noqa: E501
         'maximum_cpu': 'maximum_cpu',  # noqa: E501
@@ -166,6 +166,7 @@ class Database(ModelComposed):
             type (DatabaseTypeEnum):
             version (str):
             mode (DatabaseModeEnum):
+            environment (ReferenceObject):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -203,7 +204,6 @@ class Database(ModelComposed):
             instance_type (str): Database instance type to be used for this database. The list of values can be retrieved via the endpoint /{CloudProvider}/managedDatabase/instanceType/{region}/{dbType}. This field is null for container DB.. [optional]  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB This field will be ignored for managed DB (instance type will be used instead). Default value is linked to the database type: - MANAGED: `100` - CONTAINER   - POSTGRES: `100`   - REDIS: `100`   - MYSQL: `512`   - MONGODB: `256` . [optional]  # noqa: E501
             storage (int): unit is GB. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            environment (ReferenceObject): [optional]  # noqa: E501
             host (str): [optional]  # noqa: E501
             port (int): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the database based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
@@ -286,6 +286,7 @@ class Database(ModelComposed):
             type (DatabaseTypeEnum):
             version (str):
             mode (DatabaseModeEnum):
+            environment (ReferenceObject):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -323,7 +324,6 @@ class Database(ModelComposed):
             instance_type (str): Database instance type to be used for this database. The list of values can be retrieved via the endpoint /{CloudProvider}/managedDatabase/instanceType/{region}/{dbType}. This field is null for container DB.. [optional]  # noqa: E501
             memory (int): unit is MB. 1024 MB = 1GB This field will be ignored for managed DB (instance type will be used instead). Default value is linked to the database type: - MANAGED: `100` - CONTAINER   - POSTGRES: `100`   - REDIS: `100`   - MYSQL: `512`   - MONGODB: `256` . [optional]  # noqa: E501
             storage (int): unit is GB. [optional] if omitted the server will use the default value of 10  # noqa: E501
-            environment (ReferenceObject): [optional]  # noqa: E501
             host (str): [optional]  # noqa: E501
             port (int): [optional]  # noqa: E501
             maximum_cpu (int): Maximum cpu that can be allocated to the database based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu. [optional]  # noqa: E501
