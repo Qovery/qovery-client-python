@@ -275,6 +275,7 @@ docs/EnvironmentServiceIdsAllRequest.md
 docs/EnvironmentStats.md
 docs/EnvironmentStatsResponseList.md
 docs/EnvironmentStatus.md
+docs/EnvironmentStatusEventOriginEnum.md
 docs/EnvironmentStatusList.md
 docs/EnvironmentStatuses.md
 docs/EnvironmentStatusesWithStages.md
@@ -907,6 +908,7 @@ qovery/model/environment_service_ids_all_request.py
 qovery/model/environment_stats.py
 qovery/model/environment_stats_response_list.py
 qovery/model/environment_status.py
+qovery/model/environment_status_event_origin_enum.py
 qovery/model/environment_status_list.py
 qovery/model/environment_statuses.py
 qovery/model/environment_statuses_with_stages.py
@@ -1467,6 +1469,7 @@ test/test_environment_service_ids_all_request.py
 test/test_environment_stats.py
 test/test_environment_stats_response_list.py
 test/test_environment_status.py
+test/test_environment_status_event_origin_enum.py
 test/test_environment_status_list.py
 test/test_environment_statuses.py
 test/test_environment_statuses_with_stages.py

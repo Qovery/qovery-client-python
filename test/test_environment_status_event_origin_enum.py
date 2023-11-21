@@ -14,14 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.environment_status_event_origin_enum import EnvironmentStatusEventOriginEnum
-from qovery.model.state_enum import StateEnum
-globals()['EnvironmentStatusEventOriginEnum'] = EnvironmentStatusEventOriginEnum
-globals()['StateEnum'] = StateEnum
-from qovery.model.environment_status import EnvironmentStatus
 
 
-class TestEnvironmentStatus(unittest.TestCase):
-    """EnvironmentStatus unit test stubs"""
+class TestEnvironmentStatusEventOriginEnum(unittest.TestCase):
+    """EnvironmentStatusEventOriginEnum unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +25,10 @@ class TestEnvironmentStatus(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testEnvironmentStatus(self):
-        """Test EnvironmentStatus"""
+    def testEnvironmentStatusEventOriginEnum(self):
+        """Test EnvironmentStatusEventOriginEnum"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = EnvironmentStatus()  # noqa: E501
+        # model = EnvironmentStatusEventOriginEnum()  # noqa: E501
         pass
 
 

@@ -238,6 +238,7 @@ from qovery.model.environment_service_ids_all_request import EnvironmentServiceI
 from qovery.model.environment_stats import EnvironmentStats
 from qovery.model.environment_stats_response_list import EnvironmentStatsResponseList
 from qovery.model.environment_status import EnvironmentStatus
+from qovery.model.environment_status_event_origin_enum import EnvironmentStatusEventOriginEnum
 from qovery.model.environment_status_list import EnvironmentStatusList
 from qovery.model.environment_statuses import EnvironmentStatuses
 from qovery.model.environment_statuses_with_stages import EnvironmentStatusesWithStages
