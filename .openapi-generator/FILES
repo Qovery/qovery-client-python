@@ -320,6 +320,7 @@ docs/HelmDeploymentRestrictionRequest.md
 docs/HelmDeploymentRestrictionResponse.md
 docs/HelmDeploymentRestrictionResponseList.md
 docs/HelmForceEvent.md
+docs/HelmGitRepositoryRequest.md
 docs/HelmMainCallsApi.md
 docs/HelmPortProtocolEnum.md
 docs/HelmPortRequest.md
@@ -336,8 +337,7 @@ docs/HelmRepositoryResponseList.md
 docs/HelmRequest.md
 docs/HelmRequestAllOf.md
 docs/HelmRequestAllOfSource.md
-docs/HelmRequestAllOfSourceGit.md
-docs/HelmRequestAllOfSourceRepository.md
+docs/HelmRequestAllOfSourceHelmRepository.md
 docs/HelmRequestAllOfValuesOverride.md
 docs/HelmRequestAllOfValuesOverrideFile.md
 docs/HelmRequestAllOfValuesOverrideFileGit.md
@@ -943,6 +943,7 @@ qovery/model/helm_deployment_restriction_request.py
 qovery/model/helm_deployment_restriction_response.py
 qovery/model/helm_deployment_restriction_response_list.py
 qovery/model/helm_force_event.py
+qovery/model/helm_git_repository_request.py
 qovery/model/helm_port_protocol_enum.py
 qovery/model/helm_port_request.py
 qovery/model/helm_port_request_ports_inner.py
@@ -957,8 +958,7 @@ qovery/model/helm_repository_response_list.py
 qovery/model/helm_request.py
 qovery/model/helm_request_all_of.py
 qovery/model/helm_request_all_of_source.py
-qovery/model/helm_request_all_of_source_git.py
-qovery/model/helm_request_all_of_source_repository.py
+qovery/model/helm_request_all_of_source_helm_repository.py
 qovery/model/helm_request_all_of_values_override.py
 qovery/model/helm_request_all_of_values_override_file.py
 qovery/model/helm_request_all_of_values_override_file_git.py
@@ -1512,6 +1512,7 @@ test/test_helm_deployment_restriction_request.py
 test/test_helm_deployment_restriction_response.py
 test/test_helm_deployment_restriction_response_list.py
 test/test_helm_force_event.py
+test/test_helm_git_repository_request.py
 test/test_helm_main_calls_api.py
 test/test_helm_port_protocol_enum.py
 test/test_helm_port_request.py
@@ -1528,8 +1529,7 @@ test/test_helm_repository_response_list.py
 test/test_helm_request.py
 test/test_helm_request_all_of.py
 test/test_helm_request_all_of_source.py
-test/test_helm_request_all_of_source_git.py
-test/test_helm_request_all_of_source_repository.py
+test/test_helm_request_all_of_source_helm_repository.py
 test/test_helm_request_all_of_values_override.py
 test/test_helm_request_all_of_values_override_file.py
 test/test_helm_request_all_of_values_override_file_git.py

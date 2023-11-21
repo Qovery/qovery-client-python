@@ -31,10 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.helm_request_all_of_source_git import HelmRequestAllOfSourceGit
-    from qovery.model.helm_request_all_of_source_repository import HelmRequestAllOfSourceRepository
-    globals()['HelmRequestAllOfSourceGit'] = HelmRequestAllOfSourceGit
-    globals()['HelmRequestAllOfSourceRepository'] = HelmRequestAllOfSourceRepository
+    from qovery.model.helm_git_repository_request import HelmGitRepositoryRequest
+    from qovery.model.helm_request_all_of_source_helm_repository import HelmRequestAllOfSourceHelmRepository
+    globals()['HelmGitRepositoryRequest'] = HelmGitRepositoryRequest
+    globals()['HelmRequestAllOfSourceHelmRepository'] = HelmRequestAllOfSourceHelmRepository
 
 
 class HelmRequestAllOfSource(ModelNormal):
@@ -90,8 +90,8 @@ class HelmRequestAllOfSource(ModelNormal):
         """
         lazy_import()
         return {
-            'git': (HelmRequestAllOfSourceGit,),  # noqa: E501
-            'repository': (HelmRequestAllOfSourceRepository,),  # noqa: E501
+            'git_repository': (HelmGitRepositoryRequest,),  # noqa: E501
+            'helm_repository': (HelmRequestAllOfSourceHelmRepository,),  # noqa: E501
         }
 
     @cached_property
@@ -100,8 +100,8 @@ class HelmRequestAllOfSource(ModelNormal):
 
 
     attribute_map = {
-        'git': 'git',  # noqa: E501
-        'repository': 'repository',  # noqa: E501
+        'git_repository': 'git_repository',  # noqa: E501
+        'helm_repository': 'helm_repository',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,8 +145,8 @@ class HelmRequestAllOfSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            git (HelmRequestAllOfSourceGit): [optional]  # noqa: E501
-            repository (HelmRequestAllOfSourceRepository): [optional]  # noqa: E501
+            git_repository (HelmGitRepositoryRequest): [optional]  # noqa: E501
+            helm_repository (HelmRequestAllOfSourceHelmRepository): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,8 +232,8 @@ class HelmRequestAllOfSource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            git (HelmRequestAllOfSourceGit): [optional]  # noqa: E501
-            repository (HelmRequestAllOfSourceRepository): [optional]  # noqa: E501
+            git_repository (HelmGitRepositoryRequest): [optional]  # noqa: E501
+            helm_repository (HelmRequestAllOfSourceHelmRepository): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

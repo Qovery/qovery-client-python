@@ -1,4 +1,4 @@
-# HelmRequestAllOfSourceRepository
+# HelmRequestAllOfSourceHelmRepository
 
 
 ## Properties

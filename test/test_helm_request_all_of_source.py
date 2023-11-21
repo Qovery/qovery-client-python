@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.helm_request_all_of_source_git import HelmRequestAllOfSourceGit
-from qovery.model.helm_request_all_of_source_repository import HelmRequestAllOfSourceRepository
-globals()['HelmRequestAllOfSourceGit'] = HelmRequestAllOfSourceGit
-globals()['HelmRequestAllOfSourceRepository'] = HelmRequestAllOfSourceRepository
+from qovery.model.helm_git_repository_request import HelmGitRepositoryRequest
+from qovery.model.helm_request_all_of_source_helm_repository import HelmRequestAllOfSourceHelmRepository
+globals()['HelmGitRepositoryRequest'] = HelmGitRepositoryRequest
+globals()['HelmRequestAllOfSourceHelmRepository'] = HelmRequestAllOfSourceHelmRepository
 from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
 
 

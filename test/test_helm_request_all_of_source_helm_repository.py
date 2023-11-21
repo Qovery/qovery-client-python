@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
-globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
-from qovery.model.helm_request_all_of_source_git import HelmRequestAllOfSourceGit
+from qovery.model.helm_request_all_of_source_helm_repository import HelmRequestAllOfSourceHelmRepository
 
 
-class TestHelmRequestAllOfSourceGit(unittest.TestCase):
-    """HelmRequestAllOfSourceGit unit test stubs"""
+class TestHelmRequestAllOfSourceHelmRepository(unittest.TestCase):
+    """HelmRequestAllOfSourceHelmRepository unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestHelmRequestAllOfSourceGit(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testHelmRequestAllOfSourceGit(self):
-        """Test HelmRequestAllOfSourceGit"""
+    def testHelmRequestAllOfSourceHelmRepository(self):
+        """Test HelmRequestAllOfSourceHelmRepository"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = HelmRequestAllOfSourceGit()  # noqa: E501
+        # model = HelmRequestAllOfSourceHelmRepository()  # noqa: E501
         pass
 
 
