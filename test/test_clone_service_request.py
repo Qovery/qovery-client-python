@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.environment_mode_enum import EnvironmentModeEnum
-globals()['EnvironmentModeEnum'] = EnvironmentModeEnum
-from qovery.model.clone_request import CloneRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 
 
-class TestCloneRequest(unittest.TestCase):
-    """CloneRequest unit test stubs"""
+class TestCloneServiceRequest(unittest.TestCase):
+    """CloneServiceRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestCloneRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCloneRequest(self):
-        """Test CloneRequest"""
+    def testCloneServiceRequest(self):
+        """Test CloneServiceRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = CloneRequest()  # noqa: E501
+        # model = CloneServiceRequest()  # noqa: E501
         pass
 
 

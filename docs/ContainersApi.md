@@ -136,8 +136,8 @@ This will create a new container with the same configuration on the targeted env
 import time
 import qovery
 from qovery.api import containers_api
+from qovery.model.clone_service_request import CloneServiceRequest
 from qovery.model.container_response import ContainerResponse
-from qovery.model.clone_container_request import CloneContainerRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -166,10 +166,10 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = containers_api.ContainersApi(api_client)
     container_id = "containerId_example" # str | Container ID
-    clone_container_request = CloneContainerRequest(
+    clone_service_request = CloneServiceRequest(
         name="name_example",
         environment_id="environment_id_example",
-    ) # CloneContainerRequest |  (optional)
+    ) # CloneServiceRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -183,7 +183,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Clone container
-        api_response = api_instance.clone_container(container_id, clone_container_request=clone_container_request)
+        api_response = api_instance.clone_container(container_id, clone_service_request=clone_service_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ContainersApi->clone_container: %s\n" % e)
@@ -195,7 +195,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**| Container ID |
- **clone_container_request** | [**CloneContainerRequest**](CloneContainerRequest.md)|  | [optional]
+ **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional]
 
 ### Return type
 

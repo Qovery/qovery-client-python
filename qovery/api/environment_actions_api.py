@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.clone_request import CloneRequest
+from qovery.model.clone_environment_request import CloneEnvironmentRequest
 from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.environment import Environment
 from qovery.model.environment_service_ids_all_request import EnvironmentServiceIdsAllRequest
@@ -109,7 +109,7 @@ class EnvironmentActionsApi(object):
             params_map={
                 'all': [
                     'environment_id',
-                    'clone_request',
+                    'clone_environment_request',
                 ],
                 'required': [
                     'environment_id',
@@ -129,15 +129,15 @@ class EnvironmentActionsApi(object):
                 'openapi_types': {
                     'environment_id':
                         (str,),
-                    'clone_request':
-                        (CloneRequest,),
+                    'clone_environment_request':
+                        (CloneEnvironmentRequest,),
                 },
                 'attribute_map': {
                     'environment_id': 'environmentId',
                 },
                 'location_map': {
                     'environment_id': 'path',
-                    'clone_request': 'body',
+                    'clone_environment_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -690,7 +690,7 @@ class EnvironmentActionsApi(object):
             environment_id (str): Environment ID
 
         Keyword Args:
-            clone_request (CloneRequest): [optional]
+            clone_environment_request (CloneEnvironmentRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

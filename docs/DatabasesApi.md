@@ -28,7 +28,7 @@ This will create a new database with the same configuration on the targeted envi
 import time
 import qovery
 from qovery.api import databases_api
-from qovery.model.clone_database_request import CloneDatabaseRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 from qovery.model.database import Database
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -58,10 +58,10 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = databases_api.DatabasesApi(api_client)
     database_id = "databaseId_example" # str | Database ID
-    clone_database_request = CloneDatabaseRequest(
+    clone_service_request = CloneServiceRequest(
         name="name_example",
         environment_id="environment_id_example",
-    ) # CloneDatabaseRequest |  (optional)
+    ) # CloneServiceRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -75,7 +75,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Clone database
-        api_response = api_instance.clone_database(database_id, clone_database_request=clone_database_request)
+        api_response = api_instance.clone_database(database_id, clone_service_request=clone_service_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling DatabasesApi->clone_database: %s\n" % e)
@@ -87,7 +87,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **database_id** | **str**| Database ID |
- **clone_database_request** | [**CloneDatabaseRequest**](CloneDatabaseRequest.md)|  | [optional]
+ **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional]
 
 ### Return type
 

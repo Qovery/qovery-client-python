@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.clone_database_request import CloneDatabaseRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 from qovery.model.database import Database
 from qovery.model.database_configuration_response_list import DatabaseConfigurationResponseList
 from qovery.model.database_request import DatabaseRequest
@@ -57,7 +57,7 @@ class DatabasesApi(object):
             params_map={
                 'all': [
                     'database_id',
-                    'clone_database_request',
+                    'clone_service_request',
                 ],
                 'required': [
                     'database_id',
@@ -77,15 +77,15 @@ class DatabasesApi(object):
                 'openapi_types': {
                     'database_id':
                         (str,),
-                    'clone_database_request':
-                        (CloneDatabaseRequest,),
+                    'clone_service_request':
+                        (CloneServiceRequest,),
                 },
                 'attribute_map': {
                     'database_id': 'databaseId',
                 },
                 'location_map': {
                     'database_id': 'path',
-                    'clone_database_request': 'body',
+                    'clone_service_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -385,7 +385,7 @@ class DatabasesApi(object):
             database_id (str): Database ID
 
         Keyword Args:
-            clone_database_request (CloneDatabaseRequest): [optional]
+            clone_service_request (CloneServiceRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

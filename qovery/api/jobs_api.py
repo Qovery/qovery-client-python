@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.clone_job_request import CloneJobRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 from qovery.model.job_advanced_settings import JobAdvancedSettings
 from qovery.model.job_request import JobRequest
 from qovery.model.job_response import JobResponse
@@ -116,7 +116,7 @@ class JobsApi(object):
             params_map={
                 'all': [
                     'job_id',
-                    'clone_job_request',
+                    'clone_service_request',
                 ],
                 'required': [
                     'job_id',
@@ -136,15 +136,15 @@ class JobsApi(object):
                 'openapi_types': {
                     'job_id':
                         (str,),
-                    'clone_job_request':
-                        (CloneJobRequest,),
+                    'clone_service_request':
+                        (CloneServiceRequest,),
                 },
                 'attribute_map': {
                     'job_id': 'jobId',
                 },
                 'location_map': {
                     'job_id': 'path',
-                    'clone_job_request': 'body',
+                    'clone_service_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -474,7 +474,7 @@ class JobsApi(object):
             job_id (str): Job ID
 
         Keyword Args:
-            clone_job_request (CloneJobRequest): [optional]
+            clone_service_request (CloneServiceRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

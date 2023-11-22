@@ -31,7 +31,7 @@ import time
 import qovery
 from qovery.api import applications_api
 from qovery.model.application import Application
-from qovery.model.clone_application_request import CloneApplicationRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -60,10 +60,10 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = applications_api.ApplicationsApi(api_client)
     application_id = "applicationId_example" # str | Application ID
-    clone_application_request = CloneApplicationRequest(
+    clone_service_request = CloneServiceRequest(
         name="name_example",
         environment_id="environment_id_example",
-    ) # CloneApplicationRequest |  (optional)
+    ) # CloneServiceRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -77,7 +77,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Clone application
-        api_response = api_instance.clone_application(application_id, clone_application_request=clone_application_request)
+        api_response = api_instance.clone_application(application_id, clone_service_request=clone_service_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling ApplicationsApi->clone_application: %s\n" % e)
@@ -89,7 +89,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **str**| Application ID |
- **clone_application_request** | [**CloneApplicationRequest**](CloneApplicationRequest.md)|  | [optional]
+ **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional]
 
 ### Return type
 

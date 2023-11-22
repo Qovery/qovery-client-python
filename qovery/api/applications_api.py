@@ -26,7 +26,7 @@ from qovery.model.application import Application
 from qovery.model.application_advanced_settings import ApplicationAdvancedSettings
 from qovery.model.application_request import ApplicationRequest
 from qovery.model.application_response_list import ApplicationResponseList
-from qovery.model.clone_application_request import CloneApplicationRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 from qovery.model.environment_applications_current_scale_response_list import EnvironmentApplicationsCurrentScaleResponseList
 from qovery.model.environment_applications_storage_response_list import EnvironmentApplicationsStorageResponseList
 from qovery.model.environment_applications_supported_language_list import EnvironmentApplicationsSupportedLanguageList
@@ -59,7 +59,7 @@ class ApplicationsApi(object):
             params_map={
                 'all': [
                     'application_id',
-                    'clone_application_request',
+                    'clone_service_request',
                 ],
                 'required': [
                     'application_id',
@@ -79,15 +79,15 @@ class ApplicationsApi(object):
                 'openapi_types': {
                     'application_id':
                         (str,),
-                    'clone_application_request':
-                        (CloneApplicationRequest,),
+                    'clone_service_request':
+                        (CloneServiceRequest,),
                 },
                 'attribute_map': {
                     'application_id': 'applicationId',
                 },
                 'location_map': {
                     'application_id': 'path',
-                    'clone_application_request': 'body',
+                    'clone_service_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -484,7 +484,7 @@ class ApplicationsApi(object):
             application_id (str): Application ID
 
         Keyword Args:
-            clone_application_request (CloneApplicationRequest): [optional]
+            clone_service_request (CloneServiceRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

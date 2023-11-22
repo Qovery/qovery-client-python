@@ -120,8 +120,8 @@ You must provide a name. This will create a new environment, with the same confi
 import time
 import qovery
 from qovery.api import environment_actions_api
-from qovery.model.clone_request import CloneRequest
 from qovery.model.environment import Environment
+from qovery.model.clone_environment_request import CloneEnvironmentRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -150,12 +150,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
     environment_id = "environmentId_example" # str | Environment ID
-    clone_request = CloneRequest(
+    clone_environment_request = CloneEnvironmentRequest(
         name="name_example",
         cluster_id="cluster_id_example",
         mode=EnvironmentModeEnum("PRODUCTION"),
         apply_deployment_rule=False,
-    ) # CloneRequest |  (optional)
+    ) # CloneEnvironmentRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -169,7 +169,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Clone environment
-        api_response = api_instance.clone_environment(environment_id, clone_request=clone_request)
+        api_response = api_instance.clone_environment(environment_id, clone_environment_request=clone_environment_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->clone_environment: %s\n" % e)
@@ -181,7 +181,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **environment_id** | **str**| Environment ID |
- **clone_request** | [**CloneRequest**](CloneRequest.md)|  | [optional]
+ **clone_environment_request** | [**CloneEnvironmentRequest**](CloneEnvironmentRequest.md)|  | [optional]
 
 ### Return type
 

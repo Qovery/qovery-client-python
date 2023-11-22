@@ -132,7 +132,7 @@ This will create a new job with the same configuration on the targeted environme
 import time
 import qovery
 from qovery.api import jobs_api
-from qovery.model.clone_job_request import CloneJobRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 from qovery.model.job_response import JobResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
@@ -162,10 +162,10 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = jobs_api.JobsApi(api_client)
     job_id = "jobId_example" # str | Job ID
-    clone_job_request = CloneJobRequest(
+    clone_service_request = CloneServiceRequest(
         name="name_example",
         environment_id="environment_id_example",
-    ) # CloneJobRequest |  (optional)
+    ) # CloneServiceRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -179,7 +179,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Clone job
-        api_response = api_instance.clone_job(job_id, clone_job_request=clone_job_request)
+        api_response = api_instance.clone_job(job_id, clone_service_request=clone_service_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling JobsApi->clone_job: %s\n" % e)
@@ -191,7 +191,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_id** | **str**| Job ID |
- **clone_job_request** | [**CloneJobRequest**](CloneJobRequest.md)|  | [optional]
+ **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional]
 
 ### Return type
 

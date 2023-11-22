@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.clone_container_request import CloneContainerRequest
+from qovery.model.clone_service_request import CloneServiceRequest
 from qovery.model.container_advanced_settings import ContainerAdvancedSettings
 from qovery.model.container_request import ContainerRequest
 from qovery.model.container_response import ContainerResponse
@@ -119,7 +119,7 @@ class ContainersApi(object):
             params_map={
                 'all': [
                     'container_id',
-                    'clone_container_request',
+                    'clone_service_request',
                 ],
                 'required': [
                     'container_id',
@@ -139,15 +139,15 @@ class ContainersApi(object):
                 'openapi_types': {
                     'container_id':
                         (str,),
-                    'clone_container_request':
-                        (CloneContainerRequest,),
+                    'clone_service_request':
+                        (CloneServiceRequest,),
                 },
                 'attribute_map': {
                     'container_id': 'containerId',
                 },
                 'location_map': {
                     'container_id': 'path',
-                    'clone_container_request': 'body',
+                    'clone_service_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -692,7 +692,7 @@ class ContainersApi(object):
             container_id (str): Container ID
 
         Keyword Args:
-            clone_container_request (CloneContainerRequest): [optional]
+            clone_service_request (CloneServiceRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
