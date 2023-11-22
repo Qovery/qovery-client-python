@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | name is case insensitive | 
 **auto_deploy** | **bool** | Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.   | 
-**source** | [**HelmRequestAllOfSource**](HelmRequestAllOfSource.md) |  | 
+**source** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **arguments** | **[str]** | The extra arguments to pass to helm | 
 **values_override** | [**HelmRequestAllOfValuesOverride**](HelmRequestAllOfValuesOverride.md) |  | 
 **description** | **str** |  | [optional] 

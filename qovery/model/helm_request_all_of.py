@@ -31,9 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
+    from qovery.model.helm_git_repository_request import HelmGitRepositoryRequest
     from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
-    globals()['HelmRequestAllOfSource'] = HelmRequestAllOfSource
+    globals()['HelmGitRepositoryRequest'] = HelmGitRepositoryRequest
     globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
 
 
@@ -95,7 +95,7 @@ class HelmRequestAllOf(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
-            'source': (HelmRequestAllOfSource,),  # noqa: E501
+            'source': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -134,7 +134,7 @@ class HelmRequestAllOf(ModelNormal):
         Args:
             name (str): name is case insensitive
             auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmRequestAllOfSource):
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             values_override (HelmRequestAllOfValuesOverride):
 
@@ -235,7 +235,7 @@ class HelmRequestAllOf(ModelNormal):
         Args:
             name (str): name is case insensitive
             auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmRequestAllOfSource):
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             values_override (HelmRequestAllOfValuesOverride):
 

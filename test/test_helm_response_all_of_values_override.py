@@ -13,15 +13,13 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.helm_git_repository_request import HelmGitRepositoryRequest
-from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
-globals()['HelmGitRepositoryRequest'] = HelmGitRepositoryRequest
-globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
-from qovery.model.helm_request_all_of import HelmRequestAllOf
+from qovery.model.helm_response_all_of_values_override_file import HelmResponseAllOfValuesOverrideFile
+globals()['HelmResponseAllOfValuesOverrideFile'] = HelmResponseAllOfValuesOverrideFile
+from qovery.model.helm_response_all_of_values_override import HelmResponseAllOfValuesOverride
 
 
-class TestHelmRequestAllOf(unittest.TestCase):
-    """HelmRequestAllOf unit test stubs"""
+class TestHelmResponseAllOfValuesOverride(unittest.TestCase):
+    """HelmResponseAllOfValuesOverride unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +27,10 @@ class TestHelmRequestAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testHelmRequestAllOf(self):
-        """Test HelmRequestAllOf"""
+    def testHelmResponseAllOfValuesOverride(self):
+        """Test HelmResponseAllOfValuesOverride"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = HelmRequestAllOf()  # noqa: E501
+        # model = HelmResponseAllOfValuesOverride()  # noqa: E501
         pass
 
 

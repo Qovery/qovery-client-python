@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **auto_deploy** | **bool** | Specify if the service will be automatically updated after receiving a new image tag or a new commit according to the source type.  | 
 **source** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
 **arguments** | **[str]** | The extra arguments to pass to helm | 
-**values_override** | [**HelmRequestAllOfValuesOverride**](HelmRequestAllOfValuesOverride.md) |  | 
+**values_override** | [**HelmResponseAllOfValuesOverride**](HelmResponseAllOfValuesOverride.md) |  | 
 **allow_cluster_wide_resources** | **bool** | If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights  | defaults to False
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str** |  | [optional] 

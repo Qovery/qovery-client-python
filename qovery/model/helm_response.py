@@ -33,15 +33,15 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
     from qovery.model.base import Base
-    from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
     from qovery.model.helm_response_all_of import HelmResponseAllOf
     from qovery.model.helm_response_all_of_ports import HelmResponseAllOfPorts
+    from qovery.model.helm_response_all_of_values_override import HelmResponseAllOfValuesOverride
     from qovery.model.reference_object import ReferenceObject
     globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
     globals()['Base'] = Base
-    globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
     globals()['HelmResponseAllOf'] = HelmResponseAllOf
     globals()['HelmResponseAllOfPorts'] = HelmResponseAllOfPorts
+    globals()['HelmResponseAllOfValuesOverride'] = HelmResponseAllOfValuesOverride
     globals()['ReferenceObject'] = ReferenceObject
 
 
@@ -107,7 +107,7 @@ class HelmResponse(ModelComposed):
             'source': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'allow_cluster_wide_resources': (bool,),  # noqa: E501
-            'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
+            'values_override': (HelmResponseAllOfValuesOverride,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'ports': ([HelmResponseAllOfPorts],),  # noqa: E501
@@ -155,7 +155,7 @@ class HelmResponse(ModelComposed):
             source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . defaults to False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride):
+            values_override (HelmResponseAllOfValuesOverride):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -270,7 +270,7 @@ class HelmResponse(ModelComposed):
             source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             allow_cluster_wide_resources (bool): If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights . defaults to False  # noqa: E501
-            values_override (HelmRequestAllOfValuesOverride):
+            values_override (HelmResponseAllOfValuesOverride):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

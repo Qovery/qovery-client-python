@@ -14,12 +14,12 @@ import unittest
 
 import qovery
 from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
-from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
 from qovery.model.helm_response_all_of_ports import HelmResponseAllOfPorts
+from qovery.model.helm_response_all_of_values_override import HelmResponseAllOfValuesOverride
 from qovery.model.reference_object import ReferenceObject
 globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
-globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
 globals()['HelmResponseAllOfPorts'] = HelmResponseAllOfPorts
+globals()['HelmResponseAllOfValuesOverride'] = HelmResponseAllOfValuesOverride
 globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.helm_response_all_of import HelmResponseAllOf
 

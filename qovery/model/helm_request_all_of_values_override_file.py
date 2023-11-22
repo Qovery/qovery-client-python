@@ -31,10 +31,10 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.helm_request_all_of_values_override_file_git import HelmRequestAllOfValuesOverrideFileGit
     from qovery.model.helm_request_all_of_values_override_file_raw import HelmRequestAllOfValuesOverrideFileRaw
-    globals()['HelmRequestAllOfValuesOverrideFileGit'] = HelmRequestAllOfValuesOverrideFileGit
+    from qovery.model.helm_values_git_repository_request import HelmValuesGitRepositoryRequest
     globals()['HelmRequestAllOfValuesOverrideFileRaw'] = HelmRequestAllOfValuesOverrideFileRaw
+    globals()['HelmValuesGitRepositoryRequest'] = HelmValuesGitRepositoryRequest
 
 
 class HelmRequestAllOfValuesOverrideFile(ModelNormal):
@@ -91,7 +91,7 @@ class HelmRequestAllOfValuesOverrideFile(ModelNormal):
         lazy_import()
         return {
             'raw': (HelmRequestAllOfValuesOverrideFileRaw,),  # noqa: E501
-            'git': (HelmRequestAllOfValuesOverrideFileGit,),  # noqa: E501
+            'git_repository': (HelmValuesGitRepositoryRequest,),  # noqa: E501
         }
 
     @cached_property
@@ -101,7 +101,7 @@ class HelmRequestAllOfValuesOverrideFile(ModelNormal):
 
     attribute_map = {
         'raw': 'raw',  # noqa: E501
-        'git': 'git',  # noqa: E501
+        'git_repository': 'git_repository',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,7 +146,7 @@ class HelmRequestAllOfValuesOverrideFile(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             raw (HelmRequestAllOfValuesOverrideFileRaw): [optional]  # noqa: E501
-            git (HelmRequestAllOfValuesOverrideFileGit): [optional]  # noqa: E501
+            git_repository (HelmValuesGitRepositoryRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,7 +233,7 @@ class HelmRequestAllOfValuesOverrideFile(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             raw (HelmRequestAllOfValuesOverrideFileRaw): [optional]  # noqa: E501
-            git (HelmRequestAllOfValuesOverrideFileGit): [optional]  # noqa: E501
+            git_repository (HelmValuesGitRepositoryRequest): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

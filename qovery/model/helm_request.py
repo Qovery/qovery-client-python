@@ -31,15 +31,15 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.helm_git_repository_request import HelmGitRepositoryRequest
     from qovery.model.helm_port_request import HelmPortRequest
     from qovery.model.helm_port_request_ports_inner import HelmPortRequestPortsInner
     from qovery.model.helm_request_all_of import HelmRequestAllOf
-    from qovery.model.helm_request_all_of_source import HelmRequestAllOfSource
     from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
+    globals()['HelmGitRepositoryRequest'] = HelmGitRepositoryRequest
     globals()['HelmPortRequest'] = HelmPortRequest
     globals()['HelmPortRequestPortsInner'] = HelmPortRequestPortsInner
     globals()['HelmRequestAllOf'] = HelmRequestAllOf
-    globals()['HelmRequestAllOfSource'] = HelmRequestAllOfSource
     globals()['HelmRequestAllOfValuesOverride'] = HelmRequestAllOfValuesOverride
 
 
@@ -101,7 +101,7 @@ class HelmRequest(ModelComposed):
         return {
             'name': (str,),  # noqa: E501
             'auto_deploy': (bool,),  # noqa: E501
-            'source': (HelmRequestAllOfSource,),  # noqa: E501
+            'source': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'values_override': (HelmRequestAllOfValuesOverride,),  # noqa: E501
             'ports': ([HelmPortRequestPortsInner],),  # noqa: E501
@@ -140,7 +140,7 @@ class HelmRequest(ModelComposed):
         Keyword Args:
             name (str): name is case insensitive
             auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmRequestAllOfSource):
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             values_override (HelmRequestAllOfValuesOverride):
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,7 +253,7 @@ class HelmRequest(ModelComposed):
         Keyword Args:
             name (str): name is case insensitive
             auto_deploy (bool): Specify if the helm will be automatically updated after receiving a new image tag or a new commit according to the source type.  
-            source (HelmRequestAllOfSource):
+            source (bool, date, datetime, dict, float, int, list, str, none_type):
             arguments ([str]): The extra arguments to pass to helm
             values_override (HelmRequestAllOfValuesOverride):
             _check_type (bool): if True, values for parameters in openapi_types
