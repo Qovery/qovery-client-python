@@ -38,6 +38,13 @@ class TestContainersApi(unittest.TestCase):
         """
         pass
 
+    def test_clone_helm(self):
+        """Test case for clone_helm
+
+        Clone helm  # noqa: E501
+        """
+        pass
+
     def test_create_container(self):
         """Test case for create_container
 
