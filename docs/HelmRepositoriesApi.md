@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_helm_repository**
-> delete_helm_repository(organization_id)
+> delete_helm_repository(organization_id, helm_repository_id)
 
 Delete a helm repository
 
@@ -162,11 +162,12 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = helm_repositories_api.HelmRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    helm_repository_id = "helmRepositoryId_example" # str | Helm chart repository ID
 
     # example passing only required values which don't have defaults set
     try:
         # Delete a helm repository
-        api_instance.delete_helm_repository(organization_id)
+        api_instance.delete_helm_repository(organization_id, helm_repository_id)
     except qovery.ApiException as e:
         print("Exception when calling HelmRepositoriesApi->delete_helm_repository: %s\n" % e)
 ```
@@ -177,6 +178,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **helm_repository_id** | **str**| Helm chart repository ID |
 
 ### Return type
 
@@ -204,7 +206,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_helm_repository**
-> HelmRepositoryResponse edit_helm_repository(organization_id)
+> HelmRepositoryResponse edit_helm_repository(organization_id, helm_repository_id)
 
 Edit a helm repository
 
@@ -247,6 +249,7 @@ with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = helm_repositories_api.HelmRepositoriesApi(api_client)
     organization_id = "organizationId_example" # str | Organization ID
+    helm_repository_id = "helmRepositoryId_example" # str | Helm chart repository ID
     helm_repository_request = HelmRepositoryRequest(
         name="name_example",
         kind=HelmRepositoryKindEnum("HTTPS"),
@@ -262,7 +265,7 @@ with qovery.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Edit a helm repository
-        api_response = api_instance.edit_helm_repository(organization_id)
+        api_response = api_instance.edit_helm_repository(organization_id, helm_repository_id)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling HelmRepositoriesApi->edit_helm_repository: %s\n" % e)
@@ -271,7 +274,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Edit a helm repository
-        api_response = api_instance.edit_helm_repository(organization_id, helm_repository_request=helm_repository_request)
+        api_response = api_instance.edit_helm_repository(organization_id, helm_repository_id, helm_repository_request=helm_repository_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling HelmRepositoriesApi->edit_helm_repository: %s\n" % e)
@@ -283,6 +286,7 @@ with qovery.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization_id** | **str**| Organization ID |
+ **helm_repository_id** | **str**| Helm chart repository ID |
  **helm_repository_request** | [**HelmRepositoryRequest**](HelmRepositoryRequest.md)|  | [optional]
 
 ### Return type

@@ -112,9 +112,11 @@ class HelmRepositoriesApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'helm_repository_id',
                 ],
                 'required': [
                     'organization_id',
+                    'helm_repository_id',
                 ],
                 'nullable': [
                 ],
@@ -131,12 +133,16 @@ class HelmRepositoriesApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'helm_repository_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'helm_repository_id': 'helmRepositoryId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'helm_repository_id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -162,10 +168,12 @@ class HelmRepositoriesApi(object):
             params_map={
                 'all': [
                     'organization_id',
+                    'helm_repository_id',
                     'helm_repository_request',
                 ],
                 'required': [
                     'organization_id',
+                    'helm_repository_id',
                 ],
                 'nullable': [
                 ],
@@ -182,14 +190,18 @@ class HelmRepositoriesApi(object):
                 'openapi_types': {
                     'organization_id':
                         (str,),
+                    'helm_repository_id':
+                        (str,),
                     'helm_repository_request':
                         (HelmRepositoryRequest,),
                 },
                 'attribute_map': {
                     'organization_id': 'organizationId',
+                    'helm_repository_id': 'helmRepositoryId',
                 },
                 'location_map': {
                     'organization_id': 'path',
+                    'helm_repository_id': 'path',
                     'helm_repository_request': 'body',
                 },
                 'collection_format_map': {
@@ -447,6 +459,7 @@ class HelmRepositoriesApi(object):
     def delete_helm_repository(
         self,
         organization_id,
+        helm_repository_id,
         **kwargs
     ):
         """Delete a helm repository  # noqa: E501
@@ -454,11 +467,12 @@ class HelmRepositoriesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_helm_repository(organization_id, async_req=True)
+        >>> thread = api.delete_helm_repository(organization_id, helm_repository_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            helm_repository_id (str): Helm chart repository ID
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -524,11 +538,14 @@ class HelmRepositoriesApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['helm_repository_id'] = \
+            helm_repository_id
         return self.delete_helm_repository_endpoint.call_with_http_info(**kwargs)
 
     def edit_helm_repository(
         self,
         organization_id,
+        helm_repository_id,
         **kwargs
     ):
         """Edit a helm repository  # noqa: E501
@@ -536,11 +553,12 @@ class HelmRepositoriesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.edit_helm_repository(organization_id, async_req=True)
+        >>> thread = api.edit_helm_repository(organization_id, helm_repository_id, async_req=True)
         >>> result = thread.get()
 
         Args:
             organization_id (str): Organization ID
+            helm_repository_id (str): Helm chart repository ID
 
         Keyword Args:
             helm_repository_request (HelmRepositoryRequest): [optional]
@@ -607,6 +625,8 @@ class HelmRepositoriesApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['organization_id'] = \
             organization_id
+        kwargs['helm_repository_id'] = \
+            helm_repository_id
         return self.edit_helm_repository_endpoint.call_with_http_info(**kwargs)
 
     def get_helm_repository(
