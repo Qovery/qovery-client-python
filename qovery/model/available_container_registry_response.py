@@ -111,8 +111,13 @@ class AvailableContainerRegistryResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, kind, required_config, is_mandatory, *args, **kwargs):  # noqa: E501
         """AvailableContainerRegistryResponse - a model defined in OpenAPI
+
+        Args:
+            kind (ContainerRegistryKindEnum):
+            required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            is_mandatory (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,9 +150,6 @@ class AvailableContainerRegistryResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
-            required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
-            is_mandatory (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,6 +181,9 @@ class AvailableContainerRegistryResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.kind = kind
+        self.required_config = required_config
+        self.is_mandatory = is_mandatory
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -199,8 +204,13 @@ class AvailableContainerRegistryResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, kind, required_config, is_mandatory, *args, **kwargs):  # noqa: E501
         """AvailableContainerRegistryResponse - a model defined in OpenAPI
+
+        Args:
+            kind (ContainerRegistryKindEnum):
+            required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
+            is_mandatory (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,9 +243,6 @@ class AvailableContainerRegistryResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            kind (ContainerRegistryKindEnum): [optional]  # noqa: E501
-            required_config ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]  # noqa: E501
-            is_mandatory (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,6 +272,9 @@ class AvailableContainerRegistryResponse(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.kind = kind
+        self.required_config = required_config
+        self.is_mandatory = is_mandatory
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
