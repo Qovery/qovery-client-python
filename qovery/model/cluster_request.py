@@ -175,7 +175,7 @@ class ClusterRequest(ModelNormal):
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
+            disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 40  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
@@ -277,7 +277,7 @@ class ClusterRequest(ModelNormal):
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
-            disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 20  # noqa: E501
+            disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 40  # noqa: E501
             instance_type (str): the instance type to be used for this cluster. The list of values can be retrieved via the endpoint /{CloudProvider}/instanceType. [optional]  # noqa: E501
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
