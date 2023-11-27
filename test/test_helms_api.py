@@ -31,6 +31,13 @@ class TestHelmsApi(unittest.TestCase):
         """
         pass
 
+    def test_create_helm_default_values(self):
+        """Test case for create_helm_default_values
+
+        Get helm default values  # noqa: E501
+        """
+        pass
+
     def test_get_environment_helm_status(self):
         """Test case for get_environment_helm_status
 
