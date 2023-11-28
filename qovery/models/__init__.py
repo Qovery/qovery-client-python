@@ -247,11 +247,6 @@ from qovery.model.environment_variable_edit_request import EnvironmentVariableEd
 from qovery.model.environment_variable_override import EnvironmentVariableOverride
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from qovery.model.environment_variable_response_list import EnvironmentVariableResponseList
-from qovery.model.event import Event
-from qovery.model.event_all_of import EventAllOf
-from qovery.model.event_paginated_response_list import EventPaginatedResponseList
-from qovery.model.event_paginated_response_list_all_of import EventPaginatedResponseListAllOf
-from qovery.model.event_response_list import EventResponseList
 from qovery.model.generic_object_current_cost import GenericObjectCurrentCost
 from qovery.model.git_auth_provider import GitAuthProvider
 from qovery.model.git_auth_provider_response_list import GitAuthProviderResponseList

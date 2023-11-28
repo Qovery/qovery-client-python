@@ -286,11 +286,6 @@ docs/EnvironmentVariableOverride.md
 docs/EnvironmentVariableRequest.md
 docs/EnvironmentVariableResponseList.md
 docs/EnvironmentsApi.md
-docs/Event.md
-docs/EventAllOf.md
-docs/EventPaginatedResponseList.md
-docs/EventPaginatedResponseListAllOf.md
-docs/EventResponseList.md
 docs/GenericObjectCurrentCost.md
 docs/GitAuthProvider.md
 docs/GitAuthProviderResponseList.md
@@ -917,11 +912,6 @@ qovery/model/environment_variable_edit_request.py
 qovery/model/environment_variable_override.py
 qovery/model/environment_variable_request.py
 qovery/model/environment_variable_response_list.py
-qovery/model/event.py
-qovery/model/event_all_of.py
-qovery/model/event_paginated_response_list.py
-qovery/model/event_paginated_response_list_all_of.py
-qovery/model/event_response_list.py
 qovery/model/generic_object_current_cost.py
 qovery/model/git_auth_provider.py
 qovery/model/git_auth_provider_response_list.py
@@ -1480,11 +1470,6 @@ test/test_environment_variable_override.py
 test/test_environment_variable_request.py
 test/test_environment_variable_response_list.py
 test/test_environments_api.py
-test/test_event.py
-test/test_event_all_of.py
-test/test_event_paginated_response_list.py
-test/test_event_paginated_response_list_all_of.py
-test/test_event_response_list.py
 test/test_generic_object_current_cost.py
 test/test_git_auth_provider.py
 test/test_git_auth_provider_response_list.py
