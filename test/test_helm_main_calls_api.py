@@ -52,6 +52,13 @@ class TestHelmMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_list_helm_commit(self):
+        """Test case for list_helm_commit
+
+        List last helm commits  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
