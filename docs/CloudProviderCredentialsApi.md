@@ -275,6 +275,7 @@ with qovery.ApiClient(configuration) as api_client:
         scaleway_access_key="scaleway_access_key_example",
         scaleway_secret_key="scaleway_secret_key_example",
         scaleway_project_id="scaleway_project_id_example",
+        scaleway_organization_id="scaleway_organization_id_example",
     ) # ScalewayCredentialsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -843,6 +844,7 @@ with qovery.ApiClient(configuration) as api_client:
         scaleway_access_key="scaleway_access_key_example",
         scaleway_secret_key="scaleway_secret_key_example",
         scaleway_project_id="scaleway_project_id_example",
+        scaleway_organization_id="scaleway_organization_id_example",
     ) # ScalewayCredentialsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
