@@ -379,6 +379,7 @@ Class | Method | HTTP request | Description
 *HelmMainCallsApi* | [**get_helm**](docs/HelmMainCallsApi.md#get_helm) | **GET** /helm/{helmId} | Get helm by ID
 *HelmMainCallsApi* | [**get_helm_status**](docs/HelmMainCallsApi.md#get_helm_status) | **GET** /helm/{helmId}/status | Get helm status
 *HelmMainCallsApi* | [**list_helm_commit**](docs/HelmMainCallsApi.md#list_helm_commit) | **GET** /helm/{helmId}/commit | List last helm commits
+*HelmMainCallsApi* | [**list_helm_links**](docs/HelmMainCallsApi.md#list_helm_links) | **GET** /helm/{helmId}/link | List all URLs of the helm
 *HelmRepositoriesApi* | [**create_helm_repository**](docs/HelmRepositoriesApi.md#create_helm_repository) | **POST** /organization/{organizationId}/helmRepository | Create a helm repository
 *HelmRepositoriesApi* | [**delete_helm_repository**](docs/HelmRepositoriesApi.md#delete_helm_repository) | **DELETE** /organization/{organizationId}/helmRepository/{helmRepositoryId} | Delete a helm repository
 *HelmRepositoriesApi* | [**edit_helm_repository**](docs/HelmRepositoriesApi.md#edit_helm_repository) | **PUT** /organization/{organizationId}/helmRepository/{helmRepositoryId} | Edit a helm repository

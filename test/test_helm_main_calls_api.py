@@ -59,6 +59,13 @@ class TestHelmMainCallsApi(unittest.TestCase):
         """
         pass
 
+    def test_list_helm_links(self):
+        """Test case for list_helm_links
+
+        List all URLs of the helm  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
