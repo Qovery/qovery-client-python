@@ -84,6 +84,7 @@ class DeployHelmRequest(ModelNormal):
         return {
             'version': (str,),  # noqa: E501
             'git_commit_id': (str,),  # noqa: E501
+            'values_override_git_commit_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class DeployHelmRequest(ModelNormal):
     attribute_map = {
         'version': 'version',  # noqa: E501
         'git_commit_id': 'git_commit_id',  # noqa: E501
+        'values_override_git_commit_id': 'values_override_git_commit_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,7 +140,8 @@ class DeployHelmRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             version (str): version of the chart to deploy. Cannot be set if `git_commit_id` is defined . [optional]  # noqa: E501
-            git_commit_id (str): Commit to deploy Cannot be set if `version` is defined . [optional]  # noqa: E501
+            git_commit_id (str): Commit to deploy for chart source. Cannot be set if `version` is defined . [optional]  # noqa: E501
+            values_override_git_commit_id (str): Commit to deploy for values override . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,7 +228,8 @@ class DeployHelmRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             version (str): version of the chart to deploy. Cannot be set if `git_commit_id` is defined . [optional]  # noqa: E501
-            git_commit_id (str): Commit to deploy Cannot be set if `version` is defined . [optional]  # noqa: E501
+            git_commit_id (str): Commit to deploy for chart source. Cannot be set if `version` is defined . [optional]  # noqa: E501
+            values_override_git_commit_id (str): Commit to deploy for values override . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
