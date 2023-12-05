@@ -98,7 +98,6 @@ docs/ClusterRequestFeaturesInner.md
 docs/ClusterResponseList.md
 docs/ClusterRoutingTable.md
 docs/ClusterRoutingTableRequest.md
-docs/ClusterRoutingTableRequestRoutesInner.md
 docs/ClusterRoutingTableResultsInner.md
 docs/ClusterStateEnum.md
 docs/ClusterStatus.md
@@ -754,7 +753,6 @@ qovery/model/cluster_request_features_inner.py
 qovery/model/cluster_response_list.py
 qovery/model/cluster_routing_table.py
 qovery/model/cluster_routing_table_request.py
-qovery/model/cluster_routing_table_request_routes_inner.py
 qovery/model/cluster_routing_table_results_inner.py
 qovery/model/cluster_state_enum.py
 qovery/model/cluster_status.py
@@ -1282,7 +1280,6 @@ test/test_cluster_request_features_inner.py
 test/test_cluster_response_list.py
 test/test_cluster_routing_table.py
 test/test_cluster_routing_table_request.py
-test/test_cluster_routing_table_request_routes_inner.py
 test/test_cluster_routing_table_results_inner.py
 test/test_cluster_state_enum.py
 test/test_cluster_status.py

@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_routing_table_request_routes_inner import ClusterRoutingTableRequestRoutesInner
-globals()['ClusterRoutingTableRequestRoutesInner'] = ClusterRoutingTableRequestRoutesInner
+from qovery.model.cluster_routing_table_results_inner import ClusterRoutingTableResultsInner
+globals()['ClusterRoutingTableResultsInner'] = ClusterRoutingTableResultsInner
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest
 
 

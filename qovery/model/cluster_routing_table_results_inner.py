@@ -105,8 +105,13 @@ class ClusterRoutingTableResultsInner(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, destination, target, description, *args, **kwargs):  # noqa: E501
         """ClusterRoutingTableResultsInner - a model defined in OpenAPI
+
+        Args:
+            destination (str):
+            target (str):
+            description (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,9 +144,6 @@ class ClusterRoutingTableResultsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            destination (str): [optional]  # noqa: E501
-            target (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,6 +175,9 @@ class ClusterRoutingTableResultsInner(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.destination = destination
+        self.target = target
+        self.description = description
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,8 +198,13 @@ class ClusterRoutingTableResultsInner(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, destination, target, description, *args, **kwargs):  # noqa: E501
         """ClusterRoutingTableResultsInner - a model defined in OpenAPI
+
+        Args:
+            destination (str):
+            target (str):
+            description (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,9 +237,6 @@ class ClusterRoutingTableResultsInner(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            destination (str): [optional]  # noqa: E501
-            target (str): [optional]  # noqa: E501
-            description (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +266,9 @@ class ClusterRoutingTableResultsInner(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.destination = destination
+        self.target = target
+        self.description = description
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

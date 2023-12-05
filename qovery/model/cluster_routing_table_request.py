@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cluster_routing_table_request_routes_inner import ClusterRoutingTableRequestRoutesInner
-    globals()['ClusterRoutingTableRequestRoutesInner'] = ClusterRoutingTableRequestRoutesInner
+    from qovery.model.cluster_routing_table_results_inner import ClusterRoutingTableResultsInner
+    globals()['ClusterRoutingTableResultsInner'] = ClusterRoutingTableResultsInner
 
 
 class ClusterRoutingTableRequest(ModelNormal):
@@ -88,7 +88,7 @@ class ClusterRoutingTableRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'routes': ([ClusterRoutingTableRequestRoutesInner],),  # noqa: E501
+            'routes': ([ClusterRoutingTableResultsInner],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class ClusterRoutingTableRequest(ModelNormal):
         """ClusterRoutingTableRequest - a model defined in OpenAPI
 
         Args:
-            routes ([ClusterRoutingTableRequestRoutesInner]):
+            routes ([ClusterRoutingTableResultsInner]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class ClusterRoutingTableRequest(ModelNormal):
         """ClusterRoutingTableRequest - a model defined in OpenAPI
 
         Args:
-            routes ([ClusterRoutingTableRequestRoutesInner]):
+            routes ([ClusterRoutingTableResultsInner]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
