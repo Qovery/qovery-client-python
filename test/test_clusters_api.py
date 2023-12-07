@@ -73,6 +73,13 @@ class TestClustersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_cluster_kubeconfig(self):
+        """Test case for get_cluster_kubeconfig
+
+        Get cluster kubeconfig  # noqa: E501
+        """
+        pass
+
     def test_get_cluster_readiness_status(self):
         """Test case for get_cluster_readiness_status
 
