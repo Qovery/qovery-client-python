@@ -63,8 +63,13 @@ with qovery.ApiClient(configuration) as api_client:
         url="url_example",
         config=HelmRepositoryRequestConfig(
             skip_tls_verification=False,
-            login="login_example",
+            username="username_example",
             password="password_example",
+            access_key_id="access_key_id_example",
+            secret_access_key="secret_access_key_example",
+            region="region_example",
+            scaleway_access_key="scaleway_access_key_example",
+            scaleway_secret_key="scaleway_secret_key_example",
         ),
     ) # HelmRepositoryRequest |  (optional)
 
@@ -257,8 +262,13 @@ with qovery.ApiClient(configuration) as api_client:
         url="url_example",
         config=HelmRepositoryRequestConfig(
             skip_tls_verification=False,
-            login="login_example",
+            username="username_example",
             password="password_example",
+            access_key_id="access_key_id_example",
+            secret_access_key="secret_access_key_example",
+            region="region_example",
+            scaleway_access_key="scaleway_access_key_example",
+            scaleway_secret_key="scaleway_secret_key_example",
         ),
     ) # HelmRepositoryRequest |  (optional)
 

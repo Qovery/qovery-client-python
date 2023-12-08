@@ -83,8 +83,13 @@ class HelmRepositoryRequestConfig(ModelNormal):
         """
         return {
             'skip_tls_verification': (bool,),  # noqa: E501
-            'login': (str,),  # noqa: E501
+            'username': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
+            'access_key_id': (str,),  # noqa: E501
+            'secret_access_key': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
+            'scaleway_access_key': (str,),  # noqa: E501
+            'scaleway_secret_key': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,8 +99,13 @@ class HelmRepositoryRequestConfig(ModelNormal):
 
     attribute_map = {
         'skip_tls_verification': 'skip_tls_verification',  # noqa: E501
-        'login': 'login',  # noqa: E501
+        'username': 'username',  # noqa: E501
         'password': 'password',  # noqa: E501
+        'access_key_id': 'access_key_id',  # noqa: E501
+        'secret_access_key': 'secret_access_key',  # noqa: E501
+        'region': 'region',  # noqa: E501
+        'scaleway_access_key': 'scaleway_access_key',  # noqa: E501
+        'scaleway_secret_key': 'scaleway_secret_key',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,8 +150,13 @@ class HelmRepositoryRequestConfig(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository. [optional] if omitted the server will use the default value of False  # noqa: E501
-            login (str): Required if the repository is private. [optional]  # noqa: E501
+            username (str): Required if the repository is private. [optional]  # noqa: E501
             password (str): Required if the repository is private. [optional]  # noqa: E501
+            access_key_id (str): Required if kind is `ECR` or `PUBLIC_ECR`. [optional]  # noqa: E501
+            secret_access_key (str): Required if kind is `ECR` or `PUBLIC_ECR`. [optional]  # noqa: E501
+            region (str): Required if kind is `ECR` or `SCALEWAY_CR`. [optional]  # noqa: E501
+            scaleway_access_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
+            scaleway_secret_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +243,13 @@ class HelmRepositoryRequestConfig(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository. [optional] if omitted the server will use the default value of False  # noqa: E501
-            login (str): Required if the repository is private. [optional]  # noqa: E501
+            username (str): Required if the repository is private. [optional]  # noqa: E501
             password (str): Required if the repository is private. [optional]  # noqa: E501
+            access_key_id (str): Required if kind is `ECR` or `PUBLIC_ECR`. [optional]  # noqa: E501
+            secret_access_key (str): Required if kind is `ECR` or `PUBLIC_ECR`. [optional]  # noqa: E501
+            region (str): Required if kind is `ECR` or `SCALEWAY_CR`. [optional]  # noqa: E501
+            scaleway_access_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
+            scaleway_secret_key (str): Required if kind is `SCALEWAY_CR`. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
