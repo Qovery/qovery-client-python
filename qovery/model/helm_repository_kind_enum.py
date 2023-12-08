@@ -54,7 +54,14 @@ class HelmRepositoryKindEnum(ModelSimple):
     allowed_values = {
         ('value',): {
             'HTTPS': "HTTPS",
-            'OCI': "OCI",
+            'OCI_PUBLIC': "OCI_PUBLIC",
+            'OCI_ECR': "OCI_ECR",
+            'OCI_SCALEWAY_CR': "OCI_SCALEWAY_CR",
+            'OCI_DOCKER_HUB': "OCI_DOCKER_HUB",
+            'OCI_PUBLIC_ECR': "OCI_PUBLIC_ECR",
+            'OCI_GENERIC_CR': "OCI_GENERIC_CR",
+            'OCI_GITHUB_CR': "OCI_GITHUB_CR",
+            'OCI_GITLAB_CR': "OCI_GITLAB_CR",
         },
     }
 
@@ -106,10 +113,10 @@ class HelmRepositoryKindEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The type of your helm repository., must be one of ["HTTPS", "OCI", ]  # noqa: E501
+            args[0] (str): The type of your helm repository., must be one of ["HTTPS", "OCI_PUBLIC", "OCI_ECR", "OCI_SCALEWAY_CR", "OCI_DOCKER_HUB", "OCI_PUBLIC_ECR", "OCI_GENERIC_CR", "OCI_GITHUB_CR", "OCI_GITLAB_CR", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The type of your helm repository., must be one of ["HTTPS", "OCI", ]  # noqa: E501
+            value (str): The type of your helm repository., must be one of ["HTTPS", "OCI_PUBLIC", "OCI_ECR", "OCI_SCALEWAY_CR", "OCI_DOCKER_HUB", "OCI_PUBLIC_ECR", "OCI_GENERIC_CR", "OCI_GITHUB_CR", "OCI_GITLAB_CR", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -200,10 +207,10 @@ class HelmRepositoryKindEnum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): The type of your helm repository., must be one of ["HTTPS", "OCI", ]  # noqa: E501
+            args[0] (str): The type of your helm repository., must be one of ["HTTPS", "OCI_PUBLIC", "OCI_ECR", "OCI_SCALEWAY_CR", "OCI_DOCKER_HUB", "OCI_PUBLIC_ECR", "OCI_GENERIC_CR", "OCI_GITHUB_CR", "OCI_GITLAB_CR", ]  # noqa: E501
 
         Keyword Args:
-            value (str): The type of your helm repository., must be one of ["HTTPS", "OCI", ]  # noqa: E501
+            value (str): The type of your helm repository., must be one of ["HTTPS", "OCI_PUBLIC", "OCI_ECR", "OCI_SCALEWAY_CR", "OCI_DOCKER_HUB", "OCI_PUBLIC_ECR", "OCI_GENERIC_CR", "OCI_GITHUB_CR", "OCI_GITLAB_CR", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
