@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**skip_tls_verification** | **bool** | Bypass tls certificate verification when connecting to repository | [optional]  if omitted the server will use the default value of False
 **username** | **str** | Required if the repository is private | [optional] 
 **password** | **str** | Required if the repository is private | [optional] 
 **access_key_id** | **str** | Required if kind is &#x60;ECR&#x60; or &#x60;PUBLIC_ECR&#x60; | [optional] 

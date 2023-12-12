@@ -82,7 +82,6 @@ class HelmRepositoryRequestConfig(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'skip_tls_verification': (bool,),  # noqa: E501
             'username': (str,),  # noqa: E501
             'password': (str,),  # noqa: E501
             'access_key_id': (str,),  # noqa: E501
@@ -98,7 +97,6 @@ class HelmRepositoryRequestConfig(ModelNormal):
 
 
     attribute_map = {
-        'skip_tls_verification': 'skip_tls_verification',  # noqa: E501
         'username': 'username',  # noqa: E501
         'password': 'password',  # noqa: E501
         'access_key_id': 'access_key_id',  # noqa: E501
@@ -149,7 +147,6 @@ class HelmRepositoryRequestConfig(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository. [optional] if omitted the server will use the default value of False  # noqa: E501
             username (str): Required if the repository is private. [optional]  # noqa: E501
             password (str): Required if the repository is private. [optional]  # noqa: E501
             access_key_id (str): Required if kind is `ECR` or `PUBLIC_ECR`. [optional]  # noqa: E501
@@ -242,7 +239,6 @@ class HelmRepositoryRequestConfig(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository. [optional] if omitted the server will use the default value of False  # noqa: E501
             username (str): Required if the repository is private. [optional]  # noqa: E501
             password (str): Required if the repository is private. [optional]  # noqa: E501
             access_key_id (str): Required if kind is `ECR` or `PUBLIC_ECR`. [optional]  # noqa: E501

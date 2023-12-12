@@ -61,8 +61,8 @@ with qovery.ApiClient(configuration) as api_client:
         kind=HelmRepositoryKindEnum("HTTPS"),
         description="description_example",
         url="url_example",
+        skip_tls_verification=True,
         config=HelmRepositoryRequestConfig(
-            skip_tls_verification=False,
             username="username_example",
             password="password_example",
             access_key_id="access_key_id_example",
@@ -260,8 +260,8 @@ with qovery.ApiClient(configuration) as api_client:
         kind=HelmRepositoryKindEnum("HTTPS"),
         description="description_example",
         url="url_example",
+        skip_tls_verification=True,
         config=HelmRepositoryRequestConfig(
-            skip_tls_verification=False,
             username="username_example",
             password="password_example",
             access_key_id="access_key_id_example",

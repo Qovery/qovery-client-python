@@ -92,6 +92,7 @@ class HelmRepositoryRequest(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'kind': (HelmRepositoryKindEnum,),  # noqa: E501
+            'skip_tls_verification': (bool,),  # noqa: E501
             'config': (HelmRepositoryRequestConfig,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
@@ -105,6 +106,7 @@ class HelmRepositoryRequest(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'kind': 'kind',  # noqa: E501
+        'skip_tls_verification': 'skip_tls_verification',  # noqa: E501
         'config': 'config',  # noqa: E501
         'description': 'description',  # noqa: E501
         'url': 'url',  # noqa: E501
@@ -117,12 +119,13 @@ class HelmRepositoryRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, kind, config, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, kind, skip_tls_verification, config, *args, **kwargs):  # noqa: E501
         """HelmRepositoryRequest - a model defined in OpenAPI
 
         Args:
             name (str):
             kind (HelmRepositoryKindEnum):
+            skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository
             config (HelmRepositoryRequestConfig):
 
         Keyword Args:
@@ -191,6 +194,7 @@ class HelmRepositoryRequest(ModelNormal):
 
         self.name = name
         self.kind = kind
+        self.skip_tls_verification = skip_tls_verification
         self.config = config
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -212,12 +216,13 @@ class HelmRepositoryRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, kind, config, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, kind, skip_tls_verification, config, *args, **kwargs):  # noqa: E501
         """HelmRepositoryRequest - a model defined in OpenAPI
 
         Args:
             name (str):
             kind (HelmRepositoryKindEnum):
+            skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository
             config (HelmRepositoryRequestConfig):
 
         Keyword Args:
@@ -284,6 +289,7 @@ class HelmRepositoryRequest(ModelNormal):
 
         self.name = name
         self.kind = kind
+        self.skip_tls_verification = skip_tls_verification
         self.config = config
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
