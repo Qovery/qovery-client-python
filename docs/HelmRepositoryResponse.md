@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **kind** | [**HelmRepositoryKindEnum**](HelmRepositoryKindEnum.md) |  | [optional] 
 **description** | **str** |  | [optional] 
 **url** | **str** | URL of the helm repository | [optional] 
+**skip_tls_verification** | **bool** | Bypass tls certificate verification when connecting to repository | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

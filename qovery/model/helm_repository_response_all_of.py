@@ -92,6 +92,7 @@ class HelmRepositoryResponseAllOf(ModelNormal):
             'kind': (HelmRepositoryKindEnum,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
+            'skip_tls_verification': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class HelmRepositoryResponseAllOf(ModelNormal):
         'kind': 'kind',  # noqa: E501
         'description': 'description',  # noqa: E501
         'url': 'url',  # noqa: E501
+        'skip_tls_verification': 'skip_tls_verification',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,6 +153,7 @@ class HelmRepositoryResponseAllOf(ModelNormal):
             kind (HelmRepositoryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the helm repository. [optional]  # noqa: E501
+            skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -240,6 +243,7 @@ class HelmRepositoryResponseAllOf(ModelNormal):
             kind (HelmRepositoryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the helm repository. [optional]  # noqa: E501
+            skip_tls_verification (bool): Bypass tls certificate verification when connecting to repository. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
