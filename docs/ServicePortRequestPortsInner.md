@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **internal_port** | **int** | The listening port of your service. | 
 **publicly_accessible** | **bool** | Expose the port to the world | 
+**id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **external_port** | **int** | The exposed port for your service. This is optional. If not set a default port will be used. | [optional] 
 **is_default** | **bool** | is the default port to use for domain | [optional] 
