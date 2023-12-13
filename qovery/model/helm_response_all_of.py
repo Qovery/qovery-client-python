@@ -69,6 +69,9 @@ class HelmResponseAllOf(ModelNormal):
     }
 
     validations = {
+        ('timeout_sec',): {
+            'inclusive_minimum': 0,
+        },
     }
 
     @cached_property
@@ -103,6 +106,7 @@ class HelmResponseAllOf(ModelNormal):
             'allow_cluster_wide_resources': (bool,),  # noqa: E501
             'values_override': (HelmResponseAllOfValuesOverride,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'timeout_sec': (int,),  # noqa: E501
             'ports': ([HelmResponseAllOfPorts],),  # noqa: E501
         }
 
@@ -121,6 +125,7 @@ class HelmResponseAllOf(ModelNormal):
         'allow_cluster_wide_resources': 'allow_cluster_wide_resources',  # noqa: E501
         'values_override': 'values_override',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'timeout_sec': 'timeout_sec',  # noqa: E501
         'ports': 'ports',  # noqa: E501
     }
 
@@ -176,6 +181,7 @@ class HelmResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             ports ([HelmResponseAllOfPorts]): [optional]  # noqa: E501
         """
 
@@ -282,6 +288,7 @@ class HelmResponseAllOf(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             ports ([HelmResponseAllOfPorts]): [optional]  # noqa: E501
         """
 

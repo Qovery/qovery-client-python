@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **allow_cluster_wide_resources** | **bool** | If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights  | defaults to False
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **description** | **str** |  | [optional] 
+**timeout_sec** | **int** | Maximum number of seconds allowed for helm to run before killing it and mark it as failed  | [optional]  if omitted the server will use the default value of 600
 **ports** | [**[HelmResponseAllOfPorts]**](HelmResponseAllOfPorts.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

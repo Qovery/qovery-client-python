@@ -73,6 +73,9 @@ class HelmResponse(ModelComposed):
     }
 
     validations = {
+        ('timeout_sec',): {
+            'inclusive_minimum': 0,
+        },
     }
 
     @cached_property
@@ -110,6 +113,7 @@ class HelmResponse(ModelComposed):
             'values_override': (HelmResponseAllOfValuesOverride,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'timeout_sec': (int,),  # noqa: E501
             'ports': ([HelmResponseAllOfPorts],),  # noqa: E501
         }
 
@@ -131,6 +135,7 @@ class HelmResponse(ModelComposed):
         'values_override': 'values_override',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'timeout_sec': 'timeout_sec',  # noqa: E501
         'ports': 'ports',  # noqa: E501
     }
 
@@ -188,6 +193,7 @@ class HelmResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
+            timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             ports ([HelmResponseAllOfPorts]): [optional]  # noqa: E501
         """
 
@@ -303,6 +309,7 @@ class HelmResponse(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
+            timeout_sec (int): Maximum number of seconds allowed for helm to run before killing it and mark it as failed . [optional] if omitted the server will use the default value of 600  # noqa: E501
             ports ([HelmResponseAllOfPorts]): [optional]  # noqa: E501
         """
 
