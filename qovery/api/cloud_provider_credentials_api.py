@@ -26,6 +26,7 @@ from qovery.model.aws_credentials_request import AwsCredentialsRequest
 from qovery.model.cluster_credentials import ClusterCredentials
 from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
 from qovery.model.do_credentials_request import DoCredentialsRequest
+from qovery.model.gcp_credentials_request import GcpCredentialsRequest
 from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
 
 
@@ -142,6 +143,64 @@ class CloudProviderCredentialsApi(object):
                 'location_map': {
                     'organization_id': 'path',
                     'do_credentials_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_gcp_credentials_endpoint = _Endpoint(
+            settings={
+                'response_type': (ClusterCredentials,),
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gcp/credentials',
+                'operation_id': 'create_gcp_credentials',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'gcp_credentials_request',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'gcp_credentials_request':
+                        (GcpCredentialsRequest,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'gcp_credentials_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -279,6 +338,62 @@ class CloudProviderCredentialsApi(object):
                 ],
                 'endpoint_path': '/organization/{organizationId}/digitalOcean/credentials/{credentialsId}',
                 'operation_id': 'delete_do_credentials',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'credentials_id',
+                    'organization_id',
+                ],
+                'required': [
+                    'credentials_id',
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'credentials_id':
+                        (str,),
+                    'organization_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'credentials_id': 'credentialsId',
+                    'organization_id': 'organizationId',
+                },
+                'location_map': {
+                    'credentials_id': 'path',
+                    'organization_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_gcp_credentials_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gcp/credentials/{credentialsId}',
+                'operation_id': 'delete_gcp_credentials',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -510,6 +625,70 @@ class CloudProviderCredentialsApi(object):
             },
             api_client=api_client
         )
+        self.edit_gcp_credentials_endpoint = _Endpoint(
+            settings={
+                'response_type': (ClusterCredentials,),
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gcp/credentials/{credentialsId}',
+                'operation_id': 'edit_gcp_credentials',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'credentials_id',
+                    'gcp_credentials_request',
+                ],
+                'required': [
+                    'organization_id',
+                    'credentials_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'credentials_id':
+                        (str,),
+                    'gcp_credentials_request':
+                        (GcpCredentialsRequest,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                    'credentials_id': 'credentialsId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'credentials_id': 'path',
+                    'gcp_credentials_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.edit_scaleway_credentials_endpoint = _Endpoint(
             settings={
                 'response_type': (ClusterCredentials,),
@@ -690,6 +869,64 @@ class CloudProviderCredentialsApi(object):
             },
             api_client=api_client
         )
+        self.get_gcp_credentials_endpoint = _Endpoint(
+            settings={
+                'response_type': (ClusterCredentials,),
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gcp/credentials/{credentialsId}',
+                'operation_id': 'get_gcp_credentials',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                    'credentials_id',
+                ],
+                'required': [
+                    'organization_id',
+                    'credentials_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                    'credentials_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                    'credentials_id': 'credentialsId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                    'credentials_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_scaleway_credentials_endpoint = _Endpoint(
             settings={
                 'response_type': (ClusterCredentials,),
@@ -809,6 +1046,58 @@ class CloudProviderCredentialsApi(object):
                 ],
                 'endpoint_path': '/organization/{organizationId}/digitalOcean/credentials',
                 'operation_id': 'list_do_credentials',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'organization_id',
+                ],
+                'required': [
+                    'organization_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'organization_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'organization_id': 'organizationId',
+                },
+                'location_map': {
+                    'organization_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.list_gcp_credentials_endpoint = _Endpoint(
+            settings={
+                'response_type': (ClusterCredentialsResponseList,),
+                'auth': [
+                    'ApiKeyAuth',
+                    'bearerAuth'
+                ],
+                'endpoint_path': '/organization/{organizationId}/gcp/credentials',
+                'operation_id': 'list_gcp_credentials',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1071,6 +1360,89 @@ class CloudProviderCredentialsApi(object):
             organization_id
         return self.create_do_credentials_endpoint.call_with_http_info(**kwargs)
 
+    def create_gcp_credentials(
+        self,
+        organization_id,
+        **kwargs
+    ):
+        """Create GCP credentials set  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_gcp_credentials(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+
+        Keyword Args:
+            gcp_credentials_request (GcpCredentialsRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ClusterCredentials
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.create_gcp_credentials_endpoint.call_with_http_info(**kwargs)
+
     def create_scaleway_credentials(
         self,
         organization_id,
@@ -1325,6 +1697,92 @@ class CloudProviderCredentialsApi(object):
         kwargs['organization_id'] = \
             organization_id
         return self.delete_do_credentials_endpoint.call_with_http_info(**kwargs)
+
+    def delete_gcp_credentials(
+        self,
+        credentials_id,
+        organization_id,
+        **kwargs
+    ):
+        """Delete a set of GCP credentials  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_gcp_credentials(credentials_id, organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            credentials_id (str): Credentials ID
+            organization_id (str): Organization ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['credentials_id'] = \
+            credentials_id
+        kwargs['organization_id'] = \
+            organization_id
+        return self.delete_gcp_credentials_endpoint.call_with_http_info(**kwargs)
 
     def delete_scaleway_credentials(
         self,
@@ -1586,6 +2044,93 @@ class CloudProviderCredentialsApi(object):
             credentials_id
         return self.edit_do_credentials_endpoint.call_with_http_info(**kwargs)
 
+    def edit_gcp_credentials(
+        self,
+        organization_id,
+        credentials_id,
+        **kwargs
+    ):
+        """Edit a set of GCP credentials  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.edit_gcp_credentials(organization_id, credentials_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+            credentials_id (str): Credentials ID
+
+        Keyword Args:
+            gcp_credentials_request (GcpCredentialsRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ClusterCredentials
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        kwargs['credentials_id'] = \
+            credentials_id
+        return self.edit_gcp_credentials_endpoint.call_with_http_info(**kwargs)
+
     def edit_scaleway_credentials(
         self,
         organization_id,
@@ -1845,6 +2390,92 @@ class CloudProviderCredentialsApi(object):
             credentials_id
         return self.get_do_credentials_endpoint.call_with_http_info(**kwargs)
 
+    def get_gcp_credentials(
+        self,
+        organization_id,
+        credentials_id,
+        **kwargs
+    ):
+        """Get a set of GCP credentials  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_gcp_credentials(organization_id, credentials_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+            credentials_id (str): Credentials ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ClusterCredentials
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        kwargs['credentials_id'] = \
+            credentials_id
+        return self.get_gcp_credentials_endpoint.call_with_http_info(**kwargs)
+
     def get_scaleway_credentials(
         self,
         organization_id,
@@ -2094,6 +2725,88 @@ class CloudProviderCredentialsApi(object):
         kwargs['organization_id'] = \
             organization_id
         return self.list_do_credentials_endpoint.call_with_http_info(**kwargs)
+
+    def list_gcp_credentials(
+        self,
+        organization_id,
+        **kwargs
+    ):
+        """List GCP credentials  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_gcp_credentials(organization_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            organization_id (str): Organization ID
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ClusterCredentialsResponseList
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['organization_id'] = \
+            organization_id
+        return self.list_gcp_credentials_endpoint.call_with_http_info(**kwargs)
 
     def list_scaleway_credentials(
         self,

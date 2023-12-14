@@ -38,6 +38,13 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """
         pass
 
+    def test_create_gcp_credentials(self):
+        """Test case for create_gcp_credentials
+
+        Create GCP credentials set  # noqa: E501
+        """
+        pass
+
     def test_create_scaleway_credentials(self):
         """Test case for create_scaleway_credentials
 
@@ -56,6 +63,13 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """Test case for delete_do_credentials
 
         Delete a set of Digital Ocean credentials  # noqa: E501
+        """
+        pass
+
+    def test_delete_gcp_credentials(self):
+        """Test case for delete_gcp_credentials
+
+        Delete a set of GCP credentials  # noqa: E501
         """
         pass
 
@@ -80,6 +94,13 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """
         pass
 
+    def test_edit_gcp_credentials(self):
+        """Test case for edit_gcp_credentials
+
+        Edit a set of GCP credentials  # noqa: E501
+        """
+        pass
+
     def test_edit_scaleway_credentials(self):
         """Test case for edit_scaleway_credentials
 
@@ -101,6 +122,13 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_gcp_credentials(self):
+        """Test case for get_gcp_credentials
+
+        Get a set of GCP credentials  # noqa: E501
+        """
+        pass
+
     def test_get_scaleway_credentials(self):
         """Test case for get_scaleway_credentials
 
@@ -119,6 +147,13 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """Test case for list_do_credentials
 
         List DO credentials  # noqa: E501
+        """
+        pass
+
+    def test_list_gcp_credentials(self):
+        """Test case for list_gcp_credentials
+
+        List GCP credentials  # noqa: E501
         """
         pass
 

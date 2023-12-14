@@ -285,6 +285,7 @@ docs/EnvironmentVariableOverride.md
 docs/EnvironmentVariableRequest.md
 docs/EnvironmentVariableResponseList.md
 docs/EnvironmentsApi.md
+docs/GcpCredentialsRequest.md
 docs/GenericObjectCurrentCost.md
 docs/GitAuthProvider.md
 docs/GitAuthProviderResponseList.md
@@ -910,6 +911,7 @@ qovery/model/environment_variable_edit_request.py
 qovery/model/environment_variable_override.py
 qovery/model/environment_variable_request.py
 qovery/model/environment_variable_response_list.py
+qovery/model/gcp_credentials_request.py
 qovery/model/generic_object_current_cost.py
 qovery/model/git_auth_provider.py
 qovery/model/git_auth_provider_response_list.py
@@ -1467,6 +1469,7 @@ test/test_environment_variable_override.py
 test/test_environment_variable_request.py
 test/test_environment_variable_response_list.py
 test/test_environments_api.py
+test/test_gcp_credentials_request.py
 test/test_generic_object_current_cost.py
 test/test_git_auth_provider.py
 test/test_git_auth_provider_response_list.py

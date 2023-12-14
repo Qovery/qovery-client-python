@@ -17,6 +17,9 @@ Method | HTTP request | Description
 [**list_do_managed_database_instance_type**](CloudProviderApi.md#list_do_managed_database_instance_type) | **GET** /digitalOcean/managedDatabase/instanceType/{region}/{databaseType} | List Digital Ocean available managed database instance types
 [**list_do_managed_database_type**](CloudProviderApi.md#list_do_managed_database_type) | **GET** /digitalOcean/managedDatabase/type | List Digital Ocean available managed database types
 [**list_do_regions**](CloudProviderApi.md#list_do_regions) | **GET** /digitalOcean/region | List DO regions
+[**list_gcp_features**](CloudProviderApi.md#list_gcp_features) | **GET** /gcp/clusterFeature | List GCP features available
+[**list_gcp_gke_instance_type**](CloudProviderApi.md#list_gcp_gke_instance_type) | **GET** /gcp/instanceType/{region} | List GCP GKE available instance types
+[**list_gcp_regions**](CloudProviderApi.md#list_gcp_regions) | **GET** /gcp/region | List GCP regions
 [**list_scaleway_features**](CloudProviderApi.md#list_scaleway_features) | **GET** /scaleway/clusterFeature | List Scaleway features available
 [**list_scaleway_instance_type**](CloudProviderApi.md#list_scaleway_instance_type) | **GET** /scaleway/instanceType | List Scaleway available instance types
 [**list_scaleway_kapsule_instance_type**](CloudProviderApi.md#list_scaleway_kapsule_instance_type) | **GET** /scaleway/instanceType/{zone} | List Scaleway Kapsule available instance types
@@ -1067,6 +1070,253 @@ with qovery.ApiClient(configuration) as api_client:
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling CloudProviderApi->list_do_regions: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClusterRegionResponseList**](ClusterRegionResponseList.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | list regions |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_gcp_features**
+> ClusterFeatureResponseList list_gcp_features()
+
+List GCP features available
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import cloud_provider_api
+from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloud_provider_api.CloudProviderApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # List GCP features available
+        api_response = api_instance.list_gcp_features()
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling CloudProviderApi->list_gcp_features: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ClusterFeatureResponseList**](ClusterFeatureResponseList.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | list features available for GCP cloud provider |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_gcp_gke_instance_type**
+> ClusterInstanceTypeResponseList list_gcp_gke_instance_type(region)
+
+List GCP GKE available instance types
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import cloud_provider_api
+from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloud_provider_api.CloudProviderApi(api_client)
+    region = "us-east-2" # str | region name
+
+    # example passing only required values which don't have defaults set
+    try:
+        # List GCP GKE available instance types
+        api_response = api_instance.list_gcp_gke_instance_type(region)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling CloudProviderApi->list_gcp_gke_instance_type: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **region** | **str**| region name |
+
+### Return type
+
+[**ClusterInstanceTypeResponseList**](ClusterInstanceTypeResponseList.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | list the instance types available for GCP GKE by region |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_gcp_regions**
+> ClusterRegionResponseList list_gcp_regions()
+
+List GCP regions
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import cloud_provider_api
+from qovery.model.cluster_region_response_list import ClusterRegionResponseList
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = cloud_provider_api.CloudProviderApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # List GCP regions
+        api_response = api_instance.list_gcp_regions()
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling CloudProviderApi->list_gcp_regions: %s\n" % e)
 ```
 
 

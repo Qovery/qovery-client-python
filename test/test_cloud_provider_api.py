@@ -115,6 +115,27 @@ class TestCloudProviderApi(unittest.TestCase):
         """
         pass
 
+    def test_list_gcp_features(self):
+        """Test case for list_gcp_features
+
+        List GCP features available  # noqa: E501
+        """
+        pass
+
+    def test_list_gcp_gke_instance_type(self):
+        """Test case for list_gcp_gke_instance_type
+
+        List GCP GKE available instance types  # noqa: E501
+        """
+        pass
+
+    def test_list_gcp_regions(self):
+        """Test case for list_gcp_regions
+
+        List GCP regions  # noqa: E501
+        """
+        pass
+
     def test_list_scaleway_features(self):
         """Test case for list_scaleway_features
 

@@ -246,6 +246,7 @@ from qovery.model.environment_variable_edit_request import EnvironmentVariableEd
 from qovery.model.environment_variable_override import EnvironmentVariableOverride
 from qovery.model.environment_variable_request import EnvironmentVariableRequest
 from qovery.model.environment_variable_response_list import EnvironmentVariableResponseList
+from qovery.model.gcp_credentials_request import GcpCredentialsRequest
 from qovery.model.generic_object_current_cost import GenericObjectCurrentCost
 from qovery.model.git_auth_provider import GitAuthProvider
 from qovery.model.git_auth_provider_response_list import GitAuthProviderResponseList
