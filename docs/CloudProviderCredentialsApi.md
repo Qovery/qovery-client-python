@@ -277,7 +277,7 @@ with qovery.ApiClient(configuration) as api_client:
     organization_id = "organizationId_example" # str | Organization ID
     gcp_credentials_request = GcpCredentialsRequest(
         name="name_example",
-        json_credentials="json_credentials_example",
+        gcp_credentials="gcp_credentials_example",
     ) # GcpCredentialsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -1032,7 +1032,7 @@ with qovery.ApiClient(configuration) as api_client:
     credentials_id = "credentialsId_example" # str | Credentials ID
     gcp_credentials_request = GcpCredentialsRequest(
         name="name_example",
-        json_credentials="json_credentials_example",
+        gcp_credentials="gcp_credentials_example",
     ) # GcpCredentialsRequest |  (optional)
 
     # example passing only required values which don't have defaults set

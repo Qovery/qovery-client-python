@@ -83,7 +83,7 @@ class GcpCredentialsRequest(ModelNormal):
         """
         return {
             'name': (str,),  # noqa: E501
-            'json_credentials': (str,),  # noqa: E501
+            'gcp_credentials': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -93,7 +93,7 @@ class GcpCredentialsRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'json_credentials': 'json_credentials',  # noqa: E501
+        'gcp_credentials': 'gcp_credentials',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,12 +103,12 @@ class GcpCredentialsRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, json_credentials, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, gcp_credentials, *args, **kwargs):  # noqa: E501
         """GcpCredentialsRequest - a model defined in OpenAPI
 
         Args:
             name (str):
-            json_credentials (str):
+            gcp_credentials (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -173,7 +173,7 @@ class GcpCredentialsRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.json_credentials = json_credentials
+        self.gcp_credentials = gcp_credentials
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,12 +194,12 @@ class GcpCredentialsRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, json_credentials, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, gcp_credentials, *args, **kwargs):  # noqa: E501
         """GcpCredentialsRequest - a model defined in OpenAPI
 
         Args:
             name (str):
-            json_credentials (str):
+            gcp_credentials (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -262,7 +262,7 @@ class GcpCredentialsRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.json_credentials = json_credentials
+        self.gcp_credentials = gcp_credentials
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
