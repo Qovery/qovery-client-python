@@ -94,8 +94,8 @@ class HelmRepositoryResponse(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
-            'updated_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'updated_at': (datetime,),  # noqa: E501
             'kind': (HelmRepositoryKindEnum,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
@@ -110,8 +110,8 @@ class HelmRepositoryResponse(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
-        'updated_at': 'updated_at',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'updated_at': 'updated_at',  # noqa: E501
         'kind': 'kind',  # noqa: E501
         'description': 'description',  # noqa: E501
         'url': 'url',  # noqa: E501
@@ -132,6 +132,7 @@ class HelmRepositoryResponse(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
+            name (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -163,7 +164,6 @@ class HelmRepositoryResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
             kind (HelmRepositoryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the helm repository. [optional]  # noqa: E501
@@ -241,6 +241,7 @@ class HelmRepositoryResponse(ModelComposed):
         """HelmRepositoryResponse - a model defined in OpenAPI
 
         Keyword Args:
+            name (str):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -272,7 +273,6 @@ class HelmRepositoryResponse(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            name (str): [optional]  # noqa: E501
             kind (HelmRepositoryKindEnum): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             url (str): URL of the helm repository. [optional]  # noqa: E501

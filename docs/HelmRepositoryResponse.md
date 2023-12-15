@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
+**name** | **str** |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
-**name** | **str** |  | [optional] 
 **kind** | [**HelmRepositoryKindEnum**](HelmRepositoryKindEnum.md) |  | [optional] 
 **description** | **str** |  | [optional] 
 **url** | **str** | URL of the helm repository | [optional] 
