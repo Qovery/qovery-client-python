@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.deploy_helm_request import DeployHelmRequest
+from qovery.model.helm_deploy_request import HelmDeployRequest
 
 
-class TestDeployHelmRequest(unittest.TestCase):
-    """DeployHelmRequest unit test stubs"""
+class TestHelmDeployRequest(unittest.TestCase):
+    """HelmDeployRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestDeployHelmRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testDeployHelmRequest(self):
-        """Test DeployHelmRequest"""
+    def testHelmDeployRequest(self):
+        """Test HelmDeployRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = DeployHelmRequest()  # noqa: E501
+        # model = HelmDeployRequest()  # noqa: E501
         pass
 
 

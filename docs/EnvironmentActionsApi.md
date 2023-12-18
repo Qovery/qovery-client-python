@@ -267,6 +267,9 @@ with qovery.ApiClient(configuration) as api_client:
         job_ids=[
             "job_ids_example",
         ],
+        helm_ids=[
+            "helm_ids_example",
+        ],
     ) # EnvironmentServiceIdsAllRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -960,6 +963,9 @@ with qovery.ApiClient(configuration) as api_client:
         ],
         job_ids=[
             "job_ids_example",
+        ],
+        helm_ids=[
+            "helm_ids_example",
         ],
     ) # EnvironmentServiceIdsAllRequest |  (optional)
 

@@ -157,7 +157,6 @@ from qovery.model.deploy_all_request import DeployAllRequest
 from qovery.model.deploy_all_request_applications_inner import DeployAllRequestApplicationsInner
 from qovery.model.deploy_all_request_containers_inner import DeployAllRequestContainersInner
 from qovery.model.deploy_all_request_jobs_inner import DeployAllRequestJobsInner
-from qovery.model.deploy_helm_request import DeployHelmRequest
 from qovery.model.deploy_request import DeployRequest
 from qovery.model.deployment_history import DeploymentHistory
 from qovery.model.deployment_history_all_of import DeploymentHistoryAllOf
@@ -265,6 +264,7 @@ from qovery.model.git_token_response_list import GitTokenResponseList
 from qovery.model.healthcheck import Healthcheck
 from qovery.model.helm_default_values_request import HelmDefaultValuesRequest
 from qovery.model.helm_default_values_request_all_of import HelmDefaultValuesRequestAllOf
+from qovery.model.helm_deploy_request import HelmDeployRequest
 from qovery.model.helm_deployment_restriction_request import HelmDeploymentRestrictionRequest
 from qovery.model.helm_deployment_restriction_response import HelmDeploymentRestrictionResponse
 from qovery.model.helm_deployment_restriction_response_list import HelmDeploymentRestrictionResponseList

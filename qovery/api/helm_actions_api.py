@@ -22,7 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from qovery.model.deploy_helm_request import DeployHelmRequest
+from qovery.model.helm_deploy_request import HelmDeployRequest
 from qovery.model.helm_force_event import HelmForceEvent
 from qovery.model.status import Status
 
@@ -54,7 +54,7 @@ class HelmActionsApi(object):
                 'all': [
                     'helm_id',
                     'force_event',
-                    'deploy_helm_request',
+                    'helm_deploy_request',
                 ],
                 'required': [
                     'helm_id',
@@ -76,8 +76,8 @@ class HelmActionsApi(object):
                         (str,),
                     'force_event':
                         (HelmForceEvent,),
-                    'deploy_helm_request':
-                        (DeployHelmRequest,),
+                    'helm_deploy_request':
+                        (HelmDeployRequest,),
                 },
                 'attribute_map': {
                     'helm_id': 'helmId',
@@ -86,7 +86,7 @@ class HelmActionsApi(object):
                 'location_map': {
                     'helm_id': 'path',
                     'force_event': 'query',
-                    'deploy_helm_request': 'body',
+                    'helm_deploy_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -287,7 +287,7 @@ class HelmActionsApi(object):
 
         Keyword Args:
             force_event (HelmForceEvent): When filled, it indicates the target event to be deployed.   If the concerned helm hasn't the target event provided, the helm won't be deployed. . [optional]
-            deploy_helm_request (DeployHelmRequest): [optional]
+            helm_deploy_request (HelmDeployRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

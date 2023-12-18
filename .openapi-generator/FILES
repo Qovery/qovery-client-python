@@ -185,7 +185,6 @@ docs/DeployAllRequest.md
 docs/DeployAllRequestApplicationsInner.md
 docs/DeployAllRequestContainersInner.md
 docs/DeployAllRequestJobsInner.md
-docs/DeployHelmRequest.md
 docs/DeployRequest.md
 docs/DeploymentHistory.md
 docs/DeploymentHistoryAllOf.md
@@ -309,6 +308,7 @@ docs/HelmApi.md
 docs/HelmConfigurationApi.md
 docs/HelmDefaultValuesRequest.md
 docs/HelmDefaultValuesRequestAllOf.md
+docs/HelmDeployRequest.md
 docs/HelmDeploymentHistoryApi.md
 docs/HelmDeploymentRestrictionApi.md
 docs/HelmDeploymentRestrictionRequest.md
@@ -824,7 +824,6 @@ qovery/model/deploy_all_request.py
 qovery/model/deploy_all_request_applications_inner.py
 qovery/model/deploy_all_request_containers_inner.py
 qovery/model/deploy_all_request_jobs_inner.py
-qovery/model/deploy_helm_request.py
 qovery/model/deploy_request.py
 qovery/model/deployment_history.py
 qovery/model/deployment_history_all_of.py
@@ -932,6 +931,7 @@ qovery/model/git_token_response_list.py
 qovery/model/healthcheck.py
 qovery/model/helm_default_values_request.py
 qovery/model/helm_default_values_request_all_of.py
+qovery/model/helm_deploy_request.py
 qovery/model/helm_deployment_restriction_request.py
 qovery/model/helm_deployment_restriction_response.py
 qovery/model/helm_deployment_restriction_response_list.py
@@ -1373,7 +1373,6 @@ test/test_deploy_all_request.py
 test/test_deploy_all_request_applications_inner.py
 test/test_deploy_all_request_containers_inner.py
 test/test_deploy_all_request_jobs_inner.py
-test/test_deploy_helm_request.py
 test/test_deploy_request.py
 test/test_deployment_history.py
 test/test_deployment_history_all_of.py
@@ -1497,6 +1496,7 @@ test/test_helm_api.py
 test/test_helm_configuration_api.py
 test/test_helm_default_values_request.py
 test/test_helm_default_values_request_all_of.py
+test/test_helm_deploy_request.py
 test/test_helm_deployment_history_api.py
 test/test_helm_deployment_restriction_api.py
 test/test_helm_deployment_restriction_request.py

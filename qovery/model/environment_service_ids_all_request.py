@@ -86,6 +86,7 @@ class EnvironmentServiceIdsAllRequest(ModelNormal):
             'container_ids': ([str],),  # noqa: E501
             'database_ids': ([str],),  # noqa: E501
             'job_ids': ([str],),  # noqa: E501
+            'helm_ids': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class EnvironmentServiceIdsAllRequest(ModelNormal):
         'container_ids': 'container_ids',  # noqa: E501
         'database_ids': 'database_ids',  # noqa: E501
         'job_ids': 'job_ids',  # noqa: E501
+        'helm_ids': 'helm_ids',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +147,7 @@ class EnvironmentServiceIdsAllRequest(ModelNormal):
             container_ids ([str]): [optional]  # noqa: E501
             database_ids ([str]): [optional]  # noqa: E501
             job_ids ([str]): [optional]  # noqa: E501
+            helm_ids ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -234,6 +237,7 @@ class EnvironmentServiceIdsAllRequest(ModelNormal):
             container_ids ([str]): [optional]  # noqa: E501
             database_ids ([str]): [optional]  # noqa: E501
             job_ids ([str]): [optional]  # noqa: E501
+            helm_ids ([str]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

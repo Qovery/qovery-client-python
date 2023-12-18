@@ -26,9 +26,9 @@ You must provide a git commit id or an image tag depending on the source locatio
 import time
 import qovery
 from qovery.api import helm_actions_api
-from qovery.model.deploy_helm_request import DeployHelmRequest
 from qovery.model.status import Status
 from qovery.model.helm_force_event import HelmForceEvent
+from qovery.model.helm_deploy_request import HelmDeployRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -58,11 +58,11 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = helm_actions_api.HelmActionsApi(api_client)
     helm_id = "helmId_example" # str | Helm ID
     force_event = HelmForceEvent("DIFF") # HelmForceEvent | When filled, it indicates the target event to be deployed.   If the concerned helm hasn't the target event provided, the helm won't be deployed.  (optional)
-    deploy_helm_request = DeployHelmRequest(
-        version="version_example",
+    helm_deploy_request = HelmDeployRequest(
+        chart_version="chart_version_example",
         git_commit_id="git_commit_id_example",
         values_override_git_commit_id="values_override_git_commit_id_example",
-    ) # DeployHelmRequest |  (optional)
+    ) # HelmDeployRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -76,7 +76,7 @@ with qovery.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Deploy helm
-        api_response = api_instance.deploy_helm(helm_id, force_event=force_event, deploy_helm_request=deploy_helm_request)
+        api_response = api_instance.deploy_helm(helm_id, force_event=force_event, helm_deploy_request=helm_deploy_request)
         pprint(api_response)
     except qovery.ApiException as e:
         print("Exception when calling HelmActionsApi->deploy_helm: %s\n" % e)
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **helm_id** | **str**| Helm ID |
  **force_event** | **HelmForceEvent**| When filled, it indicates the target event to be deployed.   If the concerned helm hasn&#39;t the target event provided, the helm won&#39;t be deployed.  | [optional]
- **deploy_helm_request** | [**DeployHelmRequest**](DeployHelmRequest.md)|  | [optional]
+ **helm_deploy_request** | [**HelmDeployRequest**](HelmDeployRequest.md)|  | [optional]
 
 ### Return type
 
