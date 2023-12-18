@@ -109,8 +109,12 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, git_repository, paths, *args, **kwargs):  # noqa: E501
         """HelmResponseAllOfValuesOverrideFileGit - a model defined in OpenAPI
+
+        Args:
+            git_repository (ApplicationGitRepositoryRequest):
+            paths ([str]): List of path inside your git repository to locate values file. Must start by a /
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,8 +147,6 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
-            paths ([str]): List of path inside your git repository to locate values file. Must start by a /. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -176,6 +178,8 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.git_repository = git_repository
+        self.paths = paths
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -196,8 +200,12 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, git_repository, paths, *args, **kwargs):  # noqa: E501
         """HelmResponseAllOfValuesOverrideFileGit - a model defined in OpenAPI
+
+        Args:
+            git_repository (ApplicationGitRepositoryRequest):
+            paths ([str]): List of path inside your git repository to locate values file. Must start by a /
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,8 +238,6 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            git_repository (ApplicationGitRepositoryRequest): [optional]  # noqa: E501
-            paths ([str]): List of path inside your git repository to locate values file. Must start by a /. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +267,8 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.git_repository = git_repository
+        self.paths = paths
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

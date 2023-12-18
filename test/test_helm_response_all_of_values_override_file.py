@@ -13,10 +13,10 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.helm_request_all_of_values_override_file_raw import HelmRequestAllOfValuesOverrideFileRaw
 from qovery.model.helm_response_all_of_values_override_file_git import HelmResponseAllOfValuesOverrideFileGit
-globals()['HelmRequestAllOfValuesOverrideFileRaw'] = HelmRequestAllOfValuesOverrideFileRaw
+from qovery.model.helm_response_all_of_values_override_file_raw import HelmResponseAllOfValuesOverrideFileRaw
 globals()['HelmResponseAllOfValuesOverrideFileGit'] = HelmResponseAllOfValuesOverrideFileGit
+globals()['HelmResponseAllOfValuesOverrideFileRaw'] = HelmResponseAllOfValuesOverrideFileRaw
 from qovery.model.helm_response_all_of_values_override_file import HelmResponseAllOfValuesOverrideFile
 
 
