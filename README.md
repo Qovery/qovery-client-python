@@ -274,7 +274,6 @@ Class | Method | HTTP request | Description
 *ContainerSecretApi* | [**list_container_secrets**](docs/ContainerSecretApi.md#list_container_secrets) | **GET** /container/{containerId}/secret | List container secrets
 *ContainersApi* | [**auto_deploy_container_environments**](docs/ContainersApi.md#auto_deploy_container_environments) | **POST** /organization/{organizationId}/container/deploy | Auto deploy containers
 *ContainersApi* | [**clone_container**](docs/ContainersApi.md#clone_container) | **POST** /container/{containerId}/clone | Clone container
-*ContainersApi* | [**clone_helm**](docs/ContainersApi.md#clone_helm) | **POST** /helm/{helmId}/clone | Clone helm
 *ContainersApi* | [**create_container**](docs/ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
 *ContainersApi* | [**get_container_registry_container_status**](docs/ContainersApi.md#get_container_registry_container_status) | **GET** /organization/{organizationId}/containerRegistry/{containerRegistryId}/container/status | List all container registry container statuses
 *ContainersApi* | [**get_default_container_advanced_settings**](docs/ContainersApi.md#get_default_container_advanced_settings) | **GET** /defaultContainerAdvancedSettings | List default container advanced settings
@@ -395,6 +394,7 @@ Class | Method | HTTP request | Description
 *HelmRepositoriesApi* | [**get_helm_repository**](docs/HelmRepositoriesApi.md#get_helm_repository) | **GET** /organization/{organizationId}/helmRepository/{helmRepositoryId} | Get a helm repository
 *HelmRepositoriesApi* | [**list_available_helm_repository**](docs/HelmRepositoriesApi.md#list_available_helm_repository) | **GET** /availableHelmRepository | List supported helm repository
 *HelmRepositoriesApi* | [**list_helm_repository**](docs/HelmRepositoriesApi.md#list_helm_repository) | **GET** /organization/{organizationId}/helmRepository | List organization helm repositories
+*HelmsApi* | [**clone_helm**](docs/HelmsApi.md#clone_helm) | **POST** /helm/{helmId}/clone | Clone helm
 *HelmsApi* | [**create_helm**](docs/HelmsApi.md#create_helm) | **POST** /environment/{environmentId}/helm | Create a helm
 *HelmsApi* | [**create_helm_default_values**](docs/HelmsApi.md#create_helm_default_values) | **POST** /environment/{environmentId}/helmDefaultValues | Get helm default values
 *HelmsApi* | [**get_environment_helm_status**](docs/HelmsApi.md#get_environment_helm_status) | **GET** /environment/{environmentId}/helm/status | List all environment helm statuses

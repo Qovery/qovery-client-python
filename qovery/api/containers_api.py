@@ -29,7 +29,6 @@ from qovery.model.container_response import ContainerResponse
 from qovery.model.container_response_list import ContainerResponseList
 from qovery.model.environment_containers_current_scale_response_list import EnvironmentContainersCurrentScaleResponseList
 from qovery.model.environment_containers_storage_response_list import EnvironmentContainersStorageResponseList
-from qovery.model.helm_response import HelmResponse
 from qovery.model.organization_container_auto_deploy_request import OrganizationContainerAutoDeployRequest
 from qovery.model.organization_container_preview_request import OrganizationContainerPreviewRequest
 from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
@@ -148,64 +147,6 @@ class ContainersApi(object):
                 },
                 'location_map': {
                     'container_id': 'path',
-                    'clone_service_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.clone_helm_endpoint = _Endpoint(
-            settings={
-                'response_type': (HelmResponse,),
-                'auth': [
-                    'ApiKeyAuth',
-                    'bearerAuth'
-                ],
-                'endpoint_path': '/helm/{helmId}/clone',
-                'operation_id': 'clone_helm',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'helm_id',
-                    'clone_service_request',
-                ],
-                'required': [
-                    'helm_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'helm_id':
-                        (str,),
-                    'clone_service_request':
-                        (CloneServiceRequest,),
-                },
-                'attribute_map': {
-                    'helm_id': 'helmId',
-                },
-                'location_map': {
-                    'helm_id': 'path',
                     'clone_service_request': 'body',
                 },
                 'collection_format_map': {
@@ -816,90 +757,6 @@ class ContainersApi(object):
         kwargs['container_id'] = \
             container_id
         return self.clone_container_endpoint.call_with_http_info(**kwargs)
-
-    def clone_helm(
-        self,
-        helm_id,
-        **kwargs
-    ):
-        """Clone helm  # noqa: E501
-
-        This will create a new helm with the same configuration on the targeted environment Id.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.clone_helm(helm_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            helm_id (str): Helm ID
-
-        Keyword Args:
-            clone_service_request (CloneServiceRequest): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _spec_property_naming (bool): True if the variable names in the input data
-                are serialized names, as specified in the OpenAPI document.
-                False if the variable names in the input data
-                are pythonic names, e.g. snake case (default)
-            _content_type (str/None): force body content-type.
-                Default is None and content-type will be predicted by allowed
-                content-types and body.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            _request_auths (list): set to override the auth_settings for an a single
-                request; this effectively ignores the authentication
-                in the spec for a single request.
-                Default is None
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            HelmResponse
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_spec_property_naming'] = kwargs.get(
-            '_spec_property_naming', False
-        )
-        kwargs['_content_type'] = kwargs.get(
-            '_content_type')
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['helm_id'] = \
-            helm_id
-        return self.clone_helm_endpoint.call_with_http_info(**kwargs)
 
     def create_container(
         self,

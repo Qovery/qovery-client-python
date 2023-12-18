@@ -24,6 +24,13 @@ class TestHelmsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_clone_helm(self):
+        """Test case for clone_helm
+
+        Clone helm  # noqa: E501
+        """
+        pass
+
     def test_create_helm(self):
         """Test case for create_helm
 

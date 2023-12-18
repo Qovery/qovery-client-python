@@ -95,6 +95,7 @@ class EnvironmentStatuses(ModelNormal):
             'containers': ([Status],),  # noqa: E501
             'jobs': ([Status],),  # noqa: E501
             'databases': ([Status],),  # noqa: E501
+            'helms': ([Status],),  # noqa: E501
         }
 
     @cached_property
@@ -108,6 +109,7 @@ class EnvironmentStatuses(ModelNormal):
         'containers': 'containers',  # noqa: E501
         'jobs': 'jobs',  # noqa: E501
         'databases': 'databases',  # noqa: E501
+        'helms': 'helms',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +158,7 @@ class EnvironmentStatuses(ModelNormal):
             containers ([Status]): [optional]  # noqa: E501
             jobs ([Status]): [optional]  # noqa: E501
             databases ([Status]): [optional]  # noqa: E501
+            helms ([Status]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,6 +249,7 @@ class EnvironmentStatuses(ModelNormal):
             containers ([Status]): [optional]  # noqa: E501
             jobs ([Status]): [optional]  # noqa: E501
             databases ([Status]): [optional]  # noqa: E501
+            helms ([Status]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
