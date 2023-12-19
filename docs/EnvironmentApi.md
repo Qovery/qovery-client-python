@@ -76,6 +76,14 @@ with qovery.ApiClient(configuration) as api_client:
                 git_commit_id="git_commit_id_example",
             ),
         ],
+        helms=[
+            DeployAllRequestHelmsInner(
+                id="id_example",
+                chart_version="chart_version_example",
+                git_commit_id="git_commit_id_example",
+                values_override_git_commit_id="values_override_git_commit_id_example",
+            ),
+        ],
     ) # DeployAllRequest |  (optional)
 
     # example passing only required values which don't have defaults set
