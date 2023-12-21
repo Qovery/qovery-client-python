@@ -31,11 +31,11 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from qovery.model.deployment_history_helm_response import DeploymentHistoryHelmResponse
     from qovery.model.list_helm_deployment_history200_response_all_of import ListHelmDeploymentHistory200ResponseAllOf
-    from qovery.model.list_helm_deployment_history200_response_all_of_results_inner import ListHelmDeploymentHistory200ResponseAllOfResultsInner
     from qovery.model.pagination_data import PaginationData
+    globals()['DeploymentHistoryHelmResponse'] = DeploymentHistoryHelmResponse
     globals()['ListHelmDeploymentHistory200ResponseAllOf'] = ListHelmDeploymentHistory200ResponseAllOf
-    globals()['ListHelmDeploymentHistory200ResponseAllOfResultsInner'] = ListHelmDeploymentHistory200ResponseAllOfResultsInner
     globals()['PaginationData'] = PaginationData
 
 
@@ -94,7 +94,7 @@ class ListHelmDeploymentHistory200Response(ModelComposed):
         return {
             'page': (float,),  # noqa: E501
             'page_size': (float,),  # noqa: E501
-            'results': ([ListHelmDeploymentHistory200ResponseAllOfResultsInner],),  # noqa: E501
+            'results': ([DeploymentHistoryHelmResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class ListHelmDeploymentHistory200Response(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListHelmDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryHelmResponse]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,7 +255,7 @@ class ListHelmDeploymentHistory200Response(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListHelmDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryHelmResponse]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

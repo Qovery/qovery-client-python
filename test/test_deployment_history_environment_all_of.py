@@ -16,12 +16,14 @@ import qovery
 from qovery.model.deployment_history_application import DeploymentHistoryApplication
 from qovery.model.deployment_history_container import DeploymentHistoryContainer
 from qovery.model.deployment_history_database import DeploymentHistoryDatabase
+from qovery.model.deployment_history_helm_response import DeploymentHistoryHelmResponse
 from qovery.model.deployment_history_job_response import DeploymentHistoryJobResponse
 from qovery.model.organization_event_origin import OrganizationEventOrigin
 from qovery.model.state_enum import StateEnum
 globals()['DeploymentHistoryApplication'] = DeploymentHistoryApplication
 globals()['DeploymentHistoryContainer'] = DeploymentHistoryContainer
 globals()['DeploymentHistoryDatabase'] = DeploymentHistoryDatabase
+globals()['DeploymentHistoryHelmResponse'] = DeploymentHistoryHelmResponse
 globals()['DeploymentHistoryJobResponse'] = DeploymentHistoryJobResponse
 globals()['OrganizationEventOrigin'] = OrganizationEventOrigin
 globals()['StateEnum'] = StateEnum

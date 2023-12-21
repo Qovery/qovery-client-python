@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.deployment_history_helm_response import DeploymentHistoryHelmResponse
 from qovery.model.list_helm_deployment_history200_response_all_of import ListHelmDeploymentHistory200ResponseAllOf
-from qovery.model.list_helm_deployment_history200_response_all_of_results_inner import ListHelmDeploymentHistory200ResponseAllOfResultsInner
 from qovery.model.pagination_data import PaginationData
+globals()['DeploymentHistoryHelmResponse'] = DeploymentHistoryHelmResponse
 globals()['ListHelmDeploymentHistory200ResponseAllOf'] = ListHelmDeploymentHistory200ResponseAllOf
-globals()['ListHelmDeploymentHistory200ResponseAllOfResultsInner'] = ListHelmDeploymentHistory200ResponseAllOfResultsInner
 globals()['PaginationData'] = PaginationData
 from qovery.model.list_helm_deployment_history200_response import ListHelmDeploymentHistory200Response
 

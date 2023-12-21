@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.list_helm_deployment_history200_response_all_of_results_inner import ListHelmDeploymentHistory200ResponseAllOfResultsInner
-    globals()['ListHelmDeploymentHistory200ResponseAllOfResultsInner'] = ListHelmDeploymentHistory200ResponseAllOfResultsInner
+    from qovery.model.deployment_history_helm_response import DeploymentHistoryHelmResponse
+    globals()['DeploymentHistoryHelmResponse'] = DeploymentHistoryHelmResponse
 
 
 class ListHelmDeploymentHistory200ResponseAllOf(ModelNormal):
@@ -88,7 +88,7 @@ class ListHelmDeploymentHistory200ResponseAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'results': ([ListHelmDeploymentHistory200ResponseAllOfResultsInner],),  # noqa: E501
+            'results': ([DeploymentHistoryHelmResponse],),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class ListHelmDeploymentHistory200ResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListHelmDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryHelmResponse]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,7 +227,7 @@ class ListHelmDeploymentHistory200ResponseAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            results ([ListHelmDeploymentHistory200ResponseAllOfResultsInner]): [optional]  # noqa: E501
+            results ([DeploymentHistoryHelmResponse]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

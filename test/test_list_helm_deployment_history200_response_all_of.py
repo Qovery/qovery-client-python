@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.list_helm_deployment_history200_response_all_of_results_inner import ListHelmDeploymentHistory200ResponseAllOfResultsInner
-globals()['ListHelmDeploymentHistory200ResponseAllOfResultsInner'] = ListHelmDeploymentHistory200ResponseAllOfResultsInner
+from qovery.model.deployment_history_helm_response import DeploymentHistoryHelmResponse
+globals()['DeploymentHistoryHelmResponse'] = DeploymentHistoryHelmResponse
 from qovery.model.list_helm_deployment_history200_response_all_of import ListHelmDeploymentHistory200ResponseAllOf
 
 
