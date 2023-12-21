@@ -308,7 +308,6 @@ docs/GitTokenResponseList.md
 docs/GithubAppApi.md
 docs/Healthcheck.md
 docs/HelmActionsApi.md
-docs/HelmApi.md
 docs/HelmConfigurationApi.md
 docs/HelmDefaultValuesRequest.md
 docs/HelmDefaultValuesRequestAllOf.md
@@ -641,7 +640,6 @@ qovery/api/environments_api.py
 qovery/api/git_repositories_api.py
 qovery/api/github_app_api.py
 qovery/api/helm_actions_api.py
-qovery/api/helm_api.py
 qovery/api/helm_configuration_api.py
 qovery/api/helm_deployment_history_api.py
 qovery/api/helm_deployment_restriction_api.py
@@ -1498,7 +1496,6 @@ test/test_git_token_response_list.py
 test/test_github_app_api.py
 test/test_healthcheck.py
 test/test_helm_actions_api.py
-test/test_helm_api.py
 test/test_helm_configuration_api.py
 test/test_helm_default_values_request.py
 test/test_helm_default_values_request_all_of.py

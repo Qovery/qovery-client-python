@@ -45,6 +45,13 @@ class TestHelmsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_default_helm_advanced_settings(self):
+        """Test case for get_default_helm_advanced_settings
+
+        List default helm advanced settings  # noqa: E501
+        """
+        pass
+
     def test_get_environment_helm_status(self):
         """Test case for get_environment_helm_status
 
