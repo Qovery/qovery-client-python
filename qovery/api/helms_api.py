@@ -23,6 +23,7 @@ from qovery.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from qovery.model.clone_service_request import CloneServiceRequest
+from qovery.model.helm_advanced_settings import HelmAdvancedSettings
 from qovery.model.helm_default_values_request import HelmDefaultValuesRequest
 from qovery.model.helm_request import HelmRequest
 from qovery.model.helm_response import HelmResponse
@@ -217,7 +218,7 @@ class HelmsApi(object):
         )
         self.get_default_helm_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'response_type': (HelmAdvancedSettings,),
                 'auth': [
                     'ApiKeyAuth',
                     'bearerAuth'
@@ -661,7 +662,7 @@ class HelmsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+            HelmAdvancedSettings
                 If the method is called asynchronously, returns the request
                 thread.
         """

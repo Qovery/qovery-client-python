@@ -22,6 +22,7 @@ from qovery.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
+from qovery.model.helm_advanced_settings import HelmAdvancedSettings
 
 
 class HelmConfigurationApi(object):
@@ -37,7 +38,7 @@ class HelmConfigurationApi(object):
         self.api_client = api_client
         self.edit_helm_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'response_type': (HelmAdvancedSettings,),
                 'auth': [
                     'ApiKeyAuth',
                     'bearerAuth'
@@ -50,7 +51,7 @@ class HelmConfigurationApi(object):
             params_map={
                 'all': [
                     'helm_id',
-                    'body',
+                    'helm_advanced_settings',
                 ],
                 'required': [
                     'helm_id',
@@ -70,15 +71,15 @@ class HelmConfigurationApi(object):
                 'openapi_types': {
                     'helm_id':
                         (str,),
-                    'body':
-                        ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                    'helm_advanced_settings':
+                        (HelmAdvancedSettings,),
                 },
                 'attribute_map': {
                     'helm_id': 'helmId',
                 },
                 'location_map': {
                     'helm_id': 'path',
-                    'body': 'body',
+                    'helm_advanced_settings': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -95,7 +96,7 @@ class HelmConfigurationApi(object):
         )
         self.get_helm_advanced_settings_endpoint = _Endpoint(
             settings={
-                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'response_type': (HelmAdvancedSettings,),
                 'auth': [
                     'ApiKeyAuth',
                     'bearerAuth'
@@ -164,7 +165,7 @@ class HelmConfigurationApi(object):
             helm_id (str): Helm ID
 
         Keyword Args:
-            body ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): [optional]
+            helm_advanced_settings (HelmAdvancedSettings): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -197,7 +198,7 @@ class HelmConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+            HelmAdvancedSettings
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -280,7 +281,7 @@ class HelmConfigurationApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+            HelmAdvancedSettings
                 If the method is called asynchronously, returns the request
                 thread.
         """

@@ -774,6 +774,7 @@ Class | Method | HTTP request | Description
  - [GitTokenResponseAllOf](docs/GitTokenResponseAllOf.md)
  - [GitTokenResponseList](docs/GitTokenResponseList.md)
  - [Healthcheck](docs/Healthcheck.md)
+ - [HelmAdvancedSettings](docs/HelmAdvancedSettings.md)
  - [HelmDefaultValuesRequest](docs/HelmDefaultValuesRequest.md)
  - [HelmDefaultValuesRequestAllOf](docs/HelmDefaultValuesRequestAllOf.md)
  - [HelmDeployRequest](docs/HelmDeployRequest.md)

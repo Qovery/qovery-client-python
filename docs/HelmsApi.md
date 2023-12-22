@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_default_helm_advanced_settings**
-> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} get_default_helm_advanced_settings()
+> HelmAdvancedSettings get_default_helm_advanced_settings()
 
 List default helm advanced settings
 
@@ -324,6 +324,7 @@ List default helm advanced settings
 import time
 import qovery
 from qovery.api import helms_api
+from qovery.model.helm_advanced_settings import HelmAdvancedSettings
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -367,7 +368,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
+[**HelmAdvancedSettings**](HelmAdvancedSettings.md)
 
 ### Authorization
 
