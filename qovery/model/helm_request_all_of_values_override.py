@@ -31,9 +31,9 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.helm_key_value import HelmKeyValue
+    from qovery.model.helm_key_values import HelmKeyValues
     from qovery.model.helm_request_all_of_values_override_file import HelmRequestAllOfValuesOverrideFile
-    globals()['HelmKeyValue'] = HelmKeyValue
+    globals()['HelmKeyValues'] = HelmKeyValues
     globals()['HelmRequestAllOfValuesOverrideFile'] = HelmRequestAllOfValuesOverrideFile
 
 
@@ -90,9 +90,9 @@ class HelmRequestAllOfValuesOverride(ModelNormal):
         """
         lazy_import()
         return {
-            'set': ([HelmKeyValue],),  # noqa: E501
-            'set_string': ([HelmKeyValue],),  # noqa: E501
-            'set_json': ([HelmKeyValue],),  # noqa: E501
+            'set': (HelmKeyValues,),  # noqa: E501
+            'set_string': (HelmKeyValues,),  # noqa: E501
+            'set_json': (HelmKeyValues,),  # noqa: E501
             'file': (HelmRequestAllOfValuesOverrideFile,),  # noqa: E501
         }
 
@@ -149,9 +149,9 @@ class HelmRequestAllOfValuesOverride(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            set ([HelmKeyValue]): [optional]  # noqa: E501
-            set_string ([HelmKeyValue]): [optional]  # noqa: E501
-            set_json ([HelmKeyValue]): [optional]  # noqa: E501
+            set (HelmKeyValues): [optional]  # noqa: E501
+            set_string (HelmKeyValues): [optional]  # noqa: E501
+            set_json (HelmKeyValues): [optional]  # noqa: E501
             file (HelmRequestAllOfValuesOverrideFile): [optional]  # noqa: E501
         """
 
@@ -238,9 +238,9 @@ class HelmRequestAllOfValuesOverride(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            set ([HelmKeyValue]): [optional]  # noqa: E501
-            set_string ([HelmKeyValue]): [optional]  # noqa: E501
-            set_json ([HelmKeyValue]): [optional]  # noqa: E501
+            set (HelmKeyValues): [optional]  # noqa: E501
+            set_string (HelmKeyValues): [optional]  # noqa: E501
+            set_json (HelmKeyValues): [optional]  # noqa: E501
             file (HelmRequestAllOfValuesOverrideFile): [optional]  # noqa: E501
         """
 

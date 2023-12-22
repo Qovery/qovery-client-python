@@ -275,7 +275,7 @@ from qovery.model.helm_deployment_restriction_response import HelmDeploymentRest
 from qovery.model.helm_deployment_restriction_response_list import HelmDeploymentRestrictionResponseList
 from qovery.model.helm_force_event import HelmForceEvent
 from qovery.model.helm_git_repository_request import HelmGitRepositoryRequest
-from qovery.model.helm_key_value import HelmKeyValue
+from qovery.model.helm_key_values import HelmKeyValues
 from qovery.model.helm_port_protocol_enum import HelmPortProtocolEnum
 from qovery.model.helm_port_request import HelmPortRequest
 from qovery.model.helm_port_request_ports_inner import HelmPortRequestPortsInner

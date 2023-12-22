@@ -320,7 +320,7 @@ docs/HelmDeploymentRestrictionResponse.md
 docs/HelmDeploymentRestrictionResponseList.md
 docs/HelmForceEvent.md
 docs/HelmGitRepositoryRequest.md
-docs/HelmKeyValue.md
+docs/HelmKeyValues.md
 docs/HelmMainCallsApi.md
 docs/HelmPortProtocolEnum.md
 docs/HelmPortRequest.md
@@ -943,7 +943,7 @@ qovery/model/helm_deployment_restriction_response.py
 qovery/model/helm_deployment_restriction_response_list.py
 qovery/model/helm_force_event.py
 qovery/model/helm_git_repository_request.py
-qovery/model/helm_key_value.py
+qovery/model/helm_key_values.py
 qovery/model/helm_port_protocol_enum.py
 qovery/model/helm_port_request.py
 qovery/model/helm_port_request_ports_inner.py
@@ -1512,7 +1512,7 @@ test/test_helm_deployment_restriction_response.py
 test/test_helm_deployment_restriction_response_list.py
 test/test_helm_force_event.py
 test/test_helm_git_repository_request.py
-test/test_helm_key_value.py
+test/test_helm_key_values.py
 test/test_helm_main_calls_api.py
 test/test_helm_port_protocol_enum.py
 test/test_helm_port_request.py

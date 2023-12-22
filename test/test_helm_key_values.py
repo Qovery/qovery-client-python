@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.helm_key_value import HelmKeyValue
+from qovery.model.helm_key_values import HelmKeyValues
 
 
-class TestHelmKeyValue(unittest.TestCase):
-    """HelmKeyValue unit test stubs"""
+class TestHelmKeyValues(unittest.TestCase):
+    """HelmKeyValues unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestHelmKeyValue(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testHelmKeyValue(self):
-        """Test HelmKeyValue"""
+    def testHelmKeyValues(self):
+        """Test HelmKeyValues"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = HelmKeyValue()  # noqa: E501
+        # model = HelmKeyValues()  # noqa: E501
         pass
 
 
