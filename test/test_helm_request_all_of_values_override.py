@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.helm_key_value import HelmKeyValue
 from qovery.model.helm_request_all_of_values_override_file import HelmRequestAllOfValuesOverrideFile
+globals()['HelmKeyValue'] = HelmKeyValue
 globals()['HelmRequestAllOfValuesOverrideFile'] = HelmRequestAllOfValuesOverrideFile
 from qovery.model.helm_request_all_of_values_override import HelmRequestAllOfValuesOverride
 

@@ -14,14 +14,10 @@ import unittest
 
 import qovery
 from qovery.model.helm_key_value import HelmKeyValue
-from qovery.model.helm_response_all_of_values_override_file import HelmResponseAllOfValuesOverrideFile
-globals()['HelmKeyValue'] = HelmKeyValue
-globals()['HelmResponseAllOfValuesOverrideFile'] = HelmResponseAllOfValuesOverrideFile
-from qovery.model.helm_response_all_of_values_override import HelmResponseAllOfValuesOverride
 
 
-class TestHelmResponseAllOfValuesOverride(unittest.TestCase):
-    """HelmResponseAllOfValuesOverride unit test stubs"""
+class TestHelmKeyValue(unittest.TestCase):
+    """HelmKeyValue unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +25,10 @@ class TestHelmResponseAllOfValuesOverride(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testHelmResponseAllOfValuesOverride(self):
-        """Test HelmResponseAllOfValuesOverride"""
+    def testHelmKeyValue(self):
+        """Test HelmKeyValue"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = HelmResponseAllOfValuesOverride()  # noqa: E501
+        # model = HelmKeyValue()  # noqa: E501
         pass
 
 
