@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **key** | **str** |  | 
 **value** | **str, none_type** |  | 
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
+**is_secret** | **bool** |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **mount_path** | **str, none_type** |  | [optional] 
 **overridden_variable** | [**VariableOverride**](VariableOverride.md) |  | [optional] 

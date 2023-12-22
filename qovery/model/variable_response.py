@@ -105,6 +105,7 @@ class VariableResponse(ModelComposed):
             'key': (str,),  # noqa: E501
             'value': (str, none_type,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
+            'is_secret': (bool,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'mount_path': (str, none_type,),  # noqa: E501
             'overridden_variable': (VariableOverride,),  # noqa: E501
@@ -127,6 +128,7 @@ class VariableResponse(ModelComposed):
         'key': 'key',  # noqa: E501
         'value': 'value',  # noqa: E501
         'scope': 'scope',  # noqa: E501
+        'is_secret': 'is_secret',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'mount_path': 'mount_path',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
@@ -155,6 +157,7 @@ class VariableResponse(ModelComposed):
             key (str):
             value (str, none_type):
             scope (APIVariableScopeEnum):
+            is_secret (bool):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -270,6 +273,7 @@ class VariableResponse(ModelComposed):
             key (str):
             value (str, none_type):
             scope (APIVariableScopeEnum):
+            is_secret (bool):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

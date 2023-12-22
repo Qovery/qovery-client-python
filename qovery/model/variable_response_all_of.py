@@ -99,6 +99,7 @@ class VariableResponseAllOf(ModelNormal):
             'key': (str,),  # noqa: E501
             'value': (str, none_type,),  # noqa: E501
             'scope': (APIVariableScopeEnum,),  # noqa: E501
+            'is_secret': (bool,),  # noqa: E501
             'mount_path': (str, none_type,),  # noqa: E501
             'overridden_variable': (VariableOverride,),  # noqa: E501
             'aliased_variable': (VariableAlias,),  # noqa: E501
@@ -118,6 +119,7 @@ class VariableResponseAllOf(ModelNormal):
         'key': 'key',  # noqa: E501
         'value': 'value',  # noqa: E501
         'scope': 'scope',  # noqa: E501
+        'is_secret': 'is_secret',  # noqa: E501
         'mount_path': 'mount_path',  # noqa: E501
         'overridden_variable': 'overridden_variable',  # noqa: E501
         'aliased_variable': 'aliased_variable',  # noqa: E501
@@ -135,13 +137,14 @@ class VariableResponseAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, key, value, scope, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, key, value, scope, is_secret, *args, **kwargs):  # noqa: E501
         """VariableResponseAllOf - a model defined in OpenAPI
 
         Args:
             key (str):
             value (str, none_type):
             scope (APIVariableScopeEnum):
+            is_secret (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -216,6 +219,7 @@ class VariableResponseAllOf(ModelNormal):
         self.key = key
         self.value = value
         self.scope = scope
+        self.is_secret = is_secret
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -236,13 +240,14 @@ class VariableResponseAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, key, value, scope, *args, **kwargs):  # noqa: E501
+    def __init__(self, key, value, scope, is_secret, *args, **kwargs):  # noqa: E501
         """VariableResponseAllOf - a model defined in OpenAPI
 
         Args:
             key (str):
             value (str, none_type):
             scope (APIVariableScopeEnum):
+            is_secret (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -315,6 +320,7 @@ class VariableResponseAllOf(ModelNormal):
         self.key = key
         self.value = value
         self.scope = scope
+        self.is_secret = is_secret
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

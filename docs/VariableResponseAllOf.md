@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **key** | **str** |  | 
 **value** | **str, none_type** |  | 
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
+**is_secret** | **bool** |  | 
 **mount_path** | **str, none_type** |  | [optional] 
 **overridden_variable** | [**VariableOverride**](VariableOverride.md) |  | [optional] 
 **aliased_variable** | [**VariableAlias**](VariableAlias.md) |  | [optional] 
