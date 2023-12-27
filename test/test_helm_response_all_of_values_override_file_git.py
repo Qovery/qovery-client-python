@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
-globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
+from qovery.model.application_git_repository import ApplicationGitRepository
+globals()['ApplicationGitRepository'] = ApplicationGitRepository
 from qovery.model.helm_response_all_of_values_override_file_git import HelmResponseAllOfValuesOverrideFileGit
 
 

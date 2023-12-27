@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
-    globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
+    from qovery.model.application_git_repository import ApplicationGitRepository
+    globals()['ApplicationGitRepository'] = ApplicationGitRepository
 
 
 class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
@@ -88,7 +88,7 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
         """
         lazy_import()
         return {
-            'git_repository': (ApplicationGitRepositoryRequest,),  # noqa: E501
+            'git_repository': (ApplicationGitRepository,),  # noqa: E501
             'paths': ([str],),  # noqa: E501
         }
 
@@ -113,7 +113,7 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
         """HelmResponseAllOfValuesOverrideFileGit - a model defined in OpenAPI
 
         Args:
-            git_repository (ApplicationGitRepositoryRequest):
+            git_repository (ApplicationGitRepository):
             paths ([str]): List of path inside your git repository to locate values file. Must start by a /
 
         Keyword Args:
@@ -204,7 +204,7 @@ class HelmResponseAllOfValuesOverrideFileGit(ModelNormal):
         """HelmResponseAllOfValuesOverrideFileGit - a model defined in OpenAPI
 
         Args:
-            git_repository (ApplicationGitRepositoryRequest):
+            git_repository (ApplicationGitRepository):
             paths ([str]): List of path inside your git repository to locate values file. Must start by a /
 
         Keyword Args:

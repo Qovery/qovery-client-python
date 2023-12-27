@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**git_repository** | [**ApplicationGitRepositoryRequest**](ApplicationGitRepositoryRequest.md) |  | 
+**git_repository** | [**ApplicationGitRepository**](ApplicationGitRepository.md) |  | 
 **paths** | **[str]** | List of path inside your git repository to locate values file. Must start by a / | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
