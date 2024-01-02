@@ -63,6 +63,7 @@ from qovery.api.git_repositories_api import GitRepositoriesApi
 from qovery.api.github_app_api import GithubAppApi
 from qovery.api.helm_actions_api import HelmActionsApi
 from qovery.api.helm_configuration_api import HelmConfigurationApi
+from qovery.api.helm_custom_domain_api import HelmCustomDomainApi
 from qovery.api.helm_deployment_history_api import HelmDeploymentHistoryApi
 from qovery.api.helm_deployment_restriction_api import HelmDeploymentRestrictionApi
 from qovery.api.helm_main_calls_api import HelmMainCallsApi

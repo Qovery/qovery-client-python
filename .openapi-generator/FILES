@@ -310,6 +310,7 @@ docs/Healthcheck.md
 docs/HelmActionsApi.md
 docs/HelmAdvancedSettings.md
 docs/HelmConfigurationApi.md
+docs/HelmCustomDomainApi.md
 docs/HelmDefaultValuesRequest.md
 docs/HelmDefaultValuesRequestAllOf.md
 docs/HelmDeployRequest.md
@@ -643,6 +644,7 @@ qovery/api/git_repositories_api.py
 qovery/api/github_app_api.py
 qovery/api/helm_actions_api.py
 qovery/api/helm_configuration_api.py
+qovery/api/helm_custom_domain_api.py
 qovery/api/helm_deployment_history_api.py
 qovery/api/helm_deployment_restriction_api.py
 qovery/api/helm_main_calls_api.py
@@ -1502,6 +1504,7 @@ test/test_healthcheck.py
 test/test_helm_actions_api.py
 test/test_helm_advanced_settings.py
 test/test_helm_configuration_api.py
+test/test_helm_custom_domain_api.py
 test/test_helm_default_values_request.py
 test/test_helm_default_values_request_all_of.py
 test/test_helm_deploy_request.py

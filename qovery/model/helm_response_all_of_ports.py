@@ -95,6 +95,7 @@ class HelmResponseAllOfPorts(ModelNormal):
             'name': (str,),  # noqa: E501
             'external_port': (int,),  # noqa: E501
             'namespace': (str,),  # noqa: E501
+            'is_default': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class HelmResponseAllOfPorts(ModelNormal):
         'name': 'name',  # noqa: E501
         'external_port': 'external_port',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
+        'is_default': 'is_default',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,6 +164,7 @@ class HelmResponseAllOfPorts(ModelNormal):
             name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
             namespace (str): [optional]  # noqa: E501
+            is_default (bool): is the default port to use for domain. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +263,7 @@ class HelmResponseAllOfPorts(ModelNormal):
             name (str): [optional]  # noqa: E501
             external_port (int): The exposed port for your service. This is optional. If not set a default port will be used.. [optional]  # noqa: E501
             namespace (str): [optional]  # noqa: E501
+            is_default (bool): is the default port to use for domain. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

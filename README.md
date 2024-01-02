@@ -283,10 +283,12 @@ Class | Method | HTTP request | Description
 *ContainersApi* | [**list_container**](docs/ContainersApi.md#list_container) | **GET** /environment/{environmentId}/container | List containers
 *ContainersApi* | [**preview_container_environments**](docs/ContainersApi.md#preview_container_environments) | **POST** /organization/{organizationId}/container/preview | Preview container environments
 *CustomDomainApi* | [**create_application_custom_domain**](docs/CustomDomainApi.md#create_application_custom_domain) | **POST** /application/{applicationId}/customDomain | Add custom domain to the application.
+*CustomDomainApi* | [**create_helm_custom_domain**](docs/CustomDomainApi.md#create_helm_custom_domain) | **POST** /helm/{helmId}/customDomain | Add custom domain to the helm.
 *CustomDomainApi* | [**delete_custom_domain**](docs/CustomDomainApi.md#delete_custom_domain) | **DELETE** /application/{applicationId}/customDomain/{customDomainId} | Delete a Custom Domain
 *CustomDomainApi* | [**edit_custom_domain**](docs/CustomDomainApi.md#edit_custom_domain) | **PUT** /application/{applicationId}/customDomain/{customDomainId} | Edit a Custom Domain
 *CustomDomainApi* | [**get_custom_domain_status**](docs/CustomDomainApi.md#get_custom_domain_status) | **GET** /application/{applicationId}/customDomain/{customDomainId}/status | Get Custom Domain status
 *CustomDomainApi* | [**list_application_custom_domain**](docs/CustomDomainApi.md#list_application_custom_domain) | **GET** /application/{applicationId}/customDomain | List application custom domains
+*CustomDomainApi* | [**list_helm_custom_domain**](docs/CustomDomainApi.md#list_helm_custom_domain) | **GET** /helm/{helmId}/customDomain | List helm custom domains
 *DatabaseActionsApi* | [**deploy_database**](docs/DatabaseActionsApi.md#deploy_database) | **POST** /database/{databaseId}/deploy | Deploy database 
 *DatabaseActionsApi* | [**reboot_database**](docs/DatabaseActionsApi.md#reboot_database) | **POST** /database/{databaseId}/restart-service | Retart database
 *DatabaseActionsApi* | [**redeploy_database**](docs/DatabaseActionsApi.md#redeploy_database) | **POST** /database/{databaseId}/redeploy | Redeploy database
@@ -376,6 +378,9 @@ Class | Method | HTTP request | Description
 *HelmActionsApi* | [**stop_helm**](docs/HelmActionsApi.md#stop_helm) | **POST** /helm/{helmId}/stop | Stop helm
 *HelmConfigurationApi* | [**edit_helm_advanced_settings**](docs/HelmConfigurationApi.md#edit_helm_advanced_settings) | **PUT** /helm/{helmId}/advancedSettings | Edit advanced settings
 *HelmConfigurationApi* | [**get_helm_advanced_settings**](docs/HelmConfigurationApi.md#get_helm_advanced_settings) | **GET** /helm/{helmId}/advancedSettings | Get advanced settings
+*HelmCustomDomainApi* | [**delete_helm_custom_domain**](docs/HelmCustomDomainApi.md#delete_helm_custom_domain) | **DELETE** /helm/{helmId}/customDomain/{customDomainId} | Delete a Custom Domain
+*HelmCustomDomainApi* | [**edit_helm_custom_domain**](docs/HelmCustomDomainApi.md#edit_helm_custom_domain) | **PUT** /helm/{helmId}/customDomain/{customDomainId} | Edit a Custom Domain
+*HelmCustomDomainApi* | [**get_helm_custom_domain**](docs/HelmCustomDomainApi.md#get_helm_custom_domain) | **GET** /helm/{helmId}/customDomain/{customDomainId} | Get a Custom Domain
 *HelmDeploymentHistoryApi* | [**list_helm_deployment_history**](docs/HelmDeploymentHistoryApi.md#list_helm_deployment_history) | **GET** /helm/{helmId}/deploymentHistory | List helm deployments
 *HelmDeploymentRestrictionApi* | [**create_helm_deployment_restriction**](docs/HelmDeploymentRestrictionApi.md#create_helm_deployment_restriction) | **POST** /helm/{helmId}/deploymentRestriction | Create a helm deployment restriction
 *HelmDeploymentRestrictionApi* | [**delete_helm_deployment_restriction**](docs/HelmDeploymentRestrictionApi.md#delete_helm_deployment_restriction) | **DELETE** /helm/{helmId}/deploymentRestriction/{deploymentRestrictionId} | Delete a helm deployment restriction
