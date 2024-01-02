@@ -82,6 +82,7 @@ with qovery.ApiClient(configuration) as api_client:
         ssh_keys=[
             "ssh_keys_example",
         ],
+        kubeconfig="kubeconfig_example",
         features=[
             ClusterRequestFeaturesInner(
                 id="id_example",
@@ -387,6 +388,7 @@ with qovery.ApiClient(configuration) as api_client:
         ssh_keys=[
             "ssh_keys_example",
         ],
+        kubeconfig="kubeconfig_example",
         features=[
             ClusterRequestFeaturesInner(
                 id="id_example",

@@ -103,6 +103,7 @@ class ClusterRequest(ModelNormal):
             'kubernetes': (KubernetesEnum,),  # noqa: E501
             'production': (bool,),  # noqa: E501
             'ssh_keys': ([str],),  # noqa: E501
+            'kubeconfig': (str,),  # noqa: E501
             'features': ([ClusterRequestFeaturesInner],),  # noqa: E501
         }
 
@@ -123,6 +124,7 @@ class ClusterRequest(ModelNormal):
         'kubernetes': 'kubernetes',  # noqa: E501
         'production': 'production',  # noqa: E501
         'ssh_keys': 'ssh_keys',  # noqa: E501
+        'kubeconfig': 'kubeconfig',  # noqa: E501
         'features': 'features',  # noqa: E501
     }
 
@@ -180,6 +182,7 @@ class ClusterRequest(ModelNormal):
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
+            kubeconfig (str): If the cluster is a self managed one. The kubeconfig to use to connect to it. [optional]  # noqa: E501
             features ([ClusterRequestFeaturesInner]): [optional]  # noqa: E501
         """
 
@@ -282,6 +285,7 @@ class ClusterRequest(ModelNormal):
             kubernetes (KubernetesEnum): [optional]  # noqa: E501
             production (bool): specific flag to indicate that this cluster is a production one. [optional]  # noqa: E501
             ssh_keys ([str]): Indicate your public ssh_key to remotely connect to your EC2 instance.. [optional]  # noqa: E501
+            kubeconfig (str): If the cluster is a self managed one. The kubeconfig to use to connect to it. [optional]  # noqa: E501
             features ([ClusterRequestFeaturesInner]): [optional]  # noqa: E501
         """
 
