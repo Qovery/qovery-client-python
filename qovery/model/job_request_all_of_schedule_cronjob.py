@@ -85,6 +85,7 @@ class JobRequestAllOfScheduleCronjob(ModelNormal):
             'scheduled_at': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
+            'timezone': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -96,6 +97,7 @@ class JobRequestAllOfScheduleCronjob(ModelNormal):
         'scheduled_at': 'scheduled_at',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
+        'timezone': 'timezone',  # noqa: E501
     }
 
     read_only_vars = {
@@ -144,6 +146,7 @@ class JobRequestAllOfScheduleCronjob(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            timezone (str): Specify a timezone identifier to run the schedule at. By default Etc/UTC. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,6 +238,7 @@ class JobRequestAllOfScheduleCronjob(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             arguments ([str]): [optional]  # noqa: E501
             entrypoint (str): optional entrypoint when launching container. [optional]  # noqa: E501
+            timezone (str): Specify a timezone identifier to run the schedule at. By default Etc/UTC. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

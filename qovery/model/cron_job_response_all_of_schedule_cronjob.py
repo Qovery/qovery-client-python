@@ -82,6 +82,7 @@ class CronJobResponseAllOfScheduleCronjob(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'timezone': (str,),  # noqa: E501
             'scheduled_at': (str,),  # noqa: E501
             'arguments': ([str],),  # noqa: E501
             'entrypoint': (str,),  # noqa: E501
@@ -93,6 +94,7 @@ class CronJobResponseAllOfScheduleCronjob(ModelNormal):
 
 
     attribute_map = {
+        'timezone': 'timezone',  # noqa: E501
         'scheduled_at': 'scheduled_at',  # noqa: E501
         'arguments': 'arguments',  # noqa: E501
         'entrypoint': 'entrypoint',  # noqa: E501
@@ -105,10 +107,11 @@ class CronJobResponseAllOfScheduleCronjob(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, scheduled_at, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, timezone, scheduled_at, *args, **kwargs):  # noqa: E501
         """CronJobResponseAllOfScheduleCronjob - a model defined in OpenAPI
 
         Args:
+            timezone (str): tz identifier at which the schedule at will be executed
             scheduled_at (str): Can only be set if the event is CRON.   Represent the cron format for the job schedule without seconds.   For example: `* * * * *` represent the cron to launch the job every minute.   See https://crontab.guru/ to WISIWIG interface.   Timezone is UT 
 
         Keyword Args:
@@ -175,6 +178,7 @@ class CronJobResponseAllOfScheduleCronjob(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.timezone = timezone
         self.scheduled_at = scheduled_at
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -196,10 +200,11 @@ class CronJobResponseAllOfScheduleCronjob(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, scheduled_at, *args, **kwargs):  # noqa: E501
+    def __init__(self, timezone, scheduled_at, *args, **kwargs):  # noqa: E501
         """CronJobResponseAllOfScheduleCronjob - a model defined in OpenAPI
 
         Args:
+            timezone (str): tz identifier at which the schedule at will be executed
             scheduled_at (str): Can only be set if the event is CRON.   Represent the cron format for the job schedule without seconds.   For example: `* * * * *` represent the cron to launch the job every minute.   See https://crontab.guru/ to WISIWIG interface.   Timezone is UT 
 
         Keyword Args:
@@ -264,6 +269,7 @@ class CronJobResponseAllOfScheduleCronjob(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.timezone = timezone
         self.scheduled_at = scheduled_at
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
