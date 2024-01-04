@@ -22,7 +22,6 @@ from qovery.api.application_deployment_restriction_api import ApplicationDeploym
 from qovery.api.application_environment_variable_api import ApplicationEnvironmentVariableApi
 from qovery.api.application_logs_api import ApplicationLogsApi
 from qovery.api.application_main_calls_api import ApplicationMainCallsApi
-from qovery.api.application_metrics_api import ApplicationMetricsApi
 from qovery.api.application_secret_api import ApplicationSecretApi
 from qovery.api.applications_api import ApplicationsApi
 from qovery.api.backups_api import BackupsApi
@@ -37,7 +36,6 @@ from qovery.api.container_deployment_history_api import ContainerDeploymentHisto
 from qovery.api.container_environment_variable_api import ContainerEnvironmentVariableApi
 from qovery.api.container_logs_api import ContainerLogsApi
 from qovery.api.container_main_calls_api import ContainerMainCallsApi
-from qovery.api.container_metrics_api import ContainerMetricsApi
 from qovery.api.container_registries_api import ContainerRegistriesApi
 from qovery.api.container_secret_api import ContainerSecretApi
 from qovery.api.containers_api import ContainersApi
@@ -46,7 +44,6 @@ from qovery.api.database_actions_api import DatabaseActionsApi
 from qovery.api.database_application_api import DatabaseApplicationApi
 from qovery.api.database_deployment_history_api import DatabaseDeploymentHistoryApi
 from qovery.api.database_main_calls_api import DatabaseMainCallsApi
-from qovery.api.database_metrics_api import DatabaseMetricsApi
 from qovery.api.databases_api import DatabasesApi
 from qovery.api.deployment_stage_main_calls_api import DeploymentStageMainCallsApi
 from qovery.api.environment_api import EnvironmentApi
@@ -75,7 +72,6 @@ from qovery.api.job_deployment_history_api import JobDeploymentHistoryApi
 from qovery.api.job_deployment_restriction_api import JobDeploymentRestrictionApi
 from qovery.api.job_environment_variable_api import JobEnvironmentVariableApi
 from qovery.api.job_main_calls_api import JobMainCallsApi
-from qovery.api.job_metrics_api import JobMetricsApi
 from qovery.api.job_secret_api import JobSecretApi
 from qovery.api.jobs_api import JobsApi
 from qovery.api.members_api import MembersApi

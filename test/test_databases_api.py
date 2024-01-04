@@ -59,13 +59,6 @@ class TestDatabasesApi(unittest.TestCase):
         """
         pass
 
-    def test_list_environment_database_current_metric(self):
-        """Test case for list_environment_database_current_metric
-
-        List current metric consumption for each database  # noqa: E501
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

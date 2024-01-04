@@ -59,20 +59,6 @@ class TestContainersApi(unittest.TestCase):
         """
         pass
 
-    def test_get_environment_container_current_scale(self):
-        """Test case for get_environment_container_current_scale
-
-        List current scaling information for each container  # noqa: E501
-        """
-        pass
-
-    def test_get_environment_container_current_storage(self):
-        """Test case for get_environment_container_current_storage
-
-        List current storage disk usage for each containers  # noqa: E501
-        """
-        pass
-
     def test_get_environment_container_status(self):
         """Test case for get_environment_container_status
 

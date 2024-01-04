@@ -80,41 +80,6 @@ class TestCloudProviderApi(unittest.TestCase):
         """
         pass
 
-    def test_list_do_features(self):
-        """Test case for list_do_features
-
-        List DO features available  # noqa: E501
-        """
-        pass
-
-    def test_list_do_instance_type(self):
-        """Test case for list_do_instance_type
-
-        List DO available instance types  # noqa: E501
-        """
-        pass
-
-    def test_list_do_managed_database_instance_type(self):
-        """Test case for list_do_managed_database_instance_type
-
-        List Digital Ocean available managed database instance types  # noqa: E501
-        """
-        pass
-
-    def test_list_do_managed_database_type(self):
-        """Test case for list_do_managed_database_type
-
-        List Digital Ocean available managed database types  # noqa: E501
-        """
-        pass
-
-    def test_list_do_regions(self):
-        """Test case for list_do_regions
-
-        List DO regions  # noqa: E501
-        """
-        pass
-
     def test_list_gcp_features(self):
         """Test case for list_gcp_features
 

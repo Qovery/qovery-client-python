@@ -131,13 +131,6 @@ Class | Method | HTTP request | Description
 *ApplicationMainCallsApi* | [**list_application_commit**](docs/ApplicationMainCallsApi.md#list_application_commit) | **GET** /application/{applicationId}/commit | List last commits
 *ApplicationMainCallsApi* | [**list_application_contributor**](docs/ApplicationMainCallsApi.md#list_application_contributor) | **GET** /application/{applicationId}/contributor | List contributors
 *ApplicationMainCallsApi* | [**list_application_links**](docs/ApplicationMainCallsApi.md#list_application_links) | **GET** /application/{applicationId}/link | List all URLs of the application
-*ApplicationMetricsApi* | [**get_application_current_instance**](docs/ApplicationMetricsApi.md#get_application_current_instance) | **GET** /application/{applicationId}/instance | List currently running instances of the application with their CPU and RAM metrics
-*ApplicationMetricsApi* | [**get_application_current_scale**](docs/ApplicationMetricsApi.md#get_application_current_scale) | **GET** /application/{applicationId}/currentScale | Get current scaling of the application
-*ApplicationMetricsApi* | [**get_application_current_storage_disk**](docs/ApplicationMetricsApi.md#get_application_current_storage_disk) | **GET** /application/{applicationId}/currentStorage | List current storage disk usage
-*ApplicationMetricsApi* | [**get_application_metric_cpu**](docs/ApplicationMetricsApi.md#get_application_metric_cpu) | **GET** /application/{applicationId}/metric/cpu | Get CPU consumption metric over time for the application
-*ApplicationMetricsApi* | [**get_application_metric_health_check**](docs/ApplicationMetricsApi.md#get_application_metric_health_check) | **GET** /application/{applicationId}/metric/healthCheck | Get Health Check latency  metric over time for the application
-*ApplicationMetricsApi* | [**get_application_metric_memory**](docs/ApplicationMetricsApi.md#get_application_metric_memory) | **GET** /application/{applicationId}/metric/memory | Get Memory consumption metric over time for the application
-*ApplicationMetricsApi* | [**get_application_metric_storage**](docs/ApplicationMetricsApi.md#get_application_metric_storage) | **GET** /application/{applicationId}/metric/storage | Get Storage consumption metric over time for the application
 *ApplicationSecretApi* | [**create_application_secret**](docs/ApplicationSecretApi.md#create_application_secret) | **POST** /application/{applicationId}/secret | Add a secret to the application
 *ApplicationSecretApi* | [**create_application_secret_alias**](docs/ApplicationSecretApi.md#create_application_secret_alias) | **POST** /application/{applicationId}/secret/{secretId}/alias | Create a secret alias at the application level
 *ApplicationSecretApi* | [**create_application_secret_override**](docs/ApplicationSecretApi.md#create_application_secret_override) | **POST** /application/{applicationId}/secret/{secretId}/override | Create a secret override at the application level
@@ -147,8 +140,6 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**clone_application**](docs/ApplicationsApi.md#clone_application) | **POST** /application/{applicationId}/clone | Clone application
 *ApplicationsApi* | [**create_application**](docs/ApplicationsApi.md#create_application) | **POST** /environment/{environmentId}/application | Create an application
 *ApplicationsApi* | [**get_default_application_advanced_settings**](docs/ApplicationsApi.md#get_default_application_advanced_settings) | **GET** /defaultApplicationAdvancedSettings | List default application advanced settings
-*ApplicationsApi* | [**get_environment_application_current_scale**](docs/ApplicationsApi.md#get_environment_application_current_scale) | **GET** /environment/{environmentId}/application/currentScale | List current scaling information for each application
-*ApplicationsApi* | [**get_environment_application_current_storage**](docs/ApplicationsApi.md#get_environment_application_current_storage) | **GET** /environment/{environmentId}/application/currentStorage | List current storage disk usage for each application
 *ApplicationsApi* | [**get_environment_application_status**](docs/ApplicationsApi.md#get_environment_application_status) | **GET** /environment/{environmentId}/application/status | List all environment applications statuses
 *ApplicationsApi* | [**get_environment_application_supported_languages**](docs/ApplicationsApi.md#get_environment_application_supported_languages) | **GET** /environment/{environmentId}/application/supportedLanguage | List supported languages
 *ApplicationsApi* | [**list_application**](docs/ApplicationsApi.md#list_application) | **GET** /environment/{environmentId}/application | List applications
@@ -177,11 +168,6 @@ Class | Method | HTTP request | Description
 *CloudProviderApi* | [**list_awsec2_instance_type**](docs/CloudProviderApi.md#list_awsec2_instance_type) | **GET** /aws/ec2/instanceType/{region} | List AWS EC2 available instance types
 *CloudProviderApi* | [**list_awseks_instance_type**](docs/CloudProviderApi.md#list_awseks_instance_type) | **GET** /aws/eks/instanceType/{region} | List AWS EKS available instance types
 *CloudProviderApi* | [**list_cloud_provider**](docs/CloudProviderApi.md#list_cloud_provider) | **GET** /cloudProvider | List Cloud providers available
-*CloudProviderApi* | [**list_do_features**](docs/CloudProviderApi.md#list_do_features) | **GET** /digitalOcean/clusterFeature | List DO features available
-*CloudProviderApi* | [**list_do_instance_type**](docs/CloudProviderApi.md#list_do_instance_type) | **GET** /digitalOcean/instanceType | List DO available instance types
-*CloudProviderApi* | [**list_do_managed_database_instance_type**](docs/CloudProviderApi.md#list_do_managed_database_instance_type) | **GET** /digitalOcean/managedDatabase/instanceType/{region}/{databaseType} | List Digital Ocean available managed database instance types
-*CloudProviderApi* | [**list_do_managed_database_type**](docs/CloudProviderApi.md#list_do_managed_database_type) | **GET** /digitalOcean/managedDatabase/type | List Digital Ocean available managed database types
-*CloudProviderApi* | [**list_do_regions**](docs/CloudProviderApi.md#list_do_regions) | **GET** /digitalOcean/region | List DO regions
 *CloudProviderApi* | [**list_gcp_features**](docs/CloudProviderApi.md#list_gcp_features) | **GET** /gcp/clusterFeature | List GCP features available
 *CloudProviderApi* | [**list_gcp_gke_instance_type**](docs/CloudProviderApi.md#list_gcp_gke_instance_type) | **GET** /gcp/instanceType/{region} | List GCP GKE available instance types
 *CloudProviderApi* | [**list_gcp_regions**](docs/CloudProviderApi.md#list_gcp_regions) | **GET** /gcp/region | List GCP regions
@@ -192,23 +178,18 @@ Class | Method | HTTP request | Description
 *CloudProviderApi* | [**list_scw_managed_database_instance_type**](docs/CloudProviderApi.md#list_scw_managed_database_instance_type) | **GET** /scaleway/managedDatabase/instanceType/{zone}/{databaseType} | List Scaleway available managed database instance types
 *CloudProviderApi* | [**list_scw_managed_database_type**](docs/CloudProviderApi.md#list_scw_managed_database_type) | **GET** /scaleway/managedDatabase/type | List Scaleway available managed database types
 *CloudProviderCredentialsApi* | [**create_aws_credentials**](docs/CloudProviderCredentialsApi.md#create_aws_credentials) | **POST** /organization/{organizationId}/aws/credentials | Create AWS credentials set
-*CloudProviderCredentialsApi* | [**create_do_credentials**](docs/CloudProviderCredentialsApi.md#create_do_credentials) | **POST** /organization/{organizationId}/digitalOcean/credentials | Create Digital Ocean credentials set
 *CloudProviderCredentialsApi* | [**create_gcp_credentials**](docs/CloudProviderCredentialsApi.md#create_gcp_credentials) | **POST** /organization/{organizationId}/gcp/credentials | Create GCP credentials set
 *CloudProviderCredentialsApi* | [**create_scaleway_credentials**](docs/CloudProviderCredentialsApi.md#create_scaleway_credentials) | **POST** /organization/{organizationId}/scaleway/credentials | Create Scaleway credentials set
 *CloudProviderCredentialsApi* | [**delete_aws_credentials**](docs/CloudProviderCredentialsApi.md#delete_aws_credentials) | **DELETE** /organization/{organizationId}/aws/credentials/{credentialsId} | Delete a set of AWS credentials
-*CloudProviderCredentialsApi* | [**delete_do_credentials**](docs/CloudProviderCredentialsApi.md#delete_do_credentials) | **DELETE** /organization/{organizationId}/digitalOcean/credentials/{credentialsId} | Delete a set of Digital Ocean credentials
 *CloudProviderCredentialsApi* | [**delete_gcp_credentials**](docs/CloudProviderCredentialsApi.md#delete_gcp_credentials) | **DELETE** /organization/{organizationId}/gcp/credentials/{credentialsId} | Delete a set of GCP credentials
 *CloudProviderCredentialsApi* | [**delete_scaleway_credentials**](docs/CloudProviderCredentialsApi.md#delete_scaleway_credentials) | **DELETE** /organization/{organizationId}/scaleway/credentials/{credentialsId} | Delete a set of Scaleway credentials
 *CloudProviderCredentialsApi* | [**edit_aws_credentials**](docs/CloudProviderCredentialsApi.md#edit_aws_credentials) | **PUT** /organization/{organizationId}/aws/credentials/{credentialsId} | Edit a set of AWS credentials
-*CloudProviderCredentialsApi* | [**edit_do_credentials**](docs/CloudProviderCredentialsApi.md#edit_do_credentials) | **PUT** /organization/{organizationId}/digitalOcean/credentials/{credentialsId} | Edit a set of Digital Ocean credentials
 *CloudProviderCredentialsApi* | [**edit_gcp_credentials**](docs/CloudProviderCredentialsApi.md#edit_gcp_credentials) | **PUT** /organization/{organizationId}/gcp/credentials/{credentialsId} | Edit a set of GCP credentials
 *CloudProviderCredentialsApi* | [**edit_scaleway_credentials**](docs/CloudProviderCredentialsApi.md#edit_scaleway_credentials) | **PUT** /organization/{organizationId}/scaleway/credentials/{credentialsId} | Edit a set of Scaleway credentials
 *CloudProviderCredentialsApi* | [**get_aws_credentials**](docs/CloudProviderCredentialsApi.md#get_aws_credentials) | **GET** /organization/{organizationId}/aws/credentials/{credentialsId} | Get a set of AWS credentials
-*CloudProviderCredentialsApi* | [**get_do_credentials**](docs/CloudProviderCredentialsApi.md#get_do_credentials) | **GET** /organization/{organizationId}/digitalOcean/credentials/{credentialsId} | Get a set of Digital Ocean credentials
 *CloudProviderCredentialsApi* | [**get_gcp_credentials**](docs/CloudProviderCredentialsApi.md#get_gcp_credentials) | **GET** /organization/{organizationId}/gcp/credentials/{credentialsId} | Get a set of GCP credentials
 *CloudProviderCredentialsApi* | [**get_scaleway_credentials**](docs/CloudProviderCredentialsApi.md#get_scaleway_credentials) | **GET** /organization/{organizationId}/scaleway/credentials/{credentialsId} | Get a set of Scaleway credentials
 *CloudProviderCredentialsApi* | [**list_aws_credentials**](docs/CloudProviderCredentialsApi.md#list_aws_credentials) | **GET** /organization/{organizationId}/aws/credentials | List AWS credentials
-*CloudProviderCredentialsApi* | [**list_do_credentials**](docs/CloudProviderCredentialsApi.md#list_do_credentials) | **GET** /organization/{organizationId}/digitalOcean/credentials | List DO credentials
 *CloudProviderCredentialsApi* | [**list_gcp_credentials**](docs/CloudProviderCredentialsApi.md#list_gcp_credentials) | **GET** /organization/{organizationId}/gcp/credentials | List GCP credentials
 *CloudProviderCredentialsApi* | [**list_scaleway_credentials**](docs/CloudProviderCredentialsApi.md#list_scaleway_credentials) | **GET** /organization/{organizationId}/scaleway/credentials | List Scaleway credentials
 *ClustersApi* | [**create_cluster**](docs/ClustersApi.md#create_cluster) | **POST** /organization/{organizationId}/cluster | Create a cluster
@@ -257,9 +238,6 @@ Class | Method | HTTP request | Description
 *ContainerMainCallsApi* | [**get_container**](docs/ContainerMainCallsApi.md#get_container) | **GET** /container/{containerId} | Get container by ID
 *ContainerMainCallsApi* | [**get_container_status**](docs/ContainerMainCallsApi.md#get_container_status) | **GET** /container/{containerId}/status | Get container status
 *ContainerMainCallsApi* | [**list_container_links**](docs/ContainerMainCallsApi.md#list_container_links) | **GET** /container/{containerId}/link | List all URLs of the container
-*ContainerMetricsApi* | [**get_container_current_instance**](docs/ContainerMetricsApi.md#get_container_current_instance) | **GET** /container/{containerId}/instance | List currently running instances of the container with their CPU and RAM metrics
-*ContainerMetricsApi* | [**get_container_current_scale**](docs/ContainerMetricsApi.md#get_container_current_scale) | **GET** /container/{containerId}/currentScale | Get current scaling of the container
-*ContainerMetricsApi* | [**get_container_current_storage_disk**](docs/ContainerMetricsApi.md#get_container_current_storage_disk) | **GET** /container/{containerId}/currentStorage | List current storage disk usage
 *ContainerRegistriesApi* | [**create_container_registry**](docs/ContainerRegistriesApi.md#create_container_registry) | **POST** /organization/{organizationId}/containerRegistry | Create a container registry
 *ContainerRegistriesApi* | [**delete_container_registry**](docs/ContainerRegistriesApi.md#delete_container_registry) | **DELETE** /organization/{organizationId}/containerRegistry/{containerRegistryId} | Delete a container registry
 *ContainerRegistriesApi* | [**edit_container_registry**](docs/ContainerRegistriesApi.md#edit_container_registry) | **PUT** /organization/{organizationId}/containerRegistry/{containerRegistryId} | Edit a container registry
@@ -277,8 +255,6 @@ Class | Method | HTTP request | Description
 *ContainersApi* | [**create_container**](docs/ContainersApi.md#create_container) | **POST** /environment/{environmentId}/container | Create a container
 *ContainersApi* | [**get_container_registry_container_status**](docs/ContainersApi.md#get_container_registry_container_status) | **GET** /organization/{organizationId}/containerRegistry/{containerRegistryId}/container/status | List all container registry container statuses
 *ContainersApi* | [**get_default_container_advanced_settings**](docs/ContainersApi.md#get_default_container_advanced_settings) | **GET** /defaultContainerAdvancedSettings | List default container advanced settings
-*ContainersApi* | [**get_environment_container_current_scale**](docs/ContainersApi.md#get_environment_container_current_scale) | **GET** /environment/{environmentId}/container/currentScale | List current scaling information for each container
-*ContainersApi* | [**get_environment_container_current_storage**](docs/ContainersApi.md#get_environment_container_current_storage) | **GET** /environment/{environmentId}/container/currentStorage | List current storage disk usage for each containers
 *ContainersApi* | [**get_environment_container_status**](docs/ContainersApi.md#get_environment_container_status) | **GET** /environment/{environmentId}/container/status | List all environment container statuses
 *ContainersApi* | [**list_container**](docs/ContainersApi.md#list_container) | **GET** /environment/{environmentId}/container | List containers
 *ContainersApi* | [**preview_container_environments**](docs/ContainersApi.md#preview_container_environments) | **POST** /organization/{organizationId}/container/preview | Preview container environments
@@ -304,17 +280,11 @@ Class | Method | HTTP request | Description
 *DatabaseMainCallsApi* | [**get_database_master_credentials**](docs/DatabaseMainCallsApi.md#get_database_master_credentials) | **GET** /database/{databaseId}/masterCredentials | Get master credentials of the database
 *DatabaseMainCallsApi* | [**get_database_status**](docs/DatabaseMainCallsApi.md#get_database_status) | **GET** /database/{databaseId}/status | Get database status
 *DatabaseMainCallsApi* | [**list_database_version**](docs/DatabaseMainCallsApi.md#list_database_version) | **GET** /database/{databaseId}/version | List eligible versions for the database
-*DatabaseMetricsApi* | [**get_database_current_metric**](docs/DatabaseMetricsApi.md#get_database_current_metric) | **GET** /database/{databaseId}/currentMetric | Get current metric consumption of the database 
-*DatabaseMetricsApi* | [**get_database_metric_cpu**](docs/DatabaseMetricsApi.md#get_database_metric_cpu) | **GET** /database/{databaseId}/metric/cpu | Get CPU consumption metric over time for the database
-*DatabaseMetricsApi* | [**get_database_metric_health_check**](docs/DatabaseMetricsApi.md#get_database_metric_health_check) | **GET** /database/{databaseId}/metric/healthCheck | Get Health Check latency  metric over time for the database
-*DatabaseMetricsApi* | [**get_database_metric_memory**](docs/DatabaseMetricsApi.md#get_database_metric_memory) | **GET** /database/{databaseId}/metric/memory | Get Memory consumption metric over time for the database
-*DatabaseMetricsApi* | [**get_database_metric_storage**](docs/DatabaseMetricsApi.md#get_database_metric_storage) | **GET** /database/{databaseId}/metric/storage | Get Storage consumption metric over time for the database
 *DatabasesApi* | [**clone_database**](docs/DatabasesApi.md#clone_database) | **POST** /database/{databaseId}/clone | Clone database
 *DatabasesApi* | [**create_database**](docs/DatabasesApi.md#create_database) | **POST** /environment/{environmentId}/database | Create a database
 *DatabasesApi* | [**get_environment_database_status**](docs/DatabasesApi.md#get_environment_database_status) | **GET** /environment/{environmentId}/database/status | List all environment databases statuses
 *DatabasesApi* | [**list_database**](docs/DatabasesApi.md#list_database) | **GET** /environment/{environmentId}/database | List environment databases
 *DatabasesApi* | [**list_environment_database_config**](docs/DatabasesApi.md#list_environment_database_config) | **GET** /environment/{environmentId}/databaseConfiguration | List eligible database types, versions and modes for the environment
-*DatabasesApi* | [**list_environment_database_current_metric**](docs/DatabasesApi.md#list_environment_database_current_metric) | **GET** /environment/{environmentId}/database/currentMetric | List current metric consumption for each database
 *DeploymentStageMainCallsApi* | [**attach_service_to_deployment_stage**](docs/DeploymentStageMainCallsApi.md#attach_service_to_deployment_stage) | **PUT** /deploymentStage/{deploymentStageId}/service/{serviceId} | Attach service to deployment stage
 *DeploymentStageMainCallsApi* | [**create_environment_deployment_stage**](docs/DeploymentStageMainCallsApi.md#create_environment_deployment_stage) | **POST** /environment/{environmentId}/deploymentStage | Create environment deployment stage
 *DeploymentStageMainCallsApi* | [**delete_deployment_stage**](docs/DeploymentStageMainCallsApi.md#delete_deployment_stage) | **DELETE** /deploymentStage/{deploymentStageId} | Delete deployment stage
@@ -427,7 +397,6 @@ Class | Method | HTTP request | Description
 *JobMainCallsApi* | [**get_job**](docs/JobMainCallsApi.md#get_job) | **GET** /job/{jobId} | Get job by ID
 *JobMainCallsApi* | [**get_job_status**](docs/JobMainCallsApi.md#get_job_status) | **GET** /job/{jobId}/status | Get job status
 *JobMainCallsApi* | [**list_job_commit**](docs/JobMainCallsApi.md#list_job_commit) | **GET** /job/{jobId}/commit | List last job commits
-*JobMetricsApi* | [**get_job_current_instance**](docs/JobMetricsApi.md#get_job_current_instance) | **GET** /job/{jobId}/instance | List currently running instances of the job with their CPU and RAM metrics
 *JobSecretApi* | [**create_job_secret**](docs/JobSecretApi.md#create_job_secret) | **POST** /job/{jobId}/secret | Add a secret to the job
 *JobSecretApi* | [**create_job_secret_alias**](docs/JobSecretApi.md#create_job_secret_alias) | **POST** /job/{jobId}/secret/{secretId}/alias | Create a secret alias at the job level
 *JobSecretApi* | [**create_job_secret_override**](docs/JobSecretApi.md#create_job_secret_override) | **POST** /job/{jobId}/secret/{secretId}/override | Create a secret override at the job level
@@ -529,7 +498,6 @@ Class | Method | HTTP request | Description
  - [Application](docs/Application.md)
  - [ApplicationAdvancedSettings](docs/ApplicationAdvancedSettings.md)
  - [ApplicationAllOf](docs/ApplicationAllOf.md)
- - [ApplicationCurrentScale](docs/ApplicationCurrentScale.md)
  - [ApplicationDeploymentRestriction](docs/ApplicationDeploymentRestriction.md)
  - [ApplicationDeploymentRestrictionRequest](docs/ApplicationDeploymentRestrictionRequest.md)
  - [ApplicationDeploymentRestrictionResponseList](docs/ApplicationDeploymentRestrictionResponseList.md)
@@ -614,7 +582,6 @@ Class | Method | HTTP request | Description
  - [CommunityUsage](docs/CommunityUsage.md)
  - [CompanySizeEnum](docs/CompanySizeEnum.md)
  - [ContainerAdvancedSettings](docs/ContainerAdvancedSettings.md)
- - [ContainerCurrentScale](docs/ContainerCurrentScale.md)
  - [ContainerDeployRequest](docs/ContainerDeployRequest.md)
  - [ContainerNetwork](docs/ContainerNetwork.md)
  - [ContainerNetworkRequest](docs/ContainerNetworkRequest.md)
@@ -655,10 +622,6 @@ Class | Method | HTTP request | Description
  - [DatabaseAllOf](docs/DatabaseAllOf.md)
  - [DatabaseConfiguration](docs/DatabaseConfiguration.md)
  - [DatabaseConfigurationResponseList](docs/DatabaseConfigurationResponseList.md)
- - [DatabaseCurrentMetric](docs/DatabaseCurrentMetric.md)
- - [DatabaseCurrentMetricCpu](docs/DatabaseCurrentMetricCpu.md)
- - [DatabaseCurrentMetricMemory](docs/DatabaseCurrentMetricMemory.md)
- - [DatabaseCurrentMetricStorage](docs/DatabaseCurrentMetricStorage.md)
  - [DatabaseEditRequest](docs/DatabaseEditRequest.md)
  - [DatabaseModeEnum](docs/DatabaseModeEnum.md)
  - [DatabaseRequest](docs/DatabaseRequest.md)
@@ -709,23 +672,8 @@ Class | Method | HTTP request | Description
  - [Environment](docs/Environment.md)
  - [EnvironmentAllOf](docs/EnvironmentAllOf.md)
  - [EnvironmentAllOfCloudProvider](docs/EnvironmentAllOfCloudProvider.md)
- - [EnvironmentApplicationsCurrentScale](docs/EnvironmentApplicationsCurrentScale.md)
- - [EnvironmentApplicationsCurrentScaleResponseList](docs/EnvironmentApplicationsCurrentScaleResponseList.md)
- - [EnvironmentApplicationsInstanceResponseList](docs/EnvironmentApplicationsInstanceResponseList.md)
- - [EnvironmentApplicationsInstanceResponseListResultsInner](docs/EnvironmentApplicationsInstanceResponseListResultsInner.md)
- - [EnvironmentApplicationsStorage](docs/EnvironmentApplicationsStorage.md)
- - [EnvironmentApplicationsStorageResponseList](docs/EnvironmentApplicationsStorageResponseList.md)
  - [EnvironmentApplicationsSupportedLanguage](docs/EnvironmentApplicationsSupportedLanguage.md)
  - [EnvironmentApplicationsSupportedLanguageList](docs/EnvironmentApplicationsSupportedLanguageList.md)
- - [EnvironmentContainersCurrentScale](docs/EnvironmentContainersCurrentScale.md)
- - [EnvironmentContainersCurrentScaleResponseList](docs/EnvironmentContainersCurrentScaleResponseList.md)
- - [EnvironmentContainersStorage](docs/EnvironmentContainersStorage.md)
- - [EnvironmentContainersStorageResponseList](docs/EnvironmentContainersStorageResponseList.md)
- - [EnvironmentDatabasesCurrentMetric](docs/EnvironmentDatabasesCurrentMetric.md)
- - [EnvironmentDatabasesCurrentMetricCpu](docs/EnvironmentDatabasesCurrentMetricCpu.md)
- - [EnvironmentDatabasesCurrentMetricMemory](docs/EnvironmentDatabasesCurrentMetricMemory.md)
- - [EnvironmentDatabasesCurrentMetricResponseList](docs/EnvironmentDatabasesCurrentMetricResponseList.md)
- - [EnvironmentDatabasesCurrentMetricStorage](docs/EnvironmentDatabasesCurrentMetricStorage.md)
  - [EnvironmentDeploymentRule](docs/EnvironmentDeploymentRule.md)
  - [EnvironmentDeploymentRuleAllOf](docs/EnvironmentDeploymentRuleAllOf.md)
  - [EnvironmentDeploymentRuleEditRequest](docs/EnvironmentDeploymentRuleEditRequest.md)
@@ -816,9 +764,6 @@ Class | Method | HTTP request | Description
  - [HelmResponseAllOfValuesOverrideFileRawValues](docs/HelmResponseAllOfValuesOverrideFileRawValues.md)
  - [HelmResponseList](docs/HelmResponseList.md)
  - [HelmValuesGitRepositoryRequest](docs/HelmValuesGitRepositoryRequest.md)
- - [Instance](docs/Instance.md)
- - [InstanceMemory](docs/InstanceMemory.md)
- - [InstanceResponseList](docs/InstanceResponseList.md)
  - [InviteMember](docs/InviteMember.md)
  - [InviteMemberAllOf](docs/InviteMemberAllOf.md)
  - [InviteMemberRequest](docs/InviteMemberRequest.md)
@@ -874,21 +819,6 @@ Class | Method | HTTP request | Description
  - [MemberAllOf](docs/MemberAllOf.md)
  - [MemberResponseList](docs/MemberResponseList.md)
  - [MemberRoleUpdateRequest](docs/MemberRoleUpdateRequest.md)
- - [MetricCPU](docs/MetricCPU.md)
- - [MetricCPUDatapoint](docs/MetricCPUDatapoint.md)
- - [MetricCPUDatapointResponseList](docs/MetricCPUDatapointResponseList.md)
- - [MetricCPUResponseList](docs/MetricCPUResponseList.md)
- - [MetricGeneric](docs/MetricGeneric.md)
- - [MetricGenericDatapoint](docs/MetricGenericDatapoint.md)
- - [MetricGenericResponseList](docs/MetricGenericResponseList.md)
- - [MetricMemory](docs/MetricMemory.md)
- - [MetricMemoryDatapoint](docs/MetricMemoryDatapoint.md)
- - [MetricMemoryDatapointResponseList](docs/MetricMemoryDatapointResponseList.md)
- - [MetricMemoryResponseList](docs/MetricMemoryResponseList.md)
- - [MetricStorage](docs/MetricStorage.md)
- - [MetricStorageDatapoint](docs/MetricStorageDatapoint.md)
- - [MetricStorageDatapointResponseList](docs/MetricStorageDatapointResponseList.md)
- - [MetricStorageResponseList](docs/MetricStorageResponseList.md)
  - [Name](docs/Name.md)
  - [Organization](docs/Organization.md)
  - [OrganizationAllOf](docs/OrganizationAllOf.md)
@@ -1006,10 +936,7 @@ Class | Method | HTTP request | Description
  - [Status](docs/Status.md)
  - [StatusKindEnum](docs/StatusKindEnum.md)
  - [StepMetricStatusEnum](docs/StepMetricStatusEnum.md)
- - [StorageDisk](docs/StorageDisk.md)
- - [StorageDiskResponseList](docs/StorageDiskResponseList.md)
  - [StorageTypeEnum](docs/StorageTypeEnum.md)
- - [ThresholdMetricStatusEnum](docs/ThresholdMetricStatusEnum.md)
  - [TransferOwnershipRequest](docs/TransferOwnershipRequest.md)
  - [TypeOfUseEnum](docs/TypeOfUseEnum.md)
  - [UnexpectedError](docs/UnexpectedError.md)

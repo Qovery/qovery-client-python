@@ -45,20 +45,6 @@ class TestApplicationsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_environment_application_current_scale(self):
-        """Test case for get_environment_application_current_scale
-
-        List current scaling information for each application  # noqa: E501
-        """
-        pass
-
-    def test_get_environment_application_current_storage(self):
-        """Test case for get_environment_application_current_storage
-
-        List current storage disk usage for each application  # noqa: E501
-        """
-        pass
-
     def test_get_environment_application_status(self):
         """Test case for get_environment_application_status
 

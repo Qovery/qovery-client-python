@@ -31,13 +31,6 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """
         pass
 
-    def test_create_do_credentials(self):
-        """Test case for create_do_credentials
-
-        Create Digital Ocean credentials set  # noqa: E501
-        """
-        pass
-
     def test_create_gcp_credentials(self):
         """Test case for create_gcp_credentials
 
@@ -56,13 +49,6 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """Test case for delete_aws_credentials
 
         Delete a set of AWS credentials  # noqa: E501
-        """
-        pass
-
-    def test_delete_do_credentials(self):
-        """Test case for delete_do_credentials
-
-        Delete a set of Digital Ocean credentials  # noqa: E501
         """
         pass
 
@@ -87,13 +73,6 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """
         pass
 
-    def test_edit_do_credentials(self):
-        """Test case for edit_do_credentials
-
-        Edit a set of Digital Ocean credentials  # noqa: E501
-        """
-        pass
-
     def test_edit_gcp_credentials(self):
         """Test case for edit_gcp_credentials
 
@@ -115,13 +94,6 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """
         pass
 
-    def test_get_do_credentials(self):
-        """Test case for get_do_credentials
-
-        Get a set of Digital Ocean credentials  # noqa: E501
-        """
-        pass
-
     def test_get_gcp_credentials(self):
         """Test case for get_gcp_credentials
 
@@ -140,13 +112,6 @@ class TestCloudProviderCredentialsApi(unittest.TestCase):
         """Test case for list_aws_credentials
 
         List AWS credentials  # noqa: E501
-        """
-        pass
-
-    def test_list_do_credentials(self):
-        """Test case for list_do_credentials
-
-        List DO credentials  # noqa: E501
         """
         pass
 
