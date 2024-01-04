@@ -101,6 +101,13 @@ class TestClustersApi(unittest.TestCase):
         """
         pass
 
+    def test_get_installation_helm_values(self):
+        """Test case for get_installation_helm_values
+
+        Get cluster helm values for self managed installation  # noqa: E501
+        """
+        pass
+
     def test_get_organization_cloud_provider_info(self):
         """Test case for get_organization_cloud_provider_info
 

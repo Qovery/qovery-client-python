@@ -203,6 +203,7 @@ Class | Method | HTTP request | Description
 *ClustersApi* | [**get_cluster_readiness_status**](docs/ClustersApi.md#get_cluster_readiness_status) | **GET** /organization/{organizationId}/cluster/{clusterId}/isReady | Know if a cluster is ready to be deployed or not
 *ClustersApi* | [**get_cluster_status**](docs/ClustersApi.md#get_cluster_status) | **GET** /organization/{organizationId}/cluster/{clusterId}/status | Get cluster status
 *ClustersApi* | [**get_default_cluster_advanced_settings**](docs/ClustersApi.md#get_default_cluster_advanced_settings) | **GET** /defaultClusterAdvancedSettings | List default cluster advanced settings
+*ClustersApi* | [**get_installation_helm_values**](docs/ClustersApi.md#get_installation_helm_values) | **GET** /organization/{organizationId}/cluster/{clusterId}/installationHelmValues | Get cluster helm values for self managed installation
 *ClustersApi* | [**get_organization_cloud_provider_info**](docs/ClustersApi.md#get_organization_cloud_provider_info) | **GET** /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo | Get cluster cloud provider info and credentials
 *ClustersApi* | [**get_organization_cluster_status**](docs/ClustersApi.md#get_organization_cluster_status) | **GET** /organization/{organizationId}/cluster/status | List all clusters statuses
 *ClustersApi* | [**get_routing_table**](docs/ClustersApi.md#get_routing_table) | **GET** /organization/{organizationId}/cluster/{clusterId}/routingTable | Get routing table
