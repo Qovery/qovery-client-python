@@ -38,13 +38,6 @@ class TestDatabaseActionsApi(unittest.TestCase):
         """
         pass
 
-    def test_redeploy_database(self):
-        """Test case for redeploy_database
-
-        Redeploy database  # noqa: E501
-        """
-        pass
-
     def test_restart_database(self):
         """Test case for restart_database
 

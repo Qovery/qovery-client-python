@@ -104,7 +104,6 @@ Class | Method | HTTP request | Description
 *AccountInfoApi* | [**get_account_information**](docs/AccountInfoApi.md#get_account_information) | **GET** /account | Get Account information
 *ApplicationActionsApi* | [**deploy_application**](docs/ApplicationActionsApi.md#deploy_application) | **POST** /application/{applicationId}/deploy | Deploy application
 *ApplicationActionsApi* | [**reboot_application**](docs/ApplicationActionsApi.md#reboot_application) | **POST** /application/{applicationId}/restart-service | Reboot application
-*ApplicationActionsApi* | [**redeploy_application**](docs/ApplicationActionsApi.md#redeploy_application) | **POST** /application/{applicationId}/redeploy | Redeploy application
 *ApplicationActionsApi* | [**restart_application**](docs/ApplicationActionsApi.md#restart_application) | **POST** /application/{applicationId}/restart | Deprecated - Restart application
 *ApplicationActionsApi* | [**stop_application**](docs/ApplicationActionsApi.md#stop_application) | **POST** /application/{applicationId}/stop | Stop application
 *ApplicationConfigurationApi* | [**edit_advanced_settings**](docs/ApplicationConfigurationApi.md#edit_advanced_settings) | **PUT** /application/{applicationId}/advancedSettings | Edit advanced settings
@@ -213,7 +212,6 @@ Class | Method | HTTP request | Description
 *ClustersApi* | [**stop_cluster**](docs/ClustersApi.md#stop_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/stop | Stop cluster
 *ContainerActionsApi* | [**deploy_container**](docs/ContainerActionsApi.md#deploy_container) | **POST** /container/{containerId}/deploy | Deploy container
 *ContainerActionsApi* | [**reboot_container**](docs/ContainerActionsApi.md#reboot_container) | **POST** /container/{containerId}/restart-service | Reboot container
-*ContainerActionsApi* | [**redeploy_container**](docs/ContainerActionsApi.md#redeploy_container) | **POST** /container/{containerId}/redeploy | Redeploy container
 *ContainerActionsApi* | [**restart_container**](docs/ContainerActionsApi.md#restart_container) | **POST** /container/{containerId}/restart | Deprecated - Restart container
 *ContainerActionsApi* | [**stop_container**](docs/ContainerActionsApi.md#stop_container) | **POST** /container/{containerId}/stop | Stop container
 *ContainerConfigurationApi* | [**edit_container_advanced_settings**](docs/ContainerConfigurationApi.md#edit_container_advanced_settings) | **PUT** /container/{containerId}/advancedSettings | Edit advanced settings
@@ -268,7 +266,6 @@ Class | Method | HTTP request | Description
 *CustomDomainApi* | [**list_helm_custom_domain**](docs/CustomDomainApi.md#list_helm_custom_domain) | **GET** /helm/{helmId}/customDomain | List helm custom domains
 *DatabaseActionsApi* | [**deploy_database**](docs/DatabaseActionsApi.md#deploy_database) | **POST** /database/{databaseId}/deploy | Deploy database 
 *DatabaseActionsApi* | [**reboot_database**](docs/DatabaseActionsApi.md#reboot_database) | **POST** /database/{databaseId}/restart-service | Retart database
-*DatabaseActionsApi* | [**redeploy_database**](docs/DatabaseActionsApi.md#redeploy_database) | **POST** /database/{databaseId}/redeploy | Redeploy database
 *DatabaseActionsApi* | [**restart_database**](docs/DatabaseActionsApi.md#restart_database) | **POST** /database/{databaseId}/restart | Deprecated - Restart database
 *DatabaseActionsApi* | [**stop_database**](docs/DatabaseActionsApi.md#stop_database) | **POST** /database/{databaseId}/stop | Stop database
 *DatabaseApplicationApi* | [**list_database_application**](docs/DatabaseApplicationApi.md#list_database_application) | **GET** /database/{databaseId}/application | List applications using the database
@@ -302,7 +299,6 @@ Class | Method | HTTP request | Description
 *EnvironmentActionsApi* | [**deploy_all_services**](docs/EnvironmentActionsApi.md#deploy_all_services) | **POST** /environment/{environmentId}/service/deploy | Deploy services
 *EnvironmentActionsApi* | [**deploy_environment**](docs/EnvironmentActionsApi.md#deploy_environment) | **POST** /environment/{environmentId}/deploy | Deploy environment
 *EnvironmentActionsApi* | [**reboot_services**](docs/EnvironmentActionsApi.md#reboot_services) | **POST** /environment/{environmentId}/service/restart-service | Reboot services
-*EnvironmentActionsApi* | [**redeploy_environment**](docs/EnvironmentActionsApi.md#redeploy_environment) | **POST** /environment/{environmentId}/redeploy | Redeploy environment
 *EnvironmentActionsApi* | [**restart_environment**](docs/EnvironmentActionsApi.md#restart_environment) | **POST** /environment/{environmentId}/restart | Deprecated - Restart environment
 *EnvironmentActionsApi* | [**stop_environment**](docs/EnvironmentActionsApi.md#stop_environment) | **POST** /environment/{environmentId}/stop | Stop environment
 *EnvironmentActionsApi* | [**stop_selected_services**](docs/EnvironmentActionsApi.md#stop_selected_services) | **POST** /environment/{environmentId}/service/stop | Stop services
@@ -344,7 +340,6 @@ Class | Method | HTTP request | Description
 *GithubAppApi* | [**organization_github_app_connect**](docs/GithubAppApi.md#organization_github_app_connect) | **POST** /organization/{organizationId}/github/connect | Connect a github account to an organization
 *GithubAppApi* | [**organization_github_app_disconnect**](docs/GithubAppApi.md#organization_github_app_disconnect) | **DELETE** /organization/{organizationId}/github/disconnect | Disconnect a github account from an organization
 *HelmActionsApi* | [**deploy_helm**](docs/HelmActionsApi.md#deploy_helm) | **POST** /helm/{helmId}/deploy | Deploy helm
-*HelmActionsApi* | [**redeploy_helm**](docs/HelmActionsApi.md#redeploy_helm) | **POST** /helm/{helmId}/redeploy | Redeploy helm
 *HelmActionsApi* | [**restart_helm**](docs/HelmActionsApi.md#restart_helm) | **POST** /helm/{helmId}/restart | Deprecated - Restart helm
 *HelmActionsApi* | [**stop_helm**](docs/HelmActionsApi.md#stop_helm) | **POST** /helm/{helmId}/stop | Stop helm
 *HelmConfigurationApi* | [**edit_helm_advanced_settings**](docs/HelmConfigurationApi.md#edit_helm_advanced_settings) | **PUT** /helm/{helmId}/advancedSettings | Edit advanced settings
@@ -376,7 +371,6 @@ Class | Method | HTTP request | Description
 *HelmsApi* | [**get_environment_helm_status**](docs/HelmsApi.md#get_environment_helm_status) | **GET** /environment/{environmentId}/helm/status | List all environment helm statuses
 *HelmsApi* | [**list_helms**](docs/HelmsApi.md#list_helms) | **GET** /environment/{environmentId}/helm | List helms
 *JobActionsApi* | [**deploy_job**](docs/JobActionsApi.md#deploy_job) | **POST** /job/{jobId}/deploy | Deploy job
-*JobActionsApi* | [**redeploy_job**](docs/JobActionsApi.md#redeploy_job) | **POST** /job/{jobId}/redeploy | Redeploy job
 *JobActionsApi* | [**restart_job**](docs/JobActionsApi.md#restart_job) | **POST** /job/{jobId}/restart | Deprecated - Restart job
 *JobActionsApi* | [**stop_job**](docs/JobActionsApi.md#stop_job) | **POST** /job/{jobId}/stop | Stop job
 *JobConfigurationApi* | [**edit_job_advanced_settings**](docs/JobConfigurationApi.md#edit_job_advanced_settings) | **PUT** /job/{jobId}/advancedSettings | Edit advanced settings

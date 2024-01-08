@@ -31,13 +31,6 @@ class TestJobActionsApi(unittest.TestCase):
         """
         pass
 
-    def test_redeploy_job(self):
-        """Test case for redeploy_job
-
-        Redeploy job  # noqa: E501
-        """
-        pass
-
     def test_restart_job(self):
         """Test case for restart_job
 

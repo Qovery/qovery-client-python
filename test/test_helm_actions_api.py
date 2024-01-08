@@ -31,13 +31,6 @@ class TestHelmActionsApi(unittest.TestCase):
         """
         pass
 
-    def test_redeploy_helm(self):
-        """Test case for redeploy_helm
-
-        Redeploy helm  # noqa: E501
-        """
-        pass
-
     def test_restart_helm(self):
         """Test case for restart_helm
 

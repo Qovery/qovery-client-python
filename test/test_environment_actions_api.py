@@ -66,13 +66,6 @@ class TestEnvironmentActionsApi(unittest.TestCase):
         """
         pass
 
-    def test_redeploy_environment(self):
-        """Test case for redeploy_environment
-
-        Redeploy environment  # noqa: E501
-        """
-        pass
-
     def test_restart_environment(self):
         """Test case for restart_environment
 

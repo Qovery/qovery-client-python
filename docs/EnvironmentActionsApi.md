@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**deploy_all_services**](EnvironmentActionsApi.md#deploy_all_services) | **POST** /environment/{environmentId}/service/deploy | Deploy services
 [**deploy_environment**](EnvironmentActionsApi.md#deploy_environment) | **POST** /environment/{environmentId}/deploy | Deploy environment
 [**reboot_services**](EnvironmentActionsApi.md#reboot_services) | **POST** /environment/{environmentId}/service/restart-service | Reboot services
-[**redeploy_environment**](EnvironmentActionsApi.md#redeploy_environment) | **POST** /environment/{environmentId}/redeploy | Redeploy environment
 [**restart_environment**](EnvironmentActionsApi.md#restart_environment) | **POST** /environment/{environmentId}/restart | Deprecated - Restart environment
 [**stop_environment**](EnvironmentActionsApi.md#stop_environment) | **POST** /environment/{environmentId}/stop | Stop environment
 [**stop_selected_services**](EnvironmentActionsApi.md#stop_selected_services) | **POST** /environment/{environmentId}/service/stop | Stop services
@@ -647,92 +646,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **202** | Reboot services |  -  |
 **400** | Bad request |  -  |
-**401** | Access token is missing or invalid |  -  |
-**403** | Access forbidden |  -  |
-**404** | Resource not found |  -  |
-**409** | Operation is in progress |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **redeploy_environment**
-> EnvironmentStatus redeploy_environment(environment_id)
-
-Redeploy environment
-
-### Example
-
-* Api Key Authentication (ApiKeyAuth):
-* Bearer (JWT) Authentication (bearerAuth):
-
-```python
-import time
-import qovery
-from qovery.api import environment_actions_api
-from qovery.model.environment_status import EnvironmentStatus
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.qovery.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = qovery.Configuration(
-    host = "https://api.qovery.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
-
-# Configure Bearer authorization (JWT): bearerAuth
-configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with qovery.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Redeploy environment
-        api_response = api_instance.redeploy_environment(environment_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling EnvironmentActionsApi->redeploy_environment: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
-
-### Return type
-
-[**EnvironmentStatus**](EnvironmentStatus.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**202** | Environment redeploy has been requested |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
