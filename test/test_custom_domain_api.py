@@ -31,13 +31,6 @@ class TestCustomDomainApi(unittest.TestCase):
         """
         pass
 
-    def test_create_helm_custom_domain(self):
-        """Test case for create_helm_custom_domain
-
-        Add custom domain to the helm.  # noqa: E501
-        """
-        pass
-
     def test_delete_custom_domain(self):
         """Test case for delete_custom_domain
 
@@ -63,13 +56,6 @@ class TestCustomDomainApi(unittest.TestCase):
         """Test case for list_application_custom_domain
 
         List application custom domains  # noqa: E501
-        """
-        pass
-
-    def test_list_helm_custom_domain(self):
-        """Test case for list_helm_custom_domain
-
-        List helm custom domains  # noqa: E501
         """
         pass
 

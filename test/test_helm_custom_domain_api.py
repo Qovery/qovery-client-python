@@ -24,6 +24,13 @@ class TestHelmCustomDomainApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_helm_custom_domain(self):
+        """Test case for create_helm_custom_domain
+
+        Add custom domain to the helm.  # noqa: E501
+        """
+        pass
+
     def test_delete_helm_custom_domain(self):
         """Test case for delete_helm_custom_domain
 
@@ -42,6 +49,13 @@ class TestHelmCustomDomainApi(unittest.TestCase):
         """Test case for get_helm_custom_domain
 
         Get a Custom Domain  # noqa: E501
+        """
+        pass
+
+    def test_list_helm_custom_domain(self):
+        """Test case for list_helm_custom_domain
+
+        List helm custom domains  # noqa: E501
         """
         pass
 
