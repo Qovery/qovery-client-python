@@ -74,6 +74,14 @@ with qovery.ApiClient(configuration) as api_client:
         description="description_example",
         region="region_example",
         cloud_provider=CloudProviderEnum("AWS"),
+        cloud_provider_credentials=ClusterCloudProviderInfoRequest(
+            cloud_provider=CloudProviderEnum("AWS"),
+            credentials=ClusterCloudProviderInfoCredentials(
+                id="id_example",
+                name="name_example",
+            ),
+            region="region_example",
+        ),
         min_running_nodes=1,
         max_running_nodes=1,
         disk_size=50,
@@ -380,6 +388,14 @@ with qovery.ApiClient(configuration) as api_client:
         description="description_example",
         region="region_example",
         cloud_provider=CloudProviderEnum("AWS"),
+        cloud_provider_credentials=ClusterCloudProviderInfoRequest(
+            cloud_provider=CloudProviderEnum("AWS"),
+            credentials=ClusterCloudProviderInfoCredentials(
+                id="id_example",
+                name="name_example",
+            ),
+            region="region_example",
+        ),
         min_running_nodes=1,
         max_running_nodes=1,
         disk_size=50,

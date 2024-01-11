@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **region** | **str** |  | 
 **cloud_provider** | [**CloudProviderEnum**](CloudProviderEnum.md) |  | 
 **description** | **str** |  | [optional] 
+**cloud_provider_credentials** | [**ClusterCloudProviderInfoRequest**](ClusterCloudProviderInfoRequest.md) |  | [optional] 
 **min_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **max_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **disk_size** | **int** | Unit is in GB. The disk size to be used for the node configuration | [optional]  if omitted the server will use the default value of 40

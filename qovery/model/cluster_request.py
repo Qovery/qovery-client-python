@@ -32,9 +32,11 @@ from qovery.exceptions import ApiAttributeError
 
 def lazy_import():
     from qovery.model.cloud_provider_enum import CloudProviderEnum
+    from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
     from qovery.model.cluster_request_features_inner import ClusterRequestFeaturesInner
     from qovery.model.kubernetes_enum import KubernetesEnum
     globals()['CloudProviderEnum'] = CloudProviderEnum
+    globals()['ClusterCloudProviderInfoRequest'] = ClusterCloudProviderInfoRequest
     globals()['ClusterRequestFeaturesInner'] = ClusterRequestFeaturesInner
     globals()['KubernetesEnum'] = KubernetesEnum
 
@@ -96,6 +98,7 @@ class ClusterRequest(ModelNormal):
             'region': (str,),  # noqa: E501
             'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'description': (str,),  # noqa: E501
+            'cloud_provider_credentials': (ClusterCloudProviderInfoRequest,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
             'disk_size': (int,),  # noqa: E501
@@ -117,6 +120,7 @@ class ClusterRequest(ModelNormal):
         'region': 'region',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'cloud_provider_credentials': 'cloud_provider_credentials',  # noqa: E501
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
         'disk_size': 'disk_size',  # noqa: E501
@@ -175,6 +179,7 @@ class ClusterRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            cloud_provider_credentials (ClusterCloudProviderInfoRequest): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 40  # noqa: E501
@@ -278,6 +283,7 @@ class ClusterRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             description (str): [optional]  # noqa: E501
+            cloud_provider_credentials (ClusterCloudProviderInfoRequest): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             disk_size (int): Unit is in GB. The disk size to be used for the node configuration. [optional] if omitted the server will use the default value of 40  # noqa: E501
