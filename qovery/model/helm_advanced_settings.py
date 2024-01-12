@@ -82,6 +82,7 @@ class HelmAdvancedSettings(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'deployment_custom_domain_check_enabled': (bool,),  # noqa: E501
             'network_ingress_proxy_body_size_mb': (int,),  # noqa: E501
             'network_ingress_enable_cors': (bool,),  # noqa: E501
             'network_ingress_cors_allow_origin': (str,),  # noqa: E501
@@ -111,6 +112,7 @@ class HelmAdvancedSettings(ModelNormal):
 
 
     attribute_map = {
+        'deployment_custom_domain_check_enabled': 'deployment.custom_domain_check_enabled',  # noqa: E501
         'network_ingress_proxy_body_size_mb': 'network.ingress.proxy_body_size_mb',  # noqa: E501
         'network_ingress_enable_cors': 'network.ingress.enable_cors',  # noqa: E501
         'network_ingress_cors_allow_origin': 'network.ingress.cors_allow_origin',  # noqa: E501
@@ -175,6 +177,7 @@ class HelmAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying a helm. [optional]  # noqa: E501
             network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
             network_ingress_enable_cors (bool): [optional]  # noqa: E501
             network_ingress_cors_allow_origin (str): [optional]  # noqa: E501
@@ -281,6 +284,7 @@ class HelmAdvancedSettings(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            deployment_custom_domain_check_enabled (bool): disable custom domain check when deploying a helm. [optional]  # noqa: E501
             network_ingress_proxy_body_size_mb (int): [optional]  # noqa: E501
             network_ingress_enable_cors (bool): [optional]  # noqa: E501
             network_ingress_cors_allow_origin (str): [optional]  # noqa: E501

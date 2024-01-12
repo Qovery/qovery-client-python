@@ -54,6 +54,7 @@ with qovery.ApiClient(configuration) as api_client:
     api_instance = helm_configuration_api.HelmConfigurationApi(api_client)
     helm_id = "helmId_example" # str | Helm ID
     helm_advanced_settings = HelmAdvancedSettings(
+        deployment_custom_domain_check_enabled=True,
         network_ingress_proxy_body_size_mb=1,
         network_ingress_enable_cors=True,
         network_ingress_cors_allow_origin="network_ingress_cors_allow_origin_example",

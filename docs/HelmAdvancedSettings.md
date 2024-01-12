@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deployment_custom_domain_check_enabled** | **bool** | disable custom domain check when deploying a helm | [optional] 
 **network_ingress_proxy_body_size_mb** | **int** |  | [optional] 
 **network_ingress_enable_cors** | **bool** |  | [optional] 
 **network_ingress_cors_allow_origin** | **str** |  | [optional] 
