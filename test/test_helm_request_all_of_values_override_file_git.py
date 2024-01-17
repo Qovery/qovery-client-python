@@ -13,15 +13,13 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.application_git_repository_request import ApplicationGitRepositoryRequest
+globals()['ApplicationGitRepositoryRequest'] = ApplicationGitRepositoryRequest
 from qovery.model.helm_request_all_of_values_override_file_git import HelmRequestAllOfValuesOverrideFileGit
-from qovery.model.helm_request_all_of_values_override_file_raw import HelmRequestAllOfValuesOverrideFileRaw
-globals()['HelmRequestAllOfValuesOverrideFileGit'] = HelmRequestAllOfValuesOverrideFileGit
-globals()['HelmRequestAllOfValuesOverrideFileRaw'] = HelmRequestAllOfValuesOverrideFileRaw
-from qovery.model.helm_request_all_of_values_override_file import HelmRequestAllOfValuesOverrideFile
 
 
-class TestHelmRequestAllOfValuesOverrideFile(unittest.TestCase):
-    """HelmRequestAllOfValuesOverrideFile unit test stubs"""
+class TestHelmRequestAllOfValuesOverrideFileGit(unittest.TestCase):
+    """HelmRequestAllOfValuesOverrideFileGit unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +27,10 @@ class TestHelmRequestAllOfValuesOverrideFile(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testHelmRequestAllOfValuesOverrideFile(self):
-        """Test HelmRequestAllOfValuesOverrideFile"""
+    def testHelmRequestAllOfValuesOverrideFileGit(self):
+        """Test HelmRequestAllOfValuesOverrideFileGit"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = HelmRequestAllOfValuesOverrideFile()  # noqa: E501
+        # model = HelmRequestAllOfValuesOverrideFileGit()  # noqa: E501
         pass
 
 

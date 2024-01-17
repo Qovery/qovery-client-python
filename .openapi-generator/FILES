@@ -315,6 +315,7 @@ docs/HelmRequest.md
 docs/HelmRequestAllOf.md
 docs/HelmRequestAllOfValuesOverride.md
 docs/HelmRequestAllOfValuesOverrideFile.md
+docs/HelmRequestAllOfValuesOverrideFileGit.md
 docs/HelmRequestAllOfValuesOverrideFileRaw.md
 docs/HelmRequestAllOfValuesOverrideFileRawValues.md
 docs/HelmResponse.md
@@ -326,7 +327,6 @@ docs/HelmResponseAllOfValuesOverrideFileGit.md
 docs/HelmResponseAllOfValuesOverrideFileRaw.md
 docs/HelmResponseAllOfValuesOverrideFileRawValues.md
 docs/HelmResponseList.md
-docs/HelmValuesGitRepositoryRequest.md
 docs/HelmsApi.md
 docs/InviteMember.md
 docs/InviteMemberAllOf.md
@@ -890,6 +890,7 @@ qovery/model/helm_request.py
 qovery/model/helm_request_all_of.py
 qovery/model/helm_request_all_of_values_override.py
 qovery/model/helm_request_all_of_values_override_file.py
+qovery/model/helm_request_all_of_values_override_file_git.py
 qovery/model/helm_request_all_of_values_override_file_raw.py
 qovery/model/helm_request_all_of_values_override_file_raw_values.py
 qovery/model/helm_response.py
@@ -901,7 +902,6 @@ qovery/model/helm_response_all_of_values_override_file_git.py
 qovery/model/helm_response_all_of_values_override_file_raw.py
 qovery/model/helm_response_all_of_values_override_file_raw_values.py
 qovery/model/helm_response_list.py
-qovery/model/helm_values_git_repository_request.py
 qovery/model/invite_member.py
 qovery/model/invite_member_all_of.py
 qovery/model/invite_member_request.py
@@ -1417,6 +1417,7 @@ test/test_helm_request.py
 test/test_helm_request_all_of.py
 test/test_helm_request_all_of_values_override.py
 test/test_helm_request_all_of_values_override_file.py
+test/test_helm_request_all_of_values_override_file_git.py
 test/test_helm_request_all_of_values_override_file_raw.py
 test/test_helm_request_all_of_values_override_file_raw_values.py
 test/test_helm_response.py
@@ -1428,7 +1429,6 @@ test/test_helm_response_all_of_values_override_file_git.py
 test/test_helm_response_all_of_values_override_file_raw.py
 test/test_helm_response_all_of_values_override_file_raw_values.py
 test/test_helm_response_list.py
-test/test_helm_values_git_repository_request.py
 test/test_helms_api.py
 test/test_invite_member.py
 test/test_invite_member_all_of.py
