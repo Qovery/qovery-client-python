@@ -88,11 +88,11 @@ class ApplicationGitRepository(ModelNormal):
         """
         lazy_import()
         return {
-            'has_access': (bool,),  # noqa: E501
             'provider': (GitProviderEnum,),  # noqa: E501
             'owner': (str,),  # noqa: E501
             'url': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'has_access': (bool,),  # noqa: E501
             'branch': (str,),  # noqa: E501
             'root_path': (str,),  # noqa: E501
             'deployed_commit_id': (str,),  # noqa: E501
@@ -109,11 +109,11 @@ class ApplicationGitRepository(ModelNormal):
 
 
     attribute_map = {
-        'has_access': 'has_access',  # noqa: E501
         'provider': 'provider',  # noqa: E501
         'owner': 'owner',  # noqa: E501
         'url': 'url',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'has_access': 'has_access',  # noqa: E501
         'branch': 'branch',  # noqa: E501
         'root_path': 'root_path',  # noqa: E501
         'deployed_commit_id': 'deployed_commit_id',  # noqa: E501
@@ -132,8 +132,14 @@ class ApplicationGitRepository(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, provider, owner, url, name, *args, **kwargs):  # noqa: E501
         """ApplicationGitRepository - a model defined in OpenAPI
+
+        Args:
+            provider (GitProviderEnum):
+            owner (str):
+            url (str):
+            name (str): repository name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -167,10 +173,6 @@ class ApplicationGitRepository(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             has_access (bool): [optional]  # noqa: E501
-            provider (GitProviderEnum): [optional]  # noqa: E501
-            owner (str): [optional]  # noqa: E501
-            url (str): [optional]  # noqa: E501
-            name (str): repository name. [optional]  # noqa: E501
             branch (str): [optional]  # noqa: E501
             root_path (str): [optional]  # noqa: E501
             deployed_commit_id (str): Git commit ID corresponding to the deployed version of the app. [optional]  # noqa: E501
@@ -210,6 +212,10 @@ class ApplicationGitRepository(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.provider = provider
+        self.owner = owner
+        self.url = url
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -230,8 +236,14 @@ class ApplicationGitRepository(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, provider, owner, url, name, *args, **kwargs):  # noqa: E501
         """ApplicationGitRepository - a model defined in OpenAPI
+
+        Args:
+            provider (GitProviderEnum):
+            owner (str):
+            url (str):
+            name (str): repository name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -265,10 +277,6 @@ class ApplicationGitRepository(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             has_access (bool): [optional]  # noqa: E501
-            provider (GitProviderEnum): [optional]  # noqa: E501
-            owner (str): [optional]  # noqa: E501
-            url (str): [optional]  # noqa: E501
-            name (str): repository name. [optional]  # noqa: E501
             branch (str): [optional]  # noqa: E501
             root_path (str): [optional]  # noqa: E501
             deployed_commit_id (str): Git commit ID corresponding to the deployed version of the app. [optional]  # noqa: E501
@@ -306,6 +314,10 @@ class ApplicationGitRepository(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.provider = provider
+        self.owner = owner
+        self.url = url
+        self.name = name
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

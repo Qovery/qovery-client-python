@@ -4,11 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**provider** | [**GitProviderEnum**](GitProviderEnum.md) |  | 
+**owner** | **str** |  | 
+**url** | **str** |  | 
+**name** | **str** | repository name | 
 **has_access** | **bool** |  | [optional] 
-**provider** | [**GitProviderEnum**](GitProviderEnum.md) |  | [optional] 
-**owner** | **str** |  | [optional] 
-**url** | **str** |  | [optional] 
-**name** | **str** | repository name | [optional] 
 **branch** | **str** |  | [optional] 
 **root_path** | **str** |  | [optional] 
 **deployed_commit_id** | **str** | Git commit ID corresponding to the deployed version of the app | [optional] 
