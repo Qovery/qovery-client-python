@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **region** | **str** |  | 
 **cloud_provider** | [**CloudProviderEnum**](CloudProviderEnum.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
+**organization** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 
 **description** | **str** |  | [optional] 
 **min_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **max_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1

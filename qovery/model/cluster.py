@@ -38,6 +38,7 @@ def lazy_import():
     from qovery.model.cluster_feature import ClusterFeature
     from qovery.model.cluster_state_enum import ClusterStateEnum
     from qovery.model.kubernetes_enum import KubernetesEnum
+    from qovery.model.reference_object import ReferenceObject
     globals()['Base'] = Base
     globals()['CloudProviderEnum'] = CloudProviderEnum
     globals()['ClusterAllOf'] = ClusterAllOf
@@ -45,6 +46,7 @@ def lazy_import():
     globals()['ClusterFeature'] = ClusterFeature
     globals()['ClusterStateEnum'] = ClusterStateEnum
     globals()['KubernetesEnum'] = KubernetesEnum
+    globals()['ReferenceObject'] = ReferenceObject
 
 
 class Cluster(ModelComposed):
@@ -106,6 +108,7 @@ class Cluster(ModelComposed):
             'region': (str,),  # noqa: E501
             'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
+            'organization': (ReferenceObject,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
@@ -137,6 +140,7 @@ class Cluster(ModelComposed):
         'region': 'region',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'organization': 'organization',  # noqa: E501
         'description': 'description',  # noqa: E501
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
@@ -204,6 +208,7 @@ class Cluster(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            organization (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -328,6 +333,7 @@ class Cluster(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            organization (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501

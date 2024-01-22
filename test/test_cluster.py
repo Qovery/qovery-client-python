@@ -20,6 +20,7 @@ from qovery.model.cluster_deployment_status_enum import ClusterDeploymentStatusE
 from qovery.model.cluster_feature import ClusterFeature
 from qovery.model.cluster_state_enum import ClusterStateEnum
 from qovery.model.kubernetes_enum import KubernetesEnum
+from qovery.model.reference_object import ReferenceObject
 globals()['Base'] = Base
 globals()['CloudProviderEnum'] = CloudProviderEnum
 globals()['ClusterAllOf'] = ClusterAllOf
@@ -27,6 +28,7 @@ globals()['ClusterDeploymentStatusEnum'] = ClusterDeploymentStatusEnum
 globals()['ClusterFeature'] = ClusterFeature
 globals()['ClusterStateEnum'] = ClusterStateEnum
 globals()['KubernetesEnum'] = KubernetesEnum
+globals()['ReferenceObject'] = ReferenceObject
 from qovery.model.cluster import Cluster
 
 
