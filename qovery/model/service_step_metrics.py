@@ -89,6 +89,7 @@ class ServiceStepMetrics(ModelNormal):
         lazy_import()
         return {
             'total_duration_sec': (int, none_type,),  # noqa: E501
+            'total_computing_duration_sec': (int,),  # noqa: E501
             'details': ([ServiceStepMetric],),  # noqa: E501
         }
 
@@ -99,6 +100,7 @@ class ServiceStepMetrics(ModelNormal):
 
     attribute_map = {
         'total_duration_sec': 'total_duration_sec',  # noqa: E501
+        'total_computing_duration_sec': 'total_computing_duration_sec',  # noqa: E501
         'details': 'details',  # noqa: E501
     }
 
@@ -144,6 +146,7 @@ class ServiceStepMetrics(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             total_duration_sec (int, none_type): The total duration in seconds of the service deployment or null if the deployment is not completed.. [optional]  # noqa: E501
+            total_computing_duration_sec (int): The total duration in seconds of the service deployment without queuing steps.. [optional]  # noqa: E501
             details ([ServiceStepMetric]): A list of metrics for deployment steps of the service.. [optional]  # noqa: E501
         """
 
@@ -231,6 +234,7 @@ class ServiceStepMetrics(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             total_duration_sec (int, none_type): The total duration in seconds of the service deployment or null if the deployment is not completed.. [optional]  # noqa: E501
+            total_computing_duration_sec (int): The total duration in seconds of the service deployment without queuing steps.. [optional]  # noqa: E501
             details ([ServiceStepMetric]): A list of metrics for deployment steps of the service.. [optional]  # noqa: E501
         """
 
