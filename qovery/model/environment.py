@@ -104,6 +104,7 @@ class Environment(ModelComposed):
             'mode': (EnvironmentModeEnum,),  # noqa: E501
             'cluster_id': (str,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
+            'organization': (ReferenceObject,),  # noqa: E501
             'last_updated_by': (str,),  # noqa: E501
             'cluster_name': (str,),  # noqa: E501
         }
@@ -122,6 +123,7 @@ class Environment(ModelComposed):
         'mode': 'mode',  # noqa: E501
         'cluster_id': 'cluster_id',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
+        'organization': 'organization',  # noqa: E501
         'last_updated_by': 'last_updated_by',  # noqa: E501
         'cluster_name': 'cluster_name',  # noqa: E501
     }
@@ -176,6 +178,7 @@ class Environment(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            organization (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
             cluster_name (str): [optional]  # noqa: E501
         """
@@ -287,6 +290,7 @@ class Environment(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
+            organization (ReferenceObject): [optional]  # noqa: E501
             last_updated_by (str): uuid of the user that made the last update. [optional]  # noqa: E501
             cluster_name (str): [optional]  # noqa: E501
         """
