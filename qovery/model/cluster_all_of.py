@@ -98,10 +98,10 @@ class ClusterAllOf(ModelNormal):
         """
         lazy_import()
         return {
+            'organization': (ReferenceObject,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'cloud_provider': (CloudProviderEnum,),  # noqa: E501
-            'organization': (ReferenceObject,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
@@ -127,10 +127,10 @@ class ClusterAllOf(ModelNormal):
 
 
     attribute_map = {
+        'organization': 'organization',  # noqa: E501
         'name': 'name',  # noqa: E501
         'region': 'region',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
-        'organization': 'organization',  # noqa: E501
         'description': 'description',  # noqa: E501
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
@@ -157,10 +157,11 @@ class ClusterAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, region, cloud_provider, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, organization, name, region, cloud_provider, *args, **kwargs):  # noqa: E501
         """ClusterAllOf - a model defined in OpenAPI
 
         Args:
+            organization (ReferenceObject):
             name (str): name is case-insensitive
             region (str):
             cloud_provider (CloudProviderEnum):
@@ -196,7 +197,6 @@ class ClusterAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            organization (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -245,6 +245,7 @@ class ClusterAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.organization = organization
         self.name = name
         self.region = region
         self.cloud_provider = cloud_provider
@@ -268,10 +269,11 @@ class ClusterAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, region, cloud_provider, *args, **kwargs):  # noqa: E501
+    def __init__(self, organization, name, region, cloud_provider, *args, **kwargs):  # noqa: E501
         """ClusterAllOf - a model defined in OpenAPI
 
         Args:
+            organization (ReferenceObject):
             name (str): name is case-insensitive
             region (str):
             cloud_provider (CloudProviderEnum):
@@ -307,7 +309,6 @@ class ClusterAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            organization (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -354,6 +355,7 @@ class ClusterAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.organization = organization
         self.name = name
         self.region = region
         self.cloud_provider = cloud_provider

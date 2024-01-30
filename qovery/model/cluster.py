@@ -104,11 +104,11 @@ class Cluster(ModelComposed):
         return {
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
+            'organization': (ReferenceObject,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'region': (str,),  # noqa: E501
             'cloud_provider': (CloudProviderEnum,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'organization': (ReferenceObject,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'min_running_nodes': (int,),  # noqa: E501
             'max_running_nodes': (int,),  # noqa: E501
@@ -136,11 +136,11 @@ class Cluster(ModelComposed):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
+        'organization': 'organization',  # noqa: E501
         'name': 'name',  # noqa: E501
         'region': 'region',  # noqa: E501
         'cloud_provider': 'cloud_provider',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
-        'organization': 'organization',  # noqa: E501
         'description': 'description',  # noqa: E501
         'min_running_nodes': 'min_running_nodes',  # noqa: E501
         'max_running_nodes': 'max_running_nodes',  # noqa: E501
@@ -174,6 +174,7 @@ class Cluster(ModelComposed):
         Keyword Args:
             id (str):
             created_at (datetime):
+            organization (ReferenceObject):
             name (str): name is case-insensitive
             region (str):
             cloud_provider (CloudProviderEnum):
@@ -208,7 +209,6 @@ class Cluster(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            organization (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
@@ -299,6 +299,7 @@ class Cluster(ModelComposed):
         """Cluster - a model defined in OpenAPI
 
         Keyword Args:
+            organization (ReferenceObject):
             name (str): name is case-insensitive
             region (str):
             cloud_provider (CloudProviderEnum):
@@ -333,7 +334,6 @@ class Cluster(ModelComposed):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
-            organization (ReferenceObject): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             min_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501
             max_running_nodes (int): [optional] if omitted the server will use the default value of 1  # noqa: E501

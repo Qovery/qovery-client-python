@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**organization** | [**ReferenceObject**](ReferenceObject.md) |  | 
 **name** | **str** | name is case-insensitive | 
 **region** | **str** |  | 
 **cloud_provider** | [**CloudProviderEnum**](CloudProviderEnum.md) |  | 
-**organization** | [**ReferenceObject**](ReferenceObject.md) |  | [optional] 
 **description** | **str** |  | [optional] 
 **min_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
 **max_running_nodes** | **int** |  | [optional]  if omitted the server will use the default value of 1
