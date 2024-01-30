@@ -95,9 +95,9 @@ class Project(ModelComposed):
             'id': (str,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'name': (str,),  # noqa: E501
+            'organization': (ReferenceObject,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'description': (str,),  # noqa: E501
-            'organization': (ReferenceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -109,9 +109,9 @@ class Project(ModelComposed):
         'id': 'id',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'organization': 'organization',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'organization': 'organization',  # noqa: E501
     }
 
     read_only_vars = {
@@ -129,6 +129,7 @@ class Project(ModelComposed):
             id (str):
             created_at (datetime):
             name (str):
+            organization (ReferenceObject):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -161,7 +162,6 @@ class Project(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            organization (ReferenceObject): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,6 +236,7 @@ class Project(ModelComposed):
 
         Keyword Args:
             name (str):
+            organization (ReferenceObject):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -268,7 +269,6 @@ class Project(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             updated_at (datetime): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
-            organization (ReferenceObject): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
