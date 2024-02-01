@@ -48,6 +48,7 @@ docs/BaseJobResponse.md
 docs/BaseJobResponseAllOf.md
 docs/BillingApi.md
 docs/BillingEnd.md
+docs/BillingExternalId.md
 docs/BillingInfo.md
 docs/BillingInfoRequest.md
 docs/BillingPeriod.md
@@ -662,6 +663,7 @@ qovery/model/base.py
 qovery/model/base_job_response.py
 qovery/model/base_job_response_all_of.py
 qovery/model/billing_end.py
+qovery/model/billing_external_id.py
 qovery/model/billing_info.py
 qovery/model/billing_info_request.py
 qovery/model/billing_period.py
@@ -1150,6 +1152,7 @@ test/test_base_job_response.py
 test/test_base_job_response_all_of.py
 test/test_billing_api.py
 test/test_billing_end.py
+test/test_billing_external_id.py
 test/test_billing_info.py
 test/test_billing_info_request.py
 test/test_billing_period.py

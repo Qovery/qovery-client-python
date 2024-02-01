@@ -42,6 +42,7 @@ from qovery.model.base import Base
 from qovery.model.base_job_response import BaseJobResponse
 from qovery.model.base_job_response_all_of import BaseJobResponseAllOf
 from qovery.model.billing_end import BillingEnd
+from qovery.model.billing_external_id import BillingExternalId
 from qovery.model.billing_info import BillingInfo
 from qovery.model.billing_info_request import BillingInfoRequest
 from qovery.model.billing_period import BillingPeriod

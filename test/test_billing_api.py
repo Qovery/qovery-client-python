@@ -66,6 +66,13 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
+    def test_get_organization_billing_external_id(self):
+        """Test case for get_organization_billing_external_id
+
+        Get organization billing external ID  # noqa: E501
+        """
+        pass
+
     def test_get_organization_billing_info(self):
         """Test case for get_organization_billing_info
 

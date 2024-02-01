@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**delete_credit_card**](docs/BillingApi.md#delete_credit_card) | **DELETE** /organization/{organizationId}/creditCard/{creditCardId} | Delete credit card
 *BillingApi* | [**edit_organization_billing_info**](docs/BillingApi.md#edit_organization_billing_info) | **PUT** /organization/{organizationId}/billingInfo | Edit Organization Billing Info
 *BillingApi* | [**get_cluster_current_cost**](docs/BillingApi.md#get_cluster_current_cost) | **GET** /organization/{organizationId}/cluster/{clusterId}/currentCost | Get cluster current cost
+*BillingApi* | [**get_organization_billing_external_id**](docs/BillingApi.md#get_organization_billing_external_id) | **GET** /organization/{organizationId}/billingExternalId | Get organization billing external ID
 *BillingApi* | [**get_organization_billing_info**](docs/BillingApi.md#get_organization_billing_info) | **GET** /organization/{organizationId}/billingInfo | Get organization billing info
 *BillingApi* | [**get_organization_billing_status**](docs/BillingApi.md#get_organization_billing_status) | **GET** /organization/{organizationId}/billingStatus | Get organization billing status
 *BillingApi* | [**get_organization_current_cost**](docs/BillingApi.md#get_organization_current_cost) | **GET** /organization/{organizationId}/currentCost | Get organization current cost
@@ -519,6 +520,7 @@ Class | Method | HTTP request | Description
  - [BaseJobResponse](docs/BaseJobResponse.md)
  - [BaseJobResponseAllOf](docs/BaseJobResponseAllOf.md)
  - [BillingEnd](docs/BillingEnd.md)
+ - [BillingExternalId](docs/BillingExternalId.md)
  - [BillingInfo](docs/BillingInfo.md)
  - [BillingInfoRequest](docs/BillingInfoRequest.md)
  - [BillingPeriod](docs/BillingPeriod.md)

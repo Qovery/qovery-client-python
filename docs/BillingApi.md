@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**delete_credit_card**](BillingApi.md#delete_credit_card) | **DELETE** /organization/{organizationId}/creditCard/{creditCardId} | Delete credit card
 [**edit_organization_billing_info**](BillingApi.md#edit_organization_billing_info) | **PUT** /organization/{organizationId}/billingInfo | Edit Organization Billing Info
 [**get_cluster_current_cost**](BillingApi.md#get_cluster_current_cost) | **GET** /organization/{organizationId}/cluster/{clusterId}/currentCost | Get cluster current cost
+[**get_organization_billing_external_id**](BillingApi.md#get_organization_billing_external_id) | **GET** /organization/{organizationId}/billingExternalId | Get organization billing external ID
 [**get_organization_billing_info**](BillingApi.md#get_organization_billing_info) | **GET** /organization/{organizationId}/billingInfo | Get organization billing info
 [**get_organization_billing_status**](BillingApi.md#get_organization_billing_status) | **GET** /organization/{organizationId}/billingStatus | Get organization billing status
 [**get_organization_current_cost**](BillingApi.md#get_organization_current_cost) | **GET** /organization/{organizationId}/currentCost | Get organization current cost
@@ -597,6 +598,93 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get cluster cost |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_organization_billing_external_id**
+> BillingExternalId get_organization_billing_external_id(organization_id)
+
+Get organization billing external ID
+
+This endpoint returns the external ID of the organization's billing account. 
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import billing_api
+from qovery.model.billing_external_id import BillingExternalId
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = billing_api.BillingApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get organization billing external ID
+        api_response = api_instance.get_organization_billing_external_id(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling BillingApi->get_organization_billing_external_id: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+
+### Return type
+
+[**BillingExternalId**](BillingExternalId.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Get Billing External ID |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
 **404** | Resource not found |  -  |
