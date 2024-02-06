@@ -13,13 +13,13 @@ import sys
 import unittest
 
 import qovery
+from qovery.model.cluster_request_features_inner_value_one_of import ClusterRequestFeaturesInnerValueOneOf
+globals()['ClusterRequestFeaturesInnerValueOneOf'] = ClusterRequestFeaturesInnerValueOneOf
 from qovery.model.cluster_request_features_inner_value import ClusterRequestFeaturesInnerValue
-globals()['ClusterRequestFeaturesInnerValue'] = ClusterRequestFeaturesInnerValue
-from qovery.model.cluster_request_features_inner import ClusterRequestFeaturesInner
 
 
-class TestClusterRequestFeaturesInner(unittest.TestCase):
-    """ClusterRequestFeaturesInner unit test stubs"""
+class TestClusterRequestFeaturesInnerValue(unittest.TestCase):
+    """ClusterRequestFeaturesInnerValue unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +27,10 @@ class TestClusterRequestFeaturesInner(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterRequestFeaturesInner(self):
-        """Test ClusterRequestFeaturesInner"""
+    def testClusterRequestFeaturesInnerValue(self):
+        """Test ClusterRequestFeaturesInnerValue"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterRequestFeaturesInner()  # noqa: E501
+        # model = ClusterRequestFeaturesInnerValue()  # noqa: E501
         pass
 
 
