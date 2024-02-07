@@ -2,13 +2,30 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **str** |  | [optional]  if omitted the server will use the default value of "/"
-**scheme** | **str** |  | [optional]  if omitted the server will use the default value of "HTTP"
+**path** | **str** |  | [optional] [default to '/']
+**scheme** | **str** |  | [optional] [default to 'HTTP']
 **port** | **int** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from qovery.models.probe_type_http import ProbeTypeHttp
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ProbeTypeHttp from a JSON string
+probe_type_http_instance = ProbeTypeHttp.from_json(json)
+# print the JSON string representation of the object
+print ProbeTypeHttp.to_json()
+
+# convert the object into a dict
+probe_type_http_dict = probe_type_http_instance.to_dict()
+# create an instance of ProbeTypeHttp from a dict
+probe_type_http_form_dict = probe_type_http.from_dict(probe_type_http_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **create_git_token**
-> GitTokenResponse create_git_token(organization_id)
+> GitTokenResponse create_git_token(organization_id, git_token_request=git_token_request)
 
 Create a git token
 
@@ -32,11 +32,13 @@ Create a new git token to be used as a git provider by a service
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.git_token_request import GitTokenRequest
-from qovery.model.git_token_response import GitTokenResponse
+from qovery.models.git_token_request import GitTokenRequest
+from qovery.models.git_token_response import GitTokenResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -49,54 +51,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    git_token_request = GitTokenRequest(
-        name="name_example",
-        description="description_example",
-        type=GitProviderEnum("BITBUCKET"),
-        token="token_example",
-        workspace="workspace_example",
-    ) # GitTokenRequest |  (optional)
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    git_token_request = qovery.GitTokenRequest() # GitTokenRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a git token
-        api_response = api_instance.create_git_token(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling OrganizationMainCallsApi->create_git_token: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a git token
         api_response = api_instance.create_git_token(organization_id, git_token_request=git_token_request)
+        print("The response of OrganizationMainCallsApi->create_git_token:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->create_git_token: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **git_token_request** | [**GitTokenRequest**](GitTokenRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **git_token_request** | [**GitTokenRequest**](GitTokenRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -111,7 +100,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -124,7 +112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_organization**
-> Organization create_organization()
+> Organization create_organization(organization_request=organization_request)
 
 Create an organization
 
@@ -135,11 +123,13 @@ Create an organization
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.organization import Organization
-from qovery.model.organization_request import OrganizationRequest
+from qovery.models.organization import Organization
+from qovery.models.organization_request import OrganizationRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -152,49 +142,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_request = OrganizationRequest(
-        name="name_example",
-        description="description_example",
-        plan=PlanEnum("FREE"),
-        website_url="website_url_example",
-        repository="repository_example",
-        logo_url="logo_url_example",
-        icon_url="icon_url_example",
-        admin_emails=[
-            "admin_emails_example",
-        ],
-    ) # OrganizationRequest |  (optional)
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_request = qovery.OrganizationRequest() # OrganizationRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create an organization
         api_response = api_instance.create_organization(organization_request=organization_request)
+        print("The response of OrganizationMainCallsApi->create_organization:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->create_organization: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_request** | [**OrganizationRequest**](OrganizationRequest.md)|  | [optional]
+ **organization_request** | [**OrganizationRequest**](OrganizationRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -208,7 +188,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -235,9 +214,11 @@ Delete a git token
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -250,38 +231,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    git_token_id = "gitTokenId_example" # str | Git Token ID
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    git_token_id = 'git_token_id_example' # str | Git Token ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a git token
         api_instance.delete_git_token(organization_id, git_token_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->delete_git_token: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **git_token_id** | **str**| Git Token ID |
+ **organization_id** | **str**| Organization ID | 
+ **git_token_id** | **str**| Git Token ID | 
 
 ### Return type
 
@@ -295,7 +277,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
-
 
 ### HTTP response details
 
@@ -322,9 +303,11 @@ To delete an organization you must have the admin permission
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -337,36 +320,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete an organization
         api_instance.delete_organization(organization_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->delete_organization: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -381,7 +365,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -394,7 +377,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_git_token**
-> GitTokenResponse edit_git_token(organization_id, git_token_id)
+> GitTokenResponse edit_git_token(organization_id, git_token_id, git_token_request=git_token_request)
 
 Edit a git token
 
@@ -405,11 +388,13 @@ Edit a git token
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.git_token_request import GitTokenRequest
-from qovery.model.git_token_response import GitTokenResponse
+from qovery.models.git_token_request import GitTokenRequest
+from qovery.models.git_token_response import GitTokenResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -422,56 +407,43 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    git_token_id = "gitTokenId_example" # str | Git Token ID
-    git_token_request = GitTokenRequest(
-        name="name_example",
-        description="description_example",
-        type=GitProviderEnum("BITBUCKET"),
-        token="token_example",
-        workspace="workspace_example",
-    ) # GitTokenRequest |  (optional)
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    git_token_id = 'git_token_id_example' # str | Git Token ID
+    git_token_request = qovery.GitTokenRequest() # GitTokenRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit a git token
-        api_response = api_instance.edit_git_token(organization_id, git_token_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling OrganizationMainCallsApi->edit_git_token: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit a git token
         api_response = api_instance.edit_git_token(organization_id, git_token_id, git_token_request=git_token_request)
+        print("The response of OrganizationMainCallsApi->edit_git_token:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->edit_git_token: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **git_token_id** | **str**| Git Token ID |
- **git_token_request** | [**GitTokenRequest**](GitTokenRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **git_token_id** | **str**| Git Token ID | 
+ **git_token_request** | [**GitTokenRequest**](GitTokenRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -486,7 +458,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -500,7 +471,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization**
-> Organization edit_organization(organization_id)
+> Organization edit_organization(organization_id, organization_edit_request=organization_edit_request)
 
 Edit an organization
 
@@ -513,11 +484,13 @@ To edit an organization you must have the admin permission
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.organization import Organization
-from qovery.model.organization_edit_request import OrganizationEditRequest
+from qovery.models.organization import Organization
+from qovery.models.organization_edit_request import OrganizationEditRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -530,58 +503,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    organization_edit_request = OrganizationEditRequest(
-        name="name_example",
-        description="description_example",
-        website_url="website_url_example",
-        repository="repository_example",
-        logo_url="logo_url_example",
-        icon_url="icon_url_example",
-        admin_emails=[
-            "admin_emails_example",
-        ],
-    ) # OrganizationEditRequest |  (optional)
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    organization_edit_request = qovery.OrganizationEditRequest() # OrganizationEditRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit an organization
-        api_response = api_instance.edit_organization(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling OrganizationMainCallsApi->edit_organization: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit an organization
         api_response = api_instance.edit_organization(organization_id, organization_edit_request=organization_edit_request)
+        print("The response of OrganizationMainCallsApi->edit_organization:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->edit_organization: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **organization_edit_request** | [**OrganizationEditRequest**](OrganizationEditRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **organization_edit_request** | [**OrganizationEditRequest**](OrganizationEditRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -595,7 +551,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -624,10 +579,12 @@ Get organization git tokens associated services
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.git_token_associated_services_response_list import GitTokenAssociatedServicesResponseList
+from qovery.models.git_token_associated_services_response_list import GitTokenAssociatedServicesResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -640,39 +597,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    git_token_id = "gitTokenId_example" # str | Git Token ID
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    git_token_id = 'git_token_id_example' # str | Git Token ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization git token associated services
         api_response = api_instance.get_git_token_associated_services(organization_id, git_token_id)
+        print("The response of OrganizationMainCallsApi->get_git_token_associated_services:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->get_git_token_associated_services: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **git_token_id** | **str**| Git Token ID |
+ **organization_id** | **str**| Organization ID | 
+ **git_token_id** | **str**| Git Token ID | 
 
 ### Return type
 
@@ -686,7 +645,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -711,10 +669,12 @@ Get organization by ID
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.organization import Organization
+from qovery.models.organization import Organization
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -727,37 +687,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization by ID
         api_response = api_instance.get_organization(organization_id)
+        print("The response of OrganizationMainCallsApi->get_organization:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->get_organization: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -771,7 +733,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -798,10 +759,12 @@ Get organization git token
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.git_token_response import GitTokenResponse
+from qovery.models.git_token_response import GitTokenResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -814,39 +777,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    git_token_id = "gitTokenId_example" # str | Git Token ID
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    git_token_id = 'git_token_id_example' # str | Git Token ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization git token
         api_response = api_instance.get_organization_git_token(organization_id, git_token_id)
+        print("The response of OrganizationMainCallsApi->get_organization_git_token:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->get_organization_git_token: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **git_token_id** | **str**| Git Token ID |
+ **organization_id** | **str**| Organization ID | 
+ **git_token_id** | **str**| Git Token ID | 
 
 ### Return type
 
@@ -860,7 +825,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -885,10 +849,12 @@ List user organizations
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.organization_response_list import OrganizationResponseList
+from qovery.models.organization_response_list import OrganizationResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -901,32 +867,34 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # List user organizations
         api_response = api_instance.list_organization()
+        print("The response of OrganizationMainCallsApi->list_organization:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->list_organization: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -941,7 +909,6 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -968,10 +935,12 @@ List organization available roles
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.organization_available_role_list import OrganizationAvailableRoleList
+from qovery.models.organization_available_role_list import OrganizationAvailableRoleList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -984,37 +953,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List organization available roles
         api_response = api_instance.list_organization_available_roles(organization_id)
+        print("The response of OrganizationMainCallsApi->list_organization_available_roles:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->list_organization_available_roles: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1028,7 +999,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -1055,10 +1025,12 @@ List organization git tokens
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_main_calls_api
-from qovery.model.git_token_response_list import GitTokenResponseList
+from qovery.models.git_token_response_list import GitTokenResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1071,37 +1043,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_main_calls_api.OrganizationMainCallsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.OrganizationMainCallsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List organization git tokens
         api_response = api_instance.list_organization_git_tokens(organization_id)
+        print("The response of OrganizationMainCallsApi->list_organization_git_tokens:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationMainCallsApi->list_organization_git_tokens: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1115,7 +1089,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

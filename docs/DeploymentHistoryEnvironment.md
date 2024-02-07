@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
@@ -10,13 +11,29 @@ Name | Type | Description | Notes
 **status** | [**StateEnum**](StateEnum.md) |  | [optional] 
 **origin** | [**OrganizationEventOrigin**](OrganizationEventOrigin.md) |  | [optional] 
 **triggered_by** | **str** |  | [optional] 
-**applications** | [**[DeploymentHistoryApplication]**](DeploymentHistoryApplication.md) |  | [optional] 
-**containers** | [**[DeploymentHistoryContainer]**](DeploymentHistoryContainer.md) |  | [optional] 
-**databases** | [**[DeploymentHistoryDatabase]**](DeploymentHistoryDatabase.md) |  | [optional] 
-**jobs** | [**[DeploymentHistoryJobResponse]**](DeploymentHistoryJobResponse.md) |  | [optional] 
-**helms** | [**[DeploymentHistoryHelmResponse]**](DeploymentHistoryHelmResponse.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**applications** | [**List[DeploymentHistoryApplication]**](DeploymentHistoryApplication.md) |  | [optional] 
+**containers** | [**List[DeploymentHistoryContainer]**](DeploymentHistoryContainer.md) |  | [optional] 
+**databases** | [**List[DeploymentHistoryDatabase]**](DeploymentHistoryDatabase.md) |  | [optional] 
+**jobs** | [**List[DeploymentHistoryJobResponse]**](DeploymentHistoryJobResponse.md) |  | [optional] 
+**helms** | [**List[DeploymentHistoryHelmResponse]**](DeploymentHistoryHelmResponse.md) |  | [optional] 
 
+## Example
+
+```python
+from qovery.models.deployment_history_environment import DeploymentHistoryEnvironment
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DeploymentHistoryEnvironment from a JSON string
+deployment_history_environment_instance = DeploymentHistoryEnvironment.from_json(json)
+# print the JSON string representation of the object
+print DeploymentHistoryEnvironment.to_json()
+
+# convert the object into a dict
+deployment_history_environment_dict = deployment_history_environment_instance.to_dict()
+# create an instance of DeploymentHistoryEnvironment from a dict
+deployment_history_environment_form_dict = deployment_history_environment.from_dict(deployment_history_environment_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

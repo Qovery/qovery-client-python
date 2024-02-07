@@ -27,10 +27,12 @@ Attach service to deployment stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.models.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -43,39 +45,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
-    service_id = "serviceId_example" # str | Service ID of an application/job/container/database
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    deployment_stage_id = 'deployment_stage_id_example' # str | Deployment Stage ID
+    service_id = 'service_id_example' # str | Service ID of an application/job/container/database
 
-    # example passing only required values which don't have defaults set
     try:
         # Attach service to deployment stage
         api_response = api_instance.attach_service_to_deployment_stage(deployment_stage_id, service_id)
+        print("The response of DeploymentStageMainCallsApi->attach_service_to_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->attach_service_to_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deployment_stage_id** | **str**| Deployment Stage ID |
- **service_id** | **str**| Service ID of an application/job/container/database |
+ **deployment_stage_id** | **str**| Deployment Stage ID | 
+ **service_id** | **str**| Service ID of an application/job/container/database | 
 
 ### Return type
 
@@ -90,7 +94,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -103,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_environment_deployment_stage**
-> DeploymentStageResponse create_environment_deployment_stage(environment_id)
+> DeploymentStageResponse create_environment_deployment_stage(environment_id, deployment_stage_request=deployment_stage_request)
 
 Create environment deployment stage
 
@@ -114,11 +117,13 @@ Create environment deployment stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response import DeploymentStageResponse
-from qovery.model.deployment_stage_request import DeploymentStageRequest
+from qovery.models.deployment_stage_request import DeploymentStageRequest
+from qovery.models.deployment_stage_response import DeploymentStageResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -131,51 +136,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
-    deployment_stage_request = DeploymentStageRequest(
-        name="name_example",
-        description="description_example",
-    ) # DeploymentStageRequest |  (optional)
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
+    deployment_stage_request = qovery.DeploymentStageRequest() # DeploymentStageRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create environment deployment stage
-        api_response = api_instance.create_environment_deployment_stage(environment_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling DeploymentStageMainCallsApi->create_environment_deployment_stage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create environment deployment stage
         api_response = api_instance.create_environment_deployment_stage(environment_id, deployment_stage_request=deployment_stage_request)
+        print("The response of DeploymentStageMainCallsApi->create_environment_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->create_environment_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
- **deployment_stage_request** | [**DeploymentStageRequest**](DeploymentStageRequest.md)|  | [optional]
+ **environment_id** | **str**| Environment ID | 
+ **deployment_stage_request** | [**DeploymentStageRequest**](DeploymentStageRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -189,7 +184,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -214,9 +208,11 @@ Delete deployment stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -229,36 +225,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    deployment_stage_id = 'deployment_stage_id_example' # str | Deployment Stage ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete deployment stage
         api_instance.delete_deployment_stage(deployment_stage_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->delete_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deployment_stage_id** | **str**| Deployment Stage ID |
+ **deployment_stage_id** | **str**| Deployment Stage ID | 
 
 ### Return type
 
@@ -273,7 +270,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -286,7 +282,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_deployment_stage**
-> DeploymentStageResponse edit_deployment_stage(deployment_stage_id)
+> DeploymentStageResponse edit_deployment_stage(deployment_stage_id, deployment_stage_request=deployment_stage_request)
 
 Edit deployment stage
 
@@ -297,11 +293,13 @@ Edit deployment stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response import DeploymentStageResponse
-from qovery.model.deployment_stage_request import DeploymentStageRequest
+from qovery.models.deployment_stage_request import DeploymentStageRequest
+from qovery.models.deployment_stage_response import DeploymentStageResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -314,51 +312,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
-    deployment_stage_request = DeploymentStageRequest(
-        name="name_example",
-        description="description_example",
-    ) # DeploymentStageRequest |  (optional)
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    deployment_stage_id = 'deployment_stage_id_example' # str | Deployment Stage ID
+    deployment_stage_request = qovery.DeploymentStageRequest() # DeploymentStageRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit deployment stage
-        api_response = api_instance.edit_deployment_stage(deployment_stage_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling DeploymentStageMainCallsApi->edit_deployment_stage: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit deployment stage
         api_response = api_instance.edit_deployment_stage(deployment_stage_id, deployment_stage_request=deployment_stage_request)
+        print("The response of DeploymentStageMainCallsApi->edit_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->edit_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deployment_stage_id** | **str**| Deployment Stage ID |
- **deployment_stage_request** | [**DeploymentStageRequest**](DeploymentStageRequest.md)|  | [optional]
+ **deployment_stage_id** | **str**| Deployment Stage ID | 
+ **deployment_stage_request** | [**DeploymentStageRequest**](DeploymentStageRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -372,7 +360,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -397,10 +384,12 @@ Get Deployment Stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response import DeploymentStageResponse
+from qovery.models.deployment_stage_response import DeploymentStageResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -413,37 +402,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    deployment_stage_id = 'deployment_stage_id_example' # str | Deployment Stage ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Deployment Stage
         api_response = api_instance.get_deployment_stage(deployment_stage_id)
+        print("The response of DeploymentStageMainCallsApi->get_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->get_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deployment_stage_id** | **str**| Deployment Stage ID |
+ **deployment_stage_id** | **str**| Deployment Stage ID | 
 
 ### Return type
 
@@ -457,7 +448,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -482,10 +472,12 @@ Get Service Deployment Stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response import DeploymentStageResponse
+from qovery.models.deployment_stage_response import DeploymentStageResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -498,37 +490,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    service_id = "serviceId_example" # str | Service ID of an application/job/container/database
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    service_id = 'service_id_example' # str | Service ID of an application/job/container/database
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Service Deployment Stage
         api_response = api_instance.get_service_deployment_stage(service_id)
+        print("The response of DeploymentStageMainCallsApi->get_service_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->get_service_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **service_id** | **str**| Service ID of an application/job/container/database |
+ **service_id** | **str**| Service ID of an application/job/container/database | 
 
 ### Return type
 
@@ -542,7 +536,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -567,10 +560,12 @@ List environment deployment stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.models.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -583,37 +578,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List environment deployment stage
         api_response = api_instance.list_environment_deployment_stage(environment_id)
+        print("The response of DeploymentStageMainCallsApi->list_environment_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->list_environment_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
+ **environment_id** | **str**| Environment ID | 
 
 ### Return type
 
@@ -627,7 +624,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -652,10 +648,12 @@ Move deployment stage after requested stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.models.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -668,39 +666,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
-    stage_id = "stageId_example" # str | Deployment Stage ID
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    deployment_stage_id = 'deployment_stage_id_example' # str | Deployment Stage ID
+    stage_id = 'stage_id_example' # str | Deployment Stage ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Move deployment stage after requested stage
         api_response = api_instance.move_after_deployment_stage(deployment_stage_id, stage_id)
+        print("The response of DeploymentStageMainCallsApi->move_after_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->move_after_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deployment_stage_id** | **str**| Deployment Stage ID |
- **stage_id** | **str**| Deployment Stage ID |
+ **deployment_stage_id** | **str**| Deployment Stage ID | 
+ **stage_id** | **str**| Deployment Stage ID | 
 
 ### Return type
 
@@ -714,7 +714,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -739,10 +738,12 @@ Move deployment stage before requested stage
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import deployment_stage_main_calls_api
-from qovery.model.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.models.deployment_stage_response_list import DeploymentStageResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -755,39 +756,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = deployment_stage_main_calls_api.DeploymentStageMainCallsApi(api_client)
-    deployment_stage_id = "deploymentStageId_example" # str | Deployment Stage ID
-    stage_id = "stageId_example" # str | Deployment Stage ID
+    api_instance = qovery.DeploymentStageMainCallsApi(api_client)
+    deployment_stage_id = 'deployment_stage_id_example' # str | Deployment Stage ID
+    stage_id = 'stage_id_example' # str | Deployment Stage ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Move deployment stage before requested stage
         api_response = api_instance.move_before_deployment_stage(deployment_stage_id, stage_id)
+        print("The response of DeploymentStageMainCallsApi->move_before_deployment_stage:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling DeploymentStageMainCallsApi->move_before_deployment_stage: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deployment_stage_id** | **str**| Deployment Stage ID |
- **stage_id** | **str**| Deployment Stage ID |
+ **deployment_stage_id** | **str**| Deployment Stage ID | 
+ **stage_id** | **str**| Deployment Stage ID | 
 
 ### Return type
 
@@ -801,7 +804,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

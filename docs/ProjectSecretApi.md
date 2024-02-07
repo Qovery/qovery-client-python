@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_project_secret**
-> Secret create_project_secret(project_id)
+> Secret create_project_secret(project_id, secret_request=secret_request)
 
 Add a secret to the project
 
@@ -26,11 +26,13 @@ Add a secret to the project
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_secret_api
-from qovery.model.secret import Secret
-from qovery.model.secret_request import SecretRequest
+from qovery.models.secret import Secret
+from qovery.models.secret_request import SecretRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -43,52 +45,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_secret_api.ProjectSecretApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    secret_request = SecretRequest(
-        key="key_example",
-        value="value_example",
-        mount_path="mount_path_example",
-    ) # SecretRequest |  (optional)
+    api_instance = qovery.ProjectSecretApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    secret_request = qovery.SecretRequest() # SecretRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Add a secret to the project
-        api_response = api_instance.create_project_secret(project_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectSecretApi->create_project_secret: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add a secret to the project
         api_response = api_instance.create_project_secret(project_id, secret_request=secret_request)
+        print("The response of ProjectSecretApi->create_project_secret:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectSecretApi->create_project_secret: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **secret_request** | [**SecretRequest**](SecretRequest.md)|  | [optional]
+ **project_id** | **str**| Project ID | 
+ **secret_request** | [**SecretRequest**](SecretRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -102,7 +93,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -117,7 +107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_project_secret_alias**
-> Secret create_project_secret_alias(project_id, secret_id)
+> Secret create_project_secret_alias(project_id, secret_id, key=key)
 
 Create a secret alias at the project level
 
@@ -130,11 +120,13 @@ Create a secret alias at the project level
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_secret_api
-from qovery.model.secret import Secret
-from qovery.model.key import Key
+from qovery.models.key import Key
+from qovery.models.secret import Secret
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -147,52 +139,43 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_secret_api.ProjectSecretApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    secret_id = "secretId_example" # str | Secret ID
-    key = Key(
-        key="key_example",
-    ) # Key |  (optional)
+    api_instance = qovery.ProjectSecretApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    secret_id = 'secret_id_example' # str | Secret ID
+    key = qovery.Key() # Key |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a secret alias at the project level
-        api_response = api_instance.create_project_secret_alias(project_id, secret_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectSecretApi->create_project_secret_alias: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a secret alias at the project level
         api_response = api_instance.create_project_secret_alias(project_id, secret_id, key=key)
+        print("The response of ProjectSecretApi->create_project_secret_alias:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectSecretApi->create_project_secret_alias: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **secret_id** | **str**| Secret ID |
- **key** | [**Key**](Key.md)|  | [optional]
+ **project_id** | **str**| Project ID | 
+ **secret_id** | **str**| Secret ID | 
+ **key** | [**Key**](Key.md)|  | [optional] 
 
 ### Return type
 
@@ -206,7 +189,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -221,7 +203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_project_secret_override**
-> Secret create_project_secret_override(project_id, secret_id)
+> Secret create_project_secret_override(project_id, secret_id, value=value)
 
 Create a secret override at the project level
 
@@ -234,11 +216,13 @@ Create a secret override at the project level
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_secret_api
-from qovery.model.secret import Secret
-from qovery.model.value import Value
+from qovery.models.secret import Secret
+from qovery.models.value import Value
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -251,52 +235,43 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_secret_api.ProjectSecretApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    secret_id = "secretId_example" # str | Secret ID
-    value = Value(
-        value="value_example",
-    ) # Value |  (optional)
+    api_instance = qovery.ProjectSecretApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    secret_id = 'secret_id_example' # str | Secret ID
+    value = qovery.Value() # Value |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a secret override at the project level
-        api_response = api_instance.create_project_secret_override(project_id, secret_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectSecretApi->create_project_secret_override: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a secret override at the project level
         api_response = api_instance.create_project_secret_override(project_id, secret_id, value=value)
+        print("The response of ProjectSecretApi->create_project_secret_override:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectSecretApi->create_project_secret_override: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **secret_id** | **str**| Secret ID |
- **value** | [**Value**](Value.md)|  | [optional]
+ **project_id** | **str**| Project ID | 
+ **secret_id** | **str**| Secret ID | 
+ **value** | [**Value**](Value.md)|  | [optional] 
 
 ### Return type
 
@@ -310,7 +285,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -338,9 +312,11 @@ Delete a secret from a project
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_secret_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -353,38 +329,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_secret_api.ProjectSecretApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    secret_id = "secretId_example" # str | Secret ID
+    api_instance = qovery.ProjectSecretApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    secret_id = 'secret_id_example' # str | Secret ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a secret from a project
         api_instance.delete_project_secret(project_id, secret_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectSecretApi->delete_project_secret: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **secret_id** | **str**| Secret ID |
+ **project_id** | **str**| Project ID | 
+ **secret_id** | **str**| Secret ID | 
 
 ### Return type
 
@@ -398,7 +375,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
-
 
 ### HTTP response details
 
@@ -425,11 +401,13 @@ Edit a secret belonging to the project
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_secret_api
-from qovery.model.secret_edit_request import SecretEditRequest
-from qovery.model.secret import Secret
+from qovery.models.secret import Secret
+from qovery.models.secret_edit_request import SecretEditRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -442,44 +420,43 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_secret_api.ProjectSecretApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    secret_id = "secretId_example" # str | Secret ID
-    secret_edit_request = SecretEditRequest(
-        value="value_example",
-        key="key_example",
-    ) # SecretEditRequest | 
+    api_instance = qovery.ProjectSecretApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    secret_id = 'secret_id_example' # str | Secret ID
+    secret_edit_request = qovery.SecretEditRequest() # SecretEditRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Edit a secret belonging to the project
         api_response = api_instance.edit_project_secret(project_id, secret_id, secret_edit_request)
+        print("The response of ProjectSecretApi->edit_project_secret:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectSecretApi->edit_project_secret: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **secret_id** | **str**| Secret ID |
- **secret_edit_request** | [**SecretEditRequest**](SecretEditRequest.md)|  |
+ **project_id** | **str**| Project ID | 
+ **secret_id** | **str**| Secret ID | 
+ **secret_edit_request** | [**SecretEditRequest**](SecretEditRequest.md)|  | 
 
 ### Return type
 
@@ -493,7 +470,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -519,10 +495,12 @@ List project secrets
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_secret_api
-from qovery.model.secret_response_list import SecretResponseList
+from qovery.models.secret_response_list import SecretResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -535,37 +513,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_secret_api.ProjectSecretApi(api_client)
-    project_id = "projectId_example" # str | Project ID
+    api_instance = qovery.ProjectSecretApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List project secrets
         api_response = api_instance.list_project_secrets(project_id)
+        print("The response of ProjectSecretApi->list_project_secrets:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectSecretApi->list_project_secrets: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
+ **project_id** | **str**| Project ID | 
 
 ### Return type
 
@@ -579,7 +559,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

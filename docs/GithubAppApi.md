@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **organization_github_app_connect**
-> organization_github_app_connect(organization_id)
+> organization_github_app_connect(organization_id, organization_github_app_connect_request=organization_github_app_connect_request)
 
 Connect a github account to an organization
 
@@ -20,10 +20,12 @@ Connect a github account to an organization
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import github_app_api
-from qovery.model.organization_github_app_connect_request import OrganizationGithubAppConnectRequest
+from qovery.models.organization_github_app_connect_request import OrganizationGithubAppConnectRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -36,49 +38,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = github_app_api.GithubAppApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    organization_github_app_connect_request = OrganizationGithubAppConnectRequest(
-        installation_id="installation_id_example",
-        code="code_example",
-    ) # OrganizationGithubAppConnectRequest |  (optional)
+    api_instance = qovery.GithubAppApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    organization_github_app_connect_request = qovery.OrganizationGithubAppConnectRequest() # OrganizationGithubAppConnectRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Connect a github account to an organization
-        api_instance.organization_github_app_connect(organization_id)
-    except qovery.ApiException as e:
-        print("Exception when calling GithubAppApi->organization_github_app_connect: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Connect a github account to an organization
         api_instance.organization_github_app_connect(organization_id, organization_github_app_connect_request=organization_github_app_connect_request)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling GithubAppApi->organization_github_app_connect: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **organization_github_app_connect_request** | [**OrganizationGithubAppConnectRequest**](OrganizationGithubAppConnectRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **organization_github_app_connect_request** | [**OrganizationGithubAppConnectRequest**](OrganizationGithubAppConnectRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -93,7 +85,6 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -107,7 +98,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **organization_github_app_disconnect**
-> organization_github_app_disconnect(organization_id)
+> organization_github_app_disconnect(organization_id, force=force)
 
 Disconnect a github account from an organization
 
@@ -118,9 +109,11 @@ Disconnect a github account from an organization
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import github_app_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -133,46 +126,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = github_app_api.GithubAppApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.GithubAppApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
     force = True # bool | Indicates if the github app should be disconnected despite github applications linked to organization (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Disconnect a github account from an organization
-        api_instance.organization_github_app_disconnect(organization_id)
-    except qovery.ApiException as e:
-        print("Exception when calling GithubAppApi->organization_github_app_disconnect: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Disconnect a github account from an organization
         api_instance.organization_github_app_disconnect(organization_id, force=force)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling GithubAppApi->organization_github_app_disconnect: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **force** | **bool**| Indicates if the github app should be disconnected despite github applications linked to organization | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **force** | **bool**| Indicates if the github app should be disconnected despite github applications linked to organization | [optional] 
 
 ### Return type
 
@@ -186,7 +172,6 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
-
 
 ### HTTP response details
 

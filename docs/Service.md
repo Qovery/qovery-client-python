@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | uuid of the associated service (application, database, job, gateway...) | 
@@ -15,8 +16,24 @@ Name | Type | Description | Notes
 **service_typology** | **str** | describes the typology of service (container, postgresl, redis...) | [optional] 
 **service_version** | **str** | for databases this field exposes the database version | [optional] 
 **to_update** | **bool** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from qovery.models.service import Service
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of Service from a JSON string
+service_instance = Service.from_json(json)
+# print the JSON string representation of the object
+print Service.to_json()
+
+# convert the object into a dict
+service_dict = service_instance.to_dict()
+# create an instance of Service from a dict
+service_form_dict = service.from_dict(service_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

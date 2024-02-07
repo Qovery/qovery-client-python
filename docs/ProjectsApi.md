@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_project**
-> Project create_project(organization_id)
+> Project create_project(organization_id, project_request=project_request)
 
 Create a project
 
@@ -21,11 +21,13 @@ Create a project
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import projects_api
-from qovery.model.project_request import ProjectRequest
-from qovery.model.project import Project
+from qovery.models.project import Project
+from qovery.models.project_request import ProjectRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -38,51 +40,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    project_request = ProjectRequest(
-        name="name_example",
-        description="description_example",
-    ) # ProjectRequest |  (optional)
+    api_instance = qovery.ProjectsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    project_request = qovery.ProjectRequest() # ProjectRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a project
-        api_response = api_instance.create_project(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectsApi->create_project: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a project
         api_response = api_instance.create_project(organization_id, project_request=project_request)
+        print("The response of ProjectsApi->create_project:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->create_project: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **project_request** | [**ProjectRequest**](ProjectRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **project_request** | [**ProjectRequest**](ProjectRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -96,7 +88,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -125,10 +116,12 @@ Returns a list of project ids, and for each its total numberof services and envi
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import projects_api
-from qovery.model.project_stats_response_list import ProjectStatsResponseList
+from qovery.models.project_stats_response_list import ProjectStatsResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -141,37 +134,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.ProjectsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List total number of services and environments for each project of the organization
         api_response = api_instance.get_organization_project_stats(organization_id)
+        print("The response of ProjectsApi->get_organization_project_stats:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->get_organization_project_stats: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -185,7 +180,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -210,10 +204,12 @@ List projects
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import projects_api
-from qovery.model.project_response_list import ProjectResponseList
+from qovery.models.project_response_list import ProjectResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -226,37 +222,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.ProjectsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List projects
         api_response = api_instance.list_project(organization_id)
+        print("The response of ProjectsApi->list_project:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->list_project: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -270,7 +268,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 

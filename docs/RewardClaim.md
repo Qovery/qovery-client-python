@@ -2,12 +2,29 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **str** |  | [optional]  if omitted the server will use the default value of "INVITATION"
+**type** | **str** |  | [optional] 
 **code** | **str** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from qovery.models.reward_claim import RewardClaim
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of RewardClaim from a JSON string
+reward_claim_instance = RewardClaim.from_json(json)
+# print the JSON string representation of the object
+print RewardClaim.to_json()
+
+# convert the object into a dict
+reward_claim_dict = reward_claim_instance.to_dict()
+# create an instance of RewardClaim from a dict
+reward_claim_form_dict = reward_claim.from_dict(reward_claim_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

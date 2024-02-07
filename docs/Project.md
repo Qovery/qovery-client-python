@@ -2,16 +2,33 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
-**name** | **str** |  | 
-**organization** | [**ReferenceObject**](ReferenceObject.md) |  | 
 **updated_at** | **datetime** |  | [optional] [readonly] 
+**name** | **str** |  | 
 **description** | **str** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**organization** | [**ReferenceObject**](ReferenceObject.md) |  | 
 
+## Example
+
+```python
+from qovery.models.project import Project
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of Project from a JSON string
+project_instance = Project.from_json(json)
+# print the JSON string representation of the object
+print Project.to_json()
+
+# convert the object into a dict
+project_dict = project_instance.to_dict()
+# create an instance of Project from a dict
+project_form_dict = project.from_dict(project_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

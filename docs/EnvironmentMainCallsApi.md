@@ -26,9 +26,11 @@ To delete an environment you must have the admin permission
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import environment_main_calls_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -41,36 +43,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = environment_main_calls_api.EnvironmentMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
+    api_instance = qovery.EnvironmentMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete an environment
         api_instance.delete_environment(environment_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling EnvironmentMainCallsApi->delete_environment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
+ **environment_id** | **str**| Environment ID | 
 
 ### Return type
 
@@ -85,7 +88,6 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -98,7 +100,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_environment**
-> Environment edit_environment(environment_id)
+> Environment edit_environment(environment_id, environment_edit_request=environment_edit_request)
 
 Edit an environment
 
@@ -111,11 +113,13 @@ To edit an environment you must have the admin permission
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import environment_main_calls_api
-from qovery.model.environment_edit_request import EnvironmentEditRequest
-from qovery.model.environment import Environment
+from qovery.models.environment import Environment
+from qovery.models.environment_edit_request import EnvironmentEditRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -128,51 +132,41 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = environment_main_calls_api.EnvironmentMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
-    environment_edit_request = EnvironmentEditRequest(
-        name="name_example",
-        mode=CreateEnvironmentModeEnum("PRODUCTION"),
-    ) # EnvironmentEditRequest |  (optional)
+    api_instance = qovery.EnvironmentMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
+    environment_edit_request = qovery.EnvironmentEditRequest() # EnvironmentEditRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit an environment
-        api_response = api_instance.edit_environment(environment_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling EnvironmentMainCallsApi->edit_environment: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit an environment
         api_response = api_instance.edit_environment(environment_id, environment_edit_request=environment_edit_request)
+        print("The response of EnvironmentMainCallsApi->edit_environment:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling EnvironmentMainCallsApi->edit_environment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
- **environment_edit_request** | [**EnvironmentEditRequest**](EnvironmentEditRequest.md)|  | [optional]
+ **environment_id** | **str**| Environment ID | 
+ **environment_edit_request** | [**EnvironmentEditRequest**](EnvironmentEditRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -186,7 +180,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -213,10 +206,12 @@ Get environment by ID
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import environment_main_calls_api
-from qovery.model.environment import Environment
+from qovery.models.environment import Environment
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -229,37 +224,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = environment_main_calls_api.EnvironmentMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
+    api_instance = qovery.EnvironmentMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get environment by ID
         api_response = api_instance.get_environment(environment_id)
+        print("The response of EnvironmentMainCallsApi->get_environment:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling EnvironmentMainCallsApi->get_environment: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
+ **environment_id** | **str**| Environment ID | 
 
 ### Return type
 
@@ -273,7 +270,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -298,10 +294,12 @@ Get environment status
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import environment_main_calls_api
-from qovery.model.environment_status import EnvironmentStatus
+from qovery.models.environment_status import EnvironmentStatus
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -314,37 +312,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = environment_main_calls_api.EnvironmentMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
+    api_instance = qovery.EnvironmentMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get environment status
         api_response = api_instance.get_environment_status(environment_id)
+        print("The response of EnvironmentMainCallsApi->get_environment_status:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling EnvironmentMainCallsApi->get_environment_status: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
+ **environment_id** | **str**| Environment ID | 
 
 ### Return type
 
@@ -358,7 +358,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -383,10 +382,12 @@ Get environment statuses with services status
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import environment_main_calls_api
-from qovery.model.environment_statuses import EnvironmentStatuses
+from qovery.models.environment_statuses import EnvironmentStatuses
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -399,37 +400,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = environment_main_calls_api.EnvironmentMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
+    api_instance = qovery.EnvironmentMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get environment statuses with services status
         api_response = api_instance.get_environment_statuses(environment_id)
+        print("The response of EnvironmentMainCallsApi->get_environment_statuses:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling EnvironmentMainCallsApi->get_environment_statuses: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
+ **environment_id** | **str**| Environment ID | 
 
 ### Return type
 
@@ -443,7 +446,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
@@ -468,10 +470,12 @@ Get environment statuses with stages
 
 ```python
 import time
+import os
 import qovery
-from qovery.api import environment_main_calls_api
-from qovery.model.environment_statuses_with_stages import EnvironmentStatusesWithStages
+from qovery.models.environment_statuses_with_stages import EnvironmentStatusesWithStages
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -484,37 +488,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = environment_main_calls_api.EnvironmentMainCallsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
+    api_instance = qovery.EnvironmentMainCallsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get environment statuses with stages
         api_response = api_instance.get_environment_statuses_with_stages(environment_id)
+        print("The response of EnvironmentMainCallsApi->get_environment_statuses_with_stages:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling EnvironmentMainCallsApi->get_environment_statuses_with_stages: %s\n" % e)
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
+ **environment_id** | **str**| Environment ID | 
 
 ### Return type
 
@@ -528,7 +534,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 
