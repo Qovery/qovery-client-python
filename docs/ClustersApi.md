@@ -95,7 +95,7 @@ with qovery.ApiClient(configuration) as api_client:
         features=[
             ClusterRequestFeaturesInner(
                 id="id_example",
-                value=ClusterRequestFeaturesInnerValue(None),
+                value=ClusterFeatureValue(None),
             ),
         ],
     ) # ClusterRequest |  (optional)
@@ -409,7 +409,7 @@ with qovery.ApiClient(configuration) as api_client:
         features=[
             ClusterRequestFeaturesInner(
                 id="id_example",
-                value=ClusterRequestFeaturesInnerValue(None),
+                value=ClusterFeatureValue(None),
             ),
         ],
     ) # ClusterRequest |  (optional)
