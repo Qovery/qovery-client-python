@@ -2,37 +2,20 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [readonly] 
 **created_at** | **datetime** |  | [readonly] 
-**updated_at** | **datetime** |  | [optional] [readonly] 
-**on_demand_preview** | **bool** |  | [optional] [default to False]
-**auto_stop** | **bool** |  | [optional] [default to False]
-**auto_preview** | **bool** |  | [optional] [default to False]
 **timezone** | **str** |  | 
 **start_time** | **datetime** |  | 
 **stop_time** | **datetime** |  | 
-**weekdays** | [**List[WeekdayEnum]**](WeekdayEnum.md) |  | 
+**weekdays** | [**[WeekdayEnum]**](WeekdayEnum.md) |  | 
+**updated_at** | **datetime** |  | [optional] [readonly] 
+**on_demand_preview** | **bool** |  | [optional]  if omitted the server will use the default value of False
+**auto_stop** | **bool** |  | [optional]  if omitted the server will use the default value of False
+**auto_preview** | **bool** |  | [optional]  if omitted the server will use the default value of False
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
-## Example
-
-```python
-from qovery.models.environment_deployment_rule import EnvironmentDeploymentRule
-
-# TODO update the JSON string below
-json = "{}"
-# create an instance of EnvironmentDeploymentRule from a JSON string
-environment_deployment_rule_instance = EnvironmentDeploymentRule.from_json(json)
-# print the JSON string representation of the object
-print EnvironmentDeploymentRule.to_json()
-
-# convert the object into a dict
-environment_deployment_rule_dict = environment_deployment_rule_instance.to_dict()
-# create an instance of EnvironmentDeploymentRule from a dict
-environment_deployment_rule_form_dict = environment_deployment_rule.from_dict(environment_deployment_rule_dict)
-```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **deploy_all_applications**
-> Status deploy_all_applications(environment_id, deploy_all_request=deploy_all_request)
+> Status deploy_all_applications(environment_id)
 
 Deploy applications
 
@@ -21,13 +21,11 @@ Start a deployment of the environment. Any of the services within the chosen env
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.deploy_all_request import DeployAllRequest
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import environment_api
+from qovery.model.deploy_all_request import DeployAllRequest
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -40,41 +38,79 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    deploy_all_request = qovery.DeployAllRequest() # DeployAllRequest |  (optional)
+    api_instance = environment_api.EnvironmentApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    deploy_all_request = DeployAllRequest(
+        applications=[
+            DeployAllRequestApplicationsInner(
+                application_id="application_id_example",
+                git_commit_id="git_commit_id_example",
+            ),
+        ],
+        databases=[
+            "databases_example",
+        ],
+        containers=[
+            DeployAllRequestContainersInner(
+                id="id_example",
+                image_tag="image_tag_example",
+            ),
+        ],
+        jobs=[
+            DeployAllRequestJobsInner(
+                id="id_example",
+                image_tag="image_tag_example",
+                git_commit_id="git_commit_id_example",
+            ),
+        ],
+        helms=[
+            DeployAllRequestHelmsInner(
+                id="id_example",
+                chart_version="chart_version_example",
+                git_commit_id="git_commit_id_example",
+                values_override_git_commit_id="values_override_git_commit_id_example",
+            ),
+        ],
+    ) # DeployAllRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Deploy applications
+        api_response = api_instance.deploy_all_applications(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentApi->deploy_all_applications: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Deploy applications
         api_response = api_instance.deploy_all_applications(environment_id, deploy_all_request=deploy_all_request)
-        print("The response of EnvironmentApi->deploy_all_applications:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentApi->deploy_all_applications: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **deploy_all_request** | [**DeployAllRequest**](DeployAllRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **deploy_all_request** | [**DeployAllRequest**](DeployAllRequest.md)|  | [optional]
 
 ### Return type
 
@@ -88,6 +124,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 

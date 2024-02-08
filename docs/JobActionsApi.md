@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **deploy_job**
-> Status deploy_job(job_id, force_event=force_event, job_deploy_request=job_deploy_request)
+> Status deploy_job(job_id)
 
 Deploy job
 
@@ -23,14 +23,12 @@ You must provide a git commit id or an image tag depending on the source locatio
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.job_deploy_request import JobDeployRequest
-from qovery.models.job_force_event import JobForceEvent
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import job_actions_api
+from qovery.model.job_force_event import JobForceEvent
+from qovery.model.job_deploy_request import JobDeployRequest
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -43,43 +41,53 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobActionsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
-    force_event = qovery.JobForceEvent() # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
-    job_deploy_request = qovery.JobDeployRequest() # JobDeployRequest |  (optional)
+    api_instance = job_actions_api.JobActionsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
+    force_event = JobForceEvent("START") # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
+    job_deploy_request = JobDeployRequest(
+        image_tag="image_tag_example",
+        git_commit_id="git_commit_id_example",
+    ) # JobDeployRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Deploy job
+        api_response = api_instance.deploy_job(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobActionsApi->deploy_job: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Deploy job
         api_response = api_instance.deploy_job(job_id, force_event=force_event, job_deploy_request=job_deploy_request)
-        print("The response of JobActionsApi->deploy_job:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->deploy_job: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
- **force_event** | [**JobForceEvent**](.md)| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional] 
- **job_deploy_request** | [**JobDeployRequest**](JobDeployRequest.md)|  | [optional] 
+ **job_id** | **str**| Job ID |
+ **force_event** | **JobForceEvent**| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional]
+ **job_deploy_request** | [**JobDeployRequest**](JobDeployRequest.md)|  | [optional]
 
 ### Return type
 
@@ -93,6 +101,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -108,7 +117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **restart_job**
-> Status restart_job(job_id, force_event=force_event)
+> Status restart_job(job_id)
 
 Deprecated - Restart job
 
@@ -121,13 +130,11 @@ Deprecated - Restart job
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.job_force_event import JobForceEvent
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import job_actions_api
+from qovery.model.job_force_event import JobForceEvent
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -140,41 +147,48 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobActionsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
-    force_event = qovery.JobForceEvent() # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
+    api_instance = job_actions_api.JobActionsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
+    force_event = JobForceEvent("START") # JobForceEvent | When filled, it indicates the target event to be deployed.   If the concerned job hasn't the target event provided, the job won't be deployed.  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Deprecated - Restart job
+        api_response = api_instance.restart_job(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobActionsApi->restart_job: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Deprecated - Restart job
         api_response = api_instance.restart_job(job_id, force_event=force_event)
-        print("The response of JobActionsApi->restart_job:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->restart_job: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
- **force_event** | [**JobForceEvent**](.md)| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional] 
+ **job_id** | **str**| Job ID |
+ **force_event** | **JobForceEvent**| When filled, it indicates the target event to be deployed.   If the concerned job hasn&#39;t the target event provided, the job won&#39;t be deployed.  | [optional]
 
 ### Return type
 
@@ -188,6 +202,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -213,12 +228,10 @@ Stop job
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import job_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -231,39 +244,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobActionsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
+    api_instance = job_actions_api.JobActionsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Stop job
         api_response = api_instance.stop_job(job_id)
-        print("The response of JobActionsApi->stop_job:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobActionsApi->stop_job: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
+ **job_id** | **str**| Job ID |
 
 ### Return type
 
@@ -277,6 +288,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 

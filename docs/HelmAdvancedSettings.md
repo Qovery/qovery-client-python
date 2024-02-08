@@ -2,7 +2,6 @@
 
 
 ## Properties
-
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deployment_custom_domain_check_enabled** | **bool** | disable custom domain check when deploying a helm | [optional] 
@@ -27,24 +26,8 @@ Name | Type | Description | Notes
 **network_ingress_extra_headers** | **str** | Allows to define response headers | [optional] 
 **network_ingress_basic_auth_env_var** | **str** | Set the name of an environment variable to use as a basic authentication (&#x60;login:crypted_password&#x60;) from &#x60;htpasswd&#x60; command. You can add multiples comma separated values.  | [optional] 
 **network_ingress_enable_sticky_session** | **bool** | Enable the load balancer to bind a user&#39;s session to a specific target. This ensures that all requests from the user during the session are sent to the same target  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
-## Example
-
-```python
-from qovery.models.helm_advanced_settings import HelmAdvancedSettings
-
-# TODO update the JSON string below
-json = "{}"
-# create an instance of HelmAdvancedSettings from a JSON string
-helm_advanced_settings_instance = HelmAdvancedSettings.from_json(json)
-# print the JSON string representation of the object
-print HelmAdvancedSettings.to_json()
-
-# convert the object into a dict
-helm_advanced_settings_dict = helm_advanced_settings_instance.to_dict()
-# create an instance of HelmAdvancedSettings from a dict
-helm_advanced_settings_form_dict = helm_advanced_settings.from_dict(helm_advanced_settings_dict)
-```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

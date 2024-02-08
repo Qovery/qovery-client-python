@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 
 # **create_cluster**
-> Cluster create_cluster(organization_id, cluster_request=cluster_request)
+> Cluster create_cluster(organization_id)
 
 Create a cluster
 
@@ -37,13 +37,11 @@ Create a cluster
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster import Cluster
-from qovery.models.cluster_request import ClusterRequest
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_request import ClusterRequest
+from qovery.model.cluster import Cluster
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -56,41 +54,77 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_request = qovery.ClusterRequest() # ClusterRequest |  (optional)
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_request = ClusterRequest(
+        name="name_example",
+        description="description_example",
+        region="region_example",
+        cloud_provider=CloudProviderEnum("AWS"),
+        cloud_provider_credentials=ClusterCloudProviderInfoRequest(
+            cloud_provider=CloudProviderEnum("AWS"),
+            credentials=ClusterCloudProviderInfoCredentials(
+                id="id_example",
+                name="name_example",
+            ),
+            region="region_example",
+        ),
+        min_running_nodes=1,
+        max_running_nodes=1,
+        disk_size=50,
+        instance_type="T3A_LARGE",
+        kubernetes=KubernetesEnum("MANAGED"),
+        production=True,
+        ssh_keys=[
+            "ssh_keys_example",
+        ],
+        kubeconfig="kubeconfig_example",
+        features=[
+            ClusterRequestFeaturesInner(
+                id="id_example",
+                value=ClusterRequestFeaturesInnerValue(None),
+            ),
+        ],
+    ) # ClusterRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create a cluster
+        api_response = api_instance.create_cluster(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->create_cluster: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create a cluster
         api_response = api_instance.create_cluster(organization_id, cluster_request=cluster_request)
-        print("The response of ClustersApi->create_cluster:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->create_cluster: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_request** | [**ClusterRequest**](ClusterRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **cluster_request** | [**ClusterRequest**](ClusterRequest.md)|  | [optional]
 
 ### Return type
 
@@ -105,6 +139,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -118,7 +153,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_cluster**
-> delete_cluster(organization_id, cluster_id, delete_mode=delete_mode)
+> delete_cluster(organization_id, cluster_id)
 
 Delete a cluster
 
@@ -129,12 +164,10 @@ Delete a cluster
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_delete_mode import ClusterDeleteMode
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_delete_mode import ClusterDeleteMode
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -147,41 +180,48 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
-    delete_mode = qovery.ClusterDeleteMode() # ClusterDeleteMode |  (optional)
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
+    delete_mode = ClusterDeleteMode("DEFAULT") # ClusterDeleteMode |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete a cluster
+        api_instance.delete_cluster(organization_id, cluster_id)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->delete_cluster: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Delete a cluster
         api_instance.delete_cluster(organization_id, cluster_id, delete_mode=delete_mode)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->delete_cluster: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
- **delete_mode** | [**ClusterDeleteMode**](.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
+ **delete_mode** | **ClusterDeleteMode**|  | [optional]
 
 ### Return type
 
@@ -195,6 +235,7 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
 
 ### HTTP response details
 
@@ -221,12 +262,10 @@ allows to deploy a cluster
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_status import ClusterStatus
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_status import ClusterStatus
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -239,41 +278,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Deploy a cluster
         api_response = api_instance.deploy_cluster(organization_id, cluster_id)
-        print("The response of ClustersApi->deploy_cluster:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->deploy_cluster: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -288,6 +325,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -301,7 +339,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_cluster**
-> Cluster edit_cluster(organization_id, cluster_id, cluster_request=cluster_request)
+> Cluster edit_cluster(organization_id, cluster_id)
 
 Edit a cluster
 
@@ -312,13 +350,11 @@ Edit a cluster
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster import Cluster
-from qovery.models.cluster_request import ClusterRequest
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_request import ClusterRequest
+from qovery.model.cluster import Cluster
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -331,43 +367,79 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
-    cluster_request = qovery.ClusterRequest() # ClusterRequest |  (optional)
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
+    cluster_request = ClusterRequest(
+        name="name_example",
+        description="description_example",
+        region="region_example",
+        cloud_provider=CloudProviderEnum("AWS"),
+        cloud_provider_credentials=ClusterCloudProviderInfoRequest(
+            cloud_provider=CloudProviderEnum("AWS"),
+            credentials=ClusterCloudProviderInfoCredentials(
+                id="id_example",
+                name="name_example",
+            ),
+            region="region_example",
+        ),
+        min_running_nodes=1,
+        max_running_nodes=1,
+        disk_size=50,
+        instance_type="T3A_LARGE",
+        kubernetes=KubernetesEnum("MANAGED"),
+        production=True,
+        ssh_keys=[
+            "ssh_keys_example",
+        ],
+        kubeconfig="kubeconfig_example",
+        features=[
+            ClusterRequestFeaturesInner(
+                id="id_example",
+                value=ClusterRequestFeaturesInnerValue(None),
+            ),
+        ],
+    ) # ClusterRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit a cluster
+        api_response = api_instance.edit_cluster(organization_id, cluster_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->edit_cluster: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit a cluster
         api_response = api_instance.edit_cluster(organization_id, cluster_id, cluster_request=cluster_request)
-        print("The response of ClustersApi->edit_cluster:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->edit_cluster: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
- **cluster_request** | [**ClusterRequest**](ClusterRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
+ **cluster_request** | [**ClusterRequest**](ClusterRequest.md)|  | [optional]
 
 ### Return type
 
@@ -382,6 +454,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -395,7 +468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_cluster_advanced_settings**
-> ClusterAdvancedSettings edit_cluster_advanced_settings(organization_id, cluster_id, cluster_advanced_settings=cluster_advanced_settings)
+> ClusterAdvancedSettings edit_cluster_advanced_settings(organization_id, cluster_id)
 
 Edit advanced settings
 
@@ -408,12 +481,10 @@ Edit advanced settings by returning table of advanced settings.
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_advanced_settings import ClusterAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -426,43 +497,87 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
-    cluster_advanced_settings = qovery.ClusterAdvancedSettings() # ClusterAdvancedSettings |  (optional)
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
+    cluster_advanced_settings = ClusterAdvancedSettings(
+        aws_cloudwatch_eks_logs_retention_days=1,
+        aws_vpc_enable_s3_flow_logs=True,
+        aws_vpc_flow_logs_retention_days=1,
+        loki_log_retention_in_week=1,
+        registry_image_retention_time=1,
+        cloud_provider_container_registry_tags={
+            "key": "key_example",
+        },
+        load_balancer_size="load_balancer_size_example",
+        database_postgresql_deny_public_access=True,
+        database_postgresql_allowed_cidrs=[
+            "database_postgresql_allowed_cidrs_example",
+        ],
+        database_mysql_deny_public_access=True,
+        database_mysql_allowed_cidrs=[
+            "database_mysql_allowed_cidrs_example",
+        ],
+        database_mongodb_deny_public_access=True,
+        database_mongodb_allowed_cidrs=[
+            "database_mongodb_allowed_cidrs_example",
+        ],
+        database_redis_deny_public_access=True,
+        database_redis_allowed_cidrs=[
+            "database_redis_allowed_cidrs_example",
+        ],
+        aws_iam_admin_group="aws_iam_admin_group_example",
+        aws_eks_ec2_metadata_imds="optional",
+        pleco_resources_ttl=1,
+        registry_mirroring_mode=RegistryMirroringModeEnum("SERVICE"),
+        nginx_vcpu_request_in_milli_cpu=1,
+        nginx_vcpu_limit_in_milli_cpu=1,
+        nginx_memory_request_in_mib=1,
+        nginx_memory_limit_in_mib=1,
+        nginx_hpa_cpu_utilization_percentage_threshold=1,
+        nginx_hpa_min_number_instances=1,
+        nginx_hpa_max_number_instances=1,
+    ) # ClusterAdvancedSettings |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit advanced settings
+        api_response = api_instance.edit_cluster_advanced_settings(organization_id, cluster_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->edit_cluster_advanced_settings: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit advanced settings
         api_response = api_instance.edit_cluster_advanced_settings(organization_id, cluster_id, cluster_advanced_settings=cluster_advanced_settings)
-        print("The response of ClustersApi->edit_cluster_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->edit_cluster_advanced_settings: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
- **cluster_advanced_settings** | [**ClusterAdvancedSettings**](ClusterAdvancedSettings.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
+ **cluster_advanced_settings** | [**ClusterAdvancedSettings**](ClusterAdvancedSettings.md)|  | [optional]
 
 ### Return type
 
@@ -477,6 +592,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -490,7 +606,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_routing_table**
-> ClusterRoutingTable edit_routing_table(organization_id, cluster_id, cluster_routing_table_request=cluster_routing_table_request)
+> ClusterRoutingTable edit_routing_table(organization_id, cluster_id)
 
 Edit routing table
 
@@ -503,13 +619,11 @@ Edit routing table by returning updated table.
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_routing_table import ClusterRoutingTable
-from qovery.models.cluster_routing_table_request import ClusterRoutingTableRequest
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_routing_table import ClusterRoutingTable
+from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -522,43 +636,58 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
-    cluster_routing_table_request = qovery.ClusterRoutingTableRequest() # ClusterRoutingTableRequest |  (optional)
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
+    cluster_routing_table_request = ClusterRoutingTableRequest(
+        routes=[
+            ClusterRoutingTableResultsInner(
+                destination="destination_example",
+                target="target_example",
+                description="description_example",
+            ),
+        ],
+    ) # ClusterRoutingTableRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit routing table
+        api_response = api_instance.edit_routing_table(organization_id, cluster_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->edit_routing_table: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit routing table
         api_response = api_instance.edit_routing_table(organization_id, cluster_id, cluster_routing_table_request=cluster_routing_table_request)
-        print("The response of ClustersApi->edit_routing_table:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->edit_routing_table: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
- **cluster_routing_table_request** | [**ClusterRoutingTableRequest**](ClusterRoutingTableRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
+ **cluster_routing_table_request** | [**ClusterRoutingTableRequest**](ClusterRoutingTableRequest.md)|  | [optional]
 
 ### Return type
 
@@ -572,6 +701,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -599,12 +729,10 @@ Get the list and values of the advanced settings of the cluster. Default values 
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_advanced_settings import ClusterAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -617,41 +745,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get advanced settings
         api_response = api_instance.get_cluster_advanced_settings(organization_id, cluster_id)
-        print("The response of ClustersApi->get_cluster_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_cluster_advanced_settings: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -665,6 +791,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -689,11 +816,9 @@ Get cluster kubeconfig
 
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import clusters_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -706,41 +831,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get cluster kubeconfig
         api_response = api_instance.get_cluster_kubeconfig(organization_id, cluster_id)
-        print("The response of ClustersApi->get_cluster_kubeconfig:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_cluster_kubeconfig: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -754,6 +877,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain
+
 
 ### HTTP response details
 
@@ -778,12 +902,10 @@ Know if a cluster is ready to be deployed or not
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_readiness_status import ClusterReadinessStatus
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_readiness_status import ClusterReadinessStatus
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -796,41 +918,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Know if a cluster is ready to be deployed or not
         api_response = api_instance.get_cluster_readiness_status(organization_id, cluster_id)
-        print("The response of ClustersApi->get_cluster_readiness_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_cluster_readiness_status: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -844,6 +964,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -868,12 +989,10 @@ Get cluster status
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_status_get import ClusterStatusGet
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_status_get import ClusterStatusGet
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -886,41 +1005,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get cluster status
         api_response = api_instance.get_cluster_status(organization_id, cluster_id)
-        print("The response of ClustersApi->get_cluster_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_cluster_status: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -934,6 +1051,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -960,12 +1078,10 @@ Default values for each setting are available in [our documentation](https://hub
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_advanced_settings import ClusterAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_advanced_settings import ClusterAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -978,34 +1094,32 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
+    api_instance = clusters_api.ClustersApi(api_client)
 
+    # example, this endpoint has no required or optional parameters
     try:
         # List default cluster advanced settings
         api_response = api_instance.get_default_cluster_advanced_settings()
-        print("The response of ClustersApi->get_default_cluster_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_default_cluster_advanced_settings: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1020,6 +1134,7 @@ This endpoint does not need any parameter.
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -1043,11 +1158,9 @@ Get cluster helm values for self managed installation
 
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import clusters_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1060,41 +1173,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get cluster helm values for self managed installation
         api_response = api_instance.get_installation_helm_values(organization_id, cluster_id)
-        print("The response of ClustersApi->get_installation_helm_values:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_installation_helm_values: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -1108,6 +1219,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/x-yaml
+
 
 ### HTTP response details
 
@@ -1132,12 +1244,10 @@ Get cluster cloud provider info and credentials
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_cloud_provider_info import ClusterCloudProviderInfo
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1150,41 +1260,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get cluster cloud provider info and credentials
         api_response = api_instance.get_organization_cloud_provider_info(organization_id, cluster_id)
-        print("The response of ClustersApi->get_organization_cloud_provider_info:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_organization_cloud_provider_info: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -1198,6 +1306,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -1224,12 +1333,10 @@ Returns a list of clusters with only their id and status.
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_status_response_list import ClusterStatusResponseList
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_status_response_list import ClusterStatusResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1242,39 +1349,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List all clusters statuses
         api_response = api_instance.get_organization_cluster_status(organization_id)
-        print("The response of ClustersApi->get_organization_cluster_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_organization_cluster_status: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
+ **organization_id** | **str**| Organization ID |
 
 ### Return type
 
@@ -1288,6 +1393,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -1314,12 +1420,10 @@ Retrieve network routing table where each line corresponds to a route between a 
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_routing_table import ClusterRoutingTable
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_routing_table import ClusterRoutingTable
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1332,41 +1436,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get routing table
         api_response = api_instance.get_routing_table(organization_id, cluster_id)
-        print("The response of ClustersApi->get_routing_table:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->get_routing_table: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -1380,6 +1482,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -1406,12 +1509,10 @@ List Cluster Logs
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_logs_response_list import ClusterLogsResponseList
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_logs_response_list import ClusterLogsResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1424,41 +1525,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List Cluster Logs
         api_response = api_instance.list_cluster_logs(organization_id, cluster_id)
-        print("The response of ClustersApi->list_cluster_logs:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->list_cluster_logs: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -1472,6 +1571,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -1496,12 +1596,10 @@ List organization clusters
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_response_list import ClusterResponseList
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_response_list import ClusterResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1514,39 +1612,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List organization clusters
         api_response = api_instance.list_organization_cluster(organization_id)
-        print("The response of ClustersApi->list_organization_cluster:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->list_organization_cluster: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
+ **organization_id** | **str**| Organization ID |
 
 ### Return type
 
@@ -1561,6 +1657,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -1573,7 +1670,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **specify_cluster_cloud_provider_info**
-> ClusterCloudProviderInfo specify_cluster_cloud_provider_info(organization_id, cluster_id, cluster_cloud_provider_info_request=cluster_cloud_provider_info_request)
+> ClusterCloudProviderInfo specify_cluster_cloud_provider_info(organization_id, cluster_id)
 
 Specify cluster cloud provider info and credentials
 
@@ -1584,13 +1681,11 @@ Specify cluster cloud provider info and credentials
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_cloud_provider_info import ClusterCloudProviderInfo
-from qovery.models.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
+from qovery.model.cluster_cloud_provider_info import ClusterCloudProviderInfo
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1603,43 +1698,57 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
-    cluster_cloud_provider_info_request = qovery.ClusterCloudProviderInfoRequest() # ClusterCloudProviderInfoRequest |  (optional)
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
+    cluster_cloud_provider_info_request = ClusterCloudProviderInfoRequest(
+        cloud_provider=CloudProviderEnum("AWS"),
+        credentials=ClusterCloudProviderInfoCredentials(
+            id="id_example",
+            name="name_example",
+        ),
+        region="region_example",
+    ) # ClusterCloudProviderInfoRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Specify cluster cloud provider info and credentials
+        api_response = api_instance.specify_cluster_cloud_provider_info(organization_id, cluster_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ClustersApi->specify_cluster_cloud_provider_info: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Specify cluster cloud provider info and credentials
         api_response = api_instance.specify_cluster_cloud_provider_info(organization_id, cluster_id, cluster_cloud_provider_info_request=cluster_cloud_provider_info_request)
-        print("The response of ClustersApi->specify_cluster_cloud_provider_info:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->specify_cluster_cloud_provider_info: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
- **cluster_cloud_provider_info_request** | [**ClusterCloudProviderInfoRequest**](ClusterCloudProviderInfoRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
+ **cluster_cloud_provider_info_request** | [**ClusterCloudProviderInfoRequest**](ClusterCloudProviderInfoRequest.md)|  | [optional]
 
 ### Return type
 
@@ -1653,6 +1762,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -1680,12 +1790,10 @@ Cluster stop has been requester.
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.cluster_status import ClusterStatus
-from qovery.rest import ApiException
+from qovery.api import clusters_api
+from qovery.model.cluster_status import ClusterStatus
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1698,41 +1806,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ClustersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    cluster_id = 'cluster_id_example' # str | Cluster ID
+    api_instance = clusters_api.ClustersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    cluster_id = "clusterId_example" # str | Cluster ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Stop cluster
         api_response = api_instance.stop_cluster(organization_id, cluster_id)
-        print("The response of ClustersApi->stop_cluster:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ClustersApi->stop_cluster: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **cluster_id** | **str**| Cluster ID | 
+ **organization_id** | **str**| Organization ID |
+ **cluster_id** | **str**| Cluster ID |
 
 ### Return type
 
@@ -1746,6 +1852,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 

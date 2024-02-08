@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_application_deployment_restriction**
-> ApplicationDeploymentRestriction create_application_deployment_restriction(application_id, application_deployment_restriction_request=application_deployment_restriction_request)
+> ApplicationDeploymentRestriction create_application_deployment_restriction(application_id)
 
 Create an application deployment restriction
 
@@ -24,13 +24,11 @@ Create an application deployment restriction
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.application_deployment_restriction import ApplicationDeploymentRestriction
-from qovery.models.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
-from qovery.rest import ApiException
+from qovery.api import application_deployment_restriction_api
+from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
+from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -43,41 +41,52 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationDeploymentRestrictionApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
-    application_deployment_restriction_request = qovery.ApplicationDeploymentRestrictionRequest() # ApplicationDeploymentRestrictionRequest |  (optional)
+    api_instance = application_deployment_restriction_api.ApplicationDeploymentRestrictionApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
+    application_deployment_restriction_request = ApplicationDeploymentRestrictionRequest(
+        mode=DeploymentRestrictionModeEnum("MATCH"),
+        type=DeploymentRestrictionTypeEnum("PATH"),
+        value="application1/src/",
+    ) # ApplicationDeploymentRestrictionRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create an application deployment restriction
+        api_response = api_instance.create_application_deployment_restriction(application_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationDeploymentRestrictionApi->create_application_deployment_restriction: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create an application deployment restriction
         api_response = api_instance.create_application_deployment_restriction(application_id, application_deployment_restriction_request=application_deployment_restriction_request)
-        print("The response of ApplicationDeploymentRestrictionApi->create_application_deployment_restriction:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationDeploymentRestrictionApi->create_application_deployment_restriction: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
- **application_deployment_restriction_request** | [**ApplicationDeploymentRestrictionRequest**](ApplicationDeploymentRestrictionRequest.md)|  | [optional] 
+ **application_id** | **str**| Application ID |
+ **application_deployment_restriction_request** | [**ApplicationDeploymentRestrictionRequest**](ApplicationDeploymentRestrictionRequest.md)|  | [optional]
 
 ### Return type
 
@@ -91,6 +100,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -118,11 +128,9 @@ Delete an application deployment restriction
 
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import application_deployment_restriction_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -135,39 +143,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationDeploymentRestrictionApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
-    deployment_restriction_id = 'deployment_restriction_id_example' # str | Deployment Restriction ID
+    api_instance = application_deployment_restriction_api.ApplicationDeploymentRestrictionApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
+    deployment_restriction_id = "deploymentRestrictionId_example" # str | Deployment Restriction ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete an application deployment restriction
         api_instance.delete_application_deployment_restriction(application_id, deployment_restriction_id)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationDeploymentRestrictionApi->delete_application_deployment_restriction: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
- **deployment_restriction_id** | **str**| Deployment Restriction ID | 
+ **application_id** | **str**| Application ID |
+ **deployment_restriction_id** | **str**| Deployment Restriction ID |
 
 ### Return type
 
@@ -182,6 +189,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -194,7 +202,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_application_deployment_restriction**
-> ApplicationDeploymentRestriction edit_application_deployment_restriction(application_id, deployment_restriction_id, application_deployment_restriction_request=application_deployment_restriction_request)
+> ApplicationDeploymentRestriction edit_application_deployment_restriction(application_id, deployment_restriction_id)
 
 Edit an application deployment restriction
 
@@ -207,13 +215,11 @@ Edit an application deployment restriction
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.application_deployment_restriction import ApplicationDeploymentRestriction
-from qovery.models.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
-from qovery.rest import ApiException
+from qovery.api import application_deployment_restriction_api
+from qovery.model.application_deployment_restriction_request import ApplicationDeploymentRestrictionRequest
+from qovery.model.application_deployment_restriction import ApplicationDeploymentRestriction
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -226,43 +232,54 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationDeploymentRestrictionApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
-    deployment_restriction_id = 'deployment_restriction_id_example' # str | Deployment Restriction ID
-    application_deployment_restriction_request = qovery.ApplicationDeploymentRestrictionRequest() # ApplicationDeploymentRestrictionRequest |  (optional)
+    api_instance = application_deployment_restriction_api.ApplicationDeploymentRestrictionApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
+    deployment_restriction_id = "deploymentRestrictionId_example" # str | Deployment Restriction ID
+    application_deployment_restriction_request = ApplicationDeploymentRestrictionRequest(
+        mode=DeploymentRestrictionModeEnum("MATCH"),
+        type=DeploymentRestrictionTypeEnum("PATH"),
+        value="application1/src/",
+    ) # ApplicationDeploymentRestrictionRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit an application deployment restriction
+        api_response = api_instance.edit_application_deployment_restriction(application_id, deployment_restriction_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationDeploymentRestrictionApi->edit_application_deployment_restriction: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit an application deployment restriction
         api_response = api_instance.edit_application_deployment_restriction(application_id, deployment_restriction_id, application_deployment_restriction_request=application_deployment_restriction_request)
-        print("The response of ApplicationDeploymentRestrictionApi->edit_application_deployment_restriction:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationDeploymentRestrictionApi->edit_application_deployment_restriction: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
- **deployment_restriction_id** | **str**| Deployment Restriction ID | 
- **application_deployment_restriction_request** | [**ApplicationDeploymentRestrictionRequest**](ApplicationDeploymentRestrictionRequest.md)|  | [optional] 
+ **application_id** | **str**| Application ID |
+ **deployment_restriction_id** | **str**| Deployment Restriction ID |
+ **application_deployment_restriction_request** | [**ApplicationDeploymentRestrictionRequest**](ApplicationDeploymentRestrictionRequest.md)|  | [optional]
 
 ### Return type
 
@@ -276,6 +293,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -303,12 +321,10 @@ Get application deployment restrictions
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.application_deployment_restriction_response_list import ApplicationDeploymentRestrictionResponseList
-from qovery.rest import ApiException
+from qovery.api import application_deployment_restriction_api
+from qovery.model.application_deployment_restriction_response_list import ApplicationDeploymentRestrictionResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -321,39 +337,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationDeploymentRestrictionApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
+    api_instance = application_deployment_restriction_api.ApplicationDeploymentRestrictionApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get application deployment restrictions
         api_response = api_instance.get_application_deployment_restrictions(application_id)
-        print("The response of ApplicationDeploymentRestrictionApi->get_application_deployment_restrictions:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationDeploymentRestrictionApi->get_application_deployment_restrictions: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
+ **application_id** | **str**| Application ID |
 
 ### Return type
 
@@ -367,6 +381,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 

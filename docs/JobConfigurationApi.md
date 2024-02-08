@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **edit_job_advanced_settings**
-> JobAdvancedSettings edit_job_advanced_settings(job_id, job_advanced_settings=job_advanced_settings)
+> JobAdvancedSettings edit_job_advanced_settings(job_id)
 
 Edit advanced settings
 
@@ -22,12 +22,10 @@ Edit advanced settings by returning table of advanced settings.
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.job_advanced_settings import JobAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import job_configuration_api
+from qovery.model.job_advanced_settings import JobAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -40,41 +38,62 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobConfigurationApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
-    job_advanced_settings = qovery.JobAdvancedSettings() # JobAdvancedSettings |  (optional)
+    api_instance = job_configuration_api.JobConfigurationApi(api_client)
+    job_id = "jobId_example" # str | Job ID
+    job_advanced_settings = JobAdvancedSettings(
+        build_timeout_max_sec=1,
+        build_cpu_max_in_milli=1,
+        build_ram_max_in_gib=1,
+        deployment_termination_grace_period_seconds=1,
+        deployment_affinity_node_required={
+            "key": "key_example",
+        },
+        job_delete_ttl_seconds_after_finished=1,
+        cronjob_concurrency_policy="cronjob_concurrency_policy_example",
+        cronjob_failed_jobs_history_limit=1,
+        cronjob_success_jobs_history_limit=1,
+        security_service_account_name="security_service_account_name_example",
+        security_read_only_root_filesystem=True,
+    ) # JobAdvancedSettings |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit advanced settings
+        api_response = api_instance.edit_job_advanced_settings(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobConfigurationApi->edit_job_advanced_settings: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit advanced settings
         api_response = api_instance.edit_job_advanced_settings(job_id, job_advanced_settings=job_advanced_settings)
-        print("The response of JobConfigurationApi->edit_job_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobConfigurationApi->edit_job_advanced_settings: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
- **job_advanced_settings** | [**JobAdvancedSettings**](JobAdvancedSettings.md)|  | [optional] 
+ **job_id** | **str**| Job ID |
+ **job_advanced_settings** | [**JobAdvancedSettings**](JobAdvancedSettings.md)|  | [optional]
 
 ### Return type
 
@@ -88,6 +107,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -115,12 +135,10 @@ Get list and values of the advanced settings of the job. Default values for each
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.job_advanced_settings import JobAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import job_configuration_api
+from qovery.model.job_advanced_settings import JobAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -133,39 +151,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobConfigurationApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
+    api_instance = job_configuration_api.JobConfigurationApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get advanced settings
         api_response = api_instance.get_job_advanced_settings(job_id)
-        print("The response of JobConfigurationApi->get_job_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobConfigurationApi->get_job_advanced_settings: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
+ **job_id** | **str**| Job ID |
 
 ### Return type
 
@@ -179,6 +195,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 

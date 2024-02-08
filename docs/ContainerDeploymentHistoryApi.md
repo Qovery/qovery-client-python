@@ -21,12 +21,10 @@ Returns the 20 last container deployments
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.list_container_deployment_history200_response import ListContainerDeploymentHistory200Response
-from qovery.rest import ApiException
+from qovery.api import container_deployment_history_api
+from qovery.model.list_container_deployment_history200_response import ListContainerDeploymentHistory200Response
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -39,39 +37,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainerDeploymentHistoryApi(api_client)
-    container_id = 'container_id_example' # str | Container ID
+    api_instance = container_deployment_history_api.ContainerDeploymentHistoryApi(api_client)
+    container_id = "containerId_example" # str | Container ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List container deployments
         api_response = api_instance.list_container_deployment_history(container_id)
-        print("The response of ContainerDeploymentHistoryApi->list_container_deployment_history:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainerDeploymentHistoryApi->list_container_deployment_history: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID | 
+ **container_id** | **str**| Container ID |
 
 ### Return type
 
@@ -85,6 +81,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_organization_webhook**
-> OrganizationWebhookCreateResponse create_organization_webhook(organization_id, organization_webhook_create_request=organization_webhook_create_request)
+> OrganizationWebhookCreateResponse create_organization_webhook(organization_id)
 
 Create an organization webhook
 
@@ -25,13 +25,11 @@ Create an organization webhook.
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_webhook_create_request import OrganizationWebhookCreateRequest
-from qovery.models.organization_webhook_create_response import OrganizationWebhookCreateResponse
-from qovery.rest import ApiException
+from qovery.api import organization_webhook_api
+from qovery.model.organization_webhook_create_request import OrganizationWebhookCreateRequest
+from qovery.model.organization_webhook_create_response import OrganizationWebhookCreateResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -44,41 +42,63 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationWebhookApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    organization_webhook_create_request = qovery.OrganizationWebhookCreateRequest() # OrganizationWebhookCreateRequest |  (optional)
+    api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    organization_webhook_create_request = OrganizationWebhookCreateRequest(
+        kind=OrganizationWebhookKindEnum("STANDARD"),
+        target_url="target_url_example",
+        target_secret="target_secret_example",
+        description="description_example",
+        enabled=True,
+        events=[
+            OrganizationWebhookEventEnum("DEPLOYMENT_STARTED"),
+        ],
+        project_names_filter=[
+            "project_names_filter_example",
+        ],
+        environment_types_filter=[
+            EnvironmentModeEnum("PRODUCTION"),
+        ],
+    ) # OrganizationWebhookCreateRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create an organization webhook
+        api_response = api_instance.create_organization_webhook(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling OrganizationWebhookApi->create_organization_webhook: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create an organization webhook
         api_response = api_instance.create_organization_webhook(organization_id, organization_webhook_create_request=organization_webhook_create_request)
-        print("The response of OrganizationWebhookApi->create_organization_webhook:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->create_organization_webhook: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **organization_webhook_create_request** | [**OrganizationWebhookCreateRequest**](OrganizationWebhookCreateRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **organization_webhook_create_request** | [**OrganizationWebhookCreateRequest**](OrganizationWebhookCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -92,6 +112,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -118,11 +139,9 @@ Delete organization webhook
 
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import organization_webhook_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -135,39 +154,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationWebhookApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    webhook_id = 'webhook_id_example' # str | Webhook ID
+    api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    webhook_id = "webhookId_example" # str | Webhook ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete organization webhook
         api_instance.delete_organization_webhook(organization_id, webhook_id)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->delete_organization_webhook: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **webhook_id** | **str**| Webhook ID | 
+ **organization_id** | **str**| Organization ID |
+ **webhook_id** | **str**| Webhook ID |
 
 ### Return type
 
@@ -182,6 +200,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+
 ### HTTP response details
 
 | Status code | Description | Response headers |
@@ -194,7 +213,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization_webhook**
-> OrganizationWebhookCreateResponse edit_organization_webhook(organization_id, webhook_id, organization_webhook_create_request=organization_webhook_create_request)
+> OrganizationWebhookCreateResponse edit_organization_webhook(organization_id, webhook_id)
 
 Edit an organization webhook
 
@@ -207,13 +226,11 @@ Edit an organization webhook
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_webhook_create_request import OrganizationWebhookCreateRequest
-from qovery.models.organization_webhook_create_response import OrganizationWebhookCreateResponse
-from qovery.rest import ApiException
+from qovery.api import organization_webhook_api
+from qovery.model.organization_webhook_create_request import OrganizationWebhookCreateRequest
+from qovery.model.organization_webhook_create_response import OrganizationWebhookCreateResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -226,43 +243,65 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationWebhookApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    webhook_id = 'webhook_id_example' # str | Webhook ID
-    organization_webhook_create_request = qovery.OrganizationWebhookCreateRequest() # OrganizationWebhookCreateRequest |  (optional)
+    api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    webhook_id = "webhookId_example" # str | Webhook ID
+    organization_webhook_create_request = OrganizationWebhookCreateRequest(
+        kind=OrganizationWebhookKindEnum("STANDARD"),
+        target_url="target_url_example",
+        target_secret="target_secret_example",
+        description="description_example",
+        enabled=True,
+        events=[
+            OrganizationWebhookEventEnum("DEPLOYMENT_STARTED"),
+        ],
+        project_names_filter=[
+            "project_names_filter_example",
+        ],
+        environment_types_filter=[
+            EnvironmentModeEnum("PRODUCTION"),
+        ],
+    ) # OrganizationWebhookCreateRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit an organization webhook
+        api_response = api_instance.edit_organization_webhook(organization_id, webhook_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling OrganizationWebhookApi->edit_organization_webhook: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit an organization webhook
         api_response = api_instance.edit_organization_webhook(organization_id, webhook_id, organization_webhook_create_request=organization_webhook_create_request)
-        print("The response of OrganizationWebhookApi->edit_organization_webhook:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->edit_organization_webhook: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **webhook_id** | **str**| Webhook ID | 
- **organization_webhook_create_request** | [**OrganizationWebhookCreateRequest**](OrganizationWebhookCreateRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **webhook_id** | **str**| Webhook ID |
+ **organization_webhook_create_request** | [**OrganizationWebhookCreateRequest**](OrganizationWebhookCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -276,6 +315,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -303,12 +343,10 @@ Get an Organization webhook
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_webhook_response import OrganizationWebhookResponse
-from qovery.rest import ApiException
+from qovery.api import organization_webhook_api
+from qovery.model.organization_webhook_response import OrganizationWebhookResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -321,41 +359,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationWebhookApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    webhook_id = 'webhook_id_example' # str | Webhook ID
+    api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    webhook_id = "webhookId_example" # str | Webhook ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get an Organization webhook
         api_response = api_instance.get_organization_webhook(organization_id, webhook_id)
-        print("The response of OrganizationWebhookApi->get_organization_webhook:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->get_organization_webhook: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **webhook_id** | **str**| Webhook ID | 
+ **organization_id** | **str**| Organization ID |
+ **webhook_id** | **str**| Webhook ID |
 
 ### Return type
 
@@ -369,6 +405,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -395,12 +432,10 @@ List organization webhooks
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_webhook_response_list import OrganizationWebhookResponseList
-from qovery.rest import ApiException
+from qovery.api import organization_webhook_api
+from qovery.model.organization_webhook_response_list import OrganizationWebhookResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -413,39 +448,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationWebhookApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
+    api_instance = organization_webhook_api.OrganizationWebhookApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List organization webhooks
         api_response = api_instance.list_organization_web_hooks(organization_id)
-        print("The response of OrganizationWebhookApi->list_organization_web_hooks:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationWebhookApi->list_organization_web_hooks: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
+ **organization_id** | **str**| Organization ID |
 
 ### Return type
 
@@ -459,6 +492,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 

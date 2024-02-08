@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_organization_api_token**
-> OrganizationApiTokenCreate create_organization_api_token(organization_id, organization_api_token_create_request=organization_api_token_create_request)
+> OrganizationApiTokenCreate create_organization_api_token(organization_id)
 
 Create an organization api token
 
@@ -23,13 +23,11 @@ Create an organization api token. You can use the generated token to interact in
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_api_token_create import OrganizationApiTokenCreate
-from qovery.models.organization_api_token_create_request import OrganizationApiTokenCreateRequest
-from qovery.rest import ApiException
+from qovery.api import organization_api_token_api
+from qovery.model.organization_api_token_create import OrganizationApiTokenCreate
+from qovery.model.organization_api_token_create_request import OrganizationApiTokenCreateRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -42,41 +40,53 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationApiTokenApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    organization_api_token_create_request = qovery.OrganizationApiTokenCreateRequest() # OrganizationApiTokenCreateRequest |  (optional)
+    api_instance = organization_api_token_api.OrganizationApiTokenApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    organization_api_token_create_request = OrganizationApiTokenCreateRequest(
+        name="name_example",
+        description="description_example",
+        scope=OrganizationApiTokenScope("ADMIN"),
+        role_id="role_id_example",
+    ) # OrganizationApiTokenCreateRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create an organization api token
+        api_response = api_instance.create_organization_api_token(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling OrganizationApiTokenApi->create_organization_api_token: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create an organization api token
         api_response = api_instance.create_organization_api_token(organization_id, organization_api_token_create_request=organization_api_token_create_request)
-        print("The response of OrganizationApiTokenApi->create_organization_api_token:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationApiTokenApi->create_organization_api_token: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **organization_api_token_create_request** | [**OrganizationApiTokenCreateRequest**](OrganizationApiTokenCreateRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **organization_api_token_create_request** | [**OrganizationApiTokenCreateRequest**](OrganizationApiTokenCreateRequest.md)|  | [optional]
 
 ### Return type
 
@@ -90,6 +100,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 
@@ -118,11 +129,9 @@ Delete organization api token
 
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import organization_api_token_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -135,39 +144,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationApiTokenApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    api_token_id = 'api_token_id_example' # str | Organization Api Token ID
+    api_instance = organization_api_token_api.OrganizationApiTokenApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    api_token_id = "apiTokenId_example" # str | Organization Api Token ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete organization api token
         api_instance.delete_organization_api_token(organization_id, api_token_id)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationApiTokenApi->delete_organization_api_token: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **api_token_id** | **str**| Organization Api Token ID | 
+ **organization_id** | **str**| Organization ID |
+ **api_token_id** | **str**| Organization Api Token ID |
 
 ### Return type
 
@@ -181,6 +189,7 @@ void (empty response body)
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
 
 ### HTTP response details
 
@@ -207,12 +216,10 @@ List organization api tokens
 
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_api_token_response_list import OrganizationApiTokenResponseList
-from qovery.rest import ApiException
+from qovery.api import organization_api_token_api
+from qovery.model.organization_api_token_response_list import OrganizationApiTokenResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -225,39 +232,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.OrganizationApiTokenApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
+    api_instance = organization_api_token_api.OrganizationApiTokenApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List organization api tokens
         api_response = api_instance.list_organization_api_tokens(organization_id)
-        print("The response of OrganizationApiTokenApi->list_organization_api_tokens:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling OrganizationApiTokenApi->list_organization_api_tokens: %s\n" % e)
 ```
 
 
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
+ **organization_id** | **str**| Organization ID |
 
 ### Return type
 
@@ -271,6 +276,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 
