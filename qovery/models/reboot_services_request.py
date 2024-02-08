@@ -21,7 +21,6 @@ import json
 
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictStr
-from pydantic import Field
 try:
     from typing import Self
 except ImportError:
@@ -31,10 +30,10 @@ class RebootServicesRequest(BaseModel):
     """
     RebootServicesRequest
     """ # noqa: E501
-    application_ids: Optional[List[StrictStr]] = Field(default=None, alias="applicationIds")
-    database_ids: Optional[List[StrictStr]] = Field(default=None, alias="databaseIds")
-    container_ids: Optional[List[StrictStr]] = Field(default=None, alias="containerIds")
-    __properties: ClassVar[List[str]] = ["applicationIds", "databaseIds", "containerIds"]
+    application_ids: Optional[List[StrictStr]] = None
+    database_ids: Optional[List[StrictStr]] = None
+    container_ids: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["application_ids", "database_ids", "container_ids"]
 
     model_config = {
         "populate_by_name": True,
@@ -85,9 +84,9 @@ class RebootServicesRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "applicationIds": obj.get("applicationIds"),
-            "databaseIds": obj.get("databaseIds"),
-            "containerIds": obj.get("containerIds")
+            "application_ids": obj.get("application_ids"),
+            "database_ids": obj.get("database_ids"),
+            "container_ids": obj.get("container_ids")
         })
         return _obj
 
