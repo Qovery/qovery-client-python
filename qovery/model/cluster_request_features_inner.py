@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cluster_request_features_inner_value import ClusterRequestFeaturesInnerValue
-    globals()['ClusterRequestFeaturesInnerValue'] = ClusterRequestFeaturesInnerValue
+    from qovery.model.cluster_feature_value import ClusterFeatureValue
+    globals()['ClusterFeatureValue'] = ClusterFeatureValue
 
 
 class ClusterRequestFeaturesInner(ModelNormal):
@@ -89,7 +89,7 @@ class ClusterRequestFeaturesInner(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'value': (ClusterRequestFeaturesInnerValue,),  # noqa: E501
+            'value': (ClusterFeatureValue,),  # noqa: E501
         }
 
     @cached_property
@@ -144,7 +144,7 @@ class ClusterRequestFeaturesInner(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            value (ClusterRequestFeaturesInnerValue): [optional]  # noqa: E501
+            value (ClusterFeatureValue): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,7 +231,7 @@ class ClusterRequestFeaturesInner(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            value (ClusterRequestFeaturesInnerValue): [optional]  # noqa: E501
+            value (ClusterFeatureValue): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
