@@ -69,6 +69,7 @@ from qovery.model.cluster_delete_mode import ClusterDeleteMode
 from qovery.model.cluster_deployment_status_enum import ClusterDeploymentStatusEnum
 from qovery.model.cluster_feature import ClusterFeature
 from qovery.model.cluster_feature_accepted_values_inner import ClusterFeatureAcceptedValuesInner
+from qovery.model.cluster_feature_aws_existing_vpc import ClusterFeatureAwsExistingVpc
 from qovery.model.cluster_feature_response_list import ClusterFeatureResponseList
 from qovery.model.cluster_feature_value import ClusterFeatureValue
 from qovery.model.cluster_instance_type_response_list import ClusterInstanceTypeResponseList
@@ -87,7 +88,6 @@ from qovery.model.cluster_region_response_list import ClusterRegionResponseList
 from qovery.model.cluster_request import ClusterRequest
 from qovery.model.cluster_request_features_inner import ClusterRequestFeaturesInner
 from qovery.model.cluster_request_features_inner_value import ClusterRequestFeaturesInnerValue
-from qovery.model.cluster_request_features_inner_value_one_of import ClusterRequestFeaturesInnerValueOneOf
 from qovery.model.cluster_response_list import ClusterResponseList
 from qovery.model.cluster_routing_table import ClusterRoutingTable
 from qovery.model.cluster_routing_table_request import ClusterRoutingTableRequest

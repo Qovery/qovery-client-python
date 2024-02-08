@@ -1,4 +1,4 @@
-# ClusterRequestFeaturesInnerValueOneOf
+# ClusterFeatureAwsExistingVpc
 
 
 ## Properties

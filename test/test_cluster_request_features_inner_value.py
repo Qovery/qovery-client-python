@@ -13,8 +13,8 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_request_features_inner_value_one_of import ClusterRequestFeaturesInnerValueOneOf
-globals()['ClusterRequestFeaturesInnerValueOneOf'] = ClusterRequestFeaturesInnerValueOneOf
+from qovery.model.cluster_feature_aws_existing_vpc import ClusterFeatureAwsExistingVpc
+globals()['ClusterFeatureAwsExistingVpc'] = ClusterFeatureAwsExistingVpc
 from qovery.model.cluster_request_features_inner_value import ClusterRequestFeaturesInnerValue
 
 

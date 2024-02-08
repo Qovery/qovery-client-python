@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import qovery
-from qovery.model.cluster_request_features_inner_value_one_of import ClusterRequestFeaturesInnerValueOneOf
+from qovery.model.cluster_feature_aws_existing_vpc import ClusterFeatureAwsExistingVpc
 
 
-class TestClusterRequestFeaturesInnerValueOneOf(unittest.TestCase):
-    """ClusterRequestFeaturesInnerValueOneOf unit test stubs"""
+class TestClusterFeatureAwsExistingVpc(unittest.TestCase):
+    """ClusterFeatureAwsExistingVpc unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestClusterRequestFeaturesInnerValueOneOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testClusterRequestFeaturesInnerValueOneOf(self):
-        """Test ClusterRequestFeaturesInnerValueOneOf"""
+    def testClusterFeatureAwsExistingVpc(self):
+        """Test ClusterFeatureAwsExistingVpc"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ClusterRequestFeaturesInnerValueOneOf()  # noqa: E501
+        # model = ClusterFeatureAwsExistingVpc()  # noqa: E501
         pass
 
 

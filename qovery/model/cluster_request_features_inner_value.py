@@ -31,8 +31,8 @@ from qovery.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from qovery.model.cluster_request_features_inner_value_one_of import ClusterRequestFeaturesInnerValueOneOf
-    globals()['ClusterRequestFeaturesInnerValueOneOf'] = ClusterRequestFeaturesInnerValueOneOf
+    from qovery.model.cluster_feature_aws_existing_vpc import ClusterFeatureAwsExistingVpc
+    globals()['ClusterFeatureAwsExistingVpc'] = ClusterFeatureAwsExistingVpc
 
 
 class ClusterRequestFeaturesInnerValue(ModelComposed):
@@ -363,7 +363,7 @@ class ClusterRequestFeaturesInnerValue(ModelComposed):
           'allOf': [
           ],
           'oneOf': [
-              ClusterRequestFeaturesInnerValueOneOf,
+              ClusterFeatureAwsExistingVpc,
               bool,
               str,
           ],

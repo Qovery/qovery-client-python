@@ -77,6 +77,7 @@ docs/ClusterDeleteMode.md
 docs/ClusterDeploymentStatusEnum.md
 docs/ClusterFeature.md
 docs/ClusterFeatureAcceptedValuesInner.md
+docs/ClusterFeatureAwsExistingVpc.md
 docs/ClusterFeatureResponseList.md
 docs/ClusterFeatureValue.md
 docs/ClusterInstanceTypeResponseList.md
@@ -95,7 +96,6 @@ docs/ClusterRegionResponseList.md
 docs/ClusterRequest.md
 docs/ClusterRequestFeaturesInner.md
 docs/ClusterRequestFeaturesInnerValue.md
-docs/ClusterRequestFeaturesInnerValueOneOf.md
 docs/ClusterResponseList.md
 docs/ClusterRoutingTable.md
 docs/ClusterRoutingTableRequest.md
@@ -692,6 +692,7 @@ qovery/model/cluster_delete_mode.py
 qovery/model/cluster_deployment_status_enum.py
 qovery/model/cluster_feature.py
 qovery/model/cluster_feature_accepted_values_inner.py
+qovery/model/cluster_feature_aws_existing_vpc.py
 qovery/model/cluster_feature_response_list.py
 qovery/model/cluster_feature_value.py
 qovery/model/cluster_instance_type_response_list.py
@@ -710,7 +711,6 @@ qovery/model/cluster_region_response_list.py
 qovery/model/cluster_request.py
 qovery/model/cluster_request_features_inner.py
 qovery/model/cluster_request_features_inner_value.py
-qovery/model/cluster_request_features_inner_value_one_of.py
 qovery/model/cluster_response_list.py
 qovery/model/cluster_routing_table.py
 qovery/model/cluster_routing_table_request.py
@@ -1185,6 +1185,7 @@ test/test_cluster_delete_mode.py
 test/test_cluster_deployment_status_enum.py
 test/test_cluster_feature.py
 test/test_cluster_feature_accepted_values_inner.py
+test/test_cluster_feature_aws_existing_vpc.py
 test/test_cluster_feature_response_list.py
 test/test_cluster_feature_value.py
 test/test_cluster_instance_type_response_list.py
@@ -1203,7 +1204,6 @@ test/test_cluster_region_response_list.py
 test/test_cluster_request.py
 test/test_cluster_request_features_inner.py
 test/test_cluster_request_features_inner_value.py
-test/test_cluster_request_features_inner_value_one_of.py
 test/test_cluster_response_list.py
 test/test_cluster_routing_table.py
 test/test_cluster_routing_table_request.py
