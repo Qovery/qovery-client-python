@@ -102,6 +102,7 @@ class SignUpRequest(ModelNormal):
             'user_questions': (str, none_type,),  # noqa: E501
             'current_step': (str, none_type,),  # noqa: E501
             'dx_auth': (bool, none_type,),  # noqa: E501
+            'infrastructure_hosting': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -122,6 +123,7 @@ class SignUpRequest(ModelNormal):
         'user_questions': 'user_questions',  # noqa: E501
         'current_step': 'current_step',  # noqa: E501
         'dx_auth': 'dx_auth',  # noqa: E501
+        'infrastructure_hosting': 'infrastructure_hosting',  # noqa: E501
     }
 
     read_only_vars = {
@@ -179,6 +181,7 @@ class SignUpRequest(ModelNormal):
             user_questions (str, none_type): [optional]  # noqa: E501
             current_step (str, none_type): [optional]  # noqa: E501
             dx_auth (bool, none_type): [optional]  # noqa: E501
+            infrastructure_hosting (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,6 +286,7 @@ class SignUpRequest(ModelNormal):
             user_questions (str, none_type): [optional]  # noqa: E501
             current_step (str, none_type): [optional]  # noqa: E501
             dx_auth (bool, none_type): [optional]  # noqa: E501
+            infrastructure_hosting (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

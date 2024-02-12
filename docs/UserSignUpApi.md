@@ -65,6 +65,7 @@ with qovery.ApiClient(configuration) as api_client:
         user_questions="user_questions_example",
         current_step="current_step_example",
         dx_auth=True,
+        infrastructure_hosting="infrastructure_hosting_example",
     ) # SignUpRequest |  (optional)
 
     # example passing only required values which don't have defaults set
