@@ -59,6 +59,13 @@ class TestClustersApi(unittest.TestCase):
         """
         pass
 
+    def test_edit_cluster_kubeconfig(self):
+        """Test case for edit_cluster_kubeconfig
+
+        Edit cluster kubeconfig  # noqa: E501
+        """
+        pass
+
     def test_edit_routing_table(self):
         """Test case for edit_routing_table
 

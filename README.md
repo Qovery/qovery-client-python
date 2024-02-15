@@ -197,6 +197,7 @@ Class | Method | HTTP request | Description
 *ClustersApi* | [**deploy_cluster**](docs/ClustersApi.md#deploy_cluster) | **POST** /organization/{organizationId}/cluster/{clusterId}/deploy | Deploy a cluster
 *ClustersApi* | [**edit_cluster**](docs/ClustersApi.md#edit_cluster) | **PUT** /organization/{organizationId}/cluster/{clusterId} | Edit a cluster
 *ClustersApi* | [**edit_cluster_advanced_settings**](docs/ClustersApi.md#edit_cluster_advanced_settings) | **PUT** /organization/{organizationId}/cluster/{clusterId}/advancedSettings | Edit advanced settings
+*ClustersApi* | [**edit_cluster_kubeconfig**](docs/ClustersApi.md#edit_cluster_kubeconfig) | **PUT** /organization/{organizationId}/cluster/{clusterId}/kubeconfig | Edit cluster kubeconfig
 *ClustersApi* | [**edit_routing_table**](docs/ClustersApi.md#edit_routing_table) | **PUT** /organization/{organizationId}/cluster/{clusterId}/routingTable | Edit routing table
 *ClustersApi* | [**get_cluster_advanced_settings**](docs/ClustersApi.md#get_cluster_advanced_settings) | **GET** /organization/{organizationId}/cluster/{clusterId}/advancedSettings | Get advanced settings
 *ClustersApi* | [**get_cluster_kubeconfig**](docs/ClustersApi.md#get_cluster_kubeconfig) | **GET** /organization/{organizationId}/cluster/{clusterId}/kubeconfig | Get cluster kubeconfig
