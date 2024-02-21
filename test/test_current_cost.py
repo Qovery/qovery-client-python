@@ -15,10 +15,8 @@ import unittest
 import qovery
 from qovery.model.cost import Cost
 from qovery.model.plan_enum import PlanEnum
-from qovery.model.remaining_credits import RemainingCredits
 globals()['Cost'] = Cost
 globals()['PlanEnum'] = PlanEnum
-globals()['RemainingCredits'] = RemainingCredits
 from qovery.model.current_cost import CurrentCost
 
 

@@ -413,7 +413,6 @@ docs/OrganizationContainerAutoDeployRequest.md
 docs/OrganizationContainerPreviewRequest.md
 docs/OrganizationCreditCodeRequest.md
 docs/OrganizationCurrentCost.md
-docs/OrganizationCurrentCostAllOf.md
 docs/OrganizationCustomRole.md
 docs/OrganizationCustomRoleApi.md
 docs/OrganizationCustomRoleClusterPermission.md
@@ -450,7 +449,6 @@ docs/OrganizationWebhookKindEnum.md
 docs/OrganizationWebhookResponse.md
 docs/OrganizationWebhookResponseList.md
 docs/PaginationData.md
-docs/PaidUsage.md
 docs/PlanEnum.md
 docs/PortProtocolEnum.md
 docs/Probe.md
@@ -978,7 +976,6 @@ qovery/model/organization_container_auto_deploy_request.py
 qovery/model/organization_container_preview_request.py
 qovery/model/organization_credit_code_request.py
 qovery/model/organization_current_cost.py
-qovery/model/organization_current_cost_all_of.py
 qovery/model/organization_custom_role.py
 qovery/model/organization_custom_role_cluster_permission.py
 qovery/model/organization_custom_role_cluster_permissions_inner.py
@@ -1011,7 +1008,6 @@ qovery/model/organization_webhook_kind_enum.py
 qovery/model/organization_webhook_response.py
 qovery/model/organization_webhook_response_list.py
 qovery/model/pagination_data.py
-qovery/model/paid_usage.py
 qovery/model/plan_enum.py
 qovery/model/port_protocol_enum.py
 qovery/model/probe.py
@@ -1519,7 +1515,6 @@ test/test_organization_container_auto_deploy_request.py
 test/test_organization_container_preview_request.py
 test/test_organization_credit_code_request.py
 test/test_organization_current_cost.py
-test/test_organization_current_cost_all_of.py
 test/test_organization_custom_role.py
 test/test_organization_custom_role_api.py
 test/test_organization_custom_role_cluster_permission.py
@@ -1556,7 +1551,6 @@ test/test_organization_webhook_kind_enum.py
 test/test_organization_webhook_response.py
 test/test_organization_webhook_response_list.py
 test/test_pagination_data.py
-test/test_paid_usage.py
 test/test_plan_enum.py
 test/test_port_protocol_enum.py
 test/test_probe.py

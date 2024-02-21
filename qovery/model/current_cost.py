@@ -33,10 +33,8 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.cost import Cost
     from qovery.model.plan_enum import PlanEnum
-    from qovery.model.remaining_credits import RemainingCredits
     globals()['Cost'] = Cost
     globals()['PlanEnum'] = PlanEnum
-    globals()['RemainingCredits'] = RemainingCredits
 
 
 class CurrentCost(ModelNormal):
@@ -94,7 +92,7 @@ class CurrentCost(ModelNormal):
         return {
             'plan': (PlanEnum,),  # noqa: E501
             'remaining_trial_day': (int,),  # noqa: E501
-            'remaining_credits': (RemainingCredits,),  # noqa: E501
+            'renewal_at': (datetime, none_type,),  # noqa: E501
             'cost': (Cost,),  # noqa: E501
         }
 
@@ -106,11 +104,12 @@ class CurrentCost(ModelNormal):
     attribute_map = {
         'plan': 'plan',  # noqa: E501
         'remaining_trial_day': 'remaining_trial_day',  # noqa: E501
-        'remaining_credits': 'remaining_credits',  # noqa: E501
+        'renewal_at': 'renewal_at',  # noqa: E501
         'cost': 'cost',  # noqa: E501
     }
 
     read_only_vars = {
+        'renewal_at',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -153,7 +152,7 @@ class CurrentCost(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
-            remaining_credits (RemainingCredits): [optional]  # noqa: E501
+            renewal_at (datetime, none_type): date when the current plan will be renewed. [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501
         """
 
@@ -242,7 +241,7 @@ class CurrentCost(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
-            remaining_credits (RemainingCredits): [optional]  # noqa: E501
+            renewal_at (datetime, none_type): date when the current plan will be renewed. [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501
         """
 

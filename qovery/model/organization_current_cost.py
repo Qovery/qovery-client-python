@@ -33,16 +33,10 @@ from qovery.exceptions import ApiAttributeError
 def lazy_import():
     from qovery.model.cost import Cost
     from qovery.model.current_cost import CurrentCost
-    from qovery.model.organization_current_cost_all_of import OrganizationCurrentCostAllOf
-    from qovery.model.paid_usage import PaidUsage
     from qovery.model.plan_enum import PlanEnum
-    from qovery.model.remaining_credits import RemainingCredits
     globals()['Cost'] = Cost
     globals()['CurrentCost'] = CurrentCost
-    globals()['OrganizationCurrentCostAllOf'] = OrganizationCurrentCostAllOf
-    globals()['PaidUsage'] = PaidUsage
     globals()['PlanEnum'] = PlanEnum
-    globals()['RemainingCredits'] = RemainingCredits
 
 
 class OrganizationCurrentCost(ModelComposed):
@@ -100,9 +94,8 @@ class OrganizationCurrentCost(ModelComposed):
         return {
             'plan': (PlanEnum,),  # noqa: E501
             'remaining_trial_day': (int,),  # noqa: E501
-            'remaining_credits': (RemainingCredits,),  # noqa: E501
+            'renewal_at': (datetime, none_type,),  # noqa: E501
             'cost': (Cost,),  # noqa: E501
-            'paid_usage': (PaidUsage,),  # noqa: E501
         }
 
     @cached_property
@@ -113,12 +106,12 @@ class OrganizationCurrentCost(ModelComposed):
     attribute_map = {
         'plan': 'plan',  # noqa: E501
         'remaining_trial_day': 'remaining_trial_day',  # noqa: E501
-        'remaining_credits': 'remaining_credits',  # noqa: E501
+        'renewal_at': 'renewal_at',  # noqa: E501
         'cost': 'cost',  # noqa: E501
-        'paid_usage': 'paid_usage',  # noqa: E501
     }
 
     read_only_vars = {
+        'renewal_at',  # noqa: E501
     }
 
     @classmethod
@@ -159,9 +152,8 @@ class OrganizationCurrentCost(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
-            remaining_credits (RemainingCredits): [optional]  # noqa: E501
+            renewal_at (datetime, none_type): date when the current plan will be renewed. [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501
-            paid_usage (PaidUsage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -267,9 +259,8 @@ class OrganizationCurrentCost(ModelComposed):
                                 _visited_composed_classes = (Animal,)
             plan (PlanEnum): [optional]  # noqa: E501
             remaining_trial_day (int): number of days remaining before the end of the trial period. [optional]  # noqa: E501
-            remaining_credits (RemainingCredits): [optional]  # noqa: E501
+            renewal_at (datetime, none_type): date when the current plan will be renewed. [optional]  # noqa: E501
             cost (Cost): [optional]  # noqa: E501
-            paid_usage (PaidUsage): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -340,7 +331,6 @@ class OrganizationCurrentCost(ModelComposed):
           ],
           'allOf': [
               CurrentCost,
-              OrganizationCurrentCostAllOf,
           ],
           'oneOf': [
           ],

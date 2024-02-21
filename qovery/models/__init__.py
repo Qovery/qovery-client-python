@@ -356,7 +356,6 @@ from qovery.model.organization_container_auto_deploy_request import Organization
 from qovery.model.organization_container_preview_request import OrganizationContainerPreviewRequest
 from qovery.model.organization_credit_code_request import OrganizationCreditCodeRequest
 from qovery.model.organization_current_cost import OrganizationCurrentCost
-from qovery.model.organization_current_cost_all_of import OrganizationCurrentCostAllOf
 from qovery.model.organization_custom_role import OrganizationCustomRole
 from qovery.model.organization_custom_role_cluster_permission import OrganizationCustomRoleClusterPermission
 from qovery.model.organization_custom_role_cluster_permissions_inner import OrganizationCustomRoleClusterPermissionsInner
@@ -389,7 +388,6 @@ from qovery.model.organization_webhook_kind_enum import OrganizationWebhookKindE
 from qovery.model.organization_webhook_response import OrganizationWebhookResponse
 from qovery.model.organization_webhook_response_list import OrganizationWebhookResponseList
 from qovery.model.pagination_data import PaginationData
-from qovery.model.paid_usage import PaidUsage
 from qovery.model.plan_enum import PlanEnum
 from qovery.model.port_protocol_enum import PortProtocolEnum
 from qovery.model.probe import Probe
