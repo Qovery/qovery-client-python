@@ -408,6 +408,8 @@ docs/OrganizationApiTokenResponseList.md
 docs/OrganizationApiTokenScope.md
 docs/OrganizationAvailableRole.md
 docs/OrganizationAvailableRoleList.md
+docs/OrganizationBillingUsageReportRequest.md
+docs/OrganizationBillingUsageReportResponse.md
 docs/OrganizationChangePlanRequest.md
 docs/OrganizationContainerAutoDeployRequest.md
 docs/OrganizationContainerPreviewRequest.md
@@ -971,6 +973,8 @@ qovery/model/organization_api_token_response_list.py
 qovery/model/organization_api_token_scope.py
 qovery/model/organization_available_role.py
 qovery/model/organization_available_role_list.py
+qovery/model/organization_billing_usage_report_request.py
+qovery/model/organization_billing_usage_report_response.py
 qovery/model/organization_change_plan_request.py
 qovery/model/organization_container_auto_deploy_request.py
 qovery/model/organization_container_preview_request.py
@@ -1510,6 +1514,8 @@ test/test_organization_api_token_response_list.py
 test/test_organization_api_token_scope.py
 test/test_organization_available_role.py
 test/test_organization_available_role_list.py
+test/test_organization_billing_usage_report_request.py
+test/test_organization_billing_usage_report_response.py
 test/test_organization_change_plan_request.py
 test/test_organization_container_auto_deploy_request.py
 test/test_organization_container_preview_request.py

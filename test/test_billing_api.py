@@ -59,6 +59,13 @@ class TestBillingApi(unittest.TestCase):
         """
         pass
 
+    def test_generate_billing_usage_report(self):
+        """Test case for generate_billing_usage_report
+
+        Generate organization billing usage report  # noqa: E501
+        """
+        pass
+
     def test_get_cluster_current_cost(self):
         """Test case for get_cluster_current_cost
 

@@ -150,6 +150,7 @@ Class | Method | HTTP request | Description
 *BillingApi* | [**change_plan**](docs/BillingApi.md#change_plan) | **POST** /organization/{organizationId}/changePlan | Change organization plan
 *BillingApi* | [**delete_credit_card**](docs/BillingApi.md#delete_credit_card) | **DELETE** /organization/{organizationId}/creditCard/{creditCardId} | Delete credit card
 *BillingApi* | [**edit_organization_billing_info**](docs/BillingApi.md#edit_organization_billing_info) | **PUT** /organization/{organizationId}/billingInfo | Edit Organization Billing Info
+*BillingApi* | [**generate_billing_usage_report**](docs/BillingApi.md#generate_billing_usage_report) | **POST** /organization/{organizationId}/billingUsageReport | Generate organization billing usage report
 *BillingApi* | [**get_cluster_current_cost**](docs/BillingApi.md#get_cluster_current_cost) | **GET** /organization/{organizationId}/cluster/{clusterId}/currentCost | Get cluster current cost
 *BillingApi* | [**get_organization_billing_external_id**](docs/BillingApi.md#get_organization_billing_external_id) | **GET** /organization/{organizationId}/billingExternalId | Get organization billing external ID
 *BillingApi* | [**get_organization_billing_info**](docs/BillingApi.md#get_organization_billing_info) | **GET** /organization/{organizationId}/billingInfo | Get organization billing info
@@ -830,6 +831,8 @@ Class | Method | HTTP request | Description
  - [OrganizationApiTokenScope](docs/OrganizationApiTokenScope.md)
  - [OrganizationAvailableRole](docs/OrganizationAvailableRole.md)
  - [OrganizationAvailableRoleList](docs/OrganizationAvailableRoleList.md)
+ - [OrganizationBillingUsageReportRequest](docs/OrganizationBillingUsageReportRequest.md)
+ - [OrganizationBillingUsageReportResponse](docs/OrganizationBillingUsageReportResponse.md)
  - [OrganizationChangePlanRequest](docs/OrganizationChangePlanRequest.md)
  - [OrganizationContainerAutoDeployRequest](docs/OrganizationContainerAutoDeployRequest.md)
  - [OrganizationContainerPreviewRequest](docs/OrganizationContainerPreviewRequest.md)

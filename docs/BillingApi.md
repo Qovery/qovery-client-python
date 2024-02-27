@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**change_plan**](BillingApi.md#change_plan) | **POST** /organization/{organizationId}/changePlan | Change organization plan
 [**delete_credit_card**](BillingApi.md#delete_credit_card) | **DELETE** /organization/{organizationId}/creditCard/{creditCardId} | Delete credit card
 [**edit_organization_billing_info**](BillingApi.md#edit_organization_billing_info) | **PUT** /organization/{organizationId}/billingInfo | Edit Organization Billing Info
+[**generate_billing_usage_report**](BillingApi.md#generate_billing_usage_report) | **POST** /organization/{organizationId}/billingUsageReport | Generate organization billing usage report
 [**get_cluster_current_cost**](BillingApi.md#get_cluster_current_cost) | **GET** /organization/{organizationId}/cluster/{clusterId}/currentCost | Get cluster current cost
 [**get_organization_billing_external_id**](BillingApi.md#get_organization_billing_external_id) | **GET** /organization/{organizationId}/billingExternalId | Get organization billing external ID
 [**get_organization_billing_info**](BillingApi.md#get_organization_billing_info) | **GET** /organization/{organizationId}/billingInfo | Get organization billing info
@@ -508,6 +509,108 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit billing info |  -  |
+**400** | Bad request |  -  |
+**401** | Access token is missing or invalid |  -  |
+**403** | Access forbidden |  -  |
+**404** | Resource not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **generate_billing_usage_report**
+> OrganizationBillingUsageReportResponse generate_billing_usage_report(organization_id)
+
+Generate organization billing usage report
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+* Bearer (JWT) Authentication (bearerAuth):
+
+```python
+import time
+import qovery
+from qovery.api import billing_api
+from qovery.model.organization_billing_usage_report_request import OrganizationBillingUsageReportRequest
+from qovery.model.organization_billing_usage_report_response import OrganizationBillingUsageReportResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.qovery.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = qovery.Configuration(
+    host = "https://api.qovery.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Configure Bearer authorization (JWT): bearerAuth
+configuration = qovery.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with qovery.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = billing_api.BillingApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    organization_billing_usage_report_request = OrganizationBillingUsageReportRequest(
+        _from=dateutil_parser('2020-01-01T00:00:00Z'),
+        to=dateutil_parser('2020-01-31T23:59:59Z'),
+        report_expiration_in_seconds=3600,
+    ) # OrganizationBillingUsageReportRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Generate organization billing usage report
+        api_response = api_instance.generate_billing_usage_report(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling BillingApi->generate_billing_usage_report: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Generate organization billing usage report
+        api_response = api_instance.generate_billing_usage_report(organization_id, organization_billing_usage_report_request=organization_billing_usage_report_request)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling BillingApi->generate_billing_usage_report: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization_id** | **str**| Organization ID |
+ **organization_billing_usage_report_request** | [**OrganizationBillingUsageReportRequest**](OrganizationBillingUsageReportRequest.md)|  | [optional]
+
+### Return type
+
+[**OrganizationBillingUsageReportResponse**](OrganizationBillingUsageReportResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | billing usage report has been successfully generated |  -  |
 **400** | Bad request |  -  |
 **401** | Access token is missing or invalid |  -  |
 **403** | Access forbidden |  -  |
