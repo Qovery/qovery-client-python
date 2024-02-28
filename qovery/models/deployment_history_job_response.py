@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from qovery.models.commit import Commit
 from qovery.models.deployment_history_job_response_all_of_schedule import DeploymentHistoryJobResponseAllOfSchedule
@@ -40,7 +40,6 @@ class DeploymentHistoryJobResponse(BaseModel):
     schedule: Optional[DeploymentHistoryJobResponseAllOfSchedule] = None
     arguments: Optional[conlist(StrictStr)] = None
     entrypoint: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "status", "image_name", "tag", "commit", "schedule", "arguments", "entrypoint"]
 
     class Config:
@@ -68,7 +67,6 @@ class DeploymentHistoryJobResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of commit
@@ -77,11 +75,6 @@ class DeploymentHistoryJobResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of schedule
         if self.schedule:
             _dict['schedule'] = self.schedule.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if commit (nullable) is None
         # and __fields_set__ contains the field
         if self.commit is None and "commit" in self.__fields_set__:
@@ -111,11 +104,6 @@ class DeploymentHistoryJobResponse(BaseModel):
             "arguments": obj.get("arguments"),
             "entrypoint": obj.get("entrypoint")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

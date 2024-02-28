@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field
 from qovery.models.probe_type_exec import ProbeTypeExec
 from qovery.models.probe_type_grpc import ProbeTypeGrpc
@@ -34,7 +34,6 @@ class ProbeType(BaseModel):
     http: Optional[ProbeTypeHttp] = None
     var_exec: Optional[ProbeTypeExec] = Field(None, alias="exec")
     grpc: Optional[ProbeTypeGrpc] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["tcp", "http", "exec", "grpc"]
 
     class Config:
@@ -59,7 +58,6 @@ class ProbeType(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of tcp
@@ -74,11 +72,6 @@ class ProbeType(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of grpc
         if self.grpc:
             _dict['grpc'] = self.grpc.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if tcp (nullable) is None
         # and __fields_set__ contains the field
         if self.tcp is None and "tcp" in self.__fields_set__:
@@ -116,11 +109,6 @@ class ProbeType(BaseModel):
             "var_exec": ProbeTypeExec.from_dict(obj.get("exec")) if obj.get("exec") is not None else None,
             "grpc": ProbeTypeGrpc.from_dict(obj.get("grpc")) if obj.get("grpc") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

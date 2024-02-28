@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel
 from qovery.models.helm_request_all_of_values_override_file_git import HelmRequestAllOfValuesOverrideFileGit
 from qovery.models.helm_request_all_of_values_override_file_raw import HelmRequestAllOfValuesOverrideFileRaw
@@ -30,7 +30,6 @@ class HelmRequestAllOfValuesOverrideFile(BaseModel):
     """
     git: Optional[HelmRequestAllOfValuesOverrideFileGit] = None
     raw: Optional[HelmRequestAllOfValuesOverrideFileRaw] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["git", "raw"]
 
     class Config:
@@ -55,7 +54,6 @@ class HelmRequestAllOfValuesOverrideFile(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of git
@@ -64,11 +62,6 @@ class HelmRequestAllOfValuesOverrideFile(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of raw
         if self.raw:
             _dict['raw'] = self.raw.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if git (nullable) is None
         # and __fields_set__ contains the field
         if self.git is None and "git" in self.__fields_set__:
@@ -94,11 +87,6 @@ class HelmRequestAllOfValuesOverrideFile(BaseModel):
             "git": HelmRequestAllOfValuesOverrideFileGit.from_dict(obj.get("git")) if obj.get("git") is not None else None,
             "raw": HelmRequestAllOfValuesOverrideFileRaw.from_dict(obj.get("raw")) if obj.get("raw") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

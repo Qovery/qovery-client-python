@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class JobDeployRequest(BaseModel):
@@ -28,7 +28,6 @@ class JobDeployRequest(BaseModel):
     """
     image_tag: Optional[StrictStr] = Field(None, description="Image tag to deploy.   Cannot be set if `git_commit_id` is defined ")
     git_commit_id: Optional[StrictStr] = Field(None, description="Commit to deploy Cannot be set if `image_tag` is defined ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["image_tag", "git_commit_id"]
 
     class Config:
@@ -53,14 +52,8 @@ class JobDeployRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -76,11 +69,6 @@ class JobDeployRequest(BaseModel):
             "image_tag": obj.get("image_tag"),
             "git_commit_id": obj.get("git_commit_id")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

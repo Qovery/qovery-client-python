@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, StrictStr, conlist
 from qovery.models.deploy_all_request_applications_inner import DeployAllRequestApplicationsInner
 from qovery.models.deploy_all_request_containers_inner import DeployAllRequestContainersInner
@@ -35,7 +35,6 @@ class DeployAllRequest(BaseModel):
     containers: Optional[conlist(DeployAllRequestContainersInner)] = None
     jobs: Optional[conlist(DeployAllRequestJobsInner)] = None
     helms: Optional[conlist(DeployAllRequestHelmsInner)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["applications", "databases", "containers", "jobs", "helms"]
 
     class Config:
@@ -60,7 +59,6 @@ class DeployAllRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in applications (list)
@@ -91,11 +89,6 @@ class DeployAllRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['helms'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -114,11 +107,6 @@ class DeployAllRequest(BaseModel):
             "jobs": [DeployAllRequestJobsInner.from_dict(_item) for _item in obj.get("jobs")] if obj.get("jobs") is not None else None,
             "helms": [DeployAllRequestHelmsInner.from_dict(_item) for _item in obj.get("helms")] if obj.get("helms") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

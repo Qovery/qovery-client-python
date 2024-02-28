@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.environment_mode_enum import EnvironmentModeEnum
 
@@ -31,7 +31,6 @@ class CloneEnvironmentRequest(BaseModel):
     cluster_id: Optional[StrictStr] = None
     mode: Optional[EnvironmentModeEnum] = None
     apply_deployment_rule: Optional[StrictBool] = False
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "cluster_id", "mode", "apply_deployment_rule"]
 
     class Config:
@@ -56,14 +55,8 @@ class CloneEnvironmentRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -81,11 +74,6 @@ class CloneEnvironmentRequest(BaseModel):
             "mode": obj.get("mode"),
             "apply_deployment_rule": obj.get("apply_deployment_rule") if obj.get("apply_deployment_rule") is not None else False
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

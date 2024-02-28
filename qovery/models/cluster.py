@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from qovery.models.cloud_provider_enum import CloudProviderEnum
 from qovery.models.cluster_deployment_status_enum import ClusterDeploymentStatusEnum
@@ -56,7 +56,6 @@ class Cluster(BaseModel):
     ssh_keys: Optional[conlist(StrictStr)] = Field(None, description="Indicate your public ssh_key to remotely connect to your EC2 instance.")
     features: Optional[conlist(ClusterFeature)] = None
     deployment_status: Optional[ClusterDeploymentStatusEnum] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "organization", "name", "description", "region", "cloud_provider", "min_running_nodes", "max_running_nodes", "disk_size", "instance_type", "kubernetes", "cpu", "memory", "estimated_cloud_provider_cost", "status", "has_access", "version", "is_default", "production", "ssh_keys", "features", "deployment_status"]
 
     class Config:
@@ -84,7 +83,6 @@ class Cluster(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of organization
@@ -97,11 +95,6 @@ class Cluster(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['features'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -139,11 +132,6 @@ class Cluster(BaseModel):
             "features": [ClusterFeature.from_dict(_item) for _item in obj.get("features")] if obj.get("features") is not None else None,
             "deployment_status": obj.get("deployment_status")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

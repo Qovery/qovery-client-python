@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Union
+from typing import Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 from qovery.models.invoice_status_enum import InvoiceStatusEnum
 
@@ -33,7 +33,6 @@ class Invoice(BaseModel):
     id: StrictStr = Field(...)
     created_at: datetime = Field(...)
     status: InvoiceStatusEnum = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["total_in_cents", "total", "currency_code", "id", "created_at", "status"]
 
     class Config:
@@ -58,14 +57,8 @@ class Invoice(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -85,11 +78,6 @@ class Invoice(BaseModel):
             "created_at": obj.get("created_at"),
             "status": obj.get("status")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from qovery.models.organization_custom_role_update_request_cluster_permissions_inner import OrganizationCustomRoleUpdateRequestClusterPermissionsInner
 from qovery.models.organization_custom_role_update_request_project_permissions_inner import OrganizationCustomRoleUpdateRequestProjectPermissionsInner
@@ -32,7 +32,6 @@ class OrganizationCustomRoleUpdateRequest(BaseModel):
     description: Optional[StrictStr] = None
     cluster_permissions: conlist(OrganizationCustomRoleUpdateRequestClusterPermissionsInner) = Field(..., description="Should contain an entry for every existing cluster")
     project_permissions: conlist(OrganizationCustomRoleUpdateRequestProjectPermissionsInner) = Field(..., description="Should contain an entry for every existing project")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "description", "cluster_permissions", "project_permissions"]
 
     class Config:
@@ -57,7 +56,6 @@ class OrganizationCustomRoleUpdateRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in cluster_permissions (list)
@@ -74,11 +72,6 @@ class OrganizationCustomRoleUpdateRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['project_permissions'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -96,11 +89,6 @@ class OrganizationCustomRoleUpdateRequest(BaseModel):
             "cluster_permissions": [OrganizationCustomRoleUpdateRequestClusterPermissionsInner.from_dict(_item) for _item in obj.get("cluster_permissions")] if obj.get("cluster_permissions") is not None else None,
             "project_permissions": [OrganizationCustomRoleUpdateRequestProjectPermissionsInner.from_dict(_item) for _item in obj.get("project_permissions")] if obj.get("project_permissions") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

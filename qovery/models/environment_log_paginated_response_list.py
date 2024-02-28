@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional, Union
+from typing import List, Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, conlist
 from qovery.models.environment_log import EnvironmentLog
 
@@ -30,7 +30,6 @@ class EnvironmentLogPaginatedResponseList(BaseModel):
     page: Union[StrictFloat, StrictInt] = Field(...)
     page_size: Union[StrictFloat, StrictInt] = Field(...)
     results: Optional[conlist(EnvironmentLog)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["page", "page_size", "results"]
 
     class Config:
@@ -55,7 +54,6 @@ class EnvironmentLogPaginatedResponseList(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in results (list)
@@ -65,11 +63,6 @@ class EnvironmentLogPaginatedResponseList(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['results'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -86,11 +79,6 @@ class EnvironmentLogPaginatedResponseList(BaseModel):
             "page_size": obj.get("page_size"),
             "results": [EnvironmentLog.from_dict(_item) for _item in obj.get("results")] if obj.get("results") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

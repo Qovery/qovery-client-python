@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
 from qovery.models.helm_response_all_of_ports import HelmResponseAllOfPorts
 from qovery.models.helm_response_all_of_source import HelmResponseAllOfSource
@@ -44,7 +44,6 @@ class HelmResponse(BaseModel):
     arguments: conlist(StrictStr) = Field(..., description="The extra arguments to pass to helm")
     allow_cluster_wide_resources: StrictBool = Field(..., description="If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights ")
     values_override: HelmResponseAllOfValuesOverride = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "environment", "name", "description", "timeout_sec", "auto_preview", "auto_deploy", "ports", "source", "arguments", "allow_cluster_wide_resources", "values_override"]
 
     class Config:
@@ -72,7 +71,6 @@ class HelmResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of environment
@@ -91,11 +89,6 @@ class HelmResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of values_override
         if self.values_override:
             _dict['values_override'] = self.values_override.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -123,11 +116,6 @@ class HelmResponse(BaseModel):
             "allow_cluster_wide_resources": obj.get("allow_cluster_wide_resources") if obj.get("allow_cluster_wide_resources") is not None else False,
             "values_override": HelmResponseAllOfValuesOverride.from_dict(obj.get("values_override")) if obj.get("values_override") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

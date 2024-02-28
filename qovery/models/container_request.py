@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, conlist
 from qovery.models.healthcheck import Healthcheck
 from qovery.models.service_port_request_ports_inner import ServicePortRequestPortsInner
@@ -45,7 +45,6 @@ class ContainerRequest(BaseModel):
     healthchecks: Healthcheck = Field(...)
     auto_preview: Optional[StrictBool] = Field(None, description="Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. ")
     auto_deploy: Optional[StrictBool] = Field(None, description="Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["storage", "ports", "name", "description", "registry_id", "image_name", "tag", "arguments", "entrypoint", "cpu", "memory", "min_running_instances", "max_running_instances", "healthchecks", "auto_preview", "auto_deploy"]
 
     class Config:
@@ -70,7 +69,6 @@ class ContainerRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in storage (list)
@@ -90,11 +88,6 @@ class ContainerRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of healthchecks
         if self.healthchecks:
             _dict['healthchecks'] = self.healthchecks.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if auto_deploy (nullable) is None
         # and __fields_set__ contains the field
         if self.auto_deploy is None and "auto_deploy" in self.__fields_set__:
@@ -129,11 +122,6 @@ class ContainerRequest(BaseModel):
             "auto_preview": obj.get("auto_preview"),
             "auto_deploy": obj.get("auto_deploy")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

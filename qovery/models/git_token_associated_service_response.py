@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.git_token_associated_service_type import GitTokenAssociatedServiceType
 
@@ -34,7 +34,6 @@ class GitTokenAssociatedServiceResponse(BaseModel):
     service_id: StrictStr = Field(...)
     service_name: StrictStr = Field(...)
     service_type: GitTokenAssociatedServiceType = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["project_id", "project_name", "environment_id", "environment_name", "service_id", "service_name", "service_type"]
 
     class Config:
@@ -59,14 +58,8 @@ class GitTokenAssociatedServiceResponse(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -87,11 +80,6 @@ class GitTokenAssociatedServiceResponse(BaseModel):
             "service_name": obj.get("service_name"),
             "service_type": obj.get("service_type")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

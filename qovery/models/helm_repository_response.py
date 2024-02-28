@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.helm_repository_kind_enum import HelmRepositoryKindEnum
 
@@ -35,7 +35,6 @@ class HelmRepositoryResponse(BaseModel):
     description: Optional[StrictStr] = None
     url: Optional[StrictStr] = Field(None, description="URL of the helm repository")
     skip_tls_verification: Optional[StrictBool] = Field(None, description="Bypass tls certificate verification when connecting to repository")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "kind", "description", "url", "skip_tls_verification"]
 
     class Config:
@@ -63,14 +62,8 @@ class HelmRepositoryResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -92,11 +85,6 @@ class HelmRepositoryResponse(BaseModel):
             "url": obj.get("url"),
             "skip_tls_verification": obj.get("skip_tls_verification")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

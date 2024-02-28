@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class ContainerRegistryRequestConfig(BaseModel):
@@ -33,7 +33,6 @@ class ContainerRegistryRequestConfig(BaseModel):
     scaleway_secret_key: Optional[StrictStr] = Field(None, description="Required if kind is `SCALEWAY_CR`")
     username: Optional[StrictStr] = Field(None, description="optional, for kind `DOCKER_HUB`   We encourage you to set credentials for Docker Hub due to the limits on the pull rate ")
     password: Optional[StrictStr] = Field(None, description="optional, for kind `DOCKER_HUB`   We encourage you to set credentials for Docker Hub due to the limits on the pull rate ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["access_key_id", "secret_access_key", "region", "scaleway_access_key", "scaleway_secret_key", "username", "password"]
 
     class Config:
@@ -58,14 +57,8 @@ class ContainerRegistryRequestConfig(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -86,11 +79,6 @@ class ContainerRegistryRequestConfig(BaseModel):
             "username": obj.get("username"),
             "password": obj.get("password")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

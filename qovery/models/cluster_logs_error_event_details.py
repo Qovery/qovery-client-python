@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.cluster_logs_error_event_details_transmitter import ClusterLogsErrorEventDetailsTransmitter
 
@@ -30,7 +30,6 @@ class ClusterLogsErrorEventDetails(BaseModel):
     provider_kind: Optional[StrictStr] = Field(None, description="cloud provider used")
     region: Optional[StrictStr] = None
     transmitter: Optional[ClusterLogsErrorEventDetailsTransmitter] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["provider_kind", "region", "transmitter"]
 
     class Config:
@@ -55,17 +54,11 @@ class ClusterLogsErrorEventDetails(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of transmitter
         if self.transmitter:
             _dict['transmitter'] = self.transmitter.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class ClusterLogsErrorEventDetails(BaseModel):
             "region": obj.get("region"),
             "transmitter": ClusterLogsErrorEventDetailsTransmitter.from_dict(obj.get("transmitter")) if obj.get("transmitter") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

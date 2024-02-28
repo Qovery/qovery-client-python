@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, conlist
 from qovery.models.application_git_repository import ApplicationGitRepository
 from qovery.models.build_mode_enum import BuildModeEnum
@@ -56,7 +56,6 @@ class Application(BaseModel):
     arguments: Optional[conlist(StrictStr)] = None
     entrypoint: Optional[StrictStr] = Field(None, description="optional entrypoint when launching container")
     auto_deploy: Optional[StrictBool] = Field(None, description="Specify if the application will be automatically updated after receiving a new commit.")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "storage", "environment", "git_repository", "maximum_cpu", "maximum_memory", "name", "description", "build_mode", "dockerfile_path", "buildpack_language", "cpu", "memory", "min_running_instances", "max_running_instances", "healthchecks", "auto_preview", "ports", "arguments", "entrypoint", "auto_deploy"]
 
     class Config:
@@ -84,7 +83,6 @@ class Application(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in storage (list)
@@ -110,11 +108,6 @@ class Application(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['ports'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if description (nullable) is None
         # and __fields_set__ contains the field
         if self.description is None and "description" in self.__fields_set__:
@@ -166,11 +159,6 @@ class Application(BaseModel):
             "entrypoint": obj.get("entrypoint"),
             "auto_deploy": obj.get("auto_deploy")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

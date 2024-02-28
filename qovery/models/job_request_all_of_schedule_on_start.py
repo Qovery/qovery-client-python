@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
 class JobRequestAllOfScheduleOnStart(BaseModel):
@@ -28,7 +28,6 @@ class JobRequestAllOfScheduleOnStart(BaseModel):
     """
     arguments: Optional[conlist(StrictStr)] = None
     entrypoint: Optional[StrictStr] = Field(None, description="optional entrypoint when launching container")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["arguments", "entrypoint"]
 
     class Config:
@@ -53,14 +52,8 @@ class JobRequestAllOfScheduleOnStart(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -76,11 +69,6 @@ class JobRequestAllOfScheduleOnStart(BaseModel):
             "arguments": obj.get("arguments"),
             "entrypoint": obj.get("entrypoint")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

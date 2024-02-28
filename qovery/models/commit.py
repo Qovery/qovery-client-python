@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class Commit(BaseModel):
@@ -33,7 +33,6 @@ class Commit(BaseModel):
     author_name: StrictStr = Field(...)
     author_avatar_url: Optional[StrictStr] = None
     commit_page_url: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["created_at", "git_commit_id", "tag", "message", "author_name", "author_avatar_url", "commit_page_url"]
 
     class Config:
@@ -58,14 +57,8 @@ class Commit(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -86,11 +79,6 @@ class Commit(BaseModel):
             "author_avatar_url": obj.get("author_avatar_url"),
             "commit_page_url": obj.get("commit_page_url")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

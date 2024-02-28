@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional, Union
+from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from qovery.models.service_type_enum import ServiceTypeEnum
 
@@ -38,7 +38,6 @@ class Service(BaseModel):
     service_typology: Optional[StrictStr] = Field(None, description="describes the typology of service (container, postgresl, redis...)")
     service_version: Optional[StrictStr] = Field(None, description="for databases this field exposes the database version")
     to_update: Optional[StrictBool] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "type", "name", "deployed_commit_id", "last_updated_by", "consumed_resources_in_percent", "service_typology", "service_version", "to_update"]
 
     class Config:
@@ -65,14 +64,8 @@ class Service(BaseModel):
                           exclude={
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -97,11 +90,6 @@ class Service(BaseModel):
             "service_version": obj.get("service_version"),
             "to_update": obj.get("to_update")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

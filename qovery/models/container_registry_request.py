@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.container_registry_kind_enum import ContainerRegistryKindEnum
 from qovery.models.container_registry_request_config import ContainerRegistryRequestConfig
@@ -33,7 +33,6 @@ class ContainerRegistryRequest(BaseModel):
     description: Optional[StrictStr] = None
     url: Optional[StrictStr] = Field(None, description="URL of the container registry: * For `DOCKER_HUB`: it must be `https://docker.io` (default with 'https://docker.io' if no url provided for `DOCKER_HUB`) * For `GITHUB_CR`: it must be `https://ghcr.io` (default with 'https://ghcr.io' if no url provided for `GITHUB_CR`) * For `GITLAB_CR`: it must be `https://registry.gitlab.com` (default with 'https://registry.gitlab.com' if no url provided for `GITLAB_CR`) * For others: it's required and must start by `https://` ")
     config: ContainerRegistryRequestConfig = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "kind", "description", "url", "config"]
 
     class Config:
@@ -58,17 +57,11 @@ class ContainerRegistryRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of config
         if self.config:
             _dict['config'] = self.config.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -87,11 +80,6 @@ class ContainerRegistryRequest(BaseModel):
             "url": obj.get("url"),
             "config": ContainerRegistryRequestConfig.from_dict(obj.get("config")) if obj.get("config") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List
+from typing import List
 from pydantic import BaseModel, Field, StrictStr, conlist
 from qovery.models.application_git_repository import ApplicationGitRepository
 
@@ -29,7 +29,6 @@ class HelmResponseAllOfValuesOverrideFileGit(BaseModel):
     """
     git_repository: ApplicationGitRepository = Field(...)
     paths: conlist(StrictStr) = Field(..., description="List of path inside your git repository to locate values file. Must start by a /")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["git_repository", "paths"]
 
     class Config:
@@ -54,17 +53,11 @@ class HelmResponseAllOfValuesOverrideFileGit(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of git_repository
         if self.git_repository:
             _dict['git_repository'] = self.git_repository.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -80,11 +73,6 @@ class HelmResponseAllOfValuesOverrideFileGit(BaseModel):
             "git_repository": ApplicationGitRepository.from_dict(obj.get("git_repository")) if obj.get("git_repository") is not None else None,
             "paths": obj.get("paths")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

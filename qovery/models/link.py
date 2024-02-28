@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 
 class Link(BaseModel):
@@ -31,7 +31,6 @@ class Link(BaseModel):
     external_port: Optional[StrictInt] = Field(None, description="The port from which the service is reachable from externally (i.e: 443 for HTTPS)")
     is_qovery_domain: Optional[StrictBool] = Field(None, description="True if the domain is managed by Qovery, false if it belongs to the user")
     is_default: Optional[StrictBool] = Field(None, description="Indicate if the link is using the root of the domain and not one derivated from port i.e: p8080.zxxxx.jvm.worl      => is_default = false, is_qovery = true zxxxx.jvm.world           => is_default = true, is_qovery = true p8080-my-super-domain.com => is_default = false, is_qovery = false my-super-domain.com       => is_default = true, is_qovery = false ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["url", "internal_port", "external_port", "is_qovery_domain", "is_default"]
 
     class Config:
@@ -56,14 +55,8 @@ class Link(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class Link(BaseModel):
             "is_qovery_domain": obj.get("is_qovery_domain"),
             "is_default": obj.get("is_default")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel
 from qovery.models.job_request_all_of_source_docker import JobRequestAllOfSourceDocker
 from qovery.models.job_request_all_of_source_image import JobRequestAllOfSourceImage
@@ -30,7 +30,6 @@ class JobRequestAllOfSource(BaseModel):
     """
     image: Optional[JobRequestAllOfSourceImage] = None
     docker: Optional[JobRequestAllOfSourceDocker] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["image", "docker"]
 
     class Config:
@@ -55,7 +54,6 @@ class JobRequestAllOfSource(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of image
@@ -64,11 +62,6 @@ class JobRequestAllOfSource(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of docker
         if self.docker:
             _dict['docker'] = self.docker.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if image (nullable) is None
         # and __fields_set__ contains the field
         if self.image is None and "image" in self.__fields_set__:
@@ -94,11 +87,6 @@ class JobRequestAllOfSource(BaseModel):
             "image": JobRequestAllOfSourceImage.from_dict(obj.get("image")) if obj.get("image") is not None else None,
             "docker": JobRequestAllOfSourceDocker.from_dict(obj.get("docker")) if obj.get("docker") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

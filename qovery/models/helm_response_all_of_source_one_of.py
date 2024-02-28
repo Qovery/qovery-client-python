@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel
 from qovery.models.helm_response_all_of_source_one_of_git import HelmResponseAllOfSourceOneOfGit
 
@@ -28,7 +28,6 @@ class HelmResponseAllOfSourceOneOf(BaseModel):
     HelmResponseAllOfSourceOneOf
     """
     git: Optional[HelmResponseAllOfSourceOneOfGit] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["git"]
 
     class Config:
@@ -53,17 +52,11 @@ class HelmResponseAllOfSourceOneOf(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of git
         if self.git:
             _dict['git'] = self.git.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -78,11 +71,6 @@ class HelmResponseAllOfSourceOneOf(BaseModel):
         _obj = HelmResponseAllOfSourceOneOf.parse_obj({
             "git": HelmResponseAllOfSourceOneOfGit.from_dict(obj.get("git")) if obj.get("git") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

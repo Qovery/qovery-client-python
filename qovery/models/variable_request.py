@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.api_variable_scope_enum import APIVariableScopeEnum
 
@@ -33,7 +33,6 @@ class VariableRequest(BaseModel):
     is_secret: StrictBool = Field(..., description="if true, the variable will be considered as a secret and will not be accessible after its creation. Only your applications will be able to access its value at build and run time.")
     variable_scope: APIVariableScopeEnum = Field(...)
     variable_parent_id: StrictStr = Field(..., description="based on the selected scope, it contains the ID of the service, environment or project where the variable is attached")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["key", "value", "mount_path", "is_secret", "variable_scope", "variable_parent_id"]
 
     class Config:
@@ -58,14 +57,8 @@ class VariableRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if mount_path (nullable) is None
         # and __fields_set__ contains the field
         if self.mount_path is None and "mount_path" in self.__fields_set__:
@@ -90,11 +83,6 @@ class VariableRequest(BaseModel):
             "variable_scope": obj.get("variable_scope"),
             "variable_parent_id": obj.get("variable_parent_id")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

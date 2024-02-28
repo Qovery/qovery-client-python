@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class DeploymentStageServiceResponse(BaseModel):
@@ -31,7 +31,6 @@ class DeploymentStageServiceResponse(BaseModel):
     updated_at: Optional[datetime] = None
     service_id: Optional[StrictStr] = Field(None, description="id of the service attached to the stage")
     service_type: Optional[StrictStr] = Field(None, description="type of the service (i.e APPLICATION, JOB, DATABASE, ...)")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "service_id", "service_type"]
 
     class Config:
@@ -59,14 +58,8 @@ class DeploymentStageServiceResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -85,11 +78,6 @@ class DeploymentStageServiceResponse(BaseModel):
             "service_id": obj.get("service_id"),
             "service_type": obj.get("service_type")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

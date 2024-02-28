@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, StrictStr, conlist
 
 class RebootServicesRequest(BaseModel):
@@ -29,7 +29,6 @@ class RebootServicesRequest(BaseModel):
     application_ids: Optional[conlist(StrictStr)] = None
     database_ids: Optional[conlist(StrictStr)] = None
     container_ids: Optional[conlist(StrictStr)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["application_ids", "database_ids", "container_ids"]
 
     class Config:
@@ -54,14 +53,8 @@ class RebootServicesRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -78,11 +71,6 @@ class RebootServicesRequest(BaseModel):
             "database_ids": obj.get("database_ids"),
             "container_ids": obj.get("container_ids")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.environment_all_of_cloud_provider import EnvironmentAllOfCloudProvider
 from qovery.models.environment_mode_enum import EnvironmentModeEnum
@@ -40,7 +40,6 @@ class Environment(BaseModel):
     mode: EnvironmentModeEnum = Field(...)
     cluster_id: StrictStr = Field(...)
     cluster_name: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "organization", "project", "last_updated_by", "cloud_provider", "mode", "cluster_id", "cluster_name"]
 
     class Config:
@@ -68,7 +67,6 @@ class Environment(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of organization
@@ -80,11 +78,6 @@ class Environment(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of cloud_provider
         if self.cloud_provider:
             _dict['cloud_provider'] = self.cloud_provider.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -109,11 +102,6 @@ class Environment(BaseModel):
             "cluster_id": obj.get("cluster_id"),
             "cluster_name": obj.get("cluster_name")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

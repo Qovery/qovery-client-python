@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field
 from qovery.models.helm_request_all_of_source import HelmRequestAllOfSource
 
@@ -28,7 +28,6 @@ class HelmDefaultValuesRequest(BaseModel):
     HelmDefaultValuesRequest
     """
     source: HelmRequestAllOfSource = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["source"]
 
     class Config:
@@ -53,17 +52,11 @@ class HelmDefaultValuesRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of source
         if self.source:
             _dict['source'] = self.source.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -78,11 +71,6 @@ class HelmDefaultValuesRequest(BaseModel):
         _obj = HelmDefaultValuesRequest.parse_obj({
             "source": HelmRequestAllOfSource.from_dict(obj.get("source")) if obj.get("source") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

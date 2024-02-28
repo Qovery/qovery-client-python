@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.status import Status
 
@@ -33,7 +33,6 @@ class Backup(BaseModel):
     name: StrictStr = Field(...)
     message: StrictStr = Field(...)
     status: Optional[Status] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "message", "status"]
 
     class Config:
@@ -61,17 +60,11 @@ class Backup(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of status
         if self.status:
             _dict['status'] = self.status.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -91,11 +84,6 @@ class Backup(BaseModel):
             "message": obj.get("message"),
             "status": Status.from_dict(obj.get("status")) if obj.get("status") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

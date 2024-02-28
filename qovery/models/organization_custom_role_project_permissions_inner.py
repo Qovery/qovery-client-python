@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from qovery.models.organization_custom_role_update_request_project_permissions_inner_permissions_inner import OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner
 
@@ -31,7 +31,6 @@ class OrganizationCustomRoleProjectPermissionsInner(BaseModel):
     project_name: Optional[StrictStr] = None
     is_admin: Optional[StrictBool] = Field(False, description="If `is_admin` is `true`, the user is: - automatically `MANAGER` for each environment type - allowed to manage project deployment rules - able to delete the project    Note that `permissions` can then be ignored for this project ")
     permissions: Optional[conlist(OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["project_id", "project_name", "is_admin", "permissions"]
 
     class Config:
@@ -56,7 +55,6 @@ class OrganizationCustomRoleProjectPermissionsInner(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in permissions (list)
@@ -66,11 +64,6 @@ class OrganizationCustomRoleProjectPermissionsInner(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['permissions'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -88,11 +81,6 @@ class OrganizationCustomRoleProjectPermissionsInner(BaseModel):
             "is_admin": obj.get("is_admin") if obj.get("is_admin") is not None else False,
             "permissions": [OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner.from_dict(_item) for _item in obj.get("permissions")] if obj.get("permissions") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

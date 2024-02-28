@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from qovery.models.state_enum import StateEnum
 
@@ -36,7 +36,6 @@ class DeploymentHistoryContainer(BaseModel):
     tag: Optional[StrictStr] = None
     arguments: Optional[conlist(StrictStr)] = None
     entrypoint: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "status", "image_name", "tag", "arguments", "entrypoint"]
 
     class Config:
@@ -64,14 +63,8 @@ class DeploymentHistoryContainer(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -94,11 +87,6 @@ class DeploymentHistoryContainer(BaseModel):
             "arguments": obj.get("arguments"),
             "entrypoint": obj.get("entrypoint")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

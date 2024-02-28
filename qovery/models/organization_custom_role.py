@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, StrictStr, conlist
 from qovery.models.organization_custom_role_cluster_permissions_inner import OrganizationCustomRoleClusterPermissionsInner
 from qovery.models.organization_custom_role_project_permissions_inner import OrganizationCustomRoleProjectPermissionsInner
@@ -33,7 +33,6 @@ class OrganizationCustomRole(BaseModel):
     description: Optional[StrictStr] = None
     cluster_permissions: Optional[conlist(OrganizationCustomRoleClusterPermissionsInner)] = None
     project_permissions: Optional[conlist(OrganizationCustomRoleProjectPermissionsInner)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "name", "description", "cluster_permissions", "project_permissions"]
 
     class Config:
@@ -58,7 +57,6 @@ class OrganizationCustomRole(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in cluster_permissions (list)
@@ -75,11 +73,6 @@ class OrganizationCustomRole(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['project_permissions'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -98,11 +91,6 @@ class OrganizationCustomRole(BaseModel):
             "cluster_permissions": [OrganizationCustomRoleClusterPermissionsInner.from_dict(_item) for _item in obj.get("cluster_permissions")] if obj.get("cluster_permissions") is not None else None,
             "project_permissions": [OrganizationCustomRoleProjectPermissionsInner.from_dict(_item) for _item in obj.get("project_permissions")] if obj.get("project_permissions") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

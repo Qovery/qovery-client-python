@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictStr
 
 class HelmResponseAllOfValuesOverrideFileRawValues(BaseModel):
@@ -28,7 +28,6 @@ class HelmResponseAllOfValuesOverrideFileRawValues(BaseModel):
     """
     name: StrictStr = Field(..., description="The name of the value file")
     content: StrictStr = Field(..., description="The content of the value file")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "content"]
 
     class Config:
@@ -53,14 +52,8 @@ class HelmResponseAllOfValuesOverrideFileRawValues(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -76,11 +69,6 @@ class HelmResponseAllOfValuesOverrideFileRawValues(BaseModel):
             "name": obj.get("name"),
             "content": obj.get("content")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

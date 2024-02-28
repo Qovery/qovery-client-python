@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 from qovery.models.cost import Cost
 from qovery.models.generic_object_current_cost import GenericObjectCurrentCost
@@ -33,7 +33,6 @@ class ProjectCurrentCost(BaseModel):
     consumed_time_in_seconds: StrictInt = Field(...)
     cost: Cost = Field(...)
     environments: Optional[conlist(GenericObjectCurrentCost)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "name", "consumed_time_in_seconds", "cost", "environments"]
 
     class Config:
@@ -58,7 +57,6 @@ class ProjectCurrentCost(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of cost
@@ -71,11 +69,6 @@ class ProjectCurrentCost(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['environments'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -94,11 +87,6 @@ class ProjectCurrentCost(BaseModel):
             "cost": Cost.from_dict(obj.get("cost")) if obj.get("cost") is not None else None,
             "environments": [GenericObjectCurrentCost.from_dict(_item) for _item in obj.get("environments")] if obj.get("environments") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

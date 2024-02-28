@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class HelmRequestAllOfSourceOneOf1HelmRepository(BaseModel):
@@ -29,7 +29,6 @@ class HelmRequestAllOfSourceOneOf1HelmRepository(BaseModel):
     repository: Optional[StrictStr] = Field(None, description="The id of the helm repository")
     chart_name: Optional[StrictStr] = Field(None, description="The name of the chart in the repository")
     chart_version: Optional[StrictStr] = Field(None, description="The version of the chart to use")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["repository", "chart_name", "chart_version"]
 
     class Config:
@@ -54,14 +53,8 @@ class HelmRequestAllOfSourceOneOf1HelmRepository(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if repository (nullable) is None
         # and __fields_set__ contains the field
         if self.repository is None and "repository" in self.__fields_set__:
@@ -83,11 +76,6 @@ class HelmRequestAllOfSourceOneOf1HelmRepository(BaseModel):
             "chart_name": obj.get("chart_name"),
             "chart_version": obj.get("chart_version")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

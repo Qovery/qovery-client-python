@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Union
+from typing import Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
 class Cost(BaseModel):
@@ -29,7 +29,6 @@ class Cost(BaseModel):
     total_in_cents: StrictInt = Field(...)
     total: Union[StrictFloat, StrictInt] = Field(...)
     currency_code: StrictStr = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["total_in_cents", "total", "currency_code"]
 
     class Config:
@@ -54,14 +53,8 @@ class Cost(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -78,11 +71,6 @@ class Cost(BaseModel):
             "total": obj.get("total"),
             "currency_code": obj.get("currency_code")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, StrictStr
 from qovery.models.organization_event_origin import OrganizationEventOrigin
 from qovery.models.organization_event_sub_target_type import OrganizationEventSubTargetType
@@ -44,7 +44,6 @@ class OrganizationEventResponse(BaseModel):
     project_name: Optional[StrictStr] = None
     environment_id: Optional[StrictStr] = None
     environment_name: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "timestamp", "event_type", "target_id", "target_name", "target_type", "sub_target_type", "change", "origin", "triggered_by", "project_id", "project_name", "environment_id", "environment_name"]
 
     class Config:
@@ -69,14 +68,8 @@ class OrganizationEventResponse(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if target_id (nullable) is None
         # and __fields_set__ contains the field
         if self.target_id is None and "target_id" in self.__fields_set__:
@@ -124,11 +117,6 @@ class OrganizationEventResponse(BaseModel):
             "environment_id": obj.get("environment_id"),
             "environment_name": obj.get("environment_name")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

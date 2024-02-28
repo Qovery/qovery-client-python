@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.helm_repository_kind_enum import HelmRepositoryKindEnum
 from qovery.models.helm_repository_request_config import HelmRepositoryRequestConfig
@@ -34,7 +34,6 @@ class HelmRepositoryRequest(BaseModel):
     url: Optional[StrictStr] = Field(None, description="URL of the helm chart repository: * For `OCI`: it must start by oci:// * For `HTTPS`: it must be start by https:// ")
     skip_tls_verification: StrictBool = Field(..., description="Bypass tls certificate verification when connecting to repository")
     config: HelmRepositoryRequestConfig = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "kind", "description", "url", "skip_tls_verification", "config"]
 
     class Config:
@@ -59,17 +58,11 @@ class HelmRepositoryRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of config
         if self.config:
             _dict['config'] = self.config.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -89,11 +82,6 @@ class HelmRepositoryRequest(BaseModel):
             "skip_tls_verification": obj.get("skip_tls_verification"),
             "config": HelmRepositoryRequestConfig.from_dict(obj.get("config")) if obj.get("config") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

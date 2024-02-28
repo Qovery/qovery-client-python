@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.api_variable_scope_enum import APIVariableScopeEnum
 from qovery.models.api_variable_type_enum import APIVariableTypeEnum
@@ -43,7 +43,6 @@ class Secret(BaseModel):
     service_name: Optional[StrictStr] = None
     service_type: Optional[LinkedServiceTypeEnum] = None
     owned_by: Optional[StrictStr] = Field(None, description="Entity that created/own the variable (i.e: Qovery, Doppler)")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "key", "overridden_secret", "aliased_secret", "scope", "variable_type", "service_id", "service_name", "service_type", "owned_by"]
 
     class Config:
@@ -71,7 +70,6 @@ class Secret(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of overridden_secret
@@ -80,11 +78,6 @@ class Secret(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of aliased_secret
         if self.aliased_secret:
             _dict['aliased_secret'] = self.aliased_secret.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -110,11 +103,6 @@ class Secret(BaseModel):
             "service_type": obj.get("service_type"),
             "owned_by": obj.get("owned_by")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

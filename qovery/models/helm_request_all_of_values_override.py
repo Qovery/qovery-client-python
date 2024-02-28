@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from qovery.models.helm_request_all_of_values_override_file import HelmRequestAllOfValuesOverrideFile
 
@@ -31,7 +31,6 @@ class HelmRequestAllOfValuesOverride(BaseModel):
     set_string: Optional[conlist(conlist(StrictStr))] = Field(None, description="The input is in json array format: [ [$KEY,$VALUE], [...] ]")
     set_json: Optional[conlist(conlist(StrictStr))] = Field(None, description="The input is in json array format: [ [$KEY,$VALUE], [...] ]")
     file: Optional[HelmRequestAllOfValuesOverrideFile] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["set", "set_string", "set_json", "file"]
 
     class Config:
@@ -56,17 +55,11 @@ class HelmRequestAllOfValuesOverride(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of file
         if self.file:
             _dict['file'] = self.file.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if file (nullable) is None
         # and __fields_set__ contains the field
         if self.file is None and "file" in self.__fields_set__:
@@ -89,11 +82,6 @@ class HelmRequestAllOfValuesOverride(BaseModel):
             "set_json": obj.get("set_json"),
             "file": HelmRequestAllOfValuesOverrideFile.from_dict(obj.get("file")) if obj.get("file") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

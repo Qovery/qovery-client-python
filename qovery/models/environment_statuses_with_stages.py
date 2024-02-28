@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, conlist
 from qovery.models.deployment_stage_with_services_statuses import DeploymentStageWithServicesStatuses
 from qovery.models.environment_status import EnvironmentStatus
@@ -30,7 +30,6 @@ class EnvironmentStatusesWithStages(BaseModel):
     """
     environment: Optional[EnvironmentStatus] = None
     stages: Optional[conlist(DeploymentStageWithServicesStatuses)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["environment", "stages"]
 
     class Config:
@@ -55,7 +54,6 @@ class EnvironmentStatusesWithStages(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of environment
@@ -68,11 +66,6 @@ class EnvironmentStatusesWithStages(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['stages'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -88,11 +81,6 @@ class EnvironmentStatusesWithStages(BaseModel):
             "environment": EnvironmentStatus.from_dict(obj.get("environment")) if obj.get("environment") is not None else None,
             "stages": [DeploymentStageWithServicesStatuses.from_dict(_item) for _item in obj.get("stages")] if obj.get("stages") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

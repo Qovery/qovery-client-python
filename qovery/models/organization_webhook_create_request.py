@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from qovery.models.environment_mode_enum import EnvironmentModeEnum
 from qovery.models.organization_webhook_event_enum import OrganizationWebhookEventEnum
@@ -37,7 +37,6 @@ class OrganizationWebhookCreateRequest(BaseModel):
     events: conlist(OrganizationWebhookEventEnum) = Field(...)
     project_names_filter: Optional[conlist(StrictStr)] = Field(None, description="Specify the project names you want to filter to.  This webhook will be triggered only if the event is coming from the specified Project IDs. Notes: 1. Wildcard is accepted E.g. `product*`. 2. Name is case insensitive. ")
     environment_types_filter: Optional[conlist(EnvironmentModeEnum)] = Field(None, description="Specify the environment modes you want to filter to. This webhook will be triggered only if the event is coming from an environment with the specified mode. ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["kind", "target_url", "target_secret", "description", "enabled", "events", "project_names_filter", "environment_types_filter"]
 
     class Config:
@@ -62,14 +61,8 @@ class OrganizationWebhookCreateRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -91,11 +84,6 @@ class OrganizationWebhookCreateRequest(BaseModel):
             "project_names_filter": obj.get("project_names_filter"),
             "environment_types_filter": obj.get("environment_types_filter")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

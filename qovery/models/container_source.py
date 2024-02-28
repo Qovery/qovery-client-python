@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
 
@@ -31,7 +31,6 @@ class ContainerSource(BaseModel):
     tag: StrictStr = Field(..., description="tag of the image container")
     registry_id: Optional[StrictStr] = Field(None, description="tag of the image container")
     registry: ContainerRegistryProviderDetailsResponse = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["image_name", "tag", "registry_id", "registry"]
 
     class Config:
@@ -56,17 +55,11 @@ class ContainerSource(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of registry
         if self.registry:
             _dict['registry'] = self.registry.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -84,11 +77,6 @@ class ContainerSource(BaseModel):
             "registry_id": obj.get("registry_id"),
             "registry": ContainerRegistryProviderDetailsResponse.from_dict(obj.get("registry")) if obj.get("registry") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

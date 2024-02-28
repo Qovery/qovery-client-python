@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.cluster_logs_error_event_details import ClusterLogsErrorEventDetails
 from qovery.models.cluster_logs_error_underlying_error import ClusterLogsErrorUnderlyingError
@@ -34,7 +34,6 @@ class ClusterLogsError(BaseModel):
     hint_message: Optional[StrictStr] = Field(None, description="hint the user can follow")
     event_details: Optional[ClusterLogsErrorEventDetails] = None
     underlying_error: Optional[ClusterLogsErrorUnderlyingError] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["tag", "user_log_message", "link", "hint_message", "event_details", "underlying_error"]
 
     class Config:
@@ -59,7 +58,6 @@ class ClusterLogsError(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of event_details
@@ -68,11 +66,6 @@ class ClusterLogsError(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of underlying_error
         if self.underlying_error:
             _dict['underlying_error'] = self.underlying_error.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -92,11 +85,6 @@ class ClusterLogsError(BaseModel):
             "event_details": ClusterLogsErrorEventDetails.from_dict(obj.get("event_details")) if obj.get("event_details") is not None else None,
             "underlying_error": ClusterLogsErrorUnderlyingError.from_dict(obj.get("underlying_error")) if obj.get("underlying_error") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

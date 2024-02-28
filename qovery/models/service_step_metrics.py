@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, conlist
 from qovery.models.service_step_metric import ServiceStepMetric
 
@@ -30,7 +30,6 @@ class ServiceStepMetrics(BaseModel):
     total_duration_sec: Optional[StrictInt] = Field(None, description="The total duration in seconds of the service deployment or null if the deployment is not completed.")
     total_computing_duration_sec: Optional[StrictInt] = Field(None, description="The total duration in seconds of the service deployment without queuing steps.")
     details: Optional[conlist(ServiceStepMetric)] = Field(None, description="A list of metrics for deployment steps of the service.")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["total_duration_sec", "total_computing_duration_sec", "details"]
 
     class Config:
@@ -55,7 +54,6 @@ class ServiceStepMetrics(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in details (list)
@@ -65,11 +63,6 @@ class ServiceStepMetrics(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['details'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if total_duration_sec (nullable) is None
         # and __fields_set__ contains the field
         if self.total_duration_sec is None and "total_duration_sec" in self.__fields_set__:
@@ -91,11 +84,6 @@ class ServiceStepMetrics(BaseModel):
             "total_computing_duration_sec": obj.get("total_computing_duration_sec"),
             "details": [ServiceStepMetric.from_dict(_item) for _item in obj.get("details")] if obj.get("details") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

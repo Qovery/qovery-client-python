@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional, Union
+from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 
 class EnvironmentStats(BaseModel):
@@ -28,7 +28,6 @@ class EnvironmentStats(BaseModel):
     """
     id: StrictStr = Field(...)
     service_total_number: Optional[Union[StrictFloat, StrictInt]] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "service_total_number"]
 
     class Config:
@@ -54,14 +53,8 @@ class EnvironmentStats(BaseModel):
         _dict = self.dict(by_alias=True,
                           exclude={
                             "id",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -77,11 +70,6 @@ class EnvironmentStats(BaseModel):
             "id": obj.get("id"),
             "service_total_number": obj.get("service_total_number")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List
+from typing import List
 from pydantic import BaseModel, Field, conlist
 from qovery.models.cluster_routing_table_results_inner import ClusterRoutingTableResultsInner
 
@@ -28,7 +28,6 @@ class ClusterRoutingTableRequest(BaseModel):
     ClusterRoutingTableRequest
     """
     routes: conlist(ClusterRoutingTableResultsInner) = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["routes"]
 
     class Config:
@@ -53,7 +52,6 @@ class ClusterRoutingTableRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in routes (list)
@@ -63,11 +61,6 @@ class ClusterRoutingTableRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['routes'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class ClusterRoutingTableRequest(BaseModel):
         _obj = ClusterRoutingTableRequest.parse_obj({
             "routes": [ClusterRoutingTableResultsInner.from_dict(_item) for _item in obj.get("routes")] if obj.get("routes") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

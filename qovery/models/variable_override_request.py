@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.api_variable_scope_enum import APIVariableScopeEnum
 
@@ -30,7 +30,6 @@ class VariableOverrideRequest(BaseModel):
     value: StrictStr = Field(..., description="the value to be used as Override of the targeted environment variable.")
     override_scope: APIVariableScopeEnum = Field(...)
     override_parent_id: StrictStr = Field(..., description="the id of the variable that is aliased.")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["value", "override_scope", "override_parent_id"]
 
     class Config:
@@ -55,14 +54,8 @@ class VariableOverrideRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -79,11 +72,6 @@ class VariableOverrideRequest(BaseModel):
             "override_scope": obj.get("override_scope"),
             "override_parent_id": obj.get("override_parent_id")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

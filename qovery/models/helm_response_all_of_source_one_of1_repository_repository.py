@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictStr
 
 class HelmResponseAllOfSourceOneOf1RepositoryRepository(BaseModel):
@@ -29,7 +29,6 @@ class HelmResponseAllOfSourceOneOf1RepositoryRepository(BaseModel):
     id: StrictStr = Field(..., description="The id of the helm repository")
     name: StrictStr = Field(..., description="The name of the helm repository")
     url: StrictStr = Field(..., description="The url the helm repository")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "name", "url"]
 
     class Config:
@@ -54,14 +53,8 @@ class HelmResponseAllOfSourceOneOf1RepositoryRepository(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -78,11 +71,6 @@ class HelmResponseAllOfSourceOneOf1RepositoryRepository(BaseModel):
             "name": obj.get("name"),
             "url": obj.get("url")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

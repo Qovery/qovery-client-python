@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictInt
 from qovery.models.stage_step_metric_name_enum import StageStepMetricNameEnum
 from qovery.models.step_metric_status_enum import StepMetricStatusEnum
@@ -31,7 +31,6 @@ class StageStepMetric(BaseModel):
     step_name: Optional[StageStepMetricNameEnum] = None
     status: Optional[StepMetricStatusEnum] = None
     duration_sec: Optional[StrictInt] = Field(None, description="The duration of the step in seconds.")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["step_name", "status", "duration_sec"]
 
     class Config:
@@ -56,14 +55,8 @@ class StageStepMetric(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -80,11 +73,6 @@ class StageStepMetric(BaseModel):
             "status": obj.get("status"),
             "duration_sec": obj.get("duration_sec")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

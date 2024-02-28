@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint
 from qovery.models.healthcheck import Healthcheck
 from qovery.models.job_request_all_of_schedule import JobRequestAllOfSchedule
@@ -41,7 +41,6 @@ class JobRequest(BaseModel):
     healthchecks: Healthcheck = Field(...)
     schedule: Optional[JobRequestAllOfSchedule] = None
     auto_deploy: Optional[StrictBool] = Field(None, description="Specify if the job will be automatically updated after receiving a new image tag or a new commit according to the source type.  The new image tag shall be communicated via the \"Auto Deploy job\" endpoint https://api-doc.qovery.com/#tag/Jobs/operation/autoDeployJobEnvironments ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "description", "cpu", "memory", "max_nb_restart", "max_duration_seconds", "auto_preview", "port", "source", "healthchecks", "schedule", "auto_deploy"]
 
     class Config:
@@ -66,7 +65,6 @@ class JobRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of source
@@ -78,11 +76,6 @@ class JobRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of schedule
         if self.schedule:
             _dict['schedule'] = self.schedule.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if port (nullable) is None
         # and __fields_set__ contains the field
         if self.port is None and "port" in self.__fields_set__:
@@ -118,11 +111,6 @@ class JobRequest(BaseModel):
             "schedule": JobRequestAllOfSchedule.from_dict(obj.get("schedule")) if obj.get("schedule") is not None else None,
             "auto_deploy": obj.get("auto_deploy")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, StrictInt
 from qovery.models.probe_type import ProbeType
 
@@ -33,7 +33,6 @@ class Probe(BaseModel):
     timeout_seconds: Optional[StrictInt] = 5
     success_threshold: Optional[StrictInt] = 1
     failure_threshold: Optional[StrictInt] = 9
-    additional_properties: Dict[str, Any] = {}
     __properties = ["type", "initial_delay_seconds", "period_seconds", "timeout_seconds", "success_threshold", "failure_threshold"]
 
     class Config:
@@ -58,17 +57,11 @@ class Probe(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of type
         if self.type:
             _dict['type'] = self.type.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -88,11 +81,6 @@ class Probe(BaseModel):
             "success_threshold": obj.get("success_threshold") if obj.get("success_threshold") is not None else 1,
             "failure_threshold": obj.get("failure_threshold") if obj.get("failure_threshold") is not None else 9
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

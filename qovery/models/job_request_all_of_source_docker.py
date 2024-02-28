@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.application_git_repository_request import ApplicationGitRepositoryRequest
 
@@ -29,7 +29,6 @@ class JobRequestAllOfSourceDocker(BaseModel):
     """
     dockerfile_path: Optional[StrictStr] = Field(None, description="The path of the associated Dockerfile. Only if you are using build_mode = DOCKER")
     git_repository: Optional[ApplicationGitRepositoryRequest] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["dockerfile_path", "git_repository"]
 
     class Config:
@@ -54,17 +53,11 @@ class JobRequestAllOfSourceDocker(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of git_repository
         if self.git_repository:
             _dict['git_repository'] = self.git_repository.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if dockerfile_path (nullable) is None
         # and __fields_set__ contains the field
         if self.dockerfile_path is None and "dockerfile_path" in self.__fields_set__:
@@ -85,11 +78,6 @@ class JobRequestAllOfSourceDocker(BaseModel):
             "dockerfile_path": obj.get("dockerfile_path"),
             "git_repository": ApplicationGitRepositoryRequest.from_dict(obj.get("git_repository")) if obj.get("git_repository") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

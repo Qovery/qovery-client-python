@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 from qovery.models.storage_type_enum import StorageTypeEnum
 
@@ -31,7 +31,6 @@ class ServiceStorageStorageInner(BaseModel):
     type: StorageTypeEnum = Field(...)
     size: StrictInt = Field(..., description="unit is GB")
     mount_point: StrictStr = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "type", "size", "mount_point"]
 
     class Config:
@@ -56,14 +55,8 @@ class ServiceStorageStorageInner(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -81,11 +74,6 @@ class ServiceStorageStorageInner(BaseModel):
             "size": obj.get("size"),
             "mount_point": obj.get("mount_point")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

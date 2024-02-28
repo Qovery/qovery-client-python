@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, conlist
 from qovery.models.stage import Stage
 from qovery.models.status import Status
@@ -34,7 +34,6 @@ class DeploymentStageWithServicesStatuses(BaseModel):
     databases: Optional[conlist(Status)] = None
     helms: Optional[conlist(Status)] = None
     stage: Optional[Stage] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["applications", "containers", "jobs", "databases", "helms", "stage"]
 
     class Config:
@@ -59,7 +58,6 @@ class DeploymentStageWithServicesStatuses(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in applications (list)
@@ -100,11 +98,6 @@ class DeploymentStageWithServicesStatuses(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of stage
         if self.stage:
             _dict['stage'] = self.stage.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -124,11 +117,6 @@ class DeploymentStageWithServicesStatuses(BaseModel):
             "helms": [Status.from_dict(_item) for _item in obj.get("helms")] if obj.get("helms") is not None else None,
             "stage": Stage.from_dict(obj.get("stage")) if obj.get("stage") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

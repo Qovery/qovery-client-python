@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.organization_api_token_scope import OrganizationApiTokenScope
 
@@ -31,7 +31,6 @@ class OrganizationApiTokenCreateRequest(BaseModel):
     description: Optional[StrictStr] = None
     scope: Optional[OrganizationApiTokenScope] = None
     role_id: Optional[StrictStr] = Field(..., description="the roleId provided by the \"List organization custom roles\" endpoint.")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "description", "scope", "role_id"]
 
     class Config:
@@ -56,14 +55,8 @@ class OrganizationApiTokenCreateRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if scope (nullable) is None
         # and __fields_set__ contains the field
         if self.scope is None and "scope" in self.__fields_set__:
@@ -91,11 +84,6 @@ class OrganizationApiTokenCreateRequest(BaseModel):
             "scope": obj.get("scope"),
             "role_id": obj.get("role_id")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

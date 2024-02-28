@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.git_provider_enum import GitProviderEnum
 
@@ -40,7 +40,6 @@ class ApplicationGitRepository(BaseModel):
     deployed_commit_tag: Optional[StrictStr] = None
     git_token_id: Optional[StrictStr] = None
     git_token_name: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["has_access", "provider", "owner", "url", "name", "branch", "root_path", "deployed_commit_id", "deployed_commit_date", "deployed_commit_contributor", "deployed_commit_tag", "git_token_id", "git_token_name"]
 
     class Config:
@@ -66,14 +65,8 @@ class ApplicationGitRepository(BaseModel):
         _dict = self.dict(by_alias=True,
                           exclude={
                             "deployed_commit_date",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if git_token_id (nullable) is None
         # and __fields_set__ contains the field
         if self.git_token_id is None and "git_token_id" in self.__fields_set__:
@@ -110,11 +103,6 @@ class ApplicationGitRepository(BaseModel):
             "git_token_id": obj.get("git_token_id"),
             "git_token_name": obj.get("git_token_name")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

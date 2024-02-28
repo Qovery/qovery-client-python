@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, conlist
 from qovery.models.secret import Secret
 
@@ -28,7 +28,6 @@ class SecretResponseList(BaseModel):
     SecretResponseList
     """
     results: Optional[conlist(Secret)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["results"]
 
     class Config:
@@ -53,7 +52,6 @@ class SecretResponseList(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in results (list)
@@ -63,11 +61,6 @@ class SecretResponseList(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['results'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class SecretResponseList(BaseModel):
         _obj = SecretResponseList.parse_obj({
             "results": [Secret.from_dict(_item) for _item in obj.get("results")] if obj.get("results") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

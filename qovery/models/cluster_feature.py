@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional, Union
+from typing import List, Optional, Union
 from pydantic import BaseModel, StrictBool, StrictFloat, StrictInt, StrictStr, conlist, validator
 from qovery.models.cluster_feature_accepted_values_inner import ClusterFeatureAcceptedValuesInner
 from qovery.models.cluster_feature_value import ClusterFeatureValue
@@ -38,7 +38,6 @@ class ClusterFeature(BaseModel):
     value: Optional[ClusterFeatureValue] = None
     is_value_updatable: Optional[StrictBool] = False
     accepted_values: Optional[conlist(ClusterFeatureAcceptedValuesInner)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "title", "description", "cost_per_month_in_cents", "cost_per_month", "currency_code", "value_type", "value", "is_value_updatable", "accepted_values"]
 
     @validator('value_type')
@@ -73,7 +72,6 @@ class ClusterFeature(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of value
@@ -86,11 +84,6 @@ class ClusterFeature(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['accepted_values'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if description (nullable) is None
         # and __fields_set__ contains the field
         if self.description is None and "description" in self.__fields_set__:
@@ -139,11 +132,6 @@ class ClusterFeature(BaseModel):
             "is_value_updatable": obj.get("is_value_updatable") if obj.get("is_value_updatable") is not None else False,
             "accepted_values": [ClusterFeatureAcceptedValuesInner.from_dict(_item) for _item in obj.get("accepted_values")] if obj.get("accepted_values") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

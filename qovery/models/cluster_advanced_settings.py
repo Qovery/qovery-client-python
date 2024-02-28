@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist, validator
 from qovery.models.registry_mirroring_mode_enum import RegistryMirroringModeEnum
 
@@ -53,7 +53,6 @@ class ClusterAdvancedSettings(BaseModel):
     nginx_hpa_cpu_utilization_percentage_threshold: Optional[StrictInt] = Field(None, alias="nginx.hpa.cpu_utilization_percentage_threshold", description="hpa cpu threshold in percentage")
     nginx_hpa_min_number_instances: Optional[StrictInt] = Field(None, alias="nginx.hpa.min_number_instances", description="hpa minimum number of instances")
     nginx_hpa_max_number_instances: Optional[StrictInt] = Field(None, alias="nginx.hpa.max_number_instances", description="hpa maximum number of instances")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["aws.cloudwatch.eks_logs_retention_days", "aws.vpc.enable_s3_flow_logs", "aws.vpc.flow_logs_retention_days", "loki.log_retention_in_week", "registry.image_retention_time", "cloud_provider.container_registry.tags", "load_balancer.size", "database.postgresql.deny_public_access", "database.postgresql.allowed_cidrs", "database.mysql.deny_public_access", "database.mysql.allowed_cidrs", "database.mongodb.deny_public_access", "database.mongodb.allowed_cidrs", "database.redis.deny_public_access", "database.redis.allowed_cidrs", "aws.iam.admin_group", "aws.eks.ec2.metadata_imds", "pleco.resources_ttl", "registry.mirroring_mode", "nginx.vcpu.request_in_milli_cpu", "nginx.vcpu.limit_in_milli_cpu", "nginx.memory.request_in_mib", "nginx.memory.limit_in_mib", "nginx.hpa.cpu_utilization_percentage_threshold", "nginx.hpa.min_number_instances", "nginx.hpa.max_number_instances"]
 
     @validator('aws_eks_ec2_metadata_imds')
@@ -88,14 +87,8 @@ class ClusterAdvancedSettings(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -135,11 +128,6 @@ class ClusterAdvancedSettings(BaseModel):
             "nginx_hpa_min_number_instances": obj.get("nginx.hpa.min_number_instances"),
             "nginx_hpa_max_number_instances": obj.get("nginx.hpa.max_number_instances")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

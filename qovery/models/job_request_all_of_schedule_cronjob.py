@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
 class JobRequestAllOfScheduleCronjob(BaseModel):
@@ -30,7 +30,6 @@ class JobRequestAllOfScheduleCronjob(BaseModel):
     entrypoint: Optional[StrictStr] = Field(None, description="optional entrypoint when launching container")
     timezone: Optional[StrictStr] = Field(None, description="Specify a timezone identifier to run the schedule at. By default Etc/UTC")
     scheduled_at: StrictStr = Field(..., description="Can only be set if the event is CRON.   Represent the cron format for the job schedule without seconds.   For example: `* * * * *` represent the cron to launch the job every minute.   See https://crontab.guru/ to WISIWIG interface.   Timezone is UTC ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["arguments", "entrypoint", "timezone", "scheduled_at"]
 
     class Config:
@@ -55,14 +54,8 @@ class JobRequestAllOfScheduleCronjob(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -80,11 +73,6 @@ class JobRequestAllOfScheduleCronjob(BaseModel):
             "timezone": obj.get("timezone"),
             "scheduled_at": obj.get("scheduled_at")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

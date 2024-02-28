@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
 from qovery.models.helm_port_request_ports_inner import HelmPortRequestPortsInner
 from qovery.models.helm_request_all_of_source import HelmRequestAllOfSource
@@ -39,7 +39,6 @@ class HelmRequest(BaseModel):
     arguments: conlist(StrictStr) = Field(..., description="The extra arguments to pass to helm")
     allow_cluster_wide_resources: Optional[StrictBool] = Field(False, description="If we should allow the chart to deploy object outside his specified namespace. Setting this flag to true, requires special rights ")
     values_override: HelmRequestAllOfValuesOverride = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["ports", "name", "description", "timeout_sec", "auto_preview", "auto_deploy", "source", "arguments", "allow_cluster_wide_resources", "values_override"]
 
     class Config:
@@ -64,7 +63,6 @@ class HelmRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in ports (list)
@@ -80,11 +78,6 @@ class HelmRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of values_override
         if self.values_override:
             _dict['values_override'] = self.values_override.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if auto_preview (nullable) is None
         # and __fields_set__ contains the field
         if self.auto_preview is None and "auto_preview" in self.__fields_set__:
@@ -113,11 +106,6 @@ class HelmRequest(BaseModel):
             "allow_cluster_wide_resources": obj.get("allow_cluster_wide_resources") if obj.get("allow_cluster_wide_resources") is not None else False,
             "values_override": HelmRequestAllOfValuesOverride.from_dict(obj.get("values_override")) if obj.get("values_override") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

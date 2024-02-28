@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from qovery.models.port_protocol_enum import PortProtocolEnum
 
@@ -34,7 +34,6 @@ class ServicePortRequestPortsInner(BaseModel):
     publicly_accessible: StrictBool = Field(..., description="Expose the port to the world")
     is_default: Optional[StrictBool] = Field(None, description="is the default port to use for domain")
     protocol: Optional[PortProtocolEnum] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "name", "internal_port", "external_port", "publicly_accessible", "is_default", "protocol"]
 
     class Config:
@@ -59,14 +58,8 @@ class ServicePortRequestPortsInner(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -87,11 +80,6 @@ class ServicePortRequestPortsInner(BaseModel):
             "is_default": obj.get("is_default"),
             "protocol": obj.get("protocol")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

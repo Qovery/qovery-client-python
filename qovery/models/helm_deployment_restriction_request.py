@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.deployment_restriction_mode_enum import DeploymentRestrictionModeEnum
 from qovery.models.deployment_restriction_type_enum import DeploymentRestrictionTypeEnum
@@ -31,7 +31,6 @@ class HelmDeploymentRestrictionRequest(BaseModel):
     mode: DeploymentRestrictionModeEnum = Field(...)
     type: DeploymentRestrictionTypeEnum = Field(...)
     value: StrictStr = Field(..., description="For `PATH` restrictions, the value must not start with `/`")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["mode", "type", "value"]
 
     class Config:
@@ -56,14 +55,8 @@ class HelmDeploymentRestrictionRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -80,11 +73,6 @@ class HelmDeploymentRestrictionRequest(BaseModel):
             "type": obj.get("type"),
             "value": obj.get("value")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

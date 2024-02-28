@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conint, conlist
 from qovery.models.container_registry_provider_details_response import ContainerRegistryProviderDetailsResponse
 from qovery.models.healthcheck import Healthcheck
@@ -54,7 +54,6 @@ class ContainerResponse(BaseModel):
     auto_preview: StrictBool = Field(..., description="Indicates if the 'environment preview option' is enabled for this container.   If enabled, a preview environment will be automatically cloned when `/preview` endpoint is called.   If not specified, it takes the value of the `auto_preview` property from the associated environment. ")
     ports: Optional[conlist(ServicePort)] = None
     auto_deploy: Optional[StrictBool] = Field(None, description="Specify if the container will be automatically updated after receiving a new image tag.  The new image tag shall be communicated via the \"Auto Deploy container\" endpoint https://api-doc.qovery.com/#tag/Containers/operation/autoDeployContainerEnvironments ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "storage", "image_name", "tag", "registry_id", "registry", "environment", "maximum_cpu", "maximum_memory", "name", "description", "arguments", "entrypoint", "cpu", "memory", "min_running_instances", "max_running_instances", "healthchecks", "auto_preview", "ports", "auto_deploy"]
 
     class Config:
@@ -82,7 +81,6 @@ class ContainerResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of each item in storage (list)
@@ -108,11 +106,6 @@ class ContainerResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['ports'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -149,11 +142,6 @@ class ContainerResponse(BaseModel):
             "ports": [ServicePort.from_dict(_item) for _item in obj.get("ports")] if obj.get("ports") is not None else None,
             "auto_deploy": obj.get("auto_deploy")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

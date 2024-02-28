@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.environment_logs_details import EnvironmentLogsDetails
 from qovery.models.environment_logs_error import EnvironmentLogsError
@@ -34,7 +34,6 @@ class EnvironmentLogs(BaseModel):
     details: EnvironmentLogsDetails = Field(...)
     error: Optional[EnvironmentLogsError] = None
     message: Optional[EnvironmentLogsMessage] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["type", "timestamp", "details", "error", "message"]
 
     class Config:
@@ -59,7 +58,6 @@ class EnvironmentLogs(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of details
@@ -71,11 +69,6 @@ class EnvironmentLogs(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of message
         if self.message:
             _dict['message'] = self.message.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if error (nullable) is None
         # and __fields_set__ contains the field
         if self.error is None and "error" in self.__fields_set__:
@@ -104,11 +97,6 @@ class EnvironmentLogs(BaseModel):
             "error": EnvironmentLogsError.from_dict(obj.get("error")) if obj.get("error") is not None else None,
             "message": EnvironmentLogsMessage.from_dict(obj.get("message")) if obj.get("message") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

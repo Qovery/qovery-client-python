@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from qovery.models.database_accessibility_enum import DatabaseAccessibilityEnum
 from qovery.models.database_mode_enum import DatabaseModeEnum
@@ -49,7 +49,6 @@ class Database(BaseModel):
     maximum_cpu: Optional[StrictInt] = Field(None, description="Maximum cpu that can be allocated to the database based on organization cluster configuration. unit is millicores (m). 1000m = 1 cpu")
     maximum_memory: Optional[StrictInt] = Field(None, description="Maximum memory that can be allocated to the database based on organization cluster configuration. unit is MB. 1024 MB = 1GB")
     disk_encrypted: Optional[StrictBool] = Field(None, description="indicates if the database disk is encrypted or not")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "description", "type", "version", "mode", "accessibility", "cpu", "instance_type", "memory", "storage", "environment", "host", "port", "maximum_cpu", "maximum_memory", "disk_encrypted"]
 
     class Config:
@@ -77,17 +76,11 @@ class Database(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of environment
         if self.environment:
             _dict['environment'] = self.environment.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -120,11 +113,6 @@ class Database(BaseModel):
             "maximum_memory": obj.get("maximum_memory"),
             "disk_encrypted": obj.get("disk_encrypted")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class BillingInfo(BaseModel):
@@ -36,7 +36,6 @@ class BillingInfo(BaseModel):
     country_code: Optional[StrictStr] = Field(None, description="ISO code of the country")
     company: Optional[StrictStr] = Field(None, description="name of the company to bill")
     vat_number: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["first_name", "last_name", "email", "address", "city", "zip", "state", "country_code", "company", "vat_number"]
 
     class Config:
@@ -61,14 +60,8 @@ class BillingInfo(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if first_name (nullable) is None
         # and __fields_set__ contains the field
         if self.first_name is None and "first_name" in self.__fields_set__:
@@ -142,11 +135,6 @@ class BillingInfo(BaseModel):
             "company": obj.get("company"),
             "vat_number": obj.get("vat_number")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

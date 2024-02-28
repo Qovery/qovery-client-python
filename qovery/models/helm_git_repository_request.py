@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class HelmGitRepositoryRequest(BaseModel):
@@ -30,7 +30,6 @@ class HelmGitRepositoryRequest(BaseModel):
     branch: Optional[StrictStr] = Field(None, description="Name of the branch to use. This is optional If not specified, then the branch used is the `main` or `master` one ")
     root_path: Optional[StrictStr] = Field('/', description="indicates the root path of the application.")
     git_token_id: Optional[StrictStr] = Field(None, description="The git token id on Qovery side")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["url", "branch", "root_path", "git_token_id"]
 
     class Config:
@@ -55,14 +54,8 @@ class HelmGitRepositoryRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if git_token_id (nullable) is None
         # and __fields_set__ contains the field
         if self.git_token_id is None and "git_token_id" in self.__fields_set__:
@@ -85,11 +78,6 @@ class HelmGitRepositoryRequest(BaseModel):
             "root_path": obj.get("root_path") if obj.get("root_path") is not None else '/',
             "git_token_id": obj.get("git_token_id")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

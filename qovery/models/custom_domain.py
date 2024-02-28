@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.custom_domain_status_enum import CustomDomainStatusEnum
 
@@ -34,7 +34,6 @@ class CustomDomain(BaseModel):
     generate_certificate: StrictBool = Field(..., description="to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.")
     validation_domain: Optional[StrictStr] = Field(None, description="URL provided by Qovery. You must create a CNAME on your DNS provider using that URL")
     status: Optional[CustomDomainStatusEnum] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "domain", "generate_certificate", "validation_domain", "status"]
 
     class Config:
@@ -62,14 +61,8 @@ class CustomDomain(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -90,11 +83,6 @@ class CustomDomain(BaseModel):
             "validation_domain": obj.get("validation_domain"),
             "status": obj.get("status")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

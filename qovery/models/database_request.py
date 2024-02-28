@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 from qovery.models.database_accessibility_enum import DatabaseAccessibilityEnum
 from qovery.models.database_mode_enum import DatabaseModeEnum
@@ -39,7 +39,6 @@ class DatabaseRequest(BaseModel):
     instance_type: Optional[StrictStr] = Field(None, description="Database instance type to be used for this database. The list of values can be retrieved via the endpoint /{CloudProvider}/managedDatabase/instanceType/{region}/{dbType}. This field SHOULD NOT be set for container DB.")
     memory: Optional[StrictInt] = Field(None, description="unit is MB. 1024 MB = 1GB This field will be ignored for managed DB (instance type will be used instead). Default value is linked to the database type: - MANAGED: `100` - CONTAINER   - POSTGRES: `100`   - REDIS: `100`   - MYSQL: `512`   - MONGODB: `256` ")
     storage: Optional[StrictInt] = Field(10, description="unit is GB")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "description", "type", "version", "mode", "accessibility", "cpu", "instance_type", "memory", "storage"]
 
     class Config:
@@ -64,14 +63,8 @@ class DatabaseRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -95,11 +88,6 @@ class DatabaseRequest(BaseModel):
             "memory": obj.get("memory"),
             "storage": obj.get("storage") if obj.get("storage") is not None else 10
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

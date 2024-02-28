@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.commit import Commit
 from qovery.models.deployment_history_status_enum import DeploymentHistoryStatusEnum
@@ -34,7 +34,6 @@ class DeploymentHistory(BaseModel):
     name: Optional[StrictStr] = Field(None, description="name of the service")
     commit: Optional[Commit] = None
     status: Optional[DeploymentHistoryStatusEnum] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "commit", "status"]
 
     class Config:
@@ -62,17 +61,11 @@ class DeploymentHistory(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of commit
         if self.commit:
             _dict['commit'] = self.commit.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if commit (nullable) is None
         # and __fields_set__ contains the field
         if self.commit is None and "commit" in self.__fields_set__:
@@ -97,11 +90,6 @@ class DeploymentHistory(BaseModel):
             "commit": Commit.from_dict(obj.get("commit")) if obj.get("commit") is not None else None,
             "status": obj.get("status")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

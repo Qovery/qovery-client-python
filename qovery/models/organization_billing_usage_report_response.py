@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class OrganizationBillingUsageReportResponse(BaseModel):
@@ -28,7 +28,6 @@ class OrganizationBillingUsageReportResponse(BaseModel):
     """
     report_url: Optional[StrictStr] = Field(None, description="The URL of the report")
     delete_report_url: Optional[StrictStr] = Field(None, description="The URL to delete the report. Use this URL to pro-actively delete the report before it expires")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["report_url", "delete_report_url"]
 
     class Config:
@@ -53,14 +52,8 @@ class OrganizationBillingUsageReportResponse(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -76,11 +69,6 @@ class OrganizationBillingUsageReportResponse(BaseModel):
             "report_url": obj.get("report_url"),
             "delete_report_url": obj.get("delete_report_url")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

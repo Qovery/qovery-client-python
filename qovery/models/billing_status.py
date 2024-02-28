@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, StrictBool, StrictStr
 
 class BillingStatus(BaseModel):
@@ -28,7 +28,6 @@ class BillingStatus(BaseModel):
     """
     is_valid: Optional[StrictBool] = None
     message: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["is_valid", "message"]
 
     class Config:
@@ -53,14 +52,8 @@ class BillingStatus(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -76,11 +69,6 @@ class BillingStatus(BaseModel):
             "is_valid": obj.get("is_valid"),
             "message": obj.get("message")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

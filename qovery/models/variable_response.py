@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.api_variable_scope_enum import APIVariableScopeEnum
 from qovery.models.api_variable_type_enum import APIVariableTypeEnum
@@ -46,7 +46,6 @@ class VariableResponse(BaseModel):
     service_type: Optional[LinkedServiceTypeEnum] = None
     owned_by: Optional[StrictStr] = Field(None, description="Entity that created/own the variable (i.e: Qovery, Doppler)")
     is_secret: StrictBool = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "key", "value", "mount_path", "overridden_variable", "aliased_variable", "scope", "variable_type", "service_id", "service_name", "service_type", "owned_by", "is_secret"]
 
     class Config:
@@ -74,7 +73,6 @@ class VariableResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of overridden_variable
@@ -83,11 +81,6 @@ class VariableResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of aliased_variable
         if self.aliased_variable:
             _dict['aliased_variable'] = self.aliased_variable.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if value (nullable) is None
         # and __fields_set__ contains the field
         if self.value is None and "value" in self.__fields_set__:
@@ -126,11 +119,6 @@ class VariableResponse(BaseModel):
             "owned_by": obj.get("owned_by"),
             "is_secret": obj.get("is_secret")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

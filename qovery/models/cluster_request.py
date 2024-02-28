@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from qovery.models.cloud_provider_enum import CloudProviderEnum
 from qovery.models.cluster_cloud_provider_info_request import ClusterCloudProviderInfoRequest
@@ -44,7 +44,6 @@ class ClusterRequest(BaseModel):
     ssh_keys: Optional[conlist(StrictStr)] = Field(None, description="Indicate your public ssh_key to remotely connect to your EC2 instance.")
     kubeconfig: Optional[StrictStr] = Field(None, description="If the cluster is a self managed one. The kubeconfig to use to connect to it")
     features: Optional[conlist(ClusterRequestFeaturesInner)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "description", "region", "cloud_provider", "cloud_provider_credentials", "min_running_nodes", "max_running_nodes", "disk_size", "instance_type", "kubernetes", "production", "ssh_keys", "kubeconfig", "features"]
 
     class Config:
@@ -69,7 +68,6 @@ class ClusterRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of cloud_provider_credentials
@@ -82,11 +80,6 @@ class ClusterRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['features'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -114,11 +107,6 @@ class ClusterRequest(BaseModel):
             "kubeconfig": obj.get("kubeconfig"),
             "features": [ClusterRequestFeaturesInner.from_dict(_item) for _item in obj.get("features")] if obj.get("features") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.stage_step_metrics import StageStepMetrics
 
@@ -30,7 +30,6 @@ class Stage(BaseModel):
     id: StrictStr = Field(...)
     name: StrictStr = Field(..., description="stage name")
     steps: Optional[StageStepMetrics] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "name", "steps"]
 
     class Config:
@@ -55,17 +54,11 @@ class Stage(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of steps
         if self.steps:
             _dict['steps'] = self.steps.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class Stage(BaseModel):
             "name": obj.get("name"),
             "steps": StageStepMetrics.from_dict(obj.get("steps")) if obj.get("steps") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

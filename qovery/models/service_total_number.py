@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional, Union
+from typing import Optional, Union
 from pydantic import BaseModel, StrictFloat, StrictInt
 
 class ServiceTotalNumber(BaseModel):
@@ -27,7 +27,6 @@ class ServiceTotalNumber(BaseModel):
     ServiceTotalNumber
     """
     service_total_number: Optional[Union[StrictFloat, StrictInt]] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["service_total_number"]
 
     class Config:
@@ -52,14 +51,8 @@ class ServiceTotalNumber(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -74,11 +67,6 @@ class ServiceTotalNumber(BaseModel):
         _obj = ServiceTotalNumber.parse_obj({
             "service_total_number": obj.get("service_total_number")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

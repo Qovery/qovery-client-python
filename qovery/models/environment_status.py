@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 from qovery.models.environment_status_event_origin_enum import EnvironmentStatusEventOriginEnum
 from qovery.models.state_enum import StateEnum
@@ -36,7 +36,6 @@ class EnvironmentStatus(BaseModel):
     total_deployment_duration_in_seconds: Optional[StrictInt] = None
     origin: Optional[EnvironmentStatusEventOriginEnum] = None
     triggered_by: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "state", "last_deployment_date", "last_deployment_state", "last_deployment_id", "total_deployment_duration_in_seconds", "origin", "triggered_by"]
 
     class Config:
@@ -61,14 +60,8 @@ class EnvironmentStatus(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if last_deployment_date (nullable) is None
         # and __fields_set__ contains the field
         if self.last_deployment_date is None and "last_deployment_date" in self.__fields_set__:
@@ -115,11 +108,6 @@ class EnvironmentStatus(BaseModel):
             "origin": obj.get("origin"),
             "triggered_by": obj.get("triggered_by")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

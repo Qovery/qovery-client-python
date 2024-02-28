@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.environment_log_scope import EnvironmentLogScope
 from qovery.models.status_kind_enum import StatusKindEnum
@@ -35,7 +35,6 @@ class EnvironmentLog(BaseModel):
     message: Optional[StrictStr] = Field(..., description="Log message")
     execution_id: Optional[StrictStr] = Field(None, description="Only for errors. Helps Qovery team to investigate.")
     hint: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "scope", "state", "message", "execution_id", "hint"]
 
     class Config:
@@ -60,17 +59,11 @@ class EnvironmentLog(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of scope
         if self.scope:
             _dict['scope'] = self.scope.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if message (nullable) is None
         # and __fields_set__ contains the field
         if self.message is None and "message" in self.__fields_set__:
@@ -96,11 +89,6 @@ class EnvironmentLog(BaseModel):
             "execution_id": obj.get("execution_id"),
             "hint": obj.get("hint")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

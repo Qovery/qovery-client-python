@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, StrictStr
 from qovery.models.cluster_feature_value import ClusterFeatureValue
 
@@ -29,7 +29,6 @@ class ClusterRequestFeaturesInner(BaseModel):
     """
     id: Optional[StrictStr] = None
     value: Optional[ClusterFeatureValue] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "value"]
 
     class Config:
@@ -54,17 +53,11 @@ class ClusterRequestFeaturesInner(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of value
         if self.value:
             _dict['value'] = self.value.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if value (nullable) is None
         # and __fields_set__ contains the field
         if self.value is None and "value" in self.__fields_set__:
@@ -85,11 +78,6 @@ class ClusterRequestFeaturesInner(BaseModel):
             "id": obj.get("id"),
             "value": ClusterFeatureValue.from_dict(obj.get("value")) if obj.get("value") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

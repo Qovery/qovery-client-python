@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Dict, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 
 class JobAdvancedSettings(BaseModel):
@@ -37,7 +37,6 @@ class JobAdvancedSettings(BaseModel):
     cronjob_success_jobs_history_limit: Optional[StrictInt] = Field(None, alias="cronjob.success_jobs_history_limit")
     security_service_account_name: Optional[StrictStr] = Field(None, alias="security.service_account_name", description="Allows you to set an existing Kubernetes service account name ")
     security_read_only_root_filesystem: Optional[StrictBool] = Field(None, alias="security.read_only_root_filesystem", description="Mounts the container's root filesystem as read-only ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["build.timeout_max_sec", "build.cpu_max_in_milli", "build.ram_max_in_gib", "deployment.termination_grace_period_seconds", "deployment.affinity.node.required", "job.delete_ttl_seconds_after_finished", "cronjob.concurrency_policy", "cronjob.failed_jobs_history_limit", "cronjob.success_jobs_history_limit", "security.service_account_name", "security.read_only_root_filesystem"]
 
     class Config:
@@ -62,14 +61,8 @@ class JobAdvancedSettings(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if job_delete_ttl_seconds_after_finished (nullable) is None
         # and __fields_set__ contains the field
         if self.job_delete_ttl_seconds_after_finished is None and "job_delete_ttl_seconds_after_finished" in self.__fields_set__:
@@ -99,11 +92,6 @@ class JobAdvancedSettings(BaseModel):
             "security_service_account_name": obj.get("security.service_account_name"),
             "security_read_only_root_filesystem": obj.get("security.read_only_root_filesystem")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

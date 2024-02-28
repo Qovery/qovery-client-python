@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class ContainerRegistryResponseAllOfCluster(BaseModel):
@@ -30,7 +30,6 @@ class ContainerRegistryResponseAllOfCluster(BaseModel):
     created_at: datetime = Field(...)
     updated_at: Optional[datetime] = None
     name: Optional[StrictStr] = Field(None, description="Name of the cluster of which the registry belongs to")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name"]
 
     class Config:
@@ -57,14 +56,8 @@ class ContainerRegistryResponseAllOfCluster(BaseModel):
                           exclude={
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class ContainerRegistryResponseAllOfCluster(BaseModel):
             "updated_at": obj.get("updated_at"),
             "name": obj.get("name")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

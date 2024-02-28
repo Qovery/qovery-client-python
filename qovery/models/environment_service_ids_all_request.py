@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, StrictStr, conlist
 
 class EnvironmentServiceIdsAllRequest(BaseModel):
@@ -31,7 +31,6 @@ class EnvironmentServiceIdsAllRequest(BaseModel):
     database_ids: Optional[conlist(StrictStr)] = None
     job_ids: Optional[conlist(StrictStr)] = None
     helm_ids: Optional[conlist(StrictStr)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["application_ids", "container_ids", "database_ids", "job_ids", "helm_ids"]
 
     class Config:
@@ -56,14 +55,8 @@ class EnvironmentServiceIdsAllRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class EnvironmentServiceIdsAllRequest(BaseModel):
             "job_ids": obj.get("job_ids"),
             "helm_ids": obj.get("helm_ids")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

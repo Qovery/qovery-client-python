@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class DeployAllRequestJobsInner(BaseModel):
@@ -29,7 +29,6 @@ class DeployAllRequestJobsInner(BaseModel):
     id: Optional[StrictStr] = Field(None, description="id of the job to be updated.")
     image_tag: Optional[StrictStr] = Field(None, description="new tag for the job image. Use only if job is an image source. Can be empty only if the service has been already deployed (in this case the service version won't be changed)")
     git_commit_id: Optional[StrictStr] = Field(None, description="Commit ID to deploy. Use only if job is a repository source. Can be empty only if the service has been already deployed (in this case the service version won't be changed)")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "image_tag", "git_commit_id"]
 
     class Config:
@@ -54,14 +53,8 @@ class DeployAllRequestJobsInner(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -78,11 +71,6 @@ class DeployAllRequestJobsInner(BaseModel):
             "image_tag": obj.get("image_tag"),
             "git_commit_id": obj.get("git_commit_id")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

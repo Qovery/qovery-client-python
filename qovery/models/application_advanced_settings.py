@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Dict, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, validator
 
 class ApplicationAdvancedSettings(BaseModel):
@@ -59,7 +59,6 @@ class ApplicationAdvancedSettings(BaseModel):
     hpa_cpu_average_utilization_percent: Optional[StrictInt] = Field(None, alias="hpa.cpu.average_utilization_percent", description="Percentage value of cpu usage at which point pods should scale up.")
     security_service_account_name: Optional[StrictStr] = Field(None, alias="security.service_account_name", description="Allows you to set an existing Kubernetes service account name ")
     security_read_only_root_filesystem: Optional[StrictBool] = Field(None, alias="security.read_only_root_filesystem", description="Mounts the container's root filesystem as read-only ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["deployment.custom_domain_check_enabled", "deployment.termination_grace_period_seconds", "deployment.affinity.node.required", "deployment.antiaffinity.pod", "deployment.update_strategy.type", "deployment.update_strategy.rolling_update.max_unavailable_percent", "deployment.update_strategy.rolling_update.max_surge_percent", "build.timeout_max_sec", "build.cpu_max_in_milli", "build.ram_max_in_gib", "network.ingress.proxy_body_size_mb", "network.ingress.enable_cors", "network.ingress.cors_allow_origin", "network.ingress.cors_allow_methods", "network.ingress.cors_allow_headers", "network.ingress.proxy_buffer_size_kb", "network.ingress.keepalive_time_seconds", "network.ingress.keepalive_timeout_seconds", "network.ingress.send_timeout_seconds", "network.ingress.proxy_connect_timeout_seconds", "network.ingress.proxy_send_timeout_seconds", "network.ingress.proxy_read_timeout_seconds", "network.ingress.proxy_buffering", "network.ingress.whitelist_source_range", "network.ingress.denylist_source_range", "network.ingress.basic_auth_env_var", "network.ingress.enable_sticky_session", "network.ingress.grpc_send_timeout_seconds", "network.ingress.grpc_read_timeout_seconds", "network.ingress.extra_headers", "hpa.cpu.average_utilization_percent", "security.service_account_name", "security.read_only_root_filesystem"]
 
     @validator('deployment_antiaffinity_pod')
@@ -104,14 +103,8 @@ class ApplicationAdvancedSettings(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -158,11 +151,6 @@ class ApplicationAdvancedSettings(BaseModel):
             "security_service_account_name": obj.get("security.service_account_name"),
             "security_read_only_root_filesystem": obj.get("security.read_only_root_filesystem")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

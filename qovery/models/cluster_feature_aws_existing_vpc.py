@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 
 class ClusterFeatureAwsExistingVpc(BaseModel):
@@ -39,7 +39,6 @@ class ClusterFeatureAwsExistingVpc(BaseModel):
     rds_subnets_zone_a_ids: Optional[conlist(StrictStr)] = None
     rds_subnets_zone_b_ids: Optional[conlist(StrictStr)] = None
     rds_subnets_zone_c_ids: Optional[conlist(StrictStr)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["aws_vpc_eks_id", "eks_subnets_zone_a_ids", "eks_subnets_zone_b_ids", "eks_subnets_zone_c_ids", "documentdb_subnets_zone_a_ids", "documentdb_subnets_zone_b_ids", "documentdb_subnets_zone_c_ids", "elasticache_subnets_zone_a_ids", "elasticache_subnets_zone_b_ids", "elasticache_subnets_zone_c_ids", "rds_subnets_zone_a_ids", "rds_subnets_zone_b_ids", "rds_subnets_zone_c_ids"]
 
     class Config:
@@ -64,14 +63,8 @@ class ClusterFeatureAwsExistingVpc(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if documentdb_subnets_zone_a_ids (nullable) is None
         # and __fields_set__ contains the field
         if self.documentdb_subnets_zone_a_ids is None and "documentdb_subnets_zone_a_ids" in self.__fields_set__:
@@ -143,11 +136,6 @@ class ClusterFeatureAwsExistingVpc(BaseModel):
             "rds_subnets_zone_b_ids": obj.get("rds_subnets_zone_b_ids"),
             "rds_subnets_zone_c_ids": obj.get("rds_subnets_zone_c_ids")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

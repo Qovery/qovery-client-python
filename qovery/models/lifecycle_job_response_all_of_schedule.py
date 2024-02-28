@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel
 from qovery.models.job_request_all_of_schedule_on_start import JobRequestAllOfScheduleOnStart
 
@@ -30,7 +30,6 @@ class LifecycleJobResponseAllOfSchedule(BaseModel):
     on_start: Optional[JobRequestAllOfScheduleOnStart] = None
     on_stop: Optional[JobRequestAllOfScheduleOnStart] = None
     on_delete: Optional[JobRequestAllOfScheduleOnStart] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["on_start", "on_stop", "on_delete"]
 
     class Config:
@@ -55,7 +54,6 @@ class LifecycleJobResponseAllOfSchedule(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of on_start
@@ -67,11 +65,6 @@ class LifecycleJobResponseAllOfSchedule(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of on_delete
         if self.on_delete:
             _dict['on_delete'] = self.on_delete.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -88,11 +81,6 @@ class LifecycleJobResponseAllOfSchedule(BaseModel):
             "on_stop": JobRequestAllOfScheduleOnStart.from_dict(obj.get("on_stop")) if obj.get("on_stop") is not None else None,
             "on_delete": JobRequestAllOfScheduleOnStart.from_dict(obj.get("on_delete")) if obj.get("on_delete") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

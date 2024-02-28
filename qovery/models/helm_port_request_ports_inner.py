@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 from qovery.models.helm_port_protocol_enum import HelmPortProtocolEnum
 
@@ -34,7 +34,6 @@ class HelmPortRequestPortsInner(BaseModel):
     namespace: Optional[StrictStr] = None
     protocol: Optional[HelmPortProtocolEnum] = None
     is_default: Optional[StrictBool] = Field(None, description="is the default port to use for domain")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "internal_port", "external_port", "service_name", "namespace", "protocol", "is_default"]
 
     class Config:
@@ -59,14 +58,8 @@ class HelmPortRequestPortsInner(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -87,11 +80,6 @@ class HelmPortRequestPortsInner(BaseModel):
             "protocol": obj.get("protocol"),
             "is_default": obj.get("is_default")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

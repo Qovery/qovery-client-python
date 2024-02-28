@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from qovery.models.plan_enum import PlanEnum
 
@@ -39,7 +39,6 @@ class Organization(BaseModel):
     icon_url: Optional[StrictStr] = None
     admin_emails: Optional[conlist(StrictStr)] = None
     owner: Optional[StrictStr] = Field(None, description="uuid of the user owning the organization")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "description", "plan", "website_url", "repository", "logo_url", "icon_url", "admin_emails", "owner"]
 
     class Config:
@@ -67,14 +66,8 @@ class Organization(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if description (nullable) is None
         # and __fields_set__ contains the field
         if self.description is None and "description" in self.__fields_set__:
@@ -130,11 +123,6 @@ class Organization(BaseModel):
             "admin_emails": obj.get("admin_emails"),
             "owner": obj.get("owner")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

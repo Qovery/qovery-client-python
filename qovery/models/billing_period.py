@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel
 
 class BillingPeriod(BaseModel):
@@ -28,7 +28,6 @@ class BillingPeriod(BaseModel):
     """
     billing_started_on: Optional[datetime] = None
     billing_ended_on: Optional[datetime] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["billing_started_on", "billing_ended_on"]
 
     class Config:
@@ -53,14 +52,8 @@ class BillingPeriod(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -76,11 +69,6 @@ class BillingPeriod(BaseModel):
             "billing_started_on": obj.get("billing_started_on"),
             "billing_ended_on": obj.get("billing_ended_on")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

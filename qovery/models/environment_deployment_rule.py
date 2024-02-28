@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from qovery.models.weekday_enum import WeekdayEnum
 
@@ -37,7 +37,6 @@ class EnvironmentDeploymentRule(BaseModel):
     start_time: datetime = Field(...)
     stop_time: datetime = Field(...)
     weekdays: conlist(WeekdayEnum) = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "on_demand_preview", "auto_stop", "auto_preview", "timezone", "start_time", "stop_time", "weekdays"]
 
     class Config:
@@ -65,14 +64,8 @@ class EnvironmentDeploymentRule(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -96,11 +89,6 @@ class EnvironmentDeploymentRule(BaseModel):
             "stop_time": obj.get("stop_time"),
             "weekdays": obj.get("weekdays")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

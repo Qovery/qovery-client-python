@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, StrictStr
 from qovery.models.cloud_provider_enum import CloudProviderEnum
 from qovery.models.cluster_cloud_provider_info_credentials import ClusterCloudProviderInfoCredentials
@@ -31,7 +31,6 @@ class ClusterCloudProviderInfo(BaseModel):
     cloud_provider: Optional[CloudProviderEnum] = None
     credentials: Optional[ClusterCloudProviderInfoCredentials] = None
     region: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["cloud_provider", "credentials", "region"]
 
     class Config:
@@ -56,17 +55,11 @@ class ClusterCloudProviderInfo(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of credentials
         if self.credentials:
             _dict['credentials'] = self.credentials.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -83,11 +76,6 @@ class ClusterCloudProviderInfo(BaseModel):
             "credentials": ClusterCloudProviderInfoCredentials.from_dict(obj.get("credentials")) if obj.get("credentials") is not None else None,
             "region": obj.get("region")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

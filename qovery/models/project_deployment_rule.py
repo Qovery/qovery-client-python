@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr, conlist
 from qovery.models.environment_mode_enum import EnvironmentModeEnum
 from qovery.models.weekday_enum import WeekdayEnum
@@ -42,7 +42,6 @@ class ProjectDeploymentRule(BaseModel):
     weekdays: conlist(WeekdayEnum) = Field(...)
     wildcard: StrictStr = Field(..., description="wildcard pattern composed of '?' and/or '*' used to target new created environments")
     priority_index: Optional[StrictInt] = Field(None, description="used to select the first deployment rule to match new created environments")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "description", "mode", "cluster_id", "auto_stop", "timezone", "start_time", "stop_time", "weekdays", "wildcard", "priority_index"]
 
     class Config:
@@ -70,14 +69,8 @@ class ProjectDeploymentRule(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if description (nullable) is None
         # and __fields_set__ contains the field
         if self.description is None and "description" in self.__fields_set__:
@@ -110,11 +103,6 @@ class ProjectDeploymentRule(BaseModel):
             "wildcard": obj.get("wildcard") if obj.get("wildcard") is not None else '',
             "priority_index": obj.get("priority_index")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

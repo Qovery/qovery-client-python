@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictStr
 from qovery.models.helm_response_all_of_source_one_of1_repository_repository import HelmResponseAllOfSourceOneOf1RepositoryRepository
 
@@ -30,7 +30,6 @@ class HelmResponseAllOfSourceOneOf1Repository(BaseModel):
     chart_name: StrictStr = Field(..., description="The name of the chart in the repository")
     chart_version: StrictStr = Field(..., description="The version of the chart to use")
     repository: HelmResponseAllOfSourceOneOf1RepositoryRepository = Field(...)
-    additional_properties: Dict[str, Any] = {}
     __properties = ["chart_name", "chart_version", "repository"]
 
     class Config:
@@ -55,17 +54,11 @@ class HelmResponseAllOfSourceOneOf1Repository(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of repository
         if self.repository:
             _dict['repository'] = self.repository.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -82,11 +75,6 @@ class HelmResponseAllOfSourceOneOf1Repository(BaseModel):
             "chart_version": obj.get("chart_version"),
             "repository": HelmResponseAllOfSourceOneOf1RepositoryRepository.from_dict(obj.get("repository")) if obj.get("repository") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

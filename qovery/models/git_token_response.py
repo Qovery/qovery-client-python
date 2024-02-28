@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import date, datetime
-from typing import Any, Dict, Optional, Union
+from typing import Optional, Union
 from pydantic import BaseModel, Field, StrictFloat, StrictInt, StrictStr
 from qovery.models.git_provider_enum import GitProviderEnum
 
@@ -36,7 +36,6 @@ class GitTokenResponse(BaseModel):
     expired_at: Optional[date] = None
     workspace: Optional[StrictStr] = Field(None, description="Mandatory only for BITBUCKET git provider")
     associated_services_count: Union[StrictFloat, StrictInt] = Field(..., description="The number of services using this git token")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "name", "description", "type", "expired_at", "workspace", "associated_services_count"]
 
     class Config:
@@ -64,14 +63,8 @@ class GitTokenResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -94,11 +87,6 @@ class GitTokenResponse(BaseModel):
             "workspace": obj.get("workspace"),
             "associated_services_count": obj.get("associated_services_count")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

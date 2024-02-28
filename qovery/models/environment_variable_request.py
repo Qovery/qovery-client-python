@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class EnvironmentVariableRequest(BaseModel):
@@ -29,7 +29,6 @@ class EnvironmentVariableRequest(BaseModel):
     key: StrictStr = Field(..., description="key is case sensitive.")
     value: Optional[StrictStr] = Field(None, description="value of the env variable.")
     mount_path: Optional[StrictStr] = Field(None, description="should be set for file only. variable mount path makes variable a file (where file should be mounted).")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["key", "value", "mount_path"]
 
     class Config:
@@ -54,14 +53,8 @@ class EnvironmentVariableRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if mount_path (nullable) is None
         # and __fields_set__ contains the field
         if self.mount_path is None and "mount_path" in self.__fields_set__:
@@ -83,11 +76,6 @@ class EnvironmentVariableRequest(BaseModel):
             "value": obj.get("value"),
             "mount_path": obj.get("mount_path")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

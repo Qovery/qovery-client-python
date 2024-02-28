@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 from qovery.models.company_size_enum import CompanySizeEnum
 from qovery.models.type_of_use_enum import TypeOfUseEnum
@@ -44,7 +44,6 @@ class SignUp(BaseModel):
     current_step: Optional[StrictStr] = None
     dx_auth: Optional[StrictBool] = None
     infrastructure_hosting: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "first_name", "last_name", "user_email", "type_of_use", "qovery_usage", "company_name", "company_size", "user_role", "qovery_usage_other", "user_questions", "current_step", "dx_auth", "infrastructure_hosting"]
 
     class Config:
@@ -72,14 +71,8 @@ class SignUp(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if company_name (nullable) is None
         # and __fields_set__ contains the field
         if self.company_name is None and "company_name" in self.__fields_set__:
@@ -144,11 +137,6 @@ class SignUp(BaseModel):
             "dx_auth": obj.get("dx_auth"),
             "infrastructure_hosting": obj.get("infrastructure_hosting")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

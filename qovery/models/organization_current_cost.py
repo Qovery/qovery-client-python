@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictInt
 from qovery.models.cost import Cost
 from qovery.models.plan_enum import PlanEnum
@@ -32,7 +32,6 @@ class OrganizationCurrentCost(BaseModel):
     remaining_trial_day: Optional[StrictInt] = Field(None, description="number of days remaining before the end of the trial period")
     renewal_at: Optional[datetime] = Field(None, description="date when the current plan will be renewed")
     cost: Optional[Cost] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["plan", "remaining_trial_day", "renewal_at", "cost"]
 
     class Config:
@@ -58,17 +57,11 @@ class OrganizationCurrentCost(BaseModel):
         _dict = self.dict(by_alias=True,
                           exclude={
                             "renewal_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of cost
         if self.cost:
             _dict['cost'] = self.cost.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if renewal_at (nullable) is None
         # and __fields_set__ contains the field
         if self.renewal_at is None and "renewal_at" in self.__fields_set__:
@@ -91,11 +84,6 @@ class OrganizationCurrentCost(BaseModel):
             "renewal_at": obj.get("renewal_at"),
             "cost": Cost.from_dict(obj.get("cost")) if obj.get("cost") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr
 
 class ClusterInstanceTypeResponseListResultsInner(BaseModel):
@@ -33,7 +33,6 @@ class ClusterInstanceTypeResponseListResultsInner(BaseModel):
     bandwidth_in_gbps: StrictStr = Field(...)
     bandwidth_guarantee: StrictStr = Field(...)
     architecture: Optional[StrictStr] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["type", "name", "cpu", "ram_in_gb", "bandwidth_in_gbps", "bandwidth_guarantee", "architecture"]
 
     class Config:
@@ -58,14 +57,8 @@ class ClusterInstanceTypeResponseListResultsInner(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -86,11 +79,6 @@ class ClusterInstanceTypeResponseListResultsInner(BaseModel):
             "bandwidth_guarantee": obj.get("bandwidth_guarantee"),
             "architecture": obj.get("architecture")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

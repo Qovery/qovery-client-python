@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from qovery.models.plan_enum import PlanEnum
 
@@ -35,7 +35,6 @@ class OrganizationRequest(BaseModel):
     logo_url: Optional[StrictStr] = None
     icon_url: Optional[StrictStr] = None
     admin_emails: Optional[conlist(StrictStr)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["name", "description", "plan", "website_url", "repository", "logo_url", "icon_url", "admin_emails"]
 
     class Config:
@@ -60,14 +59,8 @@ class OrganizationRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         # set to None if description (nullable) is None
         # and __fields_set__ contains the field
         if self.description is None and "description" in self.__fields_set__:
@@ -119,11 +112,6 @@ class OrganizationRequest(BaseModel):
             "icon_url": obj.get("icon_url"),
             "admin_emails": obj.get("admin_emails")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool
 
 class ContainerNetwork(BaseModel):
@@ -27,7 +27,6 @@ class ContainerNetwork(BaseModel):
     ContainerNetwork
     """
     sticky_session: Optional[StrictBool] = Field(False, description="Specify if the sticky session option (also called persistant session) is activated or not for this container. If activated, user will be redirected by the load balancer to the same instance each time he access to the container.  ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["sticky_session"]
 
     class Config:
@@ -52,14 +51,8 @@ class ContainerNetwork(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -74,11 +67,6 @@ class ContainerNetwork(BaseModel):
         _obj = ContainerNetwork.parse_obj({
             "sticky_session": obj.get("sticky_session") if obj.get("sticky_session") is not None else False
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

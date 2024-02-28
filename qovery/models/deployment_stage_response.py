@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
 from qovery.models.deployment_stage_service_response import DeploymentStageServiceResponse
 from qovery.models.reference_object import ReferenceObject
@@ -36,7 +36,6 @@ class DeploymentStageResponse(BaseModel):
     description: Optional[StrictStr] = None
     deployment_order: Optional[StrictInt] = Field(None, description="Position of the deployment stage within the environment")
     services: Optional[conlist(DeploymentStageServiceResponse)] = None
-    additional_properties: Dict[str, Any] = {}
     __properties = ["id", "created_at", "updated_at", "environment", "name", "description", "deployment_order", "services"]
 
     class Config:
@@ -64,7 +63,6 @@ class DeploymentStageResponse(BaseModel):
                             "id",
                             "created_at",
                             "updated_at",
-                            "additional_properties"
                           },
                           exclude_none=True)
         # override the default output from pydantic by calling `to_dict()` of environment
@@ -77,11 +75,6 @@ class DeploymentStageResponse(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['services'] = _items
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -103,11 +96,6 @@ class DeploymentStageResponse(BaseModel):
             "deployment_order": obj.get("deployment_order"),
             "services": [DeploymentStageServiceResponse.from_dict(_item) for _item in obj.get("services")] if obj.get("services") is not None else None
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

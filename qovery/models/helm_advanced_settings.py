@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictBool, StrictInt, StrictStr
 
 class HelmAdvancedSettings(BaseModel):
@@ -48,7 +48,6 @@ class HelmAdvancedSettings(BaseModel):
     network_ingress_extra_headers: Optional[StrictStr] = Field(None, alias="network.ingress.extra_headers", description="Allows to define response headers")
     network_ingress_basic_auth_env_var: Optional[StrictStr] = Field(None, alias="network.ingress.basic_auth_env_var", description="Set the name of an environment variable to use as a basic authentication (`login:crypted_password`) from `htpasswd` command. You can add multiples comma separated values. ")
     network_ingress_enable_sticky_session: Optional[StrictBool] = Field(None, alias="network.ingress.enable_sticky_session", description="Enable the load balancer to bind a user's session to a specific target. This ensures that all requests from the user during the session are sent to the same target ")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["deployment.custom_domain_check_enabled", "network.ingress.proxy_body_size_mb", "network.ingress.enable_cors", "network.ingress.cors_allow_origin", "network.ingress.cors_allow_methods", "network.ingress.cors_allow_headers", "network.ingress.proxy_buffer_size_kb", "network.ingress.keepalive_time_seconds", "network.ingress.keepalive_timeout_seconds", "network.ingress.send_timeout_seconds", "network.ingress.proxy_connect_timeout_seconds", "network.ingress.proxy_send_timeout_seconds", "network.ingress.proxy_read_timeout_seconds", "network.ingress.proxy_buffering", "network.ingress.proxy_request_buffering", "network.ingress.grpc_send_timeout_seconds", "network.ingress.grpc_read_timeout_seconds", "network.ingress.whitelist_source_range", "network.ingress.denylist_source_range", "network.ingress.extra_headers", "network.ingress.basic_auth_env_var", "network.ingress.enable_sticky_session"]
 
     class Config:
@@ -73,14 +72,8 @@ class HelmAdvancedSettings(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -116,11 +109,6 @@ class HelmAdvancedSettings(BaseModel):
             "network_ingress_basic_auth_env_var": obj.get("network.ingress.basic_auth_env_var"),
             "network_ingress_enable_sticky_session": obj.get("network.ingress.enable_sticky_session")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

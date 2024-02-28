@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictBool, StrictStr
 
 class CustomDomainRequest(BaseModel):
@@ -28,7 +28,6 @@ class CustomDomainRequest(BaseModel):
     """
     domain: StrictStr = Field(..., description="your custom domain")
     generate_certificate: StrictBool = Field(..., description="to control if a certificate has to be generated for this custom domain by Qovery. The default value is `true`. This flag should be set to `false` if a CDN or other entities are managing the certificate for the specified domain and the traffic is proxied by the CDN to Qovery.")
-    additional_properties: Dict[str, Any] = {}
     __properties = ["domain", "generate_certificate"]
 
     class Config:
@@ -53,14 +52,8 @@ class CustomDomainRequest(BaseModel):
         """Returns the dictionary representation of the model using alias"""
         _dict = self.dict(by_alias=True,
                           exclude={
-                            "additional_properties"
                           },
                           exclude_none=True)
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
         return _dict
 
     @classmethod
@@ -76,11 +69,6 @@ class CustomDomainRequest(BaseModel):
             "domain": obj.get("domain"),
             "generate_certificate": obj.get("generate_certificate")
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 
