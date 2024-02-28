@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **edit_container_advanced_settings**
-> ContainerAdvancedSettings edit_container_advanced_settings(container_id)
+> ContainerAdvancedSettings edit_container_advanced_settings(container_id, container_advanced_settings=container_advanced_settings)
 
 Edit advanced settings
 
@@ -21,13 +21,14 @@ Edit advanced settings by returning table of advanced settings.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_configuration_api
-from qovery.model.container_advanced_settings import ContainerAdvancedSettings
+from qovery.models.container_advanced_settings import ContainerAdvancedSettings
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -40,82 +41,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_configuration_api.ContainerConfigurationApi(api_client)
-    container_id = "containerId_example" # str | Container ID
-    container_advanced_settings = ContainerAdvancedSettings(
-        deployment_custom_domain_check_enabled=True,
-        deployment_termination_grace_period_seconds=1,
-        deployment_affinity_node_required={
-            "key": "key_example",
-        },
-        deployment_antiaffinity_pod="Preferred",
-        deployment_update_strategy_type="RollingUpdate",
-        deployment_update_strategy_rolling_update_max_unavailable_percent=1,
-        deployment_update_strategy_rolling_update_max_surge_percent=1,
-        network_ingress_proxy_body_size_mb=1,
-        network_ingress_enable_cors=True,
-        network_ingress_cors_allow_origin="network_ingress_cors_allow_origin_example",
-        network_ingress_cors_allow_methods="network_ingress_cors_allow_methods_example",
-        network_ingress_cors_allow_headers="network_ingress_cors_allow_headers_example",
-        network_ingress_proxy_buffer_size_kb=1,
-        network_ingress_keepalive_time_seconds=1,
-        network_ingress_keepalive_timeout_seconds=1,
-        network_ingress_send_timeout_seconds=1,
-        network_ingress_proxy_connect_timeout_seconds=1,
-        network_ingress_proxy_send_timeout_seconds=1,
-        network_ingress_proxy_read_timeout_seconds=1,
-        network_ingress_proxy_buffering="network_ingress_proxy_buffering_example",
-        network_ingress_proxy_request_buffering="network_ingress_proxy_request_buffering_example",
-        network_ingress_grpc_send_timeout_seconds=1,
-        network_ingress_grpc_read_timeout_seconds=1,
-        network_ingress_whitelist_source_range="network_ingress_whitelist_source_range_example",
-        network_ingress_denylist_source_range="network_ingress_denylist_source_range_example",
-        network_ingress_extra_headers="{"X-Frame-Options":"DENY ","X-Content-Type-Options":"nosniff"}",
-        network_ingress_basic_auth_env_var="network_ingress_basic_auth_env_var_example",
-        network_ingress_enable_sticky_session=True,
-        security_service_account_name="security_service_account_name_example",
-        hpa_cpu_average_utilization_percent=1,
-        security_read_only_root_filesystem=True,
-    ) # ContainerAdvancedSettings |  (optional)
+    api_instance = qovery.ContainerConfigurationApi(api_client)
+    container_id = 'container_id_example' # str | Container ID
+    container_advanced_settings = qovery.ContainerAdvancedSettings() # ContainerAdvancedSettings |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit advanced settings
-        api_response = api_instance.edit_container_advanced_settings(container_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ContainerConfigurationApi->edit_container_advanced_settings: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit advanced settings
         api_response = api_instance.edit_container_advanced_settings(container_id, container_advanced_settings=container_advanced_settings)
+        print("The response of ContainerConfigurationApi->edit_container_advanced_settings:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerConfigurationApi->edit_container_advanced_settings: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID |
- **container_advanced_settings** | [**ContainerAdvancedSettings**](ContainerAdvancedSettings.md)|  | [optional]
+ **container_id** | **str**| Container ID | 
+ **container_advanced_settings** | [**ContainerAdvancedSettings**](ContainerAdvancedSettings.md)|  | [optional] 
 
 ### Return type
 
@@ -130,9 +89,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Updated advanced settings |  -  |
@@ -144,7 +101,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_container_network**
-> ContainerNetwork edit_container_network(container_id)
+> ContainerNetwork edit_container_network(container_id, container_network_request=container_network_request)
 
 Edit Container Network
 
@@ -154,14 +111,15 @@ Edit the Network settings of the container.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_configuration_api
-from qovery.model.container_network_request import ContainerNetworkRequest
-from qovery.model.container_network import ContainerNetwork
+from qovery.models.container_network import ContainerNetwork
+from qovery.models.container_network_request import ContainerNetworkRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -174,50 +132,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_configuration_api.ContainerConfigurationApi(api_client)
-    container_id = "containerId_example" # str | Container ID
-    container_network_request = ContainerNetworkRequest(
-        sticky_session=False,
-    ) # ContainerNetworkRequest |  (optional)
+    api_instance = qovery.ContainerConfigurationApi(api_client)
+    container_id = 'container_id_example' # str | Container ID
+    container_network_request = qovery.ContainerNetworkRequest() # ContainerNetworkRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit Container Network
-        api_response = api_instance.edit_container_network(container_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ContainerConfigurationApi->edit_container_network: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit Container Network
         api_response = api_instance.edit_container_network(container_id, container_network_request=container_network_request)
+        print("The response of ContainerConfigurationApi->edit_container_network:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerConfigurationApi->edit_container_network: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID |
- **container_network_request** | [**ContainerNetworkRequest**](ContainerNetworkRequest.md)|  | [optional]
+ **container_id** | **str**| Container ID | 
+ **container_network_request** | [**ContainerNetworkRequest**](ContainerNetworkRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -232,9 +180,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Updated container network setting |  -  |
@@ -256,13 +202,14 @@ Get list and values of the advanced settings of the container. Default values fo
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_configuration_api
-from qovery.model.container_advanced_settings import ContainerAdvancedSettings
+from qovery.models.container_advanced_settings import ContainerAdvancedSettings
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -275,37 +222,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_configuration_api.ContainerConfigurationApi(api_client)
-    container_id = "containerId_example" # str | Container ID
+    api_instance = qovery.ContainerConfigurationApi(api_client)
+    container_id = 'container_id_example' # str | Container ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get advanced settings
         api_response = api_instance.get_container_advanced_settings(container_id)
+        print("The response of ContainerConfigurationApi->get_container_advanced_settings:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerConfigurationApi->get_container_advanced_settings: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID |
+ **container_id** | **str**| Container ID | 
 
 ### Return type
 
@@ -320,9 +268,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Advanced settings list |  -  |
@@ -343,13 +289,14 @@ Get status of the container network settings.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_configuration_api
-from qovery.model.container_network import ContainerNetwork
+from qovery.models.container_network import ContainerNetwork
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -362,37 +309,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_configuration_api.ContainerConfigurationApi(api_client)
-    container_id = "containerId_example" # str | Container ID
+    api_instance = qovery.ContainerConfigurationApi(api_client)
+    container_id = 'container_id_example' # str | Container ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get Container Network information
         api_response = api_instance.get_container_network(container_id)
+        print("The response of ContainerConfigurationApi->get_container_network:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerConfigurationApi->get_container_network: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID |
+ **container_id** | **str**| Container ID | 
 
 ### Return type
 
@@ -407,9 +355,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Network information |  -  |

@@ -4,21 +4,37 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documentdb_subnets_zone_a_ids** | **[str], none_type** |  | [optional] 
-**documentdb_subnets_zone_b_ids** | **[str], none_type** |  | [optional] 
-**documentdb_subnets_zone_c_ids** | **[str], none_type** |  | [optional] 
-**elasticache_subnets_zone_a_ids** | **[str], none_type** |  | [optional] 
-**elasticache_subnets_zone_b_ids** | **[str], none_type** |  | [optional] 
-**elasticache_subnets_zone_c_ids** | **[str], none_type** |  | [optional] 
-**rds_subnets_zone_a_ids** | **[str], none_type** |  | [optional] 
-**rds_subnets_zone_b_ids** | **[str], none_type** |  | [optional] 
-**rds_subnets_zone_c_ids** | **[str], none_type** |  | [optional] 
-**aws_vpc_eks_id** | **str** |  | [optional] 
-**eks_subnets_zone_a_ids** | **[str]** |  | [optional] 
-**eks_subnets_zone_b_ids** | **[str]** |  | [optional] 
-**eks_subnets_zone_c_ids** | **[str]** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+**aws_vpc_eks_id** | **str** |  | 
+**eks_subnets_zone_a_ids** | **List[str]** |  | 
+**eks_subnets_zone_b_ids** | **List[str]** |  | 
+**eks_subnets_zone_c_ids** | **List[str]** |  | 
+**documentdb_subnets_zone_a_ids** | **List[str]** |  | [optional] 
+**documentdb_subnets_zone_b_ids** | **List[str]** |  | [optional] 
+**documentdb_subnets_zone_c_ids** | **List[str]** |  | [optional] 
+**elasticache_subnets_zone_a_ids** | **List[str]** |  | [optional] 
+**elasticache_subnets_zone_b_ids** | **List[str]** |  | [optional] 
+**elasticache_subnets_zone_c_ids** | **List[str]** |  | [optional] 
+**rds_subnets_zone_a_ids** | **List[str]** |  | [optional] 
+**rds_subnets_zone_b_ids** | **List[str]** |  | [optional] 
+**rds_subnets_zone_c_ids** | **List[str]** |  | [optional] 
 
+## Example
+
+```python
+from qovery.models.cluster_feature_value import ClusterFeatureValue
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of ClusterFeatureValue from a JSON string
+cluster_feature_value_instance = ClusterFeatureValue.from_json(json)
+# print the JSON string representation of the object
+print ClusterFeatureValue.to_json()
+
+# convert the object into a dict
+cluster_feature_value_dict = cluster_feature_value_instance.to_dict()
+# create an instance of ClusterFeatureValue from a dict
+cluster_feature_value_form_dict = cluster_feature_value.from_dict(cluster_feature_value_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

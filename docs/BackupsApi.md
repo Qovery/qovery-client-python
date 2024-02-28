@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **add_backup_database**
-> Backup add_backup_database(database_id)
+> Backup add_backup_database(database_id, backup_request=backup_request)
 
 Add a backup to the Database 
 
@@ -18,14 +18,15 @@ Add a backup to the Database
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import backups_api
-from qovery.model.backup import Backup
-from qovery.model.backup_request import BackupRequest
+from qovery.models.backup import Backup
+from qovery.models.backup_request import BackupRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -38,51 +39,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = backups_api.BackupsApi(api_client)
-    database_id = "databaseId_example" # str | Database ID
-    backup_request = BackupRequest(
-        name="name_example",
-        message="message_example",
-    ) # BackupRequest |  (optional)
+    api_instance = qovery.BackupsApi(api_client)
+    database_id = 'database_id_example' # str | Database ID
+    backup_request = qovery.BackupRequest() # BackupRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Add a backup to the Database 
-        api_response = api_instance.add_backup_database(database_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling BackupsApi->add_backup_database: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add a backup to the Database 
         api_response = api_instance.add_backup_database(database_id, backup_request=backup_request)
+        print("The response of BackupsApi->add_backup_database:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BackupsApi->add_backup_database: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID |
- **backup_request** | [**BackupRequest**](BackupRequest.md)|  | [optional]
+ **database_id** | **str**| Database ID | 
+ **backup_request** | [**BackupRequest**](BackupRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -97,9 +87,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Added backup |  -  |
@@ -111,7 +99,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_database_backup**
-> BackupPaginatedResponseList list_database_backup(database_id)
+> BackupPaginatedResponseList list_database_backup(database_id, start_id=start_id)
 
 List database  backups
 
@@ -121,13 +109,14 @@ By default it returns the 20 last results. The response is paginated. In order t
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import backups_api
-from qovery.model.backup_paginated_response_list import BackupPaginatedResponseList
+from qovery.models.backup_paginated_response_list import BackupPaginatedResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -140,48 +129,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = backups_api.BackupsApi(api_client)
-    database_id = "databaseId_example" # str | Database ID
-    start_id = "startId_example" # str | Starting point after which to return results (optional)
+    api_instance = qovery.BackupsApi(api_client)
+    database_id = 'database_id_example' # str | Database ID
+    start_id = 'start_id_example' # str | Starting point after which to return results (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List database  backups
-        api_response = api_instance.list_database_backup(database_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling BackupsApi->list_database_backup: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List database  backups
         api_response = api_instance.list_database_backup(database_id, start_id=start_id)
+        print("The response of BackupsApi->list_database_backup:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BackupsApi->list_database_backup: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID |
- **start_id** | **str**| Starting point after which to return results | [optional]
+ **database_id** | **str**| Database ID | 
+ **start_id** | **str**| Starting point after which to return results | [optional] 
 
 ### Return type
 
@@ -196,9 +177,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List backups |  -  |
@@ -217,12 +196,13 @@ Remove database  backup
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import backups_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -235,38 +215,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = backups_api.BackupsApi(api_client)
-    database_id = "databaseId_example" # str | Database ID
-    backup_id = "backupId_example" # str | Database Backup ID
+    api_instance = qovery.BackupsApi(api_client)
+    database_id = 'database_id_example' # str | Database ID
+    backup_id = 'backup_id_example' # str | Database Backup ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Remove database  backup
         api_instance.remove_database_backup(database_id, backup_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BackupsApi->remove_database_backup: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID |
- **backup_id** | **str**| Database Backup ID |
+ **database_id** | **str**| Database ID | 
+ **backup_id** | **str**| Database Backup ID | 
 
 ### Return type
 
@@ -281,9 +261,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | no content |  -  |

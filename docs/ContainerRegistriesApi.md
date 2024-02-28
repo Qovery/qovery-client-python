@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_container_registry**
-> ContainerRegistryResponse create_container_registry(organization_id)
+> ContainerRegistryResponse create_container_registry(organization_id, container_registry_request=container_registry_request)
 
 Create a container registry
 
@@ -21,14 +21,15 @@ Create a container registry
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_registries_api
-from qovery.model.container_registry_request import ContainerRegistryRequest
-from qovery.model.container_registry_response import ContainerRegistryResponse
+from qovery.models.container_registry_request import ContainerRegistryRequest
+from qovery.models.container_registry_response import ContainerRegistryResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -41,62 +42,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_registries_api.ContainerRegistriesApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    container_registry_request = ContainerRegistryRequest(
-        name="name_example",
-        kind=ContainerRegistryKindEnum("ECR"),
-        description="description_example",
-        url="url_example",
-        config=ContainerRegistryRequestConfig(
-            access_key_id="access_key_id_example",
-            secret_access_key="secret_access_key_example",
-            region="region_example",
-            scaleway_access_key="scaleway_access_key_example",
-            scaleway_secret_key="scaleway_secret_key_example",
-            username="username_example",
-            password="password_example",
-        ),
-    ) # ContainerRegistryRequest |  (optional)
+    api_instance = qovery.ContainerRegistriesApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    container_registry_request = qovery.ContainerRegistryRequest() # ContainerRegistryRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a container registry
-        api_response = api_instance.create_container_registry(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ContainerRegistriesApi->create_container_registry: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a container registry
         api_response = api_instance.create_container_registry(organization_id, container_registry_request=container_registry_request)
+        print("The response of ContainerRegistriesApi->create_container_registry:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerRegistriesApi->create_container_registry: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **container_registry_request** | [**ContainerRegistryRequest**](ContainerRegistryRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **container_registry_request** | [**ContainerRegistryRequest**](ContainerRegistryRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -111,9 +90,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create a Container Registry |  -  |
@@ -133,12 +110,13 @@ Delete a container registry
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_registries_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -151,38 +129,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_registries_api.ContainerRegistriesApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
+    api_instance = qovery.ContainerRegistriesApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    container_registry_id = 'container_registry_id_example' # str | Container Registry ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a container registry
         api_instance.delete_container_registry(organization_id, container_registry_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerRegistriesApi->delete_container_registry: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **container_registry_id** | **str**| Container Registry ID |
+ **organization_id** | **str**| Organization ID | 
+ **container_registry_id** | **str**| Container Registry ID | 
 
 ### Return type
 
@@ -197,9 +175,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -210,7 +186,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_container_registry**
-> ContainerRegistryResponse edit_container_registry(organization_id, container_registry_id)
+> ContainerRegistryResponse edit_container_registry(organization_id, container_registry_id, container_registry_request=container_registry_request)
 
 Edit a container registry
 
@@ -218,14 +194,15 @@ Edit a container registry
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_registries_api
-from qovery.model.container_registry_request import ContainerRegistryRequest
-from qovery.model.container_registry_response import ContainerRegistryResponse
+from qovery.models.container_registry_request import ContainerRegistryRequest
+from qovery.models.container_registry_response import ContainerRegistryResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -238,64 +215,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_registries_api.ContainerRegistriesApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
-    container_registry_request = ContainerRegistryRequest(
-        name="name_example",
-        kind=ContainerRegistryKindEnum("ECR"),
-        description="description_example",
-        url="url_example",
-        config=ContainerRegistryRequestConfig(
-            access_key_id="access_key_id_example",
-            secret_access_key="secret_access_key_example",
-            region="region_example",
-            scaleway_access_key="scaleway_access_key_example",
-            scaleway_secret_key="scaleway_secret_key_example",
-            username="username_example",
-            password="password_example",
-        ),
-    ) # ContainerRegistryRequest |  (optional)
+    api_instance = qovery.ContainerRegistriesApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    container_registry_id = 'container_registry_id_example' # str | Container Registry ID
+    container_registry_request = qovery.ContainerRegistryRequest() # ContainerRegistryRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit a container registry
-        api_response = api_instance.edit_container_registry(organization_id, container_registry_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ContainerRegistriesApi->edit_container_registry: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit a container registry
         api_response = api_instance.edit_container_registry(organization_id, container_registry_id, container_registry_request=container_registry_request)
+        print("The response of ContainerRegistriesApi->edit_container_registry:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerRegistriesApi->edit_container_registry: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **container_registry_id** | **str**| Container Registry ID |
- **container_registry_request** | [**ContainerRegistryRequest**](ContainerRegistryRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **container_registry_id** | **str**| Container Registry ID | 
+ **container_registry_request** | [**ContainerRegistryRequest**](ContainerRegistryRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -310,9 +265,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edited the container registry |  -  |
@@ -332,13 +285,14 @@ Get a container registry
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_registries_api
-from qovery.model.container_registry_response import ContainerRegistryResponse
+from qovery.models.container_registry_response import ContainerRegistryResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -351,39 +305,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_registries_api.ContainerRegistriesApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
+    api_instance = qovery.ContainerRegistriesApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    container_registry_id = 'container_registry_id_example' # str | Container Registry ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a container registry
         api_response = api_instance.get_container_registry(organization_id, container_registry_id)
+        print("The response of ContainerRegistriesApi->get_container_registry:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerRegistriesApi->get_container_registry: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **container_registry_id** | **str**| Container Registry ID |
+ **organization_id** | **str**| Organization ID | 
+ **container_registry_id** | **str**| Container Registry ID | 
 
 ### Return type
 
@@ -398,9 +353,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The container registry |  -  |
@@ -421,13 +374,14 @@ List supported container registries by Qovery and get the mandatory authentifica
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_registries_api
-from qovery.model.available_container_registry_response_list import AvailableContainerRegistryResponseList
+from qovery.models.available_container_registry_response_list import AvailableContainerRegistryResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -440,29 +394,30 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_registries_api.ContainerRegistriesApi(api_client)
+    api_instance = qovery.ContainerRegistriesApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # List supported container registries
         api_response = api_instance.list_available_container_registry()
+        print("The response of ContainerRegistriesApi->list_available_container_registry:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerRegistriesApi->list_available_container_registry: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -481,9 +436,7 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | supported container registries |  -  |
@@ -502,13 +455,14 @@ List organization container registries
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import container_registries_api
-from qovery.model.container_registry_response_list import ContainerRegistryResponseList
+from qovery.models.container_registry_response_list import ContainerRegistryResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -521,37 +475,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = container_registries_api.ContainerRegistriesApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.ContainerRegistriesApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List organization container registries
         api_response = api_instance.list_container_registry(organization_id)
+        print("The response of ContainerRegistriesApi->list_container_registry:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ContainerRegistriesApi->list_container_registry: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -566,9 +521,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List container registries |  -  |

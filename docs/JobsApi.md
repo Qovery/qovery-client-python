@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **auto_deploy_job_environments**
-> Status auto_deploy_job_environments(organization_id)
+> Status auto_deploy_job_environments(organization_id, organization_job_auto_deploy_request=organization_job_auto_deploy_request)
 
 Auto deploy jobs
 
@@ -23,14 +23,15 @@ Triggers a new job deploy in each environment matching the following conditions 
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import jobs_api
-from qovery.model.organization_job_auto_deploy_request import OrganizationJobAutoDeployRequest
-from qovery.model.status import Status
+from qovery.models.organization_job_auto_deploy_request import OrganizationJobAutoDeployRequest
+from qovery.models.status import Status
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -43,51 +44,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = jobs_api.JobsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    organization_job_auto_deploy_request = OrganizationJobAutoDeployRequest(
-        image_name="image_name_example",
-        tag="tag_example",
-    ) # OrganizationJobAutoDeployRequest |  (optional)
+    api_instance = qovery.JobsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    organization_job_auto_deploy_request = qovery.OrganizationJobAutoDeployRequest() # OrganizationJobAutoDeployRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Auto deploy jobs
-        api_response = api_instance.auto_deploy_job_environments(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling JobsApi->auto_deploy_job_environments: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Auto deploy jobs
         api_response = api_instance.auto_deploy_job_environments(organization_id, organization_job_auto_deploy_request=organization_job_auto_deploy_request)
+        print("The response of JobsApi->auto_deploy_job_environments:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling JobsApi->auto_deploy_job_environments: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **organization_job_auto_deploy_request** | [**OrganizationJobAutoDeployRequest**](OrganizationJobAutoDeployRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **organization_job_auto_deploy_request** | [**OrganizationJobAutoDeployRequest**](OrganizationJobAutoDeployRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -102,9 +92,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Deployed jobs |  -  |
@@ -117,7 +105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clone_job**
-> JobResponse clone_job(job_id)
+> JobResponse clone_job(job_id, clone_service_request=clone_service_request)
 
 Clone job
 
@@ -127,14 +115,15 @@ This will create a new job with the same configuration on the targeted environme
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import jobs_api
-from qovery.model.clone_service_request import CloneServiceRequest
-from qovery.model.job_response import JobResponse
+from qovery.models.clone_service_request import CloneServiceRequest
+from qovery.models.job_response import JobResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -147,51 +136,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = jobs_api.JobsApi(api_client)
-    job_id = "jobId_example" # str | Job ID
-    clone_service_request = CloneServiceRequest(
-        name="name_example",
-        environment_id="environment_id_example",
-    ) # CloneServiceRequest |  (optional)
+    api_instance = qovery.JobsApi(api_client)
+    job_id = 'job_id_example' # str | Job ID
+    clone_service_request = qovery.CloneServiceRequest() # CloneServiceRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Clone job
-        api_response = api_instance.clone_job(job_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling JobsApi->clone_job: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Clone job
         api_response = api_instance.clone_job(job_id, clone_service_request=clone_service_request)
+        print("The response of JobsApi->clone_job:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling JobsApi->clone_job: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID |
- **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional]
+ **job_id** | **str**| Job ID | 
+ **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -206,9 +184,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Job clone has been requested |  -  |
@@ -220,7 +196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_job**
-> JobResponse create_job(environment_id)
+> JobResponse create_job(environment_id, job_request=job_request)
 
 Create a job
 
@@ -228,14 +204,15 @@ Create a job
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import jobs_api
-from qovery.model.job_request import JobRequest
-from qovery.model.job_response import JobResponse
+from qovery.models.job_request import JobRequest
+from qovery.models.job_response import JobResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -248,48 +225,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = jobs_api.JobsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
-    job_request = JobRequest(None) # JobRequest |  (optional)
+    api_instance = qovery.JobsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
+    job_request = qovery.JobRequest() # JobRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a job
-        api_response = api_instance.create_job(environment_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling JobsApi->create_job: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a job
         api_response = api_instance.create_job(environment_id, job_request=job_request)
+        print("The response of JobsApi->create_job:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling JobsApi->create_job: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
- **job_request** | [**JobRequest**](JobRequest.md)|  | [optional]
+ **environment_id** | **str**| Environment ID | 
+ **job_request** | [**JobRequest**](JobRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -304,9 +273,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create job |  -  |
@@ -329,13 +296,14 @@ Default values for each setting is available in [our documentation](https://hub.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import jobs_api
-from qovery.model.job_advanced_settings import JobAdvancedSettings
+from qovery.models.job_advanced_settings import JobAdvancedSettings
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -348,29 +316,30 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = jobs_api.JobsApi(api_client)
+    api_instance = qovery.JobsApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # List default job advanced settings
         api_response = api_instance.get_default_job_advanced_settings()
+        print("The response of JobsApi->get_default_job_advanced_settings:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling JobsApi->get_default_job_advanced_settings: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -389,9 +358,7 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Default job advanced settings |  -  |
@@ -411,13 +378,14 @@ Returns a list of jobs with only their id and status.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import jobs_api
-from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
+from qovery.models.reference_object_status_response_list import ReferenceObjectStatusResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -430,37 +398,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = jobs_api.JobsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
+    api_instance = qovery.JobsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List all environment job statuses
         api_response = api_instance.get_environment_job_status(environment_id)
+        print("The response of JobsApi->get_environment_job_status:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling JobsApi->get_environment_job_status: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
+ **environment_id** | **str**| Environment ID | 
 
 ### Return type
 
@@ -475,9 +444,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get status |  -  |
@@ -488,7 +455,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_jobs**
-> JobResponseList list_jobs(environment_id)
+> JobResponseList list_jobs(environment_id, to_update=to_update)
 
 List jobs
 
@@ -496,13 +463,14 @@ List jobs
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import jobs_api
-from qovery.model.job_response_list import JobResponseList
+from qovery.models.job_response_list import JobResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -515,48 +483,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = jobs_api.JobsApi(api_client)
-    environment_id = "environmentId_example" # str | Environment ID
-    to_update = False # bool | return (or not) results that must be updated (optional) if omitted the server will use the default value of False
+    api_instance = qovery.JobsApi(api_client)
+    environment_id = 'environment_id_example' # str | Environment ID
+    to_update = False # bool | return (or not) results that must be updated (optional) (default to False)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List jobs
-        api_response = api_instance.list_jobs(environment_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling JobsApi->list_jobs: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List jobs
         api_response = api_instance.list_jobs(environment_id, to_update=to_update)
+        print("The response of JobsApi->list_jobs:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling JobsApi->list_jobs: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID |
- **to_update** | **bool**| return (or not) results that must be updated | [optional] if omitted the server will use the default value of False
+ **environment_id** | **str**| Environment ID | 
+ **to_update** | **bool**| return (or not) results that must be updated | [optional] [default to False]
 
 ### Return type
 
@@ -571,9 +531,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List jobs |  -  |

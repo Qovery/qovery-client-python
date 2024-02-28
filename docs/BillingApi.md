@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **add_credit_card**
-> CreditCard add_credit_card(organization_id)
+> CreditCard add_credit_card(organization_id, credit_card_request=credit_card_request)
 
 Add credit card
 
@@ -31,14 +31,15 @@ Add credit card
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.credit_card_request import CreditCardRequest
-from qovery.model.credit_card import CreditCard
+from qovery.models.credit_card import CreditCard
+from qovery.models.credit_card_request import CreditCardRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -51,53 +52,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credit_card_request = CreditCardRequest(
-        number="number_example",
-        cvv="cvv_example",
-        expiry_month=6,
-        expiry_year=2025,
-    ) # CreditCardRequest |  (optional)
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credit_card_request = qovery.CreditCardRequest() # CreditCardRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Add credit card
-        api_response = api_instance.add_credit_card(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling BillingApi->add_credit_card: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add credit card
         api_response = api_instance.add_credit_card(organization_id, credit_card_request=credit_card_request)
+        print("The response of BillingApi->add_credit_card:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->add_credit_card: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credit_card_request** | [**CreditCardRequest**](CreditCardRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **credit_card_request** | [**CreditCardRequest**](CreditCardRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -112,9 +100,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Add credit card |  -  |
@@ -126,7 +112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_credit_code**
-> add_credit_code(organization_id)
+> add_credit_code(organization_id, organization_credit_code_request=organization_credit_code_request)
 
 Add credit code
 
@@ -134,13 +120,14 @@ Add credit code
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.organization_credit_code_request import OrganizationCreditCodeRequest
+from qovery.models.organization_credit_code_request import OrganizationCreditCodeRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -153,48 +140,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    organization_credit_code_request = OrganizationCreditCodeRequest(
-        code="code_example",
-    ) # OrganizationCreditCodeRequest |  (optional)
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    organization_credit_code_request = qovery.OrganizationCreditCodeRequest() # OrganizationCreditCodeRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Add credit code
-        api_instance.add_credit_code(organization_id)
-    except qovery.ApiException as e:
-        print("Exception when calling BillingApi->add_credit_code: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Add credit code
         api_instance.add_credit_code(organization_id, organization_credit_code_request=organization_credit_code_request)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->add_credit_code: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **organization_credit_code_request** | [**OrganizationCreditCodeRequest**](OrganizationCreditCodeRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **organization_credit_code_request** | [**OrganizationCreditCodeRequest**](OrganizationCreditCodeRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -209,9 +186,7 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | add credit code |  -  |
@@ -223,7 +198,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **change_plan**
-> Organization change_plan(organization_id)
+> Organization change_plan(organization_id, organization_change_plan_request=organization_change_plan_request)
 
 Change organization plan
 
@@ -231,14 +206,15 @@ Change organization plan
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.organization import Organization
-from qovery.model.organization_change_plan_request import OrganizationChangePlanRequest
+from qovery.models.organization import Organization
+from qovery.models.organization_change_plan_request import OrganizationChangePlanRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -251,50 +227,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    organization_change_plan_request = OrganizationChangePlanRequest(
-        plan="plan_example",
-    ) # OrganizationChangePlanRequest |  (optional)
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    organization_change_plan_request = qovery.OrganizationChangePlanRequest() # OrganizationChangePlanRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Change organization plan
-        api_response = api_instance.change_plan(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling BillingApi->change_plan: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Change organization plan
         api_response = api_instance.change_plan(organization_id, organization_change_plan_request=organization_change_plan_request)
+        print("The response of BillingApi->change_plan:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->change_plan: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **organization_change_plan_request** | [**OrganizationChangePlanRequest**](OrganizationChangePlanRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **organization_change_plan_request** | [**OrganizationChangePlanRequest**](OrganizationChangePlanRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -309,9 +275,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | plan has been successfully changed |  -  |
@@ -331,12 +295,13 @@ Delete credit card
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -349,38 +314,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credit_card_id = "creditCardId_example" # str | Credit Card ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credit_card_id = 'credit_card_id_example' # str | Credit Card ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete credit card
         api_instance.delete_credit_card(organization_id, credit_card_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->delete_credit_card: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credit_card_id** | **str**| Credit Card ID |
+ **organization_id** | **str**| Organization ID | 
+ **credit_card_id** | **str**| Credit Card ID | 
 
 ### Return type
 
@@ -395,9 +360,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -408,7 +371,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization_billing_info**
-> BillingInfo edit_organization_billing_info(organization_id)
+> BillingInfo edit_organization_billing_info(organization_id, billing_info_request=billing_info_request)
 
 Edit Organization Billing Info
 
@@ -416,14 +379,15 @@ Edit Organization Billing Info
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.billing_info import BillingInfo
-from qovery.model.billing_info_request import BillingInfoRequest
+from qovery.models.billing_info import BillingInfo
+from qovery.models.billing_info_request import BillingInfoRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -436,59 +400,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    billing_info_request = BillingInfoRequest(
-        first_name="Forrest",
-        last_name="Gump",
-        email="forrest@gump.com",
-        address="21 Jenny Street",
-        city="Greenbow",
-        zip="36744",
-        state="Alabama",
-        country_code="US",
-        company="company_example",
-        vat_number="vat_number_example",
-    ) # BillingInfoRequest |  (optional)
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    billing_info_request = qovery.BillingInfoRequest() # BillingInfoRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit Organization Billing Info
-        api_response = api_instance.edit_organization_billing_info(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling BillingApi->edit_organization_billing_info: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit Organization Billing Info
         api_response = api_instance.edit_organization_billing_info(organization_id, billing_info_request=billing_info_request)
+        print("The response of BillingApi->edit_organization_billing_info:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->edit_organization_billing_info: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **billing_info_request** | [**BillingInfoRequest**](BillingInfoRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **billing_info_request** | [**BillingInfoRequest**](BillingInfoRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -503,9 +448,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit billing info |  -  |
@@ -517,7 +460,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_billing_usage_report**
-> OrganizationBillingUsageReportResponse generate_billing_usage_report(organization_id)
+> OrganizationBillingUsageReportResponse generate_billing_usage_report(organization_id, organization_billing_usage_report_request=organization_billing_usage_report_request)
 
 Generate organization billing usage report
 
@@ -525,14 +468,15 @@ Generate organization billing usage report
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.organization_billing_usage_report_request import OrganizationBillingUsageReportRequest
-from qovery.model.organization_billing_usage_report_response import OrganizationBillingUsageReportResponse
+from qovery.models.organization_billing_usage_report_request import OrganizationBillingUsageReportRequest
+from qovery.models.organization_billing_usage_report_response import OrganizationBillingUsageReportResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -545,52 +489,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    organization_billing_usage_report_request = OrganizationBillingUsageReportRequest(
-        _from=dateutil_parser('2020-01-01T00:00:00Z'),
-        to=dateutil_parser('2020-01-31T23:59:59Z'),
-        report_expiration_in_seconds=3600,
-    ) # OrganizationBillingUsageReportRequest |  (optional)
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    organization_billing_usage_report_request = qovery.OrganizationBillingUsageReportRequest() # OrganizationBillingUsageReportRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Generate organization billing usage report
-        api_response = api_instance.generate_billing_usage_report(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling BillingApi->generate_billing_usage_report: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Generate organization billing usage report
         api_response = api_instance.generate_billing_usage_report(organization_id, organization_billing_usage_report_request=organization_billing_usage_report_request)
+        print("The response of BillingApi->generate_billing_usage_report:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->generate_billing_usage_report: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **organization_billing_usage_report_request** | [**OrganizationBillingUsageReportRequest**](OrganizationBillingUsageReportRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **organization_billing_usage_report_request** | [**OrganizationBillingUsageReportRequest**](OrganizationBillingUsageReportRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -605,9 +537,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | billing usage report has been successfully generated |  -  |
@@ -629,13 +559,14 @@ Get your cluster cost range. We are unable to give a precise cost of your infras
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.cost_range import CostRange
+from qovery.models.cost_range import CostRange
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -648,39 +579,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    cluster_id = "clusterId_example" # str | Cluster ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    cluster_id = 'cluster_id_example' # str | Cluster ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get cluster current cost
         api_response = api_instance.get_cluster_current_cost(organization_id, cluster_id)
+        print("The response of BillingApi->get_cluster_current_cost:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->get_cluster_current_cost: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **cluster_id** | **str**| Cluster ID |
+ **organization_id** | **str**| Organization ID | 
+ **cluster_id** | **str**| Cluster ID | 
 
 ### Return type
 
@@ -695,9 +627,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get cluster cost |  -  |
@@ -718,13 +648,14 @@ This endpoint returns the external ID of the organization's billing account.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.billing_external_id import BillingExternalId
+from qovery.models.billing_external_id import BillingExternalId
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -737,37 +668,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization billing external ID
         api_response = api_instance.get_organization_billing_external_id(organization_id)
+        print("The response of BillingApi->get_organization_billing_external_id:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->get_organization_billing_external_id: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -782,9 +714,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get Billing External ID |  -  |
@@ -803,13 +733,14 @@ Get organization billing info
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.billing_info import BillingInfo
+from qovery.models.billing_info import BillingInfo
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -822,37 +753,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization billing info
         api_response = api_instance.get_organization_billing_info(organization_id)
+        print("The response of BillingApi->get_organization_billing_info:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->get_organization_billing_info: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -867,9 +799,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get Billing Info |  -  |
@@ -890,13 +820,14 @@ This endpoint returns a \"is_valid\" boolean field reflecting the billing status
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.billing_status import BillingStatus
+from qovery.models.billing_status import BillingStatus
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -909,37 +840,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization billing status
         api_response = api_instance.get_organization_billing_status(organization_id)
+        print("The response of BillingApi->get_organization_billing_status:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->get_organization_billing_status: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -954,9 +886,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get Billing Status |  -  |
@@ -975,13 +905,14 @@ Get organization current cost
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.organization_current_cost import OrganizationCurrentCost
+from qovery.models.organization_current_cost import OrganizationCurrentCost
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -994,37 +925,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization current cost
         api_response = api_instance.get_organization_current_cost(organization_id)
+        print("The response of BillingApi->get_organization_current_cost:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->get_organization_current_cost: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1039,9 +971,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get Cost |  -  |
@@ -1060,13 +990,14 @@ Get organization invoice
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.invoice import Invoice
+from qovery.models.invoice import Invoice
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1079,39 +1010,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    invoice_id = "invoiceId_example" # str | Invoice ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get organization invoice
         api_response = api_instance.get_organization_invoice(organization_id, invoice_id)
+        print("The response of BillingApi->get_organization_invoice:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->get_organization_invoice: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **invoice_id** | **str**| Invoice ID |
+ **organization_id** | **str**| Organization ID | 
+ **invoice_id** | **str**| Invoice ID | 
 
 ### Return type
 
@@ -1126,9 +1058,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get Invoice |  -  |
@@ -1149,13 +1079,14 @@ This will return URL of the invoice PDF
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.link import Link
+from qovery.models.link import Link
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1168,39 +1099,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    invoice_id = "invoiceId_example" # str | Invoice ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    invoice_id = 'invoice_id_example' # str | Invoice ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get invoice link
         api_response = api_instance.get_organization_invoice_pdf(organization_id, invoice_id)
+        print("The response of BillingApi->get_organization_invoice_pdf:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->get_organization_invoice_pdf: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **invoice_id** | **str**| Invoice ID |
+ **organization_id** | **str**| Organization ID | 
+ **invoice_id** | **str**| Invoice ID | 
 
 ### Return type
 
@@ -1215,9 +1147,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get invoice PDF |  -  |
@@ -1236,13 +1166,14 @@ List organization credit cards
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.credit_card_response_list import CreditCardResponseList
+from qovery.models.credit_card_response_list import CreditCardResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1255,37 +1186,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List organization credit cards
         api_response = api_instance.list_organization_credit_cards(organization_id)
+        print("The response of BillingApi->list_organization_credit_cards:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->list_organization_credit_cards: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1300,9 +1232,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List cfredit cards |  -  |
@@ -1321,13 +1251,14 @@ List organization invoices
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
-from qovery.model.invoice_response_list import InvoiceResponseList
+from qovery.models.invoice_response_list import InvoiceResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1340,37 +1271,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List organization invoices
         api_response = api_instance.list_organization_invoice(organization_id)
+        print("The response of BillingApi->list_organization_invoice:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->list_organization_invoice: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1385,9 +1317,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List Invoices |  -  |
@@ -1406,12 +1336,13 @@ Download all invoices
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import billing_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1424,36 +1355,36 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = billing_api.BillingApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.BillingApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Download all invoices
         api_instance.organization_download_all_invoices(organization_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling BillingApi->organization_download_all_invoices: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1468,9 +1399,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | You will receive an email containing your invoices |  -  |

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **edit_account_information**
-> AccountInfo edit_account_information()
+> AccountInfo edit_account_information(account_info_edit_request=account_info_edit_request)
 
 Edit account information
 
@@ -17,14 +17,15 @@ Edit account information
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import account_info_api
-from qovery.model.account_info import AccountInfo
-from qovery.model.account_info_edit_request import AccountInfoEditRequest
+from qovery.models.account_info import AccountInfo
+from qovery.models.account_info_edit_request import AccountInfoEditRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -37,40 +38,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = account_info_api.AccountInfoApi(api_client)
-    account_info_edit_request = AccountInfoEditRequest(
-        communication_email="communication_email_example",
-    ) # AccountInfoEditRequest |  (optional)
+    api_instance = qovery.AccountInfoApi(api_client)
+    account_info_edit_request = qovery.AccountInfoEditRequest() # AccountInfoEditRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit account information
         api_response = api_instance.edit_account_information(account_info_edit_request=account_info_edit_request)
+        print("The response of AccountInfoApi->edit_account_information:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling AccountInfoApi->edit_account_information: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_info_edit_request** | [**AccountInfoEditRequest**](AccountInfoEditRequest.md)|  | [optional]
+ **account_info_edit_request** | [**AccountInfoEditRequest**](AccountInfoEditRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -85,9 +84,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit application |  -  |
@@ -105,13 +102,14 @@ Get Account information
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import account_info_api
-from qovery.model.account_info import AccountInfo
+from qovery.models.account_info import AccountInfo
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -124,29 +122,30 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = account_info_api.AccountInfoApi(api_client)
+    api_instance = qovery.AccountInfoApi(api_client)
 
-    # example, this endpoint has no required or optional parameters
     try:
         # Get Account information
         api_response = api_instance.get_account_information()
+        print("The response of AccountInfoApi->get_account_information:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling AccountInfoApi->get_account_information: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -165,9 +164,7 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get account info |  -  |

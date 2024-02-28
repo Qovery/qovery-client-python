@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_organization_custom_role**
-> OrganizationCustomRole create_organization_custom_role(organization_id)
+> OrganizationCustomRole create_organization_custom_role(organization_id, organization_custom_role_create_request=organization_custom_role_create_request)
 
 Create an organization custom role
 
@@ -22,14 +22,15 @@ Create an organization custom role
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_custom_role_api
-from qovery.model.organization_custom_role_create_request import OrganizationCustomRoleCreateRequest
-from qovery.model.organization_custom_role import OrganizationCustomRole
+from qovery.models.organization_custom_role import OrganizationCustomRole
+from qovery.models.organization_custom_role_create_request import OrganizationCustomRoleCreateRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -42,51 +43,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    organization_custom_role_create_request = OrganizationCustomRoleCreateRequest(
-        name="name_example",
-        description="description_example",
-    ) # OrganizationCustomRoleCreateRequest |  (optional)
+    api_instance = qovery.OrganizationCustomRoleApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    organization_custom_role_create_request = qovery.OrganizationCustomRoleCreateRequest() # OrganizationCustomRoleCreateRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create an organization custom role
-        api_response = api_instance.create_organization_custom_role(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling OrganizationCustomRoleApi->create_organization_custom_role: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create an organization custom role
         api_response = api_instance.create_organization_custom_role(organization_id, organization_custom_role_create_request=organization_custom_role_create_request)
+        print("The response of OrganizationCustomRoleApi->create_organization_custom_role:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationCustomRoleApi->create_organization_custom_role: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **organization_custom_role_create_request** | [**OrganizationCustomRoleCreateRequest**](OrganizationCustomRoleCreateRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **organization_custom_role_create_request** | [**OrganizationCustomRoleCreateRequest**](OrganizationCustomRoleCreateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -101,9 +91,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Organization custom role created |  -  |
@@ -124,12 +112,13 @@ Delete organization custom role
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_custom_role_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -142,38 +131,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    custom_role_id = "customRoleId_example" # str | Custom Role ID
+    api_instance = qovery.OrganizationCustomRoleApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    custom_role_id = 'custom_role_id_example' # str | Custom Role ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete organization custom role
         api_instance.delete_organization_custom_role(organization_id, custom_role_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationCustomRoleApi->delete_organization_custom_role: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **custom_role_id** | **str**| Custom Role ID |
+ **organization_id** | **str**| Organization ID | 
+ **custom_role_id** | **str**| Custom Role ID | 
 
 ### Return type
 
@@ -188,9 +177,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | no content |  -  |
@@ -201,7 +188,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_organization_custom_role**
-> OrganizationCustomRole edit_organization_custom_role(organization_id, custom_role_id)
+> OrganizationCustomRole edit_organization_custom_role(organization_id, custom_role_id, organization_custom_role_update_request=organization_custom_role_update_request)
 
 Edit an organization custom role
 
@@ -211,14 +198,15 @@ Edit an organization custom role
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_custom_role_api
-from qovery.model.organization_custom_role import OrganizationCustomRole
-from qovery.model.organization_custom_role_update_request import OrganizationCustomRoleUpdateRequest
+from qovery.models.organization_custom_role import OrganizationCustomRole
+from qovery.models.organization_custom_role_update_request import OrganizationCustomRoleUpdateRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -231,71 +219,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    custom_role_id = "customRoleId_example" # str | Custom Role ID
-    organization_custom_role_update_request = OrganizationCustomRoleUpdateRequest(
-        name="name_example",
-        description="description_example",
-        cluster_permissions=[
-            OrganizationCustomRoleUpdateRequestClusterPermissionsInner(
-                cluster_id="cluster_id_example",
-                permission=OrganizationCustomRoleClusterPermission("VIEWER"),
-            ),
-        ],
-        project_permissions=[
-            OrganizationCustomRoleUpdateRequestProjectPermissionsInner(
-                project_id="project_id_example",
-                is_admin=False,
-                permissions=[
-                    OrganizationCustomRoleUpdateRequestProjectPermissionsInnerPermissionsInner(
-                        environment_type=EnvironmentModeEnum("PRODUCTION"),
-                        permission=OrganizationCustomRoleProjectPermission("NO_ACCESS"),
-                    ),
-                ],
-            ),
-        ],
-    ) # OrganizationCustomRoleUpdateRequest |  (optional)
+    api_instance = qovery.OrganizationCustomRoleApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    custom_role_id = 'custom_role_id_example' # str | Custom Role ID
+    organization_custom_role_update_request = qovery.OrganizationCustomRoleUpdateRequest() # OrganizationCustomRoleUpdateRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit an organization custom role
-        api_response = api_instance.edit_organization_custom_role(organization_id, custom_role_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling OrganizationCustomRoleApi->edit_organization_custom_role: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit an organization custom role
         api_response = api_instance.edit_organization_custom_role(organization_id, custom_role_id, organization_custom_role_update_request=organization_custom_role_update_request)
+        print("The response of OrganizationCustomRoleApi->edit_organization_custom_role:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationCustomRoleApi->edit_organization_custom_role: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **custom_role_id** | **str**| Custom Role ID |
- **organization_custom_role_update_request** | [**OrganizationCustomRoleUpdateRequest**](OrganizationCustomRoleUpdateRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **custom_role_id** | **str**| Custom Role ID | 
+ **organization_custom_role_update_request** | [**OrganizationCustomRoleUpdateRequest**](OrganizationCustomRoleUpdateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -310,9 +269,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit an organization custom role |  -  |
@@ -334,13 +291,14 @@ Get an organization custom role
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_custom_role_api
-from qovery.model.organization_custom_role import OrganizationCustomRole
+from qovery.models.organization_custom_role import OrganizationCustomRole
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -353,39 +311,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    custom_role_id = "customRoleId_example" # str | Custom Role ID
+    api_instance = qovery.OrganizationCustomRoleApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    custom_role_id = 'custom_role_id_example' # str | Custom Role ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get an organization custom role 
         api_response = api_instance.get_organization_custom_role(organization_id, custom_role_id)
+        print("The response of OrganizationCustomRoleApi->get_organization_custom_role:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationCustomRoleApi->get_organization_custom_role: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **custom_role_id** | **str**| Custom Role ID |
+ **organization_id** | **str**| Organization ID | 
+ **custom_role_id** | **str**| Custom Role ID | 
 
 ### Return type
 
@@ -400,9 +359,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get an organization custom role  |  -  |
@@ -423,13 +380,14 @@ List organization custom roles
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import organization_custom_role_api
-from qovery.model.organization_custom_role_list import OrganizationCustomRoleList
+from qovery.models.organization_custom_role_list import OrganizationCustomRoleList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -442,37 +400,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = organization_custom_role_api.OrganizationCustomRoleApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.OrganizationCustomRoleApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List organization custom roles
         api_response = api_instance.list_organization_custom_roles(organization_id)
+        print("The response of OrganizationCustomRoleApi->list_organization_custom_roles:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling OrganizationCustomRoleApi->list_organization_custom_roles: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -487,9 +446,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List organization custom roles |  -  |
