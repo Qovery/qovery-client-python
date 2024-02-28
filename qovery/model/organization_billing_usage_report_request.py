@@ -105,8 +105,13 @@ class OrganizationBillingUsageReportRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, _from, to, report_expiration_in_seconds, *args, **kwargs):  # noqa: E501
         """OrganizationBillingUsageReportRequest - a model defined in OpenAPI
+
+        Args:
+            _from (datetime): The start date of the report
+            to (datetime): The end date of the report
+            report_expiration_in_seconds (int): The number of seconds the report will be publicly available
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,9 +144,6 @@ class OrganizationBillingUsageReportRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _from (datetime): The start date of the report. [optional]  # noqa: E501
-            to (datetime): The end date of the report. [optional]  # noqa: E501
-            report_expiration_in_seconds (int): The number of seconds the report will be publicly available. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -173,6 +175,9 @@ class OrganizationBillingUsageReportRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self._from = _from
+        self.to = to
+        self.report_expiration_in_seconds = report_expiration_in_seconds
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -193,8 +198,13 @@ class OrganizationBillingUsageReportRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, _from, to, report_expiration_in_seconds, *args, **kwargs):  # noqa: E501
         """OrganizationBillingUsageReportRequest - a model defined in OpenAPI
+
+        Args:
+            _from (datetime): The start date of the report
+            to (datetime): The end date of the report
+            report_expiration_in_seconds (int): The number of seconds the report will be publicly available
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -227,9 +237,6 @@ class OrganizationBillingUsageReportRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            _from (datetime): The start date of the report. [optional]  # noqa: E501
-            to (datetime): The end date of the report. [optional]  # noqa: E501
-            report_expiration_in_seconds (int): The number of seconds the report will be publicly available. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +266,9 @@ class OrganizationBillingUsageReportRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self._from = _from
+        self.to = to
+        self.report_expiration_in_seconds = report_expiration_in_seconds
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
