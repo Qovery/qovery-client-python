@@ -95,6 +95,11 @@ class ApplicationEditRequest(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['ports'] = _items
+        # set to None if dockerfile_path (nullable) is None
+        # and __fields_set__ contains the field
+        if self.dockerfile_path is None and "dockerfile_path" in self.__fields_set__:
+            _dict['dockerfile_path'] = None
+
         # set to None if buildpack_language (nullable) is None
         # and __fields_set__ contains the field
         if self.buildpack_language is None and "buildpack_language" in self.__fields_set__:
