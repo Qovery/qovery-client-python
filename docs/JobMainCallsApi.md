@@ -22,13 +22,12 @@ To delete the job you must have the admin permission
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import job_main_calls_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -41,36 +40,36 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobMainCallsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
+    api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete job
         api_instance.delete_job(job_id)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->delete_job: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
+ **job_id** | **str**| Job ID |
 
 ### Return type
 
@@ -85,7 +84,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -96,7 +97,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_job**
-> JobResponse edit_job(job_id, job_request=job_request)
+> JobResponse edit_job(job_id)
 
 Edit job
 
@@ -106,15 +107,14 @@ Edit job
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.job_request import JobRequest
-from qovery.models.job_response import JobResponse
-from qovery.rest import ApiException
+from qovery.api import job_main_calls_api
+from qovery.model.job_request import JobRequest
+from qovery.model.job_response import JobResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -127,40 +127,48 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobMainCallsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
-    job_request = qovery.JobRequest() # JobRequest |  (optional)
+    api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
+    job_request = JobRequest(None) # JobRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit job
+        api_response = api_instance.edit_job(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobMainCallsApi->edit_job: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit job
         api_response = api_instance.edit_job(job_id, job_request=job_request)
-        print("The response of JobMainCallsApi->edit_job:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->edit_job: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
- **job_request** | [**JobRequest**](JobRequest.md)|  | [optional] 
+ **job_id** | **str**| Job ID |
+ **job_request** | [**JobRequest**](JobRequest.md)|  | [optional]
 
 ### Return type
 
@@ -175,7 +183,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit job |  -  |
@@ -196,14 +206,13 @@ Get job by ID
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.job_response import JobResponse
-from qovery.rest import ApiException
+from qovery.api import job_main_calls_api
+from qovery.model.job_response import JobResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -216,38 +225,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobMainCallsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
+    api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get job by ID
         api_response = api_instance.get_job(job_id)
-        print("The response of JobMainCallsApi->get_job:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->get_job: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
+ **job_id** | **str**| Job ID |
 
 ### Return type
 
@@ -262,7 +270,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get job by ID |  -  |
@@ -281,14 +291,13 @@ Get job status
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import job_main_calls_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -301,38 +310,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobMainCallsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
+    api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get job status
         api_response = api_instance.get_job_status(job_id)
-        print("The response of JobMainCallsApi->get_job_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->get_job_status: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
+ **job_id** | **str**| Job ID |
 
 ### Return type
 
@@ -347,7 +355,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get status |  -  |
@@ -358,7 +368,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_job_commit**
-> CommitResponseList list_job_commit(job_id, start_id=start_id, git_commit_id=git_commit_id)
+> CommitResponseList list_job_commit(job_id)
 
 List last job commits
 
@@ -368,14 +378,13 @@ Returns list of the last 100 commits made on the repository linked to the job
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.commit_response_list import CommitResponseList
-from qovery.rest import ApiException
+from qovery.api import job_main_calls_api
+from qovery.model.commit_response_list import CommitResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -388,42 +397,50 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.JobMainCallsApi(api_client)
-    job_id = 'job_id_example' # str | Job ID
-    start_id = 'start_id_example' # str | Starting point after which to return results (optional)
-    git_commit_id = 'git_commit_id_example' # str | Git Commit ID (optional)
+    api_instance = job_main_calls_api.JobMainCallsApi(api_client)
+    job_id = "jobId_example" # str | Job ID
+    start_id = "startId_example" # str | Starting point after which to return results (optional)
+    git_commit_id = "gitCommitId_example" # str | Git Commit ID (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # List last job commits
+        api_response = api_instance.list_job_commit(job_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling JobMainCallsApi->list_job_commit: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # List last job commits
         api_response = api_instance.list_job_commit(job_id, start_id=start_id, git_commit_id=git_commit_id)
-        print("The response of JobMainCallsApi->list_job_commit:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling JobMainCallsApi->list_job_commit: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job_id** | **str**| Job ID | 
- **start_id** | **str**| Starting point after which to return results | [optional] 
- **git_commit_id** | **str**| Git Commit ID | [optional] 
+ **job_id** | **str**| Job ID |
+ **start_id** | **str**| Starting point after which to return results | [optional]
+ **git_commit_id** | **str**| Git Commit ID | [optional]
 
 ### Return type
 
@@ -438,7 +455,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List job commits |  -  |

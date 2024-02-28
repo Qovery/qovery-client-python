@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **clone_helm**
-> HelmResponse clone_helm(helm_id, clone_service_request=clone_service_request)
+> HelmResponse clone_helm(helm_id)
 
 Clone helm
 
@@ -23,15 +23,14 @@ This will create a new helm with the same configuration on the targeted environm
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.clone_service_request import CloneServiceRequest
-from qovery.models.helm_response import HelmResponse
-from qovery.rest import ApiException
+from qovery.api import helms_api
+from qovery.model.clone_service_request import CloneServiceRequest
+from qovery.model.helm_response import HelmResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -44,40 +43,51 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmsApi(api_client)
-    helm_id = 'helm_id_example' # str | Helm ID
-    clone_service_request = qovery.CloneServiceRequest() # CloneServiceRequest |  (optional)
+    api_instance = helms_api.HelmsApi(api_client)
+    helm_id = "helmId_example" # str | Helm ID
+    clone_service_request = CloneServiceRequest(
+        name="name_example",
+        environment_id="environment_id_example",
+    ) # CloneServiceRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Clone helm
+        api_response = api_instance.clone_helm(helm_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling HelmsApi->clone_helm: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Clone helm
         api_response = api_instance.clone_helm(helm_id, clone_service_request=clone_service_request)
-        print("The response of HelmsApi->clone_helm:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmsApi->clone_helm: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **helm_id** | **str**| Helm ID | 
- **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional] 
+ **helm_id** | **str**| Helm ID |
+ **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional]
 
 ### Return type
 
@@ -92,7 +102,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Helm clone has been requested |  -  |
@@ -104,7 +116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_helm**
-> HelmResponse create_helm(environment_id, helm_request=helm_request)
+> HelmResponse create_helm(environment_id)
 
 Create a helm
 
@@ -112,15 +124,14 @@ Create a helm
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_request import HelmRequest
-from qovery.models.helm_response import HelmResponse
-from qovery.rest import ApiException
+from qovery.api import helms_api
+from qovery.model.helm_response import HelmResponse
+from qovery.model.helm_request import HelmRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -133,40 +144,48 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    helm_request = qovery.HelmRequest() # HelmRequest |  (optional)
+    api_instance = helms_api.HelmsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    helm_request = HelmRequest(None) # HelmRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create a helm
+        api_response = api_instance.create_helm(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling HelmsApi->create_helm: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create a helm
         api_response = api_instance.create_helm(environment_id, helm_request=helm_request)
-        print("The response of HelmsApi->create_helm:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmsApi->create_helm: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **helm_request** | [**HelmRequest**](HelmRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **helm_request** | [**HelmRequest**](HelmRequest.md)|  | [optional]
 
 ### Return type
 
@@ -181,7 +200,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create helm |  -  |
@@ -194,7 +215,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_helm_default_values**
-> str create_helm_default_values(environment_id, helm_default_values_request=helm_default_values_request)
+> str create_helm_default_values(environment_id)
 
 Get helm default values
 
@@ -202,14 +223,13 @@ Get helm default values
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_default_values_request import HelmDefaultValuesRequest
-from qovery.rest import ApiException
+from qovery.api import helms_api
+from qovery.model.helm_default_values_request import HelmDefaultValuesRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -222,40 +242,48 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    helm_default_values_request = qovery.HelmDefaultValuesRequest() # HelmDefaultValuesRequest |  (optional)
+    api_instance = helms_api.HelmsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    helm_default_values_request = HelmDefaultValuesRequest(None) # HelmDefaultValuesRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Get helm default values
+        api_response = api_instance.create_helm_default_values(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling HelmsApi->create_helm_default_values: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Get helm default values
         api_response = api_instance.create_helm_default_values(environment_id, helm_default_values_request=helm_default_values_request)
-        print("The response of HelmsApi->create_helm_default_values:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmsApi->create_helm_default_values: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **helm_default_values_request** | [**HelmDefaultValuesRequest**](HelmDefaultValuesRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **helm_default_values_request** | [**HelmDefaultValuesRequest**](HelmDefaultValuesRequest.md)|  | [optional]
 
 ### Return type
 
@@ -270,7 +298,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: text/plain
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | helm values |  -  |
@@ -289,14 +319,13 @@ List default helm advanced settings
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_advanced_settings import HelmAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import helms_api
+from qovery.model.helm_advanced_settings import HelmAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -309,30 +338,29 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmsApi(api_client)
+    api_instance = helms_api.HelmsApi(api_client)
 
+    # example, this endpoint has no required or optional parameters
     try:
         # List default helm advanced settings
         api_response = api_instance.get_default_helm_advanced_settings()
-        print("The response of HelmsApi->get_default_helm_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmsApi->get_default_helm_advanced_settings: %s\n" % e)
 ```
-
 
 
 ### Parameters
@@ -351,7 +379,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Default helm advanced settings |  -  |
@@ -371,14 +401,13 @@ Returns a list of helms with only their id and status.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.reference_object_status_response_list import ReferenceObjectStatusResponseList
-from qovery.rest import ApiException
+from qovery.api import helms_api
+from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -391,38 +420,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = helms_api.HelmsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List all environment helm statuses
         api_response = api_instance.get_environment_helm_status(environment_id)
-        print("The response of HelmsApi->get_environment_helm_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmsApi->get_environment_helm_status: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -437,7 +465,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get status |  -  |
@@ -456,14 +486,13 @@ List helms
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_response_list import HelmResponseList
-from qovery.rest import ApiException
+from qovery.api import helms_api
+from qovery.model.helm_response_list import HelmResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -476,38 +505,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = helms_api.HelmsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List helms
         api_response = api_instance.list_helms(environment_id)
-        print("The response of HelmsApi->list_helms:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmsApi->list_helms: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -522,7 +550,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List helms |  -  |

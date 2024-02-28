@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **create_user_sign_up**
-> create_user_sign_up(sign_up_request=sign_up_request)
+> create_user_sign_up()
 
 Send Sign Up request
 
@@ -19,14 +19,13 @@ Send a Sign Up request containing the user information
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.sign_up_request import SignUpRequest
-from qovery.rest import ApiException
+from qovery.api import user_sign_up_api
+from qovery.model.sign_up_request import SignUpRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -39,36 +38,51 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.UserSignUpApi(api_client)
-    sign_up_request = qovery.SignUpRequest() # SignUpRequest |  (optional)
+    api_instance = user_sign_up_api.UserSignUpApi(api_client)
+    sign_up_request = SignUpRequest(
+        first_name="first_name_example",
+        last_name="last_name_example",
+        user_email="user_email_example",
+        type_of_use=TypeOfUseEnum("PERSONAL"),
+        qovery_usage="qovery_usage_example",
+        company_name="company_name_example",
+        company_size=CompanySizeEnum("1-10"),
+        user_role="user_role_example",
+        qovery_usage_other="qovery_usage_other_example",
+        user_questions="user_questions_example",
+        current_step="current_step_example",
+        dx_auth=True,
+        infrastructure_hosting="infrastructure_hosting_example",
+    ) # SignUpRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Send Sign Up request
         api_instance.create_user_sign_up(sign_up_request=sign_up_request)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling UserSignUpApi->create_user_sign_up: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sign_up_request** | [**SignUpRequest**](SignUpRequest.md)|  | [optional] 
+ **sign_up_request** | [**SignUpRequest**](SignUpRequest.md)|  | [optional]
 
 ### Return type
 
@@ -83,7 +97,9 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Sign up request stored |  -  |
@@ -105,14 +121,13 @@ Retrieve the Sign Up information of the user
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.sign_up import SignUp
-from qovery.rest import ApiException
+from qovery.api import user_sign_up_api
+from qovery.model.sign_up import SignUp
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -125,30 +140,29 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.UserSignUpApi(api_client)
+    api_instance = user_sign_up_api.UserSignUpApi(api_client)
 
+    # example, this endpoint has no required or optional parameters
     try:
         # Get Sign up information
         api_response = api_instance.get_user_sign_up()
-        print("The response of UserSignUpApi->get_user_sign_up:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling UserSignUpApi->get_user_sign_up: %s\n" % e)
 ```
-
 
 
 ### Parameters
@@ -167,7 +181,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | If a previous sign up request for the same user has been found, the information is returned in the payload |  -  |

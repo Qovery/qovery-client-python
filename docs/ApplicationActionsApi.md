@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **deploy_application**
-> Status deploy_application(application_id, deploy_request=deploy_request)
+> Status deploy_application(application_id)
 
 Deploy application
 
@@ -21,15 +21,14 @@ You must provide a git commit id
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.deploy_request import DeployRequest
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import application_actions_api
+from qovery.model.deploy_request import DeployRequest
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -42,40 +41,50 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationActionsApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
-    deploy_request = qovery.DeployRequest() # DeployRequest |  (optional)
+    api_instance = application_actions_api.ApplicationActionsApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
+    deploy_request = DeployRequest(
+        git_commit_id="git_commit_id_example",
+    ) # DeployRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Deploy application
+        api_response = api_instance.deploy_application(application_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ApplicationActionsApi->deploy_application: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Deploy application
         api_response = api_instance.deploy_application(application_id, deploy_request=deploy_request)
-        print("The response of ApplicationActionsApi->deploy_application:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationActionsApi->deploy_application: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
- **deploy_request** | [**DeployRequest**](DeployRequest.md)|  | [optional] 
+ **application_id** | **str**| Application ID |
+ **deploy_request** | [**DeployRequest**](DeployRequest.md)|  | [optional]
 
 ### Return type
 
@@ -90,7 +99,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Deploy application |  -  |
@@ -111,14 +122,13 @@ Reboot application
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import application_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -131,38 +141,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationActionsApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
+    api_instance = application_actions_api.ApplicationActionsApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Reboot application
         api_response = api_instance.reboot_application(application_id)
-        print("The response of ApplicationActionsApi->reboot_application:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationActionsApi->reboot_application: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
+ **application_id** | **str**| Application ID |
 
 ### Return type
 
@@ -177,7 +186,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Application reboot has been requested |  -  |
@@ -199,14 +210,13 @@ Deprecated - Restart application
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import application_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -219,38 +229,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationActionsApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
+    api_instance = application_actions_api.ApplicationActionsApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Deprecated - Restart application
         api_response = api_instance.restart_application(application_id)
-        print("The response of ApplicationActionsApi->restart_application:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationActionsApi->restart_application: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
+ **application_id** | **str**| Application ID |
 
 ### Return type
 
@@ -265,7 +274,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Application restart has been requested |  -  |
@@ -285,14 +296,13 @@ Stop application
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import application_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -305,38 +315,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ApplicationActionsApi(api_client)
-    application_id = 'application_id_example' # str | Application ID
+    api_instance = application_actions_api.ApplicationActionsApi(api_client)
+    application_id = "applicationId_example" # str | Application ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Stop application
         api_response = api_instance.stop_application(application_id)
-        print("The response of ApplicationActionsApi->stop_application:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ApplicationActionsApi->stop_application: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **str**| Application ID | 
+ **application_id** | **str**| Application ID |
 
 ### Return type
 
@@ -351,7 +360,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Application stop has been requested |  -  |

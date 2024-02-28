@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_helm_deployment_restriction**
-> HelmDeploymentRestrictionResponse create_helm_deployment_restriction(helm_id, helm_deployment_restriction_request=helm_deployment_restriction_request)
+> HelmDeploymentRestrictionResponse create_helm_deployment_restriction(helm_id)
 
 Create a helm deployment restriction
 
@@ -21,15 +21,14 @@ Create a helm deployment restriction
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_deployment_restriction_request import HelmDeploymentRestrictionRequest
-from qovery.models.helm_deployment_restriction_response import HelmDeploymentRestrictionResponse
-from qovery.rest import ApiException
+from qovery.api import helm_deployment_restriction_api
+from qovery.model.helm_deployment_restriction_request import HelmDeploymentRestrictionRequest
+from qovery.model.helm_deployment_restriction_response import HelmDeploymentRestrictionResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -42,40 +41,52 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmDeploymentRestrictionApi(api_client)
-    helm_id = 'helm_id_example' # str | Helm ID
-    helm_deployment_restriction_request = qovery.HelmDeploymentRestrictionRequest() # HelmDeploymentRestrictionRequest |  (optional)
+    api_instance = helm_deployment_restriction_api.HelmDeploymentRestrictionApi(api_client)
+    helm_id = "helmId_example" # str | Helm ID
+    helm_deployment_restriction_request = HelmDeploymentRestrictionRequest(
+        mode=DeploymentRestrictionModeEnum("MATCH"),
+        type=DeploymentRestrictionTypeEnum("PATH"),
+        value="helm1/src/",
+    ) # HelmDeploymentRestrictionRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create a helm deployment restriction
+        api_response = api_instance.create_helm_deployment_restriction(helm_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling HelmDeploymentRestrictionApi->create_helm_deployment_restriction: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create a helm deployment restriction
         api_response = api_instance.create_helm_deployment_restriction(helm_id, helm_deployment_restriction_request=helm_deployment_restriction_request)
-        print("The response of HelmDeploymentRestrictionApi->create_helm_deployment_restriction:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmDeploymentRestrictionApi->create_helm_deployment_restriction: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **helm_id** | **str**| Helm ID | 
- **helm_deployment_restriction_request** | [**HelmDeploymentRestrictionRequest**](HelmDeploymentRestrictionRequest.md)|  | [optional] 
+ **helm_id** | **str**| Helm ID |
+ **helm_deployment_restriction_request** | [**HelmDeploymentRestrictionRequest**](HelmDeploymentRestrictionRequest.md)|  | [optional]
 
 ### Return type
 
@@ -90,7 +101,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Added an helm deployment restriction |  -  |
@@ -112,13 +125,12 @@ Delete a helm deployment restriction
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import helm_deployment_restriction_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -131,38 +143,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmDeploymentRestrictionApi(api_client)
-    helm_id = 'helm_id_example' # str | Helm ID
-    deployment_restriction_id = 'deployment_restriction_id_example' # str | Deployment Restriction ID
+    api_instance = helm_deployment_restriction_api.HelmDeploymentRestrictionApi(api_client)
+    helm_id = "helmId_example" # str | Helm ID
+    deployment_restriction_id = "deploymentRestrictionId_example" # str | Deployment Restriction ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete a helm deployment restriction
         api_instance.delete_helm_deployment_restriction(helm_id, deployment_restriction_id)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmDeploymentRestrictionApi->delete_helm_deployment_restriction: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **helm_id** | **str**| Helm ID | 
- **deployment_restriction_id** | **str**| Deployment Restriction ID | 
+ **helm_id** | **str**| Helm ID |
+ **deployment_restriction_id** | **str**| Deployment Restriction ID |
 
 ### Return type
 
@@ -177,7 +189,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -188,7 +202,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_helm_deployment_restriction**
-> HelmDeploymentRestrictionResponse edit_helm_deployment_restriction(helm_id, deployment_restriction_id, helm_deployment_restriction_request=helm_deployment_restriction_request)
+> HelmDeploymentRestrictionResponse edit_helm_deployment_restriction(helm_id, deployment_restriction_id)
 
 Edit a helm deployment restriction
 
@@ -198,15 +212,14 @@ Edit a helm deployment restriction
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_deployment_restriction_request import HelmDeploymentRestrictionRequest
-from qovery.models.helm_deployment_restriction_response import HelmDeploymentRestrictionResponse
-from qovery.rest import ApiException
+from qovery.api import helm_deployment_restriction_api
+from qovery.model.helm_deployment_restriction_request import HelmDeploymentRestrictionRequest
+from qovery.model.helm_deployment_restriction_response import HelmDeploymentRestrictionResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -219,42 +232,54 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmDeploymentRestrictionApi(api_client)
-    helm_id = 'helm_id_example' # str | Helm ID
-    deployment_restriction_id = 'deployment_restriction_id_example' # str | Deployment Restriction ID
-    helm_deployment_restriction_request = qovery.HelmDeploymentRestrictionRequest() # HelmDeploymentRestrictionRequest |  (optional)
+    api_instance = helm_deployment_restriction_api.HelmDeploymentRestrictionApi(api_client)
+    helm_id = "helmId_example" # str | Helm ID
+    deployment_restriction_id = "deploymentRestrictionId_example" # str | Deployment Restriction ID
+    helm_deployment_restriction_request = HelmDeploymentRestrictionRequest(
+        mode=DeploymentRestrictionModeEnum("MATCH"),
+        type=DeploymentRestrictionTypeEnum("PATH"),
+        value="helm1/src/",
+    ) # HelmDeploymentRestrictionRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit a helm deployment restriction
+        api_response = api_instance.edit_helm_deployment_restriction(helm_id, deployment_restriction_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling HelmDeploymentRestrictionApi->edit_helm_deployment_restriction: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit a helm deployment restriction
         api_response = api_instance.edit_helm_deployment_restriction(helm_id, deployment_restriction_id, helm_deployment_restriction_request=helm_deployment_restriction_request)
-        print("The response of HelmDeploymentRestrictionApi->edit_helm_deployment_restriction:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmDeploymentRestrictionApi->edit_helm_deployment_restriction: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **helm_id** | **str**| Helm ID | 
- **deployment_restriction_id** | **str**| Deployment Restriction ID | 
- **helm_deployment_restriction_request** | [**HelmDeploymentRestrictionRequest**](HelmDeploymentRestrictionRequest.md)|  | [optional] 
+ **helm_id** | **str**| Helm ID |
+ **deployment_restriction_id** | **str**| Deployment Restriction ID |
+ **helm_deployment_restriction_request** | [**HelmDeploymentRestrictionRequest**](HelmDeploymentRestrictionRequest.md)|  | [optional]
 
 ### Return type
 
@@ -269,7 +294,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit a helm deployment restriction |  -  |
@@ -291,14 +318,13 @@ Get helm deployment restrictions
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_deployment_restriction_response_list import HelmDeploymentRestrictionResponseList
-from qovery.rest import ApiException
+from qovery.api import helm_deployment_restriction_api
+from qovery.model.helm_deployment_restriction_response_list import HelmDeploymentRestrictionResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -311,38 +337,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmDeploymentRestrictionApi(api_client)
-    helm_id = 'helm_id_example' # str | Helm ID
+    api_instance = helm_deployment_restriction_api.HelmDeploymentRestrictionApi(api_client)
+    helm_id = "helmId_example" # str | Helm ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get helm deployment restrictions
         api_response = api_instance.get_helm_deployment_restrictions(helm_id)
-        print("The response of HelmDeploymentRestrictionApi->get_helm_deployment_restrictions:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmDeploymentRestrictionApi->get_helm_deployment_restrictions: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **helm_id** | **str**| Helm ID | 
+ **helm_id** | **str**| Helm ID |
 
 ### Return type
 
@@ -357,7 +382,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get helm deployment restrictions |  -  |

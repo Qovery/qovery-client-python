@@ -11,24 +11,8 @@ Name | Type | Description | Notes
 **region** | **str** | Required if kind is &#x60;ECR&#x60; or &#x60;SCALEWAY_CR&#x60; | [optional] 
 **scaleway_access_key** | **str** | Required if kind is &#x60;SCALEWAY_CR&#x60; | [optional] 
 **scaleway_secret_key** | **str** | Required if kind is &#x60;SCALEWAY_CR&#x60; | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
-## Example
-
-```python
-from qovery.models.helm_repository_request_config import HelmRepositoryRequestConfig
-
-# TODO update the JSON string below
-json = "{}"
-# create an instance of HelmRepositoryRequestConfig from a JSON string
-helm_repository_request_config_instance = HelmRepositoryRequestConfig.from_json(json)
-# print the JSON string representation of the object
-print HelmRepositoryRequestConfig.to_json()
-
-# convert the object into a dict
-helm_repository_request_config_dict = helm_repository_request_config_instance.to_dict()
-# create an instance of HelmRepositoryRequestConfig from a dict
-helm_repository_request_config_form_dict = helm_repository_request_config.from_dict(helm_repository_request_config_dict)
-```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

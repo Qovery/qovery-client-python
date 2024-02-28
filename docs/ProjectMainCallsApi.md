@@ -20,13 +20,12 @@ To delete a project you must have the admin permission
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import project_main_calls_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -39,36 +38,36 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ProjectMainCallsApi(api_client)
-    project_id = 'project_id_example' # str | Project ID
+    api_instance = project_main_calls_api.ProjectMainCallsApi(api_client)
+    project_id = "projectId_example" # str | Project ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete a project
         api_instance.delete_project(project_id)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ProjectMainCallsApi->delete_project: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID | 
+ **project_id** | **str**| Project ID |
 
 ### Return type
 
@@ -83,7 +82,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -94,7 +95,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_project**
-> Project edit_project(project_id, project_request=project_request)
+> Project edit_project(project_id)
 
 Edit a project
 
@@ -104,15 +105,14 @@ To edit a project you must have the admin permission
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.project import Project
-from qovery.models.project_request import ProjectRequest
-from qovery.rest import ApiException
+from qovery.api import project_main_calls_api
+from qovery.model.project_request import ProjectRequest
+from qovery.model.project import Project
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -125,40 +125,51 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ProjectMainCallsApi(api_client)
-    project_id = 'project_id_example' # str | Project ID
-    project_request = qovery.ProjectRequest() # ProjectRequest |  (optional)
+    api_instance = project_main_calls_api.ProjectMainCallsApi(api_client)
+    project_id = "projectId_example" # str | Project ID
+    project_request = ProjectRequest(
+        name="name_example",
+        description="description_example",
+    ) # ProjectRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit a project
+        api_response = api_instance.edit_project(project_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ProjectMainCallsApi->edit_project: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit a project
         api_response = api_instance.edit_project(project_id, project_request=project_request)
-        print("The response of ProjectMainCallsApi->edit_project:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ProjectMainCallsApi->edit_project: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID | 
- **project_request** | [**ProjectRequest**](ProjectRequest.md)|  | [optional] 
+ **project_id** | **str**| Project ID |
+ **project_request** | [**ProjectRequest**](ProjectRequest.md)|  | [optional]
 
 ### Return type
 
@@ -173,7 +184,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit a project |  -  |
@@ -194,14 +207,13 @@ Get project by ID
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.project import Project
-from qovery.rest import ApiException
+from qovery.api import project_main_calls_api
+from qovery.model.project import Project
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -214,38 +226,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ProjectMainCallsApi(api_client)
-    project_id = 'project_id_example' # str | Project ID
+    api_instance = project_main_calls_api.ProjectMainCallsApi(api_client)
+    project_id = "projectId_example" # str | Project ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get project by ID
         api_response = api_instance.get_project(project_id)
-        print("The response of ProjectMainCallsApi->get_project:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ProjectMainCallsApi->get_project: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID | 
+ **project_id** | **str**| Project ID |
 
 ### Return type
 
@@ -260,7 +271,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get project by ID |  -  |

@@ -24,13 +24,12 @@ To delete a database you must have the admin permission
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.rest import ApiException
+from qovery.api import database_main_calls_api
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -43,36 +42,36 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.DatabaseMainCallsApi(api_client)
-    database_id = 'database_id_example' # str | Database ID
+    api_instance = database_main_calls_api.DatabaseMainCallsApi(api_client)
+    database_id = "databaseId_example" # str | Database ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Delete a database 
         api_instance.delete_database(database_id)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling DatabaseMainCallsApi->delete_database: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID | 
+ **database_id** | **str**| Database ID |
 
 ### Return type
 
@@ -87,7 +86,9 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -98,7 +99,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_database**
-> Database edit_database(database_id, database_edit_request=database_edit_request)
+> Database edit_database(database_id)
 
 Edit a database 
 
@@ -108,15 +109,14 @@ To edit a database  you must have the admin permission
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.database import Database
-from qovery.models.database_edit_request import DatabaseEditRequest
-from qovery.rest import ApiException
+from qovery.api import database_main_calls_api
+from qovery.model.database_edit_request import DatabaseEditRequest
+from qovery.model.database import Database
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -129,40 +129,57 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.DatabaseMainCallsApi(api_client)
-    database_id = 'database_id_example' # str | Database ID
-    database_edit_request = qovery.DatabaseEditRequest() # DatabaseEditRequest |  (optional)
+    api_instance = database_main_calls_api.DatabaseMainCallsApi(api_client)
+    database_id = "databaseId_example" # str | Database ID
+    database_edit_request = DatabaseEditRequest(
+        name="name_example",
+        description="description_example",
+        version="10.1",
+        accessibility=DatabaseAccessibilityEnum("PRIVATE"),
+        cpu=1250,
+        memory=1024,
+        storage=4,
+        instance_type="db.t3.medium",
+    ) # DatabaseEditRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit a database 
+        api_response = api_instance.edit_database(database_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling DatabaseMainCallsApi->edit_database: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit a database 
         api_response = api_instance.edit_database(database_id, database_edit_request=database_edit_request)
-        print("The response of DatabaseMainCallsApi->edit_database:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling DatabaseMainCallsApi->edit_database: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID | 
- **database_edit_request** | [**DatabaseEditRequest**](DatabaseEditRequest.md)|  | [optional] 
+ **database_id** | **str**| Database ID |
+ **database_edit_request** | [**DatabaseEditRequest**](DatabaseEditRequest.md)|  | [optional]
 
 ### Return type
 
@@ -177,7 +194,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit a database  |  -  |
@@ -190,7 +209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_database_credentials**
-> Credentials edit_database_credentials(database_id, credentials_request=credentials_request)
+> Credentials edit_database_credentials(database_id)
 
 Edit database  master credentials
 
@@ -198,15 +217,14 @@ Edit database  master credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.credentials import Credentials
-from qovery.models.credentials_request import CredentialsRequest
-from qovery.rest import ApiException
+from qovery.api import database_main_calls_api
+from qovery.model.credentials import Credentials
+from qovery.model.credentials_request import CredentialsRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -219,40 +237,51 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.DatabaseMainCallsApi(api_client)
-    database_id = 'database_id_example' # str | Database ID
-    credentials_request = qovery.CredentialsRequest() # CredentialsRequest |  (optional)
+    api_instance = database_main_calls_api.DatabaseMainCallsApi(api_client)
+    database_id = "databaseId_example" # str | Database ID
+    credentials_request = CredentialsRequest(
+        login="login_example",
+        password="password_example",
+    ) # CredentialsRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit database  master credentials
+        api_response = api_instance.edit_database_credentials(database_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling DatabaseMainCallsApi->edit_database_credentials: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit database  master credentials
         api_response = api_instance.edit_database_credentials(database_id, credentials_request=credentials_request)
-        print("The response of DatabaseMainCallsApi->edit_database_credentials:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling DatabaseMainCallsApi->edit_database_credentials: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID | 
- **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  | [optional] 
+ **database_id** | **str**| Database ID |
+ **credentials_request** | [**CredentialsRequest**](CredentialsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -267,7 +296,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit database credentials |  -  |
@@ -287,14 +318,13 @@ Get database by ID
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.database import Database
-from qovery.rest import ApiException
+from qovery.api import database_main_calls_api
+from qovery.model.database import Database
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -307,38 +337,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.DatabaseMainCallsApi(api_client)
-    database_id = 'database_id_example' # str | Database ID
+    api_instance = database_main_calls_api.DatabaseMainCallsApi(api_client)
+    database_id = "databaseId_example" # str | Database ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get database by ID
         api_response = api_instance.get_database(database_id)
-        print("The response of DatabaseMainCallsApi->get_database:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling DatabaseMainCallsApi->get_database: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID | 
+ **database_id** | **str**| Database ID |
 
 ### Return type
 
@@ -353,7 +382,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get database  by ID |  -  |
@@ -372,14 +403,13 @@ Get master credentials of the database
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.credentials import Credentials
-from qovery.rest import ApiException
+from qovery.api import database_main_calls_api
+from qovery.model.credentials import Credentials
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -392,38 +422,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.DatabaseMainCallsApi(api_client)
-    database_id = 'database_id_example' # str | Database ID
+    api_instance = database_main_calls_api.DatabaseMainCallsApi(api_client)
+    database_id = "databaseId_example" # str | Database ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get master credentials of the database
         api_response = api_instance.get_database_master_credentials(database_id)
-        print("The response of DatabaseMainCallsApi->get_database_master_credentials:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling DatabaseMainCallsApi->get_database_master_credentials: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID | 
+ **database_id** | **str**| Database ID |
 
 ### Return type
 
@@ -438,7 +467,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | get credentials |  -  |
@@ -457,14 +488,13 @@ Get database status
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import database_main_calls_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -477,38 +507,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.DatabaseMainCallsApi(api_client)
-    database_id = 'database_id_example' # str | Database ID
+    api_instance = database_main_calls_api.DatabaseMainCallsApi(api_client)
+    database_id = "databaseId_example" # str | Database ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get database status
         api_response = api_instance.get_database_status(database_id)
-        print("The response of DatabaseMainCallsApi->get_database_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling DatabaseMainCallsApi->get_database_status: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID | 
+ **database_id** | **str**| Database ID |
 
 ### Return type
 
@@ -523,7 +552,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get status |  -  |
@@ -542,14 +573,13 @@ List eligible versions for the database
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.version_response_list import VersionResponseList
-from qovery.rest import ApiException
+from qovery.api import database_main_calls_api
+from qovery.model.version_response_list import VersionResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -562,38 +592,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.DatabaseMainCallsApi(api_client)
-    database_id = 'database_id_example' # str | Database ID
+    api_instance = database_main_calls_api.DatabaseMainCallsApi(api_client)
+    database_id = "databaseId_example" # str | Database ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List eligible versions for the database
         api_response = api_instance.list_database_version(database_id)
-        print("The response of DatabaseMainCallsApi->list_database_version:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling DatabaseMainCallsApi->list_database_version: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **database_id** | **str**| Database ID | 
+ **database_id** | **str**| Database ID |
 
 ### Return type
 
@@ -608,7 +637,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List eligible versions |  -  |

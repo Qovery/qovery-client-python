@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **edit_helm_advanced_settings**
-> HelmAdvancedSettings edit_helm_advanced_settings(helm_id, helm_advanced_settings=helm_advanced_settings)
+> HelmAdvancedSettings edit_helm_advanced_settings(helm_id)
 
 Edit advanced settings
 
@@ -19,14 +19,13 @@ Edit advanced settings by returning table of advanced settings.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_advanced_settings import HelmAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import helm_configuration_api
+from qovery.model.helm_advanced_settings import HelmAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -39,40 +38,71 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmConfigurationApi(api_client)
-    helm_id = 'helm_id_example' # str | Helm ID
-    helm_advanced_settings = qovery.HelmAdvancedSettings() # HelmAdvancedSettings |  (optional)
+    api_instance = helm_configuration_api.HelmConfigurationApi(api_client)
+    helm_id = "helmId_example" # str | Helm ID
+    helm_advanced_settings = HelmAdvancedSettings(
+        deployment_custom_domain_check_enabled=True,
+        network_ingress_proxy_body_size_mb=1,
+        network_ingress_enable_cors=True,
+        network_ingress_cors_allow_origin="network_ingress_cors_allow_origin_example",
+        network_ingress_cors_allow_methods="network_ingress_cors_allow_methods_example",
+        network_ingress_cors_allow_headers="network_ingress_cors_allow_headers_example",
+        network_ingress_proxy_buffer_size_kb=1,
+        network_ingress_keepalive_time_seconds=1,
+        network_ingress_keepalive_timeout_seconds=1,
+        network_ingress_send_timeout_seconds=1,
+        network_ingress_proxy_connect_timeout_seconds=1,
+        network_ingress_proxy_send_timeout_seconds=1,
+        network_ingress_proxy_read_timeout_seconds=1,
+        network_ingress_proxy_buffering="network_ingress_proxy_buffering_example",
+        network_ingress_proxy_request_buffering="network_ingress_proxy_request_buffering_example",
+        network_ingress_grpc_send_timeout_seconds=1,
+        network_ingress_grpc_read_timeout_seconds=1,
+        network_ingress_whitelist_source_range="network_ingress_whitelist_source_range_example",
+        network_ingress_denylist_source_range="network_ingress_denylist_source_range_example",
+        network_ingress_extra_headers="{"X-Frame-Options":"DENY ","X-Content-Type-Options":"nosniff"}",
+        network_ingress_basic_auth_env_var="network_ingress_basic_auth_env_var_example",
+        network_ingress_enable_sticky_session=True,
+    ) # HelmAdvancedSettings |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Edit advanced settings
+        api_response = api_instance.edit_helm_advanced_settings(helm_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling HelmConfigurationApi->edit_helm_advanced_settings: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Edit advanced settings
         api_response = api_instance.edit_helm_advanced_settings(helm_id, helm_advanced_settings=helm_advanced_settings)
-        print("The response of HelmConfigurationApi->edit_helm_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmConfigurationApi->edit_helm_advanced_settings: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **helm_id** | **str**| Helm ID | 
- **helm_advanced_settings** | [**HelmAdvancedSettings**](HelmAdvancedSettings.md)|  | [optional] 
+ **helm_id** | **str**| Helm ID |
+ **helm_advanced_settings** | [**HelmAdvancedSettings**](HelmAdvancedSettings.md)|  | [optional]
 
 ### Return type
 
@@ -87,7 +117,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Updated advanced settings |  -  |
@@ -109,14 +141,13 @@ Get list and values of the advanced settings of the helm.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.helm_advanced_settings import HelmAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import helm_configuration_api
+from qovery.model.helm_advanced_settings import HelmAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -129,38 +160,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.HelmConfigurationApi(api_client)
-    helm_id = 'helm_id_example' # str | Helm ID
+    api_instance = helm_configuration_api.HelmConfigurationApi(api_client)
+    helm_id = "helmId_example" # str | Helm ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Get advanced settings
         api_response = api_instance.get_helm_advanced_settings(helm_id)
-        print("The response of HelmConfigurationApi->get_helm_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling HelmConfigurationApi->get_helm_advanced_settings: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **helm_id** | **str**| Helm ID | 
+ **helm_id** | **str**| Helm ID |
 
 ### Return type
 
@@ -175,7 +205,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Advanced settings list |  -  |

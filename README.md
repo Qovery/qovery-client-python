@@ -12,7 +12,7 @@ For more information, please visit [https://www.qovery.com](https://www.qovery.c
 
 ## Requirements.
 
-Python 3.7+
+Python >=3.6
 
 ## Installation & Usage
 ### pip install
@@ -43,10 +43,6 @@ Then import the package:
 import qovery
 ```
 
-### Tests
-
-Execute `pytest` to run the tests.
-
 ## Getting Started
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
@@ -55,9 +51,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 import time
 import qovery
-from qovery.rest import ApiException
 from pprint import pprint
-
+from qovery.api import account_info_api
+from qovery.model.account_info import AccountInfo
+from qovery.model.account_info_edit_request import AccountInfoEditRequest
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -70,31 +67,31 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.AccountInfoApi(api_client)
-    account_info_edit_request = qovery.AccountInfoEditRequest() # AccountInfoEditRequest |  (optional)
+    api_instance = account_info_api.AccountInfoApi(api_client)
+    account_info_edit_request = AccountInfoEditRequest(
+        communication_email="communication_email_example",
+    ) # AccountInfoEditRequest |  (optional)
 
     try:
         # Edit account information
         api_response = api_instance.edit_account_information(account_info_edit_request=account_info_edit_request)
-        print("The response of AccountInfoApi->edit_account_information:\n")
         pprint(api_response)
-    except ApiException as e:
+    except qovery.ApiException as e:
         print("Exception when calling AccountInfoApi->edit_account_information: %s\n" % e)
-
 ```
 
 ## Documentation for API Endpoints
@@ -498,15 +495,18 @@ Class | Method | HTTP request | Description
  - [AccountInfoEditRequest](docs/AccountInfoEditRequest.md)
  - [Application](docs/Application.md)
  - [ApplicationAdvancedSettings](docs/ApplicationAdvancedSettings.md)
+ - [ApplicationAllOf](docs/ApplicationAllOf.md)
  - [ApplicationDeploymentRestriction](docs/ApplicationDeploymentRestriction.md)
  - [ApplicationDeploymentRestrictionRequest](docs/ApplicationDeploymentRestrictionRequest.md)
  - [ApplicationDeploymentRestrictionResponseList](docs/ApplicationDeploymentRestrictionResponseList.md)
  - [ApplicationEditRequest](docs/ApplicationEditRequest.md)
+ - [ApplicationEditRequestAllOf](docs/ApplicationEditRequestAllOf.md)
  - [ApplicationGitRepository](docs/ApplicationGitRepository.md)
  - [ApplicationGitRepositoryRequest](docs/ApplicationGitRepositoryRequest.md)
  - [ApplicationNetwork](docs/ApplicationNetwork.md)
  - [ApplicationNetworkRequest](docs/ApplicationNetworkRequest.md)
  - [ApplicationRequest](docs/ApplicationRequest.md)
+ - [ApplicationRequestAllOf](docs/ApplicationRequestAllOf.md)
  - [ApplicationResponseList](docs/ApplicationResponseList.md)
  - [AvailableContainerRegistryResponse](docs/AvailableContainerRegistryResponse.md)
  - [AvailableContainerRegistryResponseList](docs/AvailableContainerRegistryResponseList.md)
@@ -514,15 +514,13 @@ Class | Method | HTTP request | Description
  - [AvailableHelmRepositoryResponseList](docs/AvailableHelmRepositoryResponseList.md)
  - [AwsCredentialsRequest](docs/AwsCredentialsRequest.md)
  - [Backup](docs/Backup.md)
+ - [BackupAllOf](docs/BackupAllOf.md)
  - [BackupPaginatedResponseList](docs/BackupPaginatedResponseList.md)
  - [BackupRequest](docs/BackupRequest.md)
  - [BackupResponseList](docs/BackupResponseList.md)
  - [Base](docs/Base.md)
  - [BaseJobResponse](docs/BaseJobResponse.md)
- - [BaseJobResponseAllOfSource](docs/BaseJobResponseAllOfSource.md)
- - [BaseJobResponseAllOfSourceOneOf](docs/BaseJobResponseAllOfSourceOneOf.md)
- - [BaseJobResponseAllOfSourceOneOf1](docs/BaseJobResponseAllOfSourceOneOf1.md)
- - [BaseJobResponseAllOfSourceOneOf1Docker](docs/BaseJobResponseAllOfSourceOneOf1Docker.md)
+ - [BaseJobResponseAllOf](docs/BaseJobResponseAllOf.md)
  - [BillingEnd](docs/BillingEnd.md)
  - [BillingExternalId](docs/BillingExternalId.md)
  - [BillingInfo](docs/BillingInfo.md)
@@ -541,6 +539,7 @@ Class | Method | HTTP request | Description
  - [CloudProviderResponseList](docs/CloudProviderResponseList.md)
  - [Cluster](docs/Cluster.md)
  - [ClusterAdvancedSettings](docs/ClusterAdvancedSettings.md)
+ - [ClusterAllOf](docs/ClusterAllOf.md)
  - [ClusterCloudProviderInfo](docs/ClusterCloudProviderInfo.md)
  - [ClusterCloudProviderInfoCredentials](docs/ClusterCloudProviderInfoCredentials.md)
  - [ClusterCloudProviderInfoRequest](docs/ClusterCloudProviderInfoRequest.md)
@@ -578,6 +577,7 @@ Class | Method | HTTP request | Description
  - [ClusterStatusResponseList](docs/ClusterStatusResponseList.md)
  - [Commit](docs/Commit.md)
  - [CommitPaginatedResponseList](docs/CommitPaginatedResponseList.md)
+ - [CommitPaginatedResponseListAllOf](docs/CommitPaginatedResponseListAllOf.md)
  - [CommitResponseList](docs/CommitResponseList.md)
  - [CommunityUsage](docs/CommunityUsage.md)
  - [CompanySizeEnum](docs/CompanySizeEnum.md)
@@ -590,10 +590,12 @@ Class | Method | HTTP request | Description
  - [ContainerRegistryRequest](docs/ContainerRegistryRequest.md)
  - [ContainerRegistryRequestConfig](docs/ContainerRegistryRequestConfig.md)
  - [ContainerRegistryResponse](docs/ContainerRegistryResponse.md)
- - [ContainerRegistryResponseAllOfCluster](docs/ContainerRegistryResponseAllOfCluster.md)
+ - [ContainerRegistryResponseAllOf](docs/ContainerRegistryResponseAllOf.md)
  - [ContainerRegistryResponseList](docs/ContainerRegistryResponseList.md)
  - [ContainerRequest](docs/ContainerRequest.md)
+ - [ContainerRequestAllOf](docs/ContainerRequestAllOf.md)
  - [ContainerResponse](docs/ContainerResponse.md)
+ - [ContainerResponseAllOf](docs/ContainerResponseAllOf.md)
  - [ContainerResponseList](docs/ContainerResponseList.md)
  - [ContainerSource](docs/ContainerSource.md)
  - [Cost](docs/Cost.md)
@@ -606,15 +608,18 @@ Class | Method | HTTP request | Description
  - [CreditCardRequest](docs/CreditCardRequest.md)
  - [CreditCardResponseList](docs/CreditCardResponseList.md)
  - [CronJobResponse](docs/CronJobResponse.md)
+ - [CronJobResponseAllOf](docs/CronJobResponseAllOf.md)
  - [CronJobResponseAllOfSchedule](docs/CronJobResponseAllOfSchedule.md)
  - [CronJobResponseAllOfScheduleCronjob](docs/CronJobResponseAllOfScheduleCronjob.md)
  - [CurrentCost](docs/CurrentCost.md)
  - [CustomDomain](docs/CustomDomain.md)
+ - [CustomDomainAllOf](docs/CustomDomainAllOf.md)
  - [CustomDomainRequest](docs/CustomDomainRequest.md)
  - [CustomDomainResponseList](docs/CustomDomainResponseList.md)
  - [CustomDomainStatusEnum](docs/CustomDomainStatusEnum.md)
  - [Database](docs/Database.md)
  - [DatabaseAccessibilityEnum](docs/DatabaseAccessibilityEnum.md)
+ - [DatabaseAllOf](docs/DatabaseAllOf.md)
  - [DatabaseConfiguration](docs/DatabaseConfiguration.md)
  - [DatabaseConfigurationResponseList](docs/DatabaseConfigurationResponseList.md)
  - [DatabaseEditRequest](docs/DatabaseEditRequest.md)
@@ -631,16 +636,25 @@ Class | Method | HTTP request | Description
  - [DeployAllRequestJobsInner](docs/DeployAllRequestJobsInner.md)
  - [DeployRequest](docs/DeployRequest.md)
  - [DeploymentHistory](docs/DeploymentHistory.md)
+ - [DeploymentHistoryAllOf](docs/DeploymentHistoryAllOf.md)
  - [DeploymentHistoryApplication](docs/DeploymentHistoryApplication.md)
+ - [DeploymentHistoryApplicationAllOf](docs/DeploymentHistoryApplicationAllOf.md)
  - [DeploymentHistoryContainer](docs/DeploymentHistoryContainer.md)
+ - [DeploymentHistoryContainerAllOf](docs/DeploymentHistoryContainerAllOf.md)
  - [DeploymentHistoryDatabase](docs/DeploymentHistoryDatabase.md)
+ - [DeploymentHistoryDatabaseAllOf](docs/DeploymentHistoryDatabaseAllOf.md)
  - [DeploymentHistoryEnvironment](docs/DeploymentHistoryEnvironment.md)
+ - [DeploymentHistoryEnvironmentAllOf](docs/DeploymentHistoryEnvironmentAllOf.md)
  - [DeploymentHistoryEnvironmentPaginatedResponseList](docs/DeploymentHistoryEnvironmentPaginatedResponseList.md)
+ - [DeploymentHistoryEnvironmentPaginatedResponseListAllOf](docs/DeploymentHistoryEnvironmentPaginatedResponseListAllOf.md)
  - [DeploymentHistoryHelmResponse](docs/DeploymentHistoryHelmResponse.md)
+ - [DeploymentHistoryHelmResponseAllOf](docs/DeploymentHistoryHelmResponseAllOf.md)
  - [DeploymentHistoryHelmResponseAllOfRepository](docs/DeploymentHistoryHelmResponseAllOfRepository.md)
  - [DeploymentHistoryJobResponse](docs/DeploymentHistoryJobResponse.md)
+ - [DeploymentHistoryJobResponseAllOf](docs/DeploymentHistoryJobResponseAllOf.md)
  - [DeploymentHistoryJobResponseAllOfSchedule](docs/DeploymentHistoryJobResponseAllOfSchedule.md)
  - [DeploymentHistoryPaginatedResponseList](docs/DeploymentHistoryPaginatedResponseList.md)
+ - [DeploymentHistoryPaginatedResponseListAllOf](docs/DeploymentHistoryPaginatedResponseListAllOf.md)
  - [DeploymentHistoryResponseList](docs/DeploymentHistoryResponseList.md)
  - [DeploymentHistoryStatusEnum](docs/DeploymentHistoryStatusEnum.md)
  - [DeploymentRestrictionModeEnum](docs/DeploymentRestrictionModeEnum.md)
@@ -648,19 +662,25 @@ Class | Method | HTTP request | Description
  - [DeploymentRuleRequest](docs/DeploymentRuleRequest.md)
  - [DeploymentStageRequest](docs/DeploymentStageRequest.md)
  - [DeploymentStageResponse](docs/DeploymentStageResponse.md)
+ - [DeploymentStageResponseAllOf](docs/DeploymentStageResponseAllOf.md)
  - [DeploymentStageResponseList](docs/DeploymentStageResponseList.md)
  - [DeploymentStageServiceResponse](docs/DeploymentStageServiceResponse.md)
+ - [DeploymentStageServiceResponseAllOf](docs/DeploymentStageServiceResponseAllOf.md)
+ - [DeploymentStageServiceResponseList](docs/DeploymentStageServiceResponseList.md)
  - [DeploymentStageWithServicesStatuses](docs/DeploymentStageWithServicesStatuses.md)
  - [DoCredentialsRequest](docs/DoCredentialsRequest.md)
  - [Environment](docs/Environment.md)
+ - [EnvironmentAllOf](docs/EnvironmentAllOf.md)
  - [EnvironmentAllOfCloudProvider](docs/EnvironmentAllOfCloudProvider.md)
  - [EnvironmentApplicationsSupportedLanguage](docs/EnvironmentApplicationsSupportedLanguage.md)
  - [EnvironmentApplicationsSupportedLanguageList](docs/EnvironmentApplicationsSupportedLanguageList.md)
  - [EnvironmentDeploymentRule](docs/EnvironmentDeploymentRule.md)
+ - [EnvironmentDeploymentRuleAllOf](docs/EnvironmentDeploymentRuleAllOf.md)
  - [EnvironmentDeploymentRuleEditRequest](docs/EnvironmentDeploymentRuleEditRequest.md)
  - [EnvironmentEditRequest](docs/EnvironmentEditRequest.md)
  - [EnvironmentLog](docs/EnvironmentLog.md)
  - [EnvironmentLogPaginatedResponseList](docs/EnvironmentLogPaginatedResponseList.md)
+ - [EnvironmentLogPaginatedResponseListAllOf](docs/EnvironmentLogPaginatedResponseListAllOf.md)
  - [EnvironmentLogResponseList](docs/EnvironmentLogResponseList.md)
  - [EnvironmentLogScope](docs/EnvironmentLogScope.md)
  - [EnvironmentLogTypeEnum](docs/EnvironmentLogTypeEnum.md)
@@ -671,6 +691,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentLogsError](docs/EnvironmentLogsError.md)
  - [EnvironmentLogsErrorUnderlyingError](docs/EnvironmentLogsErrorUnderlyingError.md)
  - [EnvironmentLogsMessage](docs/EnvironmentLogsMessage.md)
+ - [EnvironmentLogsResponseList](docs/EnvironmentLogsResponseList.md)
  - [EnvironmentModeEnum](docs/EnvironmentModeEnum.md)
  - [EnvironmentResponseList](docs/EnvironmentResponseList.md)
  - [EnvironmentServiceIdsAllRequest](docs/EnvironmentServiceIdsAllRequest.md)
@@ -684,6 +705,7 @@ Class | Method | HTTP request | Description
  - [EnvironmentTotalNumber](docs/EnvironmentTotalNumber.md)
  - [EnvironmentVariable](docs/EnvironmentVariable.md)
  - [EnvironmentVariableAlias](docs/EnvironmentVariableAlias.md)
+ - [EnvironmentVariableAllOf](docs/EnvironmentVariableAllOf.md)
  - [EnvironmentVariableEditRequest](docs/EnvironmentVariableEditRequest.md)
  - [EnvironmentVariableOverride](docs/EnvironmentVariableOverride.md)
  - [EnvironmentVariableRequest](docs/EnvironmentVariableRequest.md)
@@ -702,42 +724,40 @@ Class | Method | HTTP request | Description
  - [GitTokenAssociatedServicesResponseList](docs/GitTokenAssociatedServicesResponseList.md)
  - [GitTokenRequest](docs/GitTokenRequest.md)
  - [GitTokenResponse](docs/GitTokenResponse.md)
+ - [GitTokenResponseAllOf](docs/GitTokenResponseAllOf.md)
  - [GitTokenResponseList](docs/GitTokenResponseList.md)
  - [Healthcheck](docs/Healthcheck.md)
  - [HelmAdvancedSettings](docs/HelmAdvancedSettings.md)
  - [HelmDefaultValuesRequest](docs/HelmDefaultValuesRequest.md)
+ - [HelmDefaultValuesRequestAllOf](docs/HelmDefaultValuesRequestAllOf.md)
  - [HelmDeployRequest](docs/HelmDeployRequest.md)
  - [HelmDeploymentRestrictionRequest](docs/HelmDeploymentRestrictionRequest.md)
  - [HelmDeploymentRestrictionResponse](docs/HelmDeploymentRestrictionResponse.md)
  - [HelmDeploymentRestrictionResponseList](docs/HelmDeploymentRestrictionResponseList.md)
  - [HelmForceEvent](docs/HelmForceEvent.md)
  - [HelmGitRepositoryRequest](docs/HelmGitRepositoryRequest.md)
+ - [HelmKeyValues](docs/HelmKeyValues.md)
  - [HelmPortProtocolEnum](docs/HelmPortProtocolEnum.md)
  - [HelmPortRequest](docs/HelmPortRequest.md)
  - [HelmPortRequestPortsInner](docs/HelmPortRequestPortsInner.md)
+ - [HelmPortResponse](docs/HelmPortResponse.md)
+ - [HelmPortResponseList](docs/HelmPortResponseList.md)
  - [HelmRepositoryKindEnum](docs/HelmRepositoryKindEnum.md)
  - [HelmRepositoryRequest](docs/HelmRepositoryRequest.md)
  - [HelmRepositoryRequestConfig](docs/HelmRepositoryRequestConfig.md)
  - [HelmRepositoryResponse](docs/HelmRepositoryResponse.md)
+ - [HelmRepositoryResponseAllOf](docs/HelmRepositoryResponseAllOf.md)
  - [HelmRepositoryResponseList](docs/HelmRepositoryResponseList.md)
  - [HelmRequest](docs/HelmRequest.md)
- - [HelmRequestAllOfSource](docs/HelmRequestAllOfSource.md)
- - [HelmRequestAllOfSourceOneOf](docs/HelmRequestAllOfSourceOneOf.md)
- - [HelmRequestAllOfSourceOneOf1](docs/HelmRequestAllOfSourceOneOf1.md)
- - [HelmRequestAllOfSourceOneOf1HelmRepository](docs/HelmRequestAllOfSourceOneOf1HelmRepository.md)
+ - [HelmRequestAllOf](docs/HelmRequestAllOf.md)
  - [HelmRequestAllOfValuesOverride](docs/HelmRequestAllOfValuesOverride.md)
  - [HelmRequestAllOfValuesOverrideFile](docs/HelmRequestAllOfValuesOverrideFile.md)
  - [HelmRequestAllOfValuesOverrideFileGit](docs/HelmRequestAllOfValuesOverrideFileGit.md)
  - [HelmRequestAllOfValuesOverrideFileRaw](docs/HelmRequestAllOfValuesOverrideFileRaw.md)
  - [HelmRequestAllOfValuesOverrideFileRawValues](docs/HelmRequestAllOfValuesOverrideFileRawValues.md)
  - [HelmResponse](docs/HelmResponse.md)
+ - [HelmResponseAllOf](docs/HelmResponseAllOf.md)
  - [HelmResponseAllOfPorts](docs/HelmResponseAllOfPorts.md)
- - [HelmResponseAllOfSource](docs/HelmResponseAllOfSource.md)
- - [HelmResponseAllOfSourceOneOf](docs/HelmResponseAllOfSourceOneOf.md)
- - [HelmResponseAllOfSourceOneOf1](docs/HelmResponseAllOfSourceOneOf1.md)
- - [HelmResponseAllOfSourceOneOf1Repository](docs/HelmResponseAllOfSourceOneOf1Repository.md)
- - [HelmResponseAllOfSourceOneOf1RepositoryRepository](docs/HelmResponseAllOfSourceOneOf1RepositoryRepository.md)
- - [HelmResponseAllOfSourceOneOfGit](docs/HelmResponseAllOfSourceOneOfGit.md)
  - [HelmResponseAllOfValuesOverride](docs/HelmResponseAllOfValuesOverride.md)
  - [HelmResponseAllOfValuesOverrideFile](docs/HelmResponseAllOfValuesOverrideFile.md)
  - [HelmResponseAllOfValuesOverrideFileGit](docs/HelmResponseAllOfValuesOverrideFileGit.md)
@@ -745,11 +765,13 @@ Class | Method | HTTP request | Description
  - [HelmResponseAllOfValuesOverrideFileRawValues](docs/HelmResponseAllOfValuesOverrideFileRawValues.md)
  - [HelmResponseList](docs/HelmResponseList.md)
  - [InviteMember](docs/InviteMember.md)
+ - [InviteMemberAllOf](docs/InviteMemberAllOf.md)
  - [InviteMemberRequest](docs/InviteMemberRequest.md)
  - [InviteMemberResponseList](docs/InviteMemberResponseList.md)
  - [InviteMemberRoleEnum](docs/InviteMemberRoleEnum.md)
  - [InviteStatusEnum](docs/InviteStatusEnum.md)
  - [Invoice](docs/Invoice.md)
+ - [InvoiceAllOf](docs/InvoiceAllOf.md)
  - [InvoiceResponseList](docs/InvoiceResponseList.md)
  - [InvoiceStatusEnum](docs/InvoiceStatusEnum.md)
  - [JobAdvancedSettings](docs/JobAdvancedSettings.md)
@@ -759,6 +781,7 @@ Class | Method | HTTP request | Description
  - [JobDeploymentRestrictionResponseList](docs/JobDeploymentRestrictionResponseList.md)
  - [JobForceEvent](docs/JobForceEvent.md)
  - [JobRequest](docs/JobRequest.md)
+ - [JobRequestAllOf](docs/JobRequestAllOf.md)
  - [JobRequestAllOfSchedule](docs/JobRequestAllOfSchedule.md)
  - [JobRequestAllOfScheduleCronjob](docs/JobRequestAllOfScheduleCronjob.md)
  - [JobRequestAllOfScheduleOnStart](docs/JobRequestAllOfScheduleOnStart.md)
@@ -771,28 +794,38 @@ Class | Method | HTTP request | Description
  - [Key](docs/Key.md)
  - [KubernetesEnum](docs/KubernetesEnum.md)
  - [LifecycleJobResponse](docs/LifecycleJobResponse.md)
+ - [LifecycleJobResponseAllOf](docs/LifecycleJobResponseAllOf.md)
  - [LifecycleJobResponseAllOfSchedule](docs/LifecycleJobResponseAllOfSchedule.md)
  - [Link](docs/Link.md)
  - [LinkResponseList](docs/LinkResponseList.md)
  - [LinkedServiceTypeEnum](docs/LinkedServiceTypeEnum.md)
  - [ListContainerDeploymentHistory200Response](docs/ListContainerDeploymentHistory200Response.md)
+ - [ListContainerDeploymentHistory200ResponseAllOf](docs/ListContainerDeploymentHistory200ResponseAllOf.md)
  - [ListDatabaseDeploymentHistory200Response](docs/ListDatabaseDeploymentHistory200Response.md)
+ - [ListDatabaseDeploymentHistory200ResponseAllOf](docs/ListDatabaseDeploymentHistory200ResponseAllOf.md)
  - [ListHelmDeploymentHistory200Response](docs/ListHelmDeploymentHistory200Response.md)
+ - [ListHelmDeploymentHistory200ResponseAllOf](docs/ListHelmDeploymentHistory200ResponseAllOf.md)
  - [ListJobDeploymentHistory200Response](docs/ListJobDeploymentHistory200Response.md)
+ - [ListJobDeploymentHistory200ResponseAllOf](docs/ListJobDeploymentHistory200ResponseAllOf.md)
  - [Log](docs/Log.md)
  - [LogPaginatedResponseList](docs/LogPaginatedResponseList.md)
+ - [LogPaginatedResponseListAllOf](docs/LogPaginatedResponseListAllOf.md)
  - [LogResponseList](docs/LogResponseList.md)
  - [ManagedDatabaseInstanceTypeResponse](docs/ManagedDatabaseInstanceTypeResponse.md)
  - [ManagedDatabaseInstanceTypeResponseList](docs/ManagedDatabaseInstanceTypeResponseList.md)
  - [ManagedDatabaseTypeResponse](docs/ManagedDatabaseTypeResponse.md)
  - [ManagedDatabaseTypeResponseList](docs/ManagedDatabaseTypeResponseList.md)
  - [Member](docs/Member.md)
+ - [MemberAllOf](docs/MemberAllOf.md)
  - [MemberResponseList](docs/MemberResponseList.md)
  - [MemberRoleUpdateRequest](docs/MemberRoleUpdateRequest.md)
  - [Name](docs/Name.md)
  - [Organization](docs/Organization.md)
+ - [OrganizationAllOf](docs/OrganizationAllOf.md)
  - [OrganizationApiToken](docs/OrganizationApiToken.md)
+ - [OrganizationApiTokenAllOf](docs/OrganizationApiTokenAllOf.md)
  - [OrganizationApiTokenCreate](docs/OrganizationApiTokenCreate.md)
+ - [OrganizationApiTokenCreateAllOf](docs/OrganizationApiTokenCreateAllOf.md)
  - [OrganizationApiTokenCreateRequest](docs/OrganizationApiTokenCreateRequest.md)
  - [OrganizationApiTokenResponseList](docs/OrganizationApiTokenResponseList.md)
  - [OrganizationApiTokenScope](docs/OrganizationApiTokenScope.md)
@@ -831,6 +864,7 @@ Class | Method | HTTP request | Description
  - [OrganizationResponseList](docs/OrganizationResponseList.md)
  - [OrganizationWebhookCreateRequest](docs/OrganizationWebhookCreateRequest.md)
  - [OrganizationWebhookCreateResponse](docs/OrganizationWebhookCreateResponse.md)
+ - [OrganizationWebhookCreateResponseAllOf](docs/OrganizationWebhookCreateResponseAllOf.md)
  - [OrganizationWebhookEventEnum](docs/OrganizationWebhookEventEnum.md)
  - [OrganizationWebhookKindEnum](docs/OrganizationWebhookKindEnum.md)
  - [OrganizationWebhookResponse](docs/OrganizationWebhookResponse.md)
@@ -845,9 +879,12 @@ Class | Method | HTTP request | Description
  - [ProbeTypeHttp](docs/ProbeTypeHttp.md)
  - [ProbeTypeTcp](docs/ProbeTypeTcp.md)
  - [Project](docs/Project.md)
+ - [ProjectAllOf](docs/ProjectAllOf.md)
  - [ProjectCurrentCost](docs/ProjectCurrentCost.md)
+ - [ProjectCurrentCostAllOf](docs/ProjectCurrentCostAllOf.md)
  - [ProjectCurrentCostResponseList](docs/ProjectCurrentCostResponseList.md)
  - [ProjectDeploymentRule](docs/ProjectDeploymentRule.md)
+ - [ProjectDeploymentRuleAllOf](docs/ProjectDeploymentRuleAllOf.md)
  - [ProjectDeploymentRuleRequest](docs/ProjectDeploymentRuleRequest.md)
  - [ProjectDeploymentRuleResponseList](docs/ProjectDeploymentRuleResponseList.md)
  - [ProjectDeploymentRulesPriorityOrderRequest](docs/ProjectDeploymentRulesPriorityOrderRequest.md)
@@ -866,15 +903,18 @@ Class | Method | HTTP request | Description
  - [ScalewayCredentialsRequest](docs/ScalewayCredentialsRequest.md)
  - [Secret](docs/Secret.md)
  - [SecretAlias](docs/SecretAlias.md)
+ - [SecretAllOf](docs/SecretAllOf.md)
  - [SecretEditRequest](docs/SecretEditRequest.md)
  - [SecretOverride](docs/SecretOverride.md)
  - [SecretRequest](docs/SecretRequest.md)
  - [SecretResponseList](docs/SecretResponseList.md)
  - [Service](docs/Service.md)
+ - [ServiceAllOf](docs/ServiceAllOf.md)
  - [ServiceDeploymentStatusEnum](docs/ServiceDeploymentStatusEnum.md)
  - [ServicePort](docs/ServicePort.md)
  - [ServicePortRequest](docs/ServicePortRequest.md)
  - [ServicePortRequestPortsInner](docs/ServicePortRequestPortsInner.md)
+ - [ServicePortResponseList](docs/ServicePortResponseList.md)
  - [ServiceResponseList](docs/ServiceResponseList.md)
  - [ServiceStepMetric](docs/ServiceStepMetric.md)
  - [ServiceStepMetricNameEnum](docs/ServiceStepMetricNameEnum.md)
@@ -914,32 +954,49 @@ Class | Method | HTTP request | Description
  - [VariableOverrideRequest](docs/VariableOverrideRequest.md)
  - [VariableRequest](docs/VariableRequest.md)
  - [VariableResponse](docs/VariableResponse.md)
+ - [VariableResponseAllOf](docs/VariableResponseAllOf.md)
  - [VariableResponseList](docs/VariableResponseList.md)
  - [Version](docs/Version.md)
  - [VersionResponseList](docs/VersionResponseList.md)
  - [WeekdayEnum](docs/WeekdayEnum.md)
 
 
-<a id="documentation-for-authorization"></a>
 ## Documentation For Authorization
 
 
-Authentication schemes defined for the API:
-<a id="bearerAuth"></a>
-### bearerAuth
-
-- **Type**: Bearer authentication (JWT)
-
-<a id="ApiKeyAuth"></a>
-### ApiKeyAuth
+## ApiKeyAuth
 
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
 
 
+## bearerAuth
+
+- **Type**: Bearer authentication (JWT)
+
+
 ## Author
 
 support+api+documentation@qovery.com
 
+
+## Notes for Large OpenAPI documents
+If the OpenAPI document is large, imports in qovery.apis and qovery.models may fail with a
+RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
+
+Solution 1:
+Use specific imports for apis and models like:
+- `from qovery.api.default_api import DefaultApi`
+- `from qovery.model.pet import Pet`
+
+Solution 2:
+Before importing the package, adjust the maximum recursion limit as shown below:
+```
+import sys
+sys.setrecursionlimit(1500)
+import qovery
+from qovery.apis import *
+from qovery.models import *
+```
 

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **auto_deploy_container_environments**
-> Status auto_deploy_container_environments(organization_id, organization_container_auto_deploy_request=organization_container_auto_deploy_request)
+> Status auto_deploy_container_environments(organization_id)
 
 Auto deploy containers
 
@@ -25,15 +25,14 @@ Triggers a new container deploy in each environment matching the following condi
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_container_auto_deploy_request import OrganizationContainerAutoDeployRequest
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.status import Status
+from qovery.model.organization_container_auto_deploy_request import OrganizationContainerAutoDeployRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -46,40 +45,51 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    organization_container_auto_deploy_request = qovery.OrganizationContainerAutoDeployRequest() # OrganizationContainerAutoDeployRequest |  (optional)
+    api_instance = containers_api.ContainersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    organization_container_auto_deploy_request = OrganizationContainerAutoDeployRequest(
+        image_name="image_name_example",
+        tag="tag_example",
+    ) # OrganizationContainerAutoDeployRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Auto deploy containers
+        api_response = api_instance.auto_deploy_container_environments(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->auto_deploy_container_environments: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Auto deploy containers
         api_response = api_instance.auto_deploy_container_environments(organization_id, organization_container_auto_deploy_request=organization_container_auto_deploy_request)
-        print("The response of ContainersApi->auto_deploy_container_environments:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->auto_deploy_container_environments: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **organization_container_auto_deploy_request** | [**OrganizationContainerAutoDeployRequest**](OrganizationContainerAutoDeployRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **organization_container_auto_deploy_request** | [**OrganizationContainerAutoDeployRequest**](OrganizationContainerAutoDeployRequest.md)|  | [optional]
 
 ### Return type
 
@@ -94,7 +104,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Deployed containers |  -  |
@@ -107,7 +119,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clone_container**
-> ContainerResponse clone_container(container_id, clone_service_request=clone_service_request)
+> ContainerResponse clone_container(container_id)
 
 Clone container
 
@@ -117,15 +129,14 @@ This will create a new container with the same configuration on the targeted env
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.clone_service_request import CloneServiceRequest
-from qovery.models.container_response import ContainerResponse
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.clone_service_request import CloneServiceRequest
+from qovery.model.container_response import ContainerResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -138,40 +149,51 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
-    container_id = 'container_id_example' # str | Container ID
-    clone_service_request = qovery.CloneServiceRequest() # CloneServiceRequest |  (optional)
+    api_instance = containers_api.ContainersApi(api_client)
+    container_id = "containerId_example" # str | Container ID
+    clone_service_request = CloneServiceRequest(
+        name="name_example",
+        environment_id="environment_id_example",
+    ) # CloneServiceRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Clone container
+        api_response = api_instance.clone_container(container_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->clone_container: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Clone container
         api_response = api_instance.clone_container(container_id, clone_service_request=clone_service_request)
-        print("The response of ContainersApi->clone_container:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->clone_container: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID | 
- **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional] 
+ **container_id** | **str**| Container ID |
+ **clone_service_request** | [**CloneServiceRequest**](CloneServiceRequest.md)|  | [optional]
 
 ### Return type
 
@@ -186,7 +208,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Container clone has been requested |  -  |
@@ -198,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_container**
-> ContainerResponse create_container(environment_id, container_request=container_request)
+> ContainerResponse create_container(environment_id)
 
 Create a container
 
@@ -206,15 +230,14 @@ Create a container
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.container_request import ContainerRequest
-from qovery.models.container_response import ContainerResponse
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.container_request import ContainerRequest
+from qovery.model.container_response import ContainerResponse
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -227,40 +250,48 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    container_request = qovery.ContainerRequest() # ContainerRequest |  (optional)
+    api_instance = containers_api.ContainersApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    container_request = ContainerRequest(None) # ContainerRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Create a container
+        api_response = api_instance.create_container(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->create_container: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Create a container
         api_response = api_instance.create_container(environment_id, container_request=container_request)
-        print("The response of ContainersApi->create_container:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->create_container: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **container_request** | [**ContainerRequest**](ContainerRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **container_request** | [**ContainerRequest**](ContainerRequest.md)|  | [optional]
 
 ### Return type
 
@@ -275,7 +306,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create container |  -  |
@@ -298,14 +331,13 @@ Returns a list of containers with only their id and status.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.reference_object_status_response_list import ReferenceObjectStatusResponseList
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -318,40 +350,39 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    container_registry_id = 'container_registry_id_example' # str | Container Registry ID
+    api_instance = containers_api.ContainersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    container_registry_id = "containerRegistryId_example" # str | Container Registry ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List all container registry container statuses
         api_response = api_instance.get_container_registry_container_status(organization_id, container_registry_id)
-        print("The response of ContainersApi->get_container_registry_container_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->get_container_registry_container_status: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **container_registry_id** | **str**| Container Registry ID | 
+ **organization_id** | **str**| Organization ID |
+ **container_registry_id** | **str**| Container Registry ID |
 
 ### Return type
 
@@ -366,7 +397,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get status |  -  |
@@ -387,14 +420,13 @@ Default values for each setting are available in [our documentation](https://hub
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.container_advanced_settings import ContainerAdvancedSettings
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.container_advanced_settings import ContainerAdvancedSettings
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -407,30 +439,29 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
+    api_instance = containers_api.ContainersApi(api_client)
 
+    # example, this endpoint has no required or optional parameters
     try:
         # List default container advanced settings
         api_response = api_instance.get_default_container_advanced_settings()
-        print("The response of ContainersApi->get_default_container_advanced_settings:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->get_default_container_advanced_settings: %s\n" % e)
 ```
-
 
 
 ### Parameters
@@ -449,7 +480,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Default container advanced settings |  -  |
@@ -469,14 +502,13 @@ Returns a list of containers with only their id and status.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.reference_object_status_response_list import ReferenceObjectStatusResponseList
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.reference_object_status_response_list import ReferenceObjectStatusResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -489,38 +521,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = containers_api.ContainersApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List all environment container statuses
         api_response = api_instance.get_environment_container_status(environment_id)
-        print("The response of ContainersApi->get_environment_container_status:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->get_environment_container_status: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -535,7 +566,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get status |  -  |
@@ -554,14 +587,13 @@ List containers
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.container_response_list import ContainerResponseList
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.container_response_list import ContainerResponseList
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -574,38 +606,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = containers_api.ContainersApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # List containers
         api_response = api_instance.list_container(environment_id)
-        print("The response of ContainersApi->list_container:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->list_container: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -620,7 +651,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List containers |  -  |
@@ -631,7 +664,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **preview_container_environments**
-> Status preview_container_environments(organization_id, organization_container_preview_request=organization_container_preview_request)
+> Status preview_container_environments(organization_id)
 
 Preview container environments
 
@@ -641,15 +674,14 @@ Triggers a new container preview for each environment matching the following con
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.organization_container_preview_request import OrganizationContainerPreviewRequest
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import containers_api
+from qovery.model.status import Status
+from qovery.model.organization_container_preview_request import OrganizationContainerPreviewRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -662,40 +694,51 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainersApi(api_client)
-    organization_id = 'organization_id_example' # str | Organization ID
-    organization_container_preview_request = qovery.OrganizationContainerPreviewRequest() # OrganizationContainerPreviewRequest |  (optional)
+    api_instance = containers_api.ContainersApi(api_client)
+    organization_id = "organizationId_example" # str | Organization ID
+    organization_container_preview_request = OrganizationContainerPreviewRequest(
+        image_name="image_name_example",
+        tag="tag_example",
+    ) # OrganizationContainerPreviewRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Preview container environments
+        api_response = api_instance.preview_container_environments(organization_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainersApi->preview_container_environments: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Preview container environments
         api_response = api_instance.preview_container_environments(organization_id, organization_container_preview_request=organization_container_preview_request)
-        print("The response of ContainersApi->preview_container_environments:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainersApi->preview_container_environments: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID | 
- **organization_container_preview_request** | [**OrganizationContainerPreviewRequest**](OrganizationContainerPreviewRequest.md)|  | [optional] 
+ **organization_id** | **str**| Organization ID |
+ **organization_container_preview_request** | [**OrganizationContainerPreviewRequest**](OrganizationContainerPreviewRequest.md)|  | [optional]
 
 ### Return type
 
@@ -710,7 +753,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Preview environments processing |  -  |

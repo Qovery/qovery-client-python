@@ -13,26 +13,10 @@ Name | Type | Description | Notes
 **tag** | **str** |  | [optional] 
 **commit** | [**Commit**](Commit.md) |  | [optional] 
 **schedule** | [**DeploymentHistoryJobResponseAllOfSchedule**](DeploymentHistoryJobResponseAllOfSchedule.md) |  | [optional] 
-**arguments** | **List[str]** |  | [optional] 
+**arguments** | **[str]** |  | [optional] 
 **entrypoint** | **str** |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
-## Example
-
-```python
-from qovery.models.deployment_history_job_response import DeploymentHistoryJobResponse
-
-# TODO update the JSON string below
-json = "{}"
-# create an instance of DeploymentHistoryJobResponse from a JSON string
-deployment_history_job_response_instance = DeploymentHistoryJobResponse.from_json(json)
-# print the JSON string representation of the object
-print DeploymentHistoryJobResponse.to_json()
-
-# convert the object into a dict
-deployment_history_job_response_dict = deployment_history_job_response_instance.to_dict()
-# create an instance of DeploymentHistoryJobResponse from a dict
-deployment_history_job_response_form_dict = deployment_history_job_response.from_dict(deployment_history_job_response_dict)
-```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

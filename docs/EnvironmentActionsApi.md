@@ -26,14 +26,13 @@ Cancel the current deployment of your environment.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.environment_status import EnvironmentStatus
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.environment_status import EnvironmentStatus
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -46,38 +45,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Cancel environment deployment
         api_response = api_instance.cancel_environment_deployment(environment_id)
-        print("The response of EnvironmentActionsApi->cancel_environment_deployment:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->cancel_environment_deployment: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -92,7 +90,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | environment deployment cancelling has been requested |  -  |
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **clone_environment**
-> Environment clone_environment(environment_id, clone_environment_request=clone_environment_request)
+> Environment clone_environment(environment_id)
 
 Clone environment
 
@@ -114,15 +114,14 @@ You must provide a name. This will create a new environment, with the same confi
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.clone_environment_request import CloneEnvironmentRequest
-from qovery.models.environment import Environment
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.environment import Environment
+from qovery.model.clone_environment_request import CloneEnvironmentRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -135,40 +134,53 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    clone_environment_request = qovery.CloneEnvironmentRequest() # CloneEnvironmentRequest |  (optional)
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    clone_environment_request = CloneEnvironmentRequest(
+        name="name_example",
+        cluster_id="cluster_id_example",
+        mode=EnvironmentModeEnum("PRODUCTION"),
+        apply_deployment_rule=False,
+    ) # CloneEnvironmentRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Clone environment
+        api_response = api_instance.clone_environment(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentActionsApi->clone_environment: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Clone environment
         api_response = api_instance.clone_environment(environment_id, clone_environment_request=clone_environment_request)
-        print("The response of EnvironmentActionsApi->clone_environment:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->clone_environment: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **clone_environment_request** | [**CloneEnvironmentRequest**](CloneEnvironmentRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **clone_environment_request** | [**CloneEnvironmentRequest**](CloneEnvironmentRequest.md)|  | [optional]
 
 ### Return type
 
@@ -183,7 +195,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Environment clone has been requested |  -  |
@@ -195,7 +209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_selected_services**
-> delete_selected_services(environment_id, environment_service_ids_all_request=environment_service_ids_all_request)
+> delete_selected_services(environment_id)
 
 Delete services
 
@@ -205,14 +219,13 @@ Delete selected services
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.environment_service_ids_all_request import EnvironmentServiceIdsAllRequest
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.environment_service_ids_all_request import EnvironmentServiceIdsAllRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -225,38 +238,62 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    environment_service_ids_all_request = qovery.EnvironmentServiceIdsAllRequest() # EnvironmentServiceIdsAllRequest |  (optional)
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    environment_service_ids_all_request = EnvironmentServiceIdsAllRequest(
+        application_ids=[
+            "application_ids_example",
+        ],
+        container_ids=[
+            "container_ids_example",
+        ],
+        database_ids=[
+            "database_ids_example",
+        ],
+        job_ids=[
+            "job_ids_example",
+        ],
+        helm_ids=[
+            "helm_ids_example",
+        ],
+    ) # EnvironmentServiceIdsAllRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete services
+        api_instance.delete_selected_services(environment_id)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentActionsApi->delete_selected_services: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Delete services
         api_instance.delete_selected_services(environment_id, environment_service_ids_all_request=environment_service_ids_all_request)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->delete_selected_services: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **environment_service_ids_all_request** | [**EnvironmentServiceIdsAllRequest**](EnvironmentServiceIdsAllRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **environment_service_ids_all_request** | [**EnvironmentServiceIdsAllRequest**](EnvironmentServiceIdsAllRequest.md)|  | [optional]
 
 ### Return type
 
@@ -271,7 +308,9 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Services have been triggered to be deleted |  -  |
@@ -284,7 +323,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deploy_all_services**
-> Status deploy_all_services(environment_id, deploy_all_request=deploy_all_request)
+> Status deploy_all_services(environment_id)
 
 Deploy services
 
@@ -294,15 +333,14 @@ Update and deploy the selected services
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.deploy_all_request import DeployAllRequest
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.deploy_all_request import DeployAllRequest
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -315,40 +353,79 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    deploy_all_request = qovery.DeployAllRequest() # DeployAllRequest |  (optional)
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    deploy_all_request = DeployAllRequest(
+        applications=[
+            DeployAllRequestApplicationsInner(
+                application_id="application_id_example",
+                git_commit_id="git_commit_id_example",
+            ),
+        ],
+        databases=[
+            "databases_example",
+        ],
+        containers=[
+            DeployAllRequestContainersInner(
+                id="id_example",
+                image_tag="image_tag_example",
+            ),
+        ],
+        jobs=[
+            DeployAllRequestJobsInner(
+                id="id_example",
+                image_tag="image_tag_example",
+                git_commit_id="git_commit_id_example",
+            ),
+        ],
+        helms=[
+            DeployAllRequestHelmsInner(
+                id="id_example",
+                chart_version="chart_version_example",
+                git_commit_id="git_commit_id_example",
+                values_override_git_commit_id="values_override_git_commit_id_example",
+            ),
+        ],
+    ) # DeployAllRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Deploy services
+        api_response = api_instance.deploy_all_services(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentActionsApi->deploy_all_services: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Deploy services
         api_response = api_instance.deploy_all_services(environment_id, deploy_all_request=deploy_all_request)
-        print("The response of EnvironmentActionsApi->deploy_all_services:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->deploy_all_services: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **deploy_all_request** | [**DeployAllRequest**](DeployAllRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **deploy_all_request** | [**DeployAllRequest**](DeployAllRequest.md)|  | [optional]
 
 ### Return type
 
@@ -363,7 +440,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Deployed services |  -  |
@@ -386,14 +465,13 @@ This will deploy all the services of this environment to their latest version.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -406,38 +484,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Deploy environment
         api_response = api_instance.deploy_environment(environment_id)
-        print("The response of EnvironmentActionsApi->deploy_environment:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->deploy_environment: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -452,7 +529,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Deploy environment |  -  |
@@ -464,7 +543,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reboot_services**
-> Status reboot_services(environment_id, reboot_services_request=reboot_services_request)
+> Status reboot_services(environment_id)
 
 Reboot services
 
@@ -474,15 +553,14 @@ Update and reboot the selected services
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.reboot_services_request import RebootServicesRequest
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.status import Status
+from qovery.model.reboot_services_request import RebootServicesRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -495,40 +573,58 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    reboot_services_request = qovery.RebootServicesRequest() # RebootServicesRequest |  (optional)
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    reboot_services_request = RebootServicesRequest(
+        application_ids=[
+            "application_ids_example",
+        ],
+        database_ids=[
+            "database_ids_example",
+        ],
+        container_ids=[
+            "container_ids_example",
+        ],
+    ) # RebootServicesRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Reboot services
+        api_response = api_instance.reboot_services(environment_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentActionsApi->reboot_services: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Reboot services
         api_response = api_instance.reboot_services(environment_id, reboot_services_request=reboot_services_request)
-        print("The response of EnvironmentActionsApi->reboot_services:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->reboot_services: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **reboot_services_request** | [**RebootServicesRequest**](RebootServicesRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **reboot_services_request** | [**RebootServicesRequest**](RebootServicesRequest.md)|  | [optional]
 
 ### Return type
 
@@ -543,7 +639,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Reboot services |  -  |
@@ -566,14 +664,13 @@ Deprecated - Restart environment
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.environment_status import EnvironmentStatus
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.environment_status import EnvironmentStatus
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -586,38 +683,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Deprecated - Restart environment
         api_response = api_instance.restart_environment(environment_id)
-        print("The response of EnvironmentActionsApi->restart_environment:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->restart_environment: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -632,7 +728,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Environment restart has been requested |  -  |
@@ -652,14 +750,13 @@ Stop environment
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.environment_status import EnvironmentStatus
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.environment_status import EnvironmentStatus
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -672,38 +769,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Stop environment
         api_response = api_instance.stop_environment(environment_id)
-        print("The response of EnvironmentActionsApi->stop_environment:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->stop_environment: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
+ **environment_id** | **str**| Environment ID |
 
 ### Return type
 
@@ -718,7 +814,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Environment stop has been requested |  -  |
@@ -730,7 +828,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_selected_services**
-> stop_selected_services(environment_id, environment_service_ids_all_request=environment_service_ids_all_request)
+> stop_selected_services(environment_id)
 
 Stop services
 
@@ -740,14 +838,13 @@ Stop selected services
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.environment_service_ids_all_request import EnvironmentServiceIdsAllRequest
-from qovery.rest import ApiException
+from qovery.api import environment_actions_api
+from qovery.model.environment_service_ids_all_request import EnvironmentServiceIdsAllRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -760,38 +857,62 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.EnvironmentActionsApi(api_client)
-    environment_id = 'environment_id_example' # str | Environment ID
-    environment_service_ids_all_request = qovery.EnvironmentServiceIdsAllRequest() # EnvironmentServiceIdsAllRequest |  (optional)
+    api_instance = environment_actions_api.EnvironmentActionsApi(api_client)
+    environment_id = "environmentId_example" # str | Environment ID
+    environment_service_ids_all_request = EnvironmentServiceIdsAllRequest(
+        application_ids=[
+            "application_ids_example",
+        ],
+        container_ids=[
+            "container_ids_example",
+        ],
+        database_ids=[
+            "database_ids_example",
+        ],
+        job_ids=[
+            "job_ids_example",
+        ],
+        helm_ids=[
+            "helm_ids_example",
+        ],
+    ) # EnvironmentServiceIdsAllRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Stop services
+        api_instance.stop_selected_services(environment_id)
+    except qovery.ApiException as e:
+        print("Exception when calling EnvironmentActionsApi->stop_selected_services: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Stop services
         api_instance.stop_selected_services(environment_id, environment_service_ids_all_request=environment_service_ids_all_request)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling EnvironmentActionsApi->stop_selected_services: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment_id** | **str**| Environment ID | 
- **environment_service_ids_all_request** | [**EnvironmentServiceIdsAllRequest**](EnvironmentServiceIdsAllRequest.md)|  | [optional] 
+ **environment_id** | **str**| Environment ID |
+ **environment_service_ids_all_request** | [**EnvironmentServiceIdsAllRequest**](EnvironmentServiceIdsAllRequest.md)|  | [optional]
 
 ### Return type
 
@@ -806,7 +927,9 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Services have been triggered to be deleted |  -  |

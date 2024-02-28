@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deployment_custom_domain_check_enabled** | **bool** | disable custom domain check when deploying an application | [optional] 
 **deployment_termination_grace_period_seconds** | **int** | define how long in seconds an application is supposed to be stopped gracefully | [optional] 
-**deployment_affinity_node_required** | **Dict[str, str]** | Set pod placement on specific Kubernetes nodes labels | [optional] 
+**deployment_affinity_node_required** | **{str: (str,)}** | Set pod placement on specific Kubernetes nodes labels | [optional] 
 **deployment_antiaffinity_pod** | **str** | Define how you want pods affinity to behave: * &#x60;Preferred&#x60; allows, but does not require, pods of a given service are not co-located (or co-hosted) on a single node * &#x60;Requirred&#x60; ensures that the pods of a given service are not co-located (or co-hosted) on a single node (safer in term of availability but can be expensive depending on the number of replicas)  | [optional] 
 **deployment_update_strategy_type** | **str** | * &#x60;RollingUpdate&#x60; gracefully rollout new versions, and automatically rollback if the new version fails to start * &#x60;Recreate&#x60; stop all current versions and create new ones once all old ones have been shutdown  | [optional] 
 **deployment_update_strategy_rolling_update_max_unavailable_percent** | **int** | Define the percentage of a maximum number of pods that can be unavailable during the update process | [optional] 
@@ -37,24 +37,8 @@ Name | Type | Description | Notes
 **hpa_cpu_average_utilization_percent** | **int** | Percentage value of cpu usage at which point pods should scale up. | [optional] 
 **security_service_account_name** | **str** | Allows you to set an existing Kubernetes service account name  | [optional] 
 **security_read_only_root_filesystem** | **bool** | Mounts the container&#39;s root filesystem as read-only  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
-## Example
-
-```python
-from qovery.models.application_advanced_settings import ApplicationAdvancedSettings
-
-# TODO update the JSON string below
-json = "{}"
-# create an instance of ApplicationAdvancedSettings from a JSON string
-application_advanced_settings_instance = ApplicationAdvancedSettings.from_json(json)
-# print the JSON string representation of the object
-print ApplicationAdvancedSettings.to_json()
-
-# convert the object into a dict
-application_advanced_settings_dict = application_advanced_settings_instance.to_dict()
-# create an instance of ApplicationAdvancedSettings from a dict
-application_advanced_settings_form_dict = application_advanced_settings.from_dict(application_advanced_settings_dict)
-```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

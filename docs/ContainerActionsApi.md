@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **deploy_container**
-> Status deploy_container(container_id, container_deploy_request=container_deploy_request)
+> Status deploy_container(container_id)
 
 Deploy container
 
@@ -21,15 +21,14 @@ You must provide a git commit id
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.container_deploy_request import ContainerDeployRequest
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import container_actions_api
+from qovery.model.status import Status
+from qovery.model.container_deploy_request import ContainerDeployRequest
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -42,40 +41,50 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainerActionsApi(api_client)
-    container_id = 'container_id_example' # str | Container ID
-    container_deploy_request = qovery.ContainerDeployRequest() # ContainerDeployRequest |  (optional)
+    api_instance = container_actions_api.ContainerActionsApi(api_client)
+    container_id = "containerId_example" # str | Container ID
+    container_deploy_request = ContainerDeployRequest(
+        image_tag="image_tag_example",
+    ) # ContainerDeployRequest |  (optional)
 
+    # example passing only required values which don't have defaults set
+    try:
+        # Deploy container
+        api_response = api_instance.deploy_container(container_id)
+        pprint(api_response)
+    except qovery.ApiException as e:
+        print("Exception when calling ContainerActionsApi->deploy_container: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Deploy container
         api_response = api_instance.deploy_container(container_id, container_deploy_request=container_deploy_request)
-        print("The response of ContainerActionsApi->deploy_container:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainerActionsApi->deploy_container: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID | 
- **container_deploy_request** | [**ContainerDeployRequest**](ContainerDeployRequest.md)|  | [optional] 
+ **container_id** | **str**| Container ID |
+ **container_deploy_request** | [**ContainerDeployRequest**](ContainerDeployRequest.md)|  | [optional]
 
 ### Return type
 
@@ -90,7 +99,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Deploy container |  -  |
@@ -111,14 +122,13 @@ Reboot container
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import container_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -131,38 +141,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainerActionsApi(api_client)
-    container_id = 'container_id_example' # str | Container ID
+    api_instance = container_actions_api.ContainerActionsApi(api_client)
+    container_id = "containerId_example" # str | Container ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Reboot container
         api_response = api_instance.reboot_container(container_id)
-        print("The response of ContainerActionsApi->reboot_container:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainerActionsApi->reboot_container: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID | 
+ **container_id** | **str**| Container ID |
 
 ### Return type
 
@@ -177,7 +186,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Container reboot has been requested |  -  |
@@ -199,14 +210,13 @@ Deprecated - Restart container
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import container_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -219,38 +229,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainerActionsApi(api_client)
-    container_id = 'container_id_example' # str | Container ID
+    api_instance = container_actions_api.ContainerActionsApi(api_client)
+    container_id = "containerId_example" # str | Container ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Deprecated - Restart container
         api_response = api_instance.restart_container(container_id)
-        print("The response of ContainerActionsApi->restart_container:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainerActionsApi->restart_container: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID | 
+ **container_id** | **str**| Container ID |
 
 ### Return type
 
@@ -265,7 +274,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Container restart has been requested |  -  |
@@ -285,14 +296,13 @@ Stop container
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
+
 ```python
 import time
-import os
 import qovery
-from qovery.models.status import Status
-from qovery.rest import ApiException
+from qovery.api import container_actions_api
+from qovery.model.status import Status
 from pprint import pprint
-
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -305,38 +315,37 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
+    access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = qovery.ContainerActionsApi(api_client)
-    container_id = 'container_id_example' # str | Container ID
+    api_instance = container_actions_api.ContainerActionsApi(api_client)
+    container_id = "containerId_example" # str | Container ID
 
+    # example passing only required values which don't have defaults set
     try:
         # Stop container
         api_response = api_instance.stop_container(container_id)
-        print("The response of ContainerActionsApi->stop_container:\n")
         pprint(api_response)
-    except Exception as e:
+    except qovery.ApiException as e:
         print("Exception when calling ContainerActionsApi->stop_container: %s\n" % e)
 ```
-
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **container_id** | **str**| Container ID | 
+ **container_id** | **str**| Container ID |
 
 ### Return type
 
@@ -351,7 +360,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Container stop has been requested |  -  |
