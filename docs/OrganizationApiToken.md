@@ -11,8 +11,24 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **role_name** | **str** |  | [optional] 
 **role_id** | **str** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from qovery.models.organization_api_token import OrganizationApiToken
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of OrganizationApiToken from a JSON string
+organization_api_token_instance = OrganizationApiToken.from_json(json)
+# print the JSON string representation of the object
+print OrganizationApiToken.to_json()
+
+# convert the object into a dict
+organization_api_token_dict = organization_api_token_instance.to_dict()
+# create an instance of OrganizationApiToken from a dict
+organization_api_token_form_dict = organization_api_token.from_dict(organization_api_token_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

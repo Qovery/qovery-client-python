@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **create_variable**
-> VariableResponse create_variable()
+> VariableResponse create_variable(variable_request=variable_request)
 
 Create a variable
 
@@ -24,14 +24,15 @@ Create a variable
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import variable_main_calls_api
-from qovery.model.variable_response import VariableResponse
-from qovery.model.variable_request import VariableRequest
+from qovery.models.variable_request import VariableRequest
+from qovery.models.variable_response import VariableResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -44,45 +45,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    variable_request = VariableRequest(
-        key="key_example",
-        value="value_example",
-        mount_path="mount_path_example",
-        is_secret=True,
-        variable_scope=APIVariableScopeEnum("APPLICATION"),
-        variable_parent_id="variable_parent_id_example",
-    ) # VariableRequest |  (optional)
+    api_instance = qovery.VariableMainCallsApi(api_client)
+    variable_request = qovery.VariableRequest() # VariableRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a variable
         api_response = api_instance.create_variable(variable_request=variable_request)
+        print("The response of VariableMainCallsApi->create_variable:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling VariableMainCallsApi->create_variable: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variable_request** | [**VariableRequest**](VariableRequest.md)|  | [optional]
+ **variable_request** | [**VariableRequest**](VariableRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -97,9 +91,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create a variable |  -  |
@@ -111,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_variable_alias**
-> VariableResponse create_variable_alias(variable_id)
+> VariableResponse create_variable_alias(variable_id, variable_alias_request=variable_alias_request)
 
 Create a variable alias
 
@@ -121,14 +113,15 @@ Create a variable alias
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import variable_main_calls_api
-from qovery.model.variable_response import VariableResponse
-from qovery.model.variable_alias_request import VariableAliasRequest
+from qovery.models.variable_alias_request import VariableAliasRequest
+from qovery.models.variable_response import VariableResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -141,52 +134,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    variable_id = "variableId_example" # str | Variable ID
-    variable_alias_request = VariableAliasRequest(
-        key="key_example",
-        alias_scope=APIVariableScopeEnum("APPLICATION"),
-        alias_parent_id="alias_parent_id_example",
-    ) # VariableAliasRequest |  (optional)
+    api_instance = qovery.VariableMainCallsApi(api_client)
+    variable_id = 'variable_id_example' # str | Variable ID
+    variable_alias_request = qovery.VariableAliasRequest() # VariableAliasRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a variable alias
-        api_response = api_instance.create_variable_alias(variable_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling VariableMainCallsApi->create_variable_alias: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a variable alias
         api_response = api_instance.create_variable_alias(variable_id, variable_alias_request=variable_alias_request)
+        print("The response of VariableMainCallsApi->create_variable_alias:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling VariableMainCallsApi->create_variable_alias: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variable_id** | **str**| Variable ID |
- **variable_alias_request** | [**VariableAliasRequest**](VariableAliasRequest.md)|  | [optional]
+ **variable_id** | **str**| Variable ID | 
+ **variable_alias_request** | [**VariableAliasRequest**](VariableAliasRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -201,9 +182,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create variable alias |  -  |
@@ -215,7 +194,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_variable_override**
-> VariableResponse create_variable_override(variable_id)
+> VariableResponse create_variable_override(variable_id, variable_override_request=variable_override_request)
 
 Create a variable override
 
@@ -225,14 +204,15 @@ Create a variable override
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import variable_main_calls_api
-from qovery.model.variable_override_request import VariableOverrideRequest
-from qovery.model.variable_response import VariableResponse
+from qovery.models.variable_override_request import VariableOverrideRequest
+from qovery.models.variable_response import VariableResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -245,52 +225,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    variable_id = "variableId_example" # str | Variable ID
-    variable_override_request = VariableOverrideRequest(
-        value="value_example",
-        override_scope=APIVariableScopeEnum("APPLICATION"),
-        override_parent_id="override_parent_id_example",
-    ) # VariableOverrideRequest |  (optional)
+    api_instance = qovery.VariableMainCallsApi(api_client)
+    variable_id = 'variable_id_example' # str | Variable ID
+    variable_override_request = qovery.VariableOverrideRequest() # VariableOverrideRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a variable override
-        api_response = api_instance.create_variable_override(variable_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling VariableMainCallsApi->create_variable_override: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a variable override
         api_response = api_instance.create_variable_override(variable_id, variable_override_request=variable_override_request)
+        print("The response of VariableMainCallsApi->create_variable_override:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling VariableMainCallsApi->create_variable_override: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variable_id** | **str**| Variable ID |
- **variable_override_request** | [**VariableOverrideRequest**](VariableOverrideRequest.md)|  | [optional]
+ **variable_id** | **str**| Variable ID | 
+ **variable_override_request** | [**VariableOverrideRequest**](VariableOverrideRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -305,9 +273,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create variable override |  -  |
@@ -329,12 +295,13 @@ Delete a variable
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import variable_main_calls_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -347,36 +314,36 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    variable_id = "variableId_example" # str | Variable ID
+    api_instance = qovery.VariableMainCallsApi(api_client)
+    variable_id = 'variable_id_example' # str | Variable ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a variable
         api_instance.delete_variable(variable_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling VariableMainCallsApi->delete_variable: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variable_id** | **str**| Variable ID |
+ **variable_id** | **str**| Variable ID | 
 
 ### Return type
 
@@ -391,9 +358,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -414,14 +379,15 @@ Edit a variable
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import variable_main_calls_api
-from qovery.model.variable_edit_request import VariableEditRequest
-from qovery.model.variable_response import VariableResponse
+from qovery.models.variable_edit_request import VariableEditRequest
+from qovery.models.variable_response import VariableResponse
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -434,42 +400,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    variable_id = "variableId_example" # str | Variable ID
-    variable_edit_request = VariableEditRequest(
-        key="key_example",
-        value="value_example",
-    ) # VariableEditRequest | 
+    api_instance = qovery.VariableMainCallsApi(api_client)
+    variable_id = 'variable_id_example' # str | Variable ID
+    variable_edit_request = qovery.VariableEditRequest() # VariableEditRequest | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Edit a variable
         api_response = api_instance.edit_variable(variable_id, variable_edit_request)
+        print("The response of VariableMainCallsApi->edit_variable:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling VariableMainCallsApi->edit_variable: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variable_id** | **str**| Variable ID |
- **variable_edit_request** | [**VariableEditRequest**](VariableEditRequest.md)|  |
+ **variable_id** | **str**| Variable ID | 
+ **variable_edit_request** | [**VariableEditRequest**](VariableEditRequest.md)|  | 
 
 ### Return type
 
@@ -484,9 +448,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edited variable value |  -  |
@@ -498,7 +460,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_environment_variables**
-> VariableImport import_environment_variables(service_id, service_type)
+> VariableImport import_environment_variables(service_id, service_type, variable_import_request=variable_import_request)
 
 Import variables
 
@@ -508,15 +470,16 @@ Import environment variables in a defined scope, with a defined visibility.
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import variable_main_calls_api
-from qovery.model.service_type_for_variable_enum import ServiceTypeForVariableEnum
-from qovery.model.variable_import import VariableImport
-from qovery.model.variable_import_request import VariableImportRequest
+from qovery.models.service_type_for_variable_enum import ServiceTypeForVariableEnum
+from qovery.models.variable_import import VariableImport
+from qovery.models.variable_import_request import VariableImportRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -529,60 +492,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    service_id = "service_id_example" # str | service id
-    service_type = ServiceTypeForVariableEnum("APPLICATION") # ServiceTypeForVariableEnum | service type
-    variable_import_request = VariableImportRequest(
-        overwrite=False,
-        vars=[
-            VariableImportRequestVarsInner(
-                name="name_example",
-                value="value_example",
-                scope=APIVariableScopeEnum("APPLICATION"),
-                is_secret=True,
-            ),
-        ],
-    ) # VariableImportRequest |  (optional)
+    api_instance = qovery.VariableMainCallsApi(api_client)
+    service_id = 'service_id_example' # str | service id
+    service_type = qovery.ServiceTypeForVariableEnum() # ServiceTypeForVariableEnum | service type
+    variable_import_request = qovery.VariableImportRequest() # VariableImportRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Import variables
-        api_response = api_instance.import_environment_variables(service_id, service_type)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling VariableMainCallsApi->import_environment_variables: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Import variables
         api_response = api_instance.import_environment_variables(service_id, service_type, variable_import_request=variable_import_request)
+        print("The response of VariableMainCallsApi->import_environment_variables:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling VariableMainCallsApi->import_environment_variables: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **service_id** | **str**| service id |
- **service_type** | **ServiceTypeForVariableEnum**| service type |
- **variable_import_request** | [**VariableImportRequest**](VariableImportRequest.md)|  | [optional]
+ **service_id** | **str**| service id | 
+ **service_type** | [**ServiceTypeForVariableEnum**](.md)| service type | 
+ **variable_import_request** | [**VariableImportRequest**](VariableImportRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -597,9 +542,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Import environment variables |  -  |
@@ -611,7 +554,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_variables**
-> VariableResponseList list_variables(parent_id, scope)
+> VariableResponseList list_variables(parent_id, scope, is_secret=is_secret)
 
 List variables
 
@@ -621,14 +564,15 @@ Returns a list of variables. The result can be filtered by using the query param
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import variable_main_calls_api
-from qovery.model.api_variable_scope_enum import APIVariableScopeEnum
-from qovery.model.variable_response_list import VariableResponseList
+from qovery.models.api_variable_scope_enum import APIVariableScopeEnum
+from qovery.models.variable_response_list import VariableResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -641,50 +585,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = variable_main_calls_api.VariableMainCallsApi(api_client)
-    parent_id = "parent_id_example" # str | it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope.
-    scope = APIVariableScopeEnum("APPLICATION") # APIVariableScopeEnum | the type of the parent_id (application, project, environment etc..).
-    is_secret = True # bool, none_type |  (optional)
+    api_instance = qovery.VariableMainCallsApi(api_client)
+    parent_id = 'parent_id_example' # str | it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope = APPLICATION and parent_id=<application_id>, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope.
+    scope = qovery.APIVariableScopeEnum() # APIVariableScopeEnum | the type of the parent_id (application, project, environment etc..).
+    is_secret = True # bool |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # List variables
-        api_response = api_instance.list_variables(parent_id, scope)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling VariableMainCallsApi->list_variables: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # List variables
         api_response = api_instance.list_variables(parent_id, scope, is_secret=is_secret)
+        print("The response of VariableMainCallsApi->list_variables:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling VariableMainCallsApi->list_variables: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parent_id** | **str**| it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope &#x3D; APPLICATION and parent_id&#x3D;&lt;application_id&gt;, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope. |
- **scope** | **APIVariableScopeEnum**| the type of the parent_id (application, project, environment etc..). |
- **is_secret** | **bool, none_type**|  | [optional]
+ **parent_id** | **str**| it filters the list by returning only the variables accessible by the selected parent_id. This field shall contain the id of a project, environment or service depending on the selected scope. Example, if scope &#x3D; APPLICATION and parent_id&#x3D;&lt;application_id&gt;, the result will contain any variable accessible by the application. The result will contain also any variable declared at an higher scope. | 
+ **scope** | [**APIVariableScopeEnum**](.md)| the type of the parent_id (application, project, environment etc..). | 
+ **is_secret** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -699,9 +635,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List variables |  -  |

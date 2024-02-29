@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 
 # **create_aws_credentials**
-> ClusterCredentials create_aws_credentials(organization_id)
+> ClusterCredentials create_aws_credentials(organization_id, aws_credentials_request=aws_credentials_request)
 
 Create AWS credentials set
 
@@ -30,14 +30,15 @@ Create AWS credentials set
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials import ClusterCredentials
-from qovery.model.aws_credentials_request import AwsCredentialsRequest
+from qovery.models.aws_credentials_request import AwsCredentialsRequest
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -50,52 +51,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    aws_credentials_request = AwsCredentialsRequest(
-        name="name_example",
-        access_key_id="access_key_id_example",
-        secret_access_key="secret_access_key_example",
-    ) # AwsCredentialsRequest |  (optional)
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    aws_credentials_request = qovery.AwsCredentialsRequest() # AwsCredentialsRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create AWS credentials set
-        api_response = api_instance.create_aws_credentials(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling CloudProviderCredentialsApi->create_aws_credentials: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create AWS credentials set
         api_response = api_instance.create_aws_credentials(organization_id, aws_credentials_request=aws_credentials_request)
+        print("The response of CloudProviderCredentialsApi->create_aws_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->create_aws_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **aws_credentials_request** | [**AwsCredentialsRequest**](AwsCredentialsRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **aws_credentials_request** | [**AwsCredentialsRequest**](AwsCredentialsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -110,9 +99,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Credentials created |  -  |
@@ -124,7 +111,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_gcp_credentials**
-> ClusterCredentials create_gcp_credentials(organization_id)
+> ClusterCredentials create_gcp_credentials(organization_id, gcp_credentials_request=gcp_credentials_request)
 
 Create GCP credentials set
 
@@ -132,14 +119,15 @@ Create GCP credentials set
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.gcp_credentials_request import GcpCredentialsRequest
-from qovery.model.cluster_credentials import ClusterCredentials
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.models.gcp_credentials_request import GcpCredentialsRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -152,51 +140,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    gcp_credentials_request = GcpCredentialsRequest(
-        name="name_example",
-        gcp_credentials="gcp_credentials_example",
-    ) # GcpCredentialsRequest |  (optional)
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    gcp_credentials_request = qovery.GcpCredentialsRequest() # GcpCredentialsRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create GCP credentials set
-        api_response = api_instance.create_gcp_credentials(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling CloudProviderCredentialsApi->create_gcp_credentials: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create GCP credentials set
         api_response = api_instance.create_gcp_credentials(organization_id, gcp_credentials_request=gcp_credentials_request)
+        print("The response of CloudProviderCredentialsApi->create_gcp_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->create_gcp_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **gcp_credentials_request** | [**GcpCredentialsRequest**](GcpCredentialsRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **gcp_credentials_request** | [**GcpCredentialsRequest**](GcpCredentialsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -211,9 +188,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Credentials created |  -  |
@@ -225,7 +200,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_scaleway_credentials**
-> ClusterCredentials create_scaleway_credentials(organization_id)
+> ClusterCredentials create_scaleway_credentials(organization_id, scaleway_credentials_request=scaleway_credentials_request)
 
 Create Scaleway credentials set
 
@@ -233,14 +208,15 @@ Create Scaleway credentials set
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
-from qovery.model.cluster_credentials import ClusterCredentials
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.models.scaleway_credentials_request import ScalewayCredentialsRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -253,54 +229,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    scaleway_credentials_request = ScalewayCredentialsRequest(
-        name="name_example",
-        scaleway_access_key="scaleway_access_key_example",
-        scaleway_secret_key="scaleway_secret_key_example",
-        scaleway_project_id="scaleway_project_id_example",
-        scaleway_organization_id="scaleway_organization_id_example",
-    ) # ScalewayCredentialsRequest |  (optional)
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    scaleway_credentials_request = qovery.ScalewayCredentialsRequest() # ScalewayCredentialsRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create Scaleway credentials set
-        api_response = api_instance.create_scaleway_credentials(organization_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling CloudProviderCredentialsApi->create_scaleway_credentials: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create Scaleway credentials set
         api_response = api_instance.create_scaleway_credentials(organization_id, scaleway_credentials_request=scaleway_credentials_request)
+        print("The response of CloudProviderCredentialsApi->create_scaleway_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->create_scaleway_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **scaleway_credentials_request** | [**ScalewayCredentialsRequest**](ScalewayCredentialsRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **scaleway_credentials_request** | [**ScalewayCredentialsRequest**](ScalewayCredentialsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -315,9 +277,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Credentials created |  -  |
@@ -337,12 +297,13 @@ Delete a set of AWS credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -355,38 +316,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    credentials_id = "credentialsId_example" # str | Credentials ID
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    credentials_id = 'credentials_id_example' # str | Credentials ID
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a set of AWS credentials
         api_instance.delete_aws_credentials(credentials_id, organization_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->delete_aws_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **credentials_id** | **str**| Credentials ID |
- **organization_id** | **str**| Organization ID |
+ **credentials_id** | **str**| Credentials ID | 
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -401,9 +362,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -422,12 +381,13 @@ Delete a set of GCP credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -440,38 +400,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    credentials_id = "credentialsId_example" # str | Credentials ID
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    credentials_id = 'credentials_id_example' # str | Credentials ID
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a set of GCP credentials
         api_instance.delete_gcp_credentials(credentials_id, organization_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->delete_gcp_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **credentials_id** | **str**| Credentials ID |
- **organization_id** | **str**| Organization ID |
+ **credentials_id** | **str**| Credentials ID | 
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -486,9 +446,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -507,12 +465,13 @@ Delete a set of Scaleway credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -525,38 +484,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    credentials_id = "credentialsId_example" # str | Credentials ID
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    credentials_id = 'credentials_id_example' # str | Credentials ID
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a set of Scaleway credentials
         api_instance.delete_scaleway_credentials(credentials_id, organization_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->delete_scaleway_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **credentials_id** | **str**| Credentials ID |
- **organization_id** | **str**| Organization ID |
+ **credentials_id** | **str**| Credentials ID | 
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -571,9 +530,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -584,7 +541,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_aws_credentials**
-> ClusterCredentials edit_aws_credentials(organization_id, credentials_id)
+> ClusterCredentials edit_aws_credentials(organization_id, credentials_id, aws_credentials_request=aws_credentials_request)
 
 Edit a set of AWS credentials
 
@@ -592,14 +549,15 @@ Edit a set of AWS credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials import ClusterCredentials
-from qovery.model.aws_credentials_request import AwsCredentialsRequest
+from qovery.models.aws_credentials_request import AwsCredentialsRequest
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -612,54 +570,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credentials_id = "credentialsId_example" # str | Credentials ID
-    aws_credentials_request = AwsCredentialsRequest(
-        name="name_example",
-        access_key_id="access_key_id_example",
-        secret_access_key="secret_access_key_example",
-    ) # AwsCredentialsRequest |  (optional)
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credentials_id = 'credentials_id_example' # str | Credentials ID
+    aws_credentials_request = qovery.AwsCredentialsRequest() # AwsCredentialsRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit a set of AWS credentials
-        api_response = api_instance.edit_aws_credentials(organization_id, credentials_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling CloudProviderCredentialsApi->edit_aws_credentials: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit a set of AWS credentials
         api_response = api_instance.edit_aws_credentials(organization_id, credentials_id, aws_credentials_request=aws_credentials_request)
+        print("The response of CloudProviderCredentialsApi->edit_aws_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->edit_aws_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credentials_id** | **str**| Credentials ID |
- **aws_credentials_request** | [**AwsCredentialsRequest**](AwsCredentialsRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **credentials_id** | **str**| Credentials ID | 
+ **aws_credentials_request** | [**AwsCredentialsRequest**](AwsCredentialsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -674,9 +620,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit a set of AWS credentials |  -  |
@@ -688,7 +632,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_gcp_credentials**
-> ClusterCredentials edit_gcp_credentials(organization_id, credentials_id)
+> ClusterCredentials edit_gcp_credentials(organization_id, credentials_id, gcp_credentials_request=gcp_credentials_request)
 
 Edit a set of GCP credentials
 
@@ -696,14 +640,15 @@ Edit a set of GCP credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.gcp_credentials_request import GcpCredentialsRequest
-from qovery.model.cluster_credentials import ClusterCredentials
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.models.gcp_credentials_request import GcpCredentialsRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -716,53 +661,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credentials_id = "credentialsId_example" # str | Credentials ID
-    gcp_credentials_request = GcpCredentialsRequest(
-        name="name_example",
-        gcp_credentials="gcp_credentials_example",
-    ) # GcpCredentialsRequest |  (optional)
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credentials_id = 'credentials_id_example' # str | Credentials ID
+    gcp_credentials_request = qovery.GcpCredentialsRequest() # GcpCredentialsRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit a set of GCP credentials
-        api_response = api_instance.edit_gcp_credentials(organization_id, credentials_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling CloudProviderCredentialsApi->edit_gcp_credentials: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit a set of GCP credentials
         api_response = api_instance.edit_gcp_credentials(organization_id, credentials_id, gcp_credentials_request=gcp_credentials_request)
+        print("The response of CloudProviderCredentialsApi->edit_gcp_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->edit_gcp_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credentials_id** | **str**| Credentials ID |
- **gcp_credentials_request** | [**GcpCredentialsRequest**](GcpCredentialsRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **credentials_id** | **str**| Credentials ID | 
+ **gcp_credentials_request** | [**GcpCredentialsRequest**](GcpCredentialsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -777,9 +711,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit a set of GCP credentials |  -  |
@@ -791,7 +723,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_scaleway_credentials**
-> ClusterCredentials edit_scaleway_credentials(organization_id, credentials_id)
+> ClusterCredentials edit_scaleway_credentials(organization_id, credentials_id, scaleway_credentials_request=scaleway_credentials_request)
 
 Edit a set of Scaleway credentials
 
@@ -799,14 +731,15 @@ Edit a set of Scaleway credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.scaleway_credentials_request import ScalewayCredentialsRequest
-from qovery.model.cluster_credentials import ClusterCredentials
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.models.scaleway_credentials_request import ScalewayCredentialsRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -819,56 +752,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credentials_id = "credentialsId_example" # str | Credentials ID
-    scaleway_credentials_request = ScalewayCredentialsRequest(
-        name="name_example",
-        scaleway_access_key="scaleway_access_key_example",
-        scaleway_secret_key="scaleway_secret_key_example",
-        scaleway_project_id="scaleway_project_id_example",
-        scaleway_organization_id="scaleway_organization_id_example",
-    ) # ScalewayCredentialsRequest |  (optional)
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credentials_id = 'credentials_id_example' # str | Credentials ID
+    scaleway_credentials_request = qovery.ScalewayCredentialsRequest() # ScalewayCredentialsRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit a set of Scaleway credentials
-        api_response = api_instance.edit_scaleway_credentials(organization_id, credentials_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling CloudProviderCredentialsApi->edit_scaleway_credentials: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit a set of Scaleway credentials
         api_response = api_instance.edit_scaleway_credentials(organization_id, credentials_id, scaleway_credentials_request=scaleway_credentials_request)
+        print("The response of CloudProviderCredentialsApi->edit_scaleway_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->edit_scaleway_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credentials_id** | **str**| Credentials ID |
- **scaleway_credentials_request** | [**ScalewayCredentialsRequest**](ScalewayCredentialsRequest.md)|  | [optional]
+ **organization_id** | **str**| Organization ID | 
+ **credentials_id** | **str**| Credentials ID | 
+ **scaleway_credentials_request** | [**ScalewayCredentialsRequest**](ScalewayCredentialsRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -883,9 +802,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit a set of Scaleway credentials |  -  |
@@ -905,13 +822,14 @@ Get a set of AWS credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials import ClusterCredentials
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -924,39 +842,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credentials_id = "credentialsId_example" # str | Credentials ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credentials_id = 'credentials_id_example' # str | Credentials ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a set of AWS credentials
         api_response = api_instance.get_aws_credentials(organization_id, credentials_id)
+        print("The response of CloudProviderCredentialsApi->get_aws_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->get_aws_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credentials_id** | **str**| Credentials ID |
+ **organization_id** | **str**| Organization ID | 
+ **credentials_id** | **str**| Credentials ID | 
 
 ### Return type
 
@@ -971,9 +890,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get a set of AWS credentials |  -  |
@@ -993,13 +910,14 @@ Get a set of GCP credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials import ClusterCredentials
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1012,39 +930,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credentials_id = "credentialsId_example" # str | Credentials ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credentials_id = 'credentials_id_example' # str | Credentials ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a set of GCP credentials
         api_response = api_instance.get_gcp_credentials(organization_id, credentials_id)
+        print("The response of CloudProviderCredentialsApi->get_gcp_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->get_gcp_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credentials_id** | **str**| Credentials ID |
+ **organization_id** | **str**| Organization ID | 
+ **credentials_id** | **str**| Credentials ID | 
 
 ### Return type
 
@@ -1059,9 +978,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get a set of GCP credentials |  -  |
@@ -1081,13 +998,14 @@ Get a set of Scaleway credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials import ClusterCredentials
+from qovery.models.cluster_credentials import ClusterCredentials
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1100,39 +1018,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
-    credentials_id = "credentialsId_example" # str | Credentials ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
+    credentials_id = 'credentials_id_example' # str | Credentials ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a set of Scaleway credentials
         api_response = api_instance.get_scaleway_credentials(organization_id, credentials_id)
+        print("The response of CloudProviderCredentialsApi->get_scaleway_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->get_scaleway_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
- **credentials_id** | **str**| Credentials ID |
+ **organization_id** | **str**| Organization ID | 
+ **credentials_id** | **str**| Credentials ID | 
 
 ### Return type
 
@@ -1147,9 +1066,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get a set of Scaleway credentials |  -  |
@@ -1169,13 +1086,14 @@ List AWS credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
+from qovery.models.cluster_credentials_response_list import ClusterCredentialsResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1188,37 +1106,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List AWS credentials
         api_response = api_instance.list_aws_credentials(organization_id)
+        print("The response of CloudProviderCredentialsApi->list_aws_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->list_aws_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1233,9 +1152,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | list credentials |  -  |
@@ -1254,13 +1171,14 @@ List GCP credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
+from qovery.models.cluster_credentials_response_list import ClusterCredentialsResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1273,37 +1191,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List GCP credentials
         api_response = api_instance.list_gcp_credentials(organization_id)
+        print("The response of CloudProviderCredentialsApi->list_gcp_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->list_gcp_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1318,9 +1237,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | list credentials |  -  |
@@ -1339,13 +1256,14 @@ List Scaleway credentials
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import cloud_provider_credentials_api
-from qovery.model.cluster_credentials_response_list import ClusterCredentialsResponseList
+from qovery.models.cluster_credentials_response_list import ClusterCredentialsResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -1358,37 +1276,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = cloud_provider_credentials_api.CloudProviderCredentialsApi(api_client)
-    organization_id = "organizationId_example" # str | Organization ID
+    api_instance = qovery.CloudProviderCredentialsApi(api_client)
+    organization_id = 'organization_id_example' # str | Organization ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List Scaleway credentials
         api_response = api_instance.list_scaleway_credentials(organization_id)
+        print("The response of CloudProviderCredentialsApi->list_scaleway_credentials:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling CloudProviderCredentialsApi->list_scaleway_credentials: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_id** | **str**| Organization ID |
+ **organization_id** | **str**| Organization ID | 
 
 ### Return type
 
@@ -1403,9 +1322,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | list credentials |  -  |

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_deployment_rule**
-> ProjectDeploymentRule create_deployment_rule(project_id)
+> ProjectDeploymentRule create_deployment_rule(project_id, project_deployment_rule_request=project_deployment_rule_request)
 
 Create a deployment rule
 
@@ -23,14 +23,15 @@ Create a deployment rule
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_deployment_rule_api
-from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
-from qovery.model.project_deployment_rule import ProjectDeploymentRule
+from qovery.models.project_deployment_rule import ProjectDeploymentRule
+from qovery.models.project_deployment_rule_request import ProjectDeploymentRuleRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -43,61 +44,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    project_deployment_rule_request = ProjectDeploymentRuleRequest(
-        name="project-rule",
-        description="description project rule",
-        mode=EnvironmentModeEnum("PRODUCTION"),
-        cluster_id="cluster_id_example",
-        auto_stop=False,
-        timezone="UTC",
-        start_time=dateutil_parser('1970-01-01T08:00:00Z'),
-        stop_time=dateutil_parser('1970-01-01T19:00:00Z'),
-        weekdays=[
-            WeekdayEnum("MONDAY"),
-        ],
-        wildcard="",
-    ) # ProjectDeploymentRuleRequest |  (optional)
+    api_instance = qovery.ProjectDeploymentRuleApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    project_deployment_rule_request = qovery.ProjectDeploymentRuleRequest() # ProjectDeploymentRuleRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Create a deployment rule
-        api_response = api_instance.create_deployment_rule(project_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectDeploymentRuleApi->create_deployment_rule: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Create a deployment rule
         api_response = api_instance.create_deployment_rule(project_id, project_deployment_rule_request=project_deployment_rule_request)
+        print("The response of ProjectDeploymentRuleApi->create_deployment_rule:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDeploymentRuleApi->create_deployment_rule: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **project_deployment_rule_request** | [**ProjectDeploymentRuleRequest**](ProjectDeploymentRuleRequest.md)|  | [optional]
+ **project_id** | **str**| Project ID | 
+ **project_deployment_rule_request** | [**ProjectDeploymentRuleRequest**](ProjectDeploymentRuleRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -112,9 +92,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Create deployment rule |  -  |
@@ -136,12 +114,13 @@ Delete a project deployment rule
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_deployment_rule_api
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -154,38 +133,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    deployment_rule_id = "deploymentRuleId_example" # str | Deployment Rule ID
+    api_instance = qovery.ProjectDeploymentRuleApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    deployment_rule_id = 'deployment_rule_id_example' # str | Deployment Rule ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Delete a project deployment rule
         api_instance.delete_project_deployment_rule(project_id, deployment_rule_id)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDeploymentRuleApi->delete_project_deployment_rule: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **deployment_rule_id** | **str**| Deployment Rule ID |
+ **project_id** | **str**| Project ID | 
+ **deployment_rule_id** | **str**| Deployment Rule ID | 
 
 ### Return type
 
@@ -200,9 +179,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The resource was deleted successfully |  -  |
@@ -213,7 +190,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_project_deployemtn_rule**
-> ProjectDeploymentRule edit_project_deployemtn_rule(project_id, deployment_rule_id)
+> ProjectDeploymentRule edit_project_deployemtn_rule(project_id, deployment_rule_id, project_deployment_rule_request=project_deployment_rule_request)
 
 Edit a project deployment rule
 
@@ -223,14 +200,15 @@ Edit a project deployment rule
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_deployment_rule_api
-from qovery.model.project_deployment_rule_request import ProjectDeploymentRuleRequest
-from qovery.model.project_deployment_rule import ProjectDeploymentRule
+from qovery.models.project_deployment_rule import ProjectDeploymentRule
+from qovery.models.project_deployment_rule_request import ProjectDeploymentRuleRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -243,63 +221,42 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    deployment_rule_id = "deploymentRuleId_example" # str | Deployment Rule ID
-    project_deployment_rule_request = ProjectDeploymentRuleRequest(
-        name="project-rule",
-        description="description project rule",
-        mode=EnvironmentModeEnum("PRODUCTION"),
-        cluster_id="cluster_id_example",
-        auto_stop=False,
-        timezone="UTC",
-        start_time=dateutil_parser('1970-01-01T08:00:00Z'),
-        stop_time=dateutil_parser('1970-01-01T19:00:00Z'),
-        weekdays=[
-            WeekdayEnum("MONDAY"),
-        ],
-        wildcard="",
-    ) # ProjectDeploymentRuleRequest |  (optional)
+    api_instance = qovery.ProjectDeploymentRuleApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    deployment_rule_id = 'deployment_rule_id_example' # str | Deployment Rule ID
+    project_deployment_rule_request = qovery.ProjectDeploymentRuleRequest() # ProjectDeploymentRuleRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Edit a project deployment rule
-        api_response = api_instance.edit_project_deployemtn_rule(project_id, deployment_rule_id)
-        pprint(api_response)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectDeploymentRuleApi->edit_project_deployemtn_rule: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Edit a project deployment rule
         api_response = api_instance.edit_project_deployemtn_rule(project_id, deployment_rule_id, project_deployment_rule_request=project_deployment_rule_request)
+        print("The response of ProjectDeploymentRuleApi->edit_project_deployemtn_rule:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDeploymentRuleApi->edit_project_deployemtn_rule: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **deployment_rule_id** | **str**| Deployment Rule ID |
- **project_deployment_rule_request** | [**ProjectDeploymentRuleRequest**](ProjectDeploymentRuleRequest.md)|  | [optional]
+ **project_id** | **str**| Project ID | 
+ **deployment_rule_id** | **str**| Deployment Rule ID | 
+ **project_deployment_rule_request** | [**ProjectDeploymentRuleRequest**](ProjectDeploymentRuleRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -314,9 +271,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Edit a project deployment rule |  -  |
@@ -338,13 +293,14 @@ Get a project deployment rule
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_deployment_rule_api
-from qovery.model.project_deployment_rule import ProjectDeploymentRule
+from qovery.models.project_deployment_rule import ProjectDeploymentRule
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -357,39 +313,40 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    deployment_rule_id = "deploymentRuleId_example" # str | Deployment Rule ID
+    api_instance = qovery.ProjectDeploymentRuleApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    deployment_rule_id = 'deployment_rule_id_example' # str | Deployment Rule ID
 
-    # example passing only required values which don't have defaults set
     try:
         # Get a project deployment rule
         api_response = api_instance.get_project_deployment_rule(project_id, deployment_rule_id)
+        print("The response of ProjectDeploymentRuleApi->get_project_deployment_rule:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDeploymentRuleApi->get_project_deployment_rule: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **deployment_rule_id** | **str**| Deployment Rule ID |
+ **project_id** | **str**| Project ID | 
+ **deployment_rule_id** | **str**| Deployment Rule ID | 
 
 ### Return type
 
@@ -404,9 +361,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get project deployment rule |  -  |
@@ -427,13 +382,14 @@ List project deployment rules
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_deployment_rule_api
-from qovery.model.project_deployment_rule_response_list import ProjectDeploymentRuleResponseList
+from qovery.models.project_deployment_rule_response_list import ProjectDeploymentRuleResponseList
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -446,37 +402,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
-    project_id = "projectId_example" # str | Project ID
+    api_instance = qovery.ProjectDeploymentRuleApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
 
-    # example passing only required values which don't have defaults set
     try:
         # List project deployment rules
         api_response = api_instance.list_project_deployment_rules(project_id)
+        print("The response of ProjectDeploymentRuleApi->list_project_deployment_rules:\n")
         pprint(api_response)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDeploymentRuleApi->list_project_deployment_rules: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
+ **project_id** | **str**| Project ID | 
 
 ### Return type
 
@@ -491,9 +448,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Get project deployment rules |  -  |
@@ -504,7 +459,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_deployment_rules_priority_order**
-> update_deployment_rules_priority_order(project_id)
+> update_deployment_rules_priority_order(project_id, project_deployment_rules_priority_order_request=project_deployment_rules_priority_order_request)
 
 Update deployment rules priority order
 
@@ -514,13 +469,14 @@ Update deployment rules priority order
 
 * Api Key Authentication (ApiKeyAuth):
 * Bearer (JWT) Authentication (bearerAuth):
-
 ```python
 import time
+import os
 import qovery
-from qovery.api import project_deployment_rule_api
-from qovery.model.project_deployment_rules_priority_order_request import ProjectDeploymentRulesPriorityOrderRequest
+from qovery.models.project_deployment_rules_priority_order_request import ProjectDeploymentRulesPriorityOrderRequest
+from qovery.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to https://api.qovery.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = qovery.Configuration(
@@ -533,50 +489,38 @@ configuration = qovery.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: ApiKeyAuth
-configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+configuration.api_key['ApiKeyAuth'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
 
 # Configure Bearer authorization (JWT): bearerAuth
 configuration = qovery.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
+    access_token = os.environ["BEARER_TOKEN"]
 )
 
 # Enter a context with an instance of the API client
 with qovery.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = project_deployment_rule_api.ProjectDeploymentRuleApi(api_client)
-    project_id = "projectId_example" # str | Project ID
-    project_deployment_rules_priority_order_request = ProjectDeploymentRulesPriorityOrderRequest(
-        project_deployment_rule_ids_in_order=[
-            "project_deployment_rule_ids_in_order_example",
-        ],
-    ) # ProjectDeploymentRulesPriorityOrderRequest |  (optional)
+    api_instance = qovery.ProjectDeploymentRuleApi(api_client)
+    project_id = 'project_id_example' # str | Project ID
+    project_deployment_rules_priority_order_request = qovery.ProjectDeploymentRulesPriorityOrderRequest() # ProjectDeploymentRulesPriorityOrderRequest |  (optional)
 
-    # example passing only required values which don't have defaults set
-    try:
-        # Update deployment rules priority order
-        api_instance.update_deployment_rules_priority_order(project_id)
-    except qovery.ApiException as e:
-        print("Exception when calling ProjectDeploymentRuleApi->update_deployment_rules_priority_order: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
     try:
         # Update deployment rules priority order
         api_instance.update_deployment_rules_priority_order(project_id, project_deployment_rules_priority_order_request=project_deployment_rules_priority_order_request)
-    except qovery.ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectDeploymentRuleApi->update_deployment_rules_priority_order: %s\n" % e)
 ```
+
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID |
- **project_deployment_rules_priority_order_request** | [**ProjectDeploymentRulesPriorityOrderRequest**](ProjectDeploymentRulesPriorityOrderRequest.md)|  | [optional]
+ **project_id** | **str**| Project ID | 
+ **project_deployment_rules_priority_order_request** | [**ProjectDeploymentRulesPriorityOrderRequest**](ProjectDeploymentRulesPriorityOrderRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -591,9 +535,7 @@ void (empty response body)
  - **Content-Type**: application/json
  - **Accept**: Not defined
 
-
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Update deployment rules priority order |  -  |

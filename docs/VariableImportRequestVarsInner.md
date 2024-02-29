@@ -8,8 +8,24 @@ Name | Type | Description | Notes
 **value** | **str** |  | 
 **scope** | [**APIVariableScopeEnum**](APIVariableScopeEnum.md) |  | 
 **is_secret** | **bool** |  | 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from qovery.models.variable_import_request_vars_inner import VariableImportRequestVarsInner
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of VariableImportRequestVarsInner from a JSON string
+variable_import_request_vars_inner_instance = VariableImportRequestVarsInner.from_json(json)
+# print the JSON string representation of the object
+print VariableImportRequestVarsInner.to_json()
+
+# convert the object into a dict
+variable_import_request_vars_inner_dict = variable_import_request_vars_inner_instance.to_dict()
+# create an instance of VariableImportRequestVarsInner from a dict
+variable_import_request_vars_inner_form_dict = variable_import_request_vars_inner.from_dict(variable_import_request_vars_inner_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

@@ -9,8 +9,24 @@ Name | Type | Description | Notes
 **updated_at** | **datetime** |  | [optional] [readonly] 
 **name** | **str** | name of the service | [optional] 
 **status** | [**StateEnum**](StateEnum.md) |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
+## Example
+
+```python
+from qovery.models.deployment_history_database import DeploymentHistoryDatabase
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DeploymentHistoryDatabase from a JSON string
+deployment_history_database_instance = DeploymentHistoryDatabase.from_json(json)
+# print the JSON string representation of the object
+print DeploymentHistoryDatabase.to_json()
+
+# convert the object into a dict
+deployment_history_database_dict = deployment_history_database_instance.to_dict()
+# create an instance of DeploymentHistoryDatabase from a dict
+deployment_history_database_form_dict = deployment_history_database.from_dict(deployment_history_database_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
