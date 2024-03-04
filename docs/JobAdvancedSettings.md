@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **cronjob_failed_jobs_history_limit** | **int** |  | [optional] 
 **cronjob_success_jobs_history_limit** | **int** |  | [optional] 
 **security_service_account_name** | **str** | Allows you to set an existing Kubernetes service account name  | [optional] 
+**security_automount_service_account_token** | **bool** | Automount Kubernetes service account token to have access to Kubernetes API from pods  | [optional] 
 **security_read_only_root_filesystem** | **bool** | Mounts the container&#39;s root filesystem as read-only  | [optional] 
 
 ## Example

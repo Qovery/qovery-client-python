@@ -71,6 +71,7 @@ class TestApplicationAdvancedSettings(unittest.TestCase):
                 network_ingress_extra_headers = '{"X-Frame-Options":"DENY ","X-Content-Type-Options":"nosniff"}',
                 hpa_cpu_average_utilization_percent = 56,
                 security_service_account_name = '',
+                security_automount_service_account_token = True,
                 security_read_only_root_filesystem = True
             )
         else:

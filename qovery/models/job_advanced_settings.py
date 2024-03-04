@@ -36,9 +36,10 @@ class JobAdvancedSettings(BaseModel):
     cronjob_failed_jobs_history_limit: Optional[StrictInt] = Field(None, alias="cronjob.failed_jobs_history_limit")
     cronjob_success_jobs_history_limit: Optional[StrictInt] = Field(None, alias="cronjob.success_jobs_history_limit")
     security_service_account_name: Optional[StrictStr] = Field(None, alias="security.service_account_name", description="Allows you to set an existing Kubernetes service account name ")
+    security_automount_service_account_token: Optional[StrictBool] = Field(None, alias="security.automount_service_account_token", description="Automount Kubernetes service account token to have access to Kubernetes API from pods ")
     security_read_only_root_filesystem: Optional[StrictBool] = Field(None, alias="security.read_only_root_filesystem", description="Mounts the container's root filesystem as read-only ")
     additional_properties: Dict[str, Any] = {}
-    __properties = ["build.timeout_max_sec", "build.cpu_max_in_milli", "build.ram_max_in_gib", "deployment.termination_grace_period_seconds", "deployment.affinity.node.required", "job.delete_ttl_seconds_after_finished", "cronjob.concurrency_policy", "cronjob.failed_jobs_history_limit", "cronjob.success_jobs_history_limit", "security.service_account_name", "security.read_only_root_filesystem"]
+    __properties = ["build.timeout_max_sec", "build.cpu_max_in_milli", "build.ram_max_in_gib", "deployment.termination_grace_period_seconds", "deployment.affinity.node.required", "job.delete_ttl_seconds_after_finished", "cronjob.concurrency_policy", "cronjob.failed_jobs_history_limit", "cronjob.success_jobs_history_limit", "security.service_account_name", "security.automount_service_account_token", "security.read_only_root_filesystem"]
 
     class Config:
         """Pydantic configuration"""
@@ -97,6 +98,7 @@ class JobAdvancedSettings(BaseModel):
             "cronjob_failed_jobs_history_limit": obj.get("cronjob.failed_jobs_history_limit"),
             "cronjob_success_jobs_history_limit": obj.get("cronjob.success_jobs_history_limit"),
             "security_service_account_name": obj.get("security.service_account_name"),
+            "security_automount_service_account_token": obj.get("security.automount_service_account_token"),
             "security_read_only_root_filesystem": obj.get("security.read_only_root_filesystem")
         })
         # store additional fields in additional_properties

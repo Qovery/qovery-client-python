@@ -49,6 +49,7 @@ class TestJobAdvancedSettings(unittest.TestCase):
                 cronjob_failed_jobs_history_limit = 56,
                 cronjob_success_jobs_history_limit = 56,
                 security_service_account_name = '',
+                security_automount_service_account_token = True,
                 security_read_only_root_filesystem = True
             )
         else:
