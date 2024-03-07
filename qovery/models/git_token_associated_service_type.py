@@ -31,7 +31,8 @@ class GitTokenAssociatedServiceType(str, Enum):
     allowed enum values
     """
     APPLICATION = 'APPLICATION'
-    JOB = 'JOB'
+    CRON = 'CRON'
+    LIFECYCLE = 'LIFECYCLE'
     HELM = 'HELM'
 
     @classmethod
