@@ -22,10 +22,11 @@ import re  # noqa: F401
 from typing import Any, List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, ValidationError, validator
 from qovery.models.cluster_feature_aws_existing_vpc import ClusterFeatureAwsExistingVpc
+from qovery.models.cluster_feature_gcp_existing_vpc import ClusterFeatureGcpExistingVpc
 from typing import Union, Any, List, TYPE_CHECKING
 from pydantic import StrictStr, Field
 
-CLUSTERFEATUREVALUE_ONE_OF_SCHEMAS = ["ClusterFeatureAwsExistingVpc", "bool", "str"]
+CLUSTERFEATUREVALUE_ONE_OF_SCHEMAS = ["ClusterFeatureAwsExistingVpc", "ClusterFeatureGcpExistingVpc", "bool", "str"]
 
 class ClusterFeatureValue(BaseModel):
     """
@@ -37,8 +38,10 @@ class ClusterFeatureValue(BaseModel):
     oneof_schema_2_validator: Optional[StrictBool] = None
     # data type: ClusterFeatureAwsExistingVpc
     oneof_schema_3_validator: Optional[ClusterFeatureAwsExistingVpc] = None
+    # data type: ClusterFeatureGcpExistingVpc
+    oneof_schema_4_validator: Optional[ClusterFeatureGcpExistingVpc] = None
     if TYPE_CHECKING:
-        actual_instance: Union[ClusterFeatureAwsExistingVpc, bool, str]
+        actual_instance: Union[ClusterFeatureAwsExistingVpc, ClusterFeatureGcpExistingVpc, bool, str]
     else:
         actual_instance: Any
     one_of_schemas: List[str] = Field(CLUSTERFEATUREVALUE_ONE_OF_SCHEMAS, const=True)
@@ -81,12 +84,17 @@ class ClusterFeatureValue(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ClusterFeatureAwsExistingVpc`")
         else:
             match += 1
+        # validate data type: ClusterFeatureGcpExistingVpc
+        if not isinstance(v, ClusterFeatureGcpExistingVpc):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ClusterFeatureGcpExistingVpc`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, bool, str. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, ClusterFeatureGcpExistingVpc, bool, str. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, bool, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, ClusterFeatureGcpExistingVpc, bool, str. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -128,13 +136,19 @@ class ClusterFeatureValue(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into ClusterFeatureGcpExistingVpc
+        try:
+            instance.actual_instance = ClusterFeatureGcpExistingVpc.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, bool, str. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, ClusterFeatureGcpExistingVpc, bool, str. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, bool, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ClusterFeatureValue with oneOf schemas: ClusterFeatureAwsExistingVpc, ClusterFeatureGcpExistingVpc, bool, str. Details: " + ", ".join(error_messages))
         else:
             return instance
 

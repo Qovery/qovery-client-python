@@ -17,6 +17,12 @@ Name | Type | Description | Notes
 **rds_subnets_zone_a_ids** | **List[str]** |  | [optional] 
 **rds_subnets_zone_b_ids** | **List[str]** |  | [optional] 
 **rds_subnets_zone_c_ids** | **List[str]** |  | [optional] 
+**vpc_name** | **str** |  | 
+**vpc_project_id** | **str** |  | [optional] 
+**subnetwork_name** | **str** |  | [optional] 
+**ip_range_services_name** | **str** |  | [optional] 
+**ip_range_pods_name** | **str** |  | [optional] 
+**additional_ip_range_pods_names** | **List[str]** |  | [optional] 
 
 ## Example
 

@@ -77,6 +77,7 @@ docs/ClusterDeploymentStatusEnum.md
 docs/ClusterFeature.md
 docs/ClusterFeatureAcceptedValuesInner.md
 docs/ClusterFeatureAwsExistingVpc.md
+docs/ClusterFeatureGcpExistingVpc.md
 docs/ClusterFeatureResponseList.md
 docs/ClusterFeatureValue.md
 docs/ClusterInstanceTypeResponseList.md
@@ -648,6 +649,7 @@ qovery/models/cluster_deployment_status_enum.py
 qovery/models/cluster_feature.py
 qovery/models/cluster_feature_accepted_values_inner.py
 qovery/models/cluster_feature_aws_existing_vpc.py
+qovery/models/cluster_feature_gcp_existing_vpc.py
 qovery/models/cluster_feature_response_list.py
 qovery/models/cluster_feature_value.py
 qovery/models/cluster_instance_type_response_list.py
@@ -1095,6 +1097,7 @@ test/test_cluster_deployment_status_enum.py
 test/test_cluster_feature.py
 test/test_cluster_feature_accepted_values_inner.py
 test/test_cluster_feature_aws_existing_vpc.py
+test/test_cluster_feature_gcp_existing_vpc.py
 test/test_cluster_feature_response_list.py
 test/test_cluster_feature_value.py
 test/test_cluster_instance_type_response_list.py

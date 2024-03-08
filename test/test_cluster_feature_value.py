@@ -73,6 +73,14 @@ class TestClusterFeatureValue(unittest.TestCase):
                     ],
                 rds_subnets_zone_c_ids = [
                     ''
+                    ],
+                vpc_name = '',
+                vpc_project_id = '',
+                subnetwork_name = '',
+                ip_range_services_name = '',
+                ip_range_pods_name = '',
+                additional_ip_range_pods_names = [
+                    ''
                     ]
             )
         else:
@@ -87,6 +95,7 @@ class TestClusterFeatureValue(unittest.TestCase):
                 eks_subnets_zone_c_ids = [
                     ''
                     ],
+                vpc_name = '',
         )
         """
 
